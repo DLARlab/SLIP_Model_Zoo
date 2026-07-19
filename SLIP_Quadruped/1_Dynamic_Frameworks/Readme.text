@@ -1,0 +1,12 @@
+This folder contains the main version and the testing versions of quadrupedal dynamic frameworks,
+
+Contents:
+
+v1: Framework that fix the torso at the center of the torso and the leg lengths.(dynamics are calculated by fixing these values)
+    Only J,k,ks are free to be changed.
+
+Model Currently in used:
+v2: Framework that is able to vary no only J,k,ks, but also to vary morphological parameters and calculate the dynamics.
+
+
+Testing: Frameworks with different integration scheme and event detect/handling methods. Currently in progress.
