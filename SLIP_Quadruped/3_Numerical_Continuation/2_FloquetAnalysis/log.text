@@ -1,0 +1,2 @@
+The FDM applied here for the framework with timing variables is not accurate, since the timing variables 
+are parameters that involves in the system dynamics. A better FDM for state/parameters dictionary should be applied.
