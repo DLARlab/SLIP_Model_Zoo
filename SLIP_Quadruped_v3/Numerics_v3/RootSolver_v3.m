@@ -21,6 +21,14 @@ classdef RootSolver_v3
         ResidualAcceptanceTolerance = 1e-7
         Jacobian = []
         ModeCandidates = {}
+        StateScale = []
+        ParameterScale = []
+        EnableMapCache = true
+        ProvideJacobianToFsolve = true
+        ReuseJacobian = false
+        InitialJacobian = []
+        UseBroyden = false
+        JacobianRefreshInterval = 5
     end
 
     methods
@@ -31,8 +39,7 @@ classdef RootSolver_v3
                 obj = obj.applyNameValue(varargin{:});
             end
             if isempty(obj.Jacobian)
-                obj.Jacobian = FiniteDifferenceJacobian_v3( ...
-                    'Method', 'forward');
+                obj.Jacobian = HybridFiniteDifferenceJacobian_v3();
             end
             obj.validateOptions();
         end
@@ -43,7 +50,8 @@ classdef RootSolver_v3
             end
             u0 = u0(:);
             p = p(:);
-            modes = obj.candidateModes(residual, u0, p, q0);
+            [modes, modeResolution] = obj.candidateModes( ...
+                residual, u0, p, q0);
             if isempty(modes)
                 modes = {q0};
             end
@@ -74,6 +82,9 @@ classdef RootSolver_v3
             result.selectedAttempt = bestIndex;
             result.parameter = p;
             result.initialGuess = u0;
+            result.modeResolution = modeResolution;
+            result.selectedMode = result.mode;
+            result.rejectedModeDiagnostics = attempts(~[attempts.converged]);
         end
 
         function [u, fval, exitflag, output, q, result] = ...
@@ -85,23 +96,38 @@ classdef RootSolver_v3
             q = result.mode;
         end
 
-        function modes = candidateModes(obj, residual, u, p, q0)
+        function [modes, diagnostics] = candidateModes(obj, residual, u, p, q0)
             modes = {q0};
+            diagnostics = repmat(struct('mode', [], 'reason', '', ...
+                'source', ''), 1, 0);
+            diagnostics(end + 1) = struct('mode', q0, ...
+                'reason', 'previous accepted or supplied section mode', ...
+                'source', 'q0');
             modes = obj.appendModes(modes, obj.ModeCandidates, q0);
+            diagnostics = obj.appendModeDiagnostics(diagnostics, ...
+                obj.ModeCandidates, 'explicit solver candidate', 'solver');
 
             % A residual may own chart-specific mode-candidate logic.
-            candidates = obj.tryModeProvider(residual, u, q0, p);
+            residualOwnsProvider = obj.hasModeProvider(residual);
+            [candidates, providerDiagnostics] = ...
+                obj.tryModeProvider(residual, u, q0, p);
             modes = obj.appendModes(modes, candidates, q0);
+            diagnostics = obj.appendModeDiagnostics(diagnostics, ...
+                providerDiagnostics, 'local residual candidate', 'residual');
 
             % Otherwise query the hybrid system using a reconstructed state.
             map = obj.getMember(residual, 'Map');
             system = obj.getMember(map, 'System');
-            if ~isempty(system)
+            if ~isempty(system) && ~residualOwnsProvider
                 x = obj.fullState(residual, u, p, q0);
-                candidates = obj.tryModeProvider(system, x, q0, p);
+                [candidates, providerDiagnostics] = ...
+                    obj.tryModeProvider(system, x, q0, p);
                 modes = obj.appendModes(modes, candidates, q0);
+                diagnostics = obj.appendModeDiagnostics(diagnostics, ...
+                    providerDiagnostics, 'system candidate', 'system');
             end
             modes = obj.uniqueModes(modes);
+            diagnostics = obj.uniqueModeDiagnostics(diagnostics, modes);
         end
     end
 
@@ -110,10 +136,19 @@ classdef RootSolver_v3
             attempt = obj.emptyAttempt();
             attempt.mode = q;
             attempt.state = u0;
-            objective = @(u) obj.objectiveValue(residual, u, p, q);
+            stateScale = obj.resolveScale(obj.StateScale, u0, 'StateScale');
+            parameterScale = obj.resolveScale( ...
+                obj.ParameterScale, p, 'ParameterScale');
+            scaledInitial = u0(:) ./ stateScale;
+            cache = containers.Map('KeyType', 'char', 'ValueType', 'any');
+            functionEvaluations = 0;
+            mapEvaluations = 0;
+            cacheHits = 0;
+            invalidEvaluations = 0;
+            jacobianEvaluations = 0;
 
             try
-                r0 = objective(u0);
+                r0 = cachedObjective(scaledInitial);
                 if obj.RequireSquare && numel(r0) ~= numel(u0)
                     error('RootSolver_v3:NonSquareResidual', ...
                         ['The residual has %d equations for %d continuous ' ...
@@ -128,18 +163,43 @@ classdef RootSolver_v3
 
             algorithm = lower(char(obj.Algorithm));
             candidates = {};
-            if any(strcmp(algorithm, {'auto', 'fsolve'})) && ...
+            if norm(r0, Inf) <= obj.ResidualAcceptanceTolerance
+                initialSolution = obj.emptySolved();
+                initialSolution.state = scaledInitial;
+                initialSolution.residual = r0;
+                initialSolution.residualNorm = norm(r0, Inf);
+                initialSolution.exitflag = 1;
+                initialSolution.output = struct( ...
+                    'iterations', 0, 'funcCount', 1, ...
+                    'algorithm', 'verified initial residual', ...
+                    'message', 'Initial point satisfies the root tolerance.');
+                initialSolution.solver = 'residual-check';
+                initialSolution.message = ...
+                    'Initial point satisfies the root tolerance.';
+                initialSolution.converged = true;
+                initialSolution.jacobianReliable = true;
+                candidates{end + 1} = initialSolution;
+            elseif any(strcmp(algorithm, {'auto', 'fsolve'})) && ...
                     exist('fsolve', 'file') == 2
-                candidates{end + 1} = obj.runFsolve(objective, u0);
+                candidates{end + 1} = obj.runFsolve( ...
+                    @fsolveObjective, scaledInitial);
             end
-            if strcmp(algorithm, 'newton') || strcmp(algorithm, 'auto') || ...
-                    isempty(candidates)
-                newtonStart = u0;
+            if norm(r0, Inf) > obj.ResidualAcceptanceTolerance && ...
+                    (strcmp(algorithm, 'newton') ...
+                    || strcmp(algorithm, 'auto') || isempty(candidates))
+                newtonStart = scaledInitial;
                 if ~isempty(candidates) && ...
                         all(isfinite(candidates{end}.state))
                     newtonStart = candidates{end}.state;
                 end
-                candidates{end + 1} = obj.runDampedNewton(objective, newtonStart);
+                initialJacobian = [];
+                if obj.ReuseJacobian && ~isempty(obj.InitialJacobian) && ...
+                        size(obj.InitialJacobian, 2) == numel(u0)
+                    initialJacobian = obj.InitialJacobian * diag(stateScale);
+                end
+                candidates{end + 1} = obj.runDampedNewton( ...
+                    @cachedObjective, @safeObjective, @jacobianAt, ...
+                    newtonStart, initialJacobian);
             end
 
             scores = Inf(1, numel(candidates));
@@ -155,7 +215,7 @@ classdef RootSolver_v3
             end
             solved = candidates{best};
 
-            attempt.state = solved.state;
+            attempt.state = solved.state(:) .* stateScale;
             attempt.residual = solved.residual;
             attempt.residualNorm = solved.residualNorm;
             attempt.exitflag = solved.exitflag;
@@ -165,12 +225,24 @@ classdef RootSolver_v3
             attempt.errorIdentifier = solved.errorIdentifier;
             attempt.converged = solved.converged && ...
                 solved.residualNorm <= obj.ResidualAcceptanceTolerance;
+            attempt.stateScale = stateScale;
+            attempt.parameterScale = parameterScale;
+            attempt.functionEvaluationCount = functionEvaluations;
+            attempt.mapEvaluationCount = mapEvaluations;
+            attempt.cacheHitCount = cacheHits;
+            attempt.invalidEvaluationCount = invalidEvaluations;
+            attempt.jacobianEvaluationCount = jacobianEvaluations;
+            attempt.finalJacobian = [];
+            attempt.jacobianReliable = solved.jacobianReliable;
+            if ~isempty(solved.jacobian)
+                attempt.finalJacobian = solved.jacobian * diag(1 ./ stateScale);
+            end
 
             try
-                [~, evalInfo] = obj.evaluateResidual( ...
-                    residual, attempt.state, p, q);
+                [~, validReturn, evalInfo] = safeObjective( ...
+                    attempt.state ./ stateScale);
                 attempt.evaluationInfo = evalInfo;
-                if ~obj.infoIsValid(evalInfo)
+                if ~validReturn
                     attempt.converged = false;
                     attempt.message = 'Residual evaluation reported an invalid hybrid return.';
                 end
@@ -182,6 +254,108 @@ classdef RootSolver_v3
                 attempt.converged = false;
                 attempt.message = ME.message;
                 attempt.errorIdentifier = ME.identifier;
+            end
+            attempt.functionEvaluationCount = functionEvaluations;
+            attempt.mapEvaluationCount = mapEvaluations;
+            attempt.cacheHitCount = cacheHits;
+            attempt.invalidEvaluationCount = invalidEvaluations;
+            attempt.jacobianEvaluationCount = jacobianEvaluations;
+
+            function r = cachedObjective(scaledState)
+                [r, valid, ~, errorIdentifier, message] = ...
+                    evaluateScaled(scaledState);
+                if ~valid
+                    if isempty(errorIdentifier)
+                        errorIdentifier = 'RootSolver_v3:InvalidHybridTrial';
+                    end
+                    error(errorIdentifier, '%s', message);
+                end
+            end
+
+            function [r, valid, info] = safeObjective(scaledState, varargin)
+                [r, valid, info] = evaluateScaled(scaledState, varargin{:});
+            end
+
+            function [r, J] = fsolveObjective(scaledState)
+                r = cachedObjective(scaledState);
+                if nargout > 1
+                    [J, ~] = jacobianAt(scaledState, r);
+                end
+            end
+
+            function [J, fdInfo] = jacobianAt(scaledState, baseline)
+                jacobianEvaluations = jacobianEvaluations + 1;
+                if isa(obj.Jacobian, 'HybridFiniteDifferenceJacobian_v3')
+                    [J, ~, fdInfo] = obj.Jacobian.compute( ...
+                        @hybridObjective, scaledState);
+                else
+                    [J, ~, fdInfo] = obj.Jacobian.compute( ...
+                        @cachedObjective, scaledState);
+                end
+                if nargin >= 2 && ~isempty(baseline)
+                    fdInfo.baselineResidual = baseline;
+                end
+            end
+
+            function [r, metadata] = hybridObjective(scaledState, varargin)
+                [r, valid, metadata] = safeObjective( ...
+                    scaledState, varargin{:});
+                if isempty(metadata) || ~isstruct(metadata)
+                    metadata = struct();
+                end
+                metadata.valid = valid;
+                metadata.integration_success = valid;
+            end
+
+            function [r, valid, info, errorIdentifier, message] = ...
+                    evaluateScaled(scaledState, varargin)
+                functionEvaluations = functionEvaluations + 1;
+                scaledState = scaledState(:);
+                key = sprintf('%.17g,', scaledState);
+                if obj.EnableMapCache && isKey(cache, key)
+                    record = cache(key);
+                    cacheHits = cacheHits + 1;
+                else
+                    record = struct('residual', [], 'info', struct(), ...
+                        'valid', false, 'errorIdentifier', '', 'message', '');
+                    mapEvaluations = mapEvaluations + 1;
+                    physicalState = scaledState .* stateScale;
+                    try
+                        [value, evaluationInfo] = obj.evaluateResidual( ...
+                            residual, physicalState, p, q, varargin{:});
+                        value = value(:);
+                        if ~isnumeric(value) || any(~isfinite(value))
+                            error('RootSolver_v3:InvalidResidual', ...
+                                'Residual values must be finite numeric values.');
+                        end
+                        record.residual = value;
+                        record.info = evaluationInfo;
+                        record.valid = obj.infoIsValid(evaluationInfo);
+                        if ~record.valid
+                            record.errorIdentifier = ...
+                                'RootSolver_v3:InvalidHybridReturn';
+                            record.message = ...
+                                'The hybrid return map reported an invalid trial.';
+                        end
+                    catch exception
+                        record.errorIdentifier = exception.identifier;
+                        record.message = exception.message;
+                    end
+                    if obj.EnableMapCache
+                        cache(key) = record;
+                    end
+                end
+                r = record.residual;
+                valid = record.valid;
+                info = record.info;
+                errorIdentifier = record.errorIdentifier;
+                message = record.message;
+                if ~valid
+                    invalidEvaluations = invalidEvaluations + 1;
+                    if isempty(message)
+                        message = 'Invalid hybrid residual evaluation.';
+                    end
+                end
             end
         end
 
@@ -195,6 +369,9 @@ classdef RootSolver_v3
                     'TolX', obj.StepTolerance, ...
                     'MaxIter', obj.MaxIterations, ...
                     'MaxFunEvals', obj.MaxFunctionEvaluations);
+                if obj.ProvideJacobianToFsolve
+                    options = optimset(options, 'Jacobian', 'on');
+                end
                 [u, fval, exitflag, output] = fsolve(objective, u0, options);
                 solved.state = u(:);
                 solved.residual = fval(:);
@@ -213,7 +390,8 @@ classdef RootSolver_v3
             end
         end
 
-        function solved = runDampedNewton(obj, objective, u0)
+        function solved = runDampedNewton(obj, objective, safeObjective, ...
+                jacobianFunction, u0, initialJacobian)
             solved = obj.emptySolved();
             solved.solver = 'damped-newton';
             u = u0(:);
@@ -224,10 +402,27 @@ classdef RootSolver_v3
             exitflag = 0;
             lastStep = Inf;
             firstOrder = Inf;
+            iteration = 0;
+            acceptedIterations = 0;
+            invalidTrialCount = 0;
+            J = initialJacobian;
+            lastUsableJacobian = J;
+            jacobianReliable = ~isempty(J);
+            lastJacobianInfo = struct();
 
             try
-                r = objective(u);
+                [r, valid, evaluationInfo] = safeObjective(u);
                 functionCount = functionCount + 1;
+                if ~valid
+                    solved.state = u;
+                    solved.message = 'Initial hybrid residual evaluation was invalid.';
+                    solved.errorIdentifier = 'RootSolver_v3:InvalidInitialTrial';
+                    return
+                end
+                if ~isempty(J) && size(J, 1) ~= numel(r)
+                    J = [];
+                    jacobianReliable = false;
+                end
                 phi = 0.5 * real(r' * r);
                 for iteration = 1:obj.MaxIterations
                     if norm(r, Inf) <= obj.FunctionTolerance
@@ -235,8 +430,24 @@ classdef RootSolver_v3
                         message = 'Residual tolerance satisfied.';
                         break
                     end
-                    [J, ~, fdInfo] = obj.Jacobian.compute(objective, u);
-                    functionCount = functionCount + fdInfo.evaluations;
+                    refreshJacobian = isempty(J) || ~obj.UseBroyden || ...
+                        mod(acceptedIterations, obj.JacobianRefreshInterval) == 0;
+                    if refreshJacobian
+                        try
+                            [J, lastJacobianInfo] = jacobianFunction(u, r);
+                            lastUsableJacobian = J;
+                            jacobianReliable = obj.jacobianInfoReliable( ...
+                                lastJacobianInfo);
+                        catch jacobianError
+                            if isempty(J)
+                                exitflag = -3;
+                                message = ['Jacobian evaluation failed: ', ...
+                                    jacobianError.message];
+                                break
+                            end
+                            jacobianReliable = false;
+                        end
+                    end
                     gradient = real(J' * r);
                     firstOrder = norm(gradient, Inf);
                     if firstOrder <= obj.OptimalityTolerance
@@ -268,14 +479,38 @@ classdef RootSolver_v3
                     alpha = 1;
                     for trial = 1:12
                         uTrial = u + alpha * step;
-                        rTrial = objective(uTrial);
+                        [rTrial, validTrial, trialInfo] = safeObjective(uTrial);
                         functionCount = functionCount + 1;
+                        if ~validTrial
+                            invalidTrialCount = invalidTrialCount + 1;
+                            alpha = alpha / 2;
+                            continue
+                        end
                         phiTrial = 0.5 * real(rTrial' * rTrial);
                         if isfinite(phiTrial) && phiTrial < phi
+                            acceptedStep = alpha * step;
+                            oldResidual = r;
+                            sameTopology = obj.topologyCompatible( ...
+                                evaluationInfo, trialInfo);
                             u = uTrial;
                             r = rTrial;
+                            evaluationInfo = trialInfo;
                             phi = phiTrial;
                             accepted = true;
+                            acceptedIterations = acceptedIterations + 1;
+                            if obj.UseBroyden && sameTopology && ...
+                                    all(isfinite(acceptedStep)) && ...
+                                    acceptedStep' * acceptedStep > eps
+                                correction = r - oldResidual - J * acceptedStep;
+                                J = J + correction * acceptedStep' / ...
+                                    (acceptedStep' * acceptedStep);
+                                lastUsableJacobian = J;
+                            else
+                                J = [];
+                                if ~sameTopology
+                                    jacobianReliable = false;
+                                end
+                            end
                             lambda = max(lambda / 3, eps);
                             trustRadius = min(obj.MaximumTrustRadius, ...
                                 max(trustRadius, 2 * alpha * stepNorm));
@@ -317,7 +552,16 @@ classdef RootSolver_v3
                 'algorithm', 'damped Levenberg-Newton trust region', ...
                 'firstorderopt', firstOrder, ...
                 'stepsize', lastStep, ...
+                'acceptedIterations', acceptedIterations, ...
+                'invalidTrialCount', invalidTrialCount, ...
+                'jacobianInfo', lastJacobianInfo, ...
                 'message', message);
+            if isempty(J)
+                solved.jacobian = lastUsableJacobian;
+            else
+                solved.jacobian = J;
+            end
+            solved.jacobianReliable = jacobianReliable;
         end
 
         function r = objectiveValue(obj, residual, u, p, q)
@@ -333,27 +577,35 @@ classdef RootSolver_v3
             end
         end
 
-        function [r, info] = evaluateResidual(~, residual, u, p, q)
+        function [r, info] = evaluateResidual( ...
+                ~, residual, u, p, q, varargin)
             info = struct();
             if isa(residual, 'function_handle')
-                r = RootSolver_v3.callFunction(residual, u, p, q);
+                [r, info] = RootSolver_v3.callResidualFunction( ...
+                    residual, u, p, q, varargin{:});
                 return
             end
             if isstruct(residual)
                 if isfield(residual, 'evaluateWithInfo') && ...
                         isa(residual.evaluateWithInfo, 'function_handle')
-                    [r, info] = RootSolver_v3.callTwoOutput( ...
-                        residual.evaluateWithInfo, u, p, q);
+                    [r, info] = RootSolver_v3.callResidualFunction( ...
+                        residual.evaluateWithInfo, u, p, q, varargin{:});
                     return
                 elseif isfield(residual, 'evaluate') && ...
                         isa(residual.evaluate, 'function_handle')
-                    r = RootSolver_v3.callFunction(residual.evaluate, u, p, q);
+                    [r, info] = RootSolver_v3.callResidualFunction( ...
+                        residual.evaluate, u, p, q, varargin{:});
                     return
                 end
             end
             if ismethod(residual, 'evaluateWithInfo')
-                [r, info] = RootSolver_v3.callObjectTwoOutput( ...
-                    residual, 'evaluateWithInfo', u, p, q);
+                if isempty(varargin)
+                    [r, info] = RootSolver_v3.callObjectTwoOutput( ...
+                        residual, 'evaluateWithInfo', u, p, q);
+                else
+                    [r, info] = residual.evaluateWithInfo( ...
+                        u, p, q, varargin{:});
+                end
             elseif ismethod(residual, 'evaluate')
                 r = RootSolver_v3.callObjectOneOutput( ...
                     residual, 'evaluate', u, p, q);
@@ -368,7 +620,10 @@ classdef RootSolver_v3
             if isempty(info) || ~isstruct(info)
                 return
             end
-            fields = {'success', 'valid', 'modeClosure', 'mode_closed'};
+            fields = {'success', 'valid', 'admissible', ...
+                'integration_success', 'integrationSuccess', ...
+                'modeClosure', 'mode_closed', 'discrete_closed', ...
+                'cycle_complete', 'cycleComplete', 'return_policy_accepted'};
             for i = 1:numel(fields)
                 if isfield(info, fields{i}) && ...
                         isscalar(info.(fields{i})) && ~info.(fields{i})
@@ -416,20 +671,140 @@ classdef RootSolver_v3
             end
         end
 
-        function candidates = tryModeProvider(~, provider, x, q, p)
+        function [candidates, diagnostics] = tryModeProvider(~, provider, x, q, p)
             candidates = {};
+            diagnostics = {};
             if isempty(provider)
                 return
             end
             try
                 if isstruct(provider) && isfield(provider, 'modeCandidates')
                     fun = provider.modeCandidates;
-                    candidates = RootSolver_v3.callModeFunction(fun, x, q, p);
+                    try
+                        [candidates, diagnostics] = ...
+                            RootSolver_v3.callModeFunctionTwo(fun, x, q, p);
+                    catch
+                        candidates = RootSolver_v3.callModeFunction(fun, x, q, p);
+                        diagnostics = candidates;
+                    end
                 elseif isobject(provider) && ismethod(provider, 'modeCandidates')
-                    candidates = RootSolver_v3.callObjectModes(provider, x, q, p);
+                    try
+                        [candidates, diagnostics] = ...
+                            RootSolver_v3.callObjectModesTwo(provider, x, q, p);
+                    catch
+                        candidates = RootSolver_v3.callObjectModes(provider, x, q, p);
+                        diagnostics = candidates;
+                    end
                 end
             catch
                 candidates = {};
+                diagnostics = {};
+            end
+        end
+
+        function diagnostics = appendModeDiagnostics(obj, diagnostics, ...
+                candidates, defaultReason, source)
+            normalized = obj.normalizeModes(candidates, []);
+            if isstruct(candidates) && isfield(candidates, 'mode')
+                normalized = arrayfun(@(entry) entry.mode, candidates, ...
+                    'UniformOutput', false);
+            end
+            for index = 1:numel(normalized)
+                reason = defaultReason;
+                candidateSource = source;
+                if isstruct(candidates) && numel(candidates) >= index
+                    if isfield(candidates, 'reason') && ...
+                            ~isempty(candidates(index).reason)
+                        reason = char(string(candidates(index).reason));
+                    end
+                    if isfield(candidates, 'source') && ...
+                            ~isempty(candidates(index).source)
+                        candidateSource = char(string(candidates(index).source));
+                    end
+                end
+                diagnostics(end + 1) = struct( ... %#ok<AGROW>
+                    'mode', normalized{index}, 'reason', reason, ...
+                    'source', candidateSource);
+            end
+        end
+
+        function diagnostics = uniqueModeDiagnostics(~, diagnostics, modes)
+            output = repmat(struct('mode', [], 'reason', '', 'source', ''), ...
+                1, 0);
+            for modeIndex = 1:numel(modes)
+                match = [];
+                for diagnosticIndex = 1:numel(diagnostics)
+                    if isequaln(diagnostics(diagnosticIndex).mode, modes{modeIndex})
+                        match = diagnosticIndex;
+                        break
+                    end
+                end
+                if isempty(match)
+                    output(end + 1) = struct('mode', modes{modeIndex}, ... %#ok<AGROW>
+                        'reason', 'candidate mode', 'source', 'unknown');
+                else
+                    output(end + 1) = diagnostics(match); %#ok<AGROW>
+                end
+            end
+            diagnostics = output;
+        end
+
+        function scale = resolveScale(~, supplied, reference, name)
+            reference = reference(:);
+            if isempty(reference)
+                scale = zeros(0, 1);
+                return
+            end
+            if isempty(supplied)
+                scale = 1 + abs(reference);
+            else
+                scale = supplied(:);
+                if isscalar(scale)
+                    scale = repmat(scale, numel(reference), 1);
+                end
+                if numel(scale) ~= numel(reference) || ...
+                        any(~isfinite(scale)) || any(scale <= 0)
+                    error('RootSolver_v3:Scale', ...
+                        '%s must be positive and match its vector.', name);
+                end
+            end
+        end
+
+        function reliable = jacobianInfoReliable(~, info)
+            reliable = true;
+            if isempty(info) || ~isstruct(info)
+                return
+            end
+            if isfield(info, 'allReliable')
+                reliable = logical(info.allReliable);
+            elseif isfield(info, 'success')
+                reliable = logical(info.success);
+            end
+        end
+
+        function compatible = topologyCompatible(obj, left, right)
+            compatible = obj.infoIsValid(left) && obj.infoIsValid(right);
+            if ~compatible || ~isstruct(left) || ~isstruct(right)
+                return
+            end
+            multiplicityFields = {'return_multiplicity', 'returnMultiplicity'};
+            for index = 1:numel(multiplicityFields)
+                field = multiplicityFields{index};
+                if isfield(left, field) && isfield(right, field) && ...
+                        ~isequal(left.(field), right.(field))
+                    compatible = false;
+                    return
+                end
+            end
+            signatureFields = {'cyclic_event_signature', ...
+                'cyclicEventSignature', 'cycle_signature', 'cycleSignature'};
+            for index = 1:numel(signatureFields)
+                field = signatureFields{index};
+                if isfield(left, field) && isfield(right, field) && ...
+                        ~isequal(string(left.(field)), string(right.(field)))
+                    compatible = false;
+                    return
+                end
             end
         end
 
@@ -443,6 +818,13 @@ classdef RootSolver_v3
             elseif isobject(source) && isprop(source, name)
                 value = source.(name);
             end
+        end
+
+        function tf = hasModeProvider(~, provider)
+            tf = (~isempty(provider) && isobject(provider) ...
+                    && ismethod(provider, 'modeCandidates')) ...
+                || (isstruct(provider) ...
+                    && isfield(provider, 'modeCandidates'));
         end
 
         function modes = appendModes(obj, modes, candidates, q0)
@@ -509,14 +891,22 @@ classdef RootSolver_v3
                 'errorIdentifier', '', 'converged', false, ...
                 'evaluationInfo', struct(), 'orbit', [], ...
                 'attempts', [], 'candidateModes', {{}}, ...
-                'selectedAttempt', [], 'initialGuess', []);
+                'selectedAttempt', [], 'initialGuess', [], ...
+                'modeResolution', struct([]), 'selectedMode', [], ...
+                'rejectedModeDiagnostics', struct([]), ...
+                'stateScale', [], 'parameterScale', [], ...
+                'functionEvaluationCount', 0, 'mapEvaluationCount', 0, ...
+                'cacheHitCount', 0, 'invalidEvaluationCount', 0, ...
+                'jacobianEvaluationCount', 0, 'finalJacobian', [], ...
+                'jacobianReliable', false);
         end
 
         function solved = emptySolved(~)
             solved = struct( ...
                 'state', [], 'residual', [], 'residualNorm', Inf, ...
                 'exitflag', -Inf, 'output', struct(), 'solver', '', ...
-                'message', '', 'errorIdentifier', '', 'converged', false);
+                'message', '', 'errorIdentifier', '', 'converged', false, ...
+                'jacobian', [], 'jacobianReliable', false);
         end
 
         function obj = applyOptions(obj, options)
@@ -556,10 +946,45 @@ classdef RootSolver_v3
                 error('RootSolver_v3:Options', ...
                     'Solver tolerances and limits must be positive.');
             end
+            if obj.JacobianRefreshInterval < 1 || ...
+                    obj.JacobianRefreshInterval ~= floor(obj.JacobianRefreshInterval)
+                error('RootSolver_v3:JacobianRefreshInterval', ...
+                    'JacobianRefreshInterval must be a positive integer.');
+            end
         end
     end
 
     methods (Static, Access = private)
+        function [value, info] = callResidualFunction( ...
+                fun, u, p, q, varargin)
+            info = struct();
+            n = nargin(fun);
+            if n == 1
+                arguments = {u};
+            elseif n == 2
+                arguments = {u, p};
+            elseif n == 3
+                arguments = {u, p, q};
+            elseif n >= 4
+                if isempty(varargin)
+                    arguments = {u, p, q, struct()};
+                else
+                    arguments = {u, p, q, varargin{:}};
+                end
+            else
+                arguments = {u, p, q, varargin{:}};
+            end
+            try
+                [value, info] = fun(arguments{:});
+            catch exception
+                if ~RootSolver_v3.tooManyOutputs(exception)
+                    rethrow(exception)
+                end
+                value = fun(arguments{:});
+                info = struct();
+            end
+        end
+
         function value = callFunction(fun, u, p, q)
             n = nargin(fun);
             if n == 1
@@ -569,6 +994,12 @@ classdef RootSolver_v3
             else
                 value = fun(u, p, q);
             end
+        end
+
+        function tf = tooManyOutputs(exception)
+            tf = any(strcmp(exception.identifier, { ...
+                'MATLAB:maxlhs', 'MATLAB:TooManyOutputs', ...
+                'MATLAB:unassignedOutputs'}));
         end
 
         function [value, info] = callTwoOutput(fun, u, p, q)
@@ -653,6 +1084,17 @@ classdef RootSolver_v3
             end
         end
 
+        function [modes, diagnostics] = callModeFunctionTwo(fun, x, q, p)
+            n = nargin(fun);
+            if n == 1
+                [modes, diagnostics] = fun(x);
+            elseif n == 2
+                [modes, diagnostics] = fun(x, q);
+            else
+                [modes, diagnostics] = fun(x, q, p);
+            end
+        end
+
         function modes = callObjectModes(object, x, q, p)
             try
                 modes = object.modeCandidates(x, q, p);
@@ -662,6 +1104,22 @@ classdef RootSolver_v3
                 catch
                     try
                         modes = object.modeCandidates(x, p, q);
+                    catch
+                        rethrow(firstError)
+                    end
+                end
+            end
+        end
+
+        function [modes, diagnostics] = callObjectModesTwo(object, x, q, p)
+            try
+                [modes, diagnostics] = object.modeCandidates(x, q, p);
+            catch firstError
+                try
+                    [modes, diagnostics] = object.modeCandidates(q, x, p);
+                catch
+                    try
+                        [modes, diagnostics] = object.modeCandidates(x, p, q);
                     catch
                         rethrow(firstError)
                     end

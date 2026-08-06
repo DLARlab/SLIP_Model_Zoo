@@ -1,26 +1,45 @@
 classdef ModeTransition_v3
-    %MODETRANSITION_V3 Four-leg binary contact-mode transitions.
-    % Mode ordering is always q = [BL; FL; BR; FR].
+    %MODETRANSITION_V3 Binary contact transitions in [BL BR FL FR] order.
 
-    properties (Constant)
-        LegNames = {'BL', 'FL', 'BR', 'FR'}
-        EventNames = { ...
-            'BL_TD', 'BL_LO', 'FL_TD', 'FL_LO', ...
-            'BR_TD', 'BR_LO', 'FR_TD', 'FR_LO'}
+    properties (SetAccess = private)
+        Schema
+    end
+
+    properties (Dependent, SetAccess = private)
+        LegNames
+        EventNames
     end
 
     methods
-        function qplus = apply(~, eventId, qminus)
-            qminus = ModeTransition_v3.validateModeVector(qminus);
-            eventId = ModeTransition_v3.normalizeEventId(eventId);
-            [legIndex, isTouchdown] = ModeTransition_v3.eventLegKind(eventId);
+        function obj = ModeTransition_v3(schema)
+            if nargin < 1 || isempty(schema)
+                schema = QuadrupedSchema_v3.shared();
+            end
+            if ~isa(schema, 'QuadrupedSchema_v3')
+                error('ModeTransition_v3:InvalidSchema', ...
+                    'Schema must be a QuadrupedSchema_v3 instance.');
+            end
+            obj.Schema = schema;
+        end
+
+        function names = get.LegNames(obj)
+            names = obj.Schema.Leg.Names;
+        end
+
+        function names = get.EventNames(obj)
+            names = obj.Schema.Event.Names;
+        end
+
+        function qplus = apply(obj, eventId, qminus)
+            qminus = obj.Schema.validateMode(qminus);
+            eventId = obj.Schema.eventId(eventId);
+            [legIndex, isTouchdown] = obj.Schema.eventLegKind(eventId);
 
             expectedContact = ~isTouchdown;
             if qminus(legIndex) ~= expectedContact
                 error('ModeTransition_v3:EventModeMismatch', ...
                     '%s is not enabled in mode [%s].', ...
-                    ModeTransition_v3.EventNames{eventId}, ...
-                    sprintf('%d ', qminus));
+                    obj.Schema.Event.Names{eventId}, sprintf('%d ', qminus));
             end
 
             qplus = qminus;
@@ -28,15 +47,12 @@ classdef ModeTransition_v3
         end
 
         function qplus = applyBatch(obj, eventIds, qminus)
-            % Independent simultaneous leg events commute.  Sorting only makes
-            % the numerical result deterministic and does not prescribe a gait.
-            qplus = ModeTransition_v3.validateModeVector(qminus);
-            rawIds = eventIds(:);
-            ids = zeros(size(rawIds));
-            for i = 1:numel(rawIds)
-                ids(i) = ModeTransition_v3.normalizeEventId(rawIds(i));
-            end
-            if numel(unique(ceil(ids / 2))) ~= numel(ids)
+            % Independent simultaneous leg events commute.  Sorting event IDs
+            % only makes the numerical operation deterministic.
+            qplus = obj.Schema.validateMode(qminus);
+            ids = obj.normalizeEventVector(eventIds);
+            legIndices = obj.Schema.Event.LegIndices(ids);
+            if numel(unique(legIndices)) ~= numel(ids)
                 error('ModeTransition_v3:ConflictingBatch', ...
                     'A simultaneous batch may contain at most one event per leg.');
             end
@@ -46,19 +62,29 @@ classdef ModeTransition_v3
             end
         end
 
-        function ids = enabledEventIds(~, q)
-            q = ModeTransition_v3.validateModeVector(q);
-            ids = (2 * (0:3).' + 1) + double(q);
+        function ids = enabledEventIds(obj, q)
+            q = obj.Schema.validateMode(q);
+            ids = zeros(obj.Schema.Leg.Count, 1);
+            for legIndex = obj.Schema.Leg.Indices
+                eventMask = obj.Schema.Event.LegIndices == legIndex ...
+                    & obj.Schema.Event.IsTouchdown == ~q(legIndex);
+                ids(legIndex) = obj.Schema.Event.IDs(eventMask);
+            end
         end
 
-        function modes = candidates(~)
+        function modes = candidates(obj)
+            % Compatibility alias for explicit exhaustive search.
+            modes = obj.allModes();
+        end
+
+        function modes = allModes(~)
             matrix = ModeTransition_v3.modeMatrix();
             modes = arrayfun(@(i) logical(matrix(i, :).'), ...
                 (1:size(matrix, 1)).', 'UniformOutput', false);
         end
 
         function modes = successors(obj, q)
-            q = ModeTransition_v3.validateModeVector(q);
+            q = obj.Schema.validateMode(q);
             ids = obj.enabledEventIds(q);
             modes = cell(numel(ids), 1);
             for i = 1:numel(ids)
@@ -66,70 +92,65 @@ classdef ModeTransition_v3
             end
         end
 
-        function catalog = eventCatalog(~)
-            catalog = repmat(struct( ...
-                'id', 0, 'name', '', 'leg_index', 0, 'leg_name', '', ...
-                'kind', '', 'direction', 0, 'priority', 0), 8, 1);
-            for id = 1:8
-                [legIndex, isTouchdown] = ...
-                    ModeTransition_v3.eventLegKind(id);
-                catalog(id).id = id;
-                catalog(id).name = ModeTransition_v3.EventNames{id};
-                catalog(id).leg_index = legIndex;
-                catalog(id).leg_name = ModeTransition_v3.LegNames{legIndex};
-                if isTouchdown
-                    catalog(id).kind = 'touchdown';
-                    catalog(id).direction = -1;
-                else
-                    catalog(id).kind = 'liftoff';
-                    catalog(id).direction = 1;
+        function catalog = eventCatalog(obj)
+            catalog = obj.Schema.eventCatalog();
+        end
+    end
+
+    methods (Access = private)
+        function ids = normalizeEventVector(obj, events)
+            if ischar(events) || (isstring(events) && isscalar(events))
+                ids = obj.Schema.eventId(events);
+                return;
+            end
+            if iscell(events) || isstring(events)
+                ids = zeros(numel(events), 1);
+                for i = 1:numel(events)
+                    if iscell(events)
+                        event = events{i};
+                    else
+                        event = events(i);
+                    end
+                    ids(i) = obj.Schema.eventId(event);
                 end
-                catalog(id).priority = id;
+                return;
+            end
+            if ~isnumeric(events) || ~isreal(events)
+                error('ModeTransition_v3:InvalidEvent', ...
+                    'Events must be IDs or event names.');
+            end
+            ids = zeros(numel(events), 1);
+            for i = 1:numel(events)
+                ids(i) = obj.Schema.eventId(events(i));
             end
         end
     end
 
     methods (Static)
         function q = validateModeVector(q)
-            if ~(isnumeric(q) || islogical(q)) || ~isreal(q) ...
-                    || numel(q) ~= 4 || any(~isfinite(double(q(:)))) ...
-                    || any((double(q(:)) ~= 0) & (double(q(:)) ~= 1))
-                error('ModeTransition_v3:InvalidMode', ...
-                    'Quadruped mode must contain four binary entries [BL FL BR FR].');
-            end
-            q = logical(q(:));
+            schema = QuadrupedSchema_v3.shared();
+            q = schema.validateMode(q);
         end
 
         function id = normalizeEventId(eventId)
-            if ischar(eventId) || (isstring(eventId) && isscalar(eventId))
-                id = find(strcmpi(char(eventId), ModeTransition_v3.EventNames), 1);
-                if isempty(id)
-                    error('ModeTransition_v3:InvalidEvent', ...
-                        'Unknown quadruped event name "%s".', char(eventId));
-                end
-                return;
-            end
-            if ~(isnumeric(eventId) && isreal(eventId) && isscalar(eventId) ...
-                    && isfinite(eventId) && eventId == fix(eventId) ...
-                    && eventId >= 1 && eventId <= 8)
-                error('ModeTransition_v3:InvalidEvent', ...
-                    'Quadruped event ID must be an integer from 1 through 8.');
-            end
-            id = double(eventId);
+            schema = QuadrupedSchema_v3.shared();
+            id = schema.eventId(eventId);
         end
 
         function [legIndex, isTouchdown] = eventLegKind(eventId)
-            eventId = ModeTransition_v3.normalizeEventId(eventId);
-            legIndex = ceil(eventId / 2);
-            isTouchdown = mod(eventId, 2) == 1;
+            schema = QuadrupedSchema_v3.shared();
+            [legIndex, isTouchdown] = schema.eventLegKind(eventId);
         end
 
         function modes = modeMatrix()
             % Rows are binary 0000 through 1111; BL is the first column.
-            values = (0:15).';
-            modes = false(16, 4);
-            for column = 1:4
-                modes(:, column) = logical(bitget(values, 5 - column));
+            schema = QuadrupedSchema_v3.shared();
+            legCount = schema.Leg.Count;
+            values = (0:(2^legCount - 1)).';
+            modes = false(numel(values), legCount);
+            for column = 1:legCount
+                modes(:, column) = logical(bitget( ...
+                    values, legCount + 1 - column));
             end
         end
     end

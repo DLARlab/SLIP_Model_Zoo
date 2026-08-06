@@ -14,12 +14,17 @@ classdef PeriodicOrbitResidual_v3 < handle
         RequireDiscreteClosure = true
     end
 
+    properties (SetAccess = private)
+        LastModeResolution = struct()
+    end
+
     methods
         function obj = PeriodicOrbitResidual_v3(map, templateState, options)
             if nargin < 2 || isempty(templateState)
                 templateState = zeros(map.System.StateDimension, 1);
             end
             obj.Map = map;
+            obj.installQuadrupedCycleDefault();
             obj.TemplateState = templateState(:);
             if numel(obj.TemplateState) ~= map.System.StateDimension
                 error('PeriodicOrbitResidual_v3:TemplateDimension', ...
@@ -73,10 +78,15 @@ classdef PeriodicOrbitResidual_v3 < handle
             [residual, ~] = obj.evaluateWithInfo(u, p, q);
         end
 
-        function [residual, details] = evaluateWithInfo(obj, u, p, q)
+        function [residual, details] = evaluateWithInfo( ...
+                obj, u, p, q, evaluationOptions)
+            if nargin < 5
+                evaluationOptions = struct();
+            end
             rawState = obj.fullState(u);
             sectionState = obj.Map.Section.project(rawState, p);
-            [nextState, mapInfo] = obj.Map.evaluate(sectionState, q, p);
+            [nextState, mapInfo] = obj.Map.evaluate( ...
+                sectionState, q, p, evaluationOptions);
 
             periodicResidual = nextState(obj.PeriodicIndices) - ...
                 sectionState(obj.PeriodicIndices);
@@ -97,9 +107,39 @@ classdef PeriodicOrbitResidual_v3 < handle
             details.map_info = mapInfo;
             details.discrete_closed = mapInfo.discrete_closed;
             details.mode_closed = mapInfo.discrete_closed;
+            details.return_policy = mapInfo.return_policy;
+            details.return_multiplicity = mapInfo.return_multiplicity;
+            details.accepted_crossing_index = ...
+                mapInfo.accepted_crossing_index;
+            details.section_relative_event_signature = ...
+                mapInfo.section_relative_event_signature;
+            details.cyclic_event_signature = ...
+                mapInfo.cyclic_event_signature;
+            details.event_counts_per_leg = mapInfo.event_counts_per_leg;
+            details.event_counts = mapInfo.event_counts;
+            details.cycle_completion_diagnostics = ...
+                mapInfo.cycle_completion_diagnostics;
+            details.guard_transversality_margins = ...
+                mapInfo.guard_transversality_margins;
+            details.section_transversality = mapInfo.section_transversality;
+            details.topology_margins = mapInfo.topology_margins;
+            details.section_coincident_events = ...
+                mapInfo.section_coincident_events;
+            details.schema_metadata = mapInfo.schema_metadata;
+            details.success = mapInfo.success;
+            details.integration_success = mapInfo.integration_success;
+            details.cycle_complete = mapInfo.cycle_complete;
+            details.return_policy_accepted = ...
+                mapInfo.return_policy_accepted;
+            details.guard_transversality_margin = ...
+                mapInfo.minimum_guard_transversality;
+            details.minimum_guard_transversality = ...
+                mapInfo.minimum_guard_transversality;
+            details.minimum_stance_admissibility_margin = ...
+                mapInfo.minimum_stance_admissibility_margin;
             details.residual_norm = norm(residual, inf);
-            details.admissible = ~obj.RequireDiscreteClosure || ...
-                mapInfo.discrete_closed;
+            details.admissible = logical(mapInfo.admissible) && ...
+                (~obj.RequireDiscreteClosure || mapInfo.discrete_closed);
             details.valid = details.admissible;
         end
 
@@ -119,15 +159,20 @@ classdef PeriodicOrbitResidual_v3 < handle
                 'residual_norm', norm(residual, inf));
         end
 
-        function candidates = modeCandidates(obj, u, p, q)
+        function [candidates, diagnostics] = modeCandidates(obj, u, p, q)
             state = obj.Map.Section.project(obj.fullState(u), p);
-            candidates = obj.Map.System.modeCandidates(state, q, p);
+            [candidates, resolution] = obj.Map.modeCandidates(state, q, p);
+            obj.LastModeResolution = resolution;
             if ~iscell(candidates)
                 if isvector(candidates) && ~isscalar(candidates)
                     candidates = {candidates};
                 else
                     candidates = num2cell(candidates, 2);
                 end
+            end
+            diagnostics = resolution.candidates;
+            for i = 1:numel(diagnostics)
+                diagnostics(i).source = 'local-section-mode-resolver';
             end
         end
 
@@ -146,6 +191,26 @@ classdef PeriodicOrbitResidual_v3 < handle
             values.poincare_state = mapInfo.poincare_state;
             values.trajectory = mapInfo.trajectory;
             values.stride_displacement = mapInfo.stride_displacement;
+            values.return_multiplicity = mapInfo.return_multiplicity;
+            values.section_relative_event_signature = ...
+                mapInfo.section_relative_event_signature;
+            values.cyclic_event_signature = ...
+                mapInfo.cyclic_event_signature;
+            values.event_counts = mapInfo.event_counts;
+            values.event_counts_per_leg = mapInfo.event_counts_per_leg;
+            values.guard_transversality_margins = ...
+                mapInfo.guard_transversality_margins;
+            values.minimum_guard_transversality = ...
+                mapInfo.minimum_guard_transversality;
+            values.section_transversality = mapInfo.section_transversality;
+            values.topology_margins = mapInfo.topology_margins;
+            values.minimum_stance_admissibility_margin = ...
+                mapInfo.minimum_stance_admissibility_margin;
+            values.section_coincident_events = ...
+                mapInfo.section_coincident_events;
+            values.cycle_completion_diagnostics = ...
+                mapInfo.cycle_completion_diagnostics;
+            values.schema_metadata = mapInfo.schema_metadata;
             orbit = HybridOrbit_v3(values);
         end
 
@@ -156,6 +221,20 @@ classdef PeriodicOrbitResidual_v3 < handle
     end
 
     methods (Access = private)
+        function installQuadrupedCycleDefault(obj)
+            % A generic map defaults to geometric first return. A quadruped
+            % periodic residual, however, defaults to the complete per-leg
+            % event cycle unless the caller explicitly selected a policy.
+            if ~isa(obj.Map.System, 'Quadrupedal_Dynamics_v3') ...
+                    || obj.Map.ReturnPolicyWasExplicit
+                return
+            end
+            schema = obj.Map.System.Schema;
+            options = struct('LegCount', schema.Leg.Count, ...
+                'LegNames', {schema.Leg.Names});
+            obj.Map.ReturnPolicy = EventCycleReturnPolicy_v3(options);
+        end
+
         function validateIndices(obj)
             n = obj.Map.System.StateDimension;
             groups = {obj.UnknownIndices, obj.PeriodicIndices, ...

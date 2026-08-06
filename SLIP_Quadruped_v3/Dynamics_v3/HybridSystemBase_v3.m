@@ -190,6 +190,14 @@ classdef HybridSystemBase_v3 < handle
             qplus = obj.validateMode(qplus);
         end
 
+        function qAdjacent = adjacentMode(obj, eventId, q)
+            %ADJACENTMODE Return the local chart across a guard surface.
+            % The generic fallback is the forward transition. Models whose
+            % section state can lie on the post-event side should override
+            % this method to provide the inverse local adjacency as well.
+            qAdjacent = obj.transition(eventId, q);
+        end
+
         function x = canonicalizeState(obj, x, p)
             %CANONICALIZESTATE Remove continuous translation gauge(s).
             x = obj.validateState(x);
@@ -266,6 +274,19 @@ classdef HybridSystemBase_v3 < handle
                 end
             end
             q = qRow(:);
+        end
+
+        function diagnostics = assertAdmissible(obj, x, q, p)
+            %ASSERTADMISSIBLE Validate an accepted hybrid state.
+            % Generic systems are admissible after their ordinary state,
+            % mode, and parameter validators succeed. Models with unilateral
+            % or other physical constraints override this hook. It is not
+            % called at transient ODE solver stages.
+            obj.validateState(x);
+            obj.validateMode(q);
+            obj.validateParameter(p);
+            diagnostics = struct('admissible', true, ...
+                'admissibility_margins', Inf);
         end
 
         function modes = modeCandidates(obj, varargin)

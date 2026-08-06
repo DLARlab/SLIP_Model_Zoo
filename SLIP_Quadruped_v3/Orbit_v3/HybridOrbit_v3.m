@@ -15,6 +15,19 @@ classdef HybridOrbit_v3 < handle
         stability = struct()
         trajectory = []
         stride_displacement = []
+        return_multiplicity = 1
+        section_relative_event_signature = ""
+        cyclic_event_signature = ""
+        event_counts = struct([])
+        event_counts_per_leg = struct([])
+        guard_transversality_margins = []
+        minimum_guard_transversality = NaN
+        section_transversality = NaN
+        topology_margins = struct()
+        minimum_stance_admissibility_margin = Inf
+        section_coincident_events = struct([])
+        cycle_completion_diagnostics = struct()
+        schema_metadata = struct()
     end
 
     methods

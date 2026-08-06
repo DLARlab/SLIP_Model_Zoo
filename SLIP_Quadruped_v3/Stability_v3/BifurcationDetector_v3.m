@@ -2,7 +2,7 @@ classdef BifurcationDetector_v3
     %BIFURCATIONDETECTOR_V3 Track multipliers and bracket crossings.
     %   Detects smooth codimension-one candidates from sign changes between
     %   continuation points:
-    %       saddle-node       real(lambda)-1 crosses zero,
+    %       unit candidate    real(lambda)-1 crosses zero,
     %       period-doubling   real(lambda)+1 crosses zero,
     %       Neimark-Sacker    abs(lambda)-1 crosses zero for a complex pair.
 
@@ -12,6 +12,7 @@ classdef BifurcationDetector_v3
         PairTolerance = 1e-4
         EigenvectorWeight = 0.05
         RequireReliable = true
+        RequireCompatibleTopology = true
     end
 
     methods
@@ -28,6 +29,9 @@ classdef BifurcationDetector_v3
                 obj.extractSeries(data, varargin{:});
             tracks = obj.trackMultipliers( ...
                 multipliers, eigenvectors, coordinate, parameters, reliability);
+            topologyCompatibility = obj.topologyCompatibility( ...
+                data, numel(reliability));
+            tracks.topologyCompatible = topologyCompatibility;
             events = repmat(obj.emptyEvent(), 1, 0);
             lambda = tracks.multipliers;
             if isempty(lambda) || size(lambda, 2) < 2
@@ -39,6 +43,11 @@ classdef BifurcationDetector_v3
                 if obj.RequireReliable && ~intervalReliable
                     continue
                 end
+                intervalTopology = isempty(topologyCompatibility) || ...
+                    topologyCompatibility(k);
+                if obj.RequireCompatibleTopology && ~intervalTopology
+                    continue
+                end
                 for j = 1:size(lambda, 1)
                     left = lambda(j, k);
                     right = lambda(j, k + 1);
@@ -46,14 +55,14 @@ classdef BifurcationDetector_v3
                         [crossed, theta] = obj.crossingFraction( ...
                             real(left) - 1, real(right) - 1);
                         if crossed
-                            event = obj.makeEvent('saddle-node', j, k, ...
+                            event = obj.makeEvent('unit_multiplier_candidate', j, k, ...
                                 theta, left, right, tracks, intervalReliable);
                             events = obj.appendUnique(events, event);
                         end
                         [crossed, theta] = obj.crossingFraction( ...
                             real(left) + 1, real(right) + 1);
                         if crossed
-                            event = obj.makeEvent('period-doubling', j, k, ...
+                            event = obj.makeEvent('period_doubling_candidate', j, k, ...
                                 theta, left, right, tracks, intervalReliable);
                             events = obj.appendUnique(events, event);
                         end
@@ -62,7 +71,7 @@ classdef BifurcationDetector_v3
                         [crossed, theta] = obj.crossingFraction( ...
                             abs(left) - 1, abs(right) - 1);
                         if crossed
-                            event = obj.makeEvent('Neimark-Sacker', j, k, ...
+                            event = obj.makeEvent('Neimark_Sacker_candidate', j, k, ...
                                 theta, left, right, tracks, intervalReliable);
                             events = obj.appendUnique(events, event);
                         end
@@ -109,9 +118,21 @@ classdef BifurcationDetector_v3
                     previousVectors = orderedVectors{k - 1};
                     currentVectors = eigenvectorSeries{k};
                 end
-                cost = obj.matchCost(ordered(:, k - 1), current, ...
-                    previousVectors, currentVectors);
-                assignment = obj.minimumAssignment(cost);
+                finitePair = all(isfinite(ordered(:, k - 1))) && ...
+                    all(isfinite(current));
+                reliablePair = numel(reliability) < k || ...
+                    (logical(reliability(k - 1)) && logical(reliability(k)));
+                if finitePair && reliablePair
+                    cost = obj.matchCost(ordered(:, k - 1), current, ...
+                        previousVectors, currentVectors);
+                    assignment = obj.minimumAssignment(cost);
+                else
+                    % An unreliable/nonfinite point breaks the smooth
+                    % multiplier track. Restart ordering at this point;
+                    % intervals touching it are rejected by detect().
+                    cost = NaN(n, n);
+                    assignment = (1:n).';
+                end
                 ordered(:, k) = current(assignment);
                 assignments{k} = assignment;
                 costs{k} = cost;
@@ -138,6 +159,10 @@ classdef BifurcationDetector_v3
             end
             if nargin < 5
                 currentVectors = [];
+            end
+            if any(~isfinite(previous(:))) || any(~isfinite(current(:)))
+                error('BifurcationDetector_v3:NonfiniteMatchingData', ...
+                    'Multiplier matching requires finite endpoint data.');
             end
             cost = obj.matchCost(previous(:), current(:), ...
                 previousVectors, currentVectors);
@@ -261,6 +286,7 @@ classdef BifurcationDetector_v3
                     'A stability result does not contain multipliers.');
             end
             lambda = lambda(:);
+            reliable = logical(reliable) && all(isfinite(lambda));
         end
 
         function validateSeriesLengths(~, series, coordinate, reliability)
@@ -305,6 +331,10 @@ classdef BifurcationDetector_v3
             if n ~= m
                 error('BifurcationDetector_v3:AssignmentDimension', ...
                     'Multiplier matching requires a square cost matrix.');
+            end
+            if any(~isfinite(cost(:)))
+                error('BifurcationDetector_v3:NonfiniteMatchingCost', ...
+                    'Hungarian multiplier matching requires finite costs.');
             end
             u = zeros(n + 1, 1);
             v = zeros(m + 1, 1);
@@ -432,13 +462,57 @@ classdef BifurcationDetector_v3
             event.multiplierRight = right;
             event.multiplierEstimate = (1 - theta) * left + theta * right;
             event.direction = sign(abs(right) - abs(left));
-            if strcmp(type, 'saddle-node')
+            if strcmp(type, 'unit_multiplier_candidate')
                 event.direction = sign(real(right) - real(left));
-            elseif strcmp(type, 'period-doubling')
+            elseif strcmp(type, 'period_doubling_candidate')
                 event.direction = sign(real(right) - real(left));
             end
-            event.reliable = reliable;
+            event.topologyCompatible = true;
+            if isfield(tracks, 'topologyCompatible') && ...
+                    numel(tracks.topologyCompatible) >= interval
+                event.topologyCompatible = ...
+                    logical(tracks.topologyCompatible(interval));
+            end
+            event.reliable = reliable && event.topologyCompatible;
             event.bracketWidth = abs(event.rightCoordinate - event.leftCoordinate);
+        end
+
+        function compatible = topologyCompatibility(obj, data, count)
+            compatible = true(1, max(0, count - 1));
+            if count < 2 || ~isstruct(data)
+                return
+            end
+            signatures = obj.member(data, 'cyclic_signature', {});
+            multiplicity = obj.member(data, 'return_multiplicity', []);
+            boundaries = obj.member(data, 'topology_boundary', []);
+            points = obj.member(data, 'points', []);
+            if isempty(signatures) && ~isempty(points) && ...
+                    isfield(points, 'cyclic_signature')
+                signatures = {points.cyclic_signature};
+            end
+            if isempty(multiplicity) && ~isempty(points) && ...
+                    isfield(points, 'return_multiplicity')
+                multiplicity = [points.return_multiplicity];
+            end
+            if isempty(boundaries) && ~isempty(points) && ...
+                    isfield(points, 'topologyBoundary')
+                boundaries = [points.topologyBoundary];
+            end
+            for index = 1:numel(compatible)
+                if numel(signatures) >= index + 1
+                    compatible(index) = compatible(index) && ...
+                        isequal(string(signatures{index}), ...
+                            string(signatures{index + 1}));
+                end
+                if numel(multiplicity) >= index + 1
+                    compatible(index) = compatible(index) && ...
+                        isequal(multiplicity(index), multiplicity(index + 1));
+                end
+                if numel(boundaries) >= index + 1
+                    compatible(index) = compatible(index) && ...
+                        ~logical(boundaries(index + 1));
+                end
+            end
         end
 
         function events = appendUnique(obj, events, candidate)
@@ -505,7 +579,8 @@ classdef BifurcationDetector_v3
                 'location', NaN, 'parameter', NaN, ...
                 'parameterVector', [], 'multiplierLeft', NaN, ...
                 'multiplierRight', NaN, 'multiplierEstimate', NaN, ...
-                'direction', 0, 'reliable', true, 'bracketWidth', NaN);
+                'direction', 0, 'reliable', true, ...
+                'topologyCompatible', true, 'bracketWidth', NaN);
         end
     end
 end

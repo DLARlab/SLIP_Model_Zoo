@@ -1,15 +1,31 @@
 classdef GuardFunctions_v3
-    %GUARDFUNCTIONS_V3 Directional quadruped touchdown/liftoff guards.
+    %GUARDFUNCTIONS_V3 Directional touchdown/liftoff guards.
     %
-    % Touchdown and liftoff for a leg share the zero-compression surface.
-    % Discrete mode and crossing direction determine which event is enabled.
+    % Touchdown and liftoff share the uncompressed-leg surface.  The mode
+    % and directional crossing select the enabled event.  All leg-valued
+    % outputs use [BL BR FL FR] order from QuadrupedSchema_v3.
+
+    properties (SetAccess = private)
+        Schema
+    end
 
     methods
+        function obj = GuardFunctions_v3(schema)
+            if nargin < 1 || isempty(schema)
+                schema = QuadrupedSchema_v3.shared();
+            end
+            if ~isa(schema, 'QuadrupedSchema_v3')
+                error('GuardFunctions_v3:InvalidSchema', ...
+                    'Schema must be a QuadrupedSchema_v3 instance.');
+            end
+            obj.Schema = schema;
+        end
+
         function guards = descriptors(obj, t, x, q, p) %#ok<INUSD>
-            [x, q, p] = GuardFunctions_v3.validateInputs(x, q, p);
+            [x, q, p] = obj.validateInputs(x, q, p);
             legValues = obj.legValues(x, p);
-            transition = ModeTransition_v3();
-            catalog = transition.eventCatalog();
+            legDerivatives = obj.legDirectionalDerivatives(x, p);
+            catalog = obj.Schema.eventCatalog();
 
             template = struct( ...
                 'id', 0, ...
@@ -27,17 +43,15 @@ classdef GuardFunctions_v3
                 'interior_sign', 0, ...
                 'directional_derivative', NaN, ...
                 'metadata', struct());
-            guards = repmat(template, 8, 1);
+            guards = repmat(template, obj.Schema.Event.Count, 1);
 
-            for id = 1:8
+            for id = obj.Schema.Event.IDs
                 legIndex = catalog(id).leg_index;
-                isTouchdown = strcmp(catalog(id).kind, 'touchdown');
+                isTouchdown = obj.Schema.Event.IsTouchdown(id);
                 guards(id).id = id;
                 guards(id).name = catalog(id).name;
                 guards(id).value = legValues(legIndex);
                 guards(id).direction = catalog(id).direction;
-                guards(id).isterminal = true;
-                guards(id).terminal = true;
                 guards(id).enabled = (isTouchdown && ~q(legIndex)) ...
                     || (~isTouchdown && q(legIndex));
                 guards(id).leg_index = legIndex;
@@ -45,6 +59,8 @@ classdef GuardFunctions_v3
                 guards(id).kind = catalog(id).kind;
                 guards(id).priority = catalog(id).priority;
                 guards(id).interior_sign = -catalog(id).direction;
+                guards(id).directional_derivative = ...
+                    legDerivatives(legIndex);
                 guards(id).metadata = struct( ...
                     'leg_index', legIndex, ...
                     'leg_name', catalog(id).leg_name, ...
@@ -58,6 +74,19 @@ classdef GuardFunctions_v3
             guards = guards([guards.enabled]);
         end
 
+        function guards = attachFlowDerivatives(obj, guards, x, dxdt, p)
+            %ATTACHFLOWDERIVATIVES Store the true Lie derivative Dg*F.
+            % Stance flow can project a stored leg rate onto the fixed-foot
+            % constraint, so the state derivative—not necessarily the raw
+            % rate coordinate—must be used for guard transversality.
+            derivatives = obj.legLieDerivatives(x, dxdt, p);
+            for id = obj.Schema.Event.IDs
+                legIndex = obj.Schema.Event.LegIndices(id);
+                guards(id).directional_derivative = ...
+                    derivatives(legIndex);
+            end
+        end
+
         function [value, isterminal, direction, enabled, guards] = ...
                 evaluate(obj, t, x, q, p)
             guards = obj.descriptors(t, x, q, p);
@@ -67,51 +96,53 @@ classdef GuardFunctions_v3
             enabled = reshape([guards.enabled], [], 1);
         end
 
-        function values = legValues(~, x, p)
-            [x, ~, p] = GuardFunctions_v3.validateInputs( ...
-                x, false(4, 1), p);
-            restLength = p(4);
-            lb = p(6);
-            y = x(3);
-            phi = x(5);
-            alpha = x([7, 9, 11, 13]);
-            offsets = [-lb; 1 - lb; -lb; 1 - lb];
-            values = y + offsets .* sin(phi) ...
-                - restLength .* cos(phi + alpha);
+        function values = legValues(obj, x, p)
+            [x, ~, p] = obj.validateInputs( ...
+                x, false(obj.Schema.Leg.Count, 1), p);
+            expanded = obj.Schema.expandParameters(p);
+            state = obj.Schema.State;
+            alpha = x(obj.Schema.Leg.AngleIndices);
+            values = x(state.y) + expanded.s .* sin(x(state.phi)) ...
+                - expanded.l_0 .* cos(x(state.phi) + alpha);
         end
 
-        function derivatives = legDirectionalDerivatives(~, x, p)
-            [x, ~, p] = GuardFunctions_v3.validateInputs( ...
-                x, false(4, 1), p);
-            restLength = p(4);
-            lb = p(6);
-            dy = x(4);
-            phi = x(5);
-            dphi = x(6);
-            alpha = x([7, 9, 11, 13]);
-            dalpha = x([8, 10, 12, 14]);
-            offsets = [-lb; 1 - lb; -lb; 1 - lb];
-            derivatives = dy + offsets .* cos(phi) .* dphi ...
-                + restLength .* sin(phi + alpha) .* (dphi + dalpha);
+        function derivatives = legDirectionalDerivatives(obj, x, p)
+            [x, ~, p] = obj.validateInputs( ...
+                x, false(obj.Schema.Leg.Count, 1), p);
+            expanded = obj.Schema.expandParameters(p);
+            state = obj.Schema.State;
+            alpha = x(obj.Schema.Leg.AngleIndices);
+            dalpha = x(obj.Schema.Leg.RateIndices);
+            phi = x(state.phi);
+            dphi = x(state.dphi);
+            derivatives = x(state.dy) ...
+                + expanded.s .* cos(phi) .* dphi ...
+                + expanded.l_0 .* sin(phi + alpha) ...
+                    .* (dphi + dalpha);
+        end
+
+
+        function derivatives = legLieDerivatives(obj, x, dxdt, p)
+            [x, ~, p] = obj.validateInputs( ...
+                x, false(obj.Schema.Leg.Count, 1), p);
+            dxdt = obj.Schema.validateState(dxdt);
+            expanded = obj.Schema.expandParameters(p);
+            state = obj.Schema.State;
+            alpha = x(obj.Schema.Leg.AngleIndices);
+            phi = x(state.phi);
+            derivatives = dxdt(state.y) ...
+                + expanded.s .* cos(phi) .* dxdt(state.phi) ...
+                + expanded.l_0 .* sin(phi + alpha) ...
+                    .* (dxdt(state.phi) ...
+                        + dxdt(obj.Schema.Leg.AngleIndices));
         end
     end
 
-    methods (Static, Access = private)
-        function [x, q, p] = validateInputs(x, q, p)
-            if ~(isnumeric(x) && isreal(x) && isvector(x) ...
-                    && numel(x) == 14 && all(isfinite(x(:))))
-                error('GuardFunctions_v3:InvalidState', ...
-                    'Quadruped state must be a finite real 14-vector.');
-            end
-            if ~(isnumeric(p) && isreal(p) && isvector(p) && numel(p) == 7 ...
-                    && all(isfinite(p([1, 2, 4, 5, 6, 7]))) ...
-                    && (isfinite(p(3)) || isinf(p(3))))
-                error('GuardFunctions_v3:InvalidParameter', ...
-                    'Quadruped parameter must be a real 7-vector.');
-            end
-            x = double(x(:));
-            p = double(p(:));
-            q = ModeTransition_v3.validateModeVector(q);
+    methods (Access = private)
+        function [x, q, p] = validateInputs(obj, x, q, p)
+            x = obj.Schema.validateState(x);
+            q = obj.Schema.validateMode(q);
+            p = obj.Schema.validateParameter(p);
         end
     end
 end

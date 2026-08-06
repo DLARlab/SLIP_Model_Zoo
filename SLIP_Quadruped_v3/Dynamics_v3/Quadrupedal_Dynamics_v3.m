@@ -1,10 +1,12 @@
 classdef Quadrupedal_Dynamics_v3 < HybridSystemBase_v3
-    %QUADRUPEDAL_DYNAMICS_V3 Component assembly for the legacy SLIP quadruped.
+    %QUADRUPEDAL_DYNAMICS_V3 Component assembly for the v3 SLIP quadruped.
     %
-    % The class defines model mathematics only.  It contains no gait name,
-    % prescribed event order, apex mode, or simulation-loop policy.
+    % State, parameter, leg, mode, and event ordering are owned exclusively
+    % by QuadrupedSchema_v3.  This class prescribes no gait, event order, or
+    % contact mode at the Poincare section.
 
     properties (SetAccess = private)
+        Schema
         ContinuousDynamicsComponent
         GuardFunctionsComponent
         ResetMapComponent
@@ -13,27 +15,25 @@ classdef Quadrupedal_Dynamics_v3 < HybridSystemBase_v3
 
     methods
         function obj = Quadrupedal_Dynamics_v3(components)
-            transition = ModeTransition_v3();
-            metadata = struct();
-            metadata.StateDimension = 14;
-            metadata.ParameterDimension = 7;
-            metadata.ModeSet = transition.modeMatrix();
-            metadata.StateNames = { ...
-                'x', 'vx', 'y', 'vy', 'phi', 'dphi', ...
-                'alphaBL', 'dalphaBL', 'alphaFL', 'dalphaFL', ...
-                'alphaBR', 'dalphaBR', 'alphaFR', 'dalphaFR'};
-            metadata.ParameterNames = { ...
-                'k', 'ks', 'J', 'l', 'osa', 'lb', 'kr'};
-            metadata.TranslationIndex = 1;
-            metadata.PhaseIndex = 4;
-            metadata.DefaultUnknownIndices = 2:14;
-            metadata.DefaultPeriodicIndices = [2, 3, 5:14];
-            metadata.DefaultTangentIndices = [2, 3, 5:14];
+            schema = QuadrupedSchema_v3.shared();
+            transition = ModeTransition_v3(schema);
+            metadata = struct( ...
+                'StateDimension', schema.State.Dimension, ...
+                'ParameterDimension', schema.Parameter.Dimension, ...
+                'ModeSet', transition.modeMatrix(), ...
+                'StateNames', {schema.State.Names}, ...
+                'ParameterNames', {schema.Parameter.Names}, ...
+                'TranslationIndex', schema.Root.TranslationIndex, ...
+                'PhaseIndex', schema.Root.PhaseIndex, ...
+                'DefaultUnknownIndices', schema.Root.UnknownIndices, ...
+                'DefaultPeriodicIndices', schema.Root.PeriodicIndices, ...
+                'DefaultTangentIndices', schema.Root.TangentIndices);
             obj@HybridSystemBase_v3(metadata);
 
-            obj.ContinuousDynamicsComponent = ContinuousDynamics_v3();
-            obj.GuardFunctionsComponent = GuardFunctions_v3();
-            obj.ResetMapComponent = ResetMap_v3();
+            obj.Schema = schema;
+            obj.ContinuousDynamicsComponent = ContinuousDynamics_v3(schema);
+            obj.GuardFunctionsComponent = GuardFunctions_v3(schema);
+            obj.ResetMapComponent = ResetMap_v3(schema);
             obj.ModeTransitionComponent = transition;
 
             if nargin > 0 && ~isempty(components)
@@ -41,27 +41,33 @@ classdef Quadrupedal_Dynamics_v3 < HybridSystemBase_v3
             end
         end
 
-        function dx = flow(obj, t, x, q, p)
+        function [dxdt, diagnostics] = flow(obj, t, x, q, p)
             x = obj.validateState(x);
             q = obj.validateMode(q);
             p = obj.validateParameter(p);
-            dx = obj.ContinuousDynamicsComponent.evaluate(t, x, q, p);
-            dx = obj.validateState(dx);
+            if nargout > 1
+                [dxdt, diagnostics] = ...
+                    obj.ContinuousDynamicsComponent.evaluate(t, x, q, p);
+            else
+                dxdt = obj.ContinuousDynamicsComponent.evaluate(t, x, q, p);
+            end
+            dxdt = obj.validateState(dxdt);
         end
 
         function guards = activeGuards(obj, t, x, q, p)
-            x = obj.validateState(x);
-            q = obj.validateMode(q);
-            p = obj.validateParameter(p);
-            guards = obj.GuardFunctionsComponent.active(t, x, q, p);
+            guards = obj.guardFunctions(t, x, q, p);
+            guards = guards([guards.enabled]);
         end
 
         function guards = guardFunctions(obj, t, x, q, p)
-            % Return all eight guards; inactive entries retain their true value.
+            % Return all eight guards; inactive entries retain true values.
             x = obj.validateState(x);
             q = obj.validateMode(q);
             p = obj.validateParameter(p);
             guards = obj.GuardFunctionsComponent.descriptors(t, x, q, p);
+            dxdt = obj.ContinuousDynamicsComponent.evaluate(t, x, q, p);
+            guards = obj.GuardFunctionsComponent.attachFlowDerivatives( ...
+                guards, x, dxdt, p);
         end
 
         function xplus = reset(obj, eventId, t, xminus, qminus, p)
@@ -79,9 +85,27 @@ classdef Quadrupedal_Dynamics_v3 < HybridSystemBase_v3
             qplus = obj.validateMode(qplus);
         end
 
+        function qAdjacent = adjacentMode(obj, eventId, q)
+            % The contact charts adjacent across either TD or LO differ only
+            % in the event leg. This model-owned inverse/forward adjacency
+            % lets a contact event cross the section without all-mode search.
+            qAdjacent = obj.validateMode(q);
+            [legIndex, ~] = obj.Schema.eventLegKind(eventId);
+            qAdjacent(legIndex) = ~qAdjacent(legIndex);
+            qAdjacent = obj.validateMode(qAdjacent);
+        end
+
+        function diagnostics = assertAdmissible(obj, x, q, p)
+            x = obj.validateState(x);
+            q = obj.validateMode(q);
+            p = obj.validateParameter(p);
+            diagnostics = obj.ContinuousDynamicsComponent.assertAdmissible( ...
+                x, q, p);
+        end
+
         function modes = modeCandidates(obj, varargin)
-            % Canonical call: modeCandidates(x,q,p).  Shortened calls are also
-            % accepted because this model's finite mode set is state-independent.
+            % Compatibility method for explicit exhaustive mode searches.
+            % Production root solving should use a local section-mode resolver.
             if numel(varargin) > 3
                 error('Quadrupedal_Dynamics_v3:InvalidCandidateInput', ...
                     'modeCandidates accepts at most x, q, and p.');
@@ -95,50 +119,38 @@ classdef Quadrupedal_Dynamics_v3 < HybridSystemBase_v3
             elseif isscalar(varargin) && ~isempty(varargin{1})
                 value = varargin{1};
                 if isnumeric(value) || islogical(value)
-                    if numel(value) == 14
+                    if numel(value) == obj.Schema.State.Dimension
                         obj.validateState(value);
-                    elseif numel(value) == 4
+                    elseif numel(value) == obj.Schema.Leg.Count
                         obj.validateMode(value);
                     else
                         error('Quadrupedal_Dynamics_v3:InvalidCandidateInput', ...
-                            'Single input must be a 14-state or four-entry mode.');
+                            ['Single input must match the schema state ', ...
+                             'dimension or leg-count mode dimension.']);
                     end
                 end
             end
-            modes = obj.ModeTransitionComponent.candidates();
+            modes = obj.ModeTransitionComponent.allModes();
         end
 
-        function x = validateState(~, x)
-            if ~(isnumeric(x) && isreal(x) && isvector(x) ...
-                    && numel(x) == 14 && all(isfinite(x(:))))
-                error('Quadrupedal_Dynamics_v3:InvalidState', ...
-                    'Quadruped state must be a finite real 14-vector.');
-            end
-            x = double(x(:));
+        function x = validateState(obj, x)
+            x = obj.Schema.validateState(x);
         end
 
-        function p = validateParameter(~, p)
-            if ~(isnumeric(p) && isreal(p) && isvector(p) && numel(p) == 7)
-                error('Quadrupedal_Dynamics_v3:InvalidParameter', ...
-                    'Quadruped parameter must be a real 7-vector.');
-            end
-            p = double(p(:));
-            if any(~isfinite(p([1, 2, 4, 5, 6, 7]))) ...
-                    || ~(isfinite(p(3)) || isinf(p(3))) ...
-                    || p(1) <= 0 || p(2) < 0 || p(3) <= 0 ...
-                    || p(4) <= 0 || p(6) <= 0 || p(6) >= 1 || p(7) <= 0
-                error('Quadrupedal_Dynamics_v3:InvalidParameter', ...
-                    ['Parameters require k>0, ks>=0, J>0 (finite or Inf), ' ...
-                    'l>0, finite osa, 0<lb<1, and kr>0.']);
-            end
+        function p = validateParameter(obj, p)
+            p = obj.Schema.validateParameter(p);
         end
 
-        function q = validateMode(~, q)
-            q = ModeTransition_v3.validateModeVector(q);
+        function q = validateMode(obj, q)
+            q = obj.Schema.validateMode(q);
         end
 
         function catalog = eventCatalog(obj)
-            catalog = obj.ModeTransitionComponent.eventCatalog();
+            catalog = obj.Schema.eventCatalog();
+        end
+
+        function metadata = schemaMetadata(obj)
+            metadata = obj.Schema.metadata();
         end
 
         function components = components(obj)
@@ -166,7 +178,11 @@ classdef Quadrupedal_Dynamics_v3 < HybridSystemBase_v3
                 'guards', ...
                 'reset_map', ...
                 'mode_transition'};
-            requiredMethods = {'evaluate', 'active', 'apply', 'apply'};
+            requiredMethods = { ...
+                {'evaluate', 'assertAdmissible'}, ...
+                {'descriptors', 'attachFlowDerivatives'}, ...
+                {'apply'}, ...
+                {'apply', 'allModes'}};
 
             for i = 1:numel(fields)
                 if isfield(components, fields{i})
@@ -176,9 +192,13 @@ classdef Quadrupedal_Dynamics_v3 < HybridSystemBase_v3
                 else
                     continue;
                 end
-                if ~ismethod(component, requiredMethods{i})
+                methodsForRuntime = requiredMethods{i};
+                missing = methodsForRuntime(~cellfun( ...
+                    @(name) ismethod(component, name), methodsForRuntime));
+                if ~isempty(missing)
                     error('Quadrupedal_Dynamics_v3:InvalidComponents', ...
-                        '%s must provide method %s.', fields{i}, requiredMethods{i});
+                        '%s must provide runtime method(s): %s.', ...
+                        fields{i}, strjoin(missing, ', '));
                 end
                 obj.(fields{i}) = component;
             end

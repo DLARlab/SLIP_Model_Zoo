@@ -126,9 +126,11 @@ classdef PoincareSection_v3
 
     methods (Static)
         function obj = apex(verticalVelocityIndex, options)
-            %APEX Section vy=0 with a downward (ay<0) crossing.
+            %APEX Section dy=0 with a downward (ddy<0) crossing.
             if nargin < 1 || isempty(verticalVelocityIndex)
-                verticalVelocityIndex = 4;
+                error('PoincareSection_v3:MissingApexCoordinate', ...
+                    ['Supply the model schema''s dy index; the generic ', ...
+                     'section does not assume a state ordering.']);
             end
             if nargin < 2
                 options = struct();

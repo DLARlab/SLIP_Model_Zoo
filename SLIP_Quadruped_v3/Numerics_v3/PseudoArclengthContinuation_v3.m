@@ -6,14 +6,15 @@ classdef PseudoArclengthContinuation_v3
     %         t' * (([u;mu]-[u0;mu0])./scale) - ds ] = 0.
     %
     %   The tangent is the one-dimensional null vector of the finite-
-    %   difference Jacobian of R with respect to [u;mu].  The full seven-
-    %   parameter model vector is retained, but only one scalar parameter is
+    %   difference Jacobian of R with respect to [u;mu].  The full model
+    %   parameter vector is retained, but only one scalar parameter is
     %   freed; otherwise the displayed system would be underdetermined.
 
     properties
         RootSolver = []
         Jacobian = []
         ActiveParameterIndex = 1
+        ActiveParameter = []
         StepSize = 0.02
         MinimumStepSize = 1e-5
         MaximumStepSize = 0.2
@@ -28,6 +29,7 @@ classdef PseudoArclengthContinuation_v3
         ComputeStability = false
         StabilityAnalyzer = []
         Display = 'off'
+        ReuseCorrectorJacobian = true
     end
 
     methods
@@ -41,19 +43,16 @@ classdef PseudoArclengthContinuation_v3
                 obj.RootSolver = RootSolver_v3();
             end
             if isempty(obj.Jacobian)
-                obj.Jacobian = FiniteDifferenceJacobian_v3( ...
-                    'Method', 'forward');
+                obj.Jacobian = HybridFiniteDifferenceJacobian_v3();
             end
             obj.validateOptions();
         end
 
         function branch = run(obj, residual, u0, p0, q0)
             pReference = p0(:);
-            index = obj.ActiveParameterIndex;
-            if index < 1 || index > numel(pReference) || index ~= floor(index)
-                error('PseudoArclengthContinuation_v3:ParameterIndex', ...
-                    'ActiveParameterIndex is outside the parameter vector.');
-            end
+            [index, parameterName] = obj.resolveParameter( ...
+                residual, numel(pReference));
+            obj.ActiveParameterIndex = index;
 
             [u, initialSolve] = obj.RootSolver.solve( ...
                 residual, u0(:), pReference, q0);
@@ -83,6 +82,7 @@ classdef PseudoArclengthContinuation_v3
             ds = min(max(abs(obj.StepSize), obj.MinimumStepSize), ...
                 obj.MaximumStepSize);
             accumulatedLength = 0;
+            correctorJacobian = [];
 
             while numel(points) < obj.MaxPoints
                 accepted = false;
@@ -93,7 +93,8 @@ classdef PseudoArclengthContinuation_v3
                     muPredict = zPredict(end);
                     if muPredict < obj.ParameterBounds(1) || ...
                             muPredict > obj.ParameterBounds(2)
-                        branch = obj.assembleBranch(points, failures, index);
+                        branch = obj.assembleBranch( ...
+                            points, failures, index, parameterName);
                         branch.terminationReason = 'parameter bound reached';
                         return
                     end
@@ -106,7 +107,7 @@ classdef PseudoArclengthContinuation_v3
 
                     [corrected, correction] = obj.correctAcrossModes( ...
                         residual, zPredict, z, tScaled, scale, trialStep, ...
-                        pReference, modes);
+                        pReference, modes, correctorJacobian);
                     if correction.converged
                         accepted = true;
                         zNew = corrected(:);
@@ -121,13 +122,35 @@ classdef PseudoArclengthContinuation_v3
                         point.arclength = accumulatedLength;
                         point.continuationCoordinate = muNew;
 
-                        [nextTScaled, nextScale, tangentInfo] = ...
-                            obj.computeTangent(residual, zNew, ...
-                                pReference, qNew, previousPhysicalTangent);
-                        point.tangent = nextScale .* nextTScaled;
-                        point.tangentInfo = tangentInfo;
-                        point.stability = obj.computePointStability( ...
-                            residual, point);
+                        point.topologyBoundary = ...
+                            ~obj.compatibleTopology(points(end), point);
+                        if point.topologyBoundary
+                            % The accepted orbit remains on the continuous
+                            % branch, but no unique smooth tangent is claimed
+                            % at the chart boundary. Continue internally with
+                            % the incoming predictor until a neighboring
+                            % smooth chart supplies a new tangent.
+                            nextTScaled = tScaled;
+                            nextScale = scale;
+                            point.tangent = NaN(size(nextTScaled));
+                            point.tangentInfo = struct( ...
+                                'topologyBoundary', true, ...
+                                'reliable', false, ...
+                                'reason', ['hybrid topology changed across ', ...
+                                    'this interval; smooth tangent unresolved']);
+                            point.stability = struct('reliable', false, ...
+                                'warning', ['Floquet analysis is unresolved ', ...
+                                'at a marked hybrid topology boundary.']);
+                        else
+                            [nextTScaled, nextScale, tangentInfo] = ...
+                                obj.computeTangent(residual, zNew, ...
+                                    pReference, qNew, previousPhysicalTangent);
+                            point.tangent = nextScale .* nextTScaled;
+                            point.tangentInfo = tangentInfo;
+                            point.tangentInfo.topologyBoundary = false;
+                            point.stability = obj.computePointStability( ...
+                                residual, point);
+                        end
                         points(end + 1) = point; %#ok<AGROW>
 
                         z = zNew;
@@ -136,7 +159,16 @@ classdef PseudoArclengthContinuation_v3
                         previousPhysicalTangent = nextScale .* nextTScaled;
                         tScaled = nextTScaled;
                         scale = nextScale;
-                        ds = min(obj.MaximumStepSize, trialStep * obj.StepGrowth);
+                        correctorJacobian = obj.member( ...
+                            correction.rootInfo, 'finalJacobian', []);
+                        if point.topologyBoundary
+                            correctorJacobian = [];
+                            ds = max(obj.MinimumStepSize, ...
+                                trialStep * obj.StepShrink);
+                        else
+                            ds = min(obj.MaximumStepSize, ...
+                                trialStep * obj.StepGrowth);
+                        end
                         if strcmpi(obj.Display, 'iter')
                             fprintf(['Pseudo-arclength point %d: mu=%.12g, ' ...
                                 'ds=%.3g, ||G||_inf=%.3e, mode=%s\n'], ...
@@ -152,28 +184,37 @@ classdef PseudoArclengthContinuation_v3
 
                 if ~accepted
                     failures(end + 1) = failurePoint; %#ok<AGROW>
-                    branch = obj.assembleBranch(points, failures, index);
+                    branch = obj.assembleBranch( ...
+                        points, failures, index, parameterName);
                     branch.terminationReason = 'corrector failed at minimum step';
                     return
                 end
             end
-            branch = obj.assembleBranch(points, failures, index);
+            branch = obj.assembleBranch( ...
+                points, failures, index, parameterName);
             branch.terminationReason = 'maximum point count reached';
         end
     end
 
     methods (Access = private)
         function [zBest, resultBest] = correctAcrossModes(obj, residual, ...
-                zPredict, zBase, tScaled, scale, ds, pReference, modes)
+                zPredict, zBase, tScaled, scale, ds, pReference, modes, ...
+                previousJacobian)
             resultBest = obj.emptyCorrection();
             zBest = zPredict;
             bestScore = Inf;
             for i = 1:numel(modes)
                 qTrial = modes{i};
-                augmented = @(candidate) obj.augmentedResidual( ...
+                augmented = @(candidate, varargin) obj.augmentedResidual( ...
                     residual, candidate, zBase, tScaled, scale, ds, ...
-                    pReference, qTrial);
-                [zCandidate, rootInfo] = obj.RootSolver.solve( ...
+                    pReference, qTrial, varargin{:});
+                solver = obj.RootSolver;
+                if obj.ReuseCorrectorJacobian && ~isempty(previousJacobian)
+                    solver.ReuseJacobian = true;
+                    solver.InitialJacobian = previousJacobian;
+                    solver.UseBroyden = true;
+                end
+                [zCandidate, rootInfo] = solver.solve( ...
                     augmented, zPredict, zeros(0, 1), []);
                 score = rootInfo.residualNorm;
                 if rootInfo.converged
@@ -193,22 +234,35 @@ classdef PseudoArclengthContinuation_v3
             end
         end
 
-        function value = augmentedResidual(obj, residual, candidate, ...
-                zBase, tangent, scale, ds, pReference, q)
+        function [value, metadata] = augmentedResidual(obj, residual, ...
+                candidate, zBase, tangent, scale, ds, pReference, q, varargin)
             candidate = candidate(:);
             u = candidate(1:end-1);
             p = obj.parameterAt(pReference, candidate(end));
-            r = obj.evaluateResidual(residual, u, p, q);
+            context = obj.extractEvaluationContext(varargin);
+            [r, metadata] = obj.evaluateResidual( ...
+                residual, u, p, q, context);
             arclengthConstraint = tangent' * ((candidate - zBase) ./ scale) - ds;
             value = [r(:); arclengthConstraint];
+            if isempty(metadata) || ~isstruct(metadata)
+                metadata = struct();
+            end
         end
 
         function [tScaled, scale, info] = computeTangent(obj, residual, z, ...
                 pReference, q, previousPhysical)
             scale = obj.scaling(z);
-            functionValue = @(candidate) obj.evaluateAtExtendedPoint( ...
-                residual, candidate, pReference, q);
+            functionValue = @(candidate, varargin) ...
+                obj.evaluateAtExtendedPoint( ...
+                residual, candidate, pReference, q, varargin{:});
             [A, ~, fdInfo] = obj.Jacobian.compute(functionValue, z);
+            if isa(obj.Jacobian, 'HybridFiniteDifferenceJacobian_v3') ...
+                    && (~obj.member(fdInfo, 'allReliable', false) ...
+                    || ~obj.member(fdInfo, 'classicalDerivative', false))
+                error('PseudoArclengthContinuation_v3:UnreliableTangent', ...
+                    ['The extended hybrid derivative does not define a ', ...
+                     'reliable classical continuation tangent.']);
+            end
             if size(A, 2) ~= size(A, 1) + 1
                 error('PseudoArclengthContinuation_v3:TangentDimension', ...
                     ['A one-parameter continuation requires an m-by-(m+1) ' ...
@@ -247,33 +301,38 @@ classdef PseudoArclengthContinuation_v3
             info.rank = sum(values > max(size(A)) * eps(max(values)));
             info.finiteDifference = fdInfo;
             info.scale = scale;
+            info.reliable = obj.member(fdInfo, 'allReliable', true);
         end
 
-        function r = evaluateAtExtendedPoint(obj, residual, z, pReference, q)
+        function [r, info] = evaluateAtExtendedPoint( ...
+                obj, residual, z, pReference, q, varargin)
             z = z(:);
             p = obj.parameterAt(pReference, z(end));
-            r = obj.evaluateResidual(residual, z(1:end-1), p, q);
+            [r, info] = obj.evaluateResidual( ...
+                residual, z(1:end-1), p, q, varargin{:});
         end
 
-        function [r, info] = evaluateResidual(~, residual, u, p, q)
+        function [r, info] = evaluateResidual( ...
+                obj, residual, u, p, q, varargin)
             info = struct();
             if isa(residual, 'function_handle')
-                n = nargin(residual);
-                if n == 1
-                    r = residual(u);
-                elseif n == 2
-                    r = residual(u, p);
-                else
-                    r = residual(u, p, q);
-                end
+                [r, info] = obj.callResidualFunction( ...
+                    residual, u, p, q, varargin{:});
             elseif isobject(residual) && ismethod(residual, 'evaluateWithInfo')
-                [r, info] = residual.evaluateWithInfo(u, p, q);
+                if isempty(varargin)
+                    [r, info] = residual.evaluateWithInfo(u, p, q);
+                else
+                    [r, info] = residual.evaluateWithInfo( ...
+                        u, p, q, varargin{:});
+                end
             elseif isobject(residual) && ismethod(residual, 'evaluate')
                 r = residual.evaluate(u, p, q);
             elseif isstruct(residual) && isfield(residual, 'evaluateWithInfo')
-                [r, info] = residual.evaluateWithInfo(u, p, q);
+                [r, info] = obj.callResidualFunction( ...
+                    residual.evaluateWithInfo, u, p, q, varargin{:});
             elseif isstruct(residual) && isfield(residual, 'evaluate')
-                r = residual.evaluate(u, p, q);
+                [r, info] = obj.callResidualFunction( ...
+                    residual.evaluate, u, p, q, varargin{:});
             else
                 error('PseudoArclengthContinuation_v3:ResidualInterface', ...
                     'Residual must be a function handle or expose evaluate().');
@@ -284,7 +343,10 @@ classdef PseudoArclengthContinuation_v3
                     'The residual contains nonfinite values.');
             end
             if isstruct(info)
-                names = {'success', 'valid', 'modeClosure', 'mode_closed'};
+                names = {'success', 'valid', 'admissible', ...
+                    'integration_success', 'cycle_complete', ...
+                    'return_policy_accepted', 'modeClosure', ...
+                    'mode_closed', 'discrete_closed'};
                 for i = 1:numel(names)
                     if isfield(info, names{i}) && ~info.(names{i})
                         error('PseudoArclengthContinuation_v3:InvalidReturn', ...
@@ -292,6 +354,55 @@ classdef PseudoArclengthContinuation_v3
                     end
                 end
             end
+        end
+
+        function context = extractEvaluationContext(~, arguments)
+            context = struct();
+            for index = numel(arguments):-1:1
+                candidate = arguments{index};
+                if isstruct(candidate) && isscalar(candidate) ...
+                        && any(isfield(candidate, { ...
+                        'finiteDifferenceStep', ...
+                        'suggestedRelativeTolerance', 'label', ...
+                        'SimulationOptions'}))
+                    context = candidate;
+                    return
+                end
+            end
+        end
+
+        function [value, info] = callResidualFunction( ...
+                obj, fun, u, p, q, varargin)
+            info = struct();
+            n = nargin(fun);
+            if n == 1
+                arguments = {u};
+            elseif n == 2
+                arguments = {u, p};
+            elseif n == 3
+                arguments = {u, p, q};
+            else
+                if isempty(varargin)
+                    arguments = {u, p, q, struct()};
+                else
+                    arguments = {u, p, q, varargin{:}};
+                end
+            end
+            try
+                [value, info] = fun(arguments{:});
+            catch exception
+                if ~obj.tooManyOutputs(exception)
+                    rethrow(exception)
+                end
+                value = fun(arguments{:});
+                info = struct();
+            end
+        end
+
+        function tf = tooManyOutputs(~, exception)
+            tf = any(strcmp(exception.identifier, { ...
+                'MATLAB:maxlhs', 'MATLAB:TooManyOutputs', ...
+                'MATLAB:unassignedOutputs'}));
         end
 
         function scale = scaling(obj, z)
@@ -361,6 +472,42 @@ classdef PseudoArclengthContinuation_v3
             if isempty(point.mode_history)
                 point.mode_history = obj.member(evalInfo, 'mode_history', {});
             end
+            mapInfo = obj.mapInfo(evalInfo);
+            point.return_multiplicity = obj.memberAny(mapInfo, ...
+                {'return_multiplicity', 'returnMultiplicity'}, 1);
+            point.section_relative_signature = obj.memberAny(mapInfo, ...
+                {'section_relative_event_signature', ...
+                 'sectionRelativeEventSignature', 'event_signature'}, '');
+            point.cyclic_signature = obj.memberAny(mapInfo, ...
+                {'cyclic_event_signature', 'cyclicEventSignature', ...
+                 'cycle_signature'}, '');
+            point.event_counts = obj.memberAny(mapInfo, ...
+                {'event_counts', 'eventCounts'}, []);
+            point.guard_transversality = obj.memberAny(mapInfo, ...
+                {'guard_transversality', 'guardTransversality', ...
+                 'guard_transversality_margin', ...
+                 'guard_transversality_margins', ...
+                 'minimum_guard_transversality'}, []);
+            point.topology_margins = obj.memberAny(mapInfo, ...
+                {'topology_margins', 'topologyMargins'}, struct());
+            point.stance_force_admissibility_margin = obj.memberAny( ...
+                mapInfo, {'stance_force_admissibility_margin', ...
+                'minimum_stance_admissibility_margin'}, Inf);
+            point.section_coincident_events = obj.memberAny(mapInfo, ...
+                {'section_coincident_events', ...
+                 'sectionCoincidentEvents'}, struct([]));
+            point.root_statistics = struct( ...
+                'functionEvaluations', obj.member(point.solverInfo, ...
+                    'functionEvaluationCount', 0), ...
+                'mapEvaluations', obj.member(point.solverInfo, ...
+                    'mapEvaluationCount', 0), ...
+                'cacheHits', obj.member(point.solverInfo, ...
+                    'cacheHitCount', 0), ...
+                'invalidEvaluations', obj.member(point.solverInfo, ...
+                    'invalidEvaluationCount', 0), ...
+                'modesAttempted', numel(obj.member( ...
+                    point.solverInfo, 'candidateModes', {})));
+            point.schema_metadata = obj.schemaMetadataFromInfo(evalInfo);
         end
 
         function point = makeFailurePoint(obj, z, p, q, correction)
@@ -441,10 +588,12 @@ classdef PseudoArclengthContinuation_v3
             end
         end
 
-        function branch = assembleBranch(~, points, failures, index)
+        function branch = assembleBranch(~, points, failures, index, ...
+                parameterName)
             branch = struct();
             branch.type = 'pseudo-arclength';
             branch.activeParameterIndex = index;
+            branch.activeParameter = parameterName;
             branch.points = points;
             branch.failures = failures;
             branch.count = numel(points);
@@ -462,6 +611,20 @@ classdef PseudoArclengthContinuation_v3
             branch.arclength = [points.arclength];
             branch.continuationCoordinate = [points.continuationCoordinate];
             branch.tangent = {points.tangent};
+            branch.return_multiplicity = [points.return_multiplicity];
+            branch.section_relative_signature = ...
+                {points.section_relative_signature};
+            branch.cyclic_signature = {points.cyclic_signature};
+            branch.event_counts = {points.event_counts};
+            branch.guard_transversality = {points.guard_transversality};
+            branch.topology_margins = {points.topology_margins};
+            branch.stance_force_admissibility_margin = ...
+                [points.stance_force_admissibility_margin];
+            branch.section_coincident_events = ...
+                {points.section_coincident_events};
+            branch.root_statistics = {points.root_statistics};
+            branch.schema_metadata = {points.schema_metadata};
+            branch.topology_boundary = [points.topologyBoundary];
         end
 
         function value = member(~, source, name, default)
@@ -485,13 +648,96 @@ classdef PseudoArclengthContinuation_v3
                 'stability', [], 'orbit', [], 'tangent', [], ...
                 'tangentInfo', struct(), 'residual', [], ...
                 'residualNorm', Inf, 'converged', false, ...
-                'solverInfo', struct());
+                'solverInfo', struct(), 'return_multiplicity', NaN, ...
+                'section_relative_signature', '', 'cyclic_signature', '', ...
+                'event_counts', [], 'guard_transversality', [], ...
+                'topology_margins', struct(), 'root_statistics', struct(), ...
+                'stance_force_admissibility_margin', Inf, ...
+                'section_coincident_events', {struct([])}, ...
+                'schema_metadata', struct(), 'topologyBoundary', false);
         end
 
         function correction = emptyCorrection(~)
             correction = struct('converged', false, 'mode', [], ...
                 'residual', [], 'residualNorm', Inf, 'rootInfo', struct(), ...
                 'message', 'No mode candidate converged.');
+        end
+
+        function [index, name] = resolveParameter(obj, residual, count)
+            selector = obj.ActiveParameter;
+            if isempty(selector)
+                selector = obj.ActiveParameterIndex;
+            end
+            names = obj.parameterNames(residual);
+            if ischar(selector) || (isstring(selector) && isscalar(selector))
+                name = char(selector);
+                index = find(strcmp(name, names), 1);
+                if isempty(index)
+                    error('PseudoArclengthContinuation_v3:ParameterName', ...
+                        'Unknown active parameter "%s".', name);
+                end
+            else
+                index = selector;
+                if ~(isnumeric(index) && isscalar(index) && isfinite(index) && ...
+                        index == floor(index) && index >= 1 && index <= count)
+                    error('PseudoArclengthContinuation_v3:ParameterIndex', ...
+                        'Active parameter index is outside the parameter vector.');
+                end
+                if numel(names) >= index
+                    name = names{index};
+                else
+                    name = sprintf('p%d', index);
+                end
+            end
+        end
+
+        function names = parameterNames(obj, residual)
+            map = obj.member(residual, 'Map', []);
+            system = obj.member(map, 'System', []);
+            names = obj.member(system, 'ParameterNames', {});
+            if isstring(names)
+                names = cellstr(names(:).');
+            end
+        end
+
+        function info = mapInfo(~, evaluationInfo)
+            info = evaluationInfo;
+            if isstruct(evaluationInfo) && isfield(evaluationInfo, 'map_info')
+                info = evaluationInfo.map_info;
+            end
+            if isempty(info) || ~isstruct(info)
+                info = struct();
+            end
+        end
+
+        function value = memberAny(obj, source, names, default)
+            value = default;
+            for index = 1:numel(names)
+                candidate = obj.member(source, names{index}, []);
+                if ~isempty(candidate)
+                    value = candidate;
+                    return
+                end
+            end
+        end
+
+        function metadata = schemaMetadataFromInfo(obj, info)
+            metadata = obj.memberAny(obj.mapInfo(info), ...
+                {'schema_metadata', 'schemaMetadata'}, struct());
+            if isstruct(metadata) && ~isempty(fieldnames(metadata))
+                return
+            end
+            metadata = struct();
+        end
+
+        function compatible = compatibleTopology(~, left, right)
+            compatible = isequal(string(left.cyclic_signature), ...
+                string(right.cyclic_signature)) && ...
+                isequal(string(left.section_relative_signature), ...
+                    string(right.section_relative_signature)) && ...
+                isequal(left.return_multiplicity, right.return_multiplicity) && ...
+                isequal(left.mode, right.mode) && ...
+                isempty(right.section_coincident_events);
         end
 
         function text = modeText(~, mode)

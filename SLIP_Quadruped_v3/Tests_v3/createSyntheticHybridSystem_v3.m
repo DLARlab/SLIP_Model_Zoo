@@ -61,23 +61,26 @@ function guards = orderingGuards(t, x, q, p) %#ok<INUSD>
     prototype = struct( ...
         'id', 0, 'name', '', 'value', 0, 'direction', 1, ...
         'isterminal', true, 'enabled', true, 'priority', 0, ...
-        'kind', '', 'interior_sign', -1);
+        'kind', '', 'interior_sign', -1, ...
+        'leg_index', 1, 'leg_name', 'FR', 'metadata', struct());
     if q == 0
         guards = prototype;
         guards.id = 1;
-        guards.name = 'TD_FR';
+        guards.name = 'FR_TD';
         guards.value = x(2);
         guards.priority = 1;
         guards.kind = 'touchdown';
     else
         guards = prototype;
         guards.id = 2;
-        guards.name = 'LO_FR';
+        guards.name = 'FR_LO';
         angle = 2 * pi * p(1);
         guards.value = -x(2) * cos(angle) - x(1) * sin(angle);
         guards.priority = 2;
         guards.kind = 'liftoff';
     end
+    guards.metadata = struct('leg_index', 1, 'leg_name', 'FR', ...
+        'event_kind', guards.kind, 'source', 'contact');
 end
 
 function qplus = orderingTransition(eventId, qminus)
