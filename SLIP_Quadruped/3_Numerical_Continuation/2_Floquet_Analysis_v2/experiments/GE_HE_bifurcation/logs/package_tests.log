@@ -1,0 +1,27 @@
+Package production test: GE_HE_bifurcation
+Running test_ge_he_bifurcation
+...Roadmap Floquet-v2 robustness: 1 targeted transitions
+
+[1/1] Stage A parent-only: he_to_ge (HE -> GE)
+
+[1/1] Stage B held-out: he_to_ge (GE)
+
+Parent-only 1/1; held-out 1/1; 1 targeted transition; robustness status: validated.
+  he_to_ge  dx=6.13622289546 parent=1 held-out=1 alignment=0.999819
+.
+Done test_ge_he_bifurcation
+__________
+
+  1×4 TestResult array with properties:
+
+    Name
+    Passed
+    Failed
+    Incomplete
+    Duration
+    Details
+
+Totals:
+   4 Passed, 0 Failed, 0 Incomplete.
+   468.6266 seconds testing time.
+

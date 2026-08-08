@@ -1,0 +1,5 @@
+Transition,Amplitude,Sign,PredictorAccepted,CorrectorAccepted,BranchPointAccepted,Gait,TransverseFraction,CanonicalResidual,ReturnResidual,EventTimeError,RejectionStage,RejectionMessage
+fg_to_gg,0.01,-1,1,1,1,GG,0.999997461623333,1.07382563719716e-13,2.96059473233375e-14,0,,
+fg_to_gg,0.01,1,1,1,1,GG,0.999997462237375,1.10017070880994e-13,1.92438657601694e-14,0,,
+fg_to_gg,0.005,-1,1,1,1,GG,0.999999360108116,1.13312695074296e-13,5.32907051820075e-14,0,,
+fg_to_gg,0.005,1,1,1,1,GG,0.999999360419069,1.13813004341771e-13,4.736951571734e-14,0,,

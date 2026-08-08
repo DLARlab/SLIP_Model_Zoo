@@ -1,0 +1,32 @@
+Package production test: BG_half_bounding_bifurcation
+Running test_bg_half_bounding_bifurcation
+...Roadmap Floquet-v2 robustness: 2 targeted transitions
+
+[1/2] Stage A parent-only: bg_to_hg (BG -> HG)
+
+[2/2] Stage A parent-only: bg_to_fg (BG -> FG)
+
+[1/2] Stage B held-out: bg_to_hg (HG)
+
+[2/2] Stage B held-out: bg_to_fg (FG)
+
+Parent-only 2/2; held-out 2/2; 2 targeted transitions; robustness status: validated.
+  bg_to_hg  dx=4.50616189521 parent=1 held-out=1 alignment=0.999918
+  bg_to_fg  dx=5.64566295496 parent=1 held-out=1 alignment=0.999063
+.
+Done test_bg_half_bounding_bifurcation
+__________
+
+  1×4 TestResult array with properties:
+
+    Name
+    Passed
+    Failed
+    Incomplete
+    Duration
+    Details
+
+Totals:
+   4 Passed, 0 Failed, 0 Incomplete.
+   654.4491 seconds testing time.
+

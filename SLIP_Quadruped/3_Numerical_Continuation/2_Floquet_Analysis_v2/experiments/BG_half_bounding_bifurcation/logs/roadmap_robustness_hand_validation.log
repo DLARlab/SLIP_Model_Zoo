@@ -1,0 +1,4 @@
+Independent hand replay: 2 roadmap transitions
+  bg_to_hg  pass=1 dx=4.50616189521 residual=6.750e-14 gait=HG held-out=1
+  bg_to_fg  pass=1 dx=5.64566295496 residual=1.084e-13 gait=FG held-out=1
+Hand replay accepted: 2/2

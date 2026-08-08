@@ -1,0 +1,23 @@
+# Roadmap secondary-bifurcation robustness report
+
+Generated: `20260805T114508`  
+Status: **validated**
+
+Parent-only 2/2; held-out 2/2; 2 targeted transitions; package reference status: validated.
+
+This is a retrospective, targeted-window robustness experiment. Window locations were calibrated from the historical roadmap. For each transition, its designated daughter data were excluded from that transition's Stage-A Floquet, refinement, and correction calculation, then consulted in Stage B after that parent prediction was frozen. FG and HE also serve as parents in separate later transitions. This is not an exhaustive blind scan.
+
+| transition | refined dx | lambda residual | SVD nullity | max FD error | max timing residual | pair | odd residual | corrections | daughter alignment | status |
+|---|---:|---:|---:|---:|---:|---|---:|---:|---:|---|
+| bg_to_hg | 4.50616189521 | -6.957e-08 | 2 | 1.062e-07 | 2.792e-12 | hind | 7.119e-06 | 4 | 0.999918 | validated |
+| bg_to_fg | 5.64566295496 | -2.856e-09 | 2 | 3.150e-08 | 3.431e-11 | front | 1.010e-07 | 4 | 0.999063 | validated |
+
+## Interpretation
+
+Each accepted multiplier is from the 12-state reduced apex return map. Event times were solved for every perturbation and lifted into branch predictors, but were not Floquet coordinates. The exact refined SVD nullity—not the detector's loose candidate multiplicity—verifies one tangent plus one additional mode.
+
+The two corrected signs persist at multiple radii, pass the canonical residual and an independent Poincare-map check, have the expected gait label, and map into one another under the broken front/hind leg swap. Daughter alignment is evaluated separately for both signs at the smallest persistent accepted radius.
+
+## Limitation: folded parent coordinates
+
+BG, BE, FG, and HE fold in `dx`. The selected adjacent brackets were verified to be locally monotone before `RefineCriticalOrbit` fixed `X(1)=dx`. Branch-wide discovery requires a pseudo-arclength critical-orbit refiner and is not claimed here.

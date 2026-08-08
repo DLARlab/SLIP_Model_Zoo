@@ -1,0 +1,32 @@
+Pronking packaged test run
+Started: 05-Aug-2026 10:06:23
+MATLAB: 25.2.0.3177638 (R2025b) Update 5
+Package: /Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/experiments/pronking_multigait_bifurcation
+Running test_pronking_branch
+.......... ...
+Done test_pronking_branch
+__________
+
+Running test_pronking_multigait_prediction
+......
+[Terse] Diagnostic logged (2026-08-05 10:06:33): Set SLIP_RUN_BRANCH_SWITCH_TESTS=1 to run the expensive critical-orbit and held-out daughter validation.
+.
+[Terse] Diagnostic logged (2026-08-05 10:06:33): Set SLIP_RUN_PRONKING_GAIT_CORRECTOR_TESTS=1 to run the two-radius six-arm nonlinear correction test.
+.
+Done test_pronking_multigait_prediction
+__________
+
+  1×21 TestResult array with properties:
+
+    Name
+    Passed
+    Failed
+    Incomplete
+    Duration
+    Details
+
+Totals:
+   21 Passed, 0 Failed, 0 Incomplete.
+   8.9094 seconds testing time.
+
+Passed=21 Failed=0 Incomplete=0

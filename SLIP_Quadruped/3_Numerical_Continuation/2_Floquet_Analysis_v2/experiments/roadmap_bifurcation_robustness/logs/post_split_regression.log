@@ -1,0 +1,29 @@
+Running test_roadmap_bifurcation_robustness
+.......... .....
+================================================================================
+test_roadmap_bifurcation_robustness/testProductionSubsetRerunWhenEnabled was filtered.
+    Test Diagnostic: Set SLIP_RUN_LONG_ROADMAP_TESTS=1 before MATLAB startup to run an independent production BE->FE recomputation.
+================================================================================
+.
+Done test_roadmap_bifurcation_robustness
+__________
+
+Failure Summary:
+
+     Name                                                                      Failed  Incomplete  Reason(s)
+    =======================================================================================================================
+     test_roadmap_bifurcation_robustness/testProductionSubsetRerunWhenEnabled              X       Filtered by assumption.
+  1×16 TestResult array with properties:
+
+    Name
+    Passed
+    Failed
+    Incomplete
+    Duration
+    Details
+
+Totals:
+   15 Passed, 0 Failed, 1 Incomplete.
+   2.8874 seconds testing time.
+
+PASSED=15 FAILED=0 INCOMPLETE=1

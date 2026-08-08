@@ -1,0 +1,28 @@
+Running test_pronking_branch
+.......... ...
+Done test_pronking_branch
+__________
+
+Running test_pronking_multigait_prediction
+......
+[Terse] Diagnostic logged (2026-08-05 12:12:24): Set SLIP_RUN_BRANCH_SWITCH_TESTS=1 to run the expensive critical-orbit and held-out daughter validation.
+.
+[Terse] Diagnostic logged (2026-08-05 12:12:24): Set SLIP_RUN_PRONKING_GAIT_CORRECTOR_TESTS=1 to run the two-radius six-arm nonlinear correction test.
+.
+Done test_pronking_multigait_prediction
+__________
+
+  1×21 TestResult array with properties:
+
+    Name
+    Passed
+    Failed
+    Incomplete
+    Duration
+    Details
+
+Totals:
+   21 Passed, 0 Failed, 0 Incomplete.
+   9.8696 seconds testing time.
+
+PRONKING_REGRESSION passed=21 failed=0 incomplete=0

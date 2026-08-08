@@ -1,0 +1,27 @@
+Running test_roadmap_bifurcation_robustness
+.......... ..Roadmap Floquet-v2 robustness: 1 targeted transitions
+
+[1/1] Stage A parent-only: be_to_fe (BE -> FE)
+
+[1/1] Stage B held-out: be_to_fe (FE)
+
+Parent-only 1/1; held-out 1/1; 1 targeted transition; robustness status: validated.
+  be_to_fe  dx=4.83363821441 parent=1 held-out=1 alignment=1.000000
+.
+Done test_roadmap_bifurcation_robustness
+__________
+
+  1×13 TestResult array with properties:
+
+    Name
+    Passed
+    Failed
+    Incomplete
+    Duration
+    Details
+
+Totals:
+   13 Passed, 0 Failed, 0 Incomplete.
+   352.5222 seconds testing time.
+
+LONG_TOTAL passed=13 failed=0 incomplete=0
