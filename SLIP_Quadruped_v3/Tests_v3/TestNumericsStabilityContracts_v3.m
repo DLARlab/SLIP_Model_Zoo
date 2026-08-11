@@ -41,12 +41,78 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             testCase.verifyFalse(report.classicalDerivative);
         end
 
+        function floquetDerivativeConvergesUnderExternalStepRefinement(testCase)
+            % Requirement G: refine the complete accepted-cycle map from
+            % outside the h/h/2 estimator and verify derivative convergence.
+            gamma = 0.3;
+            system = createSyntheticReturnPolicySystem_v3( ...
+                'two-apex-radial');
+            simulator = HybridSimulator_v3(struct( ...
+                'RelTol', 1e-11, 'AbsTol', 1e-13));
+            section = PoincareSection_v3.apex(2);
+            mapOptions = struct('MaxReturnTime', 2.5, ...
+                'MaxSectionCrossings', 4, 'MaxCycleEvents', 8, ...
+                'ArmTolerance', 1e-7);
+            map = PoincareMap_v3(system, section, simulator, ...
+                EventCycleReturnPolicy_v3(), mapOptions);
+
+            relativeSteps = [4e-2, 2e-2, 1e-2];
+            expected = exp(-4 * gamma);
+            errors = zeros(size(relativeSteps));
+            selectedSteps = zeros(size(relativeSteps));
+
+            for index = 1:numel(relativeSteps)
+                result = FloquetAnalysis_v3(struct( ...
+                    'TangentIndices', 1, ...
+                    'RelativeStep', relativeSteps(index))).analyze( ...
+                        map, [1; 0], 0, gamma);
+                errors(index) = abs(result.multipliers(1) - expected);
+                selectedSteps(index) = ...
+                    result.finiteDifference.selectedSteps(1);
+
+                testCase.verifyTrue(result.reliable);
+                testCase.verifyTrue(result.finiteDifference.allReliable);
+                testCase.verifyEqual(result.return_multiplicity, 2);
+                testCase.verifyEqual(result.baseMapInfo.period, 2, ...
+                    'AbsTol', 3e-7);
+                testCase.verifyEqual(string(result.finiteDifference. ...
+                    columns(1).differenceType), "central-richardson");
+                testCase.verifyFalse(result.finiteDifference. ...
+                    columns(1).oneSided);
+            end
+
+            testCase.verifyLessThan(diff(selectedSteps), zeros(1, 2));
+            testCase.verifyLessThan(diff(errors), zeros(1, 2));
+            testCase.verifyGreaterThan( ...
+                errors(1:end-1) ./ errors(2:end), 8 * ones(1, 2));
+            testCase.verifyLessThan(errors(end), 1e-8);
+        end
+
+        function floquetRejectsMissingHybridTopologyEvidence(testCase)
+            analyzer = FloquetAnalysis_v3(struct('TangentIndices', 1));
+            testCase.verifyError(@() analyzer.analyze( ...
+                @TestNumericsStabilityContracts_v3.metadataFreeMap, ...
+                1, 0, 0), ...
+                'HybridFiniteDifferenceJacobian_v3:InvalidBase');
+        end
+
+        function floquetReadsCanonicalTrajectoryEventTypes(testCase)
+            result = FloquetAnalysis_v3(struct( ...
+                'TangentIndices', 1)).analyze( ...
+                    @TestNumericsStabilityContracts_v3.trajectoryHistoryMap, ...
+                    1, 0, 0);
+
+            testCase.verifyTrue(result.reliable);
+            testCase.verifyEqual(result.eventSignature, 'A>B');
+            testCase.verifyTrue(result.eventSignaturesMatch);
+        end
+
         function rootSolverReportsCacheAndMapCounts(testCase)
             solver = RootSolver_v3(struct( ...
                 'Algorithm', 'newton', 'FunctionTolerance', 1e-11, ...
                 'ResidualAcceptanceTolerance', 1e-9));
             [root, result] = solver.solve(@(u, p, q) u.^2 - 1, ...
-                1.2, zeros(0, 1), []); %#ok<ASGLU>
+                1.2, zeros(0, 1), []);
 
             testCase.verifyTrue(result.converged);
             testCase.verifyEqual(root, 1, 'AbsTol', 1e-8);
@@ -58,7 +124,7 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
 
         function fourArgumentResidualReceivesDefaultContext(testCase)
             residual = @(u, p, q, context) ...
-                u - 1 + 0 * numel(fieldnames(context)); %#ok<INUSD>
+                u - 1 + 0 * numel(fieldnames(context));
             solver = RootSolver_v3(struct( ...
                 'Algorithm', 'newton', 'FunctionTolerance', 1e-10));
             [root, result] = solver.solve(residual, 1.1, [], []);
@@ -136,12 +202,12 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
     end
 
     methods (Static, Access = private)
-        function [value, metadata] = cubicHybridMap(point, varargin) %#ok<INUSD>
+        function [value, metadata] = cubicHybridMap(point, varargin)
             value = point.^3;
             metadata = TestNumericsStabilityContracts_v3.validMetadata('A>B');
         end
 
-        function [value, metadata] = piecewiseSignatureMap(point, varargin) %#ok<INUSD>
+        function [value, metadata] = piecewiseSignatureMap(point, varargin)
             value = point;
             if point > 0
                 signature = 'right';
@@ -149,6 +215,17 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
                 signature = 'left';
             end
             metadata = TestNumericsStabilityContracts_v3.validMetadata(signature);
+        end
+
+        function value = metadataFreeMap(point, varargin)
+            value = point;
+        end
+
+        function [value, metadata] = trajectoryHistoryMap(point, varargin)
+            value = point;
+            metadata = TestNumericsStabilityContracts_v3.validMetadata('A>B');
+            metadata = rmfield(metadata, 'cyclic_event_signature');
+            metadata.event_history = struct('type', {'A', 'B'});
         end
 
         function metadata = validMetadata(signature)

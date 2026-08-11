@@ -30,6 +30,11 @@ This separation is implemented by `PoincareSection_v3`, the private
 next-crossing operation in `PoincareMap_v3`, and subclasses of
 `ReturnPolicyBase_v3`, respectively.
 
+Construction selects the system-level default once: quadruped maps use
+`EventCycleReturnPolicy_v3`, while generic systems use
+`FirstReturnPolicy_v3`. An explicit policy always wins, so constructing a
+periodic residual or Floquet analyzer cannot later change the map definition.
+
 ## First return
 
 `FirstReturnPolicy_v3` accepts the first valid directional crossing after
@@ -162,10 +167,11 @@ finite-difference reliability, continuation, and hybrid-boundary detection.
 - `MaxCycleEvents`: cumulative number of physical guard events.
 
 Successful output includes the accepted period, return multiplicity, all
-candidate crossings, accepted index, initial and final mode, per-leg event
-counts when supplied by the policy, both event signatures, section-coincident
-events, section and guard transversality margins, and policy-specific
-cycle-completion diagnostics.
+candidate crossings, candidate count, accepted index, initial and final mode,
+per-leg event counts when supplied by the policy, both event signatures,
+section-coincident events, section and guard transversality margins, and
+policy-specific cycle-completion diagnostics. Apex sections additionally
+expose `candidate_apex_count` and `accepted_apex_index` aliases.
 
 The generic map contains no quadruped leg count, event IDs, event ordering, or
 gait classification. Those meanings enter only through model event metadata

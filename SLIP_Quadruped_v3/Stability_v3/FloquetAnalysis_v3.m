@@ -518,6 +518,12 @@ classdef FloquetAnalysis_v3
             if isstruct(sequence)
                 if isfield(sequence, 'event_type')
                     sequence = {sequence.event_type};
+                elseif isfield(sequence, 'type')
+                    % Trajectory_v3 and PoincareMap_v3 use `type` as the
+                    % canonical physical-event field.  Accept it when a
+                    % generic map supplies event history without an
+                    % already-canonical cyclic signature.
+                    sequence = {sequence.type};
                 elseif isfield(sequence, 'name')
                     sequence = {sequence.name};
                 elseif isfield(sequence, 'event_id')
@@ -563,6 +569,8 @@ classdef FloquetAnalysis_v3
             if isempty(metadata) || ~isstruct(metadata)
                 metadata = struct();
             end
+            metadata.topology_metadata_complete = ...
+                obj.topologyMetadataComplete(info);
             metadata.discrete_closed = discreteClosed;
             metadata.integration_success = obj.memberAny(info, ...
                 {'integration_success', 'success'}, true);
@@ -577,6 +585,45 @@ classdef FloquetAnalysis_v3
             margins = obj.transversalityMargins(info);
             metadata.guard_transversality_margin = margins.guard;
             metadata.section_transversality = margins.section;
+        end
+
+        function complete = topologyMetadataComplete(obj, info)
+            % A default hybrid Floquet calculation is meaningful only when
+            % the map supplies evidence for every topology check.  Defaults
+            % such as closure=true or transversality=Inf are useful for
+            % smooth finite differences, but must not certify a hybrid
+            % derivative when the callback omitted the corresponding data.
+            if isempty(info) || ~isstruct(info)
+                complete = false;
+                return
+            end
+            closureEvidence = obj.hasAnyField(info, { ...
+                'discrete_closed', 'discreteClosure', 'mode_closed', ...
+                'final_mode'});
+            cycleEvidence = obj.hasAnyField(info, { ...
+                'cycle_complete', 'cycleComplete', ...
+                'return_policy_accepted'});
+            multiplicityEvidence = obj.hasAnyField(info, { ...
+                'return_multiplicity', 'returnMultiplicity'});
+            cyclicSignatureEvidence = obj.hasAnyField(info, { ...
+                'cyclic_event_signature', 'cyclicEventSignature', ...
+                'cycle_signature', 'cycleSignature', 'event_sequence', ...
+                'eventSequence', 'event_history'});
+            guardEvidence = obj.hasAnyField(info, { ...
+                'guard_transversality_margin', ...
+                'minimum_guard_transversality'});
+            sectionEvidence = obj.hasAnyField(info, { ...
+                'section_transversality', ...
+                'section_transversality_margin'});
+            complete = (~obj.RequireDiscreteClosure || closureEvidence) && ...
+                (~obj.RequireCycleCompletion || cycleEvidence) && ...
+                multiplicityEvidence && cyclicSignatureEvidence && ...
+                guardEvidence && sectionEvidence;
+        end
+
+        function tf = hasAnyField(~, source, names)
+            tf = isstruct(source) && any(cellfun( ...
+                @(name) isfield(source, name), names));
         end
 
         function margins = transversalityMargins(obj, info)

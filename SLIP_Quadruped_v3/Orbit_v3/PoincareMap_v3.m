@@ -44,7 +44,6 @@ classdef PoincareMap_v3 < handle
             obj.System = system;
             obj.Section = section;
             obj.Simulator = simulator;
-            obj.ReturnPolicy = FirstReturnPolicy_v3();
             obj.ModeResolver = SectionModeResolver_v3();
 
             suppliedOptions = struct();
@@ -65,6 +64,7 @@ classdef PoincareMap_v3 < handle
                     suppliedOptions, options);
             end
             obj.applyOptions(suppliedOptions);
+            obj.installDefaultReturnPolicy();
             obj.validateConfiguration();
         end
 
@@ -234,7 +234,17 @@ classdef PoincareMap_v3 < handle
             info.return_policy_was_explicit = obj.ReturnPolicyWasExplicit;
             info.candidate_section_crossings = crossings;
             info.all_candidate_section_crossings = crossings;
+            info.candidate_section_count = numel(crossings);
             info.accepted_crossing_index = acceptedCrossing.index;
+            % Apex aliases are meaningful only for an apex section.  Keep
+            % the generic section fields authoritative for all other maps.
+            if strcmpi(obj.Section.Name, 'apex')
+                info.candidate_apex_count = info.candidate_section_count;
+                info.accepted_apex_index = info.accepted_crossing_index;
+            else
+                info.candidate_apex_count = [];
+                info.accepted_apex_index = [];
+            end
             info.section_relative_event_signature = ...
                 acceptedCrossing.section_relative_event_signature;
             info.cyclic_event_signature = ...
@@ -330,6 +340,24 @@ classdef PoincareMap_v3 < handle
     end
 
     methods (Access = private)
+        function installDefaultReturnPolicy(obj)
+            % Select the system-level default exactly once, after all
+            % constructor inputs have been parsed. This prevents a later
+            % residual object from changing the meaning of an existing map.
+            if obj.ReturnPolicyWasExplicit
+                return
+            end
+            if isa(obj.System, 'Quadrupedal_Dynamics_v3')
+                schema = obj.System.Schema;
+                policyOptions = struct('LegCount', schema.Leg.Count, ...
+                    'LegNames', {schema.Leg.Names});
+                obj.ReturnPolicy = ...
+                    EventCycleReturnPolicy_v3(policyOptions);
+            else
+                obj.ReturnPolicy = FirstReturnPolicy_v3();
+            end
+        end
+
         function [trajectory, crossing] = nextSectionCrossing( ...
                 obj, startState, startMode, startTime, p, deadline, ...
                 remainingEvents, crossingIndex, simulationOverrides)

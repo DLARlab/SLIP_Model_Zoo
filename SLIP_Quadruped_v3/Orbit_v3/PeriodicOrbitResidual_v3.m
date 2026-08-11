@@ -24,7 +24,6 @@ classdef PeriodicOrbitResidual_v3 < handle
                 templateState = zeros(map.System.StateDimension, 1);
             end
             obj.Map = map;
-            obj.installQuadrupedCycleDefault();
             obj.TemplateState = templateState(:);
             if numel(obj.TemplateState) ~= map.System.StateDimension
                 error('PeriodicOrbitResidual_v3:TemplateDimension', ...
@@ -108,9 +107,14 @@ classdef PeriodicOrbitResidual_v3 < handle
             details.discrete_closed = mapInfo.discrete_closed;
             details.mode_closed = mapInfo.discrete_closed;
             details.return_policy = mapInfo.return_policy;
+            details.return_policy_name = mapInfo.return_policy_name;
             details.return_multiplicity = mapInfo.return_multiplicity;
+            details.candidate_section_count = ...
+                mapInfo.candidate_section_count;
+            details.candidate_apex_count = mapInfo.candidate_apex_count;
             details.accepted_crossing_index = ...
                 mapInfo.accepted_crossing_index;
+            details.accepted_apex_index = mapInfo.accepted_apex_index;
             details.section_relative_event_signature = ...
                 mapInfo.section_relative_event_signature;
             details.cyclic_event_signature = ...
@@ -191,7 +195,15 @@ classdef PeriodicOrbitResidual_v3 < handle
             values.poincare_state = mapInfo.poincare_state;
             values.trajectory = mapInfo.trajectory;
             values.stride_displacement = mapInfo.stride_displacement;
+            values.return_policy = mapInfo.return_policy;
+            values.return_policy_name = mapInfo.return_policy_name;
             values.return_multiplicity = mapInfo.return_multiplicity;
+            values.candidate_section_count = ...
+                mapInfo.candidate_section_count;
+            values.candidate_apex_count = mapInfo.candidate_apex_count;
+            values.accepted_crossing_index = ...
+                mapInfo.accepted_crossing_index;
+            values.accepted_apex_index = mapInfo.accepted_apex_index;
             values.section_relative_event_signature = ...
                 mapInfo.section_relative_event_signature;
             values.cyclic_event_signature = ...
@@ -221,20 +233,6 @@ classdef PeriodicOrbitResidual_v3 < handle
     end
 
     methods (Access = private)
-        function installQuadrupedCycleDefault(obj)
-            % A generic map defaults to geometric first return. A quadruped
-            % periodic residual, however, defaults to the complete per-leg
-            % event cycle unless the caller explicitly selected a policy.
-            if ~isa(obj.Map.System, 'Quadrupedal_Dynamics_v3') ...
-                    || obj.Map.ReturnPolicyWasExplicit
-                return
-            end
-            schema = obj.Map.System.Schema;
-            options = struct('LegCount', schema.Leg.Count, ...
-                'LegNames', {schema.Leg.Names});
-            obj.Map.ReturnPolicy = EventCycleReturnPolicy_v3(options);
-        end
-
         function validateIndices(obj)
             n = obj.Map.System.StateDimension;
             groups = {obj.UnknownIndices, obj.PeriodicIndices, ...

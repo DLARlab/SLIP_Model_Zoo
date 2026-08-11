@@ -48,6 +48,11 @@ information but is not labelled a unique classical Floquet derivative.  A
 Floquet result is unreliable if any required column lacks refinement
 convergence, if topology or return multiplicity changes, if cycle completion
 or discrete closure fails, or if an event/section is nearly grazing.
+The default hybrid path requires those metadata fields to be supplied by the
+map; missing topology evidence is rejected rather than replaced by optimistic
+closure or transversality defaults. Standard `Trajectory_v3.event_history`
+records are recognized through their `type` field when no explicit cyclic
+signature is supplied.
 An exact or tolerance-level section/event coincidence is likewise reported as
 unreliable because the selected local return chart is not differentiable in
 the classical sense at that point.

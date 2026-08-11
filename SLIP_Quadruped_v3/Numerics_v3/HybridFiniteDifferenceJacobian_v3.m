@@ -335,6 +335,14 @@ classdef HybridFiniteDifferenceJacobian_v3
         function [valid, reason] = metadataValid(obj, metadata)
             valid = true;
             reasons = {};
+            if isstruct(metadata) && ...
+                    isfield(metadata, 'topology_metadata_complete') && ...
+                    (~isscalar(metadata.topology_metadata_complete) || ...
+                     ~logical(metadata.topology_metadata_complete))
+                valid = false;
+                reasons{end + 1} = ...
+                    'required hybrid topology metadata is incomplete';
+            end
             falseFields = {'success', 'valid', 'admissible', ...
                 'integration_success', ...
                 'integrationSuccess'};
@@ -351,7 +359,7 @@ classdef HybridFiniteDifferenceJacobian_v3
                     {'discrete_closed', 'discreteClosure', 'mode_closed'}, true);
                 if isscalar(closure) && ~logical(closure)
                     valid = false;
-                    reasons{end + 1} = 'discrete closure failed'; %#ok<AGROW>
+                    reasons{end + 1} = 'discrete closure failed';
                 end
             end
             if obj.RequireCycleCompletion
@@ -359,7 +367,7 @@ classdef HybridFiniteDifferenceJacobian_v3
                     {'cycle_complete', 'cycleComplete', 'return_policy_accepted'}, true);
                 if isscalar(complete) && ~logical(complete)
                     valid = false;
-                    reasons{end + 1} = 'cycle completion failed'; %#ok<AGROW>
+                    reasons{end + 1} = 'cycle completion failed';
                 end
             end
             guardMargin = obj.member(metadata, ...
@@ -368,7 +376,7 @@ classdef HybridFiniteDifferenceJacobian_v3
             if isscalar(guardMargin) && isfinite(guardMargin) && ...
                     guardMargin < obj.MinimumGuardTransversality
                 valid = false;
-                reasons{end + 1} = 'guard transversality is too small'; %#ok<AGROW>
+                reasons{end + 1} = 'guard transversality is too small';
             end
             sectionMargin = obj.member(metadata, ...
                 {'section_transversality', 'sectionTransversality', ...
@@ -376,7 +384,7 @@ classdef HybridFiniteDifferenceJacobian_v3
             if isscalar(sectionMargin) && isfinite(sectionMargin) && ...
                     sectionMargin < obj.MinimumSectionTransversality
                 valid = false;
-                reasons{end + 1} = 'section transversality is too small'; %#ok<AGROW>
+                reasons{end + 1} = 'section transversality is too small';
             end
             reason = strjoin(reasons, '; ');
         end
@@ -427,7 +435,7 @@ classdef HybridFiniteDifferenceJacobian_v3
             end
         end
 
-        function reasons = collectReasons(obj, records, compatible)
+        function reasons = collectReasons(~, records, compatible)
             labels = {'plus-h', 'minus-h', 'plus-h/2', 'minus-h/2'};
             reasons = {};
             for index = 1:numel(records)

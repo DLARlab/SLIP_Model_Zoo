@@ -40,6 +40,9 @@ classdef TestReturnPolicies_v3 < matlab.unittest.TestCase
             testCase.verifyEqual(info.period, 2, 'AbsTol', 3e-7);
             testCase.verifyEqual(info.return_multiplicity, 2);
             testCase.verifyEqual(info.accepted_crossing_index, 2);
+            testCase.verifyEqual(info.accepted_apex_index, 2);
+            testCase.verifyEqual(info.candidate_section_count, 2);
+            testCase.verifyEqual(info.candidate_apex_count, 2);
             testCase.verifyTrue(info.discrete_closed);
             testCase.verifyEqual(info.final_mode, 0);
             testCase.verifyNumElements(info.candidate_section_crossings, 2);
@@ -66,9 +69,22 @@ classdef TestReturnPolicies_v3 < matlab.unittest.TestCase
             testCase.verifyEqual(value, zeros(2, 1), 'AbsTol', 3e-7);
             testCase.verifyTrue(details.valid);
             testCase.verifyEqual(details.return_multiplicity, 2);
+            testCase.verifyEqual(details.return_policy_name, ...
+                'event-cycle-return');
+            testCase.verifyEqual(details.candidate_section_count, 2);
+            testCase.verifyEqual(details.candidate_apex_count, 2);
             testCase.verifyEqual(details.accepted_crossing_index, 2);
+            testCase.verifyEqual(details.accepted_apex_index, 2);
             orbit = residual.createOrbit([1; 0], [], 0, details);
+            testCase.verifyEqual(orbit.return_policy, ...
+                'EventCycleReturnPolicy_v3');
+            testCase.verifyEqual(orbit.return_policy_name, ...
+                'event-cycle-return');
             testCase.verifyEqual(orbit.return_multiplicity, 2);
+            testCase.verifyEqual(orbit.candidate_section_count, 2);
+            testCase.verifyEqual(orbit.candidate_apex_count, 2);
+            testCase.verifyEqual(orbit.accepted_crossing_index, 2);
+            testCase.verifyEqual(orbit.accepted_apex_index, 2);
             testCase.verifyEqual(orbit.event_counts.touchdown_count, 1);
             testCase.verifyNotEmpty(orbit.cyclic_event_signature);
             testCase.verifyTrue(isfield(orbit.topology_margins, ...
@@ -206,18 +222,45 @@ classdef TestReturnPolicies_v3 < matlab.unittest.TestCase
             testCase.verifyFalse(diagnostics.all_modes_attempted);
         end
 
-        function quadrupedResidualDefaultsToEventCycle(testCase)
+        function quadrupedMapDefaultsDirectlyToEventCycle(testCase)
             schema = QuadrupedSchema_v3.shared();
             map = PoincareMap_v3(Quadrupedal_Dynamics_v3(), ...
                 PoincareSection_v3.apex(schema.State.dy), ...
                 HybridSimulator_v3());
-            testCase.verifyClass(map.ReturnPolicy, 'FirstReturnPolicy_v3');
+            testCase.verifyClass(map.ReturnPolicy, ...
+                'EventCycleReturnPolicy_v3');
+            testCase.verifyFalse(map.ReturnPolicyWasExplicit);
 
             residual = PeriodicOrbitResidual_v3( ...
                 map, zeros(schema.State.Dimension, 1)); %#ok<NASGU>
 
             testCase.verifyClass(map.ReturnPolicy, ...
                 'EventCycleReturnPolicy_v3');
+        end
+
+        function genericMapDefaultsToFirstReturn(testCase)
+            system = createSyntheticReturnPolicySystem_v3('two-apex');
+            [section, simulator] = testCase.components();
+            map = PoincareMap_v3(system, section, simulator, ...
+                testCase.mapOptions());
+
+            testCase.verifyClass(map.ReturnPolicy, ...
+                'FirstReturnPolicy_v3');
+            testCase.verifyFalse(map.ReturnPolicyWasExplicit);
+        end
+
+        function explicitQuadrupedFirstReturnIsPreserved(testCase)
+            schema = QuadrupedSchema_v3.shared();
+            map = PoincareMap_v3(Quadrupedal_Dynamics_v3(), ...
+                PoincareSection_v3.apex(schema.State.dy), ...
+                HybridSimulator_v3(), FirstReturnPolicy_v3());
+            testCase.verifyTrue(map.ReturnPolicyWasExplicit);
+
+            residual = PeriodicOrbitResidual_v3( ...
+                map, zeros(schema.State.Dimension, 1)); %#ok<NASGU>
+
+            testCase.verifyClass(map.ReturnPolicy, ...
+                'FirstReturnPolicy_v3');
         end
     end
 

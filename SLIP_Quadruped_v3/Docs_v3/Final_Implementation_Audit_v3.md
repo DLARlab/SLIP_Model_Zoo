@@ -1,6 +1,6 @@
 # Final v3 implementation audit
 
-Audit date: 2026-08-05. This report covers the independent implementation
+Audit date: 2026-08-11. This report covers the independent implementation
 under `SLIP_Quadruped_v3` and the verbatim legacy restoration. It distinguishes
 the passing parameter-asymmetric v3 orbit from the unresolved direct replay of
 the prescribed-event asymmetric legacy fixtures.
@@ -41,20 +41,20 @@ the prescribed-event asymmetric legacy fixtures.
 | `Orbit_v3/IteratedReturnPolicy_v3.m` | Geometric \(P^m\) return. |
 | `Orbit_v3/EventCycleReturnPolicy_v3.m` | Mode closure plus per-leg touchdown/liftoff completion without prescribed ordering. |
 | `Orbit_v3/SectionModeResolver_v3.m` | Previous chart plus local toggles for section-near, directionally consistent guards. |
-| `Orbit_v3/PoincareMap_v3.m` | Repeated crossings until policy acceptance, with event/signature/coincidence/topology diagnostics. |
-| `Orbit_v3/PeriodicOrbitResidual_v3.m` | Twelve independent periodic equations plus raw `dy` phase equation. |
-| `Orbit_v3/HybridOrbit_v3.m` | State, mode, period, parameters, histories, Poincare state, trajectory, and stability; no gait label. |
+| `Orbit_v3/PoincareMap_v3.m` | Repeated crossings until policy acceptance, direct quadruped event-cycle default, and event/signature/coincidence/topology diagnostics. |
+| `Orbit_v3/PeriodicOrbitResidual_v3.m` | Twelve independent periodic equations plus raw `dy` phase equation and policy/apex diagnostic propagation. |
+| `Orbit_v3/HybridOrbit_v3.m` | State, mode, period, parameters, histories, return policy/apex diagnostics, Poincare state, trajectory, and stability; no gait label. |
 
 ### Numerics and stability
 
 | File | Responsibility |
 |---|---|
 | `Numerics_v3/FiniteDifferenceJacobian_v3.m` | Smooth adaptive forward/central differences with baseline reuse. |
-| `Numerics_v3/HybridFiniteDifferenceJacobian_v3.m` | `h`/`h/2` refinement, Richardson plateau, topology checks, one-sided labels, and reliability. |
+| `Numerics_v3/HybridFiniteDifferenceJacobian_v3.m` | `h`/`h/2` refinement, Richardson plateau, fail-closed topology evidence checks, one-sided labels, and reliability. |
 | `Numerics_v3/RootSolver_v3.m` | Local modes, scaling, map cache, invalid-trial rejection, fsolve/trust-region Newton, counters, and Jacobian reuse. |
 | `Numerics_v3/NumericalContinuation1D_v3.m` | Named/indexed parameter correction and complete branch/topology metadata. |
 | `Numerics_v3/PseudoArclengthContinuation_v3.m` | Extended tangent, predictor/corrector, adaptive step, chart boundaries, and unresolved tangent marking. |
-| `Stability_v3/FloquetAnalysis_v3.m` | Full-cycle reduced derivative, multipliers, optional ambient diagnostic, and selected-step reliability. |
+| `Stability_v3/FloquetAnalysis_v3.m` | Full-cycle reduced derivative, multipliers, standard event-history signatures, optional ambient diagnostic, and selected-step reliability. |
 | `Stability_v3/BifurcationDetector_v3.m` | Reliable finite multiplier matching and unit, period-doubling, and Neimark--Sacker candidates. |
 | `Stability_v3/HybridBoundaryDetector_v3.m` | Grazing, collision, insertion/deletion, section, multiplicity/signature, and force boundaries. |
 
@@ -82,8 +82,8 @@ the prescribed-event asymmetric legacy fixtures.
 |---|---|
 | `Tests_v3/TestQuadrupedSchemaAdapters_v3.m` | Exact schemas, all event mappings, validation edges, policies, and round trips. |
 | `Tests_v3/TestQuadrupedDynamicsContracts_v3.m` | Body/swing equations, families, guards, resets, constraints, admissibility, and Lie derivatives. |
-| `Tests_v3/TestReturnPolicies_v3.m` | First/iterated/event-cycle return, two apexes, grounded apex, coincidences, and local charts. |
-| `Tests_v3/TestNumericsStabilityContracts_v3.m` | Smooth/hybrid differences, root context/cache, continuation names, candidates, and boundaries. |
+| `Tests_v3/TestReturnPolicies_v3.m` | First/iterated/event-cycle return, direct system defaults, policy preservation, two apexes, orbit metadata, grounded apex, coincidences, and local charts. |
+| `Tests_v3/TestNumericsStabilityContracts_v3.m` | Smooth/hybrid differences, external Floquet step convergence, missing-metadata rejection, canonical event-history signatures, root context/cache, continuation names, candidates, and boundaries. |
 | `Tests_v3/TestHybridFramework_v3.m` | Perturbed PK solve, discovered and parameter-asymmetric cycles, FR_LO/apex transition, full-cycle Floquet, and reliability rejection. |
 | `Tests_v3/TestGraphics_v3.m` | Invisible figure/UIAxes construction, updates, geometry, order, lengths, and phases. |
 | `Tests_v3/createSyntheticHybridSystem_v3.m` | Analytic radial and event/section-ordering systems. |
@@ -127,8 +127,8 @@ and one liftoff. Event ordering and intermediate apexes are discovered.
 
 ## Executed evidence
 
-- MATLAB R2025b full suite: 55 total, 55 passed, 0 failed, 0 incomplete.
-- Final focused hybrid/continuation class after the last production fixes: 10/10 passed.
+- MATLAB R2025b full suite: 60 total, 60 passed, 0 failed, 0 incomplete.
+- Final focused return-policy/continuation/Floquet suites: 33/33 passed.
 - Perturbed converted PK solve:
   - initial residual infinity norm: `3.368938463295043e-06`;
   - final residual infinity norm: `2.963680412193526e-10`;
@@ -157,7 +157,12 @@ and one liftoff. Event ordering and intermediate apexes are discovered.
   - absolute error `1.42e-11`;
   - selected step `2e-4`, estimated refinement error `7.88535903240017e-09`;
   - central Richardson, reliable classical derivative, 9 map evaluations.
-- MATLAB Code Analyzer parsed all 53 `.m` files: 6 files carried 23
+- External full-cycle Floquet refinement at relative steps
+  `[4e-2,2e-2,1e-2]` produced absolute multiplier errors approximately
+  `[8.28e-7,5.19e-8,3.24e-9]`, with refinement ratios about
+  `[15.95,15.99]`; all three derivatives were reliable central-Richardson
+  estimates of the accepted two-apex cycle.
+- MATLAB Code Analyzer parsed all 53 `.m` files: 6 files carried 16
   advisory unused/performance/style diagnostics, with no parser errors.
 - `git diff --check`: clean.
 - Legacy: 70 expected, 70 present, zero `HEAD^` blob mismatches, and zero

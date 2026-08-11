@@ -163,6 +163,10 @@ crossing completes the desired map:
 - `EventCycleReturnPolicy_v3` accepts the first right-continuous crossing
   with mode closure and at least one touchdown and liftoff for every leg.
 
+Direct quadruped maps default to `EventCycleReturnPolicy_v3`; generic hybrid
+systems default to `FirstReturnPolicy_v3`. An explicitly supplied policy is
+never replaced later by residual or stability construction.
+
 The event-cycle policy permits intermediate apexes and imposes no event order.
 At a section/contact coincidence, physical transitions are processed once and
 the post-event section mode is stored. All candidate crossings, accepted
@@ -206,14 +210,18 @@ t^T\big((u,p)-(u_0,p_0)\big)-ds=0.
 \]
 
 Accepted points store states, parameters, section mode, period, full event
-history, both topology signatures, event counts, transversality, solver
+history, cycle-return policy, return multiplicity, candidate/accepted apex
+indices, both topology signatures, event counts, transversality, solver
 statistics, Floquet data, and schema metadata. Topology changes are marked and
 trigger step reduction instead of a fabricated smooth tangent.
 
 `HybridFiniteDifferenceJacobian_v3` compares central derivatives at \(h\) and
 \(h/2\), selects a coordinate-scaled plateau, optionally applies Richardson
 extrapolation, and validates full-cycle topology. One-sided results are marked
-piecewise smooth and are not called unique classical derivatives.
+piecewise smooth and are not called unique classical derivatives. Hybrid
+Floquet analysis also requires explicit closure, completion, multiplicity,
+signature, and transversality evidence; omitted metadata cannot certify a
+reliable derivative.
 
 `FloquetAnalysis_v3` differentiates the accepted full-cycle map on the
 section-tangent, translation-reduced chart. `BifurcationDetector_v3` reports

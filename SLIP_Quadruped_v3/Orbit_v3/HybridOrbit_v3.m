@@ -15,7 +15,13 @@ classdef HybridOrbit_v3 < handle
         stability = struct()
         trajectory = []
         stride_displacement = []
+        return_policy = ""
+        return_policy_name = ""
         return_multiplicity = 1
+        candidate_section_count = 0
+        candidate_apex_count = 0
+        accepted_crossing_index = []
+        accepted_apex_index = []
         section_relative_event_signature = ""
         cyclic_event_signature = ""
         event_counts = struct([])
