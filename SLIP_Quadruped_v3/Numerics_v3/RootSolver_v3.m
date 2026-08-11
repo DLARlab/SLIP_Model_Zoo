@@ -177,7 +177,9 @@ classdef RootSolver_v3
                 initialSolution.message = ...
                     'Initial point satisfies the root tolerance.';
                 initialSolution.converged = true;
-                initialSolution.jacobianReliable = true;
+                % No derivative has been evaluated on this short path.  A
+                % small initial residual validates the root, not a Jacobian.
+                initialSolution.jacobianReliable = false;
                 candidates{end + 1} = initialSolution;
             elseif any(strcmp(algorithm, {'auto', 'fsolve'})) && ...
                     exist('fsolve', 'file') == 2
@@ -234,6 +236,18 @@ classdef RootSolver_v3
             attempt.jacobianEvaluationCount = jacobianEvaluations;
             attempt.finalJacobian = [];
             attempt.jacobianReliable = solved.jacobianReliable;
+            attempt.derivativeModel = obj.derivativeModelName();
+            attempt.derivativeEvaluated = jacobianEvaluations > 0;
+            attempt.acceptedNewtonIterations = obj.outputMember( ...
+                solved.output, 'acceptedIterations', 0);
+            attempt.invalidTrialCount = obj.outputMember( ...
+                solved.output, 'invalidTrialCount', 0);
+            attempt.jacobianDiagnostics = obj.outputMember( ...
+                solved.output, 'jacobianInfo', struct());
+            attempt.selectedFiniteDifferenceSteps = obj.outputMember( ...
+                attempt.jacobianDiagnostics, 'selectedSteps', []);
+            attempt.perColumnReliability = obj.outputMember( ...
+                attempt.jacobianDiagnostics, 'perColumnReliability', []);
             if ~isempty(solved.jacobian)
                 attempt.finalJacobian = solved.jacobian * diag(1 ./ stateScale);
             end
@@ -250,6 +264,16 @@ classdef RootSolver_v3
                     residual, attempt.state, p, q);
                 attempt.orbit = obj.createOrbit( ...
                     residual, attempt.state, p, q, evalInfo);
+                attempt.cyclicEventSignature = obj.infoMember(evalInfo, ...
+                    {'cyclic_event_signature', 'cyclicEventSignature', ...
+                     'cycle_signature', 'cycleSignature'}, '');
+                attempt.sectionRelativeSignature = obj.infoMember(evalInfo, ...
+                    {'section_relative_event_signature', ...
+                     'sectionRelativeEventSignature', ...
+                     'section_event_signature', 'sectionEventSignature'}, '');
+                attempt.eventClusterSignature = obj.infoMember(evalInfo, ...
+                    {'event_cluster_signature', 'eventClusterSignature', ...
+                     'cluster_signature', 'clusterSignature'}, '');
             catch ME
                 attempt.converged = false;
                 attempt.message = ME.message;
@@ -788,21 +812,71 @@ classdef RootSolver_v3
                 return
             end
             multiplicityFields = {'return_multiplicity', 'returnMultiplicity'};
-            for index = 1:numel(multiplicityFields)
-                field = multiplicityFields{index};
-                if isfield(left, field) && isfield(right, field) && ...
-                        ~isequal(left.(field), right.(field))
+            [leftMultiplicity, leftPresent] = obj.firstPresent( ...
+                left, multiplicityFields);
+            [rightMultiplicity, rightPresent] = obj.firstPresent( ...
+                right, multiplicityFields);
+            if xor(leftPresent, rightPresent) || ...
+                    (leftPresent && rightPresent && ...
+                     ~isequal(leftMultiplicity, rightMultiplicity))
+                compatible = false;
+                return
+            end
+            signatureGroups = { ...
+                {'cyclic_event_signature', 'cyclicEventSignature', ...
+                 'cycle_signature', 'cycleSignature'}, ...
+                {'section_relative_event_signature', ...
+                 'sectionRelativeEventSignature', ...
+                 'section_event_signature', 'sectionEventSignature'}, ...
+                {'event_cluster_signature', 'eventClusterSignature', ...
+                 'cluster_signature', 'clusterSignature'}};
+            for groupIndex = 1:numel(signatureGroups)
+                fields = signatureGroups{groupIndex};
+                [leftValue, leftPresent] = obj.firstPresent(left, fields);
+                [rightValue, rightPresent] = obj.firstPresent(right, fields);
+                if xor(leftPresent, rightPresent) || ...
+                        (leftPresent && rightPresent && ...
+                         ~isequal(string(leftValue), string(rightValue)))
                     compatible = false;
                     return
                 end
             end
-            signatureFields = {'cyclic_event_signature', ...
-                'cyclicEventSignature', 'cycle_signature', 'cycleSignature'};
-            for index = 1:numel(signatureFields)
-                field = signatureFields{index};
-                if isfield(left, field) && isfield(right, field) && ...
-                        ~isequal(string(left.(field)), string(right.(field)))
-                    compatible = false;
+        end
+
+        function name = derivativeModelName(obj)
+            if isa(obj.Jacobian, 'HybridFiniteDifferenceJacobian_v3')
+                name = 'hybrid-topology-compatible-finite-difference';
+            elseif isa(obj.Jacobian, 'FiniteDifferenceJacobian_v3')
+                name = 'ordinary-finite-difference';
+            else
+                name = class(obj.Jacobian);
+            end
+        end
+
+        function value = outputMember(~, source, name, defaultValue)
+            value = defaultValue;
+            if isstruct(source) && isfield(source, name)
+                value = source.(name);
+            end
+        end
+
+        function value = infoMember(obj, source, names, defaultValue)
+            [value, present] = obj.firstPresent(source, names);
+            if ~present
+                value = defaultValue;
+            end
+        end
+
+        function [value, present] = firstPresent(~, source, names)
+            value = [];
+            present = false;
+            if ~isstruct(source)
+                return
+            end
+            for index = 1:numel(names)
+                if isfield(source, names{index})
+                    value = source.(names{index});
+                    present = true;
                     return
                 end
             end
@@ -898,7 +972,15 @@ classdef RootSolver_v3
                 'functionEvaluationCount', 0, 'mapEvaluationCount', 0, ...
                 'cacheHitCount', 0, 'invalidEvaluationCount', 0, ...
                 'jacobianEvaluationCount', 0, 'finalJacobian', [], ...
-                'jacobianReliable', false);
+                'jacobianReliable', false, ...
+                'derivativeModel', '', 'derivativeEvaluated', false, ...
+                'acceptedNewtonIterations', 0, ...
+                'invalidTrialCount', 0, 'jacobianDiagnostics', struct(), ...
+                'selectedFiniteDifferenceSteps', [], ...
+                'perColumnReliability', [], ...
+                'cyclicEventSignature', '', ...
+                'sectionRelativeSignature', '', ...
+                'eventClusterSignature', '');
         end
 
         function solved = emptySolved(~)

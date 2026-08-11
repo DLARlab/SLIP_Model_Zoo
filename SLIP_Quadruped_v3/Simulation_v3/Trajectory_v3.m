@@ -15,6 +15,7 @@ classdef Trajectory_v3 < handle
         event_type = strings(0, 1)
         event_time = zeros(0, 1)
         event_history
+        event_batches
 
         termination_reason = "not_terminated"
         termination_time = NaN
@@ -28,6 +29,7 @@ classdef Trajectory_v3 < handle
     methods
         function obj = Trajectory_v3(time, state, mode)
             obj.event_history = Trajectory_v3.emptyEventHistory();
+            obj.event_batches = Trajectory_v3.emptyEventBatchHistory();
             obj.termination = Trajectory_v3.makeTermination( ...
                 "not_terminated", NaN, [], [], struct());
 
@@ -64,6 +66,14 @@ classdef Trajectory_v3 < handle
             obj.event_time(end + 1, 1) = entry.time;
         end
 
+        function index = recordEventBatch(obj, entry)
+            %RECORDEVENTBATCH Store one physical simultaneous-event record.
+            entry = Trajectory_v3.normalizeEventBatch(entry, ...
+                numel(obj.event_batches) + 1);
+            obj.event_batches(end + 1, 1) = entry;
+            index = entry.index;
+        end
+
         function setTermination(obj, reason, time, state, mode, metadata)
             if nargin < 6 || isempty(metadata)
                 metadata = struct();
@@ -89,9 +99,21 @@ classdef Trajectory_v3 < handle
             if ~isempty(other.time)
                 obj.appendRaw(other.time, other.state, other.mode);
             end
+            batchOffset = numel(obj.event_batches);
+            for k = 1:numel(other.event_batches)
+                entry = other.event_batches(k);
+                entry.index = numel(obj.event_batches) + 1;
+                obj.recordEventBatch(entry);
+            end
             for k = 1:numel(other.event_history)
                 entry = other.event_history(k);
                 entry.index = numel(obj.event_history) + 1;
+                if isstruct(entry.metadata) && isscalar(entry.metadata) ...
+                        && isfield(entry.metadata, 'event_batch_index') ...
+                        && ~isempty(entry.metadata.event_batch_index)
+                    entry.metadata.event_batch_index = ...
+                        entry.metadata.event_batch_index + batchOffset;
+                end
                 obj.recordEvent(entry);
             end
 
@@ -132,6 +154,22 @@ classdef Trajectory_v3 < handle
                 'priority', NaN, ...
                 'is_stop', false, ...
                 'metadata', struct());
+            history = repmat(prototype, 0, 1);
+        end
+
+        function history = emptyEventBatchHistory()
+            prototype = struct( ...
+                'index', 0, ...
+                'time', NaN, ...
+                'event_ids', {cell(0, 1)}, ...
+                'event_names', strings(0, 1), ...
+                'priorities', zeros(0, 1), ...
+                'state_before', [], ...
+                'state_after', [], ...
+                'mode_before', [], ...
+                'mode_after', [], ...
+                'semantics', "", ...
+                'batch_info', struct());
             history = repmat(prototype, 0, 1);
         end
     end
@@ -325,6 +363,34 @@ classdef Trajectory_v3 < handle
             end
             normalized.type = string(normalized.type);
             normalized.guard_name = string(normalized.guard_name);
+            entry = normalized;
+        end
+
+        function entry = normalizeEventBatch(entry, index)
+            if ~isstruct(entry) || ~isscalar(entry)
+                error('Trajectory_v3:InvalidEventBatch', ...
+                    'Event-batch history entries must be scalar structures.');
+            end
+            defaults = struct( ...
+                'index', index, 'time', NaN, ...
+                'event_ids', {cell(0, 1)}, ...
+                'event_names', strings(0, 1), ...
+                'priorities', zeros(0, 1), ...
+                'state_before', [], 'state_after', [], ...
+                'mode_before', [], 'mode_after', [], ...
+                'semantics', "", 'batch_info', struct());
+            names = fieldnames(defaults);
+            normalized = defaults;
+            for k = 1:numel(names)
+                name = names{k};
+                if isfield(entry, name)
+                    normalized.(name) = entry.(name);
+                end
+            end
+            normalized.index = index;
+            normalized.event_names = string(normalized.event_names(:));
+            normalized.priorities = normalized.priorities(:);
+            normalized.semantics = string(normalized.semantics);
             entry = normalized;
         end
 

@@ -29,9 +29,11 @@ classdef BifurcationDetector_v3
                 obj.extractSeries(data, varargin{:});
             tracks = obj.trackMultipliers( ...
                 multipliers, eigenvectors, coordinate, parameters, reliability);
-            topologyCompatibility = obj.topologyCompatibility( ...
+            [topologyCompatibility, topologyEvidenceComplete] = ...
+                obj.topologyCompatibility( ...
                 data, numel(reliability));
             tracks.topologyCompatible = topologyCompatibility;
+            tracks.topologyEvidenceComplete = topologyEvidenceComplete;
             events = repmat(obj.emptyEvent(), 1, 0);
             lambda = tracks.multipliers;
             if isempty(lambda) || size(lambda, 2) < 2
@@ -220,7 +222,10 @@ classdef BifurcationDetector_v3
 
             series = cell(1, count);
             vectors = cell(1, count);
-            reliability = true(1, count);
+            % Continuation-branch stability is production hybrid data.  It
+            % must carry affirmative reliability evidence; a missing field
+            % is not equivalent to a validated Floquet calculation.
+            reliability = false(1, count);
             for k = 1:count
                 [series{k}, vectors{k}, reliability(k)] = ...
                     obj.unpackStability(items{k});
@@ -249,7 +254,7 @@ classdef BifurcationDetector_v3
         function [lambda, vectors, reliable] = unpackStability(obj, item)
             lambda = [];
             vectors = [];
-            reliable = true;
+            reliable = false;
             if isempty(item)
                 error('BifurcationDetector_v3:EmptyStability', ...
                     'A continuation point has no stability result.');
@@ -264,7 +269,7 @@ classdef BifurcationDetector_v3
                         lambda = obj.member(nested, 'multipliers', []);
                     end
                     vectors = obj.member(nested, 'eigenvectors', []);
-                    reliable = obj.member(nested, 'reliable', true);
+                    reliable = obj.member(nested, 'reliable', false);
                 end
             elseif isstruct(item)
                 lambda = obj.member(item, 'multipliers', []);
@@ -275,10 +280,10 @@ classdef BifurcationDetector_v3
                         isstruct(item.stability)
                     lambda = obj.member(item.stability, 'multipliers', []);
                     vectors = obj.member(item.stability, 'eigenvectors', []);
-                    reliable = obj.member(item.stability, 'reliable', true);
+                    reliable = obj.member(item.stability, 'reliable', false);
                 else
                     vectors = obj.member(item, 'eigenvectors', []);
-                    reliable = obj.member(item, 'reliable', true);
+                    reliable = obj.member(item, 'reliable', false);
                 end
             end
             if isempty(lambda) || ~isnumeric(lambda)
@@ -286,7 +291,8 @@ classdef BifurcationDetector_v3
                     'A stability result does not contain multipliers.');
             end
             lambda = lambda(:);
-            reliable = logical(reliable) && all(isfinite(lambda));
+            reliable = isscalar(reliable) && logical(reliable) && ...
+                all(isfinite(lambda));
         end
 
         function validateSeriesLengths(~, series, coordinate, reliability)
@@ -477,12 +483,18 @@ classdef BifurcationDetector_v3
             event.bracketWidth = abs(event.rightCoordinate - event.leftCoordinate);
         end
 
-        function compatible = topologyCompatibility(obj, data, count)
+        function [compatible, evidenceComplete] = ...
+                topologyCompatibility(obj, data, count)
             compatible = true(1, max(0, count - 1));
+            evidenceComplete = true(1, max(0, count - 1));
             if count < 2 || ~isstruct(data)
                 return
             end
             signatures = obj.member(data, 'cyclic_signature', {});
+            sectionSignatures = obj.member( ...
+                data, 'section_relative_signature', {});
+            clusterSignatures = obj.member( ...
+                data, 'event_cluster_signature', {});
             multiplicity = obj.member(data, 'return_multiplicity', []);
             boundaries = obj.member(data, 'topology_boundary', []);
             points = obj.member(data, 'points', []);
@@ -494,25 +506,80 @@ classdef BifurcationDetector_v3
                     isfield(points, 'return_multiplicity')
                 multiplicity = [points.return_multiplicity];
             end
+            if isempty(sectionSignatures) && ~isempty(points) && ...
+                    isfield(points, 'section_relative_signature')
+                sectionSignatures = {points.section_relative_signature};
+            end
+            if isempty(clusterSignatures) && ~isempty(points) && ...
+                    isfield(points, 'event_cluster_signature')
+                clusterSignatures = {points.event_cluster_signature};
+            end
             if isempty(boundaries) && ~isempty(points) && ...
                     isfield(points, 'topologyBoundary')
                 boundaries = [points.topologyBoundary];
             end
+            sectionClusterCoincidence = obj.member( ...
+                data, 'section_cluster_coincidence', []);
+            if isempty(sectionClusterCoincidence) && ~isempty(points) && ...
+                    isfield(points, 'section_cluster_coincidence')
+                sectionClusterCoincidence = ...
+                    [points.section_cluster_coincidence];
+            end
+            sectionCoincidentEvents = obj.member( ...
+                data, 'section_coincident_events', {});
+            if isempty(sectionCoincidentEvents) && ~isempty(points) && ...
+                    isfield(points, 'section_coincident_events')
+                sectionCoincidentEvents = {points.section_coincident_events};
+            end
             for index = 1:numel(compatible)
-                if numel(signatures) >= index + 1
-                    compatible(index) = compatible(index) && ...
-                        isequal(string(signatures{index}), ...
-                            string(signatures{index + 1}));
+                cyclicPair = obj.signaturePair(signatures, index);
+                sectionPair = obj.signaturePair(sectionSignatures, index);
+                clusterPair = obj.signaturePair(clusterSignatures, index);
+                multiplicityPair = numel(multiplicity) >= index + 1 && ...
+                    isnumeric(multiplicity) && ...
+                    all(isfinite(double(multiplicity(index:index + 1))));
+                boundaryPair = numel(boundaries) >= index + 1 && ...
+                    (isnumeric(boundaries) || islogical(boundaries)) && ...
+                    all(isfinite(double(boundaries(index:index + 1))));
+                evidenceComplete(index) = cyclicPair.complete && ...
+                    sectionPair.complete && clusterPair.complete && ...
+                    multiplicityPair && boundaryPair;
+                compatible(index) = evidenceComplete(index) && ...
+                    cyclicPair.equal && sectionPair.equal && ...
+                    clusterPair.equal && ...
+                    multiplicity(index) == multiplicity(index + 1) && ...
+                    ~logical(boundaries(index)) && ...
+                    ~logical(boundaries(index + 1));
+                if compatible(index) && ...
+                        numel(sectionClusterCoincidence) >= index + 1
+                    compatible(index) = ~logical( ...
+                        sectionClusterCoincidence(index)) && ...
+                        ~logical(sectionClusterCoincidence(index + 1));
                 end
-                if numel(multiplicity) >= index + 1
-                    compatible(index) = compatible(index) && ...
-                        isequal(multiplicity(index), multiplicity(index + 1));
-                end
-                if numel(boundaries) >= index + 1
-                    compatible(index) = compatible(index) && ...
-                        ~logical(boundaries(index + 1));
+                if compatible(index) && ...
+                        numel(sectionCoincidentEvents) >= index + 1
+                    compatible(index) = isempty( ...
+                        sectionCoincidentEvents{index}) && isempty( ...
+                        sectionCoincidentEvents{index + 1});
                 end
             end
+        end
+
+        function pair = signaturePair(~, values, index)
+            pair = struct('complete', false, 'equal', false);
+            if isstring(values)
+                values = cellstr(values);
+            elseif ischar(values)
+                values = {values};
+            end
+            if ~iscell(values) || numel(values) < index + 1
+                return
+            end
+            left = string(values{index});
+            right = string(values{index + 1});
+            pair.complete = isscalar(left) && isscalar(right) && ...
+                strlength(left) > 0 && strlength(right) > 0;
+            pair.equal = pair.complete && left == right;
         end
 
         function events = appendUnique(obj, events, candidate)

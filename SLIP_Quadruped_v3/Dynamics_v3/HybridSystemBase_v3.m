@@ -190,6 +190,63 @@ classdef HybridSystemBase_v3 < handle
             qplus = obj.validateMode(qplus);
         end
 
+        function [xplus, qplus, batchInfo] = resolveEventBatch(obj, ...
+                eventIds, t, xminus, qminus, p)
+            %RESOLVEEVENTBATCH Resolve one simultaneous physical-event batch.
+            %
+            % The generic contract deliberately makes no commutativity
+            % assumption.  Its backward-compatible fallback applies scalar
+            % reset/transition pairs in the supplied order and labels that
+            % choice explicitly.  Models with independent resets or coupled
+            % impacts should override this method with their physical batch
+            % semantics.
+            xminus = obj.validateState(xminus);
+            qminus = obj.validateMode(qminus);
+            p = obj.validateParameter(p);
+            sequence = HybridSystemBase_v3.eventSequence(eventIds);
+            if isempty(sequence)
+                error('HybridSystemBase_v3:EmptyEventBatch', ...
+                    'A physical event batch must contain at least one event.');
+            end
+
+            count = numel(sequence);
+            statesBefore = cell(count, 1);
+            statesAfter = cell(count, 1);
+            modesBefore = cell(count, 1);
+            modesAfter = cell(count, 1);
+            xwork = xminus;
+            qwork = qminus;
+            for index = 1:count
+                statesBefore{index} = xwork;
+                modesBefore{index} = qwork;
+                xwork = obj.reset(sequence{index}, t, xwork, qwork, p);
+                qwork = obj.transition(sequence{index}, qwork);
+                statesAfter{index} = xwork;
+                modesAfter{index} = qwork;
+            end
+
+            xplus = obj.validateState(xwork);
+            qplus = obj.validateMode(qwork);
+            batchInfo = struct( ...
+                'semantics', "ordered-sequential-fallback", ...
+                'atomic', false, ...
+                'fallback', true, ...
+                'event_ids', {sequence}, ...
+                'event_count', count, ...
+                'state_before', xminus, ...
+                'state_after', xplus, ...
+                'mode_before', qminus, ...
+                'mode_after', qplus, ...
+                'event_states_before', {statesBefore}, ...
+                'event_states_after', {statesAfter}, ...
+                'event_modes_before', {modesBefore}, ...
+                'event_modes_after', {modesAfter}, ...
+                'commutativity_checked', false, ...
+                'reset_order_commutes', NaN, ...
+                'transition_order_commutes', NaN, ...
+                'commutativity_error', NaN);
+        end
+
         function qAdjacent = adjacentMode(obj, eventId, q)
             %ADJACENTMODE Return the local chart across a guard surface.
             % The generic fallback is the forward transition. Models whose
@@ -396,6 +453,26 @@ classdef HybridSystemBase_v3 < handle
     end
 
     methods (Static, Access = private)
+        function sequence = eventSequence(eventIds)
+            % Return a cell column without imposing an event-ID type.
+            if ischar(eventIds) || ...
+                    (isstring(eventIds) && isscalar(eventIds))
+                sequence = {eventIds};
+            elseif iscell(eventIds)
+                sequence = eventIds(:);
+            elseif isstring(eventIds)
+                sequence = num2cell(eventIds(:));
+            elseif isnumeric(eventIds) || islogical(eventIds)
+                sequence = num2cell(eventIds(:));
+            elseif isscalar(eventIds)
+                sequence = {eventIds};
+            else
+                error('HybridSystemBase_v3:InvalidEventBatch', ...
+                    ['EVENTIDS must be a scalar event identifier or a ', ...
+                     'vector/cell array of event identifiers.']);
+            end
+        end
+
         function config = parseConfiguration(varargin)
             config = struct();
             if isempty(varargin)

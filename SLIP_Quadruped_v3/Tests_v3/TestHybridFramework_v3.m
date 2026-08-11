@@ -221,6 +221,8 @@ classdef TestHybridFramework_v3 < matlab.unittest.TestCase
                     'reliable', false)};
             branch.continuationCoordinate = [0, 1];
             branch.cyclic_signature = {'A', 'A'};
+            branch.section_relative_signature = {'A', 'A'};
+            branch.event_cluster_signature = {'{A}', '{A}'};
             branch.return_multiplicity = [1, 1];
             branch.topology_boundary = [false, false];
             [rejected, rejectedTracks] = detector.detect(branch);
@@ -243,6 +245,9 @@ classdef TestHybridFramework_v3 < matlab.unittest.TestCase
                     'reliable', true)};
             nanBranch.continuationCoordinate = [0, 0.5, 1];
             nanBranch.cyclic_signature = {'A', 'A', 'A'};
+            nanBranch.section_relative_signature = {'A', 'A', 'A'};
+            nanBranch.event_cluster_signature = ...
+                {'{A}', '{A}', '{A}'};
             nanBranch.return_multiplicity = [1, 1, 1];
             nanBranch.topology_boundary = [false, false, false];
             [nanEvents, nanTracks] = detector.detect(nanBranch);

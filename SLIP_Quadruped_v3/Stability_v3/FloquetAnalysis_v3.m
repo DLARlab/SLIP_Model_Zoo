@@ -6,6 +6,7 @@ classdef FloquetAnalysis_v3
 
     properties
         TangentIndices = []
+        TangentBasis = []
         Differencing = 'hybrid'
         RelativeStep = []
         Jacobian = []
@@ -13,10 +14,14 @@ classdef FloquetAnalysis_v3
         RequireDiscreteClosure = true
         RequireCycleCompletion = true
         RequireMatchingEventSignature = true
+        RequireCompatibleSectionSignature = true
+        RequireCompatibleClusterSignature = true
+        ThrowOnTopologyChange = false
         ProjectionFunction = []
         ComputeAmbientJacobian = false
         MinimumGuardTransversality = 1e-7
         MinimumSectionTransversality = 1e-8
+        MaximumSubspaceLeakage = 1e-6
     end
 
     methods
@@ -44,13 +49,19 @@ classdef FloquetAnalysis_v3
             x = x(:);
             p = p(:);
             xTemplate = local.projectState(map, x, p);
-            indices = local.resolveTangentIndices(map, numel(xTemplate));
-            eta0 = xTemplate(indices);
+            [indices, tangentBasis, basisLeftInverse] = ...
+                local.resolveTangentChart(map, numel(xTemplate));
+            if isempty(tangentBasis)
+                eta0 = xTemplate(indices);
+            else
+                eta0 = zeros(size(tangentBasis, 2), 1);
+            end
 
             evaluations = repmat(struct( ...
                 'coordinates', [], 'state', [], 'nextState', [], ...
                 'mapInfo', struct(), 'eventSignature', '', ...
-                'discreteClosed', true), 1, 0);
+                'discreteClosed', true, 'subspaceLeakage', 0), 1, 0);
+            baseReturnedState = [];
             ambientEvaluations = repmat(struct( ...
                 'state', [], 'projectedState', [], 'nextState', [], ...
                 'mapInfo', struct(), 'eventSignature', '', ...
@@ -61,6 +72,12 @@ classdef FloquetAnalysis_v3
                     arguments = { ...
                         'RequireDiscreteClosure', local.RequireDiscreteClosure, ...
                         'RequireCycleCompletion', local.RequireCycleCompletion, ...
+                        'RequireCompatibleCyclicSignature', ...
+                            local.RequireMatchingEventSignature, ...
+                        'RequireCompatibleSectionSignature', ...
+                            local.RequireCompatibleSectionSignature, ...
+                        'RequireCompatibleClusterSignature', ...
+                            local.RequireCompatibleClusterSignature, ...
                         'MinimumGuardTransversality', ...
                             local.MinimumGuardTransversality, ...
                         'MinimumSectionTransversality', ...
@@ -86,8 +103,9 @@ classdef FloquetAnalysis_v3
             hybridDifferencing = isa(fd, ...
                 'HybridFiniteDifferenceJacobian_v3');
             [DP, etaNext, fdInfo] = fd.compute(@reducedReturn, eta0);
-            if size(DP, 1) ~= numel(indices) || ...
-                    size(DP, 2) ~= numel(indices)
+            chartDimension = numel(eta0);
+            if size(DP, 1) ~= chartDimension || ...
+                    size(DP, 2) ~= chartDimension
                 error('FloquetAnalysis_v3:MapDimension', ...
                     ['The reduced return map must preserve chart dimension; ' ...
                      'received a %d-by-%d derivative.'], ...
@@ -126,19 +144,25 @@ classdef FloquetAnalysis_v3
             end
 
             signatures = {evaluations.eventSignature};
+            adjacentSectionSignatures = {};
             if isempty(signatures)
                 baseSignature = '';
+                baseSectionSignature = '';
                 matchingSignatures = true;
+                matchingSectionSignatures = true;
                 baseInfo = struct();
             else
                 baseSignature = signatures{1};
                 baseInfo = evaluations(1).mapInfo;
+                baseSectionSignature = local.sectionSignature(baseInfo);
+                adjacentSectionSignatures = {baseSectionSignature};
                 if hybridDifferencing
                     % Only the selected h/h2 plateau defines DP. Exploratory
                     % larger steps may cross topology and be rejected by the
                     % hybrid differentiator; they must not invalidate a
                     % smaller compatible selected plateau.
                     matchingSignatures = true;
+                    matchingSectionSignatures = true;
                     columns = local.member(fdInfo, 'columns', struct([]));
                     for columnIndex = 1:numel(columns)
                         candidates = columns(columnIndex).candidates;
@@ -147,33 +171,51 @@ classdef FloquetAnalysis_v3
                                 selectedIndex < 1 || ...
                                 selectedIndex > numel(candidates)
                             matchingSignatures = false;
+                            matchingSectionSignatures = false;
                             break
                         end
                         selected = candidates(selectedIndex);
-                        if selected.topologyChanged
-                            matchingSignatures = false;
-                            break
-                        end
                         selectedSignatures = selected.eventSignatures;
                         selectedSignatures = selectedSignatures( ...
                             ~cellfun(@isempty, selectedSignatures));
                         if ~isempty(baseSignature) && ...
                                 any(~strcmp(baseSignature, selectedSignatures))
                             matchingSignatures = false;
-                            break
+                        end
+                        selectedSectionSignatures = selected.sectionSignatures;
+                        selectedSectionSignatures = selectedSectionSignatures( ...
+                            ~cellfun(@isempty, selectedSectionSignatures));
+                        adjacentSectionSignatures = [ ...
+                            adjacentSectionSignatures, ...
+                            selectedSectionSignatures]; %#ok<AGROW>
+                        if ~isempty(baseSectionSignature) && ...
+                                any(~strcmp(baseSectionSignature, ...
+                                    selectedSectionSignatures))
+                            matchingSectionSignatures = false;
                         end
                     end
                 else
                     matchingSignatures = ...
                         all(strcmp(baseSignature, signatures));
+                    sectionSignatures = arrayfun( ...
+                        @(entry) local.sectionSignature(entry.mapInfo), ...
+                        evaluations, 'UniformOutput', false);
+                    adjacentSectionSignatures = sectionSignatures;
+                    matchingSectionSignatures = isempty(sectionSignatures) || ...
+                        all(strcmp(baseSectionSignature, sectionSignatures));
                 end
             end
+            adjacentSectionSignatures = adjacentSectionSignatures( ...
+                ~cellfun(@isempty, adjacentSectionSignatures));
+            adjacentSectionSignatures = unique( ...
+                adjacentSectionSignatures, 'stable');
             if hybridDifferencing
                 baseMetadata = local.member( ...
                     fdInfo, 'baseMetadata', struct());
                 matchingClosure = local.member( ...
                     baseMetadata, 'discrete_closed', true);
-                matchingMultiplicity = matchingSignatures;
+                matchingMultiplicity = local.member( ...
+                    fdInfo, 'returnMultiplicityPreserved', false);
                 matchingCycleCompletion = ...
                     local.cycleComplete(baseMetadata);
             else
@@ -209,15 +251,26 @@ classdef FloquetAnalysis_v3
             hasSectionEventCoincidence = ~isempty(coincidentEvents) || ...
                 (isscalar(coincidenceCount) && isfinite(coincidenceCount) ...
                     && coincidenceCount > 0);
+            selectedSubspaceLeakage = local.selectedStencilLeakage( ...
+                evaluations, eta0, fdInfo, tangentBasis);
+            subspaceInvariant = selectedSubspaceLeakage <= ...
+                local.MaximumSubspaceLeakage;
             reliable = matchingClosure && matchingSignatures && ...
+                (~local.RequireCompatibleSectionSignature || ...
+                    matchingSectionSignatures) && ...
                 matchingMultiplicity && matchingCycleCompletion && ...
                 fdReliable && classicalDerivative && transverse && ...
-                ~hasSectionEventCoincidence && all(isfinite(DP(:)));
-            if local.RequireMatchingEventSignature && ~matchingSignatures
+                ~hasSectionEventCoincidence && subspaceInvariant && ...
+                all(isfinite(DP(:)));
+            if local.ThrowOnTopologyChange && ...
+                    ((local.RequireMatchingEventSignature && ...
+                        ~matchingSignatures) || ...
+                     (local.RequireCompatibleSectionSignature && ...
+                        ~matchingSectionSignatures))
                 error('FloquetAnalysis_v3:EventSignatureChanged', ...
-                    ['Finite-difference trials changed the physical event ' ...
-                     'sequence; a single smooth Floquet matrix is not valid ' ...
-                     'at this perturbation scale.']);
+                    ['Finite-difference trials changed the cyclic or ', ...
+                     'section-relative topology; a single smooth Floquet ', ...
+                     'matrix is not valid at this perturbation scale.']);
             end
 
             result = struct();
@@ -226,8 +279,12 @@ classdef FloquetAnalysis_v3
             result.jacobian = DP;
             result.multipliers = multipliers;
             result.eigenvectors = eigenvectors;
-            result.ambientEigenvectors = local.liftEigenvectors( ...
-                eigenvectors, indices, numel(xTemplate));
+            if isempty(tangentBasis)
+                result.ambientEigenvectors = local.liftEigenvectors( ...
+                    eigenvectors, indices, numel(xTemplate));
+            else
+                result.ambientEigenvectors = tangentBasis * eigenvectors;
+            end
             result.ambientJacobian = ambientDP;
             result.ambientPoincareMatrix = ambientDP;
             result.ambientReturnState = ambientNext;
@@ -240,18 +297,38 @@ classdef FloquetAnalysis_v3
             result.stable = strcmp(stability, 'stable');
             result.reliable = reliable;
             result.eventSignaturesMatch = matchingSignatures;
+            result.sectionSignaturesMatch = matchingSectionSignatures;
             result.discreteClosurePreserved = matchingClosure;
             result.eventSignature = baseSignature;
             result.cycleSignature = baseSignature;
+            result.sectionRelativeSignature = baseSectionSignature;
+            result.section_relative_signature = baseSectionSignature;
+            result.eventClusterSignature = local.member(baseInfo, ...
+                'event_cluster_signature', '');
+            result.event_cluster_signature = result.eventClusterSignature;
+            result.adjacentSectionSignatures = adjacentSectionSignatures;
+            result.adjacent_section_signatures = adjacentSectionSignatures;
+            result.hybridChartBoundary = hasSectionEventCoincidence || ...
+                ~matchingSectionSignatures;
             result.returnMultiplicity = local.member( ...
                 baseInfo, 'return_multiplicity', 1);
             result.return_multiplicity = result.returnMultiplicity;
             result.cycleCompletionPreserved = matchingCycleCompletion;
             result.returnMultiplicityPreserved = matchingMultiplicity;
+            result.forwardOneSidedPoincareMatrix = local.member( ...
+                fdInfo, 'forwardOneSidedJacobian', []);
+            result.backwardOneSidedPoincareMatrix = local.member( ...
+                fdInfo, 'backwardOneSidedJacobian', []);
+            result.forwardOneSidedAvailable = local.member( ...
+                fdInfo, 'forwardOneSidedAvailable', false);
+            result.backwardOneSidedAvailable = local.member( ...
+                fdInfo, 'backwardOneSidedAvailable', false);
             result.transversalityMargins = baseTransversality;
             result.sectionEventCoincidence = hasSectionEventCoincidence;
             result.sectionCoincidentEvents = coincidentEvents;
             result.tangentIndices = indices;
+            result.tangentBasis = tangentBasis;
+            result.symmetryRestricted = ~isempty(tangentBasis);
             result.baseState = xTemplate;
             result.baseCoordinates = eta0;
             result.returnCoordinates = etaNext;
@@ -263,10 +340,18 @@ classdef FloquetAnalysis_v3
                 fdInfo, 'columns', struct([]));
             result.perColumnReliability = local.member( ...
                 fdInfo, 'perColumnReliability', true(size(DP, 2), 1));
+            result.selectedSubspaceLeakage = selectedSubspaceLeakage;
+            result.subspaceInvariant = subspaceInvariant;
             if hasSectionEventCoincidence
                 result.warning = ['The base return has a section/event ', ...
                     'coincidence; a unique smooth Floquet matrix is ', ...
                     'unresolved at this hybrid boundary.'];
+            elseif local.RequireCompatibleSectionSignature && ...
+                    ~matchingSectionSignatures
+                result.warning = ['Finite-difference trials entered ', ...
+                    'different section-relative event charts; one-sided ', ...
+                    'limits are diagnostic but no unique classical ', ...
+                    'Floquet matrix is defined.'];
             elseif ~fdReliable || ~classicalDerivative
                 result.warning = ['Finite-difference columns did not define ', ...
                     'a converged unique classical hybrid derivative.'];
@@ -276,13 +361,25 @@ classdef FloquetAnalysis_v3
             elseif ~matchingClosure
                 result.warning = ['A finite-difference trial did not return ' ...
                     'to the initial discrete mode.'];
+            elseif ~matchingMultiplicity
+                result.warning = ['Finite-difference trials changed the ', ...
+                    'accepted return multiplicity; no single cycle-return ', ...
+                    'derivative is defined by this stencil.'];
+            elseif ~subspaceInvariant
+                result.warning = ['The selected return-map stencil leaks ', ...
+                    'outside the supplied symmetry/tangent subspace; ', ...
+                    'block multipliers are not invariantly defined.'];
             else
                 result.warning = '';
             end
 
             function [coordinatesNext, metadata] = reducedReturn(coordinates, varargin)
-                trial = xTemplate;
-                trial(indices) = coordinates(:);
+                if isempty(tangentBasis)
+                    trial = xTemplate;
+                    trial(indices) = coordinates(:);
+                else
+                    trial = xTemplate + tangentBasis * coordinates(:);
+                end
                 trial = local.projectState(map, trial, p);
                 [nextState, mapInfo] = local.evaluateMap( ...
                     map, trial, q, p, varargin{:});
@@ -299,7 +396,27 @@ classdef FloquetAnalysis_v3
                     error('FloquetAnalysis_v3:DiscreteClosure', ...
                         'A perturbed return did not close in the discrete mode.');
                 end
-                coordinatesNext = nextState(indices);
+                if isempty(tangentBasis)
+                    coordinatesNext = nextState(indices);
+                    subspaceLeakage = 0;
+                else
+                    coordinatesNext = basisLeftInverse * ...
+                        (nextState - xTemplate);
+                    if isempty(baseReturnedState)
+                        baseReturnedState = nextState;
+                        subspaceLeakage = 0;
+                    else
+                        returnedPerturbation = ...
+                            nextState - baseReturnedState;
+                        transversePerturbation = returnedPerturbation ...
+                            - tangentBasis * (basisLeftInverse ...
+                                * returnedPerturbation);
+                        subspaceLeakage = norm( ...
+                            transversePerturbation, 2) / max( ...
+                                norm(returnedPerturbation, 2), sqrt(eps));
+                    end
+                end
+                mapInfo.subspace_leakage = subspaceLeakage;
                 record = struct();
                 record.coordinates = coordinates(:);
                 record.state = trial;
@@ -307,6 +424,7 @@ classdef FloquetAnalysis_v3
                 record.mapInfo = mapInfo;
                 record.eventSignature = local.eventSignature(mapInfo);
                 record.discreteClosed = discreteClosed;
+                record.subspaceLeakage = subspaceLeakage;
                 evaluations(end + 1) = record;
                 metadata = local.hybridMetadata(mapInfo, discreteClosed);
             end
@@ -387,6 +505,52 @@ classdef FloquetAnalysis_v3
     end
 
     methods (Access = private)
+        function leakage = selectedStencilLeakage(obj, evaluations, ...
+                baseCoordinates, fdInfo, tangentBasis)
+            if isempty(tangentBasis)
+                leakage = 0;
+                return
+            end
+            if isempty(evaluations)
+                leakage = Inf;
+                return
+            end
+            columns = obj.member(fdInfo, 'columns', struct([]));
+            if isempty(columns)
+                leakage = max([evaluations.subspaceLeakage]);
+                return
+            end
+            leakage = 0;
+            for columnIndex = 1:numel(columns)
+                step = columns(columnIndex).selectedStep;
+                if ~(isscalar(step) && isfinite(step) && step > 0)
+                    leakage = Inf;
+                    return
+                end
+                direction = zeros(numel(baseCoordinates), 1);
+                direction(columnIndex) = 1;
+                targets = [ ...
+                    baseCoordinates + step .* direction, ...
+                    baseCoordinates - step .* direction, ...
+                    baseCoordinates + 0.5 .* step .* direction, ...
+                    baseCoordinates - 0.5 .* step .* direction];
+                for targetIndex = 1:size(targets, 2)
+                    distances = arrayfun(@(entry) norm( ...
+                        entry.coordinates(:) - ...
+                            targets(:, targetIndex), Inf), evaluations);
+                    [distance, match] = min(distances);
+                    tolerance = 128 * eps(max(1, ...
+                        norm(targets(:, targetIndex), Inf)));
+                    if isempty(match) || distance > tolerance
+                        leakage = Inf;
+                        return
+                    end
+                    leakage = max(leakage, ...
+                        evaluations(match).subspaceLeakage);
+                end
+            end
+        end
+
         function state = projectState(obj, map, state, p)
             state = state(:);
             if ~isempty(obj.ProjectionFunction)
@@ -423,6 +587,29 @@ classdef FloquetAnalysis_v3
                 error('FloquetAnalysis_v3:TangentIndices', ...
                     'TangentIndices must be unique valid state indices.');
             end
+        end
+
+        function [indices, basis, leftInverse] = ...
+                resolveTangentChart(obj, map, n)
+            basis = obj.TangentBasis;
+            leftInverse = [];
+            if isempty(basis)
+                indices = obj.resolveTangentIndices(map, n);
+                return
+            end
+            if ~(isnumeric(basis) && isreal(basis) && ...
+                    size(basis, 1) == n && size(basis, 2) >= 1 && ...
+                    all(isfinite(basis(:))))
+                error('FloquetAnalysis_v3:TangentBasis', ...
+                    ['TangentBasis must be a finite real n-by-r matrix ', ...
+                     'with n equal to the state dimension.']);
+            end
+            if rank(basis) ~= size(basis, 2)
+                error('FloquetAnalysis_v3:TangentBasisRank', ...
+                    'TangentBasis columns must be linearly independent.');
+            end
+            leftInverse = (basis.' * basis) \ basis.';
+            indices = [];
         end
 
         function [next, info] = evaluateMap(obj, map, x, q, p, varargin)
@@ -557,6 +744,22 @@ classdef FloquetAnalysis_v3
             end
         end
 
+        function signature = sectionSignature(obj, info)
+            signature = obj.memberAny(info, { ...
+                'section_relative_event_signature', ...
+                'sectionRelativeEventSignature', 'event_signature', ...
+                'eventSignature'}, '');
+            if isstring(signature)
+                signature = char(strjoin(signature(:), '>'));
+            elseif iscell(signature)
+                signature = char(strjoin(string(signature(:)), '>'));
+            elseif isnumeric(signature) || islogical(signature)
+                signature = mat2str(signature);
+            elseif ~ischar(signature)
+                signature = '';
+            end
+        end
+
         function tf = cycleComplete(obj, info)
             tf = obj.memberAny(info, ...
                 {'cycle_complete', 'cycleComplete', ...
@@ -580,8 +783,10 @@ classdef FloquetAnalysis_v3
             metadata.cyclic_event_signature = obj.eventSignature(info);
             metadata.section_relative_event_signature = obj.memberAny(info, ...
                 {'section_relative_event_signature', ...
-                 'sectionRelativeEventSignature', 'event_signature'}, ...
-                metadata.cyclic_event_signature);
+                 'sectionRelativeEventSignature', 'event_signature'}, '');
+            metadata.event_cluster_signature = obj.memberAny(info, ...
+                {'event_cluster_signature', 'eventClusterSignature', ...
+                 'cluster_signature', 'clusterSignature'}, '');
             margins = obj.transversalityMargins(info);
             metadata.guard_transversality_margin = margins.guard;
             metadata.section_transversality = margins.section;
@@ -605,10 +810,17 @@ classdef FloquetAnalysis_v3
                 'return_policy_accepted'});
             multiplicityEvidence = obj.hasAnyField(info, { ...
                 'return_multiplicity', 'returnMultiplicity'});
-            cyclicSignatureEvidence = obj.hasAnyField(info, { ...
+            cyclicSignatureEvidence = obj.hasAnyNonemptyField(info, { ...
                 'cyclic_event_signature', 'cyclicEventSignature', ...
                 'cycle_signature', 'cycleSignature', 'event_sequence', ...
                 'eventSequence', 'event_history'});
+            sectionSignatureEvidence = obj.hasAnyNonemptyField(info, { ...
+                'section_relative_event_signature', ...
+                'sectionRelativeEventSignature', 'event_signature', ...
+                'eventSignature'});
+            clusterSignatureEvidence = obj.hasAnyNonemptyField(info, { ...
+                'event_cluster_signature', 'eventClusterSignature', ...
+                'cluster_signature', 'clusterSignature'});
             guardEvidence = obj.hasAnyField(info, { ...
                 'guard_transversality_margin', ...
                 'minimum_guard_transversality'});
@@ -618,12 +830,30 @@ classdef FloquetAnalysis_v3
             complete = (~obj.RequireDiscreteClosure || closureEvidence) && ...
                 (~obj.RequireCycleCompletion || cycleEvidence) && ...
                 multiplicityEvidence && cyclicSignatureEvidence && ...
+                (~obj.RequireCompatibleSectionSignature || ...
+                    sectionSignatureEvidence) && ...
+                (~obj.RequireCompatibleClusterSignature || ...
+                    clusterSignatureEvidence) && ...
                 guardEvidence && sectionEvidence;
         end
 
         function tf = hasAnyField(~, source, names)
             tf = isstruct(source) && any(cellfun( ...
                 @(name) isfield(source, name), names));
+        end
+
+        function tf = hasAnyNonemptyField(~, source, names)
+            tf = false;
+            if ~isstruct(source)
+                return
+            end
+            for index = 1:numel(names)
+                if isfield(source, names{index}) && ...
+                        ~isempty(source.(names{index}))
+                    tf = true;
+                    return
+                end
+            end
         end
 
         function margins = transversalityMargins(obj, info)

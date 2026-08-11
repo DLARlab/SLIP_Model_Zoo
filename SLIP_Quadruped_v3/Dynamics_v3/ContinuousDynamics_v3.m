@@ -8,6 +8,7 @@ classdef ContinuousDynamics_v3
 
     properties (SetAccess = private)
         Schema
+        AdmissibilityComponent
         GeometryTolerance = 1e-10
         AdmissibilityTolerance = 1e-8
     end
@@ -30,7 +31,22 @@ classdef ContinuousDynamics_v3
                     'Schema must be a QuadrupedSchema_v3 instance.');
             end
             obj.Schema = schema;
+            admissibilityOptions = struct();
+            if isfield(options, 'AdmissibilityOptions')
+                admissibilityOptions = options.AdmissibilityOptions;
+                options = rmfield(options, 'AdmissibilityOptions');
+            end
             obj = obj.applyOptions(options);
+            if ~isfield(admissibilityOptions, 'GeometryTolerance')
+                admissibilityOptions.GeometryTolerance = ...
+                    obj.GeometryTolerance;
+            end
+            if ~isfield(admissibilityOptions, 'StanceTensionTolerance')
+                admissibilityOptions.StanceTensionTolerance = ...
+                    obj.AdmissibilityTolerance;
+            end
+            obj.AdmissibilityComponent = QuadrupedAdmissibility_v3( ...
+                schema, admissibilityOptions);
         end
 
         function [dxdt, diagnostics] = evaluate(obj, t, x, q, p) %#ok<INUSD>
@@ -64,8 +80,16 @@ classdef ContinuousDynamics_v3
                     'Stance leg geometry is singular for %s.', names);
             end
 
-            legLength = hipHeight ./ cosineTheta;
-            compression = expanded.l_0 - legLength;
+            % A swing leg has its prescribed rest length and needs no
+            % ground-intersection solve.  Dividing hip height by cos(theta)
+            % is both unnecessary and singular for a horizontal swing leg.
+            % The constrained geometric length is evaluated only in stance.
+            legLength = expanded.l_0;
+            compression = zeros(leg.Count, 1);
+            legLength(stanceMask) = hipHeight(stanceMask) ...
+                ./ cosineTheta(stanceMask);
+            compression(stanceMask) = expanded.l_0(stanceMask) ...
+                - legLength(stanceMask);
             axialLegForce = zeros(leg.Count, 1);
             axialLegForce(stanceMask) = expanded.k_l(stanceMask) ...
                 .* compression(stanceMask);
@@ -134,6 +158,8 @@ classdef ContinuousDynamics_v3
                     'Quadruped flow became nonfinite.');
             end
 
+            physicalAdmissibility = obj.AdmissibilityComponent.evaluate( ...
+                x, q, p, 'ode-stage');
             admissibilityMargins = compression ...
                 + obj.AdmissibilityTolerance;
             stanceAdmissibilityMargins = Inf(leg.Count, 1);
@@ -160,8 +186,19 @@ classdef ContinuousDynamics_v3
                 'minimum_stance_admissibility_margin', ...
                     min(stanceAdmissibilityMargins), ...
                 'stance_admissible', stanceAdmissible, ...
-                'admissible', isempty(invalidStanceLegs), ...
+                'admissible', physicalAdmissibility.global_validity, ...
                 'invalid_stance_legs', invalidStanceLegs, ...
+                'physical_admissibility', physicalAdmissibility, ...
+                'global_validity', ...
+                    physicalAdmissibility.global_validity, ...
+                'minimum_physical_margin', ...
+                    physicalAdmissibility.minimum_physical_margin, ...
+                'physical_failure_reasons', ...
+                    {physicalAdmissibility.failure_reasons}, ...
+                'swing_foot_clearances', ...
+                    physicalAdmissibility.swing_foot_clearances, ...
+                'complementarity_residuals', ...
+                    physicalAdmissibility.complementarity_residuals, ...
                 'projected_leg_rates', outputDalpha, ...
                 'leg_angular_accelerations', accelerationAlpha, ...
                 'swing_torsional_acceleration', ...
@@ -177,17 +214,47 @@ classdef ContinuousDynamics_v3
                 'projected_leg_rate', outputDalpha);
         end
 
-        function diagnostics = assertAdmissible(obj, x, q, p)
-            %ASSERTADMISSIBLE Reject tensile stance at an accepted state.
-            % This method is intended for accepted integration samples and
-            % event states, not transient Runge--Kutta stage evaluations.
-            [~, diagnostics] = obj.evaluate(0, x, q, p);
-            if ~diagnostics.admissible
-                names = strjoin(obj.Schema.Leg.Names( ...
-                    diagnostics.invalid_stance_legs), ', ');
-                error('ContinuousDynamics_v3:TensileStance', ...
-                    ['Stance compression is below the admissibility ' ...
-                    'tolerance for leg(s) %s.'], names);
+        function diagnostics = admissibilityReport(obj, x, q, p, ...
+                context, contextData)
+            %ADMISSIBILITYREPORT Model-owned physical geometry report.
+            if nargin < 5 || isempty(context)
+                context = 'accepted-state';
+            end
+            if nargin < 6
+                contextData = struct();
+            end
+            diagnostics = obj.AdmissibilityComponent.evaluate( ...
+                x, q, p, context, contextData);
+        end
+
+        function diagnostics = assertAdmissible(obj, x, q, p, ...
+                context, contextData)
+            %ASSERTADMISSIBLE Reject an inadmissible accepted hybrid state.
+            % Transient Runge--Kutta stages use evaluate(), which reports
+            % the permissive 'ode-stage' policy without throwing.
+            if nargin < 5 || isempty(context)
+                context = 'accepted-state';
+            end
+            if nargin < 6
+                contextData = struct();
+            end
+            diagnostics = obj.admissibilityReport( ...
+                x, q, p, context, contextData);
+            if ~diagnostics.global_validity
+                tensileLegs = diagnostics.invalid_stance_legs;
+                tensileLegs = tensileLegs( ...
+                    diagnostics.stance_compressions(tensileLegs) ...
+                    < -diagnostics.active_tolerances.stance_tension);
+                if ~isempty(tensileLegs)
+                    names = strjoin(obj.Schema.Leg.Names(tensileLegs), ', ');
+                    error('ContinuousDynamics_v3:TensileStance', ...
+                        ['Stance compression is below the admissibility ' ...
+                        'tolerance for leg(s) %s.'], names);
+                end
+                message = strjoin(diagnostics.failure_reasons, ', ');
+                error('ContinuousDynamics_v3:PhysicallyInadmissible', ...
+                    'Quadruped %s is physically inadmissible: %s.', ...
+                    diagnostics.context, message);
             end
         end
 

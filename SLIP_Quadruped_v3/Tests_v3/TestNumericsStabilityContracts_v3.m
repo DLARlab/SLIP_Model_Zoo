@@ -41,6 +41,21 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             testCase.verifyFalse(report.classicalDerivative);
         end
 
+        function hybridFiniteDifferenceTracksReturnMultiplicity(testCase)
+            finiteDifference = HybridFiniteDifferenceJacobian_v3(struct( ...
+                'RelativeCandidateSteps', [1e-3, 1e-4], ...
+                'AllowOneSided', true));
+            [~, ~, report] = finiteDifference.compute( ...
+                @TestNumericsStabilityContracts_v3.multiplicityBoundaryMap, 0);
+
+            testCase.verifyFalse(report.returnMultiplicityPreserved);
+            testCase.verifyFalse( ...
+                report.columns(1).returnMultiplicityPreserved);
+            testCase.verifyEqual( ...
+                report.columns(1).returnMultiplicities, [2, 1, 2, 1]);
+            testCase.verifyFalse(report.classicalDerivative);
+        end
+
         function floquetDerivativeConvergesUnderExternalStepRefinement(testCase)
             % Requirement G: refine the complete accepted-cycle map from
             % outside the h/h/2 estimator and verify derivative convergence.
@@ -96,6 +111,14 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
                 'HybridFiniteDifferenceJacobian_v3:InvalidBase');
         end
 
+        function floquetRejectsMissingSectionSignatureEvidence(testCase)
+            analyzer = FloquetAnalysis_v3(struct('TangentIndices', 1));
+            testCase.verifyError(@() analyzer.analyze( ...
+                @TestNumericsStabilityContracts_v3.missingSectionMap, ...
+                1, 0, 0), ...
+                'HybridFiniteDifferenceJacobian_v3:InvalidBase');
+        end
+
         function floquetReadsCanonicalTrajectoryEventTypes(testCase)
             result = FloquetAnalysis_v3(struct( ...
                 'TangentIndices', 1)).analyze( ...
@@ -105,6 +128,37 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             testCase.verifyTrue(result.reliable);
             testCase.verifyEqual(result.eventSignature, 'A>B');
             testCase.verifyTrue(result.eventSignaturesMatch);
+        end
+
+        function sectionChartChangeRejectsClassicalFloquet(testCase)
+            analyzer = FloquetAnalysis_v3(struct('TangentIndices', 1));
+            result = analyzer.analyze( ...
+                @TestNumericsStabilityContracts_v3.sectionChartBoundaryMap, ...
+                0, 0, 0);
+
+            testCase.verifyFalse(result.reliable);
+            testCase.verifyTrue(result.eventSignaturesMatch);
+            testCase.verifyFalse(result.sectionSignaturesMatch);
+            testCase.verifyTrue(result.hybridChartBoundary);
+            testCase.verifyEqual(result.eventSignature, 'FR_LO');
+            testCase.verifyEqual(sort(string( ...
+                result.adjacentSectionSignatures)), ...
+                sort(["Apex<FR_LO", "FR_LO<Apex"]));
+            testCase.verifyFalse(result.finiteDifference.classicalDerivative);
+            testCase.verifyTrue(result.finiteDifference.columns(1).oneSided);
+            testCase.verifyTrue(isfinite(result.poincareMatrix));
+            testCase.verifyTrue(result.forwardOneSidedAvailable);
+            testCase.verifyTrue(result.backwardOneSidedAvailable);
+            testCase.verifyEqual(result.forwardOneSidedPoincareMatrix, 1, ...
+                'AbsTol', 1e-12);
+            testCase.verifyEqual(result.backwardOneSidedPoincareMatrix, 1, ...
+                'AbsTol', 1e-12);
+            selected = result.finiteDifference.columns(1).candidates( ...
+                result.finiteDifference.columns(1).selectedCandidate);
+            testCase.verifyEqual( ...
+                selected.forwardOneSided.sectionSignature, 'Apex<FR_LO');
+            testCase.verifyEqual( ...
+                selected.backwardOneSided.sectionSignature, 'FR_LO<Apex');
         end
 
         function rootSolverReportsCacheAndMapCounts(testCase)
@@ -120,6 +174,12 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             testCase.verifyGreaterThan(result.cacheHitCount, 0);
             testCase.verifyGreaterThanOrEqual(result.functionEvaluationCount, ...
                 result.mapEvaluationCount);
+            testCase.verifyEqual(result.derivativeModel, ...
+                'hybrid-topology-compatible-finite-difference');
+            testCase.verifyGreaterThan(result.jacobianEvaluationCount, 0);
+            testCase.verifyGreaterThan(result.acceptedNewtonIterations, 0);
+            testCase.verifyNotEmpty(result.selectedFiniteDifferenceSteps);
+            testCase.verifyTrue(all(result.perColumnReliability));
         end
 
         function fourArgumentResidualReceivesDefaultContext(testCase)
@@ -149,6 +209,21 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             testCase.verifyEqual(branch.x, [0, 0.1, 0.2], 'AbsTol', 1e-8);
         end
 
+        function pseudoArclengthRejectsInitialHybridChartBoundary(testCase)
+            metadata = TestNumericsStabilityContracts_v3.validMetadata('A');
+            metadata.section_cluster_coincidence = true;
+            metadata.return_policy_accepted = true;
+            residual = @(u, p, q, context) deal( ...
+                u - p(1) + 0 * numel(fieldnames(context)), metadata);
+            continuation = PseudoArclengthContinuation_v3(struct( ...
+                'RootSolver', RootSolver_v3(struct('Algorithm', 'newton')), ...
+                'ActiveParameterIndex', 1, 'MaxPoints', 2));
+
+            testCase.verifyError(@() continuation.run( ...
+                residual, 0, 0, []), ...
+                'PseudoArclengthContinuation_v3:InitialTopologyBoundary');
+        end
+
         function bifurcationNamesAreCandidates(testCase)
             angle = 0.4;
             multipliers = [ ...
@@ -164,6 +239,57 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             testCase.verifyTrue(any(types == "period_doubling_candidate"));
             testCase.verifyTrue(any(types == "Neimark_Sacker_candidate"));
             testCase.verifyFalse(any(types == "saddle-node"));
+        end
+
+        function bifurcationBracketRejectsSectionChartMismatch(testCase)
+            branch = struct( ...
+                'stability', {{ ...
+                    struct('multipliers', 0.8, 'eigenvectors', 1, ...
+                        'reliable', true), ...
+                    struct('multipliers', 1.2, 'eigenvectors', 1, ...
+                        'reliable', true)}}, ...
+                'continuationCoordinate', [0, 1], ...
+                'cyclic_signature', {{'FR_LO', 'FR_LO'}}, ...
+                'section_relative_signature', ...
+                    {{'FR_LO<Apex', 'Apex<FR_LO'}}, ...
+                'event_cluster_signature', {{'{FR_LO}', '{FR_LO}'}}, ...
+                'return_multiplicity', [1, 1], ...
+                'topology_boundary', [false, false]);
+
+            [events, tracks] = BifurcationDetector_v3().detect(branch);
+
+            testCase.verifyEmpty(events);
+            testCase.verifyFalse(tracks.topologyCompatible);
+        end
+
+        function bifurcationBracketRejectsEitherBoundaryEndpoint(testCase)
+            branch = TestNumericsStabilityContracts_v3.validBranch( ...
+                [0.8, 1.2]);
+            branch.topology_boundary = [true, false];
+
+            [events, tracks] = BifurcationDetector_v3().detect(branch);
+
+            testCase.verifyEmpty(events);
+            testCase.verifyFalse(tracks.topologyCompatible);
+            testCase.verifyTrue(tracks.topologyEvidenceComplete);
+        end
+
+        function structuredBifurcationDataFailClosedWithoutEvidence(testCase)
+            branch = TestNumericsStabilityContracts_v3.validBranch( ...
+                [0.8, 1.2]);
+            branch = rmfield(branch, 'event_cluster_signature');
+            [events, tracks] = BifurcationDetector_v3().detect(branch);
+            testCase.verifyEmpty(events);
+            testCase.verifyFalse(tracks.topologyEvidenceComplete);
+            testCase.verifyFalse(tracks.topologyCompatible);
+
+            branch = TestNumericsStabilityContracts_v3.validBranch( ...
+                [0.8, 1.2]);
+            branch.stability{2} = rmfield( ...
+                branch.stability{2}, 'reliable');
+            [events, tracks] = BifurcationDetector_v3().detect(branch);
+            testCase.verifyEmpty(events);
+            testCase.verifyEqual(tracks.reliable, [true, false]);
         end
 
         function hybridBoundariesRemainSeparateFromSmoothBifurcations(testCase)
@@ -190,7 +316,8 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             types = string({events.type});
 
             testCase.verifyTrue(any(types == "guard_grazing"));
-            testCase.verifyTrue(any(types == "event_collision"));
+            testCase.verifyTrue(any(types == "event_cluster_approach"));
+            testCase.verifyFalse(any(types == "event_collision"));
             testCase.verifyTrue(any(types == "event_insertion_or_deletion"));
             testCase.verifyTrue(any(types == "section_mode_change"));
             testCase.verifyTrue(any(types == "return_multiplicity_change"));
@@ -221,11 +348,37 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
             value = point;
         end
 
+        function [value, metadata] = missingSectionMap(point, varargin)
+            value = point;
+            metadata = TestNumericsStabilityContracts_v3.validMetadata('A>B');
+            metadata = rmfield(metadata, ...
+                'section_relative_event_signature');
+        end
+
         function [value, metadata] = trajectoryHistoryMap(point, varargin)
             value = point;
             metadata = TestNumericsStabilityContracts_v3.validMetadata('A>B');
             metadata = rmfield(metadata, 'cyclic_event_signature');
             metadata.event_history = struct('type', {'A', 'B'});
+        end
+
+        function [value, metadata] = sectionChartBoundaryMap(point, varargin)
+            value = point;
+            metadata = TestNumericsStabilityContracts_v3.validMetadata( ...
+                'FR_LO');
+            if point > 0
+                metadata.section_relative_event_signature = 'Apex<FR_LO';
+            else
+                metadata.section_relative_event_signature = 'FR_LO<Apex';
+            end
+        end
+
+        function [value, metadata] = multiplicityBoundaryMap(point, varargin)
+            value = point;
+            metadata = TestNumericsStabilityContracts_v3.validMetadata('A');
+            if point > 0
+                metadata.return_multiplicity = 2;
+            end
         end
 
         function metadata = validMetadata(signature)
@@ -234,8 +387,25 @@ classdef TestNumericsStabilityContracts_v3 < matlab.unittest.TestCase
                 'return_multiplicity', 1, ...
                 'cyclic_event_signature', signature, ...
                 'section_relative_event_signature', signature, ...
+                'event_cluster_signature', signature, ...
                 'guard_transversality_margin', 1, ...
                 'section_transversality', 1);
+        end
+
+
+        function branch = validBranch(multipliers)
+            branch = struct();
+            branch.stability = arrayfun(@(value) struct( ...
+                'multipliers', value, 'eigenvectors', 1, ...
+                'reliable', true), multipliers, 'UniformOutput', false);
+            branch.continuationCoordinate = 0:numel(multipliers) - 1;
+            branch.cyclic_signature = repmat({'A'}, 1, numel(multipliers));
+            branch.section_relative_signature = ...
+                repmat({'A'}, 1, numel(multipliers));
+            branch.event_cluster_signature = ...
+                repmat({'{A}'}, 1, numel(multipliers));
+            branch.return_multiplicity = ones(1, numel(multipliers));
+            branch.topology_boundary = false(1, numel(multipliers));
         end
     end
 end

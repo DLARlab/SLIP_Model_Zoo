@@ -1,0 +1,53 @@
+name: SLIP Quadruped v3 tests
+
+on:
+  push:
+    paths:
+      - 'SLIP_Quadruped_v3/**'
+      - 'SLIP_Quadruped/**'
+      - '.github/workflows/slip-quadruped-v3-tests.yml'
+  pull_request:
+    paths:
+      - 'SLIP_Quadruped_v3/**'
+      - 'SLIP_Quadruped/**'
+      - '.github/workflows/slip-quadruped-v3-tests.yml'
+  workflow_dispatch:
+
+jobs:
+  matlab-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check source whitespace
+        run: git diff --check HEAD^
+
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v2
+
+      - name: Run v3 MATLAB tests
+        uses: matlab-actions/run-command@v2
+        with:
+          command: >-
+            addpath(fullfile(pwd,'SLIP_Quadruped_v3'));
+            run_all_tests_v3(fullfile(pwd,'artifacts','test-results-v3'));
+
+      - name: Run MATLAB Code Analyzer
+        uses: matlab-actions/run-command@v2
+        with:
+          command: >-
+            addpath(fullfile(pwd,'SLIP_Quadruped_v3'));
+            run_code_analyzer_v3(fullfile(pwd,'artifacts','test-results-v3'));
+
+      - name: Upload test and analyzer reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slip-quadruped-v3-test-reports
+          path: artifacts/test-results-v3
+          if-no-files-found: warn

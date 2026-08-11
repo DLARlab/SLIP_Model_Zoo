@@ -39,8 +39,10 @@ classdef TestQuadrupedDynamicsContracts_v3 < matlab.unittest.TestCase
                 alpha = x(schema.Leg.AngleIndices);
                 theta = phi + alpha;
                 hipHeight = x(schema.State.y) + expanded.s .* sin(phi);
-                length = hipHeight ./ cos(theta);
-                compression = expanded.l_0 - length;
+                length = expanded.l_0;
+                compression = zeros(4, 1);
+                length(q) = hipHeight(q) ./ cos(theta(q));
+                compression(q) = expanded.l_0(q) - length(q);
                 axial = zeros(4, 1);
                 axial(q) = expanded.k_l(q) .* compression(q);
                 perLegForce = ...
