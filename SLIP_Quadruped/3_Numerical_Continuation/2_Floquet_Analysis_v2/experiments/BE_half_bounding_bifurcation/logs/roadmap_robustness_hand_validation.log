@@ -1,4 +1,0 @@
-Independent hand replay: 2 roadmap transitions
-  be_to_fe  pass=1 dx=4.83363821441 residual=9.237e-14 gait=FE held-out=1
-  be_to_he  pass=1 dx=6.04807025559 residual=1.217e-13 gait=HE held-out=1
-Hand replay accepted: 2/2

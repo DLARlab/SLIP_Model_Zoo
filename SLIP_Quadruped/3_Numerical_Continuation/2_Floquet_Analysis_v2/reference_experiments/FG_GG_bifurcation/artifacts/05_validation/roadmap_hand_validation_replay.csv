@@ -1,0 +1,2 @@
+Transition,RefinedDx,CriticalResidual,CriticalMapResidual,MaximumCorrectedResidual,MaximumCorrectedMapResidual,AcceptedMinus,AcceptedPlus,ObservedGaits,DaughterDxDifference,LinearAlignment,MinimumCorrectionAlignment,ScaledOrbitDistance,SavedValidationAccepted,RecomputedValidationAccepted,Passed,Reasons
+fg_to_gg,5.91164915262086,1.10134124042816e-13,1.10134124042816e-13,1.10134124042816e-13,1.10134124042816e-13,2,2,GG,0.000127049409991642,0.999790564297457,0.999668555851346,0.0697020849712242,1,1,1,

@@ -1,2 +1,0 @@
-Transition,RefinedDx,CriticalResidual,CriticalMapResidual,MaximumCorrectedResidual,MaximumCorrectedMapResidual,AcceptedMinus,AcceptedPlus,ObservedGaits,DaughterDxDifference,LinearAlignment,MinimumCorrectionAlignment,ScaledOrbitDistance,SavedValidationAccepted,RecomputedValidationAccepted,Passed,Reasons
-he_to_ge,6.13622289546268,1.11910480882216e-13,1.11910480882216e-13,1.11022302462516e-13,1.11022302462516e-13,2,2,GE,0.000276641770481589,0.999819073339667,0.999750497396009,0.0846519087426091,1,1,1,

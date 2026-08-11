@@ -1,0 +1,5 @@
+Transition,Amplitude,Sign,PredictorAccepted,CorrectorAccepted,BranchPointAccepted,Gait,TransverseFraction,CanonicalResidual,ReturnResidual,EventTimeError,RejectionStage,RejectionMessage
+he_to_ge,0.01,-1,1,1,1,GE,0.999999597646585,1.09575788788247e-13,5.32907051820075e-14,0,,
+he_to_ge,0.01,1,1,1,1,GE,0.999999601406662,1.07978281074293e-13,3.5527136788005e-14,0,,
+he_to_ge,0.005,-1,1,1,1,GE,0.999999919748196,1.16288663859818e-13,3.5527136788005e-14,0,,
+he_to_ge,0.005,1,1,1,1,GE,0.999999921422426,1.08441095069376e-13,3.84877315203388e-14,0,,

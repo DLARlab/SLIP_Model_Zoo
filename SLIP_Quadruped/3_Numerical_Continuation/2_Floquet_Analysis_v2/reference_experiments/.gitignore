@@ -1,0 +1,5 @@
+# Runtime transcripts are opt-in local diagnostics, not frozen evidence.
+**/logs/*.log
+
+# Reference writers publish portable PNG views; MATLAB FIG files are local.
+**/artifacts/05_validation/*.fig

@@ -1,0 +1,3 @@
+Transition,RefinedDx,CriticalResidual,CriticalMapResidual,MaximumCorrectedResidual,MaximumCorrectedMapResidual,AcceptedMinus,AcceptedPlus,ObservedGaits,DaughterDxDifference,LinearAlignment,MinimumCorrectionAlignment,ScaledOrbitDistance,SavedValidationAccepted,RecomputedValidationAccepted,Passed,Reasons
+bg_to_hg,4.50616110935725,1.18127729820117e-13,1.18127729820117e-13,6.92779167366098e-14,6.92779167366098e-14,2,2,HG,2.22432062786382e-05,0.999917903974758,0.999872074237219,0.0622142456215351,1,1,1,
+bg_to_fg,5.64566295496185,1.00364161426114e-13,1.00364161426114e-13,1.08357767203415e-13,1.08357767203415e-13,2,2,FG,0.000137458753486364,0.999063077028486,0.998617668379573,0.135875681861552,1,1,1,

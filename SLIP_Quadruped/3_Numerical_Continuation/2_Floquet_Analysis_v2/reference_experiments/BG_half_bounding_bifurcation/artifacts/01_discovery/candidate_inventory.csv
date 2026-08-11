@@ -1,0 +1,3 @@
+TransitionID,Parent,Daughter,CandidateType,DetectedCoordinate,ParentAccepted
+bg_to_hg,BG,HG,+1,4.50647796653763,1
+bg_to_fg,BG,FG,+1,5.64573868255455,1
