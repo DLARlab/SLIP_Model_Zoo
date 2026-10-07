@@ -1,0 +1,10 @@
+# Machine-local runtime state; retained evidence lives in Audits_v3.
+/t/
+/Research_v3/runtime/
+
+# Temporary files from atomic checkpoint compression.
+*.compressed.mat
+
+# Python bytecode is not research evidence.
+__pycache__/
+*.pyc

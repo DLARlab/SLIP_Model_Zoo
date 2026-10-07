@@ -13,9 +13,12 @@ function study = QuadrupedalContinuationStudy_v3(options)
         options = struct();
     end
     v3Root = fileparts(fileparts(mfilename('fullpath')));
+    originalPath=path;restorePath=onCleanup(@() path(originalPath)); %#ok<NASGU>
+    addpath(v3Root);
     addStudyPaths(v3Root);
     defaults = defaultOptions(v3Root);
     options = mergeOptions(defaults, options);
+    if options.SaveResults,options.SaveFile=V3OutputPath_v3(options.SaveFile);end
 
     if options.ReuseSaved && isfile(options.SaveFile)
         saved = load(options.SaveFile, 'study');

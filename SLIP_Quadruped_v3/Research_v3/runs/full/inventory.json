@@ -1,0 +1,381 @@
+{
+  "schema_version": "research-evidence-v3-1",
+  "stage": "inventory",
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "config": {
+    "schema_version": "research-campaign-v3-1",
+    "seed": 2.0261007E+7,
+    "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+    "legacy_parameter_policy": "v2-exact",
+    "baseline_legacy_parameters": [
+      10,
+      20,
+      2,
+      1,
+      0,
+      0.5,
+      1
+    ],
+    "baseline_v3_parameters": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "domain": {
+      "energy": [
+        1.0001,
+        3
+      ],
+      "mean_speed": [
+        -3,
+        3
+      ],
+      "pitch_abs_max": 1.2,
+      "primitive_period_max": 12,
+      "event_count_max": 64,
+      "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+      "targets": [
+        "PIP",
+        "PK",
+        "BD",
+        "HB_front",
+        "HB_hind",
+        "GP",
+        "B2",
+        "F2",
+        "H2",
+        "G2",
+        "PC",
+        "TR",
+        "TL"
+      ],
+      "equivalences": [
+        "horizontal translation",
+        "time phase",
+        "proven fixed-parameter leg symmetries"
+      ],
+      "connectivity": "regular bifurcation network; nonsmooth connections recorded separately"
+    },
+    "budgets": {
+      "total_wall_seconds": 7200,
+      "baseline_test_wall_seconds": 900,
+      "per_fixture_wall_seconds": 120,
+      "fixture_columns_per_family": 3,
+      "fixed_parameter_points_per_direction": 20,
+      "root_max_iterations": 20,
+      "root_max_function_evaluations": 2000,
+      "alternative_seed_count": 16,
+      "continuation_wall_seconds": 1800,
+      "gui_validation_wall_seconds": 300
+    },
+    "integration": {
+      "relative_tolerance": 1E-9,
+      "absolute_tolerance": 1E-10
+    },
+    "status": "registered_before_experiments"
+  },
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "started_utc": "07-Oct-2026 09:21:54",
+  "status": "completed",
+  "elapsed_seconds": 0.15943770833333334,
+  "release": "2025b",
+  "platform": "MACA64",
+  "toolboxes": [
+    {
+      "Name": "Aerospace Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Antenna Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Bioinformatics Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Communications Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Computer Vision Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Control System Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Curve Fitting Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "DSP HDL Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "DSP System Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Deep Learning Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Econometrics Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Embedded Coder",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Financial Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Fixed-Point Designer",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Fuzzy Logic Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Global Optimization Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "HDL Coder",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Image Acquisition Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Image Processing Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Industrial Communication Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Instrument Control Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "MATLAB",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "MATLAB Coder",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "MATLAB Compiler",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "MATLAB Compiler SDK",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "MATLAB Report Generator",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Mapping Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Optimization Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Parallel Computing Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Partial Differential Equation Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Phased Array System Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "RF PCB Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "RF Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "ROS Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Radar Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Reinforcement Learning Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Signal Processing Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simscape",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simscape Electrical",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simscape Fluids",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simscape Multibody",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simulink",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simulink Coder",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simulink Control Design",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Statistics and Machine Learning Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Symbolic Math Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Wavelet Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    }
+  ],
+  "licenses": {
+    "feature": "matlab",
+    "user": ""
+  },
+  "cpu_cores": 18,
+  "reference_archive_present": false,
+  "finished_utc": "07-Oct-2026 09:21:54"
+}

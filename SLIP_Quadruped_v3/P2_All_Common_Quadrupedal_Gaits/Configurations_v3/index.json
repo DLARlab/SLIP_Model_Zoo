@@ -1,0 +1,19 @@
+{
+  "schema_version": "study-config-reference-v3-1",
+  "study": "P2_All_Common_Quadrupedal_Gaits",
+  "registered_config": "Research_v3/config/full.json",
+  "validation_config": "Research_v3/config/validation.json",
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "allowed_stages": [
+    "inventory",
+    "compatibility",
+    "vertical",
+    "fixed_family",
+    "parent_only",
+    "pip_pk_local",
+    "floquet",
+    "refresh"
+  ],
+  "output_policy": "Shared launcher confines every output to v3. Compatibility runs both studies to avoid duplicate campaign execution.",
+  "domain_policy": "Registered shared bounds and physical parameters; no study override."
+}

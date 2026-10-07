@@ -49,8 +49,46 @@ classdef FloquetAnalysis_v3
             x = x(:);
             p = p(:);
             xTemplate = local.projectState(map, x, p);
+            physicalChart = [];
+            system = local.member(map, 'System', []);
+            if isa(system, 'Quadrupedal_Dynamics_v3')
+                physicalChart = QuadrupedPhysicalChart_v3.create(xTemplate,q,p);
+                previousProjection = local.ProjectionFunction;
+                local.ProjectionFunction = @physicalProjection;
+                if isempty(local.TangentBasis) && isempty(local.TangentIndices)
+                    local.TangentIndices = physicalChart.independent_indices;
+                end
+                if any(ismember(local.TangentIndices,physicalChart.dependent_indices))
+                    error('FloquetAnalysis_v3:DependentStanceCoordinate', ...
+                        'Stance rates are dependent coordinates; use the physical chart.');
+                end
+                if any(~ismember(local.TangentIndices,physicalChart.independent_indices))
+                    error('FloquetAnalysis_v3:NonphysicalTangentIndices', ...
+                        'Tangent indices must be independent coordinates of the physical section chart.');
+                end
+            end
             [indices, tangentBasis, basisLeftInverse] = ...
                 local.resolveTangentChart(map, numel(xTemplate));
+            physicalBasis = [];
+            if ~isempty(physicalChart)
+                [physicalBasis,~] = QuadrupedPhysicalChart_v3.tangentBasis(physicalChart);
+                if ~isempty(tangentBasis)
+                    independentBasis = tangentBasis(physicalChart.independent_indices,:);
+                    physicalLift = physicalBasis * independentBasis;
+                    if norm(tangentBasis-physicalLift,inf) ...
+                            > 1e-7 * max(1,norm(tangentBasis,inf))
+                        error('FloquetAnalysis_v3:NonphysicalTangentBasis', ...
+                            'The supplied basis leaves the physical mode/section tangent space.');
+                    end
+                    % Extract physical free coordinates before symmetry
+                    % restriction: nonlinear manifold curvature is not
+                    % leakage into a forbidden symmetry sector.
+                    extraction = eye(numel(xTemplate));
+                    extraction = extraction(physicalChart.independent_indices,:);
+                    basisLeftInverse = (independentBasis.'*independentBasis) ...
+                        \ independentBasis.' * extraction;
+                end
+            end
             if isempty(tangentBasis)
                 eta0 = xTemplate(indices);
             else
@@ -280,8 +318,13 @@ classdef FloquetAnalysis_v3
             result.multipliers = multipliers;
             result.eigenvectors = eigenvectors;
             if isempty(tangentBasis)
-                result.ambientEigenvectors = local.liftEigenvectors( ...
-                    eigenvectors, indices, numel(xTemplate));
+                if ~isempty(physicalChart)
+                    [~,columns] = ismember(indices,physicalChart.independent_indices);
+                    result.ambientEigenvectors = physicalBasis(:,columns)*eigenvectors;
+                else
+                    result.ambientEigenvectors = local.liftEigenvectors( ...
+                        eigenvectors, indices, numel(xTemplate));
+                end
             else
                 result.ambientEigenvectors = tangentBasis * eigenvectors;
             end
@@ -329,6 +372,43 @@ classdef FloquetAnalysis_v3
             result.tangentIndices = indices;
             result.tangentBasis = tangentBasis;
             result.symmetryRestricted = ~isempty(tangentBasis);
+            result.physicalChart = physicalChart;
+            result.physicalCoordinateDimension = chartDimension;
+            result.physicalTangentBasis = [];
+            if ~isempty(physicalChart)
+                result.symmetryRestricted = ~isempty(tangentBasis) ...
+                    && size(tangentBasis,2) < physicalChart.dimension;
+                if isempty(tangentBasis)
+                    [~,columns] = ismember(indices,physicalChart.independent_indices);
+                    result.physicalTangentBasis = physicalBasis(:,columns);
+                else
+                    result.physicalTangentBasis = tangentBasis;
+                end
+            end
+            result.removedPhysicalDirections = struct( ...
+                'phase_section', [], 'translation_gauge', [], ...
+                'dependent_stance_rates', []);
+            result.energyNeutrality = struct('applicable', false);
+            if ~isempty(physicalChart)
+                schema = system.Schema;
+                result.removedPhysicalDirections.phase_section = schema.State.dy;
+                result.removedPhysicalDirections.translation_gauge = schema.State.x;
+                result.removedPhysicalDirections.dependent_stance_rates = ...
+                    physicalChart.dependent_indices;
+                [~, energyReport] = QuadrupedEnergy_v3.evaluate(xTemplate,q,p);
+                if isempty(tangentBasis)
+                    [~,columns] = ismember(indices,physicalChart.independent_indices);
+                    coordinateEnergyGradient = energyReport.gradient.'*physicalBasis(:,columns);
+                else
+                    coordinateEnergyGradient = energyReport.gradient.'*tangentBasis;
+                end
+                result.energyNeutrality = struct( ...
+                    'applicable', energyReport.conservation_applicable, ...
+                    'coordinate_gradient', coordinateEnergyGradient, ...
+                    'left_unit_residual', norm(coordinateEnergyGradient*DP ...
+                        - coordinateEnergyGradient,inf), ...
+                    'note', 'At a fixed point, DE*DP=DE is structural when energy is conserved; no multiplier is deleted.');
+            end
             result.baseState = xTemplate;
             result.baseCoordinates = eta0;
             result.returnCoordinates = etaNext;
@@ -373,6 +453,15 @@ classdef FloquetAnalysis_v3
                 result.warning = '';
             end
 
+            function state = physicalProjection(state,parameter)
+                if isempty(previousProjection)
+                    state = map.Section.project(state,parameter);
+                else
+                    state = previousProjection(state,parameter);
+                end
+                state = QuadrupedPhysicalChart_v3.retract(state,q,parameter);
+            end
+
             function [coordinatesNext, metadata] = reducedReturn(coordinates, varargin)
                 if isempty(tangentBasis)
                     trial = xTemplate;
@@ -411,6 +500,12 @@ classdef FloquetAnalysis_v3
                         transversePerturbation = returnedPerturbation ...
                             - tangentBasis * (basisLeftInverse ...
                                 * returnedPerturbation);
+                        if ~isempty(physicalChart)
+                            returnedPerturbation = returnedPerturbation( ...
+                                physicalChart.independent_indices);
+                            transversePerturbation = transversePerturbation( ...
+                                physicalChart.independent_indices);
+                        end
                         subspaceLeakage = norm( ...
                             transversePerturbation, 2) / max( ...
                                 norm(returnedPerturbation, 2), sqrt(eps));
@@ -476,10 +571,23 @@ classdef FloquetAnalysis_v3
             else
                 x = u(:);
             end
-            if isobject(residual) && isprop(residual, 'TangentIndices')
-                options.TangentIndices = residual.TangentIndices;
-            elseif isstruct(residual) && isfield(residual, 'TangentIndices')
-                options.TangentIndices = residual.TangentIndices;
+            if ~isfield(options,'TangentIndices') && ~isfield(options,'TangentBasis') ...
+                    && isempty(obj.TangentIndices) && isempty(obj.TangentBasis)
+                if isobject(residual) && isprop(residual, 'TangentIndices')
+                    requestedIndices = residual.TangentIndices;
+                elseif isstruct(residual) && isfield(residual, 'TangentIndices')
+                    requestedIndices = residual.TangentIndices;
+                else
+                    requestedIndices = [];
+                end
+                system = obj.member(map,'System',[]);
+                if isa(system,'Quadrupedal_Dynamics_v3') ...
+                        && isequal(requestedIndices,system.DefaultTangentIndices)
+                    % A legacy ambient default is not an explicit physical
+                    % grounded chart; analyze() selects the mode manifold.
+                    requestedIndices = [];
+                end
+                options.TangentIndices = requestedIndices;
             end
             result = obj.analyze(map, x, q, p, options);
         end

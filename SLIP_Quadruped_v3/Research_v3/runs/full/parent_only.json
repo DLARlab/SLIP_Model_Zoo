@@ -1,0 +1,264 @@
+{
+  "schema_version": "research-evidence-v3-1",
+  "stage": "parent_only",
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "config": {
+    "schema_version": "research-campaign-v3-1",
+    "seed": 2.0261007E+7,
+    "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+    "legacy_parameter_policy": "v2-exact",
+    "baseline_legacy_parameters": [
+      10,
+      20,
+      2,
+      1,
+      0,
+      0.5,
+      1
+    ],
+    "baseline_v3_parameters": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "domain": {
+      "energy": [
+        1.0001,
+        3
+      ],
+      "mean_speed": [
+        -3,
+        3
+      ],
+      "pitch_abs_max": 1.2,
+      "primitive_period_max": 12,
+      "event_count_max": 64,
+      "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+      "targets": [
+        "PIP",
+        "PK",
+        "BD",
+        "HB_front",
+        "HB_hind",
+        "GP",
+        "B2",
+        "F2",
+        "H2",
+        "G2",
+        "PC",
+        "TR",
+        "TL"
+      ],
+      "equivalences": [
+        "horizontal translation",
+        "time phase",
+        "proven fixed-parameter leg symmetries"
+      ],
+      "connectivity": "regular bifurcation network; nonsmooth connections recorded separately"
+    },
+    "budgets": {
+      "total_wall_seconds": 7200,
+      "baseline_test_wall_seconds": 900,
+      "per_fixture_wall_seconds": 120,
+      "fixture_columns_per_family": 3,
+      "fixed_parameter_points_per_direction": 20,
+      "root_max_iterations": 20,
+      "root_max_function_evaluations": 2000,
+      "alternative_seed_count": 16,
+      "continuation_wall_seconds": 1800,
+      "gui_validation_wall_seconds": 300
+    },
+    "integration": {
+      "relative_tolerance": 1E-9,
+      "absolute_tolerance": 1E-10
+    },
+    "status": "registered_before_experiments",
+    "parent_only_pronk": {
+      "scan_points": 16,
+      "wall_seconds": 900,
+      "maximum_connections": 2,
+      "energy_bracket_tolerance": 1E-8,
+      "amplitudes": [
+        0.0001,
+        0.0003,
+        0.001,
+        0.003
+      ],
+      "registration": "before parent-only pronk scan; no domain change"
+    }
+  },
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "started_utc": "07-Oct-2026 09:38:08",
+  "status": "completed_bounded_search",
+  "elapsed_seconds": 362.809644125,
+  "predictions": {
+    "parent_state": [
+      0,
+      0,
+      1.1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "parameter": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "directions": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        1
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        -1
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        -1
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "origin": "symmetry sectors; candidates only, no critical eigenvector claim",
+    "frozen_utc": "07-Oct-2026 09:38:10",
+    "held_out_data_used": false
+  },
+  "attempts": [
+    {
+      "sector": 1,
+      "sign": 1,
+      "converged": false,
+      "reason": "Omitted/dependent closure failed: 0.001615.",
+      "distance_to_parent": 0.001414213562373095,
+      "residual": 0.0016152222717467327,
+      "network_edge": false
+    },
+    {
+      "sector": 1,
+      "sign": -1,
+      "converged": false,
+      "reason": "Omitted/dependent closure failed: 0.001615.",
+      "distance_to_parent": 0.001414213562373095,
+      "residual": 0.0016152222717467316,
+      "network_edge": false
+    },
+    {
+      "sector": 2,
+      "sign": 1,
+      "converged": false,
+      "reason": "Omitted/dependent closure failed: 0.001615.",
+      "distance_to_parent": 0.001414213562373095,
+      "residual": 0.0016152222717466587,
+      "network_edge": false
+    },
+    {
+      "sector": 2,
+      "sign": -1,
+      "converged": false,
+      "reason": "Omitted/dependent closure failed: 0.001615.",
+      "distance_to_parent": 0.001414213562373095,
+      "residual": 0.0016152222717466587,
+      "network_edge": false
+    },
+    {
+      "sector": 3,
+      "sign": 1,
+      "converged": false,
+      "reason": "Omitted/dependent closure failed: 0.001615.",
+      "distance_to_parent": 0.002,
+      "residual": 0.0016148163443398973,
+      "network_edge": false
+    },
+    {
+      "sector": 3,
+      "sign": -1,
+      "converged": false,
+      "reason": "Omitted/dependent closure failed: 0.001615.",
+      "distance_to_parent": 0.002,
+      "residual": 0.0016148163443398973,
+      "network_edge": false
+    }
+  ],
+  "connection_status": "No branch edge is certified by this search.",
+  "finished_utc": "07-Oct-2026 09:44:11"
+}

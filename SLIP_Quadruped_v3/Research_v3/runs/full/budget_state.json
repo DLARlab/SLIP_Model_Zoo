@@ -1,0 +1,5 @@
+{
+  "elapsed_seconds": 3837.3592060420197,
+  "accounting": "sum of completed process wall seconds, including retries",
+  "last_stage": "pip_pk_local"
+}

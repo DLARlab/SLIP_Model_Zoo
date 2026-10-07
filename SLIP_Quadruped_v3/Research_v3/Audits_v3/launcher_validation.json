@@ -1,0 +1,10 @@
+{
+  "budget_accounting_checked": true,
+  "charged_process_wall_seconds": 1460.3265336671611,
+  "output_confinement_checked": true,
+  "fixtures": {
+    "checked_entries": 18,
+    "unchanged": true,
+    "changed_or_missing": []
+  }
+}

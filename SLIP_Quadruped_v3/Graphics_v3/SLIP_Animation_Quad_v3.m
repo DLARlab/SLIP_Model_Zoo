@@ -109,6 +109,7 @@ classdef SLIP_Animation_Quad_v3 < OutputCLASS_v3
             videoFile = string(parser.Results.VideoFile);
             writer = [];
             if strlength(videoFile) > 0
+                videoFile=string(V3OutputPath_v3(videoFile));
                 writer = VideoWriter(char(videoFile), 'MPEG-4');
                 writer.FrameRate = obj.options.FrameRate;
                 open(writer);

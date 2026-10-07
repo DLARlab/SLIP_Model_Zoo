@@ -1,0 +1,115 @@
+{
+  "schema_version": "research-campaign-v3-1",
+  "seed": 20261007,
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "legacy_parameter_policy": "v2-exact",
+  "baseline_legacy_parameters": [
+    10,
+    20,
+    2,
+    1,
+    0,
+    0.5,
+    1
+  ],
+  "baseline_v3_parameters": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "domain": {
+    "energy": [
+      1.0001,
+      3.0
+    ],
+    "mean_speed": [
+      -3,
+      3
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 12,
+    "event_count_max": 64,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately"
+  },
+  "budgets": {
+    "total_wall_seconds": 7200,
+    "baseline_test_wall_seconds": 900,
+    "per_fixture_wall_seconds": 120,
+    "fixture_columns_per_family": 3,
+    "fixed_parameter_points_per_direction": 20,
+    "root_max_iterations": 20,
+    "root_max_function_evaluations": 2000,
+    "alternative_seed_count": 16,
+    "continuation_wall_seconds": 1800,
+    "gui_validation_wall_seconds": 300
+  },
+  "integration": {
+    "relative_tolerance": 1e-09,
+    "absolute_tolerance": 1e-10
+  },
+  "status": "registered_before_experiments",
+  "parent_only_pronk": {
+    "scan_points": 16,
+    "wall_seconds": 900,
+    "maximum_connections": 2,
+    "energy_bracket_tolerance": 1e-08,
+    "amplitudes": [
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "registration": "before parent-only pronk scan; no domain change",
+    "validation_version": "parent-only-pronk-validation-v3-2",
+    "relative_tolerance": 1e-11,
+    "absolute_tolerance": 1e-13,
+    "replay_relative_tolerance": 2e-12,
+    "replay_absolute_tolerance": 2e-14,
+    "derivative_step": 0.0001,
+    "derivative_relative_error": 0.001,
+    "transversality_energy_step": 0.0001,
+    "root_function_tolerance": 1e-12,
+    "root_residual_tolerance": 1e-10,
+    "full_closure_tolerance": 1e-08,
+    "replay_period_tolerance": 1e-08,
+    "kernel_gap_factor": 25,
+    "kernel_zero_factor": 10,
+    "transversality_factor": 5,
+    "minimum_signed_amplitudes": 3,
+    "minimum_critical_alignment": 0.995,
+    "energy_scaling_relative_tolerance": 0.15,
+    "trajectory_distinction_tolerance": 1e-06,
+    "synchronization_tolerance": 1e-09,
+    "signed_reflection_tolerance": 1e-07,
+    "validation_registration": "v2 validation settings frozen before rerun; larger amplitude and tighter replay improve numerical evidence; registered domain and physical parameters unchanged"
+  }
+}

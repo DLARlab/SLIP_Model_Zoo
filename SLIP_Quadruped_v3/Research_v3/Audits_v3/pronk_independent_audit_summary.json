@@ -1,0 +1,198 @@
+{
+  "status": "budget_exhausted",
+  "elapsed_seconds": 910.3811230833334,
+  "brackets": [
+    [
+      1.5334066666666666,
+      1.6667333333333332
+    ],
+    [
+      1.6667333333333332,
+      1.80006
+    ],
+    [
+      2.466693333333333,
+      2.6000199999999998
+    ],
+    [
+      2.733346666666667,
+      2.8666733333333334
+    ]
+  ],
+  "unrefined_brackets": 2,
+  "audit_archive": "Research_v3/runs/full/before_pronk_history_audit_20261007T101346528",
+  "connections": [
+    {
+      "critical_energy": 1.5551652516426646,
+      "critical_energy_uncertainty": 7.493269252759118e-08,
+      "status": "numerically_supported_restricted_attachment",
+      "sigma": [
+        4.676335227742408,
+        1.0042923286610363,
+        3.732941601079229e-09
+      ],
+      "matrix_error": 8.026766530435256e-08,
+      "transversality": 1.1316072211182542,
+      "transversality_error": 0.00042746136428022525,
+      "gap_to_error": 12511791.950756764,
+      "trans_to_error": 2647.273685245671,
+      "accepted_count": 10,
+      "replay_closure_max": 8.584021487329993e-12,
+      "saved_full_closure_max": 8.584021487329993e-12,
+      "saved_vs_reported_closure_difference": 0,
+      "energy_error_max": 1.8420820424580597e-12,
+      "constraint_error_max": 2.6359123217467584e-15,
+      "paired_error_max": 1.734723475976807e-18,
+      "virtual_rows_per_orbit": [
+        6
+      ],
+      "reflection_error": 0,
+      "sequences": [
+        {
+          "sign": -1,
+          "accepted_count": 5,
+          "resolved_energy_shift_count": 2,
+          "quadratic_energy_coefficient": 0.2023446411785516,
+          "maximum_relative_fit_error": 0.002026871304552743,
+          "approaches_parent": true,
+          "quadratic_scaling_resolved": true,
+          "largest_amplitude": 0.01,
+          "largest_amplitude_genuinely_corrected": true
+        },
+        {
+          "sign": 1,
+          "accepted_count": 5,
+          "resolved_energy_shift_count": 2,
+          "quadratic_energy_coefficient": 0.2023446411785516,
+          "maximum_relative_fit_error": 0.002026871304552743,
+          "approaches_parent": true,
+          "quadratic_scaling_resolved": true,
+          "largest_amplitude": 0.01,
+          "largest_amplitude_genuinely_corrected": true
+        }
+      ],
+      "multipliers_real": [
+        0.999999991234293,
+        -4.329845364443966e-11,
+        -0.9999999905557236
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "large_trials": [
+        {
+          "signed_amplitude": -0.01,
+          "energy": 1.555185486438313,
+          "period": 2.6512711553170747,
+          "mean_speed": 0.006485473740542927,
+          "initial_residual": 3.448444837270831e-07,
+          "final_residual": 5.941427905220564e-16,
+          "correction_norm": 1.841737755037265e-05,
+          "solver_iterations": 2,
+          "critical_alignment": 0.9999999999987473,
+          "genuine_correction": true
+        },
+        {
+          "signed_amplitude": 0.01,
+          "energy": 1.555185486438313,
+          "period": 2.6512711553170747,
+          "mean_speed": -0.006485473740542927,
+          "initial_residual": 3.448444837270831e-07,
+          "final_residual": 5.941427905220564e-16,
+          "correction_norm": 1.841737755037265e-05,
+          "solver_iterations": 2,
+          "critical_alignment": 0.9999999999987473,
+          "genuine_correction": true
+        }
+      ]
+    },
+    {
+      "critical_energy": 1.6959508361671367,
+      "critical_energy_uncertainty": 1.7328293669575094e-07,
+      "status": "numerically_supported_restricted_attachment",
+      "sigma": [
+        7.015096162402009,
+        0.7909463075045056,
+        1.4222151580488756e-09
+      ],
+      "matrix_error": 1.6128104726738857e-07,
+      "transversality": 0.9534443780398747,
+      "transversality_error": 0.0008631321311330444,
+      "gap_to_error": 4904149.129148399,
+      "trans_to_error": 1104.6331652469898,
+      "accepted_count": 10,
+      "replay_closure_max": 1.7775302524379935e-11,
+      "saved_full_closure_max": 1.7775302524379935e-11,
+      "saved_vs_reported_closure_difference": 0,
+      "energy_error_max": 2.1160850849355484e-12,
+      "constraint_error_max": 2.588207426157396e-15,
+      "paired_error_max": 1.734723475976807e-18,
+      "virtual_rows_per_orbit": [
+        6
+      ],
+      "reflection_error": 0,
+      "sequences": [
+        {
+          "sign": -1,
+          "accepted_count": 5,
+          "resolved_energy_shift_count": 2,
+          "quadratic_energy_coefficient": 0.173039310679318,
+          "maximum_relative_fit_error": 0.0012548181777711188,
+          "approaches_parent": true,
+          "quadratic_scaling_resolved": true,
+          "largest_amplitude": 0.01,
+          "largest_amplitude_genuinely_corrected": true
+        },
+        {
+          "sign": 1,
+          "accepted_count": 5,
+          "resolved_energy_shift_count": 2,
+          "quadratic_energy_coefficient": 0.173039310679318,
+          "maximum_relative_fit_error": 0.0012548181777711188,
+          "approaches_parent": true,
+          "quadratic_scaling_resolved": true,
+          "largest_amplitude": 0.01,
+          "largest_amplitude_genuinely_corrected": true
+        }
+      ],
+      "multipliers_real": [
+        0.9999999933716718,
+        -1.8243310971598423e-08,
+        -0.19053440214049838
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "large_trials": [
+        {
+          "signed_amplitude": -0.01,
+          "energy": 1.695968139922106,
+          "period": 2.898435316645028,
+          "mean_speed": 0.005954725721933651,
+          "initial_residual": 5.045414039114154e-07,
+          "final_residual": 1.1102230246251565e-16,
+          "correction_norm": 1.5744444522125534e-05,
+          "solver_iterations": 2,
+          "critical_alignment": 0.9999999999996206,
+          "genuine_correction": true
+        },
+        {
+          "signed_amplitude": 0.01,
+          "energy": 1.695968139922106,
+          "period": 2.898435316645028,
+          "mean_speed": -0.005954725721933651,
+          "initial_residual": 5.045414039114154e-07,
+          "final_residual": 1.1102230246251565e-16,
+          "correction_norm": 1.5744444522125534e-05,
+          "solver_iterations": 2,
+          "critical_alignment": 0.9999999999996206,
+          "genuine_correction": true
+        }
+      ]
+    }
+  ]
+}

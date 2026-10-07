@@ -271,6 +271,9 @@ classdef PeriodicOrbitResidual_v3 < handle
             values.cycle_completion_diagnostics = ...
                 mapInfo.cycle_completion_diagnostics;
             values.schema_metadata = mapInfo.schema_metadata;
+            if isfield(mapInfo, 'section_chart')
+                values.section_chart = mapInfo.section_chart;
+            end
             orbit = HybridOrbit_v3(values);
         end
 

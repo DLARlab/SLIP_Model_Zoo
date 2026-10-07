@@ -24,6 +24,7 @@ parse(parser, varargin{:});
 options = parser.Results;
 
 graphicsRoot = fileparts(fileparts(mfilename('fullpath')));
+originalPath=path;restorePath=onCleanup(@() path(originalPath)); %#ok<NASGU>
 addpath(genpath(graphicsRoot));
 [~, parameter] = GraphicsDataAdapter_v3.unpack(source, options.Parameter);
 if isempty(parameter)

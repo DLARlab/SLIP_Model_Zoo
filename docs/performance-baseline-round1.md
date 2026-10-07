@@ -1,5 +1,11 @@
 # Round 1 numerical and performance baseline
 
+Historical environment note: the MATLAB availability and blocked results
+below describe the original Round 1 host and commit. During the 2026-10-07
+cleanup, characterization test sources were removed. The retained
+`tools/runRound1Audit.m` still runs numerical and performance audits and
+explicitly records the absent characterization suite.
+
 ## Outcome
 
 No MATLAB executable is installed on the audit host:
@@ -17,8 +23,9 @@ is reported. This is an environment blocker, not a failed model run. The
 reproducible bounded harness is
 `tools/runRound1Audit.m`.
 
-Run it from the repository root in a MATLAB environment with the required
-products:
+Run the retained numerical audit from the repository root in a MATLAB
+environment with the required products. This current recipe excludes the
+removed characterization suite:
 
 ```matlab
 addpath('tools');

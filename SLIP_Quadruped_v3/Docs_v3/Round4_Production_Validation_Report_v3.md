@@ -1,5 +1,11 @@
 # Round 4 production validation and bifurcation-completion report
 
+Historical audit: the test sources, runners and generated test payloads cited
+below were removed during the 2026-10-07 cleanup. These historical commands
+and file lists are retained to explain the reported observations. Production
+results remain in `Examples_v3/Results_v3`; concise verification records and
+the legacy file manifest remain in `Research_v3/Audits_v3`.
+
 Date: 2026-08-11  
 Reference commit: `a683f7f385a8d185517b63754aeb1d628c651d33`
 
@@ -51,9 +57,9 @@ commit. The actual baseline output is retained in
 `Docs_v3/Round4_Prechange_Test_Report_v3.md`.
 
 The 70 files were restored byte-for-byte from historical commit `c1aafb0`.
-`TestLegacyPreservationRound4_v3` verifies every blob against
-`Tests_v3/LegacyFloquetManifest_v3.tsv`. No tracked v1/v2 file differs from
-the reference commit.
+The historical `TestLegacyPreservationRound4_v3` verified every blob against
+the manifest preserved at `Research_v3/Audits_v3/LegacyFloquetManifest_v3.tsv`.
+No tracked v1/v2 file differed from the reference commit.
 
 ## 3. Implemented functionality
 
@@ -471,7 +477,7 @@ passed in the final complete suite.
 
 ### 7.1 Final deterministic suite
 
-Command:
+Historical command (the runner was removed during cleanup):
 
 ```matlab
 cd SLIP_Quadruped_v3
@@ -490,7 +496,7 @@ Failed: 0
 Incomplete: 0
 ```
 
-Saved outputs:
+Historical generated outputs (removed during cleanup):
 
 - `Docs_v3/TestResults_v3/junit-results-v3.xml`;
 - `Docs_v3/TestResults_v3/matlab-test-results-v3.mat`;
@@ -525,16 +531,19 @@ calculation in the ordinary suite.
 
 ### 7.3 Code Analyzer and source hygiene
 
-`run_code_analyzer_v3` inspected 78 files and exited successfully. It reported
+The historical `run_code_analyzer_v3` inspected 78 files and exited successfully. It reported
 28 non-error findings: 12 warnings and 16 informational/performance findings;
-there were no parser/analyzer errors. The exact table is saved at
-`Docs_v3/TestResults_v3/code-analyzer-issues-v3.csv`.
+there were no parser/analyzer errors. The historical generated table was
+`Docs_v3/TestResults_v3/code-analyzer-issues-v3.csv` and was removed during
+cleanup. The later research campaign's separate analyzer record remains in
+`Research_v3/Audits_v3/code-analyzer-issues-v3.csv`; it describes a different
+source snapshot and is not evidence for the 78-file count above.
 
 Final `git diff --check` is clean. No tracked legacy v1/v2 file is modified.
 
 ### 7.4 CI status
 
-`.github/workflows/slip-quadruped-v3-tests.yml` uses MATLAB Actions to run:
+The historical `.github/workflows/slip-quadruped-v3-tests.yml` recipe used MATLAB Actions to run:
 
 1. source whitespace checks;
 2. `run_all_tests_v3`;
@@ -543,7 +552,8 @@ Final `git diff --check` is clean. No tracked legacy v1/v2 file is modified.
 
 The deterministic local runner passed. The GitHub Actions workflow was added
 but was not pushed or remotely executed in this round, so CI is **not claimed
-to be passing**.
+to be passing**. The test and analyzer runners were subsequently removed in
+the 2026-10-07 cleanup; the old recipe is not a current validation instruction.
 
 ## 8. Numerical tolerances
 

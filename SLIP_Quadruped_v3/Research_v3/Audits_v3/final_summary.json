@@ -1,0 +1,9 @@
+{
+  "documentation_links_valid": true,
+  "analyzer_errors": 0,
+  "test_count": 190,
+  "passed_count": 188,
+  "preexisting_failures": 2,
+  "incomplete_count": 1,
+  "protected_initial_head": "b54aa77e3f7af269101477a06c93d5ee60da4353"
+}

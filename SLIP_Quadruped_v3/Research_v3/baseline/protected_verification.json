@@ -1,0 +1,20 @@
+{
+  "checked_entries": 547,
+  "unchanged": false,
+  "verified_with_authorized_cleanup": true,
+  "authorized_cleanup_changes": [
+    ".DS_Store",
+    ".github/workflows/slip-quadruped-v3-tests.yml",
+    ".gitignore",
+    "docs/performance-baseline-round1.md",
+    "docs/repository-audit-round1.md",
+    "tests/round1/TestEventTimingRegulation.m",
+    "tests/round1/TestRound1Contracts.m",
+    "tools/runRound1Audit.m"
+  ],
+  "legacy_reference_checked_entries": 528,
+  "legacy_reference_unchanged": true,
+  "changed_or_missing": [],
+  "added": [],
+  "utc": "2026-10-07T11:04:39.878582+00:00"
+}

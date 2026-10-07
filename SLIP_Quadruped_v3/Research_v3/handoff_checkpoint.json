@@ -1,0 +1,30 @@
+{
+  "schema_version": "research-handoff-v3-1",
+  "generated_utc": "2026-10-07T11:00:36.826275+00:00",
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "stage_status": {
+    "inventory": "completed",
+    "compatibility": "completed",
+    "vertical": "completed",
+    "fixed_family": "completed",
+    "parent_only": "completed_bounded_search",
+    "pip_pk_local": "budget_exhausted",
+    "floquet": "completed",
+    "solution_index": "completed_validation"
+  },
+  "full_campaign_process_wall_seconds": 3837.3592060420197,
+  "discovery_wall_budget_seconds": 7200,
+  "network_achieved": false,
+  "global_exhaustiveness_claimed": false,
+  "resumable_checkpoints": [
+    "Research_v3/runs/full/family_+1.mat",
+    "Research_v3/runs/full/family_-1.mat"
+  ],
+  "report": "Docs_v3/Final_Research_Status_v3.md",
+  "graph": "Research_v3/graph/index.json",
+  "unprocessed_candidate_queue": "Research_v3/parent_candidate_queue_v3.json",
+  "validation_recipe": "Research_v3/audit_commands.sh",
+  "cleanup_audit": "Research_v3/Audits_v3/Working_Tree_Cleanup_v3.json",
+  "execution_ledger": "Research_v3/execution_ledger.jsonl",
+  "protected_verification": "Research_v3/baseline/protected_verification.json"
+}

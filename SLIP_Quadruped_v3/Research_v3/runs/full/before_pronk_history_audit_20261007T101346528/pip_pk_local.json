@@ -1,0 +1,4548 @@
+{
+  "schema_version": "parent-only-pronk-validation-v3-2",
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "origin": "parent-only",
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "restriction": "pronk invariant subspace; no split-contact derivative claimed",
+  "domain": {
+    "energy": [
+      1.0001,
+      3
+    ],
+    "mean_speed": [
+      -3,
+      3
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 12,
+    "event_count_max": 64,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately"
+  },
+  "validation_settings": {
+    "scan_points": 16,
+    "wall_seconds": 900,
+    "maximum_connections": 2,
+    "energy_bracket_tolerance": 1E-8,
+    "amplitudes": [
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "registration": "before parent-only pronk scan; no domain change",
+    "validation_version": "parent-only-pronk-validation-v3-2",
+    "relative_tolerance": 1E-11,
+    "absolute_tolerance": 1E-13,
+    "replay_relative_tolerance": 2E-12,
+    "replay_absolute_tolerance": 2E-14,
+    "derivative_step": 0.0001,
+    "derivative_relative_error": 0.001,
+    "transversality_energy_step": 0.0001,
+    "root_function_tolerance": 1E-12,
+    "root_residual_tolerance": 1E-10,
+    "full_closure_tolerance": 1E-8,
+    "replay_period_tolerance": 1E-8,
+    "kernel_gap_factor": 25,
+    "kernel_zero_factor": 10,
+    "transversality_factor": 5,
+    "minimum_signed_amplitudes": 3,
+    "minimum_critical_alignment": 0.995,
+    "energy_scaling_relative_tolerance": 0.15,
+    "trajectory_distinction_tolerance": 1E-6,
+    "synchronization_tolerance": 1E-9,
+    "signed_reflection_tolerance": 1E-7,
+    "validation_registration": "v2 validation settings frozen before rerun; larger amplitude and tighter replay improve numerical evidence; registered domain and physical parameters unchanged"
+  },
+  "status": "budget_exhausted",
+  "parent_samples": [
+    {
+      "energy": 1.0001,
+      "reliable": true,
+      "det_DP_minus_I": 1.0973007370071888,
+      "multipliers_real": [
+        2.7250210648582591,
+        0.36389139865780945,
+        -1.4069272762300887E-10
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            1.5347487115269021,
+            -1.142347537378265,
+            -0.016176809160414578
+          ],
+          [
+            -1.2032645960170651,
+            1.5444562316115051,
+            0.0218710794259674
+          ],
+          [
+            -1.1802538396572662,
+            0.68550984862435482,
+            0.0097075202369725049
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          2.8342150953291059E-6,
+          4.378490914184734E-6,
+          2.6323104947666382E-10
+        ],
+        "absolute_matrix_error_estimate": 1.1022575165404001E-5,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 1.1334266666666666,
+      "reliable": true,
+      "det_DP_minus_I": 0.13342104860029075,
+      "multipliers_real": [
+        1.136199870689965,
+        0.020402507727895806,
+        2.3799730329921862E-8
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            1.568690389467523,
+            1.3571774106436481,
+            -0.33275174804369961
+          ],
+          [
+            0.29147615880320293,
+            0.57830119943636793,
+            -0.14178745791824321
+          ],
+          [
+            3.2011993430615533,
+            4.0394493532111566,
+            -0.99038918668629916
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          2.5414806211126619E-8,
+          3.0513020454421612E-8,
+          1.5475012006940732E-9
+        ],
+        "absolute_matrix_error_estimate": 1.5963826829603151E-7,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 1.2667533333333334,
+      "reliable": true,
+      "det_DP_minus_I": 1.5161473782674226,
+      "multipliers_real": [
+        3.1499235913644124,
+        0.29479011134174993,
+        -1.1724334611988169E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            1.7099556435090282,
+            2.6371822910502316,
+            0.074052500693935167
+          ],
+          [
+            0.75113148654678863,
+            1.7223568505553166,
+            0.048364055598795024
+          ],
+          [
+            0.76867564449865944,
+            0.44163594990121258,
+            0.01240120746938273
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          9.2216811359455359E-8,
+          2.2667193560476589E-7,
+          4.2274043876147211E-10
+        ],
+        "absolute_matrix_error_estimate": 7.4462358237887766E-7,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 1.40008,
+      "reliable": true,
+      "det_DP_minus_I": 1.2594150812496687,
+      "multipliers_real": [
+        2.0806640596298704,
+        -0.1654085021716345,
+        1.4564681116771632E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            1.8347278066106003,
+            2.1028690033088844,
+            0.54486627186687253
+          ],
+          [
+            0.67957921898225548,
+            0.95762777782767017,
+            0.24812723747109389
+          ],
+          [
+            -1.719981754022972,
+            -3.3850993411284276,
+            -0.87710002552356536
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          6.4405883025497346E-8,
+          6.6879004600196655E-8,
+          2.7108159967281387E-9
+        ],
+        "absolute_matrix_error_estimate": 3.2139256735496836E-7,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 1.5334066666666666,
+      "reliable": true,
+      "det_DP_minus_I": 0.13080607435441924,
+      "multipliers_real": [
+        1.0666911788202968,
+        -0.96136995365124633,
+        -3.2647559113943514E-10
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            1.9501265073834322,
+            0.34814825447094538,
+            0.83224009290570322
+          ],
+          [
+            0.33157505601143061,
+            0.052660608860090385,
+            0.12588392933827819
+          ],
+          [
+            -3.229303818301632,
+            -0.79376065028257692,
+            -1.8974658914009448
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          2.4810837474852488E-8,
+          1.7526403570832313E-9,
+          1.9725844909650718E-9
+        ],
+        "absolute_matrix_error_estimate": 9.4064049658425716E-8,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 1.6667333333333332,
+      "reliable": true,
+      "det_DP_minus_I": -0.12475621016167068,
+      "multipliers_real": [
+        0.91424872330764451,
+        -0.45486125600302063,
+        -3.9411838040836904E-10
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.0596838113079836,
+            -1.848630999721687,
+            0.85171351094417991
+          ],
+          [
+            -0.097923609291521427,
+            0.22969372932538792,
+            -0.10582601523699449
+          ],
+          [
+            -3.5942517428847593,
+            3.9719651486332754,
+            -1.8299900737228663
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          1.1352382153660251E-8,
+          1.60846432068263E-8,
+          3.7773406820322126E-9
+        ],
+        "absolute_matrix_error_estimate": 8.5150439969310566E-8,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 1.80006,
+      "reliable": true,
+      "det_DP_minus_I": 0.842153814335559,
+      "multipliers_real": [
+        2.153842818533914,
+        2.4841008800196955E-9,
+        0.27013124933463067
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.1653988151565176,
+            -3.8207390475273191,
+            0.61785007554135918
+          ],
+          [
+            -0.47988756441298047,
+            1.2119870311419387,
+            -0.19598990360806834
+          ],
+          [
+            -3.003037361942233,
+            5.895827731886186,
+            -0.953411775945812
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          3.172649724368386E-8,
+          1.23431252878272E-7,
+          5.7698467271462136E-9
+        ],
+        "absolute_matrix_error_estimate": 8.8794590011426407E-7,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 1.9333866666666668,
+      "reliable": true,
+      "det_DP_minus_I": 2.200125489923562,
+      "multipliers_real": [
+        3.9822282923293715,
+        0.26225450268226713,
+        2.1435058484623412E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.2685295254920703,
+            -5.1103123072663843,
+            0.199577084077066
+          ],
+          [
+            -0.74206592221195811,
+            2.1222413961936915,
+            -0.082881577694929445
+          ],
+          [
+            -1.7739390606512437,
+            3.7458108788727671,
+            -0.1462881245306161
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          6.1829049056917116E-8,
+          3.6964102047158169E-7,
+          7.7387492857503889E-10
+        ],
+        "absolute_matrix_error_estimate": 2.4768083084327079E-6,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 2.0667133333333334,
+      "reliable": true,
+      "det_DP_minus_I": 2.96376704458572,
+      "multipliers_real": [
+        4.5267674268350566,
+        0.15963638172411382,
+        -3.020842324431327E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.3699307818383635,
+            -5.480853780383,
+            -0.31153969624362166
+          ],
+          [
+            -0.85605420644500485,
+            2.3432019017128756,
+            0.13319100162516717
+          ],
+          [
+            -0.24181839802887262,
+            -0.47023564284442837,
+            -0.026728878012908314
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          8.6870409023535152E-8,
+          4.9943552895073906E-7,
+          1.4528967290490545E-9
+        ],
+        "absolute_matrix_error_estimate": 2.9943377207068552E-6,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 2.20004,
+      "reliable": true,
+      "det_DP_minus_I": 2.7029271671650794,
+      "multipliers_real": [
+        3.6622114663599765,
+        -0.015293966092869359,
+        2.6302392904032682E-8
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.4702181710293796,
+            -4.8902855304768087,
+            -0.822918147349125
+          ],
+          [
+            -0.82456244356751052,
+            1.8234587607399853,
+            0.30684451711016258
+          ],
+          [
+            1.2998036545981733,
+            -3.8434419947936882,
+            -0.646759405199866
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          7.6119029145632209E-8,
+          2.7890649409930258E-7,
+          6.6689218856094578E-9
+        ],
+        "absolute_matrix_error_estimate": 1.8213173133851612E-6,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 2.3333666666666666,
+      "reliable": true,
+      "det_DP_minus_I": 1.6625504889185168,
+      "multipliers_real": [
+        2.2331176714033365,
+        -0.34824966771811577,
+        1.087704035226018E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.5698557889006315,
+            -3.4472181253015735,
+            -1.2546416120424333
+          ],
+          [
+            -0.67032622387076879,
+            0.94243399726583854,
+            0.34300611831767586
+          ],
+          [
+            2.6249711591302067,
+            -4.4714584734238629,
+            -1.6274217813935492
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          5.1127169196166712E-8,
+          8.2296867328032653E-8,
+          8.7652337925247518E-9
+        ],
+        "absolute_matrix_error_estimate": 5.0862139561935493E-7,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 2.4666933333333332,
+      "reliable": true,
+      "det_DP_minus_I": 0.48025333823257815,
+      "multipliers_real": [
+        1.2596111424580407,
+        -0.84989493793112447,
+        6.4692206985576761E-11
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.6692069301350929,
+            -1.3628522360294753,
+            -1.5470343031343521
+          ],
+          [
+            -0.42710222211261906,
+            0.20485809542597547,
+            0.23254355268649107
+          ],
+          [
+            3.5827184808201014,
+            -2.1709559336324666,
+            -2.4643488209694584
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          3.0466186276529181E-8,
+          6.3030227911000818E-9,
+          6.8052342317842353E-9
+        ],
+        "absolute_matrix_error_estimate": 1.3911774083467159E-7,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 2.6000199999999998,
+      "reliable": true,
+      "det_DP_minus_I": -0.20562620112458743,
+      "multipliers_real": [
+        -0.94218275994322,
+        0.89412623492984555,
+        6.0762251221002087E-10
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.768565165809092,
+            1.0945804359003848,
+            -1.6636897617446467
+          ],
+          [
+            -0.13275284410022758,
+            -0.024028270036794697,
+            0.036521379543527396
+          ],
+          [
+            4.0934685448858721,
+            1.8373125757082294,
+            -2.7925934201780507
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          1.546778320426629E-8,
+          3.1768522457783635E-9,
+          4.4666940107838937E-9
+        ],
+        "absolute_matrix_error_estimate": 7.8128804485990793E-8,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 2.7333466666666668,
+      "reliable": true,
+      "det_DP_minus_I": -0.043870194856380572,
+      "multipliers_real": [
+        0.96509420876925511,
+        -0.25681708346473192,
+        -2.8659080104350975E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.8681743366838268,
+            3.6391784482126943,
+            -1.5912558946138244
+          ],
+          [
+            0.17576974149559332,
+            0.35413855285998436,
+            -0.15484952640710592
+          ],
+          [
+            4.1393509083907842,
+            5.7495622304021436,
+            -2.5140357671051965
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          1.5556588825119566E-8,
+          3.2628088586819861E-8,
+          7.5763652215754744E-9
+        ],
+        "absolute_matrix_error_estimate": 2.3681163587829131E-7,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 2.8666733333333334,
+      "reliable": true,
+      "det_DP_minus_I": 0.93107530059305621,
+      "multipliers_real": [
+        2.1653416171665945,
+        0.20102801522103808,
+        4.5324607781724028E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.9682419373457791,
+            5.998881787586015,
+            -1.3370430202709673
+          ],
+          [
+            0.46580874731779348,
+            1.1831848107549003,
+            -0.26371064589183596
+          ],
+          [
+            3.7516583048420231,
+            8.0089768630265628,
+            -1.7850571111805842
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          3.1415268219277745E-8,
+          1.5274012719703097E-7,
+          9.889248999793142E-9
+        ],
+        "absolute_matrix_error_estimate": 1.5465921903534056E-6,
+        "map_evaluations": 13
+      }
+    },
+    {
+      "energy": 3,
+      "reliable": true,
+      "det_DP_minus_I": 2.37126603602045,
+      "multipliers_real": [
+        4.0803689896888127,
+        0.23020065049692492,
+        3.5725391356933479E-9
+      ],
+      "multipliers_imag": [
+        0,
+        0,
+        0
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            3.0689483813324867,
+            7.938736299939376,
+            -0.92530724292158062
+          ],
+          [
+            0.71104591848003429,
+            2.1552848150402877,
+            -0.25121134776517784
+          ],
+          [
+            2.9975320190549728,
+            7.8388384995676743,
+            -0.91366355261449861
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          5.2692866044350888E-8,
+          4.0097310222940548E-7,
+          9.1026661846700635E-9
+        ],
+        "absolute_matrix_error_estimate": 4.56200312373142E-6,
+        "map_evaluations": 13
+      }
+    }
+  ],
+  "brackets": [
+    [
+      1.5334066666666666,
+      1.6667333333333332
+    ],
+    [
+      1.6667333333333332,
+      1.80006
+    ],
+    [
+      2.4666933333333332,
+      2.6000199999999998
+    ],
+    [
+      2.7333466666666668,
+      2.8666733333333334
+    ]
+  ],
+  "connections": [
+    {
+      "critical_energy": 1.5551652516426646,
+      "bracket": [
+        1.5551652476692202,
+        1.5551652556161089
+      ],
+      "critical_energy_uncertainty_estimate": 7.4932692527591181E-8,
+      "critical_direction": [
+        -0.65769791074120021,
+        -0.10778662589335497,
+        0.74553034913756955
+      ],
+      "left_kernel": [
+        0.96099535959924309,
+        -2.0998112300902552E-8,
+        0.27656449307299175
+      ],
+      "singular_values": [
+        4.676335227742408,
+        1.0042923286610363,
+        3.732941601079229E-9
+      ],
+      "matrix_uncertainty_estimate": 8.026766530435256E-8,
+      "derivative_uncertainty": [
+        4.9221030871039473E-9,
+        4.1193149768579323E-9,
+        2.7305511679086371E-9
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            1.968339249575598,
+            -6.9165334614844386E-8,
+            0.854257238761039
+          ],
+          [
+            0.26285859582087723,
+            -6.9237620970765567E-9,
+            0.087313578484651336
+          ],
+          [
+            -3.3647469057062853,
+            1.6295328259805704E-7,
+            -1.9683392420165655
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          5E-5,
+          5E-5,
+          5E-5
+        ],
+        "relative_column_errors": [
+          4.9221030871039473E-9,
+          4.1193149768579323E-9,
+          2.7305511679086371E-9
+        ],
+        "absolute_matrix_error_estimate": 2.0522659130442192E-8,
+        "map_evaluations": 13
+      },
+      "coarse_derivative": {
+        "matrix": [
+          [
+            1.9683392495755951,
+            -6.8296080269226581E-8,
+            0.85425724100550993
+          ],
+          [
+            0.26285859626927327,
+            -6.738327251395403E-9,
+            0.087313578848983261
+          ],
+          [
+            -3.3647469072257539,
+            1.583825486731486E-7,
+            -1.9683392494232599
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          2.0506973070312758E-8,
+          2.5478085396417111E-9,
+          1.9163282795863356E-9
+        ],
+        "absolute_matrix_error_estimate": 8.026766530435256E-8,
+        "map_evaluations": 13
+      },
+      "matrix_half_step_difference": 9.1511449234886424E-9,
+      "transversality": {
+        "definition": "w^T d_E(DP_E-I) v on the fixed-energy pronk chart",
+        "estimate": 1.1316072211182542,
+        "coarse_estimate": 1.1316069417417085,
+        "uncertainty_estimate": 0.00042746136428022525,
+        "energy_step": 0.0001,
+        "half_energy_step": 5E-5,
+        "mixed_matrix": [
+          [
+            0.8336926326557581,
+            -16.214088878980611,
+            0.84191062659999538
+          ],
+          [
+            -3.1941439358451618,
+            -1.6572214460850743,
+            -1.817053410263364
+          ],
+          [
+            -5.5149384864883189,
+            37.359690496088838,
+            -2.4909336496570234
+          ]
+        ],
+        "coarse_mixed_matrix": [
+          [
+            0.83369263240928859,
+            -16.214088489953742,
+            0.841910622954023
+          ],
+          [
+            -3.1941438569560443,
+            -1.6572350005320478,
+            -1.8170532405781259
+          ],
+          [
+            -5.5149385542141438,
+            37.359698997749668,
+            -2.4909336278744476
+          ]
+        ],
+        "half_step_difference": 1.6005644685891046E-5,
+        "stencil_error_estimate": 0.0004048730298731036,
+        "kernel_orientation_error_estimate": 6.58268972123065E-6,
+        "derivatives_reliable": true,
+        "stencils": [
+          {
+            "matrix": [
+              [
+                1.9684226173373147,
+                -0.0016215647964300105,
+                0.85434135154411572
+              ],
+              [
+                0.2625391672151664,
+                -0.00016537822434337121,
+                0.0871318577369608
+              ],
+              [
+                -3.365298075196391,
+                0.0037364338131926082,
+                -1.9685879815324636
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.9207060265324282E-9,
+              1.1559958456597635E-9,
+              2.7226018154052304E-9
+            ],
+            "absolute_matrix_error_estimate": 2.0130550773152757E-8,
+            "map_evaluations": 13
+          },
+          {
+            "matrix": [
+              [
+                1.9682558788108329,
+                0.0016212529015607385,
+                0.85417296941952492
+              ],
+              [
+                0.26317799598655761,
+                0.00016606877576303837,
+                0.08749526838507643
+              ],
+              [
+                -3.3641950874855482,
+                -0.0037355059863573262,
+                -1.9680897948068887
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.923296559776694E-9,
+              3.555086871290314E-9,
+              2.7383875243337413E-9
+            ],
+            "absolute_matrix_error_estimate": 2.0423622222777712E-8,
+            "map_evaluations": 13
+          },
+          {
+            "matrix": [
+              [
+                1.9683809338317728,
+                -0.00081079530480727936,
+                0.85429931472256582
+              ],
+              [
+                0.26269888506897626,
+                -8.2780055050344983E-5,
+                0.087222721958169949
+              ],
+              [
+                -3.365022571539237,
+                0.0018682200307725886,
+                -1.9684637002373762
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.9214173123732667E-9,
+              1.7902278232639665E-9,
+              2.7265934388217323E-9
+            ],
+            "absolute_matrix_error_estimate": 2.0180782490179655E-8,
+            "map_evaluations": 13
+          },
+          {
+            "matrix": [
+              [
+                1.9682975645685072,
+                0.00081061358309078189,
+                0.85421512365990582
+              ],
+              [
+                0.26301829946256078,
+                8.294208955816246E-5,
+                0.087404427299196286
+              ],
+              [
+                -3.3644710776905882,
+                -0.0018677490188362955,
+                -1.9682146068724105
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.9226868599400192E-9,
+              2.8299453430991054E-9,
+              2.7344665614373508E-9
+            ],
+            "absolute_matrix_error_estimate": 2.03065204971307E-8,
+            "map_evaluations": 13
+          }
+        ],
+        "error_interpretation": "step-refinement estimate; not a rigorous interval bound"
+      },
+      "amplitudes": [
+        {
+          "signed_amplitude": -0.0001,
+          "converged": true,
+          "reduced_coordinates": [
+            6.5769791074120028E-5,
+            1.0778662589335497E-5,
+            -7.455303491375696E-5
+          ],
+          "energy": 1.5551652516426646,
+          "period": 2.6512732760710871,
+          "mean_speed": 6.4854615858560912E-5,
+          "full_closure": 8.7352347577507317E-12,
+          "replay_full_closure": 1.7930101847696278E-12,
+          "replay_period_difference": 7.5752737416223681E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.00010000000000000002,
+          "critical_alignment": 1.0000000000000002,
+          "amplitude_constraint_error": 2.7105054312137611E-20,
+          "initial_residual": 2.3244760608519266E-13,
+          "final_residual": 2.3244760608519266E-13,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 8.8779044943451845E-5,
+            "paired_leg_motion_error": 9.6407289775524513E-5,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.00017194730985565867,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537222107446012,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975510644640836,
+              3.7049954876798221
+            ],
+            "duty_factors": [
+              0.205119878725307,
+              0.205119878725307,
+              0.205119878725307,
+              0.205119878725307
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                8.4703294725430034E-22,
+                6.7762635780344027E-21
+              ],
+              [
+                0,
+                0,
+                8.4703294725430034E-22,
+                6.7762635780344027E-21
+              ],
+              [
+                8.4703294725430034E-22,
+                8.4703294725430034E-22,
+                0,
+                6.7762635780344027E-21
+              ],
+              [
+                6.7762635780344027E-21,
+                6.7762635780344027E-21,
+                6.7762635780344027E-21,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512732760710871,
+              "cover_count": 1,
+              "closure_error": 1.7930101847696278E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_-0.0001.mat"
+        },
+        {
+          "signed_amplitude": -0.0003,
+          "converged": true,
+          "reduced_coordinates": [
+            0.00019730937322236006,
+            3.2335987768006489E-5,
+            -0.00022365910474127085
+          ],
+          "energy": 1.5551652516426646,
+          "period": 2.6512732443229576,
+          "mean_speed": 0.00019456385170173269,
+          "full_closure": 8.737455203799982E-12,
+          "replay_full_closure": 8.584021487329993E-12,
+          "replay_period_difference": 7.5996986481641216E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.00030000000000000003,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 5.4210108624275222E-20,
+          "initial_residual": 8.65689540451714E-12,
+          "final_residual": 8.65689540451714E-12,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00026633735079388,
+            "paired_leg_motion_error": 0.00028922188762605283,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.00051584193432922365,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537221888585868,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.597551048081487,
+              3.7049954405661185
+            ],
+            "duty_factors": [
+              0.20511988079795257,
+              0.20511988079795257,
+              0.20511988079795257,
+              0.20511988079795257
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                8.1315162936412833E-20,
+                8.1315162936412833E-20
+              ],
+              [
+                0,
+                0,
+                8.1315162936412833E-20,
+                8.1315162936412833E-20
+              ],
+              [
+                8.1315162936412833E-20,
+                8.1315162936412833E-20,
+                0,
+                0
+              ],
+              [
+                8.1315162936412833E-20,
+                8.1315162936412833E-20,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512732443229576,
+              "cover_count": 1,
+              "closure_error": 8.584021487329993E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_-0.0003.mat"
+        },
+        {
+          "signed_amplitude": -0.001,
+          "converged": true,
+          "reduced_coordinates": [
+            0.00065769792174042287,
+            0.00010778663046917642,
+            -0.00074553033877262822
+          ],
+          "energy": 1.5551654499872463,
+          "period": 2.6512732513625523,
+          "mean_speed": 0.00064854617141450624,
+          "full_closure": 8.7334584009113314E-12,
+          "replay_full_closure": 1.7965628984484283E-12,
+          "replay_period_difference": 7.5974782021148712E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.001,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 3.7984418898000943E-10,
+          "final_residual": 1.8008598084984229E-16,
+          "correction_norm": 1.9834458164780244E-7,
+          "genuine_correction": false,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0008877919942881456,
+            "paired_leg_motion_error": 0.00096407293119644228,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.0017194731165448732,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537221291863264,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 5.711754e-32, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n3.936845e-16, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975510416720111,
+              3.7049954610548133
+            ],
+            "duty_factors": [
+              0.20511987276312,
+              0.20511987276312,
+              0.20511987276312,
+              0.20511987276312
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                5.4210108624275222E-19,
+                5.4210108624275222E-19
+              ],
+              [
+                0,
+                0,
+                5.4210108624275222E-19,
+                5.4210108624275222E-19
+              ],
+              [
+                5.4210108624275222E-19,
+                5.4210108624275222E-19,
+                0,
+                0
+              ],
+              [
+                5.4210108624275222E-19,
+                5.4210108624275222E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512732513625523,
+              "cover_count": 1,
+              "closure_error": 1.7965628984484283E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_-0.001.mat"
+        },
+        {
+          "signed_amplitude": -0.003,
+          "converged": true,
+          "reduced_coordinates": [
+            0.0019730940469227984,
+            0.00032335992313675086,
+            -0.0022365907632168631
+          ],
+          "energy": 1.5551670690607626,
+          "period": 2.6512730819329824,
+          "mean_speed": 0.0019456388058615407,
+          "full_closure": 8.7310159102571561E-12,
+          "replay_full_closure": 1.7965628984484283E-12,
+          "replay_period_difference": 7.59392548843607E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.0030000000000000304,
+          "critical_alignment": 0.9999999999999899,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 9.0591643609437555E-9,
+          "final_residual": 3.7383724588169187E-14,
+          "correction_norm": 1.6190735163679193E-6,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0026633757326220962,
+            "paired_leg_motion_error": 0.0028922190773905117,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.0051584197931449343,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537214863506961,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 2.466387e-27, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n9.539186e-14, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975508722710854,
+              3.7049952915965711
+            ],
+            "duty_factors": [
+              0.2051198219879348,
+              0.2051198219879348,
+              0.2051198219879348,
+              0.2051198219879348
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                8.6736173798840355E-19,
+                8.6736173798840355E-19
+              ],
+              [
+                0,
+                0,
+                8.6736173798840355E-19,
+                8.6736173798840355E-19
+              ],
+              [
+                8.6736173798840355E-19,
+                8.6736173798840355E-19,
+                0,
+                0
+              ],
+              [
+                8.6736173798840355E-19,
+                8.6736173798840355E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512730819329824,
+              "cover_count": 1,
+              "closure_error": 1.7965628984484283E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_-0.003.mat"
+        },
+        {
+          "signed_amplitude": -0.01,
+          "converged": true,
+          "reduced_coordinates": [
+            0.0065769908375304421,
+            0.0010778676104701856,
+            -0.0074552929478049678
+          ],
+          "energy": 1.555185486438313,
+          "period": 2.6512711553170747,
+          "mean_speed": 0.0064854737405429267,
+          "full_closure": 8.4283691137443384E-12,
+          "replay_full_closure": 1.6291412663349547E-12,
+          "replay_period_difference": 6.17239592770602E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.010000000000012528,
+          "critical_alignment": 0.99999999999874734,
+          "amplitude_constraint_error": 1.7347234759768071E-18,
+          "initial_residual": 3.448444837270831E-7,
+          "final_residual": 5.9414279052205643E-16,
+          "correction_norm": 1.8417377550372649E-5,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 2,
+          "solver_counters": {
+            "functionEvaluationCount": 57,
+            "mapEvaluationCount": 51,
+            "cacheHitCount": 6,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 3,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00887791372702457,
+            "paired_leg_motion_error": 0.00964074099078623,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.017194749456867796,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537141739413554,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 4.191870e-31, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n1.895227e-15, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975489456555556,
+              3.7049933649801119
+            ],
+            "duty_factors": [
+              0.2051192443677004,
+              0.2051192443677004,
+              0.2051192443677004,
+              0.2051192443677004
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512711553170747,
+              "cover_count": 1,
+              "closure_error": 1.6291412663349547E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_-0.01.mat"
+        },
+        {
+          "signed_amplitude": 0.0001,
+          "converged": true,
+          "reduced_coordinates": [
+            -6.5769791074120028E-5,
+            -1.0778662589335497E-5,
+            7.455303491375696E-5
+          ],
+          "energy": 1.5551652516426646,
+          "period": 2.6512732760710871,
+          "mean_speed": -6.4854615858560912E-5,
+          "full_closure": 8.7352347577507317E-12,
+          "replay_full_closure": 1.7930101847696278E-12,
+          "replay_period_difference": 7.5752737416223681E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.00010000000000000002,
+          "critical_alignment": 1.0000000000000002,
+          "amplitude_constraint_error": 2.7105054312137611E-20,
+          "initial_residual": 2.3244760608519266E-13,
+          "final_residual": 2.3244760608519266E-13,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 8.8779044943451845E-5,
+            "paired_leg_motion_error": 9.6407289775524513E-5,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.00017194730985565867,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537222107446012,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975510644640836,
+              3.7049954876798221
+            ],
+            "duty_factors": [
+              0.205119878725307,
+              0.205119878725307,
+              0.205119878725307,
+              0.205119878725307
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                8.4703294725430034E-22,
+                6.7762635780344027E-21
+              ],
+              [
+                0,
+                0,
+                8.4703294725430034E-22,
+                6.7762635780344027E-21
+              ],
+              [
+                8.4703294725430034E-22,
+                8.4703294725430034E-22,
+                0,
+                6.7762635780344027E-21
+              ],
+              [
+                6.7762635780344027E-21,
+                6.7762635780344027E-21,
+                6.7762635780344027E-21,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512732760710871,
+              "cover_count": 1,
+              "closure_error": 1.7930101847696278E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_+0.0001.mat"
+        },
+        {
+          "signed_amplitude": 0.0003,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.00019730937322236006,
+            -3.2335987768006489E-5,
+            0.00022365910474127085
+          ],
+          "energy": 1.5551652516426646,
+          "period": 2.6512732443229576,
+          "mean_speed": -0.00019456385170173269,
+          "full_closure": 8.737455203799982E-12,
+          "replay_full_closure": 8.584021487329993E-12,
+          "replay_period_difference": 7.5996986481641216E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.00030000000000000003,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 5.4210108624275222E-20,
+          "initial_residual": 8.65689540451714E-12,
+          "final_residual": 8.65689540451714E-12,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00026633735079388,
+            "paired_leg_motion_error": 0.00028922188762605283,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.00051584193432922365,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537221888585868,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.597551048081487,
+              3.7049954405661185
+            ],
+            "duty_factors": [
+              0.20511988079795257,
+              0.20511988079795257,
+              0.20511988079795257,
+              0.20511988079795257
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                8.1315162936412833E-20,
+                8.1315162936412833E-20
+              ],
+              [
+                0,
+                0,
+                8.1315162936412833E-20,
+                8.1315162936412833E-20
+              ],
+              [
+                8.1315162936412833E-20,
+                8.1315162936412833E-20,
+                0,
+                0
+              ],
+              [
+                8.1315162936412833E-20,
+                8.1315162936412833E-20,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512732443229576,
+              "cover_count": 1,
+              "closure_error": 8.584021487329993E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_+0.0003.mat"
+        },
+        {
+          "signed_amplitude": 0.001,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.00065769792174042287,
+            -0.00010778663046917642,
+            0.00074553033877262822
+          ],
+          "energy": 1.5551654499872463,
+          "period": 2.6512732513625523,
+          "mean_speed": -0.00064854617141450624,
+          "full_closure": 8.7334584009113314E-12,
+          "replay_full_closure": 1.7965628984484283E-12,
+          "replay_period_difference": 7.5974782021148712E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.001,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 3.7984418898000943E-10,
+          "final_residual": 1.8008598084984229E-16,
+          "correction_norm": 1.9834458164780244E-7,
+          "genuine_correction": false,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0008877919942881456,
+            "paired_leg_motion_error": 0.00096407293119644228,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.0017194731165448732,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537221291863264,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 5.711754e-32, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n3.936845e-16, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975510416720111,
+              3.7049954610548133
+            ],
+            "duty_factors": [
+              0.20511987276312,
+              0.20511987276312,
+              0.20511987276312,
+              0.20511987276312
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                5.4210108624275222E-19,
+                5.4210108624275222E-19
+              ],
+              [
+                0,
+                0,
+                5.4210108624275222E-19,
+                5.4210108624275222E-19
+              ],
+              [
+                5.4210108624275222E-19,
+                5.4210108624275222E-19,
+                0,
+                0
+              ],
+              [
+                5.4210108624275222E-19,
+                5.4210108624275222E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512732513625523,
+              "cover_count": 1,
+              "closure_error": 1.7965628984484283E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_+0.001.mat"
+        },
+        {
+          "signed_amplitude": 0.003,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.0019730940469227984,
+            -0.00032335992313675086,
+            0.0022365907632168631
+          ],
+          "energy": 1.5551670690607626,
+          "period": 2.6512730819329824,
+          "mean_speed": -0.0019456388058615407,
+          "full_closure": 8.7310159102571561E-12,
+          "replay_full_closure": 1.7965628984484283E-12,
+          "replay_period_difference": 7.59392548843607E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.0030000000000000304,
+          "critical_alignment": 0.9999999999999899,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 9.0591643609437555E-9,
+          "final_residual": 3.7383724588169187E-14,
+          "correction_norm": 1.6190735163679193E-6,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0026633757326220962,
+            "paired_leg_motion_error": 0.0028922190773905117,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.0051584197931449343,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537214863506961,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 2.466387e-27, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n9.539186e-14, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975508722710854,
+              3.7049952915965711
+            ],
+            "duty_factors": [
+              0.2051198219879348,
+              0.2051198219879348,
+              0.2051198219879348,
+              0.2051198219879348
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                8.6736173798840355E-19,
+                8.6736173798840355E-19
+              ],
+              [
+                0,
+                0,
+                8.6736173798840355E-19,
+                8.6736173798840355E-19
+              ],
+              [
+                8.6736173798840355E-19,
+                8.6736173798840355E-19,
+                0,
+                0
+              ],
+              [
+                8.6736173798840355E-19,
+                8.6736173798840355E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512730819329824,
+              "cover_count": 1,
+              "closure_error": 1.7965628984484283E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_+0.003.mat"
+        },
+        {
+          "signed_amplitude": 0.01,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.0065769908375304421,
+            -0.0010778676104701856,
+            0.0074552929478049678
+          ],
+          "energy": 1.555185486438313,
+          "period": 2.6512711553170747,
+          "mean_speed": -0.0064854737405429267,
+          "full_closure": 8.4283691137443384E-12,
+          "replay_full_closure": 1.6291412663349547E-12,
+          "replay_period_difference": 6.17239592770602E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.010000000000012528,
+          "critical_alignment": 0.99999999999874734,
+          "amplitude_constraint_error": 1.7347234759768071E-18,
+          "initial_residual": 3.448444837270831E-7,
+          "final_residual": 5.9414279052205643E-16,
+          "correction_norm": 1.8417377550372649E-5,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 2,
+          "solver_counters": {
+            "functionEvaluationCount": 57,
+            "mapEvaluationCount": 51,
+            "cacheHitCount": 6,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 3,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00887791372702457,
+            "paired_leg_motion_error": 0.00964074099078623,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.017194749456867796,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.0537141739413554,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 4.191870e-31, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n1.895227e-15, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.5975489456555556,
+              3.7049933649801119
+            ],
+            "duty_factors": [
+              0.2051192443677004,
+              0.2051192443677004,
+              0.2051192443677004,
+              0.2051192443677004
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.6512711553170747,
+              "cover_count": 1,
+              "closure_error": 1.6291412663349547E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_1_+0.01.mat"
+        }
+      ],
+      "parent_derivatives_reliable": true,
+      "reflection_symmetry_at_parameters": true,
+      "status": "candidate_only",
+      "evidence": {
+        "schema_version": "restricted-pronk-attachment-evidence-v3-2",
+        "status": "candidate_only",
+        "gates": {
+          "reliable_parent_derivatives": true,
+          "resolved_simple_kernel": true,
+          "critical_kernel_near_zero": true,
+          "resolved_left_kernel_transversality": true,
+          "both_signed_sequences": true,
+          "critical_direction_alignment": true,
+          "energy_approach_and_quadratic_scaling": true,
+          "genuine_large_amplitude_corrections": true,
+          "full_closure_and_tighter_replay": true,
+          "distinct_full_trajectories": true,
+          "synchronized_primitive_contact_cycles": false,
+          "signed_reflection_agreement": true
+        },
+        "failed_gates": [
+          "synchronized_primitive_contact_cycles"
+        ],
+        "kernel_gap_to_error_ratio": 1.2511791950756764E+7,
+        "transversality_to_error_ratio": 2647.273685245671,
+        "energy_uncertainty_estimate": 7.4932692527591181E-8,
+        "signed_sequences": [
+          {
+            "sign": -1,
+            "accepted_count": 5,
+            "resolved_energy_shift_count": 2,
+            "quadratic_energy_coefficient": 0.20234464117855161,
+            "maximum_relative_fit_error": 0.0020268713045527428,
+            "approaches_parent": true,
+            "quadratic_scaling_resolved": true,
+            "largest_amplitude": 0.01,
+            "largest_amplitude_genuinely_corrected": true
+          },
+          {
+            "sign": 1,
+            "accepted_count": 5,
+            "resolved_energy_shift_count": 2,
+            "quadratic_energy_coefficient": 0.20234464117855161,
+            "maximum_relative_fit_error": 0.0020268713045527428,
+            "approaches_parent": true,
+            "quadratic_scaling_resolved": true,
+            "largest_amplitude": 0.01,
+            "largest_amplitude_genuinely_corrected": true
+          }
+        ],
+        "signed_reflection_maximum_error": 0,
+        "claim": "conditional numerical local attachment in the synchronized fixed-parameter pronk subspace",
+        "full_system_regular_cluster_derivative_claimed": false,
+        "global_network_or_exhaustiveness_claimed": false
+      },
+      "prediction_artifact": "pronk_predictions_v2_1.mat"
+    },
+    {
+      "critical_energy": 1.6959508361671367,
+      "bracket": [
+        1.6959508321936925,
+        1.695950840140581
+      ],
+      "critical_energy_uncertainty_estimate": 1.7328293669575094E-7,
+      "critical_direction": [
+        -0.60375450751808757,
+        -8.519083771751923E-10,
+        0.79717030467246563
+      ],
+      "left_kernel": [
+        -0.67871086114942614,
+        0.69237772060846681,
+        -0.24487682406227868
+      ],
+      "singular_values": [
+        7.015096162402009,
+        0.79094630750450556,
+        1.4222151580488756E-9
+      ],
+      "matrix_uncertainty_estimate": 1.6128104726738857E-7,
+      "derivative_uncertainty": [
+        4.0211069821173894E-9,
+        7.2001705606743321E-9,
+        4.6698892560725191E-9
+      ],
+      "derivative": {
+        "matrix": [
+          [
+            2.0831271168358581,
+            -2.3194451330743528,
+            0.82033020317123384
+          ],
+          [
+            -0.18900082468583579,
+            0.40473277767187943,
+            -0.14314394383696591
+          ],
+          [
+            -3.53643143880976,
+            4.7455811531340037,
+            -1.6783943215198758
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          5E-5,
+          5E-5,
+          5E-5
+        ],
+        "relative_column_errors": [
+          4.0211069821173894E-9,
+          7.2001705606743321E-9,
+          4.6698892560725191E-9
+        ],
+        "absolute_matrix_error_estimate": 4.2478615739470482E-8,
+        "map_evaluations": 13
+      },
+      "coarse_derivative": {
+        "matrix": [
+          [
+            2.0831271168358518,
+            -2.319445132198652,
+            0.82033020556479519
+          ],
+          [
+            -0.18900082415517919,
+            0.40473277770384347,
+            -0.14314394349528473
+          ],
+          [
+            -3.5364314418356977,
+            4.7455811541243387,
+            -1.6783943302133892
+          ]
+        ],
+        "all_reliable": true,
+        "classical_derivative": true,
+        "selected_steps": [
+          0.0001,
+          0.0001,
+          0.0001
+        ],
+        "relative_column_errors": [
+          1.4272465128901338E-8,
+          2.8317487071567946E-8,
+          4.4225214341944552E-9
+        ],
+        "absolute_matrix_error_estimate": 1.6128104726738857E-7,
+        "map_evaluations": 13
+      },
+      "matrix_half_step_difference": 9.5229633256247933E-9,
+      "transversality": {
+        "definition": "w^T d_E(DP_E-I) v on the fixed-energy pronk chart",
+        "estimate": 0.9534443780398747,
+        "coarse_estimate": 0.95344444996957645,
+        "uncertainty_estimate": 0.00086313213113304438,
+        "energy_step": 0.0001,
+        "half_energy_step": 5E-5,
+        "mixed_matrix": [
+          [
+            0.7994366882169146,
+            -15.847945720457446,
+            -1.2793033395730458
+          ],
+          [
+            -3.0630812837370569,
+            6.5839381638144179,
+            -1.1272911115747797
+          ],
+          [
+            2.7368238783287424,
+            23.470189434213751,
+            5.7845016413438088
+          ]
+        ],
+        "coarse_mixed_matrix": [
+          [
+            0.79943668893855957,
+            -15.847945445226497,
+            -1.279303307042956
+          ],
+          [
+            -3.0630812385679107,
+            6.5839376669254985,
+            -1.1272910488101251
+          ],
+          [
+            2.7368237141978113,
+            23.470188165983785,
+            5.7845011406498781
+          ]
+        ],
+        "half_step_difference": 1.4665269371842507E-6,
+        "stencil_error_estimate": 0.00084961492253725357,
+        "kernel_orientation_error_estimate": 1.2050681658606617E-5,
+        "derivatives_reliable": true,
+        "stencils": [
+          {
+            "matrix": [
+              [
+                2.0832070595290157,
+                -2.3210298255161379,
+                0.82020220383230347
+              ],
+              [
+                -0.18930711246728207,
+                0.40539135531465775,
+                -0.14325661889397109
+              ],
+              [
+                -3.5361575033703221,
+                4.7479270881161471,
+                -1.6778156865594323
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.0238760749950774E-9,
+              7.2277516211814027E-9,
+              4.6801849795874405E-9
+            ],
+            "absolute_matrix_error_estimate": 4.2635895018505369E-8,
+            "map_evaluations": 13
+          },
+          {
+            "matrix": [
+              [
+                2.083047172191228,
+                -2.3178602364270926,
+                0.82045806449371206
+              ],
+              [
+                -0.18869449621956849,
+                0.40407456778127265,
+                -0.14303116068420907
+              ],
+              [
+                -3.5367048681131616,
+                4.74323305048295,
+                -1.6789725867875622
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.0181648846247643E-9,
+              7.1757804798721674E-9,
+              4.659753386164415E-9
+            ],
+            "absolute_matrix_error_estimate": 4.2336488339838E-8,
+            "map_evaluations": 13
+          },
+          {
+            "matrix": [
+              [
+                2.0831670884263382,
+                -2.3202375048346595,
+                0.82026622075219813
+              ],
+              [
+                -0.18915397366426534,
+                0.405062020549214,
+                -0.14320029488057609
+              ],
+              [
+                -3.53629453434905,
+                4.746754391646733,
+                -1.6781050502262025
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.0224414220380673E-9,
+              7.21362430922551E-9,
+              4.6750028789134909E-9
+            ],
+            "absolute_matrix_error_estimate": 4.2555533556640063E-8,
+            "map_evaluations": 13
+          },
+          {
+            "matrix": [
+              [
+                2.0830871447575166,
+                -2.3186527102626138,
+                0.82039415108615543
+              ],
+              [
+                -0.18884766553589163,
+                0.40440362673283253,
+                -0.14308756576941861
+              ],
+              [
+                -3.536568216736883,
+                4.7444073727033116,
+                -1.6786835003903369
+              ]
+            ],
+            "all_reliable": true,
+            "classical_derivative": true,
+            "selected_steps": [
+              5E-5,
+              5E-5,
+              5E-5
+            ],
+            "relative_column_errors": [
+              4.0195958593818883E-9,
+              7.1876577923851727E-9,
+              4.6648278541620896E-9
+            ],
+            "absolute_matrix_error_estimate": 4.24059586970853E-8,
+            "map_evaluations": 13
+          }
+        ],
+        "error_interpretation": "step-refinement estimate; not a rigorous interval bound"
+      },
+      "amplitudes": [
+        {
+          "signed_amplitude": -0.0001,
+          "converged": true,
+          "reduced_coordinates": [
+            6.0375450751808759E-5,
+            8.5190837717519236E-14,
+            -7.9717030467246574E-5
+          ],
+          "energy": 1.6959508361671367,
+          "period": 2.8984364941302707,
+          "mean_speed": 5.9547184592227643E-5,
+          "full_closure": 9.8738794918062922E-12,
+          "replay_full_closure": 2.02260430626211E-12,
+          "replay_period_difference": 8.01625432700348E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.00010000000000000002,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 1.3552527156068805E-20,
+          "initial_residual": 1.4157457216106006E-12,
+          "final_residual": 1.4157457216106006E-12,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 7.9717030467246574E-5,
+            "paired_leg_motion_error": 1.17314702196376E-12,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.00017259373294482437,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797888243809149,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186476702672728,
+              4.0782253179949963
+            ],
+            "duty_factors": [
+              0.18591362877669043,
+              0.18591362877669043,
+              0.18591362877669043,
+              0.18591362877669043
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.3552527156068805E-20,
+                1.3552527156068805E-20
+              ],
+              [
+                0,
+                0,
+                1.3552527156068805E-20,
+                1.3552527156068805E-20
+              ],
+              [
+                1.3552527156068805E-20,
+                1.3552527156068805E-20,
+                0,
+                0
+              ],
+              [
+                1.3552527156068805E-20,
+                1.3552527156068805E-20,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984364941302707,
+              "cover_count": 1,
+              "closure_error": 2.02260430626211E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_-0.0001.mat"
+        },
+        {
+          "signed_amplitude": -0.0003,
+          "converged": true,
+          "reduced_coordinates": [
+            0.00018112635225542626,
+            2.5557251315255768E-13,
+            -0.00023915109140173967
+          ],
+          "energy": 1.6959508361671367,
+          "period": 2.8984364701330714,
+          "mean_speed": 0.00017864155054518252,
+          "full_closure": 1.7669951114275551E-11,
+          "replay_full_closure": 1.7775302524379935E-11,
+          "replay_period_difference": 8.00959298885573E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.0003,
+          "critical_alignment": 1.0000000000000002,
+          "amplitude_constraint_error": 5.4210108624275222E-20,
+          "initial_residual": 1.7669951114275551E-11,
+          "final_residual": 1.7669951114275551E-11,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00023915109140173967,
+            "paired_leg_motion_error": 1.2594113957004743E-11,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.00051778118518127747,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797888182061125,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186476578592438,
+              4.0782252824086136
+            ],
+            "duty_factors": [
+              0.18591363003342326,
+              0.18591363003342326,
+              0.18591363003342326,
+              0.18591363003342326
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.8973538018496328E-19,
+                1.8973538018496328E-19
+              ],
+              [
+                0,
+                0,
+                1.8973538018496328E-19,
+                1.8973538018496328E-19
+              ],
+              [
+                1.8973538018496328E-19,
+                1.8973538018496328E-19,
+                0,
+                0
+              ],
+              [
+                1.8973538018496328E-19,
+                1.8973538018496328E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984364701330714,
+              "cover_count": 1,
+              "closure_error": 1.7775302524379935E-11,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_-0.0003.mat"
+        },
+        {
+          "signed_amplitude": -0.001,
+          "converged": true,
+          "reduced_coordinates": [
+            0.00060375451438696745,
+            4.3685746575464915E-14,
+            -0.00079717029947016778
+          ],
+          "energy": 1.6959510113020466,
+          "period": 2.8984364888185228,
+          "mean_speed": 0.00059547185674782034,
+          "full_closure": 9.8694385997077916E-12,
+          "replay_full_closure": 2.0252688415212106E-12,
+          "replay_period_difference": 8.0659923185066873E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.001,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 5.6026082666423E-10,
+          "final_residual": 1.6837659738699884E-16,
+          "correction_norm": 1.7513490990772596E-7,
+          "genuine_correction": false,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00079717029947016778,
+            "paired_leg_motion_error": 3.5840780213472478E-13,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.0017259373576623987,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797888931762501,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 3.473638e-32, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n2.324412e-16, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.718647659925491,
+              4.0782253177132581
+            ],
+            "duty_factors": [
+              0.18591362381392323,
+              0.18591362381392323,
+              0.18591362381392323,
+              0.18591362381392323
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                2.1684043449710089E-19,
+                2.1684043449710089E-19
+              ],
+              [
+                0,
+                0,
+                2.1684043449710089E-19,
+                2.1684043449710089E-19
+              ],
+              [
+                2.1684043449710089E-19,
+                2.1684043449710089E-19,
+                0,
+                0
+              ],
+              [
+                2.1684043449710089E-19,
+                2.1684043449710089E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984364888185228,
+              "cover_count": 1,
+              "closure_error": 2.0252688415212106E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_-0.001.mat"
+        },
+        {
+          "signed_amplitude": -0.003,
+          "converged": true,
+          "reduced_coordinates": [
+            0.0018112637097324302,
+            3.7521888004965162E-14,
+            -0.0023915107722538849
+          ],
+          "energy": 1.6959523954775839,
+          "period": 2.8984363941766751,
+          "mean_speed": 0.0017864157436491357,
+          "full_closure": 9.8676622428683913E-12,
+          "replay_full_closure": 2.0219381724473351E-12,
+          "replay_period_difference": 8.00959298885573E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.0030000000000000096,
+          "critical_alignment": 0.99999999999999711,
+          "amplitude_constraint_error": 8.6736173798840355E-19,
+          "initial_residual": 1.3340348306058181E-8,
+          "final_residual": 3.1298748315311542E-14,
+          "correction_norm": 1.3841755373000808E-6,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0023915107722538849,
+            "paired_leg_motion_error": 1.9290818942252486E-13,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.0051778124065228444,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797894206357178,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 1.354949e-27, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n3.830140e-14, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186475509608079,
+              4.0782252373942711
+            ],
+            "duty_factors": [
+              0.18591358734862962,
+              0.18591358734862962,
+              0.18591358734862962,
+              0.18591358734862962
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984363941766751,
+              "cover_count": 1,
+              "closure_error": 2.0219381724473351E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_-0.003.mat"
+        },
+        {
+          "signed_amplitude": -0.01,
+          "converged": true,
+          "reduced_coordinates": [
+            0.0060375520198947862,
+            6.6339278374543069E-14,
+            -0.0079716977869924467
+          ],
+          "energy": 1.695968139922106,
+          "period": 2.8984353166450281,
+          "mean_speed": 0.005954725721933651,
+          "full_closure": 9.4622087942752842E-12,
+          "replay_full_closure": 1.9442225607235741E-12,
+          "replay_period_difference": 7.1445072080678074E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.010000000000003794,
+          "critical_alignment": 0.99999999999962064,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 5.0454140391141544E-7,
+          "final_residual": 1.1102230246251565E-16,
+          "correction_norm": 1.5744444522125534E-5,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 2,
+          "solver_counters": {
+            "functionEvaluationCount": 57,
+            "mapEvaluationCount": 51,
+            "cacheHitCount": 6,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 3,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0079716977869924467,
+            "paired_leg_motion_error": 3.0846505905124388E-13,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": 0.017259387333387055,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797954240440307,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 1.301839e-32, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n4.959209e-16, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186463110088057,
+              4.0782243222828729
+            ],
+            "duty_factors": [
+              0.18591317262677248,
+              0.18591317262677248,
+              0.18591317262677248,
+              0.18591317262677248
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984353166450281,
+              "cover_count": 1,
+              "closure_error": 1.9442225607235741E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_-0.01.mat"
+        },
+        {
+          "signed_amplitude": 0.0001,
+          "converged": true,
+          "reduced_coordinates": [
+            -6.0375450751808759E-5,
+            -8.5190837717519236E-14,
+            7.9717030467246574E-5
+          ],
+          "energy": 1.6959508361671367,
+          "period": 2.8984364941302707,
+          "mean_speed": -5.9547184592227643E-5,
+          "full_closure": 9.8738794918062922E-12,
+          "replay_full_closure": 2.02260430626211E-12,
+          "replay_period_difference": 8.01625432700348E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.00010000000000000002,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 1.3552527156068805E-20,
+          "initial_residual": 1.4157457216106006E-12,
+          "final_residual": 1.4157457216106006E-12,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 7.9717030467246574E-5,
+            "paired_leg_motion_error": 1.17314702196376E-12,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.00017259373294482437,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797888243809149,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186476702672728,
+              4.0782253179949963
+            ],
+            "duty_factors": [
+              0.18591362877669043,
+              0.18591362877669043,
+              0.18591362877669043,
+              0.18591362877669043
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.3552527156068805E-20,
+                1.3552527156068805E-20
+              ],
+              [
+                0,
+                0,
+                1.3552527156068805E-20,
+                1.3552527156068805E-20
+              ],
+              [
+                1.3552527156068805E-20,
+                1.3552527156068805E-20,
+                0,
+                0
+              ],
+              [
+                1.3552527156068805E-20,
+                1.3552527156068805E-20,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984364941302707,
+              "cover_count": 1,
+              "closure_error": 2.02260430626211E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_+0.0001.mat"
+        },
+        {
+          "signed_amplitude": 0.0003,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.00018112635225542626,
+            -2.5557251315255768E-13,
+            0.00023915109140173967
+          ],
+          "energy": 1.6959508361671367,
+          "period": 2.8984364701330714,
+          "mean_speed": -0.00017864155054518252,
+          "full_closure": 1.7669951114275551E-11,
+          "replay_full_closure": 1.7775302524379935E-11,
+          "replay_period_difference": 8.00959298885573E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.0003,
+          "critical_alignment": 1.0000000000000002,
+          "amplitude_constraint_error": 5.4210108624275222E-20,
+          "initial_residual": 1.7669951114275551E-11,
+          "final_residual": 1.7669951114275551E-11,
+          "correction_norm": 0,
+          "genuine_correction": false,
+          "solver": "residual-check",
+          "solver_iterations": 0,
+          "solver_counters": {
+            "functionEvaluationCount": 2,
+            "mapEvaluationCount": 1,
+            "cacheHitCount": 1,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 0,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00023915109140173967,
+            "paired_leg_motion_error": 1.2594113957004743E-11,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.00051778118518127747,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797888182061125,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Initial point satisfies the root tolerance.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186476578592438,
+              4.0782252824086136
+            ],
+            "duty_factors": [
+              0.18591363003342326,
+              0.18591363003342326,
+              0.18591363003342326,
+              0.18591363003342326
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.8973538018496328E-19,
+                1.8973538018496328E-19
+              ],
+              [
+                0,
+                0,
+                1.8973538018496328E-19,
+                1.8973538018496328E-19
+              ],
+              [
+                1.8973538018496328E-19,
+                1.8973538018496328E-19,
+                0,
+                0
+              ],
+              [
+                1.8973538018496328E-19,
+                1.8973538018496328E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984364701330714,
+              "cover_count": 1,
+              "closure_error": 1.7775302524379935E-11,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_+0.0003.mat"
+        },
+        {
+          "signed_amplitude": 0.001,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.00060375451438696745,
+            -4.3685746575464915E-14,
+            0.00079717029947016778
+          ],
+          "energy": 1.6959510113020466,
+          "period": 2.8984364888185228,
+          "mean_speed": -0.00059547185674782034,
+          "full_closure": 9.8694385997077916E-12,
+          "replay_full_closure": 2.0252688415212106E-12,
+          "replay_period_difference": 8.0659923185066873E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.001,
+          "critical_alignment": 1,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 5.6026082666423E-10,
+          "final_residual": 1.6837659738699884E-16,
+          "correction_norm": 1.7513490990772596E-7,
+          "genuine_correction": false,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.00079717029947016778,
+            "paired_leg_motion_error": 3.5840780213472478E-13,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.0017259373576623987,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797888931762501,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 3.473638e-32, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n2.324412e-16, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.718647659925491,
+              4.0782253177132581
+            ],
+            "duty_factors": [
+              0.18591362381392323,
+              0.18591362381392323,
+              0.18591362381392323,
+              0.18591362381392323
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                2.1684043449710089E-19,
+                2.1684043449710089E-19
+              ],
+              [
+                0,
+                0,
+                2.1684043449710089E-19,
+                2.1684043449710089E-19
+              ],
+              [
+                2.1684043449710089E-19,
+                2.1684043449710089E-19,
+                0,
+                0
+              ],
+              [
+                2.1684043449710089E-19,
+                2.1684043449710089E-19,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984364888185228,
+              "cover_count": 1,
+              "closure_error": 2.0252688415212106E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_+0.001.mat"
+        },
+        {
+          "signed_amplitude": 0.003,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.0018112637097324302,
+            -3.7521888004965162E-14,
+            0.0023915107722538849
+          ],
+          "energy": 1.6959523954775839,
+          "period": 2.8984363941766751,
+          "mean_speed": -0.0017864157436491357,
+          "full_closure": 9.8676622428683913E-12,
+          "replay_full_closure": 2.0219381724473351E-12,
+          "replay_period_difference": 8.00959298885573E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.0030000000000000096,
+          "critical_alignment": 0.99999999999999711,
+          "amplitude_constraint_error": 8.6736173798840355E-19,
+          "initial_residual": 1.3340348306058181E-8,
+          "final_residual": 3.1298748315311542E-14,
+          "correction_norm": 1.3841755373000808E-6,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 1,
+          "solver_counters": {
+            "functionEvaluationCount": 39,
+            "mapEvaluationCount": 34,
+            "cacheHitCount": 5,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 2,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0023915107722538849,
+            "paired_leg_motion_error": 1.9290818942252486E-13,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.0051778124065228444,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797894206357178,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 1.354949e-27, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n3.830140e-14, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186475509608079,
+              4.0782252373942711
+            ],
+            "duty_factors": [
+              0.18591358734862962,
+              0.18591358734862962,
+              0.18591358734862962,
+              0.18591358734862962
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984363941766751,
+              "cover_count": 1,
+              "closure_error": 2.0219381724473351E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_+0.003.mat"
+        },
+        {
+          "signed_amplitude": 0.01,
+          "converged": true,
+          "reduced_coordinates": [
+            -0.0060375520198947862,
+            -6.6339278374543069E-14,
+            0.0079716977869924467
+          ],
+          "energy": 1.695968139922106,
+          "period": 2.8984353166450281,
+          "mean_speed": -0.005954725721933651,
+          "full_closure": 9.4622087942752842E-12,
+          "replay_full_closure": 1.9442225607235741E-12,
+          "replay_period_difference": 7.1445072080678074E-12,
+          "replay_signature_match": true,
+          "distance_to_same_energy_parent": 0.010000000000003794,
+          "critical_alignment": 0.99999999999962064,
+          "amplitude_constraint_error": 0,
+          "initial_residual": 5.0454140391141544E-7,
+          "final_residual": 1.1102230246251565E-16,
+          "correction_norm": 1.5744444522125534E-5,
+          "genuine_correction": true,
+          "solver": "fsolve",
+          "solver_iterations": 2,
+          "solver_counters": {
+            "functionEvaluationCount": 57,
+            "mapEvaluationCount": 51,
+            "cacheHitCount": 6,
+            "invalidEvaluationCount": 0,
+            "jacobianEvaluationCount": 3,
+            "acceptedNewtonIterations": 0,
+            "invalidTrialCount": 0
+          },
+          "trajectory_distinction": {
+            "phase_independent_parent_witness": "vertical parent has dx, pitch, leg angles and rates identically zero at every phase",
+            "maximum_departure_from_vertical_parent": 0.0079716977869924467,
+            "paired_leg_motion_error": 3.0846505905124388E-13,
+            "synchronized_contact_history": false,
+            "td_lo_counts_per_leg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "one_td_and_lo_per_leg": true,
+            "drift": -0.017259387333387055,
+            "reflection_symmetry_loss_witness": "nonzero drift changes sign under horizontal reflection plus fore-hind exchange",
+            "minimum_guard_transversality": 1.1797954240440307,
+            "section_transversality": 1
+          },
+          "in_registered_domain": true,
+          "reason": "Equation solved.\n\nfsolve completed because the vector of function values is near zero\nas measured by the value of the function tolerance, and\nthe problem appears regular as measured by the gradient.\n\n<stopping criteria details>\n\nEquation solved. The sum of squared function values, r = 1.301839e-32, is less than\nsqrt(options.FunctionTolerance) = 1.000000e-06. The relative norm of the gradient of r,\n4.959209e-16, is less than options.OptimalityTolerance = 1.000000e-12.",
+          "classification": {
+            "label": "PK",
+            "abbreviation": "PF",
+            "status": "classified",
+            "reason": "contact and leg-motion pattern",
+            "flight_count": 1,
+            "raw_positive_flight_count": 1,
+            "flight_intervals_on_circle": [
+              1.7186463110088057,
+              4.0782243222828729
+            ],
+            "duty_factors": [
+              0.18591317262677248,
+              0.18591317262677248,
+              0.18591317262677248,
+              0.18591317262677248
+            ],
+            "contact_sync_errors": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "motion_sync_errors": [
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                0,
+                0,
+                1.7347234759768071E-18,
+                1.7347234759768071E-18
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ],
+              [
+                1.7347234759768071E-18,
+                1.7347234759768071E-18,
+                0,
+                0
+              ]
+            ],
+            "hind_pair_synchronized": true,
+            "front_pair_synchronized": true,
+            "borderline": false,
+            "primitive": {
+              "status": "primitive_within_checked_bound",
+              "reason": "no integer multiple cover detected within stated bound and sampling tolerance",
+              "primitive_period": 2.8984353166450281,
+              "cover_count": 1,
+              "closure_error": 1.9442225607235741E-12,
+              "checked_cover_bound": 8,
+              "global_primitivity_proved": false
+            },
+            "full_classification_in_mat_artifact": true
+          },
+          "artifact": "pronk_daughter_v2_2_+0.01.mat"
+        }
+      ],
+      "parent_derivatives_reliable": true,
+      "reflection_symmetry_at_parameters": true,
+      "status": "candidate_only",
+      "evidence": {
+        "schema_version": "restricted-pronk-attachment-evidence-v3-2",
+        "status": "candidate_only",
+        "gates": {
+          "reliable_parent_derivatives": true,
+          "resolved_simple_kernel": true,
+          "critical_kernel_near_zero": true,
+          "resolved_left_kernel_transversality": true,
+          "both_signed_sequences": true,
+          "critical_direction_alignment": true,
+          "energy_approach_and_quadratic_scaling": true,
+          "genuine_large_amplitude_corrections": true,
+          "full_closure_and_tighter_replay": true,
+          "distinct_full_trajectories": true,
+          "synchronized_primitive_contact_cycles": false,
+          "signed_reflection_agreement": true
+        },
+        "failed_gates": [
+          "synchronized_primitive_contact_cycles"
+        ],
+        "kernel_gap_to_error_ratio": 4.9041491291483995E+6,
+        "transversality_to_error_ratio": 1104.6331652469898,
+        "energy_uncertainty_estimate": 1.7328293669575094E-7,
+        "signed_sequences": [
+          {
+            "sign": -1,
+            "accepted_count": 5,
+            "resolved_energy_shift_count": 2,
+            "quadratic_energy_coefficient": 0.173039310679318,
+            "maximum_relative_fit_error": 0.0012548181777711188,
+            "approaches_parent": true,
+            "quadratic_scaling_resolved": true,
+            "largest_amplitude": 0.01,
+            "largest_amplitude_genuinely_corrected": true
+          },
+          {
+            "sign": 1,
+            "accepted_count": 5,
+            "resolved_energy_shift_count": 2,
+            "quadratic_energy_coefficient": 0.173039310679318,
+            "maximum_relative_fit_error": 0.0012548181777711188,
+            "approaches_parent": true,
+            "quadratic_scaling_resolved": true,
+            "largest_amplitude": 0.01,
+            "largest_amplitude_genuinely_corrected": true
+          }
+        ],
+        "signed_reflection_maximum_error": 0,
+        "claim": "conditional numerical local attachment in the synchronized fixed-parameter pronk subspace",
+        "full_system_regular_cluster_derivative_claimed": false,
+        "global_network_or_exhaustiveness_claimed": false
+      },
+      "prediction_artifact": "pronk_predictions_v2_2.mat"
+    }
+  ],
+  "held_out_daughters_used": false,
+  "prior_run_archive": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/runs/full/prior_pronk_run_20261007T095736248",
+  "scan_scope": "det(DP_E-I) sign changes on the registered deterministic grid",
+  "scan_complete_for_unit_multipliers": false,
+  "scan_limitations": [
+    "even-multiplicity or tangent +1 crossings may be missed",
+    "grid intervals containing an unreliable derivative are not searched",
+    "only the registered maximum number of sign-change brackets is refined"
+  ],
+  "evidence_limitations": [
+    "finite-difference errors are estimates, not rigorous bounds",
+    "C2/C3 regularity of the synchronized return chart is a conditional hypothesis",
+    "restricted attachments do not establish the full quadruped gait network"
+  ],
+  "elapsed_seconds": 910.76997916666664,
+  "sign_change_bracket_count": 4,
+  "unrefined_bracket_count": 2,
+  "finished_utc": "07-Oct-2026 10:12:46"
+}

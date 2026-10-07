@@ -1,0 +1,86 @@
+{
+  "id": "P1-BD-to-GG",
+  "source": "P1-BD",
+  "target": "P1-subclass-GG",
+  "type": "numerical_candidate_proximity_only",
+  "intended_type": "numerical_candidate_proximity_only",
+  "status": "unresolved",
+  "source_status": "unresolved",
+  "scope": "subclass_hypothesis",
+  "counts_toward_regular_network": false,
+  "counts_toward_nonsmooth_connectivity": false,
+  "actual_isotropy_change": {
+    "status": "unassessed",
+    "parent": null,
+    "daughter": null
+  },
+  "regularity": {
+    "classical_full_derivative_validated": false,
+    "restriction": "No full admissible smoothness certificate."
+  },
+  "reason": "Actual repository subclass retained. Its source sample fails the selected model/domain; local attachment and destination class require new evidence.",
+  "artifact_refs": [
+    "Research_v3/runs/full/compatibility.json",
+    "Research_v3/runs/full/parent_only.json",
+    "Research_v3/runs/full/floquet.json"
+  ],
+  "evidence_directory": "Research_v3/graph/edges/P1-BD-to-GG",
+  "source_snapshots": [
+    {
+      "path": "Research_v3/runs/full/inventory.json",
+      "exists": true,
+      "sha256": "c415d47ee9c140d6e9bfe048fdddcb22cfbbf864c9ef6ac7d228db64e35f6b33",
+      "status": "completed",
+      "finished_utc": "07-Oct-2026 09:21:54"
+    },
+    {
+      "path": "Research_v3/runs/full/compatibility.json",
+      "exists": true,
+      "sha256": "b09c927a99795f32130ca1e7753f8517f45d3890f37f8814a24472355635cc92",
+      "status": "completed",
+      "finished_utc": "07-Oct-2026 09:52:16"
+    },
+    {
+      "path": "Research_v3/runs/full/vertical.json",
+      "exists": true,
+      "sha256": "6da37de8eaeb2016c033269b8e9aefc5a392227f9ee23d81222b43671f2ff4d7",
+      "status": "completed",
+      "finished_utc": "07-Oct-2026 09:25:49"
+    },
+    {
+      "path": "Research_v3/runs/full/fixed_family.json",
+      "exists": true,
+      "sha256": "271670106bd7b564876cef5a7470c3ac7ce4d60b5dd094bbeec5bf50cba313b5",
+      "status": "completed",
+      "finished_utc": "07-Oct-2026 10:06:12"
+    },
+    {
+      "path": "Research_v3/runs/full/parent_only.json",
+      "exists": true,
+      "sha256": "9a3dffa789b8346950bad0dd8638684a053aa5affec9399e5c415fd05facfc9e",
+      "status": "completed_bounded_search",
+      "finished_utc": "07-Oct-2026 09:44:11"
+    },
+    {
+      "path": "Research_v3/runs/full/pip_pk_local.json",
+      "exists": true,
+      "sha256": "9ca7c10aefaa7675fc16400de4a38103d254ea13fede2d2a6320e3d81aafe1c7",
+      "status": "budget_exhausted",
+      "finished_utc": null
+    },
+    {
+      "path": "Research_v3/runs/full/floquet.json",
+      "exists": true,
+      "sha256": "06a443ab86f0727f3dd13acc2c6e6c1f40178c15ec0069cb1a15dbbfeef523a2",
+      "status": "completed",
+      "finished_utc": "07-Oct-2026 09:44:57"
+    },
+    {
+      "path": "Research_v3/runs/full/solution_index.json",
+      "exists": true,
+      "sha256": "b5343aed1230dbe887cc9b7d65e19ab7018e94c66b9b957c15cbfc2531b8740d",
+      "status": "completed_validation",
+      "finished_utc": null
+    }
+  ]
+}

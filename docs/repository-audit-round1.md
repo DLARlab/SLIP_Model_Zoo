@@ -1,5 +1,12 @@
 # SLIP Model Zoo Round 1 repository and scientific audit
 
+This is the historical Round 1 audit at the commit and environment recorded
+below. During the 2026-10-07 cleanup, the repository characterization tests
+were removed. `tools/runRound1Audit.m` remains a runnable numerical audit;
+it records that the former characterization suite is intentionally absent.
+Historical test inventories and proposed regression checks below are not
+claims that those test files remain in the working tree.
+
 ## 1. Executive summary
 
 Round 1 completed the static baseline/audit and added an isolated MATLAB
@@ -66,10 +73,11 @@ command -v octave
 git diff --check
 ```
 
-MATLAB checks that could not run are prepared in `tools/runRound1Audit.m`:
+The original MATLAB audit plan, which could not run on the Round 1 host, was
+prepared in `tools/runRound1Audit.m`:
 
 - `checkcode` over every `.m`;
-- `testsuite`/`run` over `tests/round1`;
+- `testsuite`/`run` over `tests/round1` (historical; removed during cleanup);
 - `which(name,'-all')` for all requested entry points and the stale target;
 - `matlab.codetools.requiredFilesAndProducts`;
 - bounded residual/full-stride/root/continuation/gait/graphics/MAT-catalog
@@ -77,7 +85,8 @@ MATLAB checks that could not run are prepared in `tools/runRound1Audit.m`:
 - multi-step finite-difference Jacobian and row/column scaling analysis;
 - pre/post reference-artifact hashing.
 
-Run the missing baseline exactly as follows:
+Run the retained numerical audit as follows. It excludes the removed
+characterization suite and reports that omission explicitly:
 
 ```sh
 matlab -batch "addpath('tools'); report=runRound1Audit();"
@@ -817,7 +826,7 @@ No item below was executed.
 | 12 | GUI state/controller extraction | Stable solver/continuation/graphics APIs | Large migration and hidden global coupling | GUI plus controller/state modules | UI smoke, save/load, RNG provenance, callback tests | No intended |
 | 13 | Documentation, CI, release hygiene | MATLAB runner/license strategy selected | CI environment/toolbox availability | README, CI, release metadata | `checkcode`, tests, artifact hashes, dependency matrix | No |
 
-## 17. Files added in Round 1
+## 17. Historical files added in Round 1
 
 - `docs/repository-audit-round1.md`
 - `docs/model-audit-round1.md`
@@ -852,5 +861,6 @@ final SHA-256 values match for all 12 MAT/FIG/MLX artifacts:
 | `BD1_20_2_HG.mat` | `756295fa6459dddab2e56000205be88e9a25215c67c423856933f6053008ae10` |
 | `PK_20_2.mat` | `45835bb5024b1dc9b875c7b8f7b205769f537a4ff4144c763058537f44dbf401` |
 
-The hash contract is also encoded in the non-invasive test suite. Generated
-audit output is ignored and contains no copies of reference data.
+The hash contract was also encoded in the former non-invasive test suite.
+The retained audit runner continues to hash the reference artifacts directly.
+Generated audit output is ignored and contains no copies of reference data.

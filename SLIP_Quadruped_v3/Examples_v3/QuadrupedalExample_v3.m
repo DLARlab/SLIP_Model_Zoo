@@ -26,9 +26,10 @@ function [orbit, report, framework] = QuadrupedalExample_v3(options)
     options = mergeOptions(defaults, options);
 
     v3Root = fileparts(fileparts(mfilename('fullpath')));
-    repositoryRoot = fileparts(v3Root);
+    originalPath = path;
+    restorePath = onCleanup(@() path(originalPath)); %#ok<NASGU>
     addV3Paths(v3Root);
-    fixturePath = resolveFixture(repositoryRoot, options.FixtureFile);
+    fixturePath = resolveFixture(v3Root, options.FixtureFile);
     data = load(fixturePath, 'results');
     if ~isfield(data, 'results')
         error('QuadrupedalExample_v3:FixtureFormat', ...
@@ -180,15 +181,15 @@ function [orbit, report, framework] = QuadrupedalExample_v3(options)
         'map', map, 'residual', problem);
 end
 
-function fixturePath = resolveFixture(repositoryRoot, fixtureFile)
+function fixturePath = resolveFixture(v3Root, fixtureFile)
     fixtureFile = char(fixtureFile);
     if isfile(fixtureFile)
         fixturePath = fixtureFile;
         return
     end
-    fixturePath = fullfile(repositoryRoot, 'SLIP_Quadruped', ...
+    fixturePath = fullfile(v3Root, ...
         'P1_Breaking_Symmetries_Leads_to_Diverse_Qudrupedal_Gaits', ...
-        '1_Roadmap', fixtureFile);
+        'SourceFixtures_v3', fixtureFile);
     if ~isfile(fixturePath)
         error('QuadrupedalExample_v3:FixtureMissing', ...
             'Cannot find legacy fixture "%s".', fixtureFile);

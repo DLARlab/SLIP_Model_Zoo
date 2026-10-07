@@ -1,0 +1,614 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Independent tighter replay index exported by MATLAB",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "model_id",
+    "purpose",
+    "replay_settings",
+    "solutions",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "replayed-solution-index-v3-1"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "replay_settings": {
+      "type": "object",
+      "required": [
+        "relative_tolerance",
+        "absolute_tolerance",
+        "closure_target"
+      ]
+    },
+    "solutions": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "origin",
+              "artifact",
+              "artifact_point_index",
+              "model_id",
+              "schema_metadata",
+              "initial_state",
+              "initial_mode",
+              "physical_parameter",
+              "energy",
+              "energy_finite_inertia",
+              "section_chart",
+              "physical_chart",
+              "primitive_period",
+              "drift",
+              "mean_speed",
+              "return_policy",
+              "return_multiplicity",
+              "event_word",
+              "cyclic_event_word",
+              "event_log",
+              "cluster_data",
+              "flight_count",
+              "gait_label",
+              "classification",
+              "minimum_physical_margin",
+              "minimum_guard_transversality",
+              "section_transversality",
+              "replay_closure_components",
+              "replay_closure_inf",
+              "replay_signature_match",
+              "replay_admissible",
+              "replay_passed",
+              "replay_failure_reason",
+              "derivative_diagnostics_artifact",
+              "branch_neighbors",
+              "parent_edge_certificate"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "origin": {
+                "enum": [
+                  "analytic parent",
+                  "parent-only",
+                  "imported comparison",
+                  "imported-seed continuation"
+                ]
+              },
+              "artifact": {
+                "type": "string"
+              },
+              "artifact_point_index": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "model_id": {
+                "type": "string"
+              },
+              "schema_metadata": {
+                "type": "object",
+                "required": [
+                  "state_schema_version",
+                  "parameter_schema_version"
+                ],
+                "properties": {
+                  "state_schema_version": {
+                    "const": "quadruped-state-v3.1"
+                  },
+                  "parameter_schema_version": {
+                    "const": "quadruped-parameter-v3.1"
+                  }
+                }
+              },
+              "initial_state": {
+                "type": "array",
+                "minItems": 14,
+                "maxItems": 14,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "initial_mode": {
+                "type": "array",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "boolean"
+                }
+              },
+              "physical_parameter": {
+                "type": "array",
+                "minItems": 10,
+                "maxItems": 10,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "energy": {
+                "type": "number"
+              },
+              "energy_finite_inertia": {
+                "type": "boolean"
+              },
+              "section_chart": {
+                "type": [
+                  "object",
+                  "array"
+                ]
+              },
+              "physical_chart": {
+                "type": "object"
+              },
+              "primitive_period": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "drift": {
+                "type": [
+                  "number",
+                  "array",
+                  "null"
+                ]
+              },
+              "mean_speed": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "return_policy": {
+                "type": "string"
+              },
+              "return_multiplicity": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "event_word": {
+                "type": "string"
+              },
+              "cyclic_event_word": {
+                "type": "string"
+              },
+              "event_log": {
+                "type": [
+                  "array",
+                  "object"
+                ]
+              },
+              "cluster_data": {
+                "type": [
+                  "array",
+                  "object"
+                ]
+              },
+              "flight_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "gait_label": {
+                "type": "string"
+              },
+              "classification": {
+                "type": "object"
+              },
+              "minimum_physical_margin": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "minimum_guard_transversality": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "section_transversality": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "replay_closure_components": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "replay_closure_inf": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "replay_signature_match": {
+                "type": "boolean"
+              },
+              "replay_admissible": {
+                "type": "boolean"
+              },
+              "replay_passed": {
+                "type": "boolean"
+              },
+              "replay_failure_reason": {
+                "type": "string"
+              },
+              "derivative_diagnostics_artifact": {
+                "type": "string"
+              },
+              "branch_neighbors": {
+                "type": "object",
+                "required": [
+                  "previous_index",
+                  "next_index"
+                ]
+              },
+              "parent_edge_certificate": {
+                "type": "string"
+              },
+              "source_provenance": {
+                "type": [
+                  "object",
+                  "array"
+                ]
+              },
+              "solver_settings": {
+                "type": "object"
+              },
+              "replay_period": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "replay_period_difference": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "replay_passed": {
+                      "const": true
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "replay_closure_inf": {
+                      "type": "number",
+                      "maximum": 1e-08,
+                      "minimum": 0
+                    },
+                    "replay_closure_components": {
+                      "minItems": 13,
+                      "maxItems": 13
+                    },
+                    "replay_signature_match": {
+                      "const": true
+                    },
+                    "replay_admissible": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "origin",
+            "artifact",
+            "artifact_point_index",
+            "model_id",
+            "schema_metadata",
+            "initial_state",
+            "initial_mode",
+            "physical_parameter",
+            "energy",
+            "energy_finite_inertia",
+            "section_chart",
+            "physical_chart",
+            "primitive_period",
+            "drift",
+            "mean_speed",
+            "return_policy",
+            "return_multiplicity",
+            "event_word",
+            "cyclic_event_word",
+            "event_log",
+            "cluster_data",
+            "flight_count",
+            "gait_label",
+            "classification",
+            "minimum_physical_margin",
+            "minimum_guard_transversality",
+            "section_transversality",
+            "replay_closure_components",
+            "replay_closure_inf",
+            "replay_signature_match",
+            "replay_admissible",
+            "replay_passed",
+            "replay_failure_reason",
+            "derivative_diagnostics_artifact",
+            "branch_neighbors",
+            "parent_edge_certificate"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "origin": {
+              "enum": [
+                "analytic parent",
+                "parent-only",
+                "imported comparison",
+                "imported-seed continuation"
+              ]
+            },
+            "artifact": {
+              "type": "string"
+            },
+            "artifact_point_index": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "model_id": {
+              "type": "string"
+            },
+            "schema_metadata": {
+              "type": "object",
+              "required": [
+                "state_schema_version",
+                "parameter_schema_version"
+              ],
+              "properties": {
+                "state_schema_version": {
+                  "const": "quadruped-state-v3.1"
+                },
+                "parameter_schema_version": {
+                  "const": "quadruped-parameter-v3.1"
+                }
+              }
+            },
+            "initial_state": {
+              "type": "array",
+              "minItems": 14,
+              "maxItems": 14,
+              "items": {
+                "type": "number"
+              }
+            },
+            "initial_mode": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {
+                "type": "boolean"
+              }
+            },
+            "physical_parameter": {
+              "type": "array",
+              "minItems": 10,
+              "maxItems": 10,
+              "items": {
+                "type": "number"
+              }
+            },
+            "energy": {
+              "type": "number"
+            },
+            "energy_finite_inertia": {
+              "type": "boolean"
+            },
+            "section_chart": {
+              "type": [
+                "object",
+                "array"
+              ]
+            },
+            "physical_chart": {
+              "type": "object"
+            },
+            "primitive_period": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "drift": {
+              "type": [
+                "number",
+                "array",
+                "null"
+              ]
+            },
+            "mean_speed": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "return_policy": {
+              "type": "string"
+            },
+            "return_multiplicity": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "event_word": {
+              "type": "string"
+            },
+            "cyclic_event_word": {
+              "type": "string"
+            },
+            "event_log": {
+              "type": [
+                "array",
+                "object"
+              ]
+            },
+            "cluster_data": {
+              "type": [
+                "array",
+                "object"
+              ]
+            },
+            "flight_count": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "gait_label": {
+              "type": "string"
+            },
+            "classification": {
+              "type": "object"
+            },
+            "minimum_physical_margin": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "minimum_guard_transversality": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "section_transversality": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "replay_closure_components": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "replay_closure_inf": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "replay_signature_match": {
+              "type": "boolean"
+            },
+            "replay_admissible": {
+              "type": "boolean"
+            },
+            "replay_passed": {
+              "type": "boolean"
+            },
+            "replay_failure_reason": {
+              "type": "string"
+            },
+            "derivative_diagnostics_artifact": {
+              "type": "string"
+            },
+            "branch_neighbors": {
+              "type": "object",
+              "required": [
+                "previous_index",
+                "next_index"
+              ]
+            },
+            "parent_edge_certificate": {
+              "type": "string"
+            },
+            "source_provenance": {
+              "type": [
+                "object",
+                "array"
+              ]
+            },
+            "solver_settings": {
+              "type": "object"
+            },
+            "replay_period": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "replay_period_difference": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "replay_passed": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "replay_closure_inf": {
+                    "type": "number",
+                    "maximum": 1e-08,
+                    "minimum": 0
+                  },
+                  "replay_closure_components": {
+                    "minItems": 13,
+                    "maxItems": 13
+                  },
+                  "replay_signature_match": {
+                    "const": true
+                  },
+                  "replay_admissible": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "failed_replay_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "elapsed_seconds": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

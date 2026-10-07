@@ -1,0 +1,805 @@
+{
+  "schema_version": "study-reference-index-v3-1",
+  "study": "P1_Breaking_Symmetries_Leads_to_Diverse_Qudrupedal_Gaits",
+  "model": {
+    "id": "v3-autonomous-first-directed-root-compressive-stance",
+    "physical_parameter": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "parameter_policy": "v2-exact",
+    "state_schema_version": "quadruped-state-v3.1",
+    "parameter_schema_version": "quadruped-parameter-v3.1"
+  },
+  "solution_ids": [
+    "imported-001",
+    "imported-002",
+    "imported-003",
+    "imported-004",
+    "imported-005",
+    "imported-006",
+    "imported-007",
+    "imported-008",
+    "imported-009",
+    "imported-010",
+    "imported-011",
+    "imported-012",
+    "imported-013",
+    "imported-014",
+    "imported-015",
+    "imported-016",
+    "imported-017",
+    "imported-018",
+    "imported-019",
+    "imported-020",
+    "imported-021",
+    "imported-022",
+    "imported-023",
+    "imported-024",
+    "imported-025",
+    "imported-026",
+    "imported-027"
+  ],
+  "accepted_seed_ids": [
+    "imported-025"
+  ],
+  "graph": "Research_v3/graph/index.json",
+  "solutions": "Research_v3/graph/solutions.json",
+  "independent_replay_index": {
+    "path": "Research_v3/runs/full/solution_index.json",
+    "kind": "complete independent replay index",
+    "exists": true
+  },
+  "stage_refs": [
+    {
+      "path": "Research_v3/runs/full/inventory.json",
+      "kind": "inventory",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/compatibility.json",
+      "kind": "compatibility",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/vertical.json",
+      "kind": "vertical",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/fixed_family.json",
+      "kind": "fixed_family",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_only.json",
+      "kind": "parent_only",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pip_pk_local.json",
+      "kind": "pip_pk_local",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/floquet.json",
+      "kind": "floquet",
+      "exists": true
+    }
+  ],
+  "branch_refs": [
+    {
+      "path": "Research_v3/runs/full/family_+1.mat",
+      "kind": "imported PK continuation; no root ancestry",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/family_-1.mat",
+      "kind": "imported PK continuation; no root ancestry",
+      "exists": true
+    }
+  ],
+  "parent_only_refs": [
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_1.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_2.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_v2_1.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_v2_2.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_1.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_2.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_3.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_4.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_5.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_6.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_only_report.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_predictions_frozen.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    }
+  ],
+  "policy": "References only. Imported fixed-family checkpoints and parent-only checkpoints are distinct origins; no artifacts copied.",
+  "artifact_refs": [
+    {
+      "path": "Research_v3/runs/full/family_+1.mat",
+      "kind": "imported PK continuation; no root ancestry",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/family_-1.mat",
+      "kind": "imported PK continuation; no root ancestry",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_1_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_2_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_1_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_+0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.0001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.0003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.001.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.003.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_history_audit_2_-0.01.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_1.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_2.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_v2_1.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/pronk_predictions_v2_2.mat",
+      "kind": "restricted parent-only checkpoint",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_1.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_2.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_3.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_4.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_5.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_attempt_6.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_only_report.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    },
+    {
+      "path": "Research_v3/runs/full/parent_predictions_frozen.mat",
+      "kind": "generic parent-only prediction/attempt",
+      "exists": true
+    }
+  ]
+}

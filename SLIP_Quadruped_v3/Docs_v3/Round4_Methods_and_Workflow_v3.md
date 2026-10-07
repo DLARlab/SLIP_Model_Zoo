@@ -1,5 +1,11 @@
 # SLIP Quadruped v3: methods, code structure, and end-to-end workflow
 
+Historical artifact note: the test sources, aggregate test/analyzer runners
+and generated test payloads referenced here were removed during the 2026-10-07
+cleanup. Their commands and inventory entries are historical. Core numerical
+services and research drivers remain; retained verification summaries are in
+`Research_v3/Audits_v3` and current run instructions are in `README_v3.md`.
+
 ## 1. Scope of this document
 
 This document describes the mathematical and software workflow implemented in
@@ -1102,12 +1108,15 @@ The concrete seed-conversion factory is
 reproducible workflow; only executed results in the Round 4 production report
 establish which physical cases were actually found.
 
-## 15. Reproducible entry points and evidence boundary
+## 15. Entry points and evidence boundary
 
-`run_all_tests_v3.m` establishes paths deterministically, runs `Tests_v3`, and
-writes machine-readable and human-readable test artifacts. The repository CI
-workflow is `.github/workflows/slip-quadruped-v3-tests.yml`; its presence does
-not imply that a remote workflow run has succeeded.
+The historical `run_all_tests_v3.m` established paths deterministically, ran
+`Tests_v3`, and wrote machine-readable and human-readable test artifacts.
+That runner and the test sources were removed during cleanup. The original
+`.github/workflows/slip-quadruped-v3-tests.yml` recipe referenced those removed
+runners; its historical presence does not establish current CI success.
+Current research execution and audit reproduction instructions are in
+`README_v3.md`; retained verification records are in `Research_v3/Audits_v3`.
 
 The evidence chain for any production claim should include, at minimum:
 

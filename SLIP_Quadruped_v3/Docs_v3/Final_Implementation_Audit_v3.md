@@ -1,5 +1,11 @@
 # Final v3 implementation audit
 
+Historical artifact note: test sources, runners and generated test payloads
+in this inventory were removed during the 2026-10-07 cleanup. The inventory
+records what was audited at the stated date. Core functionality, numerical
+results and audit documents remain; concise verification records are in
+`Research_v3/Audits_v3`.
+
 Audit date: 2026-08-11. This report covers the independent implementation
 under `SLIP_Quadruped_v3` and the verbatim legacy restoration. It distinguishes
 the passing parameter-asymmetric v3 orbit from the unresolved direct replay of

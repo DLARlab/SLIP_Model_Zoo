@@ -1,0 +1,187 @@
+{
+  "schema_version": "research-evidence-v3-1",
+  "stage": "fixed_family",
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "config": {
+    "schema_version": "research-campaign-v3-1",
+    "seed": 20261007.0,
+    "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+    "legacy_parameter_policy": "v2-exact",
+    "baseline_legacy_parameters": [
+      10,
+      20,
+      2,
+      1,
+      0,
+      0.5,
+      1
+    ],
+    "baseline_v3_parameters": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "domain": {
+      "energy": [
+        1.0001,
+        3
+      ],
+      "mean_speed": [
+        -3,
+        3
+      ],
+      "pitch_abs_max": 1.2,
+      "primitive_period_max": 12,
+      "event_count_max": 64,
+      "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+      "targets": [
+        "PIP",
+        "PK",
+        "BD",
+        "HB_front",
+        "HB_hind",
+        "GP",
+        "B2",
+        "F2",
+        "H2",
+        "G2",
+        "PC",
+        "TR",
+        "TL"
+      ],
+      "equivalences": [
+        "horizontal translation",
+        "time phase",
+        "proven fixed-parameter leg symmetries"
+      ],
+      "connectivity": "regular bifurcation network; nonsmooth connections recorded separately"
+    },
+    "budgets": {
+      "total_wall_seconds": 7200,
+      "baseline_test_wall_seconds": 900,
+      "per_fixture_wall_seconds": 120,
+      "fixture_columns_per_family": 3,
+      "fixed_parameter_points_per_direction": 20,
+      "root_max_iterations": 20,
+      "root_max_function_evaluations": 2000,
+      "alternative_seed_count": 16,
+      "continuation_wall_seconds": 1800,
+      "gui_validation_wall_seconds": 300
+    },
+    "integration": {
+      "relative_tolerance": 1e-09,
+      "absolute_tolerance": 1e-10
+    },
+    "status": "registered_before_experiments",
+    "parent_only_pronk": {
+      "scan_points": 16,
+      "wall_seconds": 900,
+      "maximum_connections": 2,
+      "energy_bracket_tolerance": 1e-08,
+      "amplitudes": [
+        0.0001,
+        0.0003,
+        0.001,
+        0.003
+      ],
+      "registration": "before parent-only pronk scan; no domain change"
+    }
+  },
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "started_utc": "07-Oct-2026 09:41:59",
+  "status": "completed",
+  "elapsed_seconds": 1452.9160854583333,
+  "seed_kind": "imported PK seed; no root ancestry assigned",
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "runs": [
+    {
+      "direction": -1,
+      "status": "completed_bounded_branch",
+      "reason": "maximum point count reached",
+      "accepted_count": 20,
+      "max_full_closure": 3.3885294570268343e-10,
+      "energy": [
+        1.1171389428139562,
+        1.1171288670700439,
+        1.11711987812217,
+        1.117114232816463,
+        1.1171158304550735,
+        1.1171313221269132,
+        1.1171720695911753,
+        1.1172442488446663,
+        1.117271707502074,
+        1.1173098047353403,
+        1.1173633678873396,
+        1.1174396941304399,
+        1.1175499206058488,
+        1.1177112028840455,
+        1.1179178341508595,
+        1.1181570236138845,
+        1.1184294993698076,
+        1.1187360045531274,
+        1.1190772977665187,
+        1.119454153415801
+      ]
+    },
+    {
+      "direction": 1,
+      "status": "completed_bounded_branch",
+      "reason": "maximum point count reached",
+      "accepted_count": 21,
+      "max_full_closure": 2.961066947193558e-10,
+      "energy": [
+        1.1171389428139562,
+        1.1171515717586886,
+        1.1171709963560708,
+        1.1172010056554824,
+        1.1172475536413249,
+        1.1173200265711911,
+        1.1174332759639258,
+        1.117586331243929,
+        1.11777074390464,
+        1.1179872172205172,
+        1.1182364689421471,
+        1.118519231734605,
+        1.1188362533888696,
+        1.1191882972976044,
+        1.1195761427359545,
+        1.1200005852275947,
+        1.1204624369360148,
+        1.1209625270394905,
+        1.1215017021037539,
+        1.1220808264596527,
+        1.122700782600294
+      ]
+    }
+  ],
+  "finished_utc": "07-Oct-2026 10:06:12",
+  "validation_amendment": {
+    "point_cap_off_by_one": {
+      "registered_points_per_direction": 20,
+      "observed_counts": [
+        20,
+        21
+      ],
+      "explanation": "Fresh-run remaining count added a resume overlap when no previous points existed. Fixed in driver; the extra accepted observation is retained and disclosed."
+    },
+    "summary_repair": "Merged checkpoint convenience arrays rebuilt from authoritative complete points; raw accepted points unchanged."
+  }
+}

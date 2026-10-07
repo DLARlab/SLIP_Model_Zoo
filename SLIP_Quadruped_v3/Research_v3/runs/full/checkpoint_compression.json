@@ -1,0 +1,20 @@
+[
+  {
+    "artifact": "family_+1.mat",
+    "points": 21,
+    "bytes_before": 1.3779747E+7,
+    "bytes_after": 1.3779772E+7,
+    "verified_exact_primary_trajectory_and_extended_jacobian": true,
+    "verified_summary_arrays_match_full_point_count": true,
+    "elapsed_seconds": 4.3839240833333335
+  },
+  {
+    "artifact": "family_-1.mat",
+    "points": 20,
+    "bytes_before": 1.1589705E+7,
+    "bytes_after": 1.3102395E+7,
+    "verified_exact_primary_trajectory_and_extended_jacobian": true,
+    "verified_summary_arrays_match_full_point_count": true,
+    "elapsed_seconds": 4.372667375
+  }
+]

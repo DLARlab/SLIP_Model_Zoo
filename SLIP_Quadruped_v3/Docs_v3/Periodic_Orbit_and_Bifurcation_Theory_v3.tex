@@ -1,0 +1,466 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\newtheorem{limitation}{Limitation}
+\newcommand{\R}{\mathbb R}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\Range}{\operatorname{Range}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\title{Physical Relative Periodic Orbits and Local Branching\\in the Quadruped v3 Hybrid Model}
+\author{SLIP Model Zoo: research methods and conditional results}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We define the autonomous compressive-contact quadruped model, its physical
+mode manifolds, marked translation-reduced return maps, and the hypotheses
+needed for local branching. We derive fixed-foot charts, finite-inertia
+mechanical energy conservation, the separate infinite-inertia power identity,
+and an exact obstruction to importing delayed scheduled vertical histories.
+The propositions are conditional local statements. They establish neither
+the requested gait network nor global coverage. Numerical evidence and
+remaining application gates are recorded separately in the campaign ledger.
+\end{abstract}
+
+\section{Model identity, state, and complete execution}
+The declared model identifier is
+\code{v3-autonomous-first-directed-root-compressive-stance}. The baseline
+parameter vector, in the schema's order, is
+\[
+p=(k_{l,b},k_{l,f},k_{s,b},k_{s,f},l_{0,b},l_{0,f},
+\mathrm{rsla}_b,\mathrm{rsla}_f,j,l_{\mathrm{COM}})^T
+=(10,10,20,20,1,1,0,0,2,0.5)^T.
+\]
+The state is
+\[
+x=(x_C,\dot x_C,y,\dot y,\phi,\dot\phi,
+\alpha_{BL},\dot\alpha_{BL},\alpha_{BR},\dot\alpha_{BR},
+\alpha_{FL},\dot\alpha_{FL},\alpha_{FR},\dot\alpha_{FR})^T,
+\]
+and the separate mode is $q=(q_{BL},q_{BR},q_{FL},q_{FR})^T\in\{0,1\}^4$.
+Lengths, body mass, and gravitational acceleration are normalized as in
+\code{Quadruped_EOM_v3.md}. All indexes are obtained from
+\code{QuadrupedSchema_v3}; a legacy vector is never inserted directly.
+
+\begin{definition}[Autonomous hybrid model]
+For fixed $p$, the system consists of modes $Q$, physical domains $D_q$,
+tangent vector fields $f_q$, directed guards $G_e$, reset maps $R_e$, event
+eligibility, and a simultaneous-event rule. A swing leg is eligible for the
+first descending zero of
+\[
+g_i(x,p)=y+s_i\sin\phi-l_{0,i}\cos(\phi+\alpha_i),
+\quad s_i=\begin{cases}-l_{\mathrm{COM}}&i=BL,BR,\\
+1-l_{\mathrm{COM}}&i=FL,FR.
+\end{cases}
+\]
+A stance leg is eligible for its first ascending zero. Each reset leaves
+body positions and velocities unchanged and projects only the affected leg
+rate; its mode bit changes. Distinct-leg simultaneous events form an atomic
+batch. Accepted domains require positive stance length, compressive stance,
+swing nonpenetration, torso clearance, and the stance-rate constraints below.
+\end{definition}
+
+The sufficient state is $(x,q)$; no gait-specific schedule or hidden contact
+history is used. A complete execution contains both event-side states,
+right-continuous modes, ordered event clusters, and any explicitly declared
+auxiliary state. At a section/contact coincidence, the physical batch is
+processed once before recording the section. Runge--Kutta stages beyond a
+guard used for localization are not accepted hybrid states. The specified
+local domains exclude singular geometry and finite-time event accumulation.
+Noninvertible resets require local forward semiflows only; no globally
+invertible hybrid flow is assumed.
+
+\section{Physical charts and energy}
+Set $H_i=y+s_i\sin\phi$, $\theta_i=\phi+\alpha_i$, and
+$L_i=H_i/\cos\theta_i$ for stance. Its inferred horizontal foot anchor is
+\[
+\xi_i=x_C+s_i\cos\phi+H_i\tan\theta_i.
+\]
+\begin{proposition}[Fixed-foot manifold and local retraction]
+On $H_i>0$, $\cos\theta_i>0$, fixed-foot kinematics uniquely determines
+\begin{equation}\label{eq:rate}
+r_i=-\dot\phi-
+\frac{\dot x_C-s_i\sin\phi\dot\phi+
+(\dot y+s_i\cos\phi\dot\phi)\tan\theta_i}{H_i\sec^2\theta_i}.
+\end{equation}
+The $m$ constraints $C_i=\dot\alpha_i-r_i=0$ for stance legs have rank $m$.
+The physical mode manifold has dimension $14-m$. Fixing translation and a
+regular apex gives dimension $12-m$. Substituting $r_i$ for stance-rate
+coordinates is an idempotent local retraction.
+\end{proposition}
+\begin{proof}
+Differentiation gives
+\[
+\dot\xi_i=\dot x_C-s_i\sin\phi\dot\phi+
+(\dot y+s_i\cos\phi\dot\phi)\tan\theta_i+
+H_i\sec^2\theta_i(\dot\phi+\dot\alpha_i).
+\]
+The nonzero last coefficient gives \eqref{eq:rate}. Each constraint has unit
+derivative in its own stored rate and no other stored leg-rate dependence,
+so the rows are independent. Body coordinates, angles, and swing rates are
+independent chart coordinates. The stance acceleration differentiates $r_i$
+along $f_q$ on $C=0$, giving $DC_i f_q=0$. Translation and $\dot y=0$ remove
+two further independent coordinates. The anchor is reconstructible and
+$x_C\mapsto x_C+\ell$ implies $\xi_i\mapsto\xi_i+\ell$.
+\end{proof}
+On the downward-leg chart an anchor coordinate also recovers
+$\alpha_i=\arctan((\xi_i-x_C-s_i\cos\phi)/H_i)-\phi$ locally. The rate chart
+avoids redundant anchor state. It fails at zero hip height/leg length or a
+horizontal stance leg. A different inverse-tangent branch requires explicit
+chart transport. Stored stance rates off $C=0$ are not independent physical
+perturbations. In particular, projecting only $\dot y$ to zero does not
+produce a physical grounded-apex Floquet stencil.
+
+\begin{proposition}[Mechanical energy and the infinite-inertia distinction]
+For finite $j>0$, on the physical manifold,
+\begin{equation}\label{eq:energy}
+E_q(x)=\frac12(\dot x_C^2+\dot y^2+j\dot\phi^2)+y+
+\sum_{q_i=1}\frac12 k_{l,i}(l_{0,i}-L_i)^2
+\end{equation}
+is conserved along regular modes and zero-compression resets. With $j=\infty$
+and $\ddot\phi=0$, the energy obtained by omitting the pitch kinetic term
+instead satisfies $\dot E_{\rm red}=-\tau\dot\phi$. It is conserved on the
+invariant subspace $\dot\phi=0$, but generally not for a spinning torso.
+\end{proposition}
+\begin{proof}
+For $d_i=(-\sin\theta_i,\cos\theta_i)^T$ and stance force
+$F_i=\lambda_i d_i$, fixed-foot geometry gives
+$\dot L_i=d_i^Tv_{H,i}$. Spring power is $-\lambda_i\dot L_i=-F_i^Tv_{H,i}$.
+Kinetic-plus-gravity power is
+$\sum_i F_i^Tv_C+\tau\dot\phi=\sum_i F_i^Tv_{H,i}$, since
+$\tau=\sum_i s_i\lambda_i\cos\alpha_i$. These cancel. At TD/LO,
+$L_i=l_{0,i}$, so entering/leaving potential is zero; a massless rate reset
+does not change body kinetic energy. Omitting pitch kinetic energy removes
+the $\tau\dot\phi$ cancellation and yields the stated infinite-$j$ identity.
+\end{proof}
+Swing oscillators have no finite energy reaction in these infinitesimal-leg
+body equations. Adding their formal oscillator energy would create an
+incorrect conserved quantity. The expression $\infty\cdot0$ is never
+evaluated. If $\phi$ is unwrapped, relative periodic closure at infinite $j$
+requires $\dot\phi T=0$, hence $\dot\phi=0$. A winding quotient modulo
+$2\pi$ would require a distinct declaration and conservation analysis.
+
+\paragraph{Implementation evidence.}
+\code{QuadrupedPhysicalChart_v3} exposes explicit lift, retraction,
+coordinate extraction, tangent-basis step-halving diagnostics, and flow
+tangency checks. \code{QuadrupedEnergy_v3} returns energy, its analytic
+gradient and its flow-power identity. Six MATLAB tests in
+\code{TestPhysicalChartEnergy_v3} passed: mode dimensions for all 16 modes,
+anchor/rate tangency, tangent actions, finite-$j$ conservation, reset energy,
+and the separate infinite-$j$ identity. These are local contracts, not branch
+or cluster-regularity certificates.
+
+\section{Relative cycles, minimality, and section charts}
+\begin{definition}[Relative periodic execution]
+Horizontal translation is $\rho_\ell(x,q)=(x+\ell e_{x_C},q)$ and translates
+inferred anchors by $\ell$. A complete execution is relative periodic when
+\[
+z(t+T)=\rho_\ell z(t),\qquad T>0,
+\]
+including mode, event sequence, event-side ownership, and auxiliary-state
+closure. Its mean speed is $\ell/T$, not generally $\dot x_C(0)$.
+\end{definition}
+The primitive relative period is the least positive return after translation
+reduction. A shorter return with leg relabeling is a spatiotemporal symmetry
+unless an additional quotient is declared. A repeated traversal is not a
+new primitive orbit; identical geometric traces with different contact
+histories need not be equivalent. PIP requires zero drift and synchronous
+vertical full-state/contact conditions, not one zero-velocity sample.
+
+The downward-apex geometry is
+\[
+h(x)=\dot y=0,\qquad Dh f_q=\ddot y<0.
+\]
+It does not require flight. A BL-relative mark is the last qualifying
+downward apex strictly before a specified BL-TD occurrence, with no
+intervening BL-TD. The chart records occurrence index, mode, orientation,
+cluster ownership, selected apex and return multiplicity. Its identity must
+persist for nearby nonperiodic inputs; selection never minimizes periodicity
+error. A fixed event-phase shooting gauge is not a state-defined section.
+Multiple TD occurrences need explicit marking and chart-overlap transport.
+
+\begin{assumption}[Regular open itinerary neighborhood]\label{ass:regular}
+An open neighborhood in independent physical section coordinates preserves
+the finite eligible event itinerary, marked return and mode closure. Flows,
+domains, directed guards, resets and chart maps are $C^r$, $r\ge1$. Every
+event and the terminal section are transverse, geometry is regular, no
+earlier enabled guard intrudes, and finite execution holds. At clusters a
+compatible regular extension must be separately established on a neighborhood
+containing the split-event directions.
+\end{assumption}
+
+\begin{proposition}[Return-map regularity]
+Under Assumption~\ref{ass:regular} with isolated events, the locally defined
+marked return map is $C^r$.
+\end{proposition}
+\begin{proof}
+For a transverse event $g(\varphi_q(t,x))=0$, the implicit-function theorem
+gives a local $C^r$ event time with
+\[
+D\tau(x)=-\frac{Dg\,D_x\varphi_q}{Dg\,f_q}.
+\]
+Compose variable-time flow, reset and next mode a finite number of times;
+apply the same argument to the terminal section time. Compose the physical
+lift, translation reduction and output chart extraction. These operations
+are $C^r$ on the stated open domain, so their composition is $C^r$.
+No inverse reset is used.
+\end{proof}
+At simultaneous events a continuous finite smooth-selection representation
+can instead yield an order-cone-dependent piecewise derivative. Zeroth-order
+continuity is needed before claiming a Bouligand derivative. Burden et al.'s
+event-selected theorem assumes uniformly transverse event functions and
+smooth extensions on an open common vector-field domain
+\cite{burden}. Noninvertible resets between different physical manifolds
+require an embedding or a direct extension argument; deterministic event
+priority does not supply one. Smoothness inside a synchrony subspace does
+not establish regularity in daughter directions leaving it.
+
+\begin{proposition}[Fixed points and primitive relative executions]
+Assume a single-valued autonomous execution, translation equivariance,
+Assumption~\ref{ass:regular}, a consistent mark, and a cycle domain selecting
+the specified primitive return. Fixed points of the translation-reduced
+marked map correspond to primitive relative periodic executions in that
+domain.
+\end{proposition}
+\begin{proof}
+A fixed point closes independent chart coordinates. The physical lift closes
+dependent rates; the section/gauge and the policy close modes, events and
+auxiliary state. The unreduced terminal state differs only by a translation
+$\ell$. Autonomy and equivariance concatenate forward copies translated by
+$\ell$, giving relative periodicity. The cycle-domain minimality assumption
+excludes shorter complete returns. Conversely, a primitive relative periodic
+execution meeting this mark returns after its declared cycle; subtracting
+drift and extracting the same chart gives a fixed point.
+\end{proof}
+\begin{limitation}
+One TD/LO per leg and mode closure alone do not prove minimality.
+\code{EventCycleReturnPolicy_v3} gives a complete-event contract, with an
+independent primitive-period check still required. An iterated map includes
+multiple covers; squaring it turns a $-1$ multiplier into $+1$. Neither a
+double cover nor a shared geometric grazing limit certifies ordinary
+symmetry-breaking ancestry.
+\end{limitation}
+
+\section{Fixed-parameter symmetries and isotropy}
+\begin{proposition}[Admissible solution transport and chart conjugacy]
+Independent BL/BR and FL/FR exchanges preserve the quadruped system for every
+admissible fixed $p$, generating $C_2\times C_2$. Horizontal translation is
+also a symmetry. A valid symmetry maps admissible complete solutions to
+solutions. On a symmetry-invariant marked chart and policy, the induced
+action $A_g$ commutes with the return map. Otherwise, a regular phase
+transport $J_g$ to the corresponding mark gives the appropriate chart
+conjugacy $P_g=J_g P J_g^{-1}$ on its overlap domain.
+\end{proposition}
+\begin{proof}
+Paired legs have identical offsets/parameters, so exchange preserves each
+flow equation, physical inequality, guard, eligible transition and affected
+rate projection. Apply the symmetry to each ODE segment. Equivariance gives
+the transformed segment; compatible guards/eligibility and resets give the
+transformed event/post-state. Induction transports the complete execution.
+If the mark is invariant, uniqueness gives $P A_g=A_g P$. Otherwise express
+the same execution in the transported chart, obtaining the conjugacy. A
+coherent single-chart group action additionally requires consistent marked
+occurrences and phase composition.
+\end{proof}
+S4 is generally not a symmetry because front/back hip geometry differs.
+When $l_{\rm COM}=1/2$, front/back stiffnesses and lengths agree and
+$\mathrm{rsla}_b=-\mathrm{rsla}_f$, combined horizontal reflection and
+fore/hind exchange is a symmetry: $x_C,\dot x_C,\phi,\dot\phi,\alpha_i,
+\dot\alpha_i$ change sign while front/back labels exchange. Substitution in
+hip geometry, forces, torque, swing laws, guards and projection verifies this
+claim. At unequal parameters the same operation may map different models;
+it cannot be used to identify fixed-$p$ front/hind daughters. No global time
+reverser is proved; noninvertible TD rate projection obstructs an inference
+based only on velocity-even ODEs.
+
+\begin{definition}[Spatiotemporal isotropy]
+For a translation-reduced complete orbit $\bar z$ of primitive period $T$,
+\[
+H_{\bar z}=\{(g,\vartheta):g\bar z(t)=\bar z(t+\vartheta T)
+\text{ for every }t,\ \vartheta\in\R/\mathbb Z\}.
+\]
+Pointwise spatial isotropy has $\vartheta=0$; reversing symmetry is separate.
+\end{definition}
+Equal contact timings do not establish full-state isotropy. Subgroup loss
+up to conjugacy is reported only after full-trajectory/mode transport is
+checked. Maximal isotropy need not identify one unique PIP root family.
+
+\section{Local branching, multiple critical modes, and missing hypotheses}
+\begin{proposition}[A sufficient simple local branching theorem]\label{prop:cr}
+Let the centered independent residual satisfy $F(0,\mu)=0$ and be $C^2$
+on an open neighborhood of $(0,\mu_*)$. Assume
+$L=D_uF(0,\mu_*)$ is Fredholm of index zero, with one-dimensional kernel
+$\operatorname{span}\{v\}$ and one-dimensional cokernel, and
+\[
+D_{\mu u}F(0,\mu_*)v\notin\Range L.
+\]
+Then a nontrivial local solution curve exists with leading state direction
+$v$. This is a sufficient regularity formulation of the centered
+Crandall--Rabinowitz theorem; the original theorem 1.7 specifies weaker
+partial-derivative requirements \cite{cr}.
+\end{proposition}
+\begin{proof}[Proof sketch]
+Split $u=av+w$ into kernel and a complement, and the codomain into range
+and cokernel. The implicit-function theorem solves the range equation for
+$w=w(a,\mu)$. Divide the scalar cokernel equation by $a$ and extend at
+$a=0$. Transversality gives a nonzero derivative in $\mu$, so another
+implicit-function argument determines $\mu(a)$ and the daughter curve.
+\end{proof}
+A pitchfork additionally needs an involution acting by $a\mapsto-a$ on the
+critical sector, compatible residual equivariance, higher regularity and
+nondegenerate reduced coefficients:
+\[
+0=a\{c(\mu-\mu_*)+d a^2+\cdots\},\qquad cd\ne0.
+\]
+Then the two reflected daughters have quadratic parameter-amplitude
+scaling. A $+1$ multiplier verifies neither those coefficients nor the
+smoothness/transversality assumptions. At an event-order boundary the $C^2$
+extension must include adjacent admissible daughter itineraries. Otherwise
+the candidate requires a justified nonsmooth argument and remains unresolved.
+
+For a multiple kernel $K$, range reduction leaves
+$\Psi(a,\mu)=0$ on $K$ with its induced symmetry representation. Decompose
+$K$ into sectors and evaluate the reduced nonlinear coefficients. A sector
+restriction is valid only if the full residual/map preserves it and the
+restricted kernel and cokernel meet Proposition~\ref{prop:cr}. The protected
+P1 pronking reference reports three tangent-free bounding/front-spread/
+hind-spread critical modes. Its six local numerical rays do not reduce the
+entire critical space to one simple eigenvector and do not establish an
+autonomous v3 network.
+
+\section{Physical linearization and structural neutrality}
+For an isolated transverse autonomous event, common-time comparison of
+perturbed event executions gives the saltation matrix
+\begin{equation}\label{eq:saltation}
+S_e=DR_e+\frac{(f^+-DR_e f^-)n_e^T}{n_e^Tf^-},
+\qquad n_e=\nabla g_e(x^-).
+\end{equation}
+The assumptions include differentiable guards/resets, transversality and
+stable local event selection \cite{kong}. The reset Jacobian alone omits
+event-time sensitivity. Compose flow variational matrices and saltations
+in chronological order, apply the terminal section correction
+\[
+\Pi_\Sigma=I-\frac{f\,n_\Sigma^T}{n_\Sigma^Tf}
+\]
+once, then apply the actual translation gauge and physical chart extraction.
+Initial perturbations enter through the derivative $B$ of the physical
+lift. A finite difference of a redetected return map already includes timing;
+adding another saltation/terminal timing correction double-counts it.
+
+When regular augmented shooting guards satisfy $H(x,\tau)=0$,
+\[
+D_x\tau=-H_\tau^{-1}H_x,\qquad
+D_xF_{\rm eff}=F_x-F_\tau H_\tau^{-1}H_x.
+\]
+The same lifting translates a physical critical direction into augmented
+solver coordinates. Eigenvalues of the joint shooting residual Jacobian are
+not physical Floquet multipliers.
+
+If $E(P(u))=E(u)$ and $DE\ne0$, differentiation at a fixed point gives
+\[
+DE\,DP=DE.
+\]
+Energy supplies a structural left unit eigenvector. A differentiable fixed-$p$
+family of fixed points supplies $DP\,u_s=u_s$. Varying $p$ adds a $P_p p_s$
+term and does not automatically supply a state-only unit right vector.
+Phase and translation are removed by section/gauge. A fixed-energy chart
+removes one coordinate and a dependent closure equation by rank; blindly
+adding an energy equation to redundant periodicity equations is unjustified.
+No fixed number of eigenvalues closest to one is discarded.
+
+At a cluster, retain feasible order-cone-dependent derivative selections
+only after continuity and piecewise-regularity hypotheses hold. Commuting
+instantaneous resets do not prove equal full-flow/time-sensitivity products
+or $C^2$ regularity. Individual selection-matrix spectra do not establish
+stability under cone transitions; a justified common contraction norm is
+a sufficient alternative. Record matrix-action/step/tolerance convergence,
+not eigenvalue agreement alone.
+
+\section{Exact vertical histories and a specific incompatibility}
+At baseline vertical synchrony,
+\[
+\ddot y=40(1-y)-1\quad\text{in stance},\qquad
+\ddot y=-1\quad\text{in flight}.
+\]
+Write $\omega=\sqrt{40}$, $y_{\rm eq}=39/40$, $a=1/40$,
+$v=\sqrt{2(E-1)}$ and $\theta=\operatorname{atan2}(v/\omega,a)$.
+Starting at descending TD, $y=1$, $\dot y=-v$,
+\[
+y(t)=y_{\rm eq}+a\cos(\omega t)-(v/\omega)\sin(\omega t).
+\]
+The first ascending $y=1$ exit occurs at
+$S_0=(2\pi-2\theta)/\omega$; flight lasts $2v$. A scheduled model retaining
+$n$ extra complete stance revolutions has
+\begin{equation}\label{eq:vertical}
+T_n(E)=\frac{2\pi-2\theta}{\omega}+2v+n\frac{2\pi}{\omega},
+\qquad n=0,1,2,\ldots.
+\end{equation}
+The minimum height is
+$y_{\rm eq}-\sqrt{a^2+2(E-1)/40}$, so positive leg length requires
+$1<E<20$. For every $n\ge1$, the additional revolution reaches
+$y_{\max}=y_{\rm eq}+\sqrt{a^2+2(E-1)/40}>1$, giving tensile stance.
+More immediately, the autonomous first-root law has already executed LO
+at $S_0$. Delayed histories therefore cannot be imported into this model
+without changing eligibility or domain. Each such schedule has one flight
+and extra stance oscillations, not a repeated complete ordinary cycle.
+
+As $E\downarrow1$, $T_n\to(n+1)2\pi/\omega$ while the common all-stance
+geometric oscillator has minimal period $2\pi/\omega$. Transversality
+vanishes and delayed representations become multiple covers. This is a
+grazing limit, not a proved regular bifurcation. The obstruction concerns
+that scheduled vertical route; it does not prove that no admissible branch
+can leave synchrony and reach another B2 orbit elsewhere.
+
+\section{Research meaning and limitations}
+The registered root is the ordinary first-LO PIP family. The distinct
+claims are specific local connections, a single-root target network,
+bounded-domain target-class coverage, and the stronger global conjecture
+that every primitive orbit belongs to the component. Only validated edges
+of the declared type count. Imported-seed replay is distinct from frozen
+parent-only discovery. Different parameter/model identities cannot be joined
+to complete a fixed-model graph.
+
+The protected B2 G/E records are alternative apex views, not separate
+discoveries. Legacy suffix 2 does not certify flight count. The P2 historical
+route begins on delayed PIP and includes suppressed roots/tension; ordinary
+PIP-to-delayed PIP is not a verified regular edge. Local propositions cannot
+imply global connectivity, unique maximal roots, exhaustive discovery or
+dynamic stability. Disconnected components, higher primitive periods,
+secondary bifurcations, missing symmetry types and singular itinerary
+boundaries remain possible. A failed corrector or budget stop is unresolved,
+not a proof of nonexistence. Global claims require additional certification.
+
+\begin{thebibliography}{9}
+\bibitem{cr}
+M. G. Crandall and P. H. Rabinowitz,
+``Bifurcation from Simple Eigenvalues,''
+\emph{Journal of Functional Analysis} 8 (1971), 321--340.
+\href{https://doi.org/10.1016/0022-1236(71)90015-2}{doi:10.1016/0022-1236(71)90015-2}.
+Original theorem 1.7 inspected at
+\href{https://jxshix.people.wm.edu/2013-taiwan/crandall-rabinowitz-1971-JFA.pdf}{author-hosted scan}.
+
+\bibitem{kong}
+N. J. Kong, J. J. Payne, J. Zhu and A. M. Johnson,
+``Saltation Matrices: The Essential Tool for Linearizing Hybrid Dynamical
+Systems,'' \emph{Proceedings of the IEEE} 112(6) (2024), 585--608.
+\href{https://arxiv.org/html/2306.06862v3}{Author manuscript, arXiv:2306.06862v3}.
+
+\bibitem{burden}
+S. A. Burden, S. S. Sastry, D. E. Koditschek and S. Revzen,
+``Event-Selected Vector Field Discontinuities Yield Piecewise-Differentiable
+Flows.''
+\href{https://arxiv.org/html/1407.1775v3}{Author manuscript, arXiv:1407.1775v3}.
+Definitions 1--2 and theorem 3 inspected. The theorem is not a blanket result
+for arbitrary noninvertible resets or grazing.
+\end{thebibliography}
+\end{document}

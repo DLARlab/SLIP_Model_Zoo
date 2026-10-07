@@ -1,0 +1,134 @@
+{
+  "schema_version": "parent-spectral-candidate-queue-v3-1",
+  "created_after_bounded_campaign": true,
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "physical_parameters": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "registered_domain": {
+    "energy": [
+      1.0001,
+      3
+    ],
+    "mean_speed": [
+      -3,
+      3
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 12,
+    "event_count_max": 64,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately"
+  },
+  "preregistered_maximum_refined_connections": 2,
+  "preregistered_cap_changed": false,
+  "domain_changed": false,
+  "accepted_attachments_separate": "runs/full/pip_pk_local.json",
+  "proof_and_limitations": "../Docs_v3/Parent_Only_Pronk_Validation_v3.md#exact-resonance-check-and-unprocessed-spectral-candidate",
+  "queue_semantics": "spectral candidates for future registered study; neither nonlinear daughter discovery nor ancestry evidence",
+  "candidates": [
+    {
+      "id": "PIP_odd_swing_resonance_n0",
+      "status": "unprocessed_analytic_spectral_candidate",
+      "origin": "post-campaign analytical parent diagnostic",
+      "energy_expression": "1 + pi^2/160",
+      "energy_approximate": 1.0616850275068086,
+      "restriction": "fixed-energy synchronized pronk",
+      "predicted_restricted_multipliers_real": [
+        1,
+        -1,
+        0
+      ],
+      "grid_interval": [
+        1.0001,
+        1.1334266666666666
+      ],
+      "endpoint_determinants": [
+        1.0973007370071888,
+        0.13342104860029075
+      ],
+      "not_refined_reason": "endpoint determinants have the same sign in the registered coarse grid",
+      "left_kernel_transversality_evaluated": false,
+      "daughter_correction_attempted": false,
+      "daughter_existence_proved": false,
+      "full_system_derivative_claimed": false
+    },
+    {
+      "id": "PIP_grid_sign_change_3",
+      "status": "unrefined_parent_sign_change_bracket",
+      "origin": "registered parent-only deterministic grid",
+      "energy_bracket": [
+        2.466693333333333,
+        2.6000199999999998
+      ],
+      "endpoint_determinants": [
+        0.48025333823257815,
+        -0.20562620112458743
+      ],
+      "not_refined_reason": "registered maximum_connections=2; bounded stage ended budget_exhausted",
+      "critical_energy_refined": false,
+      "left_kernel_transversality_evaluated": false,
+      "daughter_correction_attempted": false,
+      "daughter_existence_proved": false,
+      "full_system_derivative_claimed": false,
+      "contains_analytic_resonance": {
+        "n": 2,
+        "energy_expression": "1 + 25*pi^2/160",
+        "energy_approximate": 2.5421256876702123,
+        "predicted_restricted_multipliers_real": [
+          1,
+          -1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PIP_grid_sign_change_4",
+      "status": "unrefined_parent_sign_change_bracket",
+      "origin": "registered parent-only deterministic grid",
+      "energy_bracket": [
+        2.733346666666667,
+        2.8666733333333334
+      ],
+      "endpoint_determinants": [
+        -0.04387019485638057,
+        0.9310753005930562
+      ],
+      "not_refined_reason": "registered maximum_connections=2; bounded stage ended budget_exhausted",
+      "critical_energy_refined": false,
+      "left_kernel_transversality_evaluated": false,
+      "daughter_correction_attempted": false,
+      "daughter_existence_proved": false,
+      "full_system_derivative_claimed": false
+    }
+  ]
+}

@@ -4,6 +4,21 @@
 not replace the legacy v1/v2 simulators, continuation scripts, graphics, or
 saved data. Legacy vectors enter v3 only through explicit adapters.
 
+The October 2026 research campaign adds independent physical/energy charts,
+fixed-parameter family continuation, BL-marked return charts, primitive-cycle
+and state-based gait diagnostics, parent-only pronk discovery, and a v3 GUI.
+The requested single PIP-rooted P1/P2 network remains unresolved. Read
+[`Final_Research_Status_v3.md`](Docs_v3/Final_Research_Status_v3.md) for actual
+executed results, restricted attachment certificates, failures, and scope.
+Historical Round4 reports describe an earlier checkout; they are not current
+network or all-tests-pass certificates.
+
+The October 7 cleanup retains numerical code, research checkpoints, figures,
+GUI examples and scientific audits. Unit tests, their CI workflow, temporary
+check scripts and caches were removed. Historical verification summaries live
+in `Research_v3/Audits_v3`; the cleanup manifest records removals and lossless
+MAT compression. The legacy `SLIP_Quadruped/` reference remains unchanged.
+
 The framework models
 
 \[
@@ -26,7 +41,7 @@ flowchart LR
     N["Numerics_v3<br/>root solve and continuation"]
     T["Stability_v3<br/>Floquet and boundaries"]
     G["Graphics_v3<br/>trajectory/event consumers"]
-    E["Examples_v3 and Tests_v3"]
+    E["Examples_v3 and Research_v3"]
 
     S --> D
     S --> A
@@ -93,8 +108,11 @@ The ten parameters are:
 
 Family parameters expand in `[BL,BR,FL,FR]` order. The 13 root coordinates
 are states `2:14`; state 1 is the horizontal-translation gauge. Independent
-periodic and section-tangent coordinates are `[2,3,5:14]`, and state 4 is the
-phase coordinate.
+flight-apex periodic and section-tangent coordinates are `[2,3,5:14]`, and
+state 4 is the phase coordinate. In a stance mode, one stored angular rate per
+stance leg is dependent. `QuadrupedPhysicalChart_v3` retracts these rates and
+provides `12-nnz(q)` independent apex/translation coordinates. Full displayed
+state vectors are retained for serialization and complete closure checks.
 
 See
 [`State_Parameter_Event_Conventions_v3.md`](Docs_v3/State_Parameter_Event_Conventions_v3.md)
@@ -161,13 +179,19 @@ crossing completes the desired map:
 - `FirstReturnPolicy_v3` accepts the first crossing;
 - `IteratedReturnPolicy_v3` accepts crossing \(m\);
 - `EventCycleReturnPolicy_v3` accepts the first right-continuous crossing
-  with mode closure and at least one touchdown and liftoff for every leg.
+  with mode closure and at least one touchdown and liftoff for every leg;
+- `BLMarkedApexReturnPolicy_v3` additionally fixes a declared BL touchdown
+  occurrence and the last qualifying preceding downward apex in a local chart.
 
 Direct quadruped maps default to `EventCycleReturnPolicy_v3`; generic hybrid
 systems default to `FirstReturnPolicy_v3`. An explicitly supplied policy is
 never replaced later by residual or stability construction.
 
 The event-cycle policy permits intermediate apexes and imposes no event order.
+Its event coverage is separate from primitive-period validation.
+`PrimitiveCycleCheck_v3` checks complete interior histories; repeating a cycle
+does not become a new double-flight gait. `RephaseHybridOrbit_v3` records chart
+transport and returns a predictor requiring physical correction/replay.
 At a section/contact coincidence, physical transitions are processed once and
 the post-event section mode is stored. All candidate crossings, accepted
 multiplicity, event counts, signatures, transversality, and coincidence data
@@ -188,7 +212,8 @@ dy_{raw}
 \qquad \Pi=[2,3,5{:}14].
 \]
 
-It has 12 independent periodicity equations and one phase equation. The
+It retains 12 displayed periodicity equations and one phase equation. These
+are not independent in every stance chart, or along an energy family. The
 discrete section mode remains outside the numerical unknown vector. A local
 section-mode resolver retains the previous chart and toggles only guards near
 the section with consistent directions; exhaustive `allModes()` is available
@@ -198,6 +223,13 @@ only as an explicit diagnostic.
 structured invalid-trial rejection, fsolve and damped trust-region Newton
 paths, counters, and optional Jacobian/Broyden reuse. Event times and event
 order are never root unknowns.
+
+`EnergyFamilyResidual_v3` instead uses the physical chart, removes a closure
+equation through a regular energy pivot, and enforces the family energy.
+`FixedParameterContinuation_v3` appends energy as an explicit family coordinate
+while all ten physical parameters remain fixed. Every accepted root must
+still close every physical state coordinate within `1e-8`. Parent symmetry
+restrictions (`none`, `left-right`, `pronk`) are explicit and validated.
 
 ## Continuation and stability
 
@@ -247,9 +279,12 @@ newQ = LegacyModeAdapter_v3.toV3(oldQ);
 permutations and conversion equations are in
 [`Migration_v2_to_v3.md`](Docs_v3/Migration_v2_to_v3.md).
 
-The 70 legacy files restored verbatim from the immediate parent commit,
-together with their hash audit, are recorded in
+The historical restoration of 70 legacy files and its then-current hash audit
+are recorded in
 [`Legacy_Restoration_Audit_v3.md`](Docs_v3/Legacy_Restoration_Audit_v3.md).
+The current protected checkout already lacks their old path. Two unchanged
+baseline tests asserted that historical path; see the current research
+report and independently verified initial protected-tree manifest.
 
 ## Graphics
 
@@ -259,6 +294,45 @@ not reconstructed from event-time inputs. The toolbox supports classic and UI
 axes, invisible/headless construction, simple/detailed animation, optional
 video export, diagnostics-based GRFs, and reset-safe right-continuous
 resampling.
+
+## Research execution and GUI
+
+All production fixtures, configurations, checkpoints, branch references,
+figures, and reports live under v3. Source SHA256 values and the starting Git
+commit are retained. The scheduled legacy model and the autonomous first-root
+model are compared explicitly; accepting an autonomous state does not assert
+that its old scheduled period or contact cycle was reproduced.
+
+From the repository root:
+
+```sh
+python3 SLIP_Quadruped_v3/Research_v3/run_campaign.py --config validation --stage all --resume
+python3 SLIP_Quadruped_v3/Research_v3/run_campaign.py --config full --stage all --resume
+python3 SLIP_Quadruped_v3/Research_v3/run_campaign.py --verify-only
+python3 SLIP_Quadruped_v3/Research_v3/generate_research_index.py --config full
+python3 SLIP_Quadruped_v3/Research_v3/generate_family_reports.py
+python3 SLIP_Quadruped_v3/Research_v3/generate_research_report.py
+```
+
+Resume retains completed and terminal bounded-stop JSONs; fixed-family partial checkpoints replay
+their last accepted point before continuing. A parent-only rerun versions prior
+artifacts and recomputes frozen predictions. Stage locks, timestamped logs,
+configuration fingerprints, numerical stops, and cumulative process-wall
+charges are retained. To regenerate the independent replay index, with the v3
+root and Drivers_v3 on the MATLAB path, run `ExportResearchEvidence_v3`.
+After a parent-only stage, `AuditPronkAttachments_v3` independently reassesses
+saved trajectories and matrices against the unchanged numerical evidence gates.
+
+Open `SLIP_Quadruped_GUI_v3` from MATLAB. Ten physical parameter fields, explicit
+return-policy and BL occurrence controls, shared correction/continuation,
+restricted/full Floquet options, plotting, recording, and checkpoint controls
+are documented in [`GUI_Parity_v3.md`](Docs_v3/GUI_Parity_v3.md). Fixed-energy
+family continuation and physical-parameter scans are distinct UI actions.
+
+[`Research_Evidence_Schemas_v3.md`](Docs_v3/Research_Evidence_Schemas_v3.md)
+documents the typed graph, full replay index and compact catalog schemas.
+Graph links to an artifact are references; only its explicit evidence status
+determines whether a connection is supported.
 
 ## Validation scope and current limitations
 
@@ -280,9 +354,9 @@ tensile stance or singular stance constraint. Weakening force admissibility or
 ignoring those guards would hide a physical/model incompatibility. Thus actual
 asymmetric-orbit behavior is tested, but the clause requiring direct use of an
 available non-pronking legacy fixture remains an explicit migration gap rather
-than a claimed successful replay. The suite converts and executes a
-representative positive-clearance BG point and verifies its structured tensile
-stance rejection, so this limitation is itself regression-tested.
+than a claimed successful replay. The executed suite converted and exercised a
+representative positive-clearance BG point and verified its structured tensile
+stance rejection, so the historical regression evidence also records this limitation.
 
 The stance acceleration implementation preserves validated legacy symbolic
 fixed-foot formulas; it is not a general constrained-mechanics DAE solver.
@@ -305,10 +379,15 @@ addpath(genpath(v3));
 views = QuadrupedalGraphicsExample_v3(orbit, ...
     'Visible', 'off', 'PlayAnimation', false);
 
-results = runtests(fullfile(v3, 'Tests_v3'));
-assertSuccess(results);
+% Independently replay all retained accepted research solutions.
+replay = ExportResearchEvidence_v3();
+assert(replay.failed_replay_count == 0);
 ```
 
 All new branch data carry state, parameter, leg, event, and schema-version
-metadata. Gait classification remains post-processing of event history and is
-not stored as a solved-orbit property.
+metadata. Gait and primitive-cycle diagnostics are attached only after
+trajectory validation; labels never constrain the dynamics or root solve.
+`Research_v3/audit_commands.sh` replays physical solutions and refreshes the
+evidence indexes and reports. Historical test/analyzer counts are retained in
+`Research_v3/Audits_v3`; the former test runners were removed. Output paths must
+resolve inside v3, and entry points restore their caller’s MATLAB path.

@@ -1,5 +1,11 @@
 # Round 4 pre-change test report
 
+Historical audit: the test sources, runners and generated test payloads cited
+below were removed from the working tree during the 2026-10-07 cleanup.
+Commands and file lists describe the recorded run. Retained verification
+summaries and provenance are in `Research_v3/Audits_v3`; the current numerical
+results are described in `Final_Research_Status_v3.md`.
+
 Baseline captured on 2026-08-11 before Round 4 implementation changes.
 
 ## Repository baseline
@@ -83,7 +89,7 @@ Installed products reported by `ver` (47):
 
 ## Executed pre-change suite
 
-Command:
+Historical command (the test harness is no longer in the working tree):
 
 ```matlab
 v3Root = fullfile(pwd, 'SLIP_Quadruped_v3');

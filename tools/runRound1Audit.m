@@ -1,13 +1,13 @@
 function report = runRound1Audit()
 %RUNROUND1AUDIT Reproduce the non-invasive SLIP Quadruped Round 1 audit.
-%   REPORT = RUNROUND1AUDIT() runs static checks, characterization tests,
-%   bounded numerical baselines, and reference-artifact integrity checks.
+%   REPORT = RUNROUND1AUDIT() runs static checks, bounded numerical baselines,
+%   and reference-artifact integrity checks. The historical characterization
+%   suite was removed during repository cleanup and is not executed.
 %   All generated output is confined to artifacts/round1-audit.
 
     repositoryRoot = fileparts(fileparts(mfilename('fullpath')));
     sourceRoot = fullfile(repositoryRoot, 'SLIP_Quadruped');
     auditHelpers = fullfile(repositoryRoot, 'tools', 'audit');
-    testRoot = fullfile(repositoryRoot, 'tests', 'round1');
     artifactRoot = fullfile(repositoryRoot, 'artifacts', 'round1-audit');
     if ~isfolder(artifactRoot)
         mkdir(artifactRoot);
@@ -21,7 +21,6 @@ function report = runRound1Audit()
 
     addpath(genpath(sourceRoot));
     addpath(auditHelpers);
-    addpath(testRoot);
     cd(artifactRoot);
     rng(314159, 'twister');
     set(groot, 'defaultFigureVisible', 'off');
@@ -51,7 +50,13 @@ function report = runRound1Audit()
     report.name_resolution = CaptureNameResolution(artifactRoot);
     report.dependencies = CaptureDependencies(sourceRoot, artifactRoot);
     report.code_analyzer = RunCodeAnalyzer(sourceRoot, artifactRoot);
-    report.tests = RunCharacterizationTests(testRoot, artifactRoot);
+    report.tests = struct('status', 'removed', 'executed', false, ...
+        'historical_audit', fullfile(repositoryRoot, 'docs', ...
+            'repository-audit-round1.md'), ...
+        'note', ['The characterization suite was removed during repository ' ...
+            'cleanup. This run performs no unit tests; historical evidence ' ...
+            'is retained in the audit documentation.']);
+    fprintf('%s\n', report.tests.note);
 
     referenceFile = fullfile(sourceRoot, ...
         'P1_Breaking_Symmetries_Leads_to_Diverse_Qudrupedal_Gaits', ...
@@ -196,27 +201,6 @@ function analyzer = RunCodeAnalyzer(sourceRoot, artifactRoot)
         analyzer.error = getReport(exception, 'extended', ...
             'hyperlinks', 'off');
         fprintf('Code Analyzer failed:\n%s\n', analyzer.error);
-    end
-end
-
-function testSummary = RunCharacterizationTests(testRoot, artifactRoot)
-    testSummary = struct('status', 'not-run', 'passed', 0, ...
-        'failed', 0, 'incomplete', 0, 'error', '');
-    try
-        suite = testsuite(testRoot, 'IncludeSubfolders', true);
-        results = run(suite);
-        testSummary.status = 'completed';
-        testSummary.passed = sum([results.Passed]);
-        testSummary.failed = sum([results.Failed]);
-        testSummary.incomplete = sum([results.Incomplete]);
-        save(fullfile(artifactRoot, 'test-results.mat'), 'results');
-        fprintf('Tests: %d passed, %d failed, %d incomplete.\n', ...
-            testSummary.passed, testSummary.failed, testSummary.incomplete);
-    catch exception
-        testSummary.status = 'failed';
-        testSummary.error = getReport(exception, 'extended', ...
-            'hyperlinks', 'off');
-        fprintf('Tests failed to run:\n%s\n', testSummary.error);
     end
 end
 

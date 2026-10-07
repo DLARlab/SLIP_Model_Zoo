@@ -52,6 +52,9 @@ classdef HybridOrbit_v3 < handle
         section_coincident_events = struct([])
         cycle_completion_diagnostics = struct()
         schema_metadata = struct()
+        section_chart = struct()
+        primitive_cycle = struct()
+        gait_identification = struct()
     end
 
     methods

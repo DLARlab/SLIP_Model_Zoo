@@ -1,0 +1,382 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Typed fixed-model ancestry graph with hypothesis/evidence distinction",
+  "required": [
+    "schema_version",
+    "model",
+    "domain",
+    "source_snapshots",
+    "nodes",
+    "edges",
+    "duplicate_annotations",
+    "hypotheses",
+    "connectivity_policy",
+    "counts",
+    "conclusion"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "research-ancestry-graph-v3-1"
+    },
+    "model": {
+      "type": "object",
+      "required": [
+        "id",
+        "physical_parameter",
+        "parameter_policy",
+        "state_schema_version",
+        "parameter_schema_version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "physical_parameter": {
+          "type": "array",
+          "minItems": 10,
+          "maxItems": 10,
+          "items": {
+            "type": "number"
+          }
+        },
+        "parameter_policy": {
+          "type": "string"
+        },
+        "state_schema_version": {
+          "const": "quadruped-state-v3.1"
+        },
+        "parameter_schema_version": {
+          "const": "quadruped-parameter-v3.1"
+        }
+      }
+    },
+    "domain": {
+      "type": "object"
+    },
+    "source_snapshots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "exists",
+          "sha256",
+          "status",
+          "finished_utc"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "exists": {
+            "type": "boolean"
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "status": {
+            "type": "string"
+          },
+          "finished_utc": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "origin",
+          "status",
+          "model",
+          "restricted",
+          "solution_ids",
+          "notes"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "origin": {
+            "enum": [
+              "hypothesis",
+              "parent_only",
+              "imported_seed",
+              "boundary_hypothesis"
+            ]
+          },
+          "status": {
+            "type": "string"
+          },
+          "model": {
+            "type": "object",
+            "required": [
+              "id",
+              "physical_parameter",
+              "parameter_policy",
+              "state_schema_version",
+              "parameter_schema_version"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "physical_parameter": {
+                "type": "array",
+                "minItems": 10,
+                "maxItems": 10,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "parameter_policy": {
+                "type": "string"
+              },
+              "state_schema_version": {
+                "const": "quadruped-state-v3.1"
+              },
+              "parameter_schema_version": {
+                "const": "quadruped-parameter-v3.1"
+              }
+            }
+          },
+          "restricted": {
+            "type": "boolean"
+          },
+          "solution_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          },
+          "artifact_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "branch_summary": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "target",
+          "type",
+          "intended_type",
+          "status",
+          "source_status",
+          "scope",
+          "counts_toward_regular_network",
+          "counts_toward_nonsmooth_connectivity",
+          "actual_isotropy_change",
+          "regularity",
+          "reason",
+          "artifact_refs",
+          "evidence_directory"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "validated_regular_symmetry_breaking_connection",
+              "other_validated_local_bifurcation",
+              "admissible_nonsmooth_itinerary_connection",
+              "grazing_zero_duration_boundary_limit",
+              "phase_proven_symmetry_equivalence",
+              "multiple_cover_identification",
+              "numerical_candidate_proximity_only"
+            ]
+          },
+          "intended_type": {
+            "enum": [
+              "validated_regular_symmetry_breaking_connection",
+              "other_validated_local_bifurcation",
+              "admissible_nonsmooth_itinerary_connection",
+              "grazing_zero_duration_boundary_limit",
+              "phase_proven_symmetry_equivalence",
+              "multiple_cover_identification",
+              "numerical_candidate_proximity_only"
+            ]
+          },
+          "status": {
+            "enum": [
+              "unresolved",
+              "validated",
+              "rejected",
+              "boundary_only"
+            ]
+          },
+          "source_status": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "counts_toward_regular_network": {
+            "type": "boolean"
+          },
+          "counts_toward_nonsmooth_connectivity": {
+            "type": "boolean"
+          },
+          "actual_isotropy_change": {
+            "type": "object",
+            "required": [
+              "status",
+              "parent",
+              "daughter"
+            ]
+          },
+          "regularity": {
+            "type": "object",
+            "required": [
+              "classical_full_derivative_validated",
+              "restriction"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "artifact_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_directory": {
+            "type": "string"
+          },
+          "local_evidence_summary": {
+            "type": "object"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "unresolved"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "counts_toward_regular_network": {
+                  "const": false
+                },
+                "counts_toward_nonsmooth_connectivity": {
+                  "const": false
+                },
+                "type": {
+                  "const": "numerical_candidate_proximity_only"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "counts_toward_regular_network": {
+                  "const": true
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "status": {
+                  "const": "validated"
+                },
+                "type": {
+                  "enum": [
+                    "validated_regular_symmetry_breaking_connection",
+                    "other_validated_local_bifurcation"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "duplicate_annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "node_id",
+          "solution_ids",
+          "source_sha256",
+          "reason"
+        ]
+      }
+    },
+    "hypotheses": {
+      "type": "object",
+      "required": [
+        "H_local",
+        "H_network",
+        "H_coverage",
+        "H_global"
+      ]
+    },
+    "connectivity_policy": {
+      "type": "object",
+      "required": [
+        "regular_edge_types",
+        "additional_nonsmooth_edge_types",
+        "boundary_equivalence_cover_edges_alone_do_not_establish_ancestry"
+      ]
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "verified_regular_edges",
+        "verified_nonsmooth_edges",
+        "unresolved_edges",
+        "imported_replay_nodes"
+      ]
+    },
+    "conclusion": {
+      "type": "string"
+    }
+  }
+}

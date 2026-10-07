@@ -30,6 +30,10 @@ classdef PseudoArclengthContinuation_v3
         StabilityAnalyzer = []
         Display = 'off'
         ReuseCorrectorJacobian = true
+        MaxWallSeconds = Inf
+        CheckpointFunction = []
+        StopFunction = []
+        TangentRankTolerance = 1e-10
     end
 
     methods
@@ -48,7 +52,19 @@ classdef PseudoArclengthContinuation_v3
             obj.validateOptions();
         end
 
+        function branch = refreshBranchSummary(obj, branch)
+            % Rebuild convenience arrays after joining resumed point records.
+            % POINTS is authoritative; retain run-specific metadata separately.
+            summary=obj.assembleBranch(branch.points,branch.failures, ...
+                branch.activeParameterIndex,branch.activeParameter);
+            keys=fieldnames(summary);
+            for index=1:numel(keys)
+                branch.(keys{index})=summary.(keys{index});
+            end
+        end
+
         function branch = run(obj, residual, u0, p0, q0)
+            runTimer = tic;
             pReference = p0(:);
             [index, parameterName] = obj.resolveParameter( ...
                 residual, numel(pReference));
@@ -92,6 +108,13 @@ classdef PseudoArclengthContinuation_v3
             correctorJacobian = [];
 
             while numel(points) < obj.MaxPoints
+                if toc(runTimer) >= obj.MaxWallSeconds || ...
+                        (~isempty(obj.StopFunction) && obj.StopFunction())
+                    branch = obj.assembleBranch(points,failures,index,parameterName);
+                    branch.terminationReason = 'wall budget or requested stop';
+                    obj.checkpoint(branch);
+                    return
+                end
                 accepted = false;
                 trialStep = ds;
                 failurePoint = obj.emptyPoint();
@@ -162,6 +185,7 @@ classdef PseudoArclengthContinuation_v3
                                 residual, point);
                         end
                         points(end + 1) = point; %#ok<AGROW>
+                        obj.checkpoint(obj.assembleBranch(points,failures,index,parameterName));
 
                         z = zNew;
                         q = qNew;
@@ -207,6 +231,11 @@ classdef PseudoArclengthContinuation_v3
     end
 
     methods (Access = private)
+        function checkpoint(obj,branch)
+            if ~isempty(obj.CheckpointFunction)
+                obj.CheckpointFunction(branch);
+            end
+        end
         function [zBest, resultBest] = correctAcrossModes(obj, residual, ...
                 zPredict, zBase, tScaled, scale, ds, pReference, modes, ...
                 previousJacobian)
@@ -304,14 +333,23 @@ classdef PseudoArclengthContinuation_v3
             end
 
             values = diag(singularValues);
+            rankTolerance = max(max(size(A)) * eps(max(values)), ...
+                obj.TangentRankTolerance * max(values));
             info = struct();
             info.extendedJacobian = A;
             info.scaledJacobian = scaledJacobian;
             info.singularValues = values;
-            info.rank = sum(values > max(size(A)) * eps(max(values)));
+            info.rank = sum(values > rankTolerance);
+            info.rankTolerance = rankTolerance;
             info.finiteDifference = fdInfo;
             info.scale = scale;
             info.reliable = obj.member(fdInfo, 'allReliable', true);
+            if info.rank ~= size(A, 1)
+                error('PseudoArclengthContinuation_v3:NonuniqueTangent', ...
+                    ['The extended residual Jacobian has rank %d for %d ', ...
+                     'rows; a unique one-dimensional family tangent is unresolved.'], ...
+                    info.rank, size(A, 1));
+            end
         end
 
         function [r, info] = evaluateAtExtendedPoint( ...
@@ -438,6 +476,7 @@ classdef PseudoArclengthContinuation_v3
         end
 
         function point = makeInitialPoint(obj, residual, u, p, q, solveInfo)
+            obj.assertPhysicalClosure(solveInfo.evaluationInfo);
             point = obj.emptyPoint();
             point.x = u(:);
             point.p = p(:);
@@ -460,6 +499,7 @@ classdef PseudoArclengthContinuation_v3
             point.converged = correction.converged;
             point.solverInfo = correction.rootInfo;
             [baseResidual, evalInfo] = obj.evaluateResidual(residual, u, p, q);
+            obj.assertPhysicalClosure(evalInfo);
             point.residual = baseResidual;
             point.residualNorm = norm(baseResidual, Inf);
             point.fullState = obj.fullState(residual, u, p, q);
@@ -625,6 +665,16 @@ classdef PseudoArclengthContinuation_v3
                 end
             catch
                 orbit = [];
+            end
+        end
+
+        function assertPhysicalClosure(~, info)
+            if isstruct(info) && isfield(info, 'full_physical_closure_norm') ...
+                    && isfield(info, 'full_physical_closure_tolerance') ...
+                    && info.full_physical_closure_norm > info.full_physical_closure_tolerance
+                error('PseudoArclengthContinuation_v3:FullPhysicalClosure', ...
+                    'Independent equations converged but full physical closure failed: %.4g.', ...
+                    info.full_physical_closure_norm);
             end
         end
 

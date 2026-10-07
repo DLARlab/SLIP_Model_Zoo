@@ -88,6 +88,17 @@ classdef EventDetector_v3
             firstRows = find(abs(eventTime - firstTime) <= timeTolerance);
             firstRow = firstRows(1);
             eventStateVector = eventState(firstRow, :).';
+            % MATLAB can report an early terminal root and still return
+            % later samples (in particular at a near-initial event). Only
+            % the smooth flow up to the selected earliest event belongs to
+            % this mode; later samples cannot precede its reset.
+            if firstTime < tspan(1)
+                error('EventDetector_v3:EventBeforeSpan', ...
+                    'The solver reported an event before the integration span.');
+            end
+            before = time(:) < firstTime;
+            segment.time = [time(before); firstTime];
+            segment.state = [state(before, :); eventStateVector.'];
             triggeredChannels = unique(eventIndex(firstRows));
 
             [guardBatch, stopBatch] = obj.clusterAtEvent( ...
@@ -360,7 +371,15 @@ classdef EventDetector_v3
                     obj.guardDirectionalDerivative( ...
                         system, descriptor.id, t, x, q, p);
                 wasTriggered = any(triggeredChannels == k);
-                if wasTriggered || obj.isSimultaneous(descriptor)
+                eligible = obj.isSimultaneous(descriptor);
+                if wasTriggered && ~eligible
+                    error('EventDetector_v3:IneligibleTriggeredGuard', ...
+                        ['ODE-reported guard %s at t=%.17g fails the ', ...
+                         'directed transverse-root contract (g=%.17g, DgF=%.17g).'], ...
+                        char(string(descriptor.name)), t, descriptor.value, ...
+                        descriptor.directional_derivative);
+                end
+                if eligible
                     guards(end + 1, 1) = descriptor; %#ok<AGROW>
                 end
             end
@@ -382,7 +401,15 @@ classdef EventDetector_v3
                         system, condition, descriptor.id, t, x, q, p);
                 channel = numel(guardTemplate) + k;
                 wasTriggered = any(triggeredChannels == channel);
-                if wasTriggered || obj.isSimultaneous(descriptor)
+                eligible = obj.isSimultaneous(descriptor);
+                if wasTriggered && ~eligible
+                    error('EventDetector_v3:IneligibleTriggeredSection', ...
+                        ['ODE-reported section %s at t=%.17g fails the ', ...
+                         'directed transverse-root contract (h=%.17g, DhF=%.17g).'], ...
+                        char(string(descriptor.name)), t, descriptor.value, ...
+                        descriptor.directional_derivative);
+                end
+                if eligible
                     stops(end + 1, 1) = descriptor; %#ok<AGROW>
                 end
             end
@@ -396,13 +423,19 @@ classdef EventDetector_v3
                 tf = false;
                 return;
             end
-            if abs(value) <= obj.Options.EventValueTolerance
-                valueClose = true;
-            elseif isfinite(derivative) && derivative ~= 0
-                valueClose = abs(value / derivative) <= ...
+            % A small guard value alone can be far from its next root
+            % when the normal velocity is small. In particular, an apex
+            % arming stop must not manufacture an early touchdown. Keep
+            % the surface and estimated root-time tests independent.
+            valueClose = abs(value) <= obj.Options.EventValueTolerance;
+            if isfinite(derivative) && derivative ~= 0
+                timeClose = abs(value / derivative) <= ...
                     obj.Options.SimultaneousTimeTolerance;
             else
-                valueClose = false;
+                % The orientation test below excludes directed grazing.
+                % An explicitly nondirectional zero-speed guard has no
+                % linear root-time estimate and keeps its value contract.
+                timeClose = true;
             end
 
             direction = descriptor.direction;
@@ -410,7 +443,7 @@ classdef EventDetector_v3
             directionConsistent = direction == 0 || ...
                 (isfinite(derivative) && ...
                  direction * derivative > derivativeTolerance);
-            tf = valueClose && directionConsistent;
+            tf = valueClose && timeClose && directionConsistent;
         end
 
         function derivative = guardDirectionalDerivative(obj, system, id, ...

@@ -260,6 +260,15 @@ classdef RootSolver_v3
                     attempt.converged = false;
                     attempt.message = 'Residual evaluation reported an invalid hybrid return.';
                 end
+                if isstruct(evalInfo) && isfield(evalInfo,'full_physical_closure_norm')
+                    tolerance = obj.getMember(residual,'ClosureTolerance');
+                    if isempty(tolerance),tolerance=obj.ResidualAcceptanceTolerance;end
+                    if ~isfinite(evalInfo.full_physical_closure_norm) || ...
+                            evalInfo.full_physical_closure_norm > tolerance
+                        attempt.converged=false;
+                        attempt.message='Independent residual passed but full physical closure failed.';
+                    end
+                end
                 attempt.fullState = obj.fullState( ...
                     residual, attempt.state, p, q);
                 attempt.orbit = obj.createOrbit( ...
@@ -471,6 +480,12 @@ classdef RootSolver_v3
                             end
                             jacobianReliable = false;
                         end
+                    end
+                    if isempty(J) || any(~isfinite(J(:)))
+                        exitflag = -3;
+                        jacobianReliable = false;
+                        message = 'No finite hybrid Jacobian is available in the requested perturbation chart.';
+                        break
                     end
                     gradient = real(J' * r);
                     firstOrder = norm(gradient, Inf);
@@ -690,8 +705,8 @@ classdef RootSolver_v3
                     orbit = RootSolver_v3.callObjectOrbit( ...
                         residual, u, p, q, evalInfo);
                 end
-            catch
-                orbit = [];
+            catch exception
+                rethrow(exception)
             end
         end
 

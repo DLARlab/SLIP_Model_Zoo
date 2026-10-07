@@ -1,0 +1,40 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+PIP parent E 1.0001: det 1.09730074 reliable 1
+PIP parent E 1.13342667: det 0.133421049 reliable 1
+PIP parent E 1.26675333: det 1.51614738 reliable 1
+PIP parent E 1.40008: det 1.25941508 reliable 1
+PIP parent E 1.53340667: det 0.130806074 reliable 1
+PIP parent E 1.66673333: det -0.12475621 reliable 1
+PIP parent E 1.80006: det 0.842153814 reliable 1
+PIP parent E 1.93338667: det 2.20012549 reliable 1
+PIP parent E 2.06671333: det 2.96376704 reliable 1
+PIP parent E 2.20004: det 2.70292717 reliable 1
+PIP parent E 2.33336667: det 1.66255049 reliable 1
+PIP parent E 2.46669333: det 0.480253338 reliable 1
+PIP parent E 2.60002: det -0.205626201 reliable 1
+PIP parent E 2.73334667: det -0.0438701949 reliable 1
+PIP parent E 2.86667333: det 0.931075301 reliable 1
+PIP parent E 3: det 2.37126604 reliable 1
+Pronk validation amplitude -0.0001: convergence 1, replay closure 1.79e-12, corrected 0
+Pronk validation amplitude -0.0003: convergence 1, replay closure 8.58e-12, corrected 0
+Pronk validation amplitude -0.001: convergence 1, replay closure 1.8e-12, corrected 0
+Pronk validation amplitude -0.003: convergence 1, replay closure 1.8e-12, corrected 1
+Pronk validation amplitude -0.01: convergence 1, replay closure 1.63e-12, corrected 1
+Pronk validation amplitude +0.0001: convergence 1, replay closure 1.79e-12, corrected 0
+Pronk validation amplitude +0.0003: convergence 1, replay closure 8.58e-12, corrected 0
+Pronk validation amplitude +0.001: convergence 1, replay closure 1.8e-12, corrected 0
+Pronk validation amplitude +0.003: convergence 1, replay closure 1.8e-12, corrected 1
+Pronk validation amplitude +0.01: convergence 1, replay closure 1.63e-12, corrected 1
+Pronk validation amplitude -0.0001: convergence 1, replay closure 2.02e-12, corrected 0
+Pronk validation amplitude -0.0003: convergence 1, replay closure 1.78e-11, corrected 0
+Pronk validation amplitude -0.001: convergence 1, replay closure 2.03e-12, corrected 0
+Pronk validation amplitude -0.003: convergence 1, replay closure 2.02e-12, corrected 1
+Pronk validation amplitude -0.01: convergence 1, replay closure 1.94e-12, corrected 1
+Pronk validation amplitude +0.0001: convergence 1, replay closure 2.02e-12, corrected 0
+Pronk validation amplitude +0.0003: convergence 1, replay closure 1.78e-11, corrected 0
+Pronk validation amplitude +0.001: convergence 1, replay closure 2.03e-12, corrected 0
+Pronk validation amplitude +0.003: convergence 1, replay closure 2.02e-12, corrected 1
+Pronk validation amplitude +0.01: convergence 1, replay closure 1.94e-12, corrected 1
