@@ -1,0 +1,113 @@
+{
+  "companionFile": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_OtherApex.mat",
+  "companionSHA256": "53d2b7d9eac5a223632ef3eb63015e83279ba80f4d7544d53a1da643be227807",
+  "sourceFile": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G_continuation_20260909/extended_B2_validated.mat",
+  "sourceSHA256": "d60277fa7fd9c80aa8336f52462928cd4322a3127301fb74143070573b008a32",
+  "attemptedColumns": 1358,
+  "acceptedColumns": 1307,
+  "acceptedSourceColumnRanges": [
+    [
+      1,
+      1306
+    ],
+    [
+      1347,
+      1347
+    ]
+  ],
+  "excludedSourceColumnRanges": [
+    [
+      1307,
+      1346
+    ],
+    [
+      1348,
+      1358
+    ]
+  ],
+  "originalSourceColumnsInAssembled": [
+    361,
+    1212
+  ],
+  "allOriginal852Accepted": true,
+  "exactlyOneOtherDownwardApexEveryAttempt": true,
+  "acceptanceRule": "nativeResidual<1e-8 AND fullTrajectoryStateDifference<1e-7 AND modeMismatchCount==0 AND abs(meanVelocityDifference)<1e-8",
+  "acceptanceTolerances": {
+    "nativeResidual": 1e-08,
+    "trajectoryStateDifference": 1e-07,
+    "meanVelocityDifference": 1e-08
+  },
+  "nativeOnlyAcceptedColumns": 1355,
+  "nativeResidualFailureSourceColumns": [
+    1352,
+    1356,
+    1358
+  ],
+  "maxAttemptedNativeResidual": 3.052675824553285e-08,
+  "maxAcceptedNativeResidual": 9.965691071024846e-09,
+  "maxAttemptedTrajectoryStateDifference": 1.6278848823157828e-05,
+  "maxAcceptedTrajectoryStateDifference": 7.396321910146781e-08,
+  "maxAcceptedAbsoluteMeanVelocityDifference": 3.7057912294358175e-11,
+  "modeMismatchCountAllAttempts": 0,
+  "sourceCorrectionColumns": [
+    1145,
+    1146,
+    1147,
+    1148,
+    1149,
+    1150,
+    1151,
+    1152,
+    1153,
+    1154,
+    1155,
+    1156,
+    1157,
+    1158,
+    1159,
+    1160,
+    1161,
+    1162,
+    1163,
+    1164,
+    1165,
+    1166,
+    1167,
+    1168,
+    1169,
+    1170,
+    1171,
+    1172,
+    1173,
+    1174,
+    1175,
+    1176,
+    1177,
+    1178,
+    1179,
+    1180,
+    1181,
+    1182,
+    1183,
+    1184,
+    1185,
+    1186,
+    1187,
+    1188,
+    1189,
+    1190,
+    1191,
+    1192,
+    1193,
+    1194,
+    1195,
+    1196,
+    1197,
+    1198,
+    1199
+  ],
+  "maxSourceCorrectionNorm": 1.2398232118564606e-05,
+  "sourceResultsExactlyMatchFinalInput": true,
+  "acceptedResultsAndSourceColumnMappingVerified": true,
+  "interpretation": "Accepted other-apex representations of the same corrected source cycles at stated sampled full-trajectory precision; all 1358 attempts and source corrections remain explicit in the companion. Isolated accepted source 1347 does not certify continuity across excluded samples."
+}

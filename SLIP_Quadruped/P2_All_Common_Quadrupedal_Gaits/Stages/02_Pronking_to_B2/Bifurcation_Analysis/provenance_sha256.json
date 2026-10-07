@@ -1,0 +1,22 @@
+{
+  "sourceFile": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/B2_connection.mat",
+    "sha256": "28af3340750a49007c7019f2ac249c82fa2fbc0b1275e6d21fd732547a0d1844"
+  },
+  "criticalFile": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/PK_at_B2_critical.mat",
+    "sha256": "65188274e2ee5ff30aadc047ec5e2096539a061ea84e3ffd9f50f34a29d695d2"
+  },
+  "dynamics": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/Quadrupedal_ZeroFun_v2.m",
+    "sha256": "475d8bd4a2d2f356da1bdcdd56977d9fa2344d895489457f9b40a31b8e76a6d1"
+  },
+  "fdm": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/computeFDM.m",
+    "sha256": "cb6775ebddb6e8d5bc1d6496d853975a3ce4a38eda1823c4f08bcf2da8bcbb5b"
+  },
+  "regulation": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/code/SLIP_Quadruped/4_Solution_Management/EventTimingRegulation.m",
+    "sha256": "d0994541cd0478d471b509d0b25c1c73d796469d9c60f57b34dc64875dbef50a"
+  }
+}

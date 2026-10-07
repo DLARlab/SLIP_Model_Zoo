@@ -1,0 +1,487 @@
+{
+  "method": "Source-derived three-state common-leg variational block; full prescribed contact cycle with one additional stance oscillation.",
+  "state_order": [
+    "horizontal velocity",
+    "common leg angle",
+    "common leg angular rate"
+  ],
+  "excludes": "This block does not assess other leg-difference, pitching or vertical modes, and does not prove full stability.",
+  "source_file": "PK_B2_Parent.mat",
+  "source_column": 132,
+  "critical_stance_apex_height": 1.045694946313665,
+  "height_offsets": [
+    -0.0001,
+    0.0,
+    0.0001
+  ],
+  "scans": [
+    [
+      {
+        "initial_stance_apex_height": 1.0455949463136651,
+        "flight_apex_height": 1.0871729289005854,
+        "liftoff_vertical_speed": 0.41754743179807796,
+        "stance_duration": 1.6046585242908653,
+        "flight_duration": 0.8350948635961559,
+        "period": 2.4397533878870212,
+        "touchdown_vertical_phase": 1.2088095036158242,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 1e-11,
+        "matrix": [
+          [
+            3.7891306949805745,
+            1.4660040799424994,
+            -1.0728786252176303
+          ],
+          [
+            0.20541618595974442,
+            0.10889482753113408,
+            -0.0796934568282351
+          ],
+          [
+            12.169475791627667,
+            5.028752246543437,
+            -3.6802358674494338
+          ]
+        ],
+        "eigenvalues_real": [
+          0.9970989424865937,
+          1.3259470606738079e-16,
+          -0.7793092874243154
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 0.0003768864687191281,
+        "determinant_at_plus_one": -0.005161878576963957,
+        "near_plus_one_vector_real": [
+          -0.35901912115646345,
+          0.0007114920793233806,
+          -0.9333299333156854
+        ],
+        "stance_transition_determinant": 1.0000000000000082
+      },
+      {
+        "initial_stance_apex_height": 1.0455949463136651,
+        "flight_apex_height": 1.0871729289005854,
+        "liftoff_vertical_speed": 0.41754743179807796,
+        "stance_duration": 1.6046585242908653,
+        "flight_duration": 0.8350948635961559,
+        "period": 2.4397533878870212,
+        "touchdown_vertical_phase": 1.2088095036158242,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 1e-12,
+        "matrix": [
+          [
+            3.78913069498058,
+            1.4660040799425063,
+            -1.0728786252176354
+          ],
+          [
+            0.20541618595974462,
+            0.10889482753113382,
+            -0.07969345682823492
+          ],
+          [
+            12.169475791627681,
+            5.028752246543452,
+            -3.680235867449445
+          ]
+        ],
+        "eigenvalues_real": [
+          0.997098942486579,
+          -2.8110082626168197e-16,
+          -0.7793092874243114
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 0.0003768864687193201,
+        "determinant_at_plus_one": -0.005161878576982593,
+        "near_plus_one_vector_real": [
+          -0.3590191211564629,
+          0.0007114920793231613,
+          -0.9333299333156855
+        ],
+        "stance_transition_determinant": 0.9999999999999922
+      },
+      {
+        "initial_stance_apex_height": 1.0455949463136651,
+        "flight_apex_height": 1.0871729289005854,
+        "liftoff_vertical_speed": 0.41754743179807796,
+        "stance_duration": 1.6046585242908653,
+        "flight_duration": 0.8350948635961559,
+        "period": 2.4397533878870212,
+        "touchdown_vertical_phase": 1.2088095036158242,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 3e-14,
+        "matrix": [
+          [
+            3.7891306949805688,
+            1.4660040799424996,
+            -1.0728786252176306
+          ],
+          [
+            0.20541618595974478,
+            0.10889482753113429,
+            -0.07969345682823527
+          ],
+          [
+            12.169475791627656,
+            5.028752246543439,
+            -3.680235867449435
+          ]
+        ],
+        "eigenvalues_real": [
+          0.9970989424865828,
+          -4.880811127147359e-16,
+          -0.7793092874243156
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 0.0003768864687202757,
+        "determinant_at_plus_one": -0.005161878576976298,
+        "near_plus_one_vector_real": [
+          -0.35901912115646295,
+          0.0007114920793232377,
+          -0.9333299333156854
+        ],
+        "stance_transition_determinant": 1.0000000000000042
+      }
+    ],
+    [
+      {
+        "initial_stance_apex_height": 1.045694946313665,
+        "flight_apex_height": 1.08745550868584,
+        "liftoff_vertical_speed": 0.41822364516091126,
+        "stance_duration": 1.6044891561184718,
+        "flight_duration": 0.8364472903218225,
+        "period": 2.4409364464402943,
+        "touchdown_vertical_phase": 1.2093450928037273,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 1e-11,
+        "matrix": [
+          [
+            3.7904862053585617,
+            1.4817769360070694,
+            -1.072801636649455
+          ],
+          [
+            0.21364900724365007,
+            0.11344982488231552,
+            -0.08213730073253178
+          ],
+          [
+            12.165534667191848,
+            5.07880256266701,
+            -3.6770363804762454
+          ]
+        ],
+        "eigenvalues_real": [
+          1.0000000000000036,
+          2.4225734484329426e-16,
+          -0.7731003502353735
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 1.0457585524582238e-15,
+        "determinant_at_plus_one": 4.478325708674883e-15,
+        "near_plus_one_vector_real": [
+          -0.3588443702452918,
+          -5.6003756390141975e-16,
+          -0.9333974062226977
+        ],
+        "stance_transition_determinant": 1.0000000000000013
+      },
+      {
+        "initial_stance_apex_height": 1.045694946313665,
+        "flight_apex_height": 1.08745550868584,
+        "liftoff_vertical_speed": 0.41822364516091126,
+        "stance_duration": 1.6044891561184718,
+        "flight_duration": 0.8364472903218225,
+        "period": 2.4409364464402943,
+        "touchdown_vertical_phase": 1.2093450928037273,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 1e-12,
+        "matrix": [
+          [
+            3.7904862053585626,
+            1.4817769360070707,
+            -1.0728016366494562
+          ],
+          [
+            0.21364900724364813,
+            0.1134498248823149,
+            -0.08213730073253134
+          ],
+          [
+            12.165534667191828,
+            5.078802562667008,
+            -3.677036380476243
+          ]
+        ],
+        "eigenvalues_real": [
+          1.0000000000000047,
+          -5.183043400822443e-16,
+          -0.7731003502353698
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 5.591519981100903e-16,
+        "determinant_at_plus_one": 8.791833893393018e-15,
+        "near_plus_one_vector_real": [
+          -0.35884437024529225,
+          -4.766067059278759e-16,
+          -0.9333974062226976
+        ],
+        "stance_transition_determinant": 1.0000000000000004
+      },
+      {
+        "initial_stance_apex_height": 1.045694946313665,
+        "flight_apex_height": 1.08745550868584,
+        "liftoff_vertical_speed": 0.41822364516091126,
+        "stance_duration": 1.6044891561184718,
+        "flight_duration": 0.8364472903218225,
+        "period": 2.4409364464402943,
+        "touchdown_vertical_phase": 1.2093450928037273,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 3e-14,
+        "matrix": [
+          [
+            3.7904862053585604,
+            1.481776936007069,
+            -1.0728016366494548
+          ],
+          [
+            0.21364900724364905,
+            0.1134498248823151,
+            -0.08213730073253149
+          ],
+          [
+            12.165534667191832,
+            5.078802562667004,
+            -3.677036380476241
+          ]
+        ],
+        "eigenvalues_real": [
+          1.0000000000000016,
+          -2.2150239391806412e-16,
+          -0.7731003502353703
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 2.935316888952024e-16,
+        "determinant_at_plus_one": 5.505978030090714e-15,
+        "near_plus_one_vector_real": [
+          -0.35884437024529175,
+          -3.1893300596665806e-16,
+          -0.9333974062226978
+        ],
+        "stance_transition_determinant": 0.9999999999999987
+      }
+    ],
+    [
+      {
+        "initial_stance_apex_height": 1.045794946313665,
+        "flight_apex_height": 1.0877384884710946,
+        "liftoff_vertical_speed": 0.41889972182157037,
+        "stance_duration": 1.604320300563907,
+        "flight_duration": 0.8377994436431407,
+        "period": 2.442119744207048,
+        "touchdown_vertical_phase": 1.2098790609517223,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 1e-11,
+        "matrix": [
+          [
+            3.7918430743978724,
+            1.4975590824807676,
+            -1.0727139766057086
+          ],
+          [
+            0.22187688565098848,
+            0.11807242850862261,
+            -0.08457625865629537
+          ],
+          [
+            12.16148986595622,
+            5.128756329913005,
+            -3.673770645889247
+          ]
+        ],
+        "eigenvalues_real": [
+          1.0029816602023498,
+          3.0951914203027243e-16,
+          -0.7668368031851007
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 0.0003843573813945143,
+        "determinant_at_plus_one": 0.005268106980090453,
+        "near_plus_one_vector_real": [
+          0.3586672772829933,
+          0.0007130499018412817,
+          0.9334651979405778
+        ],
+        "stance_transition_determinant": 0.9999999999999951
+      },
+      {
+        "initial_stance_apex_height": 1.045794946313665,
+        "flight_apex_height": 1.0877384884710946,
+        "liftoff_vertical_speed": 0.41889972182157037,
+        "stance_duration": 1.604320300563907,
+        "flight_duration": 0.8377994436431407,
+        "period": 2.442119744207048,
+        "touchdown_vertical_phase": 1.2098790609517223,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 1e-12,
+        "matrix": [
+          [
+            3.791843074397876,
+            1.4975590824807687,
+            -1.0727139766057092
+          ],
+          [
+            0.2218768856509884,
+            0.11807242850862244,
+            -0.08457625865629526
+          ],
+          [
+            12.161489865956229,
+            5.128756329913006,
+            -3.673770645889248
+          ]
+        ],
+        "eigenvalues_real": [
+          1.0029816602023418,
+          2.1091340439818597e-16,
+          -0.7668368031850921
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 0.00038435738139408054,
+        "determinant_at_plus_one": 0.005268106980092783,
+        "near_plus_one_vector_real": [
+          -0.3586672772829925,
+          -0.0007130499018414871,
+          -0.9334651979405779
+        ],
+        "stance_transition_determinant": 0.999999999999992
+      },
+      {
+        "initial_stance_apex_height": 1.045794946313665,
+        "flight_apex_height": 1.0877384884710946,
+        "liftoff_vertical_speed": 0.41889972182157037,
+        "stance_duration": 1.604320300563907,
+        "flight_duration": 0.8377994436431407,
+        "period": 2.442119744207048,
+        "touchdown_vertical_phase": 1.2098790609517223,
+        "extra_stance_oscillations": 1,
+        "relative_tolerance": 3e-14,
+        "matrix": [
+          [
+            3.7918430743978733,
+            1.4975590824807672,
+            -1.072713976605708
+          ],
+          [
+            0.22187688565098831,
+            0.1180724285086226,
+            -0.08457625865629535
+          ],
+          [
+            12.161489865956222,
+            5.128756329913004,
+            -3.6737706458892467
+          ]
+        ],
+        "eigenvalues_real": [
+          1.0029816602023471,
+          2.6288846865472705e-16,
+          -0.7668368031850985
+        ],
+        "eigenvalues_imag": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "smallest_singular_value_at_plus_one": 0.0003843573813935274,
+        "determinant_at_plus_one": 0.005268106980100139,
+        "near_plus_one_vector_real": [
+          -0.3586672772829931,
+          -0.0007130499018412733,
+          -0.9334651979405778
+        ],
+        "stance_transition_determinant": 0.999999999999998
+      }
+    ]
+  ],
+  "ordinary_same_energy_comparison": {
+    "initial_stance_apex_height": 1.045694946313665,
+    "flight_apex_height": 1.08745550868584,
+    "liftoff_vertical_speed": 0.41822364516091126,
+    "stance_duration": 0.6110303295388618,
+    "flight_duration": 0.8364472903218225,
+    "period": 1.4474776198606842,
+    "touchdown_vertical_phase": 1.2093450928037273,
+    "extra_stance_oscillations": 0,
+    "relative_tolerance": 3e-14,
+    "matrix": [
+      [
+        1.5140531477637582,
+        0.5172562881488846,
+        -0.37449185434662347
+      ],
+      [
+        -0.040023297542360434,
+        0.06125777202277273,
+        -0.04435042582091874
+      ],
+      [
+        3.5062424491728454,
+        2.0066325469394592,
+        -1.4527953757409855
+      ]
+    ],
+    "eigenvalues_real": [
+      0.9426503433941037,
+      -1.6423691852438782e-16,
+      -0.8201347993485576
+    ],
+    "eigenvalues_imag": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "smallest_singular_value_at_plus_one": 0.025083936467592487,
+    "determinant_at_plus_one": -0.10438410571908273,
+    "near_plus_one_vector_real": [
+      -0.5887954833487051,
+      0.06726722720381113,
+      -0.8054781182207716
+    ],
+    "stance_transition_determinant": 0.9999999999999986
+  },
+  "two_finest_matrix_difference": 3.291321237977901e-14,
+  "extra_stance_duration": 0.99345882657961
+}

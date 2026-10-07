@@ -1,0 +1,117 @@
+{
+  "createdUTC": "2026-09-09T07:34:52.810894+00:00",
+  "conclusion": "Verified numerical path from delayed-liftoff vertical PIP through traveling pronking to the supplied B2 continuation; a regular connection from ordinary PIP remains unestablished.",
+  "delayedPIPtoB2Verified": true,
+  "ordinaryPIPtoDelayedPIPVerified": false,
+  "firstBifurcation": {
+    "parent": "Delayed-liftoff vertical pronking",
+    "daughter": "PK_B2_Parent",
+    "sourcePKColumn": 132,
+    "initialVelocity": 0.0,
+    "initialHeight": 1.045694946313665,
+    "period": 2.4409364464402943,
+    "type": "Reflected traveling pitchfork",
+    "extraMultipliers": [
+      0.9970990097173799,
+      1.000000067649351,
+      1.0029817282956044
+    ],
+    "heightOffsets": [
+      -0.0001,
+      0,
+      0.0001
+    ]
+  },
+  "secondBifurcation": {
+    "parent": "PK_B2_Parent",
+    "daughter": "B2",
+    "sourcePKColumn": 110,
+    "sourceB2Bracket": [
+      162,
+      163
+    ],
+    "initialVelocity": 0.5934307505233585,
+    "initialHeight": 1.1562269187332783,
+    "period": 2.2978282484307506,
+    "type": "Additional +1 symmetry-breaking branch point; nonlinear subtype not assigned",
+    "extraMultipliers": [
+      0.9940944650718065,
+      1.0000000047605333,
+      1.0058994501595087
+    ],
+    "velocityOffsets": [
+      -0.002,
+      0,
+      0.002
+    ]
+  },
+  "acceptedFullFloquetMatrices": 6,
+  "perturbedMapsInPreferredMatrices": 576,
+  "acceptedMatricesIncludingStepSensitivity": 9,
+  "perturbedMapsIncludingStepSensitivity": 864,
+  "orbitRecordsChecked": 898,
+  "allOrbitRecordsAccepted": true,
+  "maximumOrbitResidual": 3.545342690639738e-09,
+  "firstTwoFlightB2SourceColumn": 441,
+  "contactTransitions": [
+    {
+      "sourceColumns": [
+        383,
+        384
+      ],
+      "flightCounts": [
+        1,
+        0
+      ],
+      "initialVelocities": [
+        0.31232913263160106,
+        0.3082301580395103
+      ],
+      "periods": [
+        2.130908794967196,
+        2.132890570339765
+      ],
+      "type": "contact-itinerary change, not labeled a smooth +1 bifurcation"
+    },
+    {
+      "sourceColumns": [
+        434,
+        435
+      ],
+      "flightCounts": [
+        0,
+        1
+      ],
+      "initialVelocities": [
+        0.5681726437045328,
+        0.5807055456176862
+      ],
+      "periods": [
+        1.8083764340302317,
+        1.7983543061660845
+      ],
+      "type": "contact-itinerary change, not labeled a smooth +1 bifurcation"
+    },
+    {
+      "sourceColumns": [
+        440,
+        441
+      ],
+      "flightCounts": [
+        1,
+        2
+      ],
+      "initialVelocities": [
+        0.6991209562192998,
+        0.7275373218167093
+      ],
+      "periods": [
+        1.7196703636036832,
+        1.7043385621982736
+      ],
+      "type": "contact-itinerary change, not labeled a smooth +1 bifurcation"
+    }
+  ],
+  "sourceDataUnchanged": true,
+  "scope": "Local Floquet certificates and verified finite continuation route; no whole-branch stability claim or global existence proof."
+}

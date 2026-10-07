@@ -3,6 +3,9 @@ function [results,flags,info] = NumericalContinuation1D_Quadruped_v2(X1,X2,Para,
 % Call with five inputs for standalone plotting and command-window output.
 % GUI callers can pass runOptions.Callbacks with onAcceptedPoint, onStatus,
 % and onFinish handlers; every handler receives a continuation state struct.
+% PreserveSeedOrder=true keeps X1 -> X2 as the initial oriented secant.
+% DirectionCount=1 searches only that orientation. Defaults (false and 2)
+% retain descending-speed seed ordering and the two-direction search.
 
     if nargin < 6 || isempty(runOptions)
         runOptions = struct();
@@ -28,15 +31,22 @@ function [results,flags,info] = NumericalContinuation1D_Quadruped_v2(X1,X2,Para,
     X2 = EventTimingRegulation(X2(:));
     Para = Para(:);
 
-    % Define the solution matrix. Search descending velocity first.
+    % Historical callers search descending velocity first. Branch switching
+    % can instead supply an already oriented pair, including equal-dx seeds.
     results(:,1) = [X1;Para]; 
     results(:,2) = [X2;Para];
-    results = flip(sortrows(results.',1).',2); % sort so that result2 < result1: searching for descending velocity first
+    if ~runtime.PreserveSeedOrder
+        results = flip(sortrows(results.',1).',2); % historical descending-speed seed order
+    end
     lifted_results = ReliftSequence(results(1:22,:));
-    flags = strings(1,2);
+    flags = strings(1,runtime.DirectionCount);
     InitializeTemporarySolution(runtime, results, lifted_results);
     log_path = CreateContinuationLogPath();
     direction_labels = ["Descending Velocity","Ascending Velocity"];
+    if runtime.PreserveSeedOrder
+        direction_labels = ["Seed secant","Opposite secant"];
+    end
+    direction_labels = direction_labels(1:runtime.DirectionCount);
     BranchPlot = InitializeBranchPlot(results, runtime);
 
     AppendContinuationLog(log_path, sprintf( ...
@@ -49,8 +59,8 @@ function [results,flags,info] = NumericalContinuation1D_Quadruped_v2(X1,X2,Para,
     
       
      
-    % Loop that searches the 1-D manifold in both velocity directions.
-    for direction_idx = 1:2
+    % Search one oriented secant, or both orientations as requested.
+    for direction_idx = 1:runtime.DirectionCount
             direction_name = direction_labels(direction_idx);
             AppendContinuationLog(log_path, sprintf( ...
                 '%s start | branchCols=%d | endSpeed=%.6g | endT=%.6g | minTimingGap=%.6g', ...
@@ -89,7 +99,7 @@ function [results,flags,info] = NumericalContinuation1D_Quadruped_v2(X1,X2,Para,
                 end
                 break;
             end
-            if direction_idx == 1 && ClosedSolutionComponentDetected(flag)
+            if direction_idx == 1 && runtime.DirectionCount > 1 && ClosedSolutionComponentDetected(flag)
                 flags(direction_idx + 1:end) = ...
                     "Not run: first direction closed the solution component.";
                 AppendContinuationLog(log_path, ...
@@ -98,15 +108,20 @@ function [results,flags,info] = NumericalContinuation1D_Quadruped_v2(X1,X2,Para,
                 break;
             end
             % Flip the results matrix(sort ascendingly), prepare for searching for the other direction.
-            if direction_idx == 1
+            if direction_idx < runtime.DirectionCount
                 results = flip(results,2);
                 lifted_results = ReliftSequence(results(1:22,:));
                 AppendContinuationLog(log_path, sprintf( ...
                     'Direction flip | newEndSpeed=%.6g | newEndT=%.6g | minTimingGap=%.6g', ...
                     results(1,end), results(22,end), MinimumTimingGap(results(1:22,end))));
-                disp('Finish searching Descending Velocity, start searching Ascending Velocity.')
+                fprintf('Finish searching %s, start searching %s.\n', ...
+                    char(direction_labels(1)), char(direction_labels(2)));
             else
-                disp('Algorithm stopped, the entire branch found.')
+                if runtime.DirectionCount == 2
+                    disp('Algorithm stopped, the entire branch found.')
+                else
+                    disp('Algorithm stopped, the requested continuation direction finished.')
+                end
             end
     end
 
@@ -128,6 +143,8 @@ function [results,flags,info] = NumericalContinuation1D_Quadruped_v2(X1,X2,Para,
     info.flags = flags;
     info.termination_reasons = cellstr(flags);
     info.total_points = size(results,2);
+    info.preserve_seed_order = runtime.PreserveSeedOrder;
+    info.direction_count = runtime.DirectionCount;
     info.temporary_solution_file = temporary_file;
     info.temporary_solution_deleted_on_finish = temporary_solution_deleted;
     AppendContinuationLog(log_path, sprintf('Run end | flags=[%s] | finalCols=%d', strjoin(cellstr(flags), ' | '), size(results,2)));
@@ -557,6 +574,8 @@ function runtime = ContinuationRuntimeSettings(runOptions)
     runtime.FailurePauseSeconds = 3;
     runtime.RadiusReductionPauseSeconds = 0.2;
     runtime.PromptVelocityZeroCrossing = true;
+    runtime.PreserveSeedOrder = false;
+    runtime.DirectionCount = 2;
     runtime.BranchTitle = '1D Continuation';
     runtime.MaxIterationsPerDirection = [];
     runtime.MinimumTimingBoundaryMargin = [];
@@ -567,6 +586,18 @@ function runtime = ContinuationRuntimeSettings(runOptions)
     end
 
     runtime = ApplyRuntimeOptions(runtime, runOptions);
+    if ~(isscalar(runtime.PreserveSeedOrder) && ...
+            (islogical(runtime.PreserveSeedOrder) || isnumeric(runtime.PreserveSeedOrder)) && ...
+            isreal(runtime.PreserveSeedOrder) && any(runtime.PreserveSeedOrder == [0 1]))
+        error('NumericalContinuation1D:InvalidPreserveSeedOrder', ...
+            'PreserveSeedOrder must be logical true or false.');
+    end
+    if ~(isnumeric(runtime.DirectionCount) && isreal(runtime.DirectionCount) && ...
+            isscalar(runtime.DirectionCount) && any(runtime.DirectionCount == [1 2]))
+        error('NumericalContinuation1D:InvalidDirectionCount', ...
+            'DirectionCount must be 1 or 2.');
+    end
+    runtime.PreserveSeedOrder = logical(runtime.PreserveSeedOrder);
     runtime.Callbacks = NormalizeContinuationCallbacks(runtime.Callbacks);
 end
 

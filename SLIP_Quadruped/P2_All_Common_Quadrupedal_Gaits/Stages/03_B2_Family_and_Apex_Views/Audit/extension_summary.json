@@ -1,0 +1,28 @@
+{
+  "columns": 1358,
+  "lowNewCount": 360,
+  "originalCount": 852,
+  "upperNewCount": 146,
+  "originalColumnsUnchanged": true,
+  "maximumNativeResidual": 3.545342690639738e-09,
+  "maximumNewIndependentReplayResidual": 9.555270536983932e-09,
+  "initialVelocityRange": [
+    -20.175019627029947,
+    20.17332712060501
+  ],
+  "meanVelocityRange": [
+    -20.150821745243185,
+    20.14980159157789
+  ],
+  "periodRange": [
+    0.8966099666036879,
+    2.381886791471698
+  ],
+  "savedInitialHeightRange": [
+    0.034145398515353025,
+    1.2125722752206034
+  ],
+  "entireMathematicalBranchEstablished": false,
+  "sourceSHA256": "92007b938dd1b6c8e39f5a37446364b6f23a49c6bd532c8b49f1be1c3153efb8",
+  "outputSHA256": "d60277fa7fd9c80aa8336f52462928cd4322a3127301fb74143070573b008a32"
+}

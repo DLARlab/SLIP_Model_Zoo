@@ -1,0 +1,49 @@
+{
+  "preferredVariant": "coarse",
+  "criterion": "Minimum maximum absolute operator-norm change between the two finest central-difference matrices, across all three orbits; only variants passing every production and stored-cycle identity check are eligible.",
+  "reason": "coarse has the smaller measured matrix-refinement uncertainty. Proximity of a multiplier to +1 was not part of selection.",
+  "variants": {
+    "fine": {
+      "eligible": true,
+      "maximumAbsoluteFinestMatrixChange": 1.5072759874044455e-06,
+      "perturbationMagnitudes": [
+        4e-06,
+        2e-06,
+        1e-06,
+        5e-07
+      ],
+      "summaryFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/fine/summary.json",
+      "rawMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/fine/pip_to_pk_floquet.mat",
+      "rawMatSHA256": "429a5b0cf2b5ea3f115f4c1251aca8808b6f2c41e6af63daed9f7e0305b051e1",
+      "rejectionReasons": [
+        [],
+        [],
+        []
+      ]
+    },
+    "coarse": {
+      "eligible": true,
+      "maximumAbsoluteFinestMatrixChange": 1.7829651575226728e-07,
+      "perturbationMagnitudes": [
+        3.2e-05,
+        1.6e-05,
+        8e-06,
+        4e-06
+      ],
+      "summaryFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/summary.json",
+      "rawMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/pip_to_pk_floquet.mat",
+      "rawMatSHA256": "2eea0cf20fa40e8cadd53d473da3f23c3170aca91382809ddb916ec63764fbfe",
+      "rejectionReasons": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  "preferredRawMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/pip_to_pk_floquet.mat",
+  "preferredCompactMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/compact.mat",
+  "preferredVariantSummaryFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/summary.json",
+  "canonicalRawMatAlias": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/pip_to_pk_floquet.mat",
+  "canonicalCompactMatAlias": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/compact.mat",
+  "returnMapConvention": "Complete labeled delayed-contact cycle, including the intervening flight apex; this is not a first-apex return map."
+}

@@ -1,0 +1,985 @@
+{
+  "sources": {
+    "criticalFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/PIP_delayed_critical.mat",
+    "localFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/PIP_delayed_local.mat",
+    "daughterFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/PK_local_daughters.mat",
+    "criticalSHA256": "757b5ee63e442c01762e6bbc8d90aba41f316449ef8eadb682ff8a56c6e01e82",
+    "localSHA256": "f32ba4fb08d62fd8381917d6c3f79f1ea25bcb4aef4759bc3f0c6ffe349c0bdd",
+    "daughterSHA256": "832859b2ec5d9877799eb9dfdb9d24af7e1911162d5f72a811938fb32b247eb2",
+    "codeRoot": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/code/SLIP_Quadruped",
+    "matlabVersion": "25.2.0.3177638 (R2025b) Update 5"
+  },
+  "labels": [
+    "delayed_PIP_below",
+    "delayed_PIP_critical",
+    "delayed_PIP_above"
+  ],
+  "sourceLocalColumns": [
+    2,
+    4,
+    6
+  ],
+  "heights": [
+    1.045594946313664,
+    1.045694946313665,
+    1.045794946313664
+  ],
+  "periods": [
+    2.439753387887008,
+    2.4409364464402943,
+    2.4421197442070346
+  ],
+  "accepted": [
+    true,
+    true,
+    true
+  ],
+  "rejectionReasons": [
+    [],
+    [],
+    []
+  ],
+  "orbitIdentity": [
+    {
+      "sameStoredReturnCycle": true,
+      "inputStateCount": 22,
+      "storedPeriod": 2.439753387887008,
+      "storedEvents": [
+        1.6374241257415743,
+        0.8023292621454335,
+        1.6374241257415743,
+        0.8023292621454335,
+        1.6374241257415743,
+        0.8023292621454335,
+        1.6374241257415743,
+        0.8023292621454335,
+        2.439753387887008
+      ],
+      "baseAccepted": true,
+      "solvedPeriod": 2.439753387887008,
+      "solvedEvents": [
+        1.6374241257415743,
+        0.8023292621454335,
+        1.6374241257415743,
+        0.8023292621454335,
+        1.6374241257415743,
+        0.8023292621454335,
+        1.6374241257415743,
+        0.8023292621454335,
+        2.439753387887008
+      ],
+      "circularEventDifference": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumTimingChange": 0,
+      "completeStride": true,
+      "timingRepeatable": true,
+      "initialApexDescending": true,
+      "returnApexDescending": true,
+      "periodicResidualInfNorm": 7.474337121449182e-12,
+      "perturbedSolvedPeriodRange": [
+        2.439357601464603,
+        2.440149201203611
+      ],
+      "maximumPerturbedPeriodDeviation": 0.0003958133166030997
+    },
+    {
+      "sameStoredReturnCycle": true,
+      "inputStateCount": 22,
+      "storedPeriod": 2.4409364464402943,
+      "storedEvents": [
+        1.6386918683810583,
+        0.8022445780592359,
+        1.6386918683810583,
+        0.8022445780592359,
+        1.6386918683810583,
+        0.8022445780592359,
+        1.6386918683810583,
+        0.8022445780592359,
+        2.4409364464402943
+      ],
+      "baseAccepted": true,
+      "solvedPeriod": 2.4409364464402943,
+      "solvedEvents": [
+        1.6386918683810583,
+        0.8022445780592359,
+        1.6386918683810583,
+        0.8022445780592359,
+        1.6386918683810583,
+        0.8022445780592359,
+        1.6386918683810583,
+        0.8022445780592359,
+        2.4409364464402943
+      ],
+      "circularEventDifference": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumTimingChange": 0,
+      "completeStride": true,
+      "timingRepeatable": true,
+      "initialApexDescending": true,
+      "returnApexDescending": true,
+      "periodicResidualInfNorm": 7.428508329299088e-12,
+      "perturbedSolvedPeriodRange": [
+        2.4405405418823714,
+        2.441332377778116
+      ],
+      "maximumPerturbedPeriodDeviation": 0.00039593133782167556
+    },
+    {
+      "sameStoredReturnCycle": true,
+      "inputStateCount": 22,
+      "storedPeriod": 2.4421197442070346,
+      "storedEvents": [
+        1.63995959392508,
+        0.8021601502819545,
+        1.63995959392508,
+        0.8021601502819545,
+        1.63995959392508,
+        0.8021601502819545,
+        1.63995959392508,
+        0.8021601502819545,
+        2.4421197442070346
+      ],
+      "baseAccepted": true,
+      "solvedPeriod": 2.4421197442070346,
+      "solvedEvents": [
+        1.63995959392508,
+        0.8021601502819545,
+        1.63995959392508,
+        0.8021601502819545,
+        1.63995959392508,
+        0.8021601502819545,
+        1.63995959392508,
+        0.8021601502819545,
+        2.4421197442070346
+      ],
+      "circularEventDifference": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumTimingChange": 0,
+      "completeStride": true,
+      "timingRepeatable": true,
+      "initialApexDescending": true,
+      "returnApexDescending": true,
+      "periodicResidualInfNorm": 7.497932830169418e-12,
+      "perturbedSolvedPeriodRange": [
+        2.44172372185448,
+        2.44251579322587
+      ],
+      "maximumPerturbedPeriodDeviation": 0.00039604901883549815
+    }
+  ],
+  "spectralChecks": [
+    {
+      "matrixSize": [
+        12,
+        12
+      ],
+      "matrixNorm": 19.90332629380647,
+      "singularValues": [
+        20.009147364711115,
+        2.1258231490340465,
+        1.777048431049642,
+        1.7770484310496408,
+        1.7770484310478696,
+        0.9999999999999999,
+        0.9999999999999994,
+        0.9999999999999984,
+        0.8195377296047512,
+        0.41005821694338024,
+        0.0010824010663906477,
+        1.2713897928703537e-10
+      ],
+      "transverseSingularValues": [
+        20.009147364711122,
+        2.1258231490340465,
+        1.7770484310496426,
+        1.7770484310496408,
+        1.77704843104787,
+        0.9999999999999998,
+        0.999999999999999,
+        0.9999999999999976,
+        0.8195377296047505,
+        0.4100582169433803,
+        0.0010824010663906334
+      ],
+      "parentKernelResidual": 1.2713920641626226e-10,
+      "absoluteFinestRefinementChange": 1.7702189498342687e-07,
+      "relativeFinestRefinementChange": 8.552429403427078e-09,
+      "maximumFinestForwardBackwardMismatch": 3.839919196652025e-05,
+      "acceptedPerturbedMaps": 96,
+      "requestedPerturbedMaps": 96,
+      "spectrumReal": [
+        0.9999999998728616,
+        0.9970990097173791,
+        0,
+        0,
+        0,
+        0,
+        -0.4987551991684662,
+        -0.4987551991684662,
+        -0.7770484310478684,
+        -0.7770484310496396,
+        -0.7770484310496407,
+        -0.7793092029657056
+      ],
+      "spectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.866742897868954,
+        -0.866742897868954,
+        0,
+        0,
+        0,
+        0
+      ],
+      "quotientSpectrumReal": [
+        0.9970990097173799,
+        0,
+        0,
+        0,
+        0,
+        -0.4987551991684659,
+        -0.4987551991684659,
+        -0.7770484310478679,
+        -0.7770484310496399,
+        -0.7770484310496408,
+        -0.7793092029657072
+      ],
+      "quotientSpectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8667428978689541,
+        -0.8667428978689541,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "matrixSize": [
+        12,
+        12
+      ],
+      "matrixNorm": 19.91999881386646,
+      "singularValues": [
+        20.025408204195593,
+        2.1213882458241486,
+        1.7731003148428963,
+        1.7731003148428943,
+        1.7731003148411129,
+        1,
+        0.9999999999999997,
+        0.9999999999999996,
+        0.8197878286716179,
+        0.40960590859077745,
+        2.520240081706435e-08,
+        3.9587846525416834e-11
+      ],
+      "transverseSingularValues": [
+        20.025408204195593,
+        2.1213882458241486,
+        1.7731003148428968,
+        1.7731003148428963,
+        1.773100314841114,
+        0.9999999999999998,
+        0.9999999999999996,
+        0.9999999999999993,
+        0.8197878286716179,
+        0.40960590859077733,
+        2.5202400894045782e-08
+      ],
+      "parentKernelResidual": 3.959206119826206e-11,
+      "absoluteFinestRefinementChange": 1.7758068155528334e-07,
+      "relativeFinestRefinementChange": 8.574090938703998e-09,
+      "maximumFinestForwardBackwardMismatch": 3.857610886064189e-05,
+      "acceptedPerturbedMaps": 96,
+      "requestedPerturbedMaps": 96,
+      "spectrumReal": [
+        0.9999999999604136,
+        1.000000067649352,
+        0,
+        0,
+        0,
+        0,
+        -0.49858518319183776,
+        -0.49858518319183776,
+        -0.7731002657668952,
+        -0.7731003148411132,
+        -0.7731003148428952,
+        -0.773100314842896
+      ],
+      "spectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8668407090268546,
+        -0.8668407090268546,
+        0,
+        0,
+        0,
+        0
+      ],
+      "quotientSpectrumReal": [
+        1.000000067649351,
+        0,
+        0,
+        0,
+        0,
+        -0.49858518319183714,
+        -0.49858518319183714,
+        -0.7731002657668947,
+        -0.7731003148411132,
+        -0.7731003148428949,
+        -0.773100314842896
+      ],
+      "quotientSpectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8668407090268544,
+        -0.8668407090268544,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "matrixSize": [
+        12,
+        12
+      ],
+      "matrixNorm": 19.93644993734199,
+      "singularValues": [
+        20.04144565469689,
+        2.116900695573498,
+        1.769123214434221,
+        1.7691232144342202,
+        1.7691232144324263,
+        1.0000000000000002,
+        0.9999999999999993,
+        0.9999999999999974,
+        0.8200415432068426,
+        0.4091547941216236,
+        0.0011091071430410022,
+        1.2757043361901585e-10
+      ],
+      "transverseSingularValues": [
+        20.04144565469689,
+        2.116900695573498,
+        1.7691232144342224,
+        1.769123214434221,
+        1.7691232144324271,
+        1.0000000000000002,
+        0.9999999999999997,
+        0.9999999999999979,
+        0.8200415432068427,
+        0.4091547941216229,
+        0.0011091071430410725
+      ],
+      "parentKernelResidual": 1.2757018525304753e-10,
+      "absoluteFinestRefinementChange": 1.7829651575226728e-07,
+      "relativeFinestRefinementChange": 8.603985297487014e-09,
+      "maximumFinestForwardBackwardMismatch": 3.8754361171399085e-05,
+      "acceptedPerturbedMaps": 96,
+      "requestedPerturbedMaps": 96,
+      "spectrumReal": [
+        1.0000000001275706,
+        1.002981728295605,
+        0,
+        0,
+        0,
+        0,
+        -0.49841479772393754,
+        -0.49841479772393754,
+        -0.7668367185672047,
+        -0.7691232144324276,
+        -0.7691232144342193,
+        -0.7691232144342205
+      ],
+      "spectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8669386882205165,
+        -0.8669386882205165,
+        0,
+        0,
+        0,
+        0
+      ],
+      "quotientSpectrumReal": [
+        1.0029817282956044,
+        0,
+        0,
+        0,
+        0,
+        -0.49841479772393665,
+        -0.49841479772393665,
+        -0.7668367185672048,
+        -0.7691232144324273,
+        -0.7691232144342187,
+        -0.7691232144342205
+      ],
+      "quotientSpectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8669386882205162,
+        -0.8669386882205162,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "parentTangent": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "daughterResidualNorm": [
+    1.0873688215592524e-11,
+    1.0857387655053094e-11,
+    1.0868726942530004e-11,
+    1.0805707346542409e-11,
+    1.0812337905566425e-11,
+    1.0869829753325221e-11,
+    1.0847911073762645e-11,
+    1.0892270172511455e-11
+  ],
+  "daughterChecks": [
+    {
+      "velocityMagnitude": 0.01,
+      "sourceColumns": [
+        1,
+        8
+      ],
+      "rawDirection": [
+        0.4633459110334268,
+        0,
+        0,
+        0,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.4633459110334268,
+        0,
+        0,
+        0,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281
+      ],
+      "kernelResidualNorm": 1.9643802553159164e-05,
+      "relativeKernelResidual": 9.389963511918849e-07,
+      "distanceToTwoSmallestSingularSubspace": 9.078118959692949e-06,
+      "projectedWholeKernelSingularValues": [
+        0.9999999999999994,
+        3.101220601244414e-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 9.07811895955112e-06,
+      "kernelSweep": [
+        [
+          1e-10,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-09,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-08,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-07,
+          2,
+          9.078118959692949e-06,
+          1,
+          9.078118959927683e-06
+        ],
+        [
+          1e-06,
+          2,
+          9.078118959692949e-06,
+          1,
+          9.078118959927683e-06
+        ],
+        [
+          1e-05,
+          2,
+          9.078118959692949e-06,
+          1,
+          9.078118959927683e-06
+        ],
+        [
+          0.0001,
+          2,
+          9.078118959692949e-06,
+          1,
+          9.078118959927683e-06
+        ],
+        [
+          0.001,
+          2,
+          9.078118959692949e-06,
+          1,
+          9.078118959927683e-06
+        ]
+      ]
+    },
+    {
+      "velocityMagnitude": 0.005,
+      "sourceColumns": [
+        2,
+        7
+      ],
+      "rawDirection": [
+        0.4633398780428753,
+        0,
+        0,
+        0,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.4633398780428753,
+        0,
+        0,
+        0,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476
+      ],
+      "kernelResidualNorm": 4.951137435096744e-06,
+      "relativeKernelResidual": 2.3667006289765984e-07,
+      "distanceToTwoSmallestSingularSubspace": 2.2703515438839437e-06,
+      "projectedWholeKernelSingularValues": [
+        0.9999999999999994,
+        3.101220601244414e-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 2.2703515436951807e-06,
+      "kernelSweep": [
+        [
+          1e-10,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-09,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-08,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-07,
+          2,
+          2.2703515438839437e-06,
+          1,
+          2.270351544068357e-06
+        ],
+        [
+          1e-06,
+          2,
+          2.2703515438839437e-06,
+          1,
+          2.270351544068357e-06
+        ],
+        [
+          1e-05,
+          2,
+          2.2703515438839437e-06,
+          1,
+          2.270351544068357e-06
+        ],
+        [
+          0.0001,
+          2,
+          2.2703515438839437e-06,
+          1,
+          2.270351544068357e-06
+        ],
+        [
+          0.001,
+          2,
+          2.2703515438839437e-06,
+          1,
+          2.270351544068357e-06
+        ]
+      ]
+    },
+    {
+      "velocityMagnitude": 0.002,
+      "sourceColumns": [
+        3,
+        6
+      ],
+      "rawDirection": [
+        0.4633381888960655,
+        0,
+        0,
+        0,
+        0,
+        -0.44309077024649074,
+        0,
+        -0.44309077024649074,
+        0,
+        -0.44309077024649074,
+        0,
+        -0.44309077024649074
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.46333818889606554,
+        0,
+        0,
+        0,
+        0,
+        -0.4430907702464908,
+        0,
+        -0.4430907702464908,
+        0,
+        -0.4430907702464908,
+        0,
+        -0.4430907702464908
+      ],
+      "kernelResidualNorm": 8.401389159024923e-07,
+      "relativeKernelResidual": 4.015960628762659e-08,
+      "distanceToTwoSmallestSingularSubspace": 3.649588508687075e-07,
+      "projectedWholeKernelSingularValues": [
+        0.9999999999999994,
+        3.101220601244414e-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 3.649588507272042e-07,
+      "kernelSweep": [
+        [
+          1e-10,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-09,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-08,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-07,
+          2,
+          3.649588508687075e-07,
+          1,
+          3.649588510605773e-07
+        ],
+        [
+          1e-06,
+          2,
+          3.649588508687075e-07,
+          1,
+          3.649588510605773e-07
+        ],
+        [
+          1e-05,
+          2,
+          3.649588508687075e-07,
+          1,
+          3.649588510605773e-07
+        ],
+        [
+          0.0001,
+          2,
+          3.649588508687075e-07,
+          1,
+          3.649588510605773e-07
+        ],
+        [
+          0.001,
+          2,
+          3.649588508687075e-07,
+          1,
+          3.649588510605773e-07
+        ]
+      ]
+    },
+    {
+      "velocityMagnitude": 0.001,
+      "sourceColumns": [
+        4,
+        5
+      ],
+      "rawDirection": [
+        0.46333794759261226,
+        0,
+        0,
+        0,
+        0,
+        -0.4430908333289761,
+        0,
+        -0.4430908333289761,
+        0,
+        -0.4430908333289761,
+        0,
+        -0.4430908333289761
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.46333794759261226,
+        0,
+        0,
+        0,
+        0,
+        -0.4430908333289761,
+        0,
+        -0.4430908333289761,
+        0,
+        -0.4430908333289761,
+        0,
+        -0.4430908333289761
+      ],
+      "kernelResidualNorm": 2.602907922024254e-07,
+      "relativeKernelResidual": 1.2442199185494032e-08,
+      "distanceToTwoSmallestSingularSubspace": 9.509546724851185e-08,
+      "projectedWholeKernelSingularValues": [
+        0.9999999999999994,
+        3.101220601244414e-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 9.509546711156109e-08,
+      "kernelSweep": [
+        [
+          1e-10,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-09,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-08,
+          1,
+          0.9999999999991269,
+          0,
+          1
+        ],
+        [
+          1e-07,
+          2,
+          9.509546724851185e-08,
+          1,
+          9.509546745893655e-08
+        ],
+        [
+          1e-06,
+          2,
+          9.509546724851185e-08,
+          1,
+          9.509546745893655e-08
+        ],
+        [
+          1e-05,
+          2,
+          9.509546724851185e-08,
+          1,
+          9.509546745893655e-08
+        ],
+        [
+          0.0001,
+          2,
+          9.509546724851185e-08,
+          1,
+          9.509546745893655e-08
+        ],
+        [
+          0.001,
+          2,
+          9.509546724851185e-08,
+          1,
+          9.509546745893655e-08
+        ]
+      ]
+    }
+  ],
+  "kernelSweepColumns": [
+    "threshold",
+    "fullNullity",
+    "distanceToFullKernel",
+    "transverseNullity",
+    "distanceToTransverseKernel"
+  ],
+  "elapsedSeconds": 49.05387841666667,
+  "frozenPathsVerified": true,
+  "ordinaryCriticalMetadata": {
+    "ordinaryPeriod": 1.4474776198606842,
+    "extraStanceDuration": 0.99345882657961
+  },
+  "method": "Fresh full12x12 production Floquet matrices on reduced apex state [dx,y,phi,dphi,all4legangles/rates], timing solve enabled, frozen snapshot only. Clustered topology and all default convergence/repeatability checks retained. Remove exact vertical parent height tangent; compare entire critical SVD subspace with signed traveling PK secants.",
+  "selection": {
+    "preferredVariant": "coarse",
+    "criterion": "Minimum maximum absolute operator-norm change between the two finest central-difference matrices, across all three orbits; only variants passing every production and stored-cycle identity check are eligible.",
+    "reason": "coarse has the smaller measured matrix-refinement uncertainty. Proximity of a multiplier to +1 was not part of selection.",
+    "variants": {
+      "fine": {
+        "eligible": true,
+        "maximumAbsoluteFinestMatrixChange": 1.5072759874044455e-06,
+        "perturbationMagnitudes": [
+          4e-06,
+          2e-06,
+          1e-06,
+          5e-07
+        ],
+        "summaryFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/fine/summary.json",
+        "rawMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/fine/pip_to_pk_floquet.mat",
+        "rawMatSHA256": "429a5b0cf2b5ea3f115f4c1251aca8808b6f2c41e6af63daed9f7e0305b051e1",
+        "rejectionReasons": [
+          [],
+          [],
+          []
+        ]
+      },
+      "coarse": {
+        "eligible": true,
+        "maximumAbsoluteFinestMatrixChange": 1.7829651575226728e-07,
+        "perturbationMagnitudes": [
+          3.2e-05,
+          1.6e-05,
+          8e-06,
+          4e-06
+        ],
+        "summaryFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/summary.json",
+        "rawMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/pip_to_pk_floquet.mat",
+        "rawMatSHA256": "2eea0cf20fa40e8cadd53d473da3f23c3170aca91382809ddb916ec63764fbfe",
+        "rejectionReasons": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "preferredRawMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/pip_to_pk_floquet.mat",
+    "preferredCompactMatFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/compact.mat",
+    "preferredVariantSummaryFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/coarse/summary.json",
+    "canonicalRawMatAlias": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/pip_to_pk_floquet.mat",
+    "canonicalCompactMatAlias": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/floquet/pip_to_pk/compact.mat",
+    "returnMapConvention": "Complete labeled delayed-contact cycle, including the intervening flight apex; this is not a first-apex return map."
+  },
+  "perturbationMagnitudes": [
+    3.2e-05,
+    1.6e-05,
+    8e-06,
+    4e-06
+  ],
+  "returnMapConvention": "Complete labeled delayed-contact cycle, including the intervening flight apex; this is not a first-apex return map."
+}

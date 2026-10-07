@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "counts": {
+    "b2": 1358,
+    "otherApex": 1307,
+    "standing": 213
+  },
+  "originalB2ColumnsPreservedExactly": true,
+  "allNewB2ColumnsPassNativeAndTwoTighterReplays": true,
+  "otherApexSourceMappingVerified": true,
+  "otherApexMaximumNativeResidual": 9.965691071024846e-09,
+  "otherApexMaximumCyclePhaseError": 7.396321910146781e-08,
+  "standingCriticalOrbitPreservedExactly": true,
+  "standingCriticalColumn": 24,
+  "maximumStandingMeanVelocityMagnitude": 6.165576992700359e-10,
+  "artifacts": {
+    "b2": {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G.mat",
+      "sha256": "d60277fa7fd9c80aa8336f52462928cd4322a3127301fb74143070573b008a32"
+    },
+    "otherApex": {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_E.mat",
+      "sha256": "53d2b7d9eac5a223632ef3eb63015e83279ba80f4d7544d53a1da643be227807"
+    },
+    "standing": {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/BS_10_20_2_BIP_Child.mat",
+      "sha256": "efbcefae3ed0ef823cf7421c8c59acd88bc0e3e64947d00c85db9b194e809732"
+    }
+  }
+}

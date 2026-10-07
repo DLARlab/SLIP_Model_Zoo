@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "delta": 1E-7,
+      "accepted": true,
+      "residualInf": 1.1367989882771212E-12,
+      "meanVelocity": -2.0889986879408281E-14,
+      "swingDuration": 5.6003047754771274E-7,
+      "minimumHeight": 0.97411691026810765,
+      "minimumGRF": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 1,
+        "funcCount": 14,
+        "stepsize": 3.8116667485285644E-13,
+        "cgiterations": [],
+        "firstorderopt": 1.3850998249018834E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.283914e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.354198e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "delta": 3E-8,
+      "accepted": true,
+      "residualInf": 1.1364797991575415E-12,
+      "meanVelocity": -1.7336030055191647E-14,
+      "swingDuration": 1.6800914348635843E-7,
+      "minimumHeight": 0.97411691026810865,
+      "minimumGRF": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 1,
+        "funcCount": 14,
+        "stepsize": 9.260503173605558E-14,
+        "cgiterations": [],
+        "firstorderopt": 1.9753579220897017E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 3.119289e-14, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.354350e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "delta": 1E-8,
+      "accepted": true,
+      "residualInf": 1.136216121189193E-12,
+      "meanVelocity": -1.7346377814540927E-14,
+      "swingDuration": 5.6003047976815878E-8,
+      "minimumHeight": 0.97411691026810876,
+      "minimumGRF": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 1,
+        "funcCount": 8,
+        "stepsize": 2.9877937341255668E-14,
+        "cgiterations": [],
+        "firstorderopt": 2.6523109977092317E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.006402e-14, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.353612e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "delta": 3E-9,
+      "accepted": true,
+      "residualInf": 1.1359524432208445E-12,
+      "meanVelocity": -1.6222431104004482E-14,
+      "swingDuration": 1.6800914881542894E-8,
+      "minimumHeight": 0.97411691026810943,
+      "minimumGRF": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 1,
+        "funcCount": 14,
+        "stepsize": 2.9982866851774087E-14,
+        "cgiterations": [],
+        "firstorderopt": 2.0707498655558688E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.009937e-14, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.353524e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "delta": 1E-9,
+      "accepted": true,
+      "residualInf": 1.1361606100379618E-12,
+      "meanVelocity": -1.6233853326672537E-14,
+      "swingDuration": 5.6003046644548249E-9,
+      "minimumHeight": 0.974116910268109,
+      "minimumGRF": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 1,
+        "funcCount": 8,
+        "stepsize": 9.2144986798607049E-15,
+        "cgiterations": [],
+        "firstorderopt": 3.3058842437514306E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 3.103793e-15, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.353748e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    }
+  ],
+  "acceptedPoints": 5,
+  "limitChartCandidate": [
+    -0.015569931341433491,
+    0.97419327689382162,
+    0.11122147361492972,
+    -0.04064692253990014,
+    -0.097583209835709478,
+    0.75,
+    2.8001523887091944
+  ],
+  "interpretation": "Finite-swing standing bounding orbits approach an all-stance contact itinerary. Exact coincident touchdown/liftoff is excluded from the saved results because the native timing convention would select no contact rather than the limiting full stance.",
+  "genuineOrbitBoundaryProven": false,
+  "finiteSwingItineraryBoundaryEstablished": true
+}

@@ -1,0 +1,30 @@
+{
+  "result": "PASS",
+  "snapshotsVerified": [
+    "BIP_10_20_2.mat",
+    "PIP_10_20_2_Spread.mat",
+    "B2_10_20_2_G.mat",
+    "PK_B2_Parent.mat",
+    "PIP_10_20_2.mat",
+    "PK_20_2.mat"
+  ],
+  "allPlottedSourceColumnsIdentical": true,
+  "htmlAndMatSamplesIdentical": true,
+  "totalPlottedSamples": 5368,
+  "BIPFreshReplayCount": 904,
+  "BIPMaxResidual": 9.881331125260425e-10,
+  "analyticCriticalMatchTolerance": 2e-14,
+  "BIPCriticalNativeKernelDimension": 2,
+  "BIPSourceColumnsRecovered": [
+    233,
+    234
+  ],
+  "BIPFloquetAcceptedMatrices": 3,
+  "BIPFloquetAcceptedPerturbedMaps": 288,
+  "BIPFloquetExtraMultipliers": [
+    0.9969333470717658,
+    0.9999971532871672,
+    1.0030841930148957
+  ],
+  "BIPCrossingPersistsAtAllFourSteps": true
+}

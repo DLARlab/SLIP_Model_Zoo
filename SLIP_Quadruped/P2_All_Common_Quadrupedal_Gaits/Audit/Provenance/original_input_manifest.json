@@ -1,0 +1,463 @@
+{
+  "createdUTC": "2026-09-09T07:22:51.751804+00:00",
+  "entries": [
+    {
+      "path": "data/PIP_ordinary.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_10_20_2.mat",
+      "sha256": "9ae9cbf4c219e3843b61eaa1d979a787bef2b4ffc8f430c2aac55b8e0518c03d"
+    },
+    {
+      "path": "data/PK_B2_Parent.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PK_B2_Parent.mat",
+      "sha256": "9a7c2ae3b5277c8b34641be56ba7bfdd473fcf5e422d605e30c6b21362954414"
+    },
+    {
+      "path": "data/B2.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G.mat",
+      "sha256": "92007b938dd1b6c8e39f5a37446364b6f23a49c6bd532c8b49f1be1c3153efb8"
+    },
+    {
+      "path": "data/PK_supplied.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PK_20_2.mat",
+      "sha256": "45835bb5024b1dc9b875c7b8f7b205769f537a4ff4144c763058537f44dbf401"
+    },
+    {
+      "path": "data/PIP_delayed_critical.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PK_B2_Parent_origin_check/vertical_parent_critical.mat",
+      "sha256": "757b5ee63e442c01762e6bbc8d90aba41f316449ef8eadb682ff8a56c6e01e82"
+    },
+    {
+      "path": "data/PIP_delayed_local.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PK_B2_Parent_origin_check/theory/vertical_parent_local.mat",
+      "sha256": "f32ba4fb08d62fd8381917d6c3f79f1ea25bcb4aef4759bc3f0c6ffe349c0bdd"
+    },
+    {
+      "path": "data/PK_local_daughters.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PK_B2_Parent_origin_check/theory/local_traveling_orbits.mat",
+      "sha256": "832859b2ec5d9877799eb9dfdb9d24af7e1911162d5f72a811938fb32b247eb2"
+    },
+    {
+      "path": "data/B2_connection.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_PK_bifurcation_check/local_connection.mat",
+      "sha256": "28af3340750a49007c7019f2ac249c82fa2fbc0b1275e6d21fd732547a0d1844"
+    },
+    {
+      "path": "data/B2_local_daughters.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_PK_bifurcation_check/B2_local_daughters.mat",
+      "sha256": "f23978448cd93d114a3cb2e8a1b9be7a4d0b5d8b74a78a9cbbfedf3006389247"
+    },
+    {
+      "path": "data/PK_at_B2_critical.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_PK_bifurcation_check/pronking_at_B2_connection.mat",
+      "sha256": "65188274e2ee5ff30aadc047ec5e2096539a061ea84e3ffd9f50f34a29d695d2"
+    },
+    {
+      "path": "code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/Func_alphaB_VA_v2.m",
+      "source": "SLIP_Quadruped/1_Dynamic_Frameworks/v2/Func_alphaB_VA_v2.m",
+      "sha256": "27974f56577d688eeffa5bdb3b6ce7170aafd7c2d822b234e262c906c4a3056f"
+    },
+    {
+      "path": "code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/Func_alphaF_VA_v2.m",
+      "source": "SLIP_Quadruped/1_Dynamic_Frameworks/v2/Func_alphaF_VA_v2.m",
+      "sha256": "317c44bec27c2328c9da40833302a47d11fdd18a9fa641da16865078195958e5"
+    },
+    {
+      "path": "code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/Quadrupedal_ZeroFun_v2.m",
+      "source": "SLIP_Quadruped/1_Dynamic_Frameworks/v2/Quadrupedal_ZeroFun_v2.m",
+      "sha256": "475d8bd4a2d2f356da1bdcdd56977d9fa2344d895489457f9b40a31b8e76a6d1"
+    },
+    {
+      "path": "code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/SolveQuadrupedalZE.m",
+      "source": "SLIP_Quadruped/1_Dynamic_Frameworks/v2/SolveQuadrupedalZE.m",
+      "sha256": "fce2e53a75a833e476a5c79ccf32c675218f92e0c7a2da47f7ae3214d46a0b5d"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/BranchPlotAdapter.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/BranchPlotAdapter.m",
+      "sha256": "b29d1d9cbbe1984db621f214c0782a5b4cc124d9968bb3576bfe333c56fd5b18"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/unitCircle.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/unitCircle.m",
+      "sha256": "bd023c941f14f24aa6982feaea60bf112b066eb954c09cf869ce08358e72bc61"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/updateBranch.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/updateBranch.m",
+      "sha256": "4624ec2390ca7aa842a000e598900baab0f8dd1f7fdf1f82b018ecea0c3dcc8d"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/updateIndicators.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/updateIndicators.m",
+      "sha256": "0c88d43687fd47a59549311cf8b4f1e1b92c5993096b86f2b1e2ce2762fc63ed"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/updateSpectrum.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/+plot/updateSpectrum.m",
+      "sha256": "9fed4653126820d87140331e409f43961fffa8403029dc781c54e69ec4f14af8"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/AnalysisViewerTab.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/AnalysisViewerTab.m",
+      "sha256": "467fd5c850cd8b642fb10e8bb64307c85866f5905f22415cf08fa803e29baf0b"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/Workbench.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/Workbench.m",
+      "sha256": "6a3b6004cb8a04547173154df003df7e66b7848d5b823a6e556c9553836eb7e8"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/WorkflowTab.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/WorkflowTab.m",
+      "sha256": "0a797cce8f63c642cf3e1eb2209cfd3a76d6735fb6d334165fa4b9fec6e8701b"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/launch.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+gui/launch.m",
+      "sha256": "d7af765570708d66f45b39e5c7b0bc91d99da1ca552a3aca57defd6babeee99b"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+events/classifyTopology.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+events/classifyTopology.m",
+      "sha256": "147d96ca19326c69d60c09940081d53f716b423a274abfea0b2576dbea89d6d4"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+events/compareTopology.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+events/compareTopology.m",
+      "sha256": "7d7821ac160485e7763db8dbbcb467411b9cfa9a837e1a43143c608f68505ce6"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+options/resolve.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+options/resolve.m",
+      "sha256": "4a377f6338e1268af54870933db254cd663da68fcd1f318ad58c1eaea3fee4f8"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/applySectionPerturbation.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/applySectionPerturbation.m",
+      "sha256": "45ce1ce1fee90de0c9fc6739fc800815aca2fb7399a85bf0d453779a4c2ab384"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/buildMap.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/buildMap.m",
+      "sha256": "8c13fa7ae8171fe981bea08631687628b04af10e08f27f77dd8dc3fb233597a9"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/extractSectionState.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/extractSectionState.m",
+      "sha256": "b6f989389ddd340b5c3d19e61d7a20ed8045a79c3dd980e1bb5bf8a30e2f2a71"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/scalePerturbation.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+poincare/scalePerturbation.m",
+      "sha256": "84ab43db42dcb068f291d44d1500f7fafbc87e7357139044409f9171716e244f"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+provenance/evaluatorIdentity.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+provenance/evaluatorIdentity.m",
+      "sha256": "6ab2cf16fd7700addba90d29b15dd0838ab1b08e1e61ef48866933470059c194"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+tracking/trackMultipliers.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/+tracking/trackMultipliers.m",
+      "sha256": "482e71c6e865dcdb041bde8dc16afe7d8f051f2e02e9ec5107180a6df0eaac76"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/ensureRuntimePaths.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+internal/ensureRuntimePaths.m",
+      "sha256": "d227052a052f0b6ac708ae812e3faf7f2b116be2d44913518266163db17bcdde"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/+internal/BuildFloquetDatasetFromAnalysis.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/+internal/BuildFloquetDatasetFromAnalysis.m",
+      "sha256": "cc8d33e5b450120b78a4409ae155ca3d510b172dfbbc19581d62f1e2c84afe11"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/+internal/LoadFloquetDataset.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/+internal/LoadFloquetDataset.m",
+      "sha256": "c3dd57e1a45f13224e7851b14c2539068b38fb9a3cbe174b529870fdc9069439"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/+internal/TrackFloquetMultipliers.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/+internal/TrackFloquetMultipliers.m",
+      "sha256": "75654cc5896d13d8b3732176378a888117d47715d9c33f9df5a836879628d67f"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/Contents.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/Contents.m",
+      "sha256": "526611340c4afe3a46b1def93ed87c77b0056811528c1581e9a8d50332d1a835"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/exportDataset.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/exportDataset.m",
+      "sha256": "70bc3a2fde56148c7a4653cb432177751c9d2417c1f08be4f375f29570f3b6d9"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/loadDataset.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/loadDataset.m",
+      "sha256": "2600483279f33b05b28b4ec0dafe18a86d5b3914f80aa919fc03e7c2c994a512"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/trackDisplayMultipliers.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+io/trackDisplayMultipliers.m",
+      "sha256": "47c704fbf975d6e0c778c0229a553c978eb62c0ea6d880bf35b4faa8d7bafc17"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/AddFloquetNumericalPaths.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/AddFloquetNumericalPaths.m",
+      "sha256": "d65483f38462f2455f03988a092ba73322e21b5857ee013cd0197c1383543f4f"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ApplyFloquetBranchCorrector.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ApplyFloquetBranchCorrector.m",
+      "sha256": "cfb43ca411d412d05909193d401b85cadf06956e27ed0d2461000ad9bbbc1d90"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/BuildFloquetWorkflowConfig.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/BuildFloquetWorkflowConfig.m",
+      "sha256": "6a738412250d0e75b1b22b7fc947dd62e92426bb68f00fd3ef961e0c76ef05ed"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/CreateFloquetWorkflowConfig.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/CreateFloquetWorkflowConfig.m",
+      "sha256": "3e567d325f7fe2b30fa36ce4eaa9b551eafeb8172f25fdce26f552016c2e3459"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/EnforceFloquetInformationBarrier.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/EnforceFloquetInformationBarrier.m",
+      "sha256": "90b2cbe839c640b6748cf936bca2c01782625b7117df6b2b0447515a65bffa66"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetCallbackIdentity.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetCallbackIdentity.m",
+      "sha256": "b275e0b2f34035daf082ec9173c083f6398a2ec5d6ad078158a7bd098f219802"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetFileSHA256.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetFileSHA256.m",
+      "sha256": "69ff303d1cfdb8236051b9c9caaee815114a45401028c5389fa0511c645baceb"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetNumericSHA256.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetNumericSHA256.m",
+      "sha256": "aca0ab2940715fe7ae8fa0fa0ea2bef413e254e7c68539c9e1bd5da5a18100d8"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetParentIdentity.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetParentIdentity.m",
+      "sha256": "da081230c047306f39c5ef2af738e29d4a52fd418279933e2f53168a82519e24"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetWorkflowOverwrite.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/FloquetWorkflowOverwrite.m",
+      "sha256": "87e7f58c4b5d59fa8244ff854897ffe00406a2c9ead8a7218eb0a06efc657da0"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/InspectFloquetDaughterRays.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/InspectFloquetDaughterRays.m",
+      "sha256": "bd7a459673637414a6a584154293d4a252d043ba7bd42ac769dd20bca79c0600"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/InspectFloquetWorkflowLayout.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/InspectFloquetWorkflowLayout.m",
+      "sha256": "d27bb33668d12e4b8804ea2592daef029053023b2056e5387c85872977e3ac55"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/InspectFloquetWorkflowState.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/InspectFloquetWorkflowState.m",
+      "sha256": "d495627a8e94523c4f518e36d0c8389693b5bfbc4096617b890687422e8bcf0e"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/LoadFloquetWorkflowConfig.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/LoadFloquetWorkflowConfig.m",
+      "sha256": "631f432da2047e1a1091a2691e8131b65c2f3dbfe37e095450eccbf983b63c6e"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/MigrateFloquetWorkflowConfig.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/MigrateFloquetWorkflowConfig.m",
+      "sha256": "35cec98d6421876595775745fc6624990983c53e01fb3a3ba2672fa6700072f1"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/NormalizeFloquetRaySelections.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/NormalizeFloquetRaySelections.m",
+      "sha256": "a6330683c470483c704ef327f74dc461cd7ee99bcf5dcc2302504866354c45ad"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/PreflightFloquetArtifacts.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/PreflightFloquetArtifacts.m",
+      "sha256": "94f790851ed2aeb70544bf6cec5bec93e97223313da6e3b70f5322fdc8b132c6"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/RequireWritableFloquetWorkflowConfig.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/RequireWritableFloquetWorkflowConfig.m",
+      "sha256": "d85d62dc3799af1ced842466c7ae90d9ef921d8855b61963ba124a19a4d715a9"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ResolveFloquetParentBranch.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ResolveFloquetParentBranch.m",
+      "sha256": "e955c3537b752eb038812e72b3853b75aeee1b9dd842419408de0cf8b9e928dc"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ValidateFloquetArtifactChain.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ValidateFloquetArtifactChain.m",
+      "sha256": "906da1c2f0b9bbf6f5b1fa46f52e4389e8cae85321d56579ca63327f8961ad98"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ValidateFloquetDiscoveryArtifact.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/ValidateFloquetDiscoveryArtifact.m",
+      "sha256": "574b7f31938186f89fd940165bb930ab2c5469d81a9dc154d3dddd7d4fe9ae5a"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/WriteFloquetArtifact.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/WriteFloquetArtifact.m",
+      "sha256": "6f2d9d2d13114efbc04d4df9007751e7ca43a8c5c807db100372aa37e4732d70"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/WriteFloquetAuditTable.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/WriteFloquetAuditTable.m",
+      "sha256": "16129fb8157a5b3e8a6b9e519ea89de99e0d04c977c46ae5c57e9cb1b6537421"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/continuationStage.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/continuationStage.m",
+      "sha256": "5a50108a99ef13613a79f1546657d58fcea425dbbf7faa4a1d2942a2ccde6dea"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/discoveryStage.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/discoveryStage.m",
+      "sha256": "daf1d0f6cb07ef7d7ff4fdda14f2baa35aea7066d2694b57d6d6feb0087448cc"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/refinementStage.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/refinementStage.m",
+      "sha256": "f85d13d8336a24c56da38c9bf76b611dda732dea9091d205ee6f83f3c817d8fc"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/seedSearchStage.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/seedSearchStage.m",
+      "sha256": "36afa6424c8814f1328a2ccf6d5a70507b42a6d15bd6524c3ebb983ef537a004"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/validationStage.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/+internal/validationStage.m",
+      "sha256": "d311f08e71cf59880ff425fffdcf1cdfd04a34ce80c5e8064003c03e3cbaf917"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/Session.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/Session.m",
+      "sha256": "f5f7c80625410ab2e471ed7dfe1e3cbabf8afef71f57b44508008e64359c2862"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/confirmCandidates.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/confirmCandidates.m",
+      "sha256": "33b2e64ef93b2fa24952b348ea739ef9ffeeff7c32b3fed24c6fe47355115fe7"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/confirmRays.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/confirmRays.m",
+      "sha256": "50823fa9e8dea76d6385d1a51fb33acf271cd16de689e3dc35b3de1b229081b7"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/create.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/create.m",
+      "sha256": "ca79fc08410cdfbf365251be887e5ef80d79f5949121d0c498d85d65ff496748"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/inspect.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/inspect.m",
+      "sha256": "feb753399961df182e97240c32605863988ff1c1b5ba1f162da0d4a115d9e491"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/load.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/load.m",
+      "sha256": "7181a4c19f3cccfd5422eb7915be39eea39c871b9c5c6eca3a57d0de4db0c3d3"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/migrate.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/migrate.m",
+      "sha256": "34c5c79aee16eb1b224c6b6173f844e30493d428f49b96d57b5dd75b3ed4cff5"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/runStage.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/+workflow/runStage.m",
+      "sha256": "b27e775fae45eb81260496dd032dd3cec7ecd6d8e9a7187b7a70f834f2839434"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/Contents.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/Contents.m",
+      "sha256": "b296db7797974fc3aa9ee8682a4e4491112b82c9a75d80668369016d09b33515"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/analyzeBranch.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/analyzeBranch.m",
+      "sha256": "587fc7cebe301aada082de19da874146f6bc48542dea5441b2a3e10e569f94fd"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/computeFDM.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/computeFDM.m",
+      "sha256": "cb6775ebddb6e8d5bc1d6496d853975a3ce4a38eda1823c4f08bcf2da8bcbb5b"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/continueDaughterBranch.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/continueDaughterBranch.m",
+      "sha256": "6dc5d0c22bc51d0afbab0099a7d18063ee04c86b76276d4ae79a42e34b2c8aeb"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/correctBranchSwitch.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/correctBranchSwitch.m",
+      "sha256": "e7113554d49241eb8125820933c31f99f98985b1878d8097fbfeebe71241ddbf"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/detectBifurcations.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/detectBifurcations.m",
+      "sha256": "7d8470c3a8a912e2f8538c8df2cf3da9cc27d7635ed6e84346541a6e609acd5d"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/inspectAnalysis.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/inspectAnalysis.m",
+      "sha256": "1bc776dedf3085b80b3f6aacf69609913095a0149318f85a2bd8c2ad14ea2765"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/predictBranchDirection.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/predictBranchDirection.m",
+      "sha256": "69c236e3dd894a0f685ff7b52bdff7996d0b6bbd2a4dbe467d3f6e02688280db"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/refineCriticalOrbit.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/refineCriticalOrbit.m",
+      "sha256": "c1fc8374410c8ae7c41efb00ee848b3b7e23a7f12e9a10ff8122b820abd1fdf6"
+    },
+    {
+      "path": "code/SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/validatePeriodicOrbit.m",
+      "source": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/+floquet/validatePeriodicOrbit.m",
+      "sha256": "102b66df12e662afaad43f719f64263ac278d8ec377143149d6baa821d8fbd59"
+    },
+    {
+      "path": "code/SLIP_Quadruped/4_Solution_Management/EventTimingRegulation.m",
+      "source": "SLIP_Quadruped/4_Solution_Management/EventTimingRegulation.m",
+      "sha256": "d0994541cd0478d471b509d0b25c1c73d796469d9c60f57b34dc64875dbef50a"
+    },
+    {
+      "path": "code/SLIP_Quadruped/4_Solution_Management/Gait_Identification.m",
+      "source": "SLIP_Quadruped/4_Solution_Management/Gait_Identification.m",
+      "sha256": "020a2285f1102a3428615370c28ce07a440c5f87ceb636bea5f6ff0af6693506"
+    },
+    {
+      "path": "full_branches/data/BIP_10_20_2.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/BIP_10_20_2.mat",
+      "sha256": "0960938761d868f95e10fb3bc75e676a16dd0ea843942b82a81de74dce154cc2"
+    },
+    {
+      "path": "full_branches/data/PIP_10_20_2_Spread.mat",
+      "source": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_10_20_2_Spread.mat",
+      "sha256": "5577de02737e8a3ca1b13f1851d12c30c072ac95eada6d0124e571b187eca891"
+    }
+  ],
+  "excludedNonScientificMetadata": [
+    {
+      "path": "code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/.DS_Store",
+      "source": "SLIP_Quadruped/1_Dynamic_Frameworks/v2/.DS_Store",
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "reason": "Absent Finder metadata; not a model, data, or reproducibility input."
+    }
+  ]
+}

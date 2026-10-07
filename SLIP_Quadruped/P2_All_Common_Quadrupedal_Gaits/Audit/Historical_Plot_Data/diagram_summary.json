@@ -1,0 +1,163 @@
+{
+  "delayed": {
+    "name": "Delayed-liftoff PIP",
+    "source": "analytic vertical family",
+    "points": 1586,
+    "ranges": {
+      "initialVelocity": [
+        0.0,
+        0.0
+      ],
+      "initialHeight": [
+        1.0000000001,
+        1.9499997435897098
+      ],
+      "initialPitchRate": [
+        0.0,
+        0.0
+      ],
+      "period": [
+        1.9869176531592956,
+        13.827122296526301
+      ]
+    }
+  },
+  "pk": {
+    "name": "PK_B2_Parent",
+    "source": "../data/PK_B2_Parent.mat",
+    "points": 259,
+    "ranges": {
+      "initialVelocity": [
+        -0.709856645025154,
+        0.709807549547462
+      ],
+      "initialHeight": [
+        1.045694946313665,
+        1.9489914840847642
+      ],
+      "initialPitchRate": [
+        -0.0,
+        0.0
+      ],
+      "period": [
+        2.123276736326943,
+        2.4409364464402943
+      ]
+    }
+  },
+  "b2": {
+    "name": "B2",
+    "source": "../data/B2.mat",
+    "points": 852,
+    "ranges": {
+      "initialVelocity": [
+        -0.028931192692882933,
+        19.516016936793108
+      ],
+      "initialHeight": [
+        0.3395479367149368,
+        1.2125722752206034
+      ],
+      "initialPitchRate": [
+        -0.22566467265080015,
+        0.3431373329965636
+      ],
+      "period": [
+        1.1445699038221842,
+        2.381886791471698
+      ]
+    }
+  },
+  "bip": {
+    "name": "BIP",
+    "source": "data/BIP_10_20_2.mat",
+    "points": 904,
+    "ranges": {
+      "initialVelocity": [
+        -3.663304575881847,
+        0.5208434019643811
+      ],
+      "initialHeight": [
+        0.2980079061548051,
+        0.9700190413387043
+      ],
+      "initialPitchRate": [
+        -0.9404796044838918,
+        0.13164042880058072
+      ],
+      "period": [
+        2.476936235882774,
+        2.982224683529244
+      ]
+    }
+  },
+  "ordinary": {
+    "name": "Ordinary saved PIP",
+    "source": "../data/PIP_ordinary.mat",
+    "points": 228,
+    "ranges": {
+      "initialVelocity": [
+        -3.2864148778561928e-12,
+        1.7564496188423896e-12
+      ],
+      "initialHeight": [
+        1.00000001,
+        2.997893489881387
+      ],
+      "initialPitchRate": [
+        -5.522626304476264e-15,
+        5.7022864080229226e-15
+      ],
+      "period": [
+        0.9934588266549657,
+        4.519583553531601
+      ]
+    }
+  },
+  "supplied": {
+    "name": "Supplied PK_20_2",
+    "source": "../data/PK_supplied.mat",
+    "points": 891,
+    "ranges": {
+      "initialVelocity": [
+        -0.007336457148646101,
+        20.423184056395353
+      ],
+      "initialHeight": [
+        0.1238618612124826,
+        1.1171120310122093
+      ],
+      "initialPitchRate": [
+        -2.1760791031285918e-12,
+        1.577102809429837e-12
+      ],
+      "period": [
+        0.8967107863773467,
+        1.5645202144968822
+      ]
+    }
+  },
+  "spread": {
+    "name": "PIP_Spread",
+    "source": "data/PIP_10_20_2_Spread.mat",
+    "points": 648,
+    "ranges": {
+      "initialVelocity": [
+        0.0,
+        0.0
+      ],
+      "initialHeight": [
+        0.8217002609608879,
+        1.2239576484291657
+      ],
+      "initialPitchRate": [
+        0.0,
+        0.0
+      ],
+      "period": [
+        1.9086225830751526,
+        8.059027508962258
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "rawUpperFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G_continuation_20260909/endpoint_diagnostics/upper_failfast_combined.mat",
+  "rawLowFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G_continuation_20260909/low_reversible.mat",
+  "rawUpperColumns": 168,
+  "rawLowColumns": 362,
+  "tolerances": [
+    null,
+    1E-13,
+    3E-14
+  ],
+  "acceptanceTolerance": 1E-8,
+  "method": "Identical full angular equations and prescribed contact cycle at native,1e-13,3e-14 ODE tolerances; no corrector at refined tolerances. Full22 residual and13-state return norms each must be below1e-8.",
+  "upperContinuousPrefix": 148,
+  "upperFirstFailingColumn": 149,
+  "lowContinuousPrefix": 362,
+  "lowFirstFailingColumn": [],
+  "elapsedSeconds": 36.48941991666667,
+  "mathematicalEndpointEstablished": false
+}

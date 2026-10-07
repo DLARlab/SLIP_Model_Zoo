@@ -1,0 +1,214 @@
+{
+  "provenance": {
+    "sourceFile": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G.mat",
+    "sourceSHA256": "92007b938dd1b6c8e39f5a37446364b6f23a49c6bd532c8b49f1be1c3153efb8",
+    "sourceColumns": [
+      1,
+      2,
+      3,
+      850,
+      851,
+      852
+    ],
+    "runtimeSHA256": {
+      "SLIP_Quadruped/1_Dynamic_Frameworks/v2/Func_alphaF_VA_v2.m": "317c44bec27c2328c9da40833302a47d11fdd18a9fa641da16865078195958e5",
+      "SLIP_Quadruped/1_Dynamic_Frameworks/v2/SolveQuadrupedalZE.m": "fce2e53a75a833e476a5c79ccf32c675218f92e0c7a2da47f7ae3214d46a0b5d",
+      "SLIP_Quadruped/1_Dynamic_Frameworks/v2/Func_alphaB_VA_v2.m": "27974f56577d688eeffa5bdb3b6ce7170aafd7c2d822b234e262c906c4a3056f",
+      "SLIP_Quadruped/1_Dynamic_Frameworks/v2/Quadrupedal_ZeroFun_v2.m": "475d8bd4a2d2f356da1bdcdd56977d9fa2344d895489457f9b40a31b8e76a6d1",
+      "SLIP_Quadruped/4_Solution_Management/EventTimingRegulation.m": "d0994541cd0478d471b509d0b25c1c73d796469d9c60f57b34dc64875dbef50a"
+    },
+    "lowTermination": "Algorithm stopped by user.",
+    "lowRequestedStop": "Crossed both initial and cycle-mean zero velocity with a negative-side margin.",
+    "upperTermination": "Algorithm stopped by user.",
+    "upperRequestedStop": "300-second checkpoint boundary; further continuation remains possible.",
+    "upperSourceElapsedSeconds": 300.40172579166665
+  },
+  "endpoints": [
+    {
+      "sourceColumn": 1,
+      "correction": {
+        "sourceColumn": 1,
+        "exitflag": 4,
+        "residualNorm": 4.609222741990341e-13,
+        "correctionNorm": 4.67762363331155e-12,
+        "maximumCorrection": 3.077538224260934e-12,
+        "initialVelocity": -0.028931192692882933,
+        "originalSymmetryError": 4.058975378029572e-12,
+        "correctedSymmetryError": 0,
+        "solverOutput": {
+          "iterations": 2,
+          "funcCount": 24,
+          "stepsize": 2.499967850699738e-13,
+          "cgiterations": [],
+          "firstorderopt": 3.1265058834221993e-14,
+          "algorithm": "levenberg-marquardt",
+          "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 9.119057e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 2.124493e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+        }
+      },
+      "physics": {
+        "initialVerticalAcceleration": -1.0591936911629756,
+        "returnVerticalAcceleration": -1.0591936911517945,
+        "initialContact": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "meanVelocity": -0.0490147963288121,
+        "minimumBodyHeight": 0.9348819842554746,
+        "minimumStanceHipHeight": 0.9053340051933857,
+        "minimumStanceLegLength": 0.9059713921366642,
+        "minimumAbsStanceLegCosine": 0.9964481497517099,
+        "minimumIndividualVerticalGRF": -0.0424660344592658,
+        "minimumTotalVerticalGRF": -0.05919369116297562,
+        "maximumAbsolutePitch": 0.05913331208053283,
+        "maximumInstantaneousVelocity": -0.028931192692882933,
+        "minimumInstantaneousVelocity": -0.07507412516309392,
+        "minimumDistinctEventGap": 0.1698429885035238,
+        "flightIntervalCount": 0,
+        "stanceDuration": [
+          1.520572320454459,
+          1.520572320454459,
+          1.520572320454459,
+          1.520572320454459
+        ],
+        "swingDuration": [
+          0.8156311283378805,
+          0.8156311283378805,
+          0.8156311283378805,
+          0.8156311283378805
+        ],
+        "interiorDownwardTurningCount": 1,
+        "interiorUpwardTurningCount": 2,
+        "maximumPairStateDifference": 6.28802565572073e-13,
+        "maximumPairStateDifferenceAwayFromEvents": 0
+      },
+      "fullNonzeroConditionEstimate": 5215.162367911402,
+      "reducedNonzeroConditionEstimate": 1248.516218664783,
+      "fullFinestRefinement": 1.333359440037363e-06,
+      "reducedFinestRefinement": 1.3333591023286288e-06,
+      "fullSmallestThree": [
+        0.026281322005855114,
+        0.016545528003098362,
+        1.789375045409987e-10
+      ],
+      "reducedSmallestThree": [
+        0.13273875305736746,
+        0.06906842315670518,
+        5.0166066652654824e-09
+      ],
+      "fullWeakDirectionOutsideReversibleChart": 0.251815766336789,
+      "outwardPhysicalTangent": [
+        -0.2791278023566236,
+        -0.004114577270013409,
+        0.014611858842094722,
+        0.15755410227204703,
+        0.25242718407739917,
+        -0.045618314166633714,
+        -0.04926844400711742,
+        -0.0425131466830519
+      ]
+    },
+    {
+      "sourceColumn": 852,
+      "correction": {
+        "sourceColumn": 852,
+        "exitflag": 4,
+        "residualNorm": 3.968516879629078e-14,
+        "correctionNorm": 1.3452773937632832e-05,
+        "maximumCorrection": 7.0203733768536836e-06,
+        "initialVelocity": 19.516016936793108,
+        "originalSymmetryError": 6.452452923078056e-07,
+        "correctedSymmetryError": 0,
+        "solverOutput": {
+          "iterations": 8,
+          "funcCount": 65,
+          "stepsize": 1.9568299867891938e-13,
+          "cgiterations": [],
+          "firstorderopt": 4.760514526573898e-12,
+          "algorithm": "levenberg-marquardt",
+          "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 5.503208e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 1.574913e-27, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+        }
+      },
+      "physics": {
+        "initialVerticalAcceleration": -1,
+        "returnVerticalAcceleration": -1,
+        "initialContact": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "meanVelocity": 19.49658084080953,
+        "minimumBodyHeight": 0.2959778718270334,
+        "minimumStanceHipHeight": 0.2862987044263808,
+        "minimumStanceLegLength": 0.2863100774520294,
+        "minimumAbsStanceLegCosine": 0.29561956368810643,
+        "minimumIndividualVerticalGRF": 0,
+        "minimumTotalVerticalGRF": 0,
+        "maximumAbsolutePitch": 0.019378901957145644,
+        "maximumInstantaneousVelocity": 19.516581297979588,
+        "minimumInstantaneousVelocity": 19.25573016393803,
+        "minimumDistinctEventGap": 0.09844650855247628,
+        "flightIntervalCount": 2,
+        "stanceDuration": [
+          0.09844650855247628,
+          0.09844650855247628,
+          0.09844650855247628,
+          0.09844650855247628
+        ],
+        "swingDuration": [
+          1.0461233953673164,
+          1.0461233953673164,
+          1.0461233953673164,
+          1.0461233953673164
+        ],
+        "interiorDownwardTurningCount": 1,
+        "interiorUpwardTurningCount": 2,
+        "maximumPairStateDifference": 2.2168933355715126e-12,
+        "maximumPairStateDifferenceAwayFromEvents": 0
+      },
+      "fullNonzeroConditionEstimate": 235712968.9587804,
+      "reducedNonzeroConditionEstimate": 20096.016244109953,
+      "fullFinestRefinement": 1.0334469666613859e-07,
+      "reducedFinestRefinement": 5.626886151121372e-07,
+      "fullSmallestThree": [
+        0.0017799289936869995,
+        4.4318815896890884e-07,
+        8.936478121533998e-09
+      ],
+      "reducedSmallestThree": [
+        0.43415646187749174,
+        0.006276629710551314,
+        3.178020217165121e-08
+      ],
+      "fullWeakDirectionOutsideReversibleChart": 0.10250243433785465,
+      "outwardPhysicalTangent": [
+        1.069672906346131,
+        -0.07814552712459272,
+        -0.003376119528970124,
+        -0.14980875781382078,
+        0.2535859273572962,
+        -0.015510999818536797,
+        -0.01853360647364776,
+        -0.06110320226460007
+      ]
+    }
+  ],
+  "conclusion": "Both saved endpoints were deliberate stops, not demonstrated mathematical branch boundaries. Exact reversible bounding continuation removes accumulated symmetry drift and substantially improves high-speed conditioning.",
+  "chartCoordinates": [
+    "initialVelocity",
+    "initialHeight",
+    "initialPitchRate",
+    "hindLegAngle",
+    "commonLegRate",
+    "hindTouchdown",
+    "hindLiftoff",
+    "period"
+  ],
+  "exactChart": "x=[u,y,0,0,p,a,da,-a,da,a,da,-a,da,td,lo,T-lo,T-td,td,lo,T-lo,T-td,T]",
+  "nativeResidualRetained": true,
+  "continuationRecommendation": "Use scaled pseudo-arclength in the exact eight-coordinate chart with all native residuals; keep signed velocity and force permitted. Correct seeds at fixed initial speed only for initialization. Monitor actual stance leg length, stance hip height, stance angle cosine, distinct event gaps, periodic residual and chart changes.",
+  "unresolvedClaim": "The small full22 singular value at the high endpoint is a conditioning warning, not a certified bifurcation. Neither endpoint establishes a maximal branch extent or a physical limit.",
+  "futurePolicyGuards": "Legacy continuation stops at initial y<0.3*l or initial dx>25 (the speed message incorrectly says15). Those are search policies and are not singularity tests; the height guard uses initial height, not trajectory minimum."
+}

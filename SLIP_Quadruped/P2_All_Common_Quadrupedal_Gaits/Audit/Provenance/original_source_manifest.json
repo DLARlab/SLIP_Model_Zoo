@@ -1,0 +1,32 @@
+[
+  {
+    "sourceFile": "BIP_10_20_2.mat",
+    "snapshot": "data/BIP_10_20_2.mat",
+    "sha256": "0960938761d868f95e10fb3bc75e676a16dd0ea843942b82a81de74dce154cc2"
+  },
+  {
+    "sourceFile": "PIP_10_20_2_Spread.mat",
+    "snapshot": "data/PIP_10_20_2_Spread.mat",
+    "sha256": "5577de02737e8a3ca1b13f1851d12c30c072ac95eada6d0124e571b187eca891"
+  },
+  {
+    "sourceFile": "B2_10_20_2_G.mat",
+    "snapshot": "../data/B2.mat",
+    "sha256": "92007b938dd1b6c8e39f5a37446364b6f23a49c6bd532c8b49f1be1c3153efb8"
+  },
+  {
+    "sourceFile": "PK_B2_Parent.mat",
+    "snapshot": "../data/PK_B2_Parent.mat",
+    "sha256": "9a7c2ae3b5277c8b34641be56ba7bfdd473fcf5e422d605e30c6b21362954414"
+  },
+  {
+    "sourceFile": "PIP_10_20_2.mat",
+    "snapshot": "../data/PIP_ordinary.mat",
+    "sha256": "9ae9cbf4c219e3843b61eaa1d979a787bef2b4ffc8f430c2aac55b8e0518c03d"
+  },
+  {
+    "sourceFile": "PK_20_2.mat",
+    "snapshot": "../data/PK_supplied.mat",
+    "sha256": "45835bb5024b1dc9b875c7b8f7b205769f537a4ff4144c763058537f44dbf401"
+  }
+]

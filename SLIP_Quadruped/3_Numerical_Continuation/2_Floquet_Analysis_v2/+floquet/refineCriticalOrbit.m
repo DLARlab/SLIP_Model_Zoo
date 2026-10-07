@@ -20,12 +20,12 @@ function [solution, diagnostics] = refineCriticalOrbit(varargin)
 %
 %   Every trial orbit is first interpolated in the physical state and in the
 %   continuation framework's locally lifted circular timing chart. It is
-%   then corrected at prescribed X(1)=dx
+%   then corrected at the prescribed physical continuation coordinate
 %   with the canonical residual
 %
 %       Quadrupedal_ZeroFun_v2(X,E,Para,Constraints,'skipSolve')
 %
-%   augmented by the dx constraint. Event times are orbit-corrector
+%   augmented by the coordinate constraint (X(1)=dx by default). Event times are orbit-corrector
 %   unknowns, not Floquet coordinates. ComputeFloquetFDM is then recomputed
 %   on the corrected orbit using the endpoint event topology as a required
 %   reference. A safeguarded secant step is used when it lies safely inside
@@ -57,16 +57,20 @@ function [solution, diagnostics] = refineCriticalOrbit(varargin)
 %       BracketIndices                  explicit two continuation columns
 %       RequireAdjacentBranchPoints     default true
 %       Constraints                     canonical residual constraints, {}
+%       ContinuationParameterRow        physical X row, default 1 (dx)
+%       ContinuationParameterName       chart label, default dx / X(row)
+%       ContinuationCoordinateFunction  optional scalar c(z), overrides row
+%       ParentCorrector                 optional [z,info]=f(guess,Para,c,context)
 %       FloquetOptions                  options for ComputeFloquetFDM
 %       FsolveOptions                   optimset-compatible options
 %       CorrectEndpoints                correct both saved endpoints, true
 %       AllowParameterInterpolation     permit linear Para interpolation, false
 %       ParameterTolerance              fixed-Para comparison tolerance, 1e-12
 %       ResidualTolerance               canonical infinity norm, 1e-8
-%       CoordinateConstraintTolerance   accepted abs(X(1)-dx), 1e-9
+%       CoordinateConstraintTolerance   accepted abs(c(z)-cTrial), 1e-9
 %       MultiplierTolerance             final crossing residual, 1e-6
 %       CriticalMultiplierUncertaintyTolerance  coarse/fine mode error, same
-%       CoordinateTolerance             final dx bracket tolerance, 1e-6
+%       CoordinateTolerance             final coordinate bracket tolerance, 1e-6
 %       MaxIterations                   safeguarded iterations, 20
 %       SecantGuardFraction             interior guard, 0.1
 %       MinimumModeOverlap              simple-mode overlap, 0.5
@@ -90,6 +94,19 @@ function [solution, diagnostics] = refineCriticalOrbit(varargin)
 %   correction and Floquet histories, selected multiplier indices, overlap
 %   metrics, final matrix/spectrum/eigenspace, topology comparisons, and all
 %   rejection reasons.
+%
+%   ParentCorrector permits a justified lower-dimensional parent embedding.
+%   context provides coordinateFunction, coordinateRow, coordinateName,
+%   coordinateScale, canonicalResidual, fsolveOptions, residualTolerance and
+%   coordinateTolerance. Return info.exitflag>0 and info.jacobian of the
+%   independent correction residual INCLUDING the coordinate equation.
+%   Its Jacobian must have full column rank; all canonical residual, timing,
+%   topology, and full 12-state FDM checks are still performed independently.
+%   Parent restrictions belong in this hook, never in FloquetOptions.
+%   A fixed local hyperplane can be supplied as ContinuationCoordinateFunction
+%   c(z)=tHat'*((lift(z)-zReference)./scale), fixed unit tHat and fixed scale.
+%   The caller must lift event times continuously about the fixed reference
+%   and use the same chart in the parent corrector and candidate bracket.
 
     floquet.internal.ensureRuntimePaths(false);
     diagnostics = InitialDiagnostics();
@@ -115,7 +132,8 @@ function [solution, diagnostics] = refineCriticalOrbit(varargin)
         [leftInput, rightInput] = SortEndpoints(leftInput, rightInput);
         if leftInput.coordinate == rightInput.coordinate
             error('RefineCriticalOrbit:ZeroWidthBracket', ...
-                'The two endpoint dx values must be distinct.');
+                'The two endpoint %s values must be distinct.', ...
+                options.ContinuationParameterName);
         end
         ValidateParameterVariation(leftInput.parameters, ...
             rightInput.parameters, options);
@@ -169,12 +187,13 @@ function [solution, diagnostics] = refineCriticalOrbit(varargin)
         right = EvaluateOrbit(rightInput.coordinate, rightInput.solution, ...
             rightInput.parameters, referenceTopology, floquetOptions, ...
             options, 'right-endpoint', options.CorrectEndpoints);
+        diagnostics.history(end + 1) = HistoryView(right, options);
         RequireEvaluation(right, 'right endpoint');
         right.mode = MatchTargetMode(right.multipliers, right.eigenvectors, ...
             target, left.mode, options);
         right = AttachCriticalModeUncertainty(right, target, options);
         right.signedValue = right.mode.signedValue;
-        diagnostics.history(end + 1) = HistoryView(right, options);
+        diagnostics.history(end) = HistoryView(right, options);
 
         [left, right] = SortEvaluations(left, right);
         RequireSignedBracket(left.signedValue, right.signedValue);
@@ -263,7 +282,7 @@ function [solution, diagnostics] = refineCriticalOrbit(varargin)
             error('RefineCriticalOrbit:RefinementNotConverged', ...
                 ['Safeguarded refinement ended with |critical residual| %.3e, ' ...
                  'cluster spread %.3e, coarse/fine uncertainty %.3e ' ...
-                 '(tolerance %.3e), and dx bracket width %.3e.'], ...
+                 '(tolerance %.3e), and coordinate bracket width %.3e.'], ...
                 abs(best.signedValue), best.mode.clusterSpread, ...
                 best.mode.criticalMultiplierUncertainty, ...
                 options.CriticalMultiplierUncertaintyTolerance, ...
@@ -420,6 +439,10 @@ function options = ParseOptions(user)
     options.RequireAdjacentBranchPoints = true;
     options.IndexCoordinateTolerance = 1e-8;
     options.Constraints = {};
+    options.ContinuationParameterRow = 1;
+    options.ContinuationParameterName = '';
+    options.ContinuationCoordinateFunction = [];
+    options.ParentCorrector = [];
     options.FloquetOptions = struct();
     options.FsolveOptions = DefaultFsolveOptions();
     options.CorrectEndpoints = true;
@@ -429,6 +452,7 @@ function options = ParseOptions(user)
     options.CoordinateConstraintTolerance = 1e-9;
     options.CoordinateConstraintWeight = 1;
     options.CoordinateScale = [];
+    options.ParentJacobianRankTolerance = 1e-9;
     options.MultiplierTolerance = 1e-6;
     options.CriticalMultiplierUncertaintyTolerance = [];
     options.CoordinateTolerance = 1e-6;
@@ -484,6 +508,7 @@ function options = ParseOptions(user)
     positive = {'IndexCoordinateTolerance', 'ParameterTolerance', ...
         'ResidualTolerance', ...
         'CoordinateConstraintTolerance', 'CoordinateConstraintWeight', ...
+        'ParentJacobianRankTolerance', ...
         'MultiplierTolerance', 'CoordinateTolerance', ...
         'CriticalMultiplierUncertaintyTolerance', ...
         'MinimumModeOverlap', 'MinimumSubspaceOverlap', ...
@@ -536,6 +561,34 @@ function options = ParseOptions(user)
         error('RefineCriticalOrbit:CoordinateScale', ...
             'CoordinateScale must be empty or a positive finite scalar.');
     end
+    row = options.ContinuationParameterRow;
+    if ~(isnumeric(row) && isscalar(row) && isfinite(row) && ...
+            row == floor(row) && row >= 1 && row <= 13 && row ~= 3)
+        error('RefineCriticalOrbit:ContinuationParameterRow', ...
+            'ContinuationParameterRow must be an X row in [1 2 4:13].');
+    end
+    for name = {'ContinuationCoordinateFunction','ParentCorrector'}
+        value = options.(name{1});
+        if ~isempty(value) && ~isa(value,'function_handle')
+            error('RefineCriticalOrbit:CoordinateCallback', ...
+                '%s must be empty or a function handle.', name{1});
+        end
+    end
+    if isempty(options.ContinuationParameterName)
+        if ~isempty(options.ContinuationCoordinateFunction)
+            options.ContinuationParameterName = 'custom physical coordinate';
+        elseif row == 1
+            options.ContinuationParameterName = 'dx';
+        else
+            options.ContinuationParameterName = sprintf('X(%d)',row);
+        end
+    elseif ~(ischar(options.ContinuationParameterName) || ...
+            (isstring(options.ContinuationParameterName) && ...
+             isscalar(options.ContinuationParameterName)))
+        error('RefineCriticalOrbit:ContinuationParameterName', ...
+            'ContinuationParameterName must be a character vector or scalar string.');
+    end
+    options.ContinuationParameterName = char(options.ContinuationParameterName);
     if ~isstruct(options.FloquetOptions) || ~isscalar(options.FloquetOptions)
         error('RefineCriticalOrbit:FloquetOptions', ...
             'FloquetOptions must be a scalar struct.');
@@ -582,8 +635,8 @@ function [left, right, mapping] = ResolveProblem(problem, candidate, options)
         zLeft = ValidateSolution(problem.left, 'left');
         zRight = ValidateSolution(problem.right, 'right');
         parameters = ValidateEndpointParameters(problem.parameters);
-        left = MakeEndpoint(zLeft, parameters(:, 1));
-        right = MakeEndpoint(zRight, parameters(:, 2));
+        left = MakeEndpoint(zLeft, parameters(:, 1), options);
+        right = MakeEndpoint(zRight, parameters(:, 2), options);
         mapping = struct('method', 'explicit-endpoints', ...
             'branchIndices', [], 'sampleIndices', [], ...
             'candidateLocalIndices', CandidateLocalIndices(candidate));
@@ -612,9 +665,9 @@ function [left, right, mapping] = ResolveProblem(problem, candidate, options)
             indices(1), indices(2));
     end
     left = MakeEndpoint(results(1:22, indices(1)), ...
-        results(23:29, indices(1)));
+        results(23:29, indices(1)), options);
     right = MakeEndpoint(results(1:22, indices(2)), ...
-        results(23:29, indices(2)));
+        results(23:29, indices(2)), options);
     VerifyCandidateBracket(candidate, [left.coordinate, right.coordinate], ...
         options.IndexCoordinateTolerance);
     mapping = struct('method', method, 'source', source, ...
@@ -622,10 +675,10 @@ function [left, right, mapping] = ResolveProblem(problem, candidate, options)
         'candidateLocalIndices', CandidateLocalIndices(candidate));
 end
 
-function endpoint = MakeEndpoint(solution, parameters)
+function endpoint = MakeEndpoint(solution, parameters, options)
     endpoint = struct('solution', ValidateSolution(solution, 'endpoint'), ...
         'parameters', ValidateParameters(parameters), ...
-        'coordinate', solution(1));
+        'coordinate', PhysicalCoordinate(solution, options));
 end
 
 function [results, sampleIndices, source] = ExtractResults(input, options)
@@ -666,6 +719,10 @@ end
 function [indices, method] = ResolveBranchIndices( ...
         results, sampleIndices, candidate, options)
     count = size(results, 2);
+    coordinates = zeros(1,count);
+    for column = 1:count
+        coordinates(column) = PhysicalCoordinate(results(1:22,column),options);
+    end
     local = CandidateLocalIndices(candidate);
     bracket = CandidateBracket(candidate);
 
@@ -683,13 +740,13 @@ function [indices, method] = ResolveBranchIndices( ...
         % A full branch uses mapped columns; a sampled branch already has
         % local columns. Coordinate consistency decides safely.
         if all(mapped >= 1 & mapped <= count) && ...
-                CoordinatesMatch(results(1, mapped), bracket, ...
+                CoordinatesMatch(coordinates(mapped), bracket, ...
                     options.IndexCoordinateTolerance)
             indices = ValidateIndices(mapped, count);
             method = 'sampleIndices to full branch';
             return
         elseif all(local <= count) && ...
-                CoordinatesMatch(results(1, local), bracket, ...
+                CoordinatesMatch(coordinates(local), bracket, ...
                     options.IndexCoordinateTolerance)
             indices = ValidateIndices(local, count);
             method = 'sampled branch local indices';
@@ -701,7 +758,7 @@ function [indices, method] = ResolveBranchIndices( ...
         end
     end
     if ~isempty(local) && all(local <= count) && ...
-            CoordinatesMatch(results(1, local), bracket, ...
+            CoordinatesMatch(coordinates(local), bracket, ...
                 options.IndexCoordinateTolerance)
         indices = ValidateIndices(local, count);
         method = 'verified direct candidate indices';
@@ -715,7 +772,7 @@ function [indices, method] = ResolveBranchIndices( ...
     indices = zeros(1, 2);
     for side = 1:2
         scale = 1 + abs(bracket(side));
-        hits = find(abs(results(1, :) - bracket(side)) <= ...
+        hits = find(abs(coordinates - bracket(side)) <= ...
             options.IndexCoordinateTolerance * scale);
         if numel(hits) ~= 1
             error('RefineCriticalOrbit:AmbiguousCoordinateMap', ...
@@ -857,7 +914,7 @@ function ValidateParameterVariation(left, right, options)
     if ~(finiteMatch && infiniteMatch) && ...
             ~options.AllowParameterInterpolation
         error('RefineCriticalOrbit:VaryingParameters', ...
-            ['Endpoint physical parameters differ. Fixed-dx orbit refinement ' ...
+            ['Endpoint physical parameters differ. Fixed-coordinate orbit refinement ' ...
              'does not define their continuation law; either provide shared ' ...
              'parameters or explicitly set AllowParameterInterpolation=true.']);
     end
@@ -949,7 +1006,7 @@ function evaluation = EvaluateOrbit(coordinate, guess, parameters, ...
         return
     end
     [authoritative, timingValidation] = ValidateAuthoritativeTiming( ...
-        corrected, parameters, floquetDiagnostics, referenceTopology, ...
+        corrected, parameters, coordinate, floquetDiagnostics, referenceTopology, ...
         floquetOptions, options);
     evaluation.timingValidation = timingValidation;
     if ~timingValidation.accepted
@@ -1012,12 +1069,13 @@ function [matrix, multipliers, eigenvectors, richardsonError] = ...
 end
 
 function [solution, validation] = ValidateAuthoritativeTiming( ...
-        corrected, parameters, floquetDiagnostics, referenceTopology, ...
+        corrected, parameters, coordinate, floquetDiagnostics, referenceTopology, ...
         floquetOptions, options)
     validation = struct('accepted', false, 'rejectionReasons', {{}}, ...
         'solvedEventTimes', [], 'correctedEventTimes', corrected(14:22), ...
         'circularDifference', [], 'agreementErrorNormInf', Inf, ...
         'agreementTolerance', NaN, 'canonicalResidual', [], ...
+        'coordinateResidual', Inf, ...
         'canonicalResidualNormInf', Inf, 'topology', struct(), ...
         'topologyComparison', struct(), 'periodicValidation', struct());
     solution = [];
@@ -1050,6 +1108,7 @@ function [solution, validation] = ValidateAuthoritativeTiming( ...
     solution(14:22) = solved;
     try
         canonical = CanonicalResidual(solution, parameters, options.Constraints);
+        validation.coordinateResidual = PhysicalCoordinate(solution,options) - coordinate;
         [topology, comparison] = ValidateTopology( ...
             solved, referenceTopology, floquetOptions);
     catch exception
@@ -1067,6 +1126,11 @@ function [solution, validation] = ValidateAuthoritativeTiming( ...
             ['Canonical residual with authoritative solved event times is ' ...
              '%.3e (tolerance %.3e).'], ...
             validation.canonicalResidualNormInf, options.ResidualTolerance);
+    end
+    if abs(validation.coordinateResidual) > options.CoordinateConstraintTolerance
+        validation.rejectionReasons{end + 1} = sprintf( ...
+            'Authoritative solved timing changes the %s coordinate by %.3e.', ...
+            options.ContinuationParameterName,validation.coordinateResidual);
     end
     if ~comparison.consistent
         validation.rejectionReasons = [validation.rejectionReasons, ...
@@ -1093,7 +1157,9 @@ function [corrected, info] = CorrectAtCoordinate(guess, parameters, ...
     info = EmptyCorrection();
     corrected = [];
     guess = WrapTimingState(guess(:));
-    guess(1) = coordinate;
+    if isempty(options.ContinuationCoordinateFunction)
+        guess(options.ContinuationParameterRow) = coordinate;
+    end
     coordinateScale = options.CoordinateScale;
     if isempty(coordinateScale)
         coordinateScale = max(1, abs(coordinate));
@@ -1101,8 +1167,30 @@ function [corrected, info] = CorrectAtCoordinate(guess, parameters, ...
     objective = @(z) CorrectionResidual(z, parameters, coordinate, ...
         coordinateScale, options);
     try
-        [candidate, fval, exitflag, output] = ...
-            fsolve(objective, guess, options.FsolveOptions);
+        if isempty(options.ParentCorrector)
+            [candidate, fval, exitflag, output, jacobian] = ...
+                fsolve(objective, guess, options.FsolveOptions);
+        else
+            context = struct('coordinateRow', options.ContinuationParameterRow, ...
+                'coordinateName', options.ContinuationParameterName, ...
+                'coordinateFunction', @(z) PhysicalCoordinate(z,options), ...
+                'coordinateScale', coordinateScale, ...
+                'canonicalResidual', @(z) CanonicalResidual(z,parameters,options.Constraints), ...
+                'fsolveOptions', options.FsolveOptions, ...
+                'residualTolerance', options.ResidualTolerance, ...
+                'coordinateTolerance', options.CoordinateConstraintTolerance);
+            [candidate, parentInfo] = ...
+                options.ParentCorrector(guess,parameters,coordinate,context);
+            if ~isstruct(parentInfo) || ~isscalar(parentInfo)
+                error('RefineCriticalOrbit:ParentCorrectorDiagnostics', ...
+                    'ParentCorrector must return a scalar diagnostics struct.');
+            end
+            info.parentCorrector = parentInfo;
+            exitflag = FirstField(parentInfo,{'exitflag'},NaN);
+            fval = FirstField(parentInfo,{'fval'},[]);
+            output = FirstField(parentInfo,{'output'},struct());
+            jacobian = FirstField(parentInfo,{'jacobian'},[]);
+        end
     catch exception
         info.exception = exception;
         info.rejectionReasons{end + 1} = sprintf( ...
@@ -1117,8 +1205,19 @@ function [corrected, info] = CorrectAtCoordinate(guess, parameters, ...
             'Periodic-orbit corrector exitflag was %g.', exitflag);
         return
     end
+    % Preserve the legacy dx corrector exactly; an opted-in chart or parent
+    % embedding must additionally demonstrate independent residual rank.
+    if ~isempty(options.ParentCorrector) || ...
+            options.ContinuationParameterRow ~= 1 || ...
+            ~isempty(options.ContinuationCoordinateFunction)
+        info.jacobianRank = CorrectionJacobianRank(jacobian,options);
+        if ~info.jacobianRank.accepted
+            info.rejectionReasons{end + 1} = info.jacobianRank.reason;
+            return
+        end
+    end
     try
-        candidate = WrapTimingState(candidate(:));
+        candidate = WrapTimingState(ValidateSolution(candidate,'corrected'));
         canonical = CanonicalResidual(candidate, parameters, options.Constraints);
     catch exception
         info.exception = exception;
@@ -1128,7 +1227,7 @@ function [corrected, info] = CorrectAtCoordinate(guess, parameters, ...
     end
     info.canonicalResidual = canonical;
     info.canonicalResidualNormInf = norm(canonical, inf);
-    info.coordinateResidual = candidate(1) - coordinate;
+    info.coordinateResidual = PhysicalCoordinate(candidate,options) - coordinate;
     if info.canonicalResidualNormInf > options.ResidualTolerance
         info.rejectionReasons{end + 1} = sprintf( ...
             'Canonical residual %.3e exceeds %.3e.', ...
@@ -1136,7 +1235,8 @@ function [corrected, info] = CorrectAtCoordinate(guess, parameters, ...
     end
     if abs(info.coordinateResidual) > options.CoordinateConstraintTolerance
         info.rejectionReasons{end + 1} = sprintf( ...
-            'dx residual %.3e exceeds %.3e.', abs(info.coordinateResidual), ...
+            '%s residual %.3e exceeds %.3e.', ...
+            options.ContinuationParameterName,abs(info.coordinateResidual), ...
             options.CoordinateConstraintTolerance);
     end
     [topology, comparison] = ValidateTopology( ...
@@ -1161,7 +1261,7 @@ function info = ValidateUncorrected(solution, parameters, coordinate, ...
         canonical = CanonicalResidual(solution, parameters, options.Constraints);
         info.canonicalResidual = canonical;
         info.canonicalResidualNormInf = norm(canonical, inf);
-        info.coordinateResidual = solution(1) - coordinate;
+        info.coordinateResidual = PhysicalCoordinate(solution,options) - coordinate;
         [info.topology, info.topologyComparison] = ValidateTopology( ...
             solution(14:22), referenceTopology, floquetOptions);
     catch exception
@@ -1173,7 +1273,8 @@ function info = ValidateUncorrected(solution, parameters, coordinate, ...
         info.rejectionReasons{end + 1} = 'Endpoint canonical residual is too large.';
     end
     if abs(info.coordinateResidual) > options.CoordinateConstraintTolerance
-        info.rejectionReasons{end + 1} = 'Endpoint dx does not match its coordinate.';
+        info.rejectionReasons{end + 1} = ...
+            'Endpoint physical state does not match its continuation coordinate.';
     end
     if ~info.topologyComparison.consistent
         info.rejectionReasons{end + 1} = 'Endpoint topology is inconsistent.';
@@ -1185,8 +1286,47 @@ function residual = CorrectionResidual(z, parameters, coordinate, ...
         coordinateScale, options)
     canonical = CanonicalResidual(z, parameters, options.Constraints);
     coordinateResidual = options.CoordinateConstraintWeight * ...
-        (z(1) - coordinate) / coordinateScale;
+        (PhysicalCoordinate(z,options) - coordinate) / coordinateScale;
     residual = [canonical(:); coordinateResidual];
+end
+
+function coordinate = PhysicalCoordinate(z,options)
+    z = z(:);
+    if isempty(options.ContinuationCoordinateFunction)
+        coordinate = z(options.ContinuationParameterRow);
+    else
+        coordinate = options.ContinuationCoordinateFunction(z);
+    end
+    if ~(isnumeric(coordinate) && isreal(coordinate) && ...
+            isscalar(coordinate) && isfinite(coordinate))
+        error('RefineCriticalOrbit:PhysicalCoordinate', ...
+            'The physical continuation coordinate must be a finite real scalar.');
+    end
+end
+
+function info = CorrectionJacobianRank(jacobian,options)
+    info = struct('accepted',false,'rank',0,'numberOfUnknowns',0, ...
+        'singularValues',[],'columnScale',[], ...
+        'relativeTolerance',options.ParentJacobianRankTolerance,'reason','');
+    if ~isnumeric(jacobian) || isempty(jacobian) || ~ismatrix(jacobian) || ...
+            ~isreal(jacobian) || any(~isfinite(jacobian(:)))
+        info.reason = ['The parent corrector must provide its finite real ' ...
+            'independent residual Jacobian, including the coordinate equation.'];
+        return
+    end
+    info.numberOfUnknowns = size(jacobian,2);
+    columnScale = sqrt(sum(jacobian.^2,1));
+    info.columnScale = columnScale;
+    scaled = jacobian ./ max(columnScale,realmin);
+    values = svd(scaled);
+    info.singularValues = values;
+    info.rank = sum(values > options.ParentJacobianRankTolerance * max(values));
+    info.accepted = info.rank == info.numberOfUnknowns;
+    if ~info.accepted
+        info.reason = sprintf(['Parent correction Jacobian rank %d is less than ' ...
+            '%d unknowns; the continuation chart is not transverse.'], ...
+            info.rank,info.numberOfUnknowns);
+    end
 end
 
 function residual = CanonicalResidual(z, parameters, constraints)
@@ -2120,6 +2260,7 @@ function correction = EmptyCorrection()
     correction = struct('accepted', false, 'exitflag', NaN, ...
         'output', struct(), 'fval', [], 'canonicalResidual', [], ...
         'canonicalResidualNormInf', Inf, 'coordinateResidual', Inf, ...
+        'parentCorrector',struct(),'jacobianRank',struct(), ...
         'topology', struct(), 'topologyComparison', struct(), ...
         'rejectionReasons', {{}}, 'exception', []);
 end

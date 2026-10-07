@@ -1,0 +1,814 @@
+{
+  "sourceColumns": [
+    1,
+    2,
+    3,
+    850,
+    851,
+    852
+  ],
+  "corrections": [
+    {
+      "sourceColumn": 1,
+      "exitflag": 4,
+      "residualNorm": 4.6092227419903413E-13,
+      "correctionNorm": 4.67762363331155E-12,
+      "maximumCorrection": 3.0775382242609339E-12,
+      "initialVelocity": -0.028931192692882933,
+      "originalSymmetryError": 4.0589753780295723E-12,
+      "correctedSymmetryError": 0,
+      "solverOutput": {
+        "iterations": 2,
+        "funcCount": 24,
+        "stepsize": 2.4999678506997379E-13,
+        "cgiterations": [],
+        "firstorderopt": 3.1265058834221993E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 9.119057e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 2.124493e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "sourceColumn": 2,
+      "exitflag": 4,
+      "residualNorm": 4.8006614030100358E-13,
+      "correctionNorm": 5.3121324234129341E-12,
+      "maximumCorrection": 3.3673064336880998E-12,
+      "initialVelocity": -0.023328580325027569,
+      "originalSymmetryError": 4.2228442964642454E-12,
+      "correctedSymmetryError": 0,
+      "solverOutput": {
+        "iterations": 3,
+        "funcCount": 32,
+        "stepsize": 2.7760510676253932E-14,
+        "cgiterations": [],
+        "firstorderopt": 3.1000009647950896E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.012317e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 2.304635e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "sourceColumn": 3,
+      "exitflag": 4,
+      "residualNorm": 5.0310770141132961E-13,
+      "correctionNorm": 5.89329955215109E-12,
+      "maximumCorrection": 3.6088909638465339E-12,
+      "initialVelocity": -0.01773598699410292,
+      "originalSymmetryError": 4.3214321010509593E-12,
+      "correctedSymmetryError": 0,
+      "solverOutput": {
+        "iterations": 3,
+        "funcCount": 25,
+        "stepsize": 4.71056103570394E-14,
+        "cgiterations": [],
+        "firstorderopt": 8.5195655186206551E-15,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.717317e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 2.531174e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "sourceColumn": 850,
+      "exitflag": 4,
+      "residualNorm": 8.6249401090456294E-14,
+      "correctionNorm": 3.206081534069515E-6,
+      "maximumCorrection": 1.6727968348284605E-6,
+      "initialVelocity": 19.511850700628049,
+      "originalSymmetryError": 1.5311236678527962E-7,
+      "correctedSymmetryError": 0,
+      "solverOutput": {
+        "iterations": 7,
+        "funcCount": 61,
+        "stepsize": 2.1897339013015814E-13,
+        "cgiterations": [],
+        "firstorderopt": 9.7505108128719315E-12,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 6.158919e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 7.438959e-27, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "sourceColumn": 851,
+      "exitflag": 4,
+      "residualNorm": 1.1524860240101849E-13,
+      "correctionNorm": 8.3215753156725437E-6,
+      "maximumCorrection": 4.3423115503316012E-6,
+      "initialVelocity": 19.514281064525019,
+      "originalSymmetryError": 3.9842246035703965E-7,
+      "correctedSymmetryError": 0,
+      "solverOutput": {
+        "iterations": 8,
+        "funcCount": 66,
+        "stepsize": 7.4948913378336061E-14,
+        "cgiterations": [],
+        "firstorderopt": 1.9894161936995379E-11,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 2.107896e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 1.328224e-26, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "sourceColumn": 852,
+      "exitflag": 4,
+      "residualNorm": 3.9685168796290781E-14,
+      "correctionNorm": 1.3452773937632832E-5,
+      "maximumCorrection": 7.0203733768536836E-6,
+      "initialVelocity": 19.516016936793108,
+      "originalSymmetryError": 6.4524529230780558E-7,
+      "correctedSymmetryError": 0,
+      "solverOutput": {
+        "iterations": 8,
+        "funcCount": 65,
+        "stepsize": 1.9568299867891938E-13,
+        "cgiterations": [],
+        "firstorderopt": 4.7605145265738982E-12,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 5.503208e-14, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 1.574913e-27, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    }
+  ],
+  "physics": [
+    {
+      "initialVerticalAcceleration": -1.0591936911629756,
+      "returnVerticalAcceleration": -1.0591936911517945,
+      "initialContact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "meanVelocity": -0.0490147963288121,
+      "minimumBodyHeight": 0.93488198425547464,
+      "minimumStanceHipHeight": 0.90533400519338569,
+      "minimumStanceLegLength": 0.90597139213666422,
+      "minimumAbsStanceLegCosine": 0.99644814975170992,
+      "minimumIndividualVerticalGRF": -0.0424660344592658,
+      "minimumTotalVerticalGRF": -0.059193691162975619,
+      "maximumAbsolutePitch": 0.059133312080532831,
+      "maximumInstantaneousVelocity": -0.028931192692882933,
+      "minimumInstantaneousVelocity": -0.075074125163093919,
+      "minimumDistinctEventGap": 0.16984298850352381,
+      "flightIntervalCount": 0,
+      "stanceDuration": [
+        1.520572320454459,
+        1.520572320454459,
+        1.520572320454459,
+        1.520572320454459
+      ],
+      "swingDuration": [
+        0.81563112833788054,
+        0.81563112833788054,
+        0.81563112833788054,
+        0.81563112833788054
+      ],
+      "interiorDownwardTurningCount": 1,
+      "interiorUpwardTurningCount": 2,
+      "maximumPairStateDifference": 6.28802565572073E-13,
+      "maximumPairStateDifferenceAwayFromEvents": 0
+    },
+    {
+      "initialVerticalAcceleration": -1.063878250716338,
+      "returnVerticalAcceleration": -1.0638782507045934,
+      "initialContact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "meanVelocity": -0.0438080408043488,
+      "minimumBodyHeight": 0.9347501542126,
+      "minimumStanceHipHeight": 0.90513886382554354,
+      "minimumStanceLegLength": 0.90577866451739009,
+      "minimumAbsStanceLegCosine": 0.996771406968442,
+      "minimumIndividualVerticalGRF": -0.043449920673010206,
+      "minimumTotalVerticalGRF": -0.063878250716338111,
+      "maximumAbsolutePitch": 0.05925960474889564,
+      "maximumInstantaneousVelocity": -0.023328580325027569,
+      "minimumInstantaneousVelocity": -0.069634303268997777,
+      "minimumDistinctEventGap": 0.17080802651522961,
+      "flightIntervalCount": 0,
+      "stanceDuration": [
+        1.5214456610250511,
+        1.5214456610250511,
+        1.5214456610250511,
+        1.5214456610250511
+      ],
+      "swingDuration": [
+        0.81556291056150965,
+        0.81556291056150965,
+        0.81556291056150965,
+        0.81556291056150965
+      ],
+      "interiorDownwardTurningCount": 1,
+      "interiorUpwardTurningCount": 2,
+      "maximumPairStateDifference": 5.7476245984844354E-13,
+      "maximumPairStateDifferenceAwayFromEvents": 0
+    },
+    {
+      "initialVerticalAcceleration": -1.0679550893906211,
+      "returnVerticalAcceleration": -1.067955089378291,
+      "initialContact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "meanVelocity": -0.038602691984552587,
+      "minimumBodyHeight": 0.93463252765059779,
+      "minimumStanceHipHeight": 0.90496481847734211,
+      "minimumStanceLegLength": 0.9056068685905373,
+      "minimumAbsStanceLegCosine": 0.99708032735425367,
+      "minimumIndividualVerticalGRF": -0.044329786373320905,
+      "minimumTotalVerticalGRF": -0.067955089390621087,
+      "maximumAbsolutePitch": 0.0593719496380861,
+      "maximumInstantaneousVelocity": -0.01773598699410292,
+      "minimumInstantaneousVelocity": -0.06418546662085034,
+      "minimumDistinctEventGap": 0.17172611097738155,
+      "flightIntervalCount": 0,
+      "stanceDuration": [
+        1.5222130155492857,
+        1.5222130155492857,
+        1.5222130155492857,
+        1.5222130155492857
+      ],
+      "swingDuration": [
+        0.81550435121602327,
+        0.81550435121602316,
+        0.81550435121602327,
+        0.81550435121602316
+      ],
+      "interiorDownwardTurningCount": 1,
+      "interiorUpwardTurningCount": 2,
+      "maximumPairStateDifference": 5.1939008649526386E-13,
+      "maximumPairStateDifferenceAwayFromEvents": 0
+    },
+    {
+      "initialVerticalAcceleration": -1,
+      "returnVerticalAcceleration": -1,
+      "initialContact": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "meanVelocity": 19.4924251794431,
+      "minimumBodyHeight": 0.29626377071767107,
+      "minimumStanceHipHeight": 0.28658069310361317,
+      "minimumStanceLegLength": 0.28659214826047896,
+      "minimumAbsStanceLegCosine": 0.29590342971778266,
+      "minimumIndividualVerticalGRF": 0,
+      "minimumTotalVerticalGRF": 0,
+      "maximumAbsolutePitch": 0.019386742706305676,
+      "maximumInstantaneousVelocity": 19.512415473619466,
+      "minimumInstantaneousVelocity": 19.251717540414266,
+      "minimumDistinctEventGap": 0.0984582907042344,
+      "flightIntervalCount": 2,
+      "stanceDuration": [
+        0.0984582907042344,
+        0.0984582907042344,
+        0.0984582907042344,
+        0.0984582907042344
+      ],
+      "swingDuration": [
+        1.046349166050347,
+        1.046349166050347,
+        1.046349166050347,
+        1.046349166050347
+      ],
+      "interiorDownwardTurningCount": 1,
+      "interiorUpwardTurningCount": 2,
+      "maximumPairStateDifference": 2.255085007618618E-12,
+      "maximumPairStateDifferenceAwayFromEvents": 0
+    },
+    {
+      "initialVerticalAcceleration": -1,
+      "returnVerticalAcceleration": -1,
+      "initialContact": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "meanVelocity": 19.494849380601526,
+      "minimumBodyHeight": 0.29609707926194584,
+      "minimumStanceHipHeight": 0.28641628248847356,
+      "minimumStanceLegLength": 0.28642769743687,
+      "minimumAbsStanceLegCosine": 0.29573792317041181,
+      "minimumIndividualVerticalGRF": 0,
+      "minimumTotalVerticalGRF": 0,
+      "maximumAbsolutePitch": 0.019382172318651622,
+      "maximumInstantaneousVelocity": 19.514845597392405,
+      "minimumInstantaneousVelocity": 19.254058273312598,
+      "minimumDistinctEventGap": 0.098451415309135815,
+      "flightIntervalCount": 2,
+      "stanceDuration": [
+        0.098451415309135926,
+        0.098451415309135815,
+        0.098451415309135926,
+        0.098451415309135815
+      ],
+      "swingDuration": [
+        1.0462175714389055,
+        1.0462175714389055,
+        1.0462175714389055,
+        1.0462175714389055
+      ],
+      "interiorDownwardTurningCount": 1,
+      "interiorUpwardTurningCount": 2,
+      "maximumPairStateDifference": 2.3279156380340282E-12,
+      "maximumPairStateDifferenceAwayFromEvents": 0
+    },
+    {
+      "initialVerticalAcceleration": -1,
+      "returnVerticalAcceleration": -1,
+      "initialContact": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "meanVelocity": 19.496580840809528,
+      "minimumBodyHeight": 0.29597787182703339,
+      "minimumStanceHipHeight": 0.28629870442638078,
+      "minimumStanceLegLength": 0.28631007745202941,
+      "minimumAbsStanceLegCosine": 0.29561956368810643,
+      "minimumIndividualVerticalGRF": 0,
+      "minimumTotalVerticalGRF": 0,
+      "maximumAbsolutePitch": 0.019378901957145644,
+      "maximumInstantaneousVelocity": 19.516581297979588,
+      "minimumInstantaneousVelocity": 19.255730163938029,
+      "minimumDistinctEventGap": 0.098446508552476275,
+      "flightIntervalCount": 2,
+      "stanceDuration": [
+        0.098446508552476275,
+        0.098446508552476275,
+        0.098446508552476275,
+        0.098446508552476275
+      ],
+      "swingDuration": [
+        1.0461233953673164,
+        1.0461233953673164,
+        1.0461233953673164,
+        1.0461233953673164
+      ],
+      "interiorDownwardTurningCount": 1,
+      "interiorUpwardTurningCount": 2,
+      "maximumPairStateDifference": 2.2168933355715126E-12,
+      "maximumPairStateDifferenceAwayFromEvents": 0
+    }
+  ],
+  "jacobians": [
+    {
+      "sourceColumn": 1,
+      "steps": [
+        8E-6,
+        4E-6,
+        2E-6
+      ],
+      "fullScale": [
+        10,
+        1,
+        1,
+        0.5,
+        0.5,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.58405086219808489,
+        0.58405086219808489,
+        0.58405086219808489,
+        0.58405086219808489,
+        0.58405086219808489,
+        0.58405086219808489,
+        0.58405086219808489,
+        0.58405086219808489,
+        1.1681017243961698
+      ],
+      "reducedScale": [
+        10,
+        1,
+        0.5,
+        0.3,
+        0.3,
+        0.58405086219808489,
+        0.58405086219808489,
+        1.1681017243961698
+      ],
+      "fullSingularValues": [
+        [
+          86.287609394412129,
+          86.287613877195412,
+          86.28761499898286
+        ],
+        [
+          8.719381783844014,
+          8.7193817826031932,
+          8.7193817826458151
+        ],
+        [
+          1.8926459473674666,
+          1.8926458857447814,
+          1.8926458707925975
+        ],
+        [
+          0.92727241812012529,
+          0.92727242261127274,
+          0.927272423690791
+        ],
+        [
+          0.64319133751447133,
+          0.64319133711235921,
+          0.64319133715404286
+        ],
+        [
+          0.59196257448245959,
+          0.59196257223939253,
+          0.59196257148598241
+        ],
+        [
+          0.55631385004735556,
+          0.5563138500517959,
+          0.5563138500114746
+        ],
+        [
+          0.55052523420229993,
+          0.55052523418123622,
+          0.55052523418391952
+        ],
+        [
+          0.41139357179218372,
+          0.41139357596142073,
+          0.41139357690607814
+        ],
+        [
+          0.29977151476248887,
+          0.29977151476264036,
+          0.29977151475628611
+        ],
+        [
+          0.29975989802623226,
+          0.2997598980266844,
+          0.29975989802253472
+        ],
+        [
+          0.29934301441224059,
+          0.29934301423534954,
+          0.29934301418573006
+        ],
+        [
+          0.23077059549148723,
+          0.23077061324241194,
+          0.23077061762786644
+        ],
+        [
+          0.047994977249770573,
+          0.0479949767111611,
+          0.04799497650976884
+        ],
+        [
+          0.047635683474903469,
+          0.047635683465823891,
+          0.047635683491393181
+        ],
+        [
+          0.045502473891830306,
+          0.04550247388689381,
+          0.045502473898588434
+        ],
+        [
+          0.04543656145158665,
+          0.045436561437808706,
+          0.045436561453378481
+        ],
+        [
+          0.043768476696794394,
+          0.043768476702213253,
+          0.043768476745433958
+        ],
+        [
+          0.043469275804241751,
+          0.043469276334573329,
+          0.043469276313401348
+        ],
+        [
+          0.026281321245823577,
+          0.026281321720574811,
+          0.026281322005855114
+        ],
+        [
+          0.016545526505235858,
+          0.016545527724933822,
+          0.016545528003098362
+        ],
+        [
+          3.0464726408793152E-9,
+          8.336069671835765E-10,
+          1.789375045409987E-10
+        ]
+      ],
+      "reducedSingularValues": [
+        [
+          86.233040902213034,
+          86.2330453865741,
+          86.2330465087487
+        ],
+        [
+          8.4874498987542637,
+          8.4874498950194432,
+          8.48744989407382
+        ],
+        [
+          1.3090012711257279,
+          1.3090012719990267,
+          1.3090012726798355
+        ],
+        [
+          0.80013438350412147,
+          0.80013439915958284,
+          0.80013440323251028
+        ],
+        [
+          0.36571116949467858,
+          0.36571118073817344,
+          0.36571118376136225
+        ],
+        [
+          0.13273874670314342,
+          0.13273875190353343,
+          0.13273875305736746
+        ],
+        [
+          0.069068422678452354,
+          0.069068423151347133,
+          0.06906842315670518
+        ],
+        [
+          8.1877176374600707E-8,
+          2.0431220759288765E-8,
+          5.0166066652654824E-9
+        ]
+      ],
+      "fullRefinementNorm": [
+        5.3297388409953029E-6,
+        1.3333594400373631E-6
+      ],
+      "reducedRefinementNorm": [
+        5.32973875758632E-6,
+        1.3333591023286288E-6
+      ],
+      "fullNonzeroConditionEstimate": 5215.1623679114018,
+      "reducedNonzeroConditionEstimate": 1248.5162186647831,
+      "outwardNormalizedTangent": [
+        -0.027912780235662363,
+        -0.0041145772700134087,
+        0.029223717684189444,
+        0.52518034090682342,
+        0.84142394692466393,
+        -0.078106749119329175,
+        -0.08435642714693517,
+        -0.036395072274230521
+      ],
+      "outwardPhysicalTangent": [
+        -0.2791278023566236,
+        -0.0041145772700134087,
+        0.014611858842094722,
+        0.15755410227204703,
+        0.25242718407739917,
+        -0.045618314166633714,
+        -0.049268444007117419,
+        -0.0425131466830519
+      ],
+      "reducedTangentResidual": 5.0166066812590791E-9
+    },
+    {
+      "sourceColumn": 852,
+      "steps": [
+        8E-6,
+        4E-6,
+        2E-6
+      ],
+      "fullScale": [
+        10,
+        1,
+        1,
+        0.5,
+        0.5,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.57228495195989626
+      ],
+      "reducedScale": [
+        10,
+        1,
+        0.5,
+        0.3,
+        0.3,
+        0.28614247597994813,
+        0.28614247597994813,
+        0.57228495195989626
+      ],
+      "fullSingularValues": [
+        [
+          104.46519684428837,
+          104.46519678672924,
+          104.46519675793745
+        ],
+        [
+          49.263868963450633,
+          49.263868832348543,
+          49.263868795419015
+        ],
+        [
+          42.649694032921076,
+          42.649693941366444,
+          42.649693936973051
+        ],
+        [
+          24.040417523192311,
+          24.040417471054752,
+          24.0404174568799
+        ],
+        [
+          8.4751185558679989,
+          8.4751185503123718,
+          8.4751185482795819
+        ],
+        [
+          2.0131804708945995,
+          2.013180469461425,
+          2.0131804691615156
+        ],
+        [
+          1.9050274299907066,
+          1.9050274283975273,
+          1.9050274280964119
+        ],
+        [
+          1.6144619981121808,
+          1.6144619976822518,
+          1.6144619976262737
+        ],
+        [
+          1.5989616970996878,
+          1.5989616971073763,
+          1.5989616972453018
+        ],
+        [
+          1.4815877291530397,
+          1.4815877291602473,
+          1.4815877271468569
+        ],
+        [
+          0.86859645933056928,
+          0.86859645652898254,
+          0.86859645582973011
+        ],
+        [
+          0.846531016179661,
+          0.84653101454263024,
+          0.84653101324847857
+        ],
+        [
+          0.71878940515598511,
+          0.718789405826195,
+          0.718789406130984
+        ],
+        [
+          0.48265354007559425,
+          0.48265353978211195,
+          0.48265353987599929
+        ],
+        [
+          0.42339820994761135,
+          0.42339821167155312,
+          0.42339820999667566
+        ],
+        [
+          0.26668699985022731,
+          0.26668700016594127,
+          0.26668700050751792
+        ],
+        [
+          0.14755626245079853,
+          0.14755626245130815,
+          0.1475562622064342
+        ],
+        [
+          0.003291222941490667,
+          0.0032912230758964447,
+          0.0032912229556746062
+        ],
+        [
+          0.0019920403548343911,
+          0.0019920403487684603,
+          0.0019920405708336538
+        ],
+        [
+          0.0017799286893392943,
+          0.001779928900135185,
+          0.0017799289936869995
+        ],
+        [
+          4.4172443625275613E-7,
+          4.4184201373473542E-7,
+          4.4318815896890884E-7
+        ],
+        [
+          1.7237617794611927E-9,
+          9.3272216135434655E-9,
+          8.9364781215339978E-9
+        ]
+      ],
+      "reducedSingularValues": [
+        [
+          126.1352540091011,
+          126.13525289863145,
+          126.13525262150235
+        ],
+        [
+          76.079995351325167,
+          76.079994330755525,
+          76.0799940840207
+        ],
+        [
+          5.1514696910876534,
+          5.1514697093329316,
+          5.1514697148571251
+        ],
+        [
+          1.3821558425904321,
+          1.3821558533345812,
+          1.3821558564955776
+        ],
+        [
+          1.0072305512003483,
+          1.0072305520805869,
+          1.0072305508228336
+        ],
+        [
+          0.43415646703170679,
+          0.43415646339288805,
+          0.43415646187749174
+        ],
+        [
+          0.0062766483959086836,
+          0.0062766329252712128,
+          0.0062766297105513137
+        ],
+        [
+          1.3898900474855462E-8,
+          6.0241328549016813E-9,
+          3.1780202171651209E-8
+        ]
+      ],
+      "fullRefinementNorm": [
+        1.5024353484385685E-7,
+        1.0334469666613859E-7
+      ],
+      "reducedRefinementNorm": [
+        2.2025691245622322E-6,
+        5.6268861511213723E-7
+      ],
+      "fullNonzeroConditionEstimate": 2.3571296895878041E+8,
+      "reducedNonzeroConditionEstimate": 20096.016244109953,
+      "outwardNormalizedTangent": [
+        0.10696729063461309,
+        -0.078145527124592717,
+        -0.0067522390579402482,
+        -0.49936252604606923,
+        0.84528642452432068,
+        -0.054207260789984058,
+        -0.064770553236376316,
+        -0.1067705905167361
+      ],
+      "outwardPhysicalTangent": [
+        1.069672906346131,
+        -0.078145527124592717,
+        -0.0033761195289701241,
+        -0.14980875781382078,
+        0.25358592735729618,
+        -0.015510999818536797,
+        -0.018533606473647761,
+        -0.061103202264600073
+      ],
+      "reducedTangentResidual": 3.1780202150605193E-8
+    }
+  ],
+  "elapsedSeconds": 10.562061333333334,
+  "method": "Six endpoint/neighbor orbits corrected at fixed initial velocity in the exact 8-coordinate reversible bounding chart, then replayed with frozen native dynamics. Endpoint full22 and reduced8 finite-difference Jacobians use three step sizes and state scaling; no branch continuation."
+}

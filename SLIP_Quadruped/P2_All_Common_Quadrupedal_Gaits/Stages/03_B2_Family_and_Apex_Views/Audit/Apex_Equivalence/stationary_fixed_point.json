@@ -1,0 +1,17 @@
+{
+  "originalSourceColumn": 12,
+  "period": 2.3401369962076353,
+  "initialVelocity": 0.023471941072785,
+  "meanVelocity": 1.9631481673120752E-16,
+  "fullCycleDisplacement": 4.5940356553642037E-16,
+  "sourceNativeResidual": 5.9830260776006978E-13,
+  "reflectedOtherApexNativeResidual": 2.2255950969700711E-12,
+  "phaseTime": 1.1700684981043441,
+  "phaseFraction": 0.50000000000022493,
+  "initialStateDifference": 8.7543297663599022E-13,
+  "normalizedEventDifference": 3.4265856165341685E-12,
+  "periodDifference": 0,
+  "fullTrajectory14StateDifference": 3.6728466292371266E-12,
+  "symmetry": "Other downward-apex phase map followed by horizontal reflection and front/hind relabelling",
+  "interpretation": "Numerical spatiotemporal fixed-point certificate for the original B2 mean-zero orbit. No normal-form bifurcation classification is claimed."
+}

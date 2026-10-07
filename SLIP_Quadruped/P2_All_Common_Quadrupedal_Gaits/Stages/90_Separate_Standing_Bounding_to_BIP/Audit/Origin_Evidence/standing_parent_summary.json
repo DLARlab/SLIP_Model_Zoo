@@ -1,0 +1,396 @@
+{
+  "criticalPeriod": 2.9822281154516528,
+  "checks": [
+    {
+      "periodOffset": -0.0001,
+      "period": 2.9821281154516526,
+      "initialVelocity": -0.020689313963267463,
+      "height": 0.96909184668560189,
+      "meanVelocity": -3.1374194269777203E-13,
+      "residualInf": 3.585465258026943E-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 6,
+        "funcCount": 43,
+        "stepsize": 6.2105260231204721E-15,
+        "cgiterations": [],
+        "firstorderopt": 2.8971402144875822E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 2.223033e-15, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.193696e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "singularValues": [
+        [
+          20.561314935126049,
+          20.561315646056865,
+          20.561315823976958,
+          20.561315868099445
+        ],
+        [
+          9.6695062723790688,
+          9.6695063066987288,
+          9.6695063150494232,
+          9.6695063175969622
+        ],
+        [
+          3.6180389350209197,
+          3.6180389230672509,
+          3.6180389203423311,
+          3.6180389194679985
+        ],
+        [
+          2.0947286258319622,
+          2.0947285870944432,
+          2.0947285774404607,
+          2.0947285748859215
+        ],
+        [
+          1.9527777309500245,
+          1.9527777302274496,
+          1.9527777300526463,
+          1.9527777299891222
+        ],
+        [
+          1.9527777298655056,
+          1.9527777299501941,
+          1.9527777299862981,
+          1.9527777299790909
+        ],
+        [
+          1.2423598174084198,
+          1.242359809924908,
+          1.2423598081472835,
+          1.2423598077791
+        ],
+        [
+          0.99923265340881,
+          0.999232653385982,
+          0.99923265337930534,
+          0.99923265337965506
+        ],
+        [
+          0.99923265333381628,
+          0.99923265336716072,
+          0.99923265337462075,
+          0.99923265337841138
+        ],
+        [
+          0.9981371768152707,
+          0.99813717889361986,
+          0.99813717941141056,
+          0.9981371795436258
+        ],
+        [
+          0.70036306822547423,
+          0.70036310016332259,
+          0.70036310811752778,
+          0.70036311015116837
+        ],
+        [
+          0.67665175614655959,
+          0.67665179621813065,
+          0.67665180623266374,
+          0.67665180874692454
+        ],
+        [
+          0.12168591455656078,
+          0.12168591695866914,
+          0.12168591758155223,
+          0.12168591769525509
+        ],
+        [
+          0.072146662951846852,
+          0.07214665804019875,
+          0.072146656790645872,
+          0.072146656469338655
+        ],
+        [
+          0.067113848591220229,
+          0.0671138488435641,
+          0.06711384891299485,
+          0.067113848897971062
+        ],
+        [
+          0.067027720500862156,
+          0.067027719968497032,
+          0.067027719836683528,
+          0.067027719801173724
+        ],
+        [
+          0.067027719917107653,
+          0.067027719820471912,
+          0.067027719804366684,
+          0.0670277197971712
+        ],
+        [
+          0.066442281569115066,
+          0.066442281728013086,
+          0.066442281782542911,
+          0.066442281784474269
+        ],
+        [
+          0.066442281098678072,
+          0.0664422816104012,
+          0.0664422817449773,
+          0.066442281781249973
+        ],
+        [
+          0.038528623915178493,
+          0.038528621046839726,
+          0.038528620276895152,
+          0.038528620119017656
+        ],
+        [
+          4.1135687834557864E-5,
+          4.1061813960858728E-5,
+          4.10433681856458E-5,
+          4.1038722488726881E-5
+        ],
+        [
+          2.08656270587972E-9,
+          5.2852690419737414E-10,
+          1.2686032457809626E-10,
+          1.5199842803730429E-11
+        ]
+      ],
+      "refinementNorm2": [
+        9.3309406182826139E-7,
+        2.3334161955723388E-7,
+        5.8144154793028718E-8
+      ]
+    },
+    {
+      "periodOffset": -1E-5,
+      "period": 2.9822181154516527,
+      "initialVelocity": -0.020691356267569471,
+      "height": 0.96908999059647416,
+      "meanVelocity": -3.1191317607290762E-13,
+      "residualInf": 3.5926817076870066E-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 6,
+        "funcCount": 49,
+        "stepsize": 7.5390090725193975E-16,
+        "cgiterations": [],
+        "firstorderopt": 4.0302463103117759E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 2.698449e-16, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.184899e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "periodOffset": 1E-5,
+      "period": 2.9822381154516528,
+      "initialVelocity": -0.020691810152021151,
+      "height": 0.96908957818058961,
+      "meanVelocity": -3.1552612991890934E-13,
+      "residualInf": 3.6032288264209456E-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 6,
+        "funcCount": 43,
+        "stepsize": 9.8771343572095919E-15,
+        "cgiterations": [],
+        "firstorderopt": 3.1723154765901761E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 3.535306e-15, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.206411e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "periodOffset": 0.0001,
+      "period": 2.982328115451653,
+      "initialVelocity": -0.020693852807802164,
+      "height": 0.96908772252666864,
+      "meanVelocity": -3.0149091077015373E-13,
+      "residualInf": 3.5910163731500688E-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4,
+      "output": {
+        "iterations": 6,
+        "funcCount": 43,
+        "stepsize": 3.7831011954825157E-14,
+        "cgiterations": [],
+        "firstorderopt": 4.1886895203185385E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.354024e-14, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.185674e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "singularValues": [
+        [
+          20.565979528999165,
+          20.565980240352186,
+          20.56598041797545,
+          20.565980462118617
+        ],
+        [
+          9.6767350436528528,
+          9.6767350781850059,
+          9.6767350867188213,
+          9.6767350886841967
+        ],
+        [
+          3.6188479445774004,
+          3.6188479325292615,
+          3.6188479297954528,
+          3.6188479290920195
+        ],
+        [
+          2.094625957908431,
+          2.0946259191101491,
+          2.094625909610671,
+          2.0946259069294593
+        ],
+        [
+          1.9524348493289383,
+          1.9524348486052208,
+          1.9524348484171015,
+          1.9524348483729153
+        ],
+        [
+          1.9524348482446654,
+          1.952434848337705,
+          1.9524348483432226,
+          1.9524348483604255
+        ],
+        [
+          1.2415517438205008,
+          1.2415517363724355,
+          1.2415517345467424,
+          1.2415517341695159
+        ],
+        [
+          0.99923268514706665,
+          0.99923268512419194,
+          0.99923268511763075,
+          0.999232685117906
+        ],
+        [
+          0.99923268507196972,
+          0.99923268510552232,
+          0.99923268511288865,
+          0.99923268511673735
+        ],
+        [
+          0.99813487735148,
+          0.99813487943283485,
+          0.99813487995186778,
+          0.99813488008302731
+        ],
+        [
+          0.70032132607210373,
+          0.70032135781434013,
+          0.70032136570700765,
+          0.70032136771247688
+        ],
+        [
+          0.67681165062432891,
+          0.67681169090724813,
+          0.67681170095733689,
+          0.676811703473258
+        ],
+        [
+          0.12171758705860662,
+          0.121717589449257,
+          0.12171759005120568,
+          0.12171759020155469
+        ],
+        [
+          0.072175378690109079,
+          0.0721753737971056,
+          0.072175372549444367,
+          0.072175372254695239
+        ],
+        [
+          0.067155015723242714,
+          0.067155015979303428,
+          0.067155016001429313,
+          0.06715501603079016
+        ],
+        [
+          0.067066678491352366,
+          0.067066677961177351,
+          0.067066677828580029,
+          0.067066677794667531
+        ],
+        [
+          0.067066677901788829,
+          0.067066677811024863,
+          0.067066677796785559,
+          0.067066677781475209
+        ],
+        [
+          0.066478462438618185,
+          0.0664784626014208,
+          0.066478462652905385,
+          0.066478462645889552
+        ],
+        [
+          0.066478461966893859,
+          0.066478462481905615,
+          0.066478462614071851,
+          0.066478462641231792
+        ],
+        [
+          0.03854823021417117,
+          0.038548227352501428,
+          0.038548226660840589,
+          0.038548226429101384
+        ],
+        [
+          4.1083083695159594E-5,
+          4.1156964209401846E-5,
+          4.1175425584347607E-5,
+          4.1180020644894555E-5
+        ],
+        [
+          2.08241405725952E-9,
+          5.2952670414899993E-10,
+          1.3765225849766389E-10,
+          3.58407515486552E-11
+        ]
+      ],
+      "refinementNorm2": [
+        9.3356606542794506E-7,
+        2.3323238111565225E-7,
+        5.7998760261623654E-8
+      ]
+    }
+  ],
+  "parentTangent": [
+    -0.022694222583975739,
+    -0.020620794227710348,
+    0,
+    0,
+    0.060016835172482789,
+    -0.033891897590829223,
+    -0.040049330155694784,
+    0.033891897590829223,
+    -0.040049330155694784,
+    -0.033891897590829223,
+    -0.040049330155694784,
+    0.033891897590829223,
+    -0.040049330155694784,
+    1.3481181960761646,
+    0.1518818039558667,
+    0.84811819605068439,
+    -0.34811819606961331,
+    1.3481181960761646,
+    0.1518818039558667,
+    0.84811819605068439,
+    -0.34811819606961331,
+    1.0000000000065512
+  ],
+  "parentKernelProjectionError": 1.1372464518641215E-9,
+  "parentJacobianResidual": 3.5955848888885163E-10,
+  "daughterKernelProjectionError": 4.5715582559467706E-8,
+  "daughterJacobianResidual": 3.086893232267666E-8,
+  "parentDaughterAbsoluteCosine": 0.11464688434356729,
+  "daughterTransverseNorm": 0.99340630756519388,
+  "transverseDaughterJacobianResidual": 3.1073608923185158E-8,
+  "signedSchurAtMinusCriticalPlus": [
+    -4.103872605994018E-5,
+    -1.5630755537248737E-9,
+    4.1180024093893637E-5
+  ],
+  "method": "Standing half-period reflection chart, independently fixed-period corrected parents; native22 Jacobian. Signed Schur removes verified parent tangent and conservation left-null direction and is a rank diagnostic, not a Floquet multiplier."
+}

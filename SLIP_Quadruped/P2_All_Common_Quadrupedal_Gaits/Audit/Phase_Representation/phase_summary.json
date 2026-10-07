@@ -1,0 +1,38 @@
+{
+  "phasePairsAttempted": 1358,
+  "previouslyAcceptedOtherApexPairs": 1307,
+  "sourceCorrectionCount": 55,
+  "maxSourceCorrectionNorm": 1.2398232118564606e-05,
+  "maxTDRightStateDifference": 1.5324753245663884e-08,
+  "maxTDRightCircularEventDifference": 8.308148362110449e-16,
+  "maxEta25StateDifference": 3.0628485258359364e-10,
+  "maxEta25CircularEventDifference": 1.2560739669470201e-15,
+  "minEta25DistanceToAnyEventFraction": 0.000457907685017185,
+  "rawEta25ReplayPasses1e8": 1254,
+  "rawEta25ReplayFails1e8": 104,
+  "maxRawEta25ReplayResidual": 7.27727132581471e-07,
+  "rawEta25ReplayFailsAmongPreviouslyAcceptedPairs": 83,
+  "maxRawEta25ReplayResidualAmongPreviouslyAcceptedPairs": 2.2697866840360458e-08,
+  "replayResidualDefinition": "Native22 residual with old apex component9 omitted; the candidate timing-phase equation is evaluated separately.",
+  "reflectionApplied": false,
+  "dataSources": {
+    "B2_10_20_2_G.mat": {
+      "sha256": "d60277fa7fd9c80aa8336f52462928cd4322a3127301fb74143070573b008a32"
+    },
+    "B2_10_20_2_E.mat": {
+      "sha256": "53d2b7d9eac5a223632ef3eb63015e83279ba80f4d7544d53a1da643be227807"
+    },
+    "BS_10_20_2_BIP_Child.mat": {
+      "sha256": "efbcefae3ed0ef823cf7421c8c59acd88bc0e3e64947d00c85db9b194e809732"
+    },
+    "PK_B2_Parent.mat": {
+      "sha256": "9a7c2ae3b5277c8b34641be56ba7bfdd473fcf5e422d605e30c6b21362954414"
+    },
+    "PIP_10_20_2.mat": {
+      "sha256": "9ae9cbf4c219e3843b61eaa1d979a787bef2b4ffc8f430c2aac55b8e0518c03d"
+    },
+    "BIP_10_20_2.mat": {
+      "sha256": "0960938761d868f95e10fb3bc75e676a16dd0ea843942b82a81de74dce154cc2"
+    }
+  }
+}

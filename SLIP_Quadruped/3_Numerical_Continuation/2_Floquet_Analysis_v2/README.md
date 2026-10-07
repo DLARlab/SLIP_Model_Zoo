@@ -306,6 +306,9 @@ The derivative assumes a locally smooth, fixed-topology return map. Grazing
 events, topology changes, and simultaneous impacts can make the derivative
 nonsmooth or sector-dependent. Clustered event comparison permits documented
 reordering only within an existing simultaneous-event cluster; it does not
-prove differentiability. A branch segment that folds in `X(1)=dx` also cannot
-be refined safely by the current fixed-`dx` critical-orbit chart and needs a
-pseudo-arclength or hyperplane formulation.
+prove differentiability. A branch segment that folds in `X(1)=dx` cannot use
+the default fixed-`dx` refinement chart. Select a transverse physical row
+with `ContinuationParameterRow`, or provide a fixed locally lifted
+`ContinuationCoordinateFunction` hyperplane. `ParentCorrector` supports an
+independent parent embedding with a checked correction Jacobian; these
+construction restrictions must remain outside the full Floquet timing solve.

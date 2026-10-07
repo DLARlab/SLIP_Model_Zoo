@@ -1,0 +1,103 @@
+{
+  "lowCheckpointColumn": 78,
+  "nearestOriginalSourceColumn": 200,
+  "correctionExitflag": 4,
+  "correctionOutput": {
+    "iterations": 6,
+    "funcCount": 63,
+    "stepsize": 2.4097620037227134E-14,
+    "cgiterations": [],
+    "firstorderopt": 8.0577938595140044E-13,
+    "algorithm": "levenberg-marquardt",
+    "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 7.409095e-15, is less\nthan options.StepTolerance = 1.000000e-13. The sum of squared function values,\nr = 1.159913e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+  },
+  "targetInitialVelocity": 0.69511443699295827,
+  "targetPeriodicResidual": 7.271093660408475E-12,
+  "correctedPeriodicResidual": 3.405749807317121E-13,
+  "initialStateDistance": 1.6133396015061946E-12,
+  "normalizedEventDistance": 4.5080428533152417E-13,
+  "periodDifference": -2.0294876890147862E-13,
+  "meanVelocityDifference": 3.5551561694546763E-12,
+  "fullTrajectoryMaxStateDifference": 1.3846118340469459E-11,
+  "phaseInfo": {
+    "phaseTime": 1.1251599787739737,
+    "phaseFraction": 0.49999999999988359,
+    "sourceResidual": 2.3791586336391516E-12,
+    "nativeResidual": 7.2589087702977007E-12,
+    "nativeReturn": 6.9310713300512336E-12,
+    "nativeAccepted1e8": true,
+    "nativeAccepted1e7": true,
+    "sourceMeanVelocity": -1.1882715940149016,
+    "meanVelocity": -1.1882715940133182,
+    "meanVelocityDifference": 1.5834000777203983E-12,
+    "maxTrajectoryStateDifference": 1.0279526636044494E-11,
+    "modeMismatchCount": 0,
+    "sourceApexGeometry": {
+      "supportMask": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "contactCount": 0,
+      "bodyPitch": 0,
+      "bodyPitchRate": 0.098888385291820563,
+      "legAngles": [
+        -0.15063742579458,
+        0.15063742579458,
+        -0.15063742579458,
+        0.15063742579458
+      ],
+      "legLengths": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "footBodyLongitudinal": [
+        -0.65006837026170383,
+        0.65006837026170383,
+        -0.65006837026170383,
+        0.65006837026170383
+      ],
+      "signedFrontMinusHindFootSpan": 1.3001367405234077,
+      "relativeSpreadBeyondHipSpan": 0.30013674052340766,
+      "configuration": "extended_suspension",
+      "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+    },
+    "otherApexGeometry": {
+      "supportMask": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "contactCount": 4,
+      "bodyPitch": 2.4290709417854051E-14,
+      "bodyPitchRate": -0.14596642389162817,
+      "legAngles": [
+        0.05663860151694964,
+        -0.056638601517188511,
+        0.05663860151694964,
+        -0.056638601517188511
+      ],
+      "legLengths": [
+        1.1938686829689744,
+        1.1938686829690117,
+        1.1938686829689744,
+        1.1938686829690117
+      ],
+      "footBodyLongitudinal": [
+        -0.432417094481286,
+        0.43241709448099919,
+        -0.432417094481286,
+        0.43241709448099919
+      ],
+      "signedFrontMinusHindFootSpan": 0.86483418896228526,
+      "relativeSpreadBeyondHipSpan": -0.13516581103771474,
+      "configuration": "contact_apex_no_suspension",
+      "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+    }
+  },
+  "interpretation": "A freshly corrected orbit near the original B2 curve matches the horizontal reflection of the other-apex representation of the new low extension. This is phase/symmetry overlap of the same periodic family, not a new finite branch-point certificate."
+}

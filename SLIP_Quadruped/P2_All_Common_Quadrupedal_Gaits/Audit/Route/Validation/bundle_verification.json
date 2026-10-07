@@ -1,0 +1,60 @@
+{
+  "verifiedUTC": "2026-10-07T06:53:06.744076+00:00",
+  "inputFiles": 90,
+  "acceptedOrbitRecords": 898,
+  "preferredFloquetMatrices": 6,
+  "preferredPerturbedMaps": 576,
+  "matrixChecks": [
+    {
+      "connection": "pip_to_pk",
+      "sideIndex": 1,
+      "spectralMismatch": 9.155133597044475e-16,
+      "expectedKernelDimension": 1,
+      "kernelThreshold": 1.7702189498342686e-06,
+      "actualPerturbedMaps": 96
+    },
+    {
+      "connection": "pip_to_pk",
+      "sideIndex": 2,
+      "spectralMismatch": 1.4217791915866692e-15,
+      "expectedKernelDimension": 2,
+      "kernelThreshold": 1.7758068155528335e-06,
+      "actualPerturbedMaps": 96
+    },
+    {
+      "connection": "pip_to_pk",
+      "sideIndex": 3,
+      "spectralMismatch": 1.1157603309187458e-15,
+      "expectedKernelDimension": 1,
+      "kernelThreshold": 1.782965157522673e-06,
+      "actualPerturbedMaps": 96
+    },
+    {
+      "connection": "pk_to_b2",
+      "sideIndex": 1,
+      "spectralMismatch": 1.7763568394002505e-15,
+      "expectedKernelDimension": 1,
+      "kernelThreshold": 5.126094238112772e-07,
+      "actualPerturbedMaps": 96
+    },
+    {
+      "connection": "pk_to_b2",
+      "sideIndex": 2,
+      "spectralMismatch": 2.1094237467877974e-15,
+      "expectedKernelDimension": 2,
+      "kernelThreshold": 7.499484361303035e-07,
+      "actualPerturbedMaps": 96
+    },
+    {
+      "connection": "pk_to_b2",
+      "sideIndex": 3,
+      "spectralMismatch": 1.7763568394002505e-15,
+      "expectedKernelDimension": 1,
+      "kernelThreshold": 5.579982873922455e-07,
+      "actualPerturbedMaps": 96
+    }
+  ],
+  "preferredPIPVariant": "coarse",
+  "B2CriticalVersusPKSourceColumn110Difference": 1.1102230246251565e-16,
+  "result": "PASS: identities, inputs, preferred aliases, spectra, kernel dimensions, route mapping and acceptance records are consistent."
+}

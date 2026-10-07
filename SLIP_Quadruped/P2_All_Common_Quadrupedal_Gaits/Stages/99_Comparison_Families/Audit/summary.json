@@ -1,0 +1,485 @@
+{
+  "scope": "All P2 branch result columns in full_branches/source_manifest.json snapshots, read only; original source names are retained. No claim beyond stored branches or continuation endpoints.",
+  "sourceManifest": "source_manifest.json",
+  "sourceManifestSHA256": "4ac082a39da155521029624fc5efe2ae90e5a33e7f0240fc0abbdf1efd5317db",
+  "snapshotPathBase": "full_branches; snapshot paths resolve relative to source_manifest.json",
+  "method": "Full initial 13-state coordinates and circular normalized event phases plus period; horizontal reflection with front/hind relabelling; phase-invariant period, contact-lag and symmetry-subspace tests.",
+  "inventory": [
+    {
+      "name": "B2_10_20_2_G.mat",
+      "sourceFile": "B2_10_20_2_G.mat",
+      "columns": 852,
+      "snapshot": "../data/B2.mat",
+      "path": "../data/B2.mat",
+      "sha256": "92007b938dd1b6c8e39f5a37446364b6f23a49c6bd532c8b49f1be1c3153efb8",
+      "initialVelocityRange": [
+        -0.028931192692882933,
+        19.516016936793108
+      ],
+      "periodRange": [
+        1.1445699038221842,
+        2.381886791471698
+      ],
+      "tdLagFractionRange": [
+        0.0004308031853054173,
+        0.49999999999901157
+      ],
+      "loLagFractionRange": [
+        0.0004308031852845451,
+        0.49999999999862554
+      ],
+      "flightCounts": [
+        0,
+        1,
+        2
+      ],
+      "minStanceDuration": 0.09844650712729047,
+      "minSwingDuration": 0.7855054167498472
+    },
+    {
+      "name": "BIP_10_20_2.mat",
+      "sourceFile": "BIP_10_20_2.mat",
+      "columns": 904,
+      "snapshot": "data/BIP_10_20_2.mat",
+      "path": "data/BIP_10_20_2.mat",
+      "sha256": "0960938761d868f95e10fb3bc75e676a16dd0ea843942b82a81de74dce154cc2",
+      "initialVelocityRange": [
+        -3.663304575881847,
+        0.5208434019643811
+      ],
+      "periodRange": [
+        2.476936235882774,
+        2.982224683529244
+      ],
+      "tdLagFractionRange": [
+        0.41161233582641765,
+        0.499998545503332
+      ],
+      "loLagFractionRange": [
+        0.4116123358259647,
+        0.4999985455032734
+      ],
+      "flightCounts": [
+        0
+      ],
+      "minStanceDuration": 1.7367069041743903,
+      "minSwingDuration": 0.4288513795430511
+    },
+    {
+      "name": "PIP_10_20_2.mat",
+      "sourceFile": "PIP_10_20_2.mat",
+      "columns": 228,
+      "snapshot": "../data/PIP_ordinary.mat",
+      "path": "../data/PIP_ordinary.mat",
+      "sha256": "9ae9cbf4c219e3843b61eaa1d979a787bef2b4ffc8f430c2aac55b8e0518c03d",
+      "initialVelocityRange": [
+        -3.2864148778561928e-12,
+        1.7564496188423896e-12
+      ],
+      "periodRange": [
+        0.9934588266549657,
+        4.519583553531601
+      ],
+      "tdLagFractionRange": [
+        0.0,
+        8.996692280049956e-13
+      ],
+      "loLagFractionRange": [
+        0.0,
+        7.684963776455334e-13
+      ],
+      "flightCounts": [
+        1
+      ],
+      "minStanceDuration": 0.5216906186167634,
+      "minSwingDuration": 0.00028284271153189433
+    },
+    {
+      "name": "PIP_10_20_2_Spread.mat",
+      "sourceFile": "PIP_10_20_2_Spread.mat",
+      "columns": 648,
+      "snapshot": "data/PIP_10_20_2_Spread.mat",
+      "path": "data/PIP_10_20_2_Spread.mat",
+      "sha256": "5577de02737e8a3ca1b13f1851d12c30c072ac95eada6d0124e571b187eca891",
+      "initialVelocityRange": [
+        0.0,
+        0.0
+      ],
+      "periodRange": [
+        1.9086225830751526,
+        8.059027508962258
+      ],
+      "tdLagFractionRange": [
+        0.0,
+        0.0
+      ],
+      "loLagFractionRange": [
+        0.0,
+        0.0
+      ],
+      "flightCounts": [
+        1
+      ],
+      "minStanceDuration": 0.5700930961256401,
+      "minSwingDuration": 1.3385294869495126
+    },
+    {
+      "name": "PK_20_2.mat",
+      "sourceFile": "PK_20_2.mat",
+      "columns": 891,
+      "snapshot": "../data/PK_supplied.mat",
+      "path": "../data/PK_supplied.mat",
+      "sha256": "45835bb5024b1dc9b875c7b8f7b205769f537a4ff4144c763058537f44dbf401",
+      "initialVelocityRange": [
+        -0.007336457148646101,
+        20.423184056395353
+      ],
+      "periodRange": [
+        0.8967107863773467,
+        1.5645202144968822
+      ],
+      "tdLagFractionRange": [
+        0.0,
+        2.1135315719789105e-12
+      ],
+      "loLagFractionRange": [
+        0.0,
+        3.102346157746183e-11
+      ],
+      "flightCounts": [
+        1
+      ],
+      "minStanceDuration": 0.09648450110580153,
+      "minSwingDuration": 0.7084297810556567
+    },
+    {
+      "name": "PK_B2_Parent.mat",
+      "sourceFile": "PK_B2_Parent.mat",
+      "columns": 259,
+      "snapshot": "../data/PK_B2_Parent.mat",
+      "path": "../data/PK_B2_Parent.mat",
+      "sha256": "9a7c2ae3b5277c8b34641be56ba7bfdd473fcf5e422d605e30c6b21362954414",
+      "initialVelocityRange": [
+        -0.709856645025154,
+        0.709807549547462
+      ],
+      "periodRange": [
+        2.123276736326943,
+        2.4409364464402943
+      ],
+      "tdLagFractionRange": [
+        0.0,
+        0.0
+      ],
+      "loLagFractionRange": [
+        0.0,
+        0.0
+      ],
+      "flightCounts": [
+        1
+      ],
+      "minStanceDuration": 1.3726277195922325,
+      "minSwingDuration": 0.70851480866996
+    }
+  ],
+  "comparisons": [
+    {
+      "otherBranch": "B2_10_20_2_G.mat",
+      "periodRangeGap": 0.09504944441107588,
+      "directState": {
+        "bipColumn": 174,
+        "otherColumn": 401,
+        "stateDistance": 0.12365468969107286,
+        "periodDifference": 0.42348000867971525,
+        "circularEventPhaseDistance": 0.11508017183874768
+      },
+      "reflectedState": {
+        "bipColumn": 240,
+        "otherColumn": 22,
+        "stateDistance": 0.04234384256461663,
+        "periodDifference": 0.6342265457388496,
+        "circularEventPhaseDistance": 0.13554533969745264
+      },
+      "directCombined": {
+        "bipColumn": 167,
+        "otherColumn": 400,
+        "combinedDistance": 0.43750662324080636,
+        "stateDistance": 0.16202951516285574,
+        "circularEventPhaseDistance": 0.11359104479290273,
+        "periodDifference": 0.39019937998223364
+      },
+      "reflectedCombined": {
+        "bipColumn": 285,
+        "otherColumn": 47,
+        "combinedDistance": 0.44058425520094985,
+        "stateDistance": 0.2204170351011678,
+        "circularEventPhaseDistance": 0.13047723702643685,
+        "periodDifference": 0.35847804282289486
+      }
+    },
+    {
+      "otherBranch": "PIP_10_20_2.mat",
+      "periodRangeGap": 0,
+      "directState": {
+        "bipColumn": 242,
+        "otherColumn": 1,
+        "stateDistance": 0.25834687435220044,
+        "periodDifference": 1.9693257473813537,
+        "circularEventPhaseDistance": 0.77908857955695
+      },
+      "reflectedState": {
+        "bipColumn": 242,
+        "otherColumn": 1,
+        "stateDistance": 0.25834687435220044,
+        "periodDifference": 1.9693257473813537,
+        "circularEventPhaseDistance": 0.77908857955695
+      },
+      "directCombined": {
+        "bipColumn": 230,
+        "otherColumn": 143,
+        "combinedDistance": 1.2015441541991692,
+        "stateDistance": 0.6878126337593645,
+        "circularEventPhaseDistance": 0.9497349431410855,
+        "periodDifference": 0.261965022680513
+      },
+      "reflectedCombined": {
+        "bipColumn": 230,
+        "otherColumn": 143,
+        "combinedDistance": 1.2015441541991614,
+        "stateDistance": 0.6878126337593509,
+        "circularEventPhaseDistance": 0.9497349431410858,
+        "periodDifference": 0.261965022680513
+      }
+    },
+    {
+      "otherBranch": "PIP_10_20_2_Spread.mat",
+      "periodRangeGap": 0,
+      "directState": {
+        "bipColumn": 251,
+        "otherColumn": 355,
+        "stateDistance": 0.3105005704553883,
+        "periodDifference": 0.9962905249399527,
+        "circularEventPhaseDistance": 0.9204265806051722
+      },
+      "reflectedState": {
+        "bipColumn": 251,
+        "otherColumn": 355,
+        "stateDistance": 0.3105005704553883,
+        "periodDifference": 0.9962905249399527,
+        "circularEventPhaseDistance": 0.9204265806051722
+      },
+      "directCombined": {
+        "bipColumn": 290,
+        "otherColumn": 395,
+        "combinedDistance": 1.2252072293436438,
+        "stateDistance": 0.5119019607698614,
+        "circularEventPhaseDistance": 0.8876338314636337,
+        "periodDifference": 0.671710740302021
+      },
+      "reflectedCombined": {
+        "bipColumn": 290,
+        "otherColumn": 395,
+        "combinedDistance": 1.2252072293436438,
+        "stateDistance": 0.5119019607698614,
+        "circularEventPhaseDistance": 0.8876338314636337,
+        "periodDifference": 0.671710740302021
+      }
+    },
+    {
+      "otherBranch": "PK_20_2.mat",
+      "periodRangeGap": 0.9124160213858918,
+      "directState": {
+        "bipColumn": 240,
+        "otherColumn": 1,
+        "stateDistance": 0.2846987898202486,
+        "periodDifference": 1.405895672015119,
+        "circularEventPhaseDistance": 0.8642666788613261
+      },
+      "reflectedState": {
+        "bipColumn": 231,
+        "otherColumn": 6,
+        "stateDistance": 0.22199004524528154,
+        "periodDifference": 1.417050777148707,
+        "circularEventPhaseDistance": 0.879453917743445
+      },
+      "directCombined": {
+        "bipColumn": 296,
+        "otherColumn": 7,
+        "combinedDistance": 1.445278910402177,
+        "stateDistance": 0.6087167215317676,
+        "circularEventPhaseDistance": 0.8277136012400003,
+        "periodDifference": 1.0164572180388263
+      },
+      "reflectedCombined": {
+        "bipColumn": 174,
+        "otherColumn": 13,
+        "combinedDistance": 1.451942413195699,
+        "stateDistance": 0.5862956668977231,
+        "circularEventPhaseDistance": 0.8518403437704338,
+        "periodDifference": 1.0191968362090678
+      }
+    },
+    {
+      "otherBranch": "PK_B2_Parent.mat",
+      "periodRangeGap": 0.035999789442479724,
+      "directState": {
+        "bipColumn": 219,
+        "otherColumn": 127,
+        "stateDistance": 0.1926738053398403,
+        "periodDifference": 0.5152521476595555,
+        "circularEventPhaseDistance": 0.6959482129649285
+      },
+      "reflectedState": {
+        "bipColumn": 219,
+        "otherColumn": 136,
+        "stateDistance": 0.19302266850606403,
+        "periodDifference": 0.5145878066007339,
+        "circularEventPhaseDistance": 0.695922406530171
+      },
+      "directCombined": {
+        "bipColumn": 185,
+        "otherColumn": 123,
+        "combinedDistance": 0.7912078125783332,
+        "stateDistance": 0.2868551245401055,
+        "circularEventPhaseDistance": 0.6905798368506315,
+        "periodDifference": 0.2585022807354447
+      },
+      "reflectedCombined": {
+        "bipColumn": 186,
+        "otherColumn": 140,
+        "combinedDistance": 0.7910901477602708,
+        "stateDistance": 0.2815535556571439,
+        "circularEventPhaseDistance": 0.6900063269780934,
+        "periodDifference": 0.2654100335525902
+      }
+    }
+  ],
+  "bipInvariantSubspaceDistanceMinima": {
+    "pronking": {
+      "value": 0.12587911212633096,
+      "bipColumn": 217
+    },
+    "verticalPIP": {
+      "value": 0.25620712798099377,
+      "bipColumn": 242
+    },
+    "stationaryZeroPitch": {
+      "value": 0.12941801882645068,
+      "bipColumn": 227
+    },
+    "stationarySpread": {
+      "value": 0.17763011096192746,
+      "bipColumn": 252
+    }
+  },
+  "bipCoverage": {
+    "entireMathematicalBranchEstablished": false,
+    "closedComponentDetected": false,
+    "terminationReasons": [
+      "Algorithm stopped: Torso height smaller than 30% of leg length.",
+      "Algorithm stops because of numerical issues."
+    ],
+    "heightCutoff": 0.3,
+    "description": "Both directions were attempted using the existing continuation criteria. A configured cutoff or solver termination is not proof of a mathematical branch endpoint."
+  },
+  "bipTdLagFractionRange": [
+    0.41161233582641765,
+    0.499998545503332
+  ],
+  "bipLoLagFractionRange": [
+    0.4116123358259647,
+    0.4999985455032734
+  ],
+  "bipContactIntervalCounts": [
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "bipFlightCounts": [
+    0
+  ],
+  "bipMinimumStanceDuration": 1.7367069041743903,
+  "bipMinimumSwingDuration": 0.4288513795430511,
+  "crossings": [
+    {
+      "coordinate": "initial_velocity",
+      "bracket": [
+        228,
+        229
+      ],
+      "interpolationFraction": 7.545807835579838e-14,
+      "initialVelocity": -2.465190328815662e-32,
+      "height": 0.9696987575348349,
+      "pitchRate": 0.12968750277236676,
+      "hindLegAngle": -0.03172959448537036,
+      "hindLegRate": -0.13180783681642333,
+      "period": 2.9778275624141735,
+      "status": "Linear interpolation candidate; not a corrected periodic solution"
+    },
+    {
+      "coordinate": "pitch_rate",
+      "bracket": [
+        134,
+        135
+      ],
+      "interpolationFraction": 0.9844905796624909,
+      "initialVelocity": 0.45185273368370954,
+      "height": 0.8348768130091797,
+      "pitchRate": -1.1519648082658485e-19,
+      "hindLegAngle": 0.33342817025822835,
+      "hindLegRate": -0.4832480007777209,
+      "period": 2.4877287304479,
+      "status": "Linear interpolation candidate; not a corrected periodic solution"
+    },
+    {
+      "coordinate": "pitch_rate",
+      "bracket": [
+        345,
+        346
+      ],
+      "interpolationFraction": 0.585761862587205,
+      "initialVelocity": -0.4341639849017268,
+      "height": 0.8529456770057824,
+      "pitchRate": 1.0842021724855044e-19,
+      "hindLegAngle": -0.2898920586514628,
+      "hindLegRate": 0.4674270816458406,
+      "period": 2.4896589087169003,
+      "status": "Linear interpolation candidate; not a corrected periodic solution"
+    },
+    {
+      "coordinate": "hind_leg_angle",
+      "bracket": [
+        218,
+        219
+      ],
+      "interpolationFraction": 0.5852831834130288,
+      "initialVelocity": 0.04429365921353859,
+      "height": 0.9699317093250817,
+      "pitchRate": 0.1261666345440902,
+      "hindLegAngle": -1.0842021724855044e-19,
+      "hindLegRate": -0.1718335495656053,
+      "period": 2.9396300948643734,
+      "status": "Linear interpolation candidate; not a corrected periodic solution"
+    },
+    {
+      "coordinate": "hind_leg_angle",
+      "bracket": [
+        567,
+        568
+      ],
+      "interpolationFraction": 0.3096613349737633,
+      "initialVelocity": -0.693299694873912,
+      "height": 0.6231875972632125,
+      "pitchRate": -0.5748153446794628,
+      "hindLegAngle": 1.0842021724855044e-19,
+      "hindLegRate": 1.687315241898904,
+      "period": 2.792407109967243,
+      "status": "Linear interpolation candidate; not a corrected periodic solution"
+    }
+  ],
+  "conclusion": "No intersection of the saved BIP orbits with any other saved P2 branch is established. Period ranges exclude the saved B2 and PK full cycles. Positive distances to invariant state subspaces and asynchronous contacts exclude phase-equivalent synchronous or stationary families. These are not proofs of globally disconnected continuation components.",
+  "multipleCoverCaveat": "A doubled or higher cover repeats each labelled leg contact cycle; current BIP has exactly one nondegenerate stance and one swing interval per leg and no flight per stored cycle. It cannot equal a nondegenerate repeated synchronous pronking/vertical cycle, nor a repeated B2 cycle with one stance/swing per leg. Degenerate-event or farther continuation limits are not excluded."
+}

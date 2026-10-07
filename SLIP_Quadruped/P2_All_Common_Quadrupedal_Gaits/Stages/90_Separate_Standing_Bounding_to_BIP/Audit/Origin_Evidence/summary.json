@@ -1,0 +1,679 @@
+{
+  "conclusion": "The saved drifting BIP branch connects locally to a newly identified standing bounding parent family. This is distinct from the previously saved PIP, spread and pronking parents. Global extent remains unestablished.",
+  "sourceSHA256": "0960938761d868f95e10fb3bc75e676a16dd0ea843942b82a81de74dce154cc2",
+  "frozenSource": "../data/BIP_10_20_2.mat",
+  "replay": {
+    "sourceFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/full_branches/data/BIP_10_20_2.mat",
+    "originalSourceProvenancePath": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/BIP_10_20_2.mat",
+    "sourceSHA256": "0960938761d868f95e10fb3bc75e676a16dd0ea843942b82a81de74dce154cc2",
+    "codePath": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/Quadrupedal_ZeroFun_v2.m",
+    "columns": 904,
+    "completed": 904,
+    "maxResidualInf": 7.623476294682519e-10,
+    "maxResidual2": 9.881331125260425e-10,
+    "passedResidual1e8": 904,
+    "failedColumns": [],
+    "meanVelocityRange": [
+      -0.5516465841322176,
+      0.5516464834826212
+    ],
+    "minimumHeight": 0.04415665478609958,
+    "minimumGRF": -9.637331999175176,
+    "maxPairedStateError": 1.629539415493042e-05,
+    "apexCountRange": [
+      2,
+      3
+    ],
+    "zeroVelocitySeedColumn": 228,
+    "zeroVelocitySeedMetrics": [
+      228,
+      1.870143444444564e-16,
+      0.9696987575348349,
+      2.9778275624141735,
+      0.01938092468631167,
+      2.439159985101469e-13,
+      3.0470278565745513e-13,
+      0.9681747516942648,
+      -2.220446049250313e-15,
+      -2.2194117518366788e-15,
+      1.5265566588595902e-16,
+      0.19191604452633837,
+      0.19191604451904554,
+      2,
+      1,
+      0,
+      1.5265566588595902e-16
+    ],
+    "endpoints": [
+      [
+        1,
+        0.5019184919893058,
+        0.2980079061548051,
+        2.653363871449534,
+        0.5178606098037817,
+        9.442446824436956e-14,
+        9.934641860245335e-14,
+        0.2980079061548051,
+        -3.99999398263303,
+        -3.903344328803486,
+        0,
+        5.730317067535312,
+        5.730317067531011,
+        2,
+        1,
+        0,
+        0
+      ],
+      [
+        904,
+        -3.663304575881847,
+        0.33730895074271106,
+        2.765613878661123,
+        -0.1234751730827829,
+        7.623476294682519e-10,
+        9.881331125260425e-10,
+        0.04415665478609958,
+        -9.637331999175176,
+        -5.113133325754698,
+        7.694556103388095e-11,
+        6.347482213626064,
+        6.347482208354428,
+        3,
+        2,
+        0,
+        7.694556103388095e-11
+      ]
+    ],
+    "extremaMethod": "Linear interpolation of unique-time physical trajectories; phase candidates, not root-refined certificates.",
+    "selectedSection": "The native periodic residual fixes dy=0; this does not by itself require descending apex.",
+    "pairedStateMethod": "Keep pre/post physical states but omit intermediate reset bookkeeping within intervals that production treats as zero duration (<1e-12). Exact-time grouping diagnostic also retained as metric17."
+  },
+  "criticalStandingOrbit": {
+    "criticalCandidate": [
+      -0.020691583207685958,
+      0.9690897843863454,
+      0,
+      0,
+      0.13075912657904729,
+      -0.04664107368373334,
+      -0.11259605098521179,
+      0.04664107368373334,
+      -0.11259605098521179,
+      -0.04664107368373334,
+      -0.11259605098521179,
+      0.04664107368373334,
+      -0.11259605098521179,
+      2.6142003734045054,
+      1.859141799772755,
+      1.123086315678898,
+      0.36802774204714767,
+      2.6142003734045054,
+      1.859141799772755,
+      1.123086315678898,
+      0.36802774204714767,
+      2.982228115451653
+    ],
+    "initialVelocity": -0.020691583207685958,
+    "height": 0.9690897843863454,
+    "pitchRate": 0.13075912657904729,
+    "period": 2.982228115451653,
+    "criticalMeanVelocity": -4.15804672994869e-15,
+    "criticalResidualInf": 3.5974001555416635e-13,
+    "extrapolationDifferenceInf": 6.425793230846466e-11
+  },
+  "criticalSingularValues": [
+    20.563647268609817,
+    9.673120747972913,
+    3.6184436936788784,
+    2.094677332387742,
+    1.9526064011797208,
+    1.9526064011658502,
+    1.2419556344545115,
+    0.9992326691723923,
+    0.9992326691712171,
+    0.9981360315778207,
+    0.7003421696479157,
+    0.6767318516346442,
+    0.12170175452287589,
+    0.07216101588356455,
+    0.06713443618466762,
+    0.06704720116497859,
+    0.06704720114506636,
+    0.06646037497237192,
+    0.06646037496628189,
+    0.03853842856956211,
+    1.5936760491253442e-09,
+    1.174927785535888e-11
+  ],
+  "criticalDerivativeRefinementNorm2": 5.8177062088386815e-08,
+  "parentAndDaughterTangents": {
+    "criticalPeriod": 2.982228115451653,
+    "parentKernelProjectionError": 1.1372464518641215e-09,
+    "parentJacobianResidual": 3.5955848888885163e-10,
+    "daughterKernelProjectionError": 4.5715582559467706e-08,
+    "daughterJacobianResidual": 3.086893232267666e-08,
+    "parentDaughterAbsoluteCosine": 0.11464688434356729,
+    "daughterTransverseNorm": 0.9934063075651939,
+    "transverseDaughterJacobianResidual": 3.107360892318516e-08,
+    "signedSchurAtMinusCriticalPlus": [
+      -4.103872605994018e-05,
+      -1.5630755537248737e-09,
+      4.118002409389364e-05
+    ],
+    "method": "Standing half-period reflection chart, independently fixed-period corrected parents; native22 Jacobian. Signed Schur removes verified parent tangent and conservation left-null direction and is a rank diagnostic, not a Floquet multiplier."
+  },
+  "localParentChecks": [
+    {
+      "periodOffset": -0.0001,
+      "period": 2.9821281154516526,
+      "initialVelocity": -0.020689313963267463,
+      "height": 0.9690918466856019,
+      "meanVelocity": -3.1374194269777203e-13,
+      "residualInf": 3.585465258026943e-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4,
+      "singularValues": [
+        [
+          20.56131493512605,
+          20.561315646056865,
+          20.56131582397696,
+          20.561315868099445
+        ],
+        [
+          9.669506272379069,
+          9.669506306698729,
+          9.669506315049423,
+          9.669506317596962
+        ],
+        [
+          3.6180389350209197,
+          3.618038923067251,
+          3.618038920342331,
+          3.6180389194679985
+        ],
+        [
+          2.094728625831962,
+          2.094728587094443,
+          2.0947285774404607,
+          2.0947285748859215
+        ],
+        [
+          1.9527777309500245,
+          1.9527777302274496,
+          1.9527777300526463,
+          1.9527777299891222
+        ],
+        [
+          1.9527777298655056,
+          1.952777729950194,
+          1.952777729986298,
+          1.952777729979091
+        ],
+        [
+          1.2423598174084198,
+          1.242359809924908,
+          1.2423598081472835,
+          1.2423598077791
+        ],
+        [
+          0.99923265340881,
+          0.999232653385982,
+          0.9992326533793053,
+          0.9992326533796551
+        ],
+        [
+          0.9992326533338163,
+          0.9992326533671607,
+          0.9992326533746207,
+          0.9992326533784114
+        ],
+        [
+          0.9981371768152707,
+          0.9981371788936199,
+          0.9981371794114106,
+          0.9981371795436258
+        ],
+        [
+          0.7003630682254742,
+          0.7003631001633226,
+          0.7003631081175278,
+          0.7003631101511684
+        ],
+        [
+          0.6766517561465596,
+          0.6766517962181307,
+          0.6766518062326637,
+          0.6766518087469245
+        ],
+        [
+          0.12168591455656078,
+          0.12168591695866914,
+          0.12168591758155223,
+          0.1216859176952551
+        ],
+        [
+          0.07214666295184685,
+          0.07214665804019875,
+          0.07214665679064587,
+          0.07214665646933865
+        ],
+        [
+          0.06711384859122023,
+          0.0671138488435641,
+          0.06711384891299485,
+          0.06711384889797106
+        ],
+        [
+          0.06702772050086216,
+          0.06702771996849703,
+          0.06702771983668353,
+          0.06702771980117372
+        ],
+        [
+          0.06702771991710765,
+          0.06702771982047191,
+          0.06702771980436668,
+          0.0670277197971712
+        ],
+        [
+          0.06644228156911507,
+          0.06644228172801309,
+          0.06644228178254291,
+          0.06644228178447427
+        ],
+        [
+          0.06644228109867807,
+          0.0664422816104012,
+          0.0664422817449773,
+          0.06644228178124997
+        ],
+        [
+          0.03852862391517849,
+          0.038528621046839726,
+          0.03852862027689515,
+          0.038528620119017656
+        ],
+        [
+          4.1135687834557864e-05,
+          4.106181396085873e-05,
+          4.10433681856458e-05,
+          4.103872248872688e-05
+        ],
+        [
+          2.08656270587972e-09,
+          5.285269041973741e-10,
+          1.2686032457809626e-10,
+          1.519984280373043e-11
+        ]
+      ],
+      "refinementNorm2": [
+        9.330940618282614e-07,
+        2.3334161955723388e-07,
+        5.814415479302872e-08
+      ]
+    },
+    {
+      "periodOffset": -1e-05,
+      "period": 2.9822181154516527,
+      "initialVelocity": -0.02069135626756947,
+      "height": 0.9690899905964742,
+      "meanVelocity": -3.119131760729076e-13,
+      "residualInf": 3.5926817076870066e-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4
+    },
+    {
+      "periodOffset": 1e-05,
+      "period": 2.982238115451653,
+      "initialVelocity": -0.02069181015202115,
+      "height": 0.9690895781805896,
+      "meanVelocity": -3.1552612991890934e-13,
+      "residualInf": 3.6032288264209456e-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4
+    },
+    {
+      "periodOffset": 0.0001,
+      "period": 2.982328115451653,
+      "initialVelocity": -0.020693852807802164,
+      "height": 0.9690877225266686,
+      "meanVelocity": -3.0149091077015373e-13,
+      "residualInf": 3.591016373150069e-13,
+      "halfPeriodEventLagError": 0,
+      "exitflag": 4,
+      "singularValues": [
+        [
+          20.565979528999165,
+          20.565980240352186,
+          20.56598041797545,
+          20.565980462118617
+        ],
+        [
+          9.676735043652853,
+          9.676735078185006,
+          9.676735086718821,
+          9.676735088684197
+        ],
+        [
+          3.6188479445774004,
+          3.6188479325292615,
+          3.618847929795453,
+          3.6188479290920195
+        ],
+        [
+          2.094625957908431,
+          2.094625919110149,
+          2.094625909610671,
+          2.0946259069294593
+        ],
+        [
+          1.9524348493289383,
+          1.9524348486052208,
+          1.9524348484171015,
+          1.9524348483729153
+        ],
+        [
+          1.9524348482446654,
+          1.952434848337705,
+          1.9524348483432226,
+          1.9524348483604255
+        ],
+        [
+          1.2415517438205008,
+          1.2415517363724355,
+          1.2415517345467424,
+          1.241551734169516
+        ],
+        [
+          0.9992326851470666,
+          0.9992326851241919,
+          0.9992326851176307,
+          0.999232685117906
+        ],
+        [
+          0.9992326850719697,
+          0.9992326851055223,
+          0.9992326851128887,
+          0.9992326851167374
+        ],
+        [
+          0.99813487735148,
+          0.9981348794328349,
+          0.9981348799518678,
+          0.9981348800830273
+        ],
+        [
+          0.7003213260721037,
+          0.7003213578143401,
+          0.7003213657070076,
+          0.7003213677124769
+        ],
+        [
+          0.6768116506243289,
+          0.6768116909072481,
+          0.6768117009573369,
+          0.676811703473258
+        ],
+        [
+          0.12171758705860662,
+          0.121717589449257,
+          0.12171759005120568,
+          0.12171759020155469
+        ],
+        [
+          0.07217537869010908,
+          0.0721753737971056,
+          0.07217537254944437,
+          0.07217537225469524
+        ],
+        [
+          0.06715501572324271,
+          0.06715501597930343,
+          0.06715501600142931,
+          0.06715501603079016
+        ],
+        [
+          0.06706667849135237,
+          0.06706667796117735,
+          0.06706667782858003,
+          0.06706667779466753
+        ],
+        [
+          0.06706667790178883,
+          0.06706667781102486,
+          0.06706667779678556,
+          0.06706667778147521
+        ],
+        [
+          0.06647846243861819,
+          0.0664784626014208,
+          0.06647846265290538,
+          0.06647846264588955
+        ],
+        [
+          0.06647846196689386,
+          0.06647846248190561,
+          0.06647846261407185,
+          0.06647846264123179
+        ],
+        [
+          0.03854823021417117,
+          0.03854822735250143,
+          0.03854822666084059,
+          0.038548226429101384
+        ],
+        [
+          4.1083083695159594e-05,
+          4.1156964209401846e-05,
+          4.117542558434761e-05,
+          4.1180020644894555e-05
+        ],
+        [
+          2.08241405725952e-09,
+          5.295267041489999e-10,
+          1.376522584976639e-10,
+          3.58407515486552e-11
+        ]
+      ],
+      "refinementNorm2": [
+        9.335660654279451e-07,
+        2.3323238111565225e-07,
+        5.7998760261623654e-08
+      ]
+    }
+  ],
+  "sourceLinkChecks": [
+    {
+      "sourceColumn": 233,
+      "targetMeanVelocity": 0.0005405685029580021,
+      "sourceSolutionDifferenceInf": 2.9659252831493177e-10,
+      "sourceSolutionDifference2": 5.566381766410468e-10,
+      "residualAndMeanConstraintInf": 3.6004532688593827e-13,
+      "exitflag": 4
+    },
+    {
+      "sourceColumn": 234,
+      "targetMeanVelocity": -0.004111005495393582,
+      "sourceSolutionDifferenceInf": 4.1731063049610384e-11,
+      "sourceSolutionDifference2": 7.65739722609519e-11,
+      "residualAndMeanConstraintInf": 3.6673442060930483e-13,
+      "exitflag": 4
+    }
+  ],
+  "sourceSecantDaughterTangentAbsoluteCosine": 0.9996635065134848,
+  "otherLocalRegularity": [
+    {
+      "name": "saved_1",
+      "residualInf": 9.442446824436956e-14,
+      "smallestThreeSingularValuesAscending": [
+        2.4646163132936176e-07,
+        0.10367436785970173,
+        0.28356850214113727
+      ],
+      "lastRefinementNorm2": 0.00017817180359702963,
+      "interpretation": "Resolved gap consistent with one continuation null direction."
+    },
+    {
+      "name": "saved_217",
+      "residualInf": 2.412237076754309e-13,
+      "smallestThreeSingularValuesAscending": [
+        7.68520330873547e-11,
+        0.02417059601942675,
+        0.05625755884130265
+      ],
+      "lastRefinementNorm2": 8.697765167465408e-08,
+      "interpretation": "Resolved gap consistent with one continuation null direction."
+    },
+    {
+      "name": "saved_228",
+      "residualInf": 2.439159985101469e-13,
+      "smallestThreeSingularValuesAscending": [
+        2.0021780267306197e-10,
+        0.009416132587125325,
+        0.03839918496864022
+      ],
+      "lastRefinementNorm2": 6.525093551981652e-08,
+      "interpretation": "Resolved gap consistent with one continuation null direction."
+    },
+    {
+      "name": "saved_904",
+      "residualInf": 7.623476294682519e-10,
+      "smallestThreeSingularValuesAscending": [
+        0.00119112049464013,
+        0.03749377797536035,
+        0.04870663697678308
+      ],
+      "lastRefinementNorm2": 489.2720833913406,
+      "interpretation": "Inconclusive: finite-difference sensitivity prevents a local rank conclusion."
+    },
+    {
+      "name": "pitch_zero_134_135",
+      "residualInf": 2.8554936193359026e-13,
+      "smallestThreeSingularValuesAscending": [
+        3.5555112561981545e-10,
+        0.048823257901203586,
+        0.4711499678663859
+      ],
+      "lastRefinementNorm2": 1.7540780799710306e-07,
+      "interpretation": "Resolved gap consistent with one continuation null direction."
+    },
+    {
+      "name": "pitch_zero_345_346",
+      "residualInf": 3.091971123581061e-13,
+      "smallestThreeSingularValuesAscending": [
+        2.078885710807323e-10,
+        0.10792879620183217,
+        0.46037091805795843
+      ],
+      "lastRefinementNorm2": 3.1027947085032583e-08,
+      "interpretation": "Resolved gap consistent with one continuation null direction."
+    }
+  ],
+  "regularStandingMeanZeroOrbit": {
+    "period": 2.9822088502663644,
+    "initialVelocity": -0.02069114600587358,
+    "height": 0.969090181657926,
+    "secondSmallestJacobianSingularValue": 7.918665962592575e-06,
+    "note": "The unconstrained mean-zero corrector lands on this nearby regular standing-parent point; it is not the bifurcation point."
+  },
+  "resetDiagnostic": {
+    "column": 777,
+    "maximum": 1.629539415493042e-05,
+    "time": 0.8494083822453097,
+    "eventDistance": 0,
+    "pairEventLag": 2.7222235576829235e-10,
+    "maximumAwayFrom1e8EventWindow": 1.5361045768713666e-12,
+    "sourcePairStateError": 3.601563491884008e-13,
+    "sourcePairTimingError": 2.7222235576829235e-10,
+    "residualInf": 2.8089730541580593e-10,
+    "timing": [
+      2.4218042267379194,
+      1.983290851829926,
+      0.8494083822453097,
+      0.4108961519290451,
+      2.4218042267380735,
+      1.9832908518296575,
+      0.849408382517532,
+      0.41089615193002216,
+      2.832700378283276
+    ],
+    "nearRows": [
+      [
+        0.8492726387723548,
+        1.45328193923433e-13
+      ],
+      [
+        0.8493405105088323,
+        1.45328193923433e-13
+      ],
+      [
+        0.8494083822453097,
+        1.4555023852835802e-13
+      ],
+      [
+        0.8494083822453097,
+        1.629539415493042e-05
+      ],
+      [
+        0.8494083822453097,
+        1.629539415493042e-05
+      ],
+      [
+        0.8494083822521152,
+        1.6295297268431597e-05
+      ],
+      [
+        0.8494083822589208,
+        1.6295200381932773e-05
+      ]
+    ]
+  },
+  "limitations": [
+    "Native fixed-event periodic residual and Jacobian evidence, not a substitute for the separately performed full12-state Floquet audit.",
+    "All stored sections are vertical minima in this replay; full Floquet evaluation must first choose a descending apex with unchanged full cycle.",
+    "The second stored endpoint Jacobian is inconclusive; the height cutoff and numerical continuation stop do not establish the entire branch or isolation.",
+    "Interpolated extrema in replay.mat are phase candidates, not independently root-refined certificates."
+  ],
+  "artifacts": {
+    "input_snapshot.mat": {
+      "path": "input_snapshot.mat",
+      "sha256": "945da1c7a951c01536a2d9582ecfe879eb46dbc21dd95b236db66721fc95eeca"
+    },
+    "replay.mat": {
+      "path": "replay.mat",
+      "sha256": "87ac6357291d1ae23d894e4389e4dc6a7f0b7a1a7d1de4b3386c17be1c778d73"
+    },
+    "local_checks.mat": {
+      "path": "local_checks.mat",
+      "sha256": "4e0c75dace44c4c50bfab97dd568750362a76f80f3acb1bf529c8f5d5f0159e3"
+    },
+    "mean_zero.mat": {
+      "path": "mean_zero.mat",
+      "sha256": "d5f8b33953f8eb743d3c7250ff29fdd40a0ea3d2ceb43d27b25c40b66dd73195"
+    },
+    "mean_zero_neighbors.mat": {
+      "path": "mean_zero_neighbors.mat",
+      "sha256": "367dc5a70431da818a28614c472ab280ace389afb7fecb7e7fcc487c1880323a"
+    },
+    "drift_daughters.mat": {
+      "path": "drift_daughters.mat",
+      "sha256": "d2314c0a932871db3f80240ff1c72db5e9621ba0b5d4808d133030243fe52f61"
+    },
+    "standing_parent.mat": {
+      "path": "standing_parent.mat",
+      "sha256": "16b01376fbf15e2ae67e9e5d91337c26919e09ef321d0a5baeff4de9c1450935"
+    },
+    "source_link.mat": {
+      "path": "source_link.mat",
+      "sha256": "5cfbdc18037c85d63c55eef3201b30f0e0c59be07f7eaf8f4c039f4b40b5d7b2"
+    },
+    "pair_reset_diagnostic.mat": {
+      "path": "pair_reset_diagnostic.mat",
+      "sha256": "0b8d70db16e075843e5112d23170f7112c1ebf224a75f0d0b74d5084c256a050"
+    },
+    "plot_data.mat": {
+      "path": "plot_data.mat",
+      "sha256": "36a2e64dba200b62c4d6d33cf70727ac84541ba34a727e9d94852f3bbdbec6f1"
+    }
+  }
+}

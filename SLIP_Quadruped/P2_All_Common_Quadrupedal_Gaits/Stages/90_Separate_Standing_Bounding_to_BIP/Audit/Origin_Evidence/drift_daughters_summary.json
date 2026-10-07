@@ -1,0 +1,290 @@
+{
+  "amplitudes": [
+    0.001,
+    0.0002,
+    5E-5
+  ],
+  "daughterChecks": [
+    {
+      "targetMean": -0.001,
+      "meanVelocity": -0.0010000000000001065,
+      "residualInf": 3.6082248300317588E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 9,
+        "funcCount": 82,
+        "stepsize": 2.7980231624811595E-12,
+        "cgiterations": [],
+        "firstorderopt": 1.7887593981913405E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 6.231789e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.193112e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "initialVelocity": -0.021761085608797054,
+      "height": 0.9690499431223375,
+      "period": 2.9822163700370683
+    },
+    {
+      "targetMean": 0.001,
+      "meanVelocity": 0.000999999999999763,
+      "residualInf": 3.596012376760882E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 9,
+        "funcCount": 82,
+        "stepsize": 6.245183673745589E-13,
+        "cgiterations": [],
+        "firstorderopt": 2.1638232668265157E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.391202e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.188492e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "initialVelocity": -0.019622257549322342,
+      "height": 0.96912880915440625,
+      "period": 2.9822163700535285
+    },
+    {
+      "targetMean": -0.0002,
+      "meanVelocity": -0.00020000000000006943,
+      "residualInf": 3.596012376760882E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 11,
+        "funcCount": 101,
+        "stepsize": 1.5203428600755356E-12,
+        "cgiterations": [],
+        "firstorderopt": 3.6149729579170652E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 3.386373e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.189014e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "initialVelocity": -0.02090546962061985,
+      "height": 0.96908188139324813,
+      "period": 2.9822276456408079
+    },
+    {
+      "targetMean": 0.0002,
+      "meanVelocity": 0.00020000000000006365,
+      "residualInf": 3.6107228318371654E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 11,
+        "funcCount": 100,
+        "stepsize": 9.9894414417594344E-13,
+        "cgiterations": [],
+        "firstorderopt": 9.3477306403276526E-15,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 2.225109e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.196607e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "initialVelocity": -0.020477703867301723,
+      "height": 0.96909765471748177,
+      "period": 2.9822276457184649
+    },
+    {
+      "targetMean": -5E-5,
+      "meanVelocity": -5.0000000000119624E-5,
+      "residualInf": 3.5943470422239443E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 12,
+        "funcCount": 114,
+        "stepsize": 7.3775081969032607E-13,
+        "cgiterations": [],
+        "firstorderopt": 7.0346906543093183E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.643271e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.176556e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "initialVelocity": -0.020745054146244266,
+      "height": 0.96908781170165792,
+      "period": 2.9822280859788552
+    },
+    {
+      "targetMean": 5E-5,
+      "meanVelocity": 4.9999999999846527E-5,
+      "residualInf": 3.5862979252954119E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 11,
+        "funcCount": 114,
+        "stepsize": 7.8223961578076985E-13,
+        "cgiterations": [],
+        "firstorderopt": 2.4919789007618746E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.742382e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.185614e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      },
+      "initialVelocity": -0.020638112711162008,
+      "height": 0.96909175502966027,
+      "period": 2.9822280862029484
+    }
+  ],
+  "criticalCandidate": [
+    -0.020691583207685958,
+    0.96908978438634541,
+    0,
+    0,
+    0.13075912657904729,
+    -0.046641073683733339,
+    -0.11259605098521179,
+    0.046641073683733339,
+    -0.11259605098521179,
+    -0.046641073683733339,
+    -0.11259605098521179,
+    0.046641073683733339,
+    -0.11259605098521179,
+    2.6142003734045054,
+    1.8591417997727551,
+    1.1230863156788979,
+    0.36802774204714767,
+    2.6142003734045054,
+    1.8591417997727551,
+    1.1230863156788979,
+    0.36802774204714767,
+    2.9822281154516528
+  ],
+  "criticalResidualInf": 3.5974001555416635E-13,
+  "criticalMeanVelocity": -4.15804672994869E-15,
+  "initialVelocity": -0.020691583207685958,
+  "height": 0.96908978438634541,
+  "pitchRate": 0.13075912657904729,
+  "period": 2.9822281154516528,
+  "extrapolationDifferenceInf": 6.425793230846466E-11,
+  "singularValues": [
+    [
+      20.5636463351755,
+      20.563647046109121,
+      20.563647224159357,
+      20.563647268609817
+    ],
+    [
+      9.6731207024075747,
+      9.6731207368218417,
+      9.6731207453696086,
+      9.6731207479729129
+    ],
+    [
+      3.6184437088222916,
+      3.61844369697249,
+      3.6184436939391946,
+      3.6184436936788784
+    ],
+    [
+      2.0946773833774346,
+      2.0946773446382077,
+      2.094677334909901,
+      2.0946773323877421
+    ],
+    [
+      1.9526064021190357,
+      1.9526064013945355,
+      1.9526064012067055,
+      1.9526064011797208
+    ],
+    [
+      1.9526064010313082,
+      1.952606401127895,
+      1.9526064011401179,
+      1.9526064011658502
+    ],
+    [
+      1.2419556442219335,
+      1.2419556368394735,
+      1.2419556350427197,
+      1.2419556344545115
+    ],
+    [
+      0.999232669201618,
+      0.99923266917876319,
+      0.99923266917205689,
+      0.99923266917239228
+    ],
+    [
+      0.99923266912654873,
+      0.99923266915998232,
+      0.99923266916753484,
+      0.99923266917121711
+    ],
+    [
+      0.99813602884658525,
+      0.99813603092678382,
+      0.99813603144555785,
+      0.99813603157782071
+    ],
+    [
+      0.70034212782779837,
+      0.70034215965977509,
+      0.70034216757841294,
+      0.70034216964791574
+    ],
+    [
+      0.6767317989104813,
+      0.67673183906689149,
+      0.67673184912997408,
+      0.67673185163464422
+    ],
+    [
+      0.12170175139257873,
+      0.12170175378948656,
+      0.12170175438704961,
+      0.12170175452287589
+    ],
+    [
+      0.072161022340624853,
+      0.072161017415495243,
+      0.072161016153729732,
+      0.07216101588356455
+    ],
+    [
+      0.0671344359192815,
+      0.0671344361560965,
+      0.067134436220474783,
+      0.06713443618466762
+    ],
+    [
+      0.067047201864423256,
+      0.067047201331236345,
+      0.067047201198204329,
+      0.067047201164978587
+    ],
+    [
+      0.067047201277897733,
+      0.067047201183660532,
+      0.0670472011650044,
+      0.067047201145066362
+    ],
+    [
+      0.066460374761888319,
+      0.066460374923327042,
+      0.06646037496286275,
+      0.066460374972371922
+    ],
+    [
+      0.066460374289455976,
+      0.066460374804844,
+      0.066460374933780569,
+      0.06646037496628189
+    ],
+    [
+      0.038538432352967521,
+      0.038538429466937106,
+      0.03853842879078203,
+      0.038538428569562112
+    ],
+    [
+      1.002606564997664E-7,
+      2.507119583192792E-8,
+      6.275079701930808E-9,
+      1.5936760491253442E-9
+    ],
+    [
+      2.5707471365607188E-9,
+      6.4465592955847869E-10,
+      1.6457552562825056E-10,
+      1.174927785535888E-11
+    ]
+  ],
+  "refinementNorm2": [
+    9.3325583365782962E-7,
+    2.3348912527415845E-7,
+    5.8177062088386815E-8
+  ],
+  "daughterKernelProjectionError": 4.5715582559467706E-8,
+  "daughterJacobianResidual": 3.086893232267666E-8,
+  "method": "Fixed signed mean-speed daughters; even-in-speed zero-amplitude extrapolation; full native periodic residual and four-step full22 Jacobian check."
+}

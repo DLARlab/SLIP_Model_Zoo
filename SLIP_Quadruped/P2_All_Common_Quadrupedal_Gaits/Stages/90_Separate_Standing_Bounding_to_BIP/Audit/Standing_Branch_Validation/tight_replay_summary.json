@@ -1,0 +1,131 @@
+{
+  "checks": [
+    {
+      "plusColumn": 160,
+      "tolerance": 1E-13,
+      "nativeResidualInf": 9.4942723127822148E-10,
+      "fullResidualInf": 9.49161527152853E-10,
+      "fullResidual2": 2.7866877204523009E-9,
+      "meanVelocity": 1.5547354918081939E-10,
+      "halfReflectionErrorInf": 1.1915468611789493E-9
+    },
+    {
+      "plusColumn": 162,
+      "tolerance": 1E-13,
+      "nativeResidualInf": 9.6724103726408828E-10,
+      "fullResidualInf": 9.6700161766882786E-10,
+      "fullResidual2": 2.8435593857274806E-9,
+      "meanVelocity": 1.5856732794708581E-10,
+      "halfReflectionErrorInf": 1.2153620332355786E-9
+    },
+    {
+      "plusColumn": 190,
+      "tolerance": 1E-13,
+      "nativeResidualInf": 3.8699797533237046E-10,
+      "fullResidualInf": 5.8486858411921361E-9,
+      "fullResidual2": 1.0061745474599276E-8,
+      "meanVelocity": -1.9346196170484614E-11,
+      "halfReflectionErrorInf": 1.7329249146769143E-11
+    },
+    {
+      "plusColumn": 195,
+      "tolerance": 1E-13,
+      "nativeResidualInf": 2.0906374409435102E-9,
+      "fullResidualInf": 1.0589117457882047E-8,
+      "fullResidual2": 1.7347656409919584E-8,
+      "meanVelocity": -6.2088882546877282E-11,
+      "halfReflectionErrorInf": 1.7938539542683429E-11
+    },
+    {
+      "plusColumn": 200,
+      "tolerance": 1E-13,
+      "nativeResidualInf": 1.8817735546877712E-9,
+      "fullResidualInf": 2.5601761015001112E-8,
+      "fullResidual2": 4.2136322980140996E-8,
+      "meanVelocity": 5.6481358073710346E-11,
+      "halfReflectionErrorInf": 1.9108801346812143E-11
+    },
+    {
+      "plusColumn": 205,
+      "tolerance": 1E-13,
+      "nativeResidualInf": 7.8658050402941049E-9,
+      "fullResidualInf": 4.8718072657646938E-8,
+      "fullResidual2": 8.0068197632599224E-8,
+      "meanVelocity": 1.1747148779082253E-10,
+      "halfReflectionErrorInf": 3.5486832222764164E-11
+    },
+    {
+      "plusColumn": 210,
+      "tolerance": 1E-13,
+      "nativeResidualInf": 2.2308676156379548E-9,
+      "fullResidualInf": 1.2741646568913134E-7,
+      "fullResidual2": 2.0947487796847711E-7,
+      "meanVelocity": 2.98918818838873E-10,
+      "halfReflectionErrorInf": 8.9476150447187486E-11
+    },
+    {
+      "plusColumn": 160,
+      "tolerance": 3E-14,
+      "nativeResidualInf": 9.4942723127822148E-10,
+      "fullResidualInf": 9.4915053594490928E-10,
+      "fullResidual2": 2.7897286586986529E-9,
+      "meanVelocity": 1.5545914577933071E-10,
+      "halfReflectionErrorInf": 1.1914096376131056E-9
+    },
+    {
+      "plusColumn": 162,
+      "tolerance": 3E-14,
+      "nativeResidualInf": 9.6724103726408828E-10,
+      "fullResidualInf": 9.6697974627524275E-10,
+      "fullResidual2": 2.8364050226255654E-9,
+      "meanVelocity": 1.5850642447624198E-10,
+      "halfReflectionErrorInf": 1.2151062378507049E-9
+    },
+    {
+      "plusColumn": 190,
+      "tolerance": 3E-14,
+      "nativeResidualInf": 3.8699797533237046E-10,
+      "fullResidualInf": 9.6324783566137384E-9,
+      "fullResidual2": 1.6595892033668845E-8,
+      "meanVelocity": -2.9839046061997939E-11,
+      "halfReflectionErrorInf": 2.297806389606194E-11
+    },
+    {
+      "plusColumn": 195,
+      "tolerance": 3E-14,
+      "nativeResidualInf": 2.0906374409435102E-9,
+      "fullResidualInf": 1.3922520206155475E-8,
+      "fullResidual2": 2.287187486006719E-8,
+      "meanVelocity": -7.0730142625790854E-11,
+      "halfReflectionErrorInf": 2.0420554136535429E-11
+    },
+    {
+      "plusColumn": 200,
+      "tolerance": 3E-14,
+      "nativeResidualInf": 1.8817735546877712E-9,
+      "fullResidualInf": 3.3010147136580681E-8,
+      "fullResidual2": 5.4326934356319536E-8,
+      "meanVelocity": 7.3112201207633776E-11,
+      "halfReflectionErrorInf": 2.4286558875097342E-11
+    },
+    {
+      "plusColumn": 205,
+      "tolerance": 3E-14,
+      "nativeResidualInf": 7.8658050402941049E-9,
+      "fullResidualInf": 3.146396698565368E-8,
+      "fullResidual2": 5.16989163700158E-8,
+      "meanVelocity": 7.7366964039136363E-11,
+      "halfReflectionErrorInf": 2.3708875140915353E-11
+    },
+    {
+      "plusColumn": 210,
+      "tolerance": 3E-14,
+      "nativeResidualInf": 2.2308676156379548E-9,
+      "fullResidualInf": 7.9697774222134421E-8,
+      "fullResidual2": 1.3100976483229759E-7,
+      "meanVelocity": 1.8871154785509355E-10,
+      "halfReflectionErrorInf": 5.6828647690410072E-11
+    }
+  ],
+  "role": "Diagnostic only; original full-period native acceptance gate unchanged."
+}

@@ -1,0 +1,929 @@
+{
+  "sources": {
+    "criticalFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/PIP_delayed_critical.mat",
+    "localFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/PIP_delayed_local.mat",
+    "daughterFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/data/PK_local_daughters.mat",
+    "criticalSHA256": "757b5ee63e442c01762e6bbc8d90aba41f316449ef8eadb682ff8a56c6e01e82",
+    "localSHA256": "f32ba4fb08d62fd8381917d6c3f79f1ea25bcb4aef4759bc3f0c6ffe349c0bdd",
+    "daughterSHA256": "832859b2ec5d9877799eb9dfdb9d24af7e1911162d5f72a811938fb32b247eb2",
+    "codeRoot": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/code/SLIP_Quadruped",
+    "matlabVersion": "25.2.0.3177638 (R2025b) Update 5"
+  },
+  "labels": [
+    "delayed_PIP_below",
+    "delayed_PIP_critical",
+    "delayed_PIP_above"
+  ],
+  "sourceLocalColumns": [
+    2,
+    4,
+    6
+  ],
+  "heights": [
+    1.045594946313664,
+    1.0456949463136651,
+    1.045794946313664
+  ],
+  "periods": [
+    2.4397533878870079,
+    2.4409364464402943,
+    2.4421197442070346
+  ],
+  "accepted": [
+    true,
+    true,
+    true
+  ],
+  "rejectionReasons": [
+    [],
+    [],
+    []
+  ],
+  "orbitIdentity": [
+    {
+      "sameStoredReturnCycle": true,
+      "inputStateCount": 22,
+      "storedPeriod": 2.4397533878870079,
+      "storedEvents": [
+        1.6374241257415743,
+        0.80232926214543354,
+        1.6374241257415743,
+        0.80232926214543354,
+        1.6374241257415743,
+        0.80232926214543354,
+        1.6374241257415743,
+        0.80232926214543354,
+        2.4397533878870079
+      ],
+      "baseAccepted": true,
+      "solvedPeriod": 2.4397533878870079,
+      "solvedEvents": [
+        1.6374241257415743,
+        0.80232926214543354,
+        1.6374241257415743,
+        0.80232926214543354,
+        1.6374241257415743,
+        0.80232926214543354,
+        1.6374241257415743,
+        0.80232926214543354,
+        2.4397533878870079
+      ],
+      "circularEventDifference": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumTimingChange": 0,
+      "completeStride": true,
+      "timingRepeatable": true,
+      "initialApexDescending": true,
+      "returnApexDescending": true,
+      "periodicResidualInfNorm": 7.4743371214491816E-12,
+      "perturbedSolvedPeriodRange": [
+        2.4397039131100264,
+        2.4398028630790236
+      ],
+      "maximumPerturbedPeriodDeviation": 4.9475192015702163E-5
+    },
+    {
+      "sameStoredReturnCycle": true,
+      "inputStateCount": 22,
+      "storedPeriod": 2.4409364464402943,
+      "storedEvents": [
+        1.6386918683810583,
+        0.80224457805923588,
+        1.6386918683810583,
+        0.80224457805923588,
+        1.6386918683810583,
+        0.80224457805923588,
+        1.6386918683810583,
+        0.80224457805923588,
+        2.4409364464402943
+      ],
+      "baseAccepted": true,
+      "solvedPeriod": 2.4409364464402943,
+      "solvedEvents": [
+        1.6386918683810583,
+        0.80224457805923588,
+        1.6386918683810583,
+        0.80224457805923588,
+        1.6386918683810583,
+        0.80224457805923588,
+        1.6386918683810583,
+        0.80224457805923588,
+        2.4409364464402943
+      ],
+      "circularEventDifference": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumTimingChange": 0,
+      "completeStride": true,
+      "timingRepeatable": true,
+      "initialApexDescending": true,
+      "returnApexDescending": true,
+      "periodicResidualInfNorm": 7.4285083292990883E-12,
+      "perturbedSolvedPeriodRange": [
+        2.4408869569026135,
+        2.4409859363912174
+      ],
+      "maximumPerturbedPeriodDeviation": 4.9489950923131687E-5
+    },
+    {
+      "sameStoredReturnCycle": true,
+      "inputStateCount": 22,
+      "storedPeriod": 2.4421197442070346,
+      "storedEvents": [
+        1.63995959392508,
+        0.80216015028195453,
+        1.63995959392508,
+        0.80216015028195453,
+        1.63995959392508,
+        0.80216015028195453,
+        1.63995959392508,
+        0.80216015028195453,
+        2.4421197442070346
+      ],
+      "baseAccepted": true,
+      "solvedPeriod": 2.4421197442070346,
+      "solvedEvents": [
+        1.63995959392508,
+        0.80216015028195453,
+        1.63995959392508,
+        0.80216015028195453,
+        1.63995959392508,
+        0.80216015028195453,
+        1.63995959392508,
+        0.80216015028195453,
+        2.4421197442070346
+      ],
+      "circularEventDifference": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumTimingChange": 0,
+      "completeStride": true,
+      "timingRepeatable": true,
+      "initialApexDescending": true,
+      "returnApexDescending": true,
+      "periodicResidualInfNorm": 7.4979328301694181E-12,
+      "perturbedSolvedPeriodRange": [
+        2.4420702399512431,
+        2.4421692488742912
+      ],
+      "maximumPerturbedPeriodDeviation": 4.9504667256616841E-5
+    }
+  ],
+  "spectralChecks": [
+    {
+      "matrixSize": [
+        12,
+        12
+      ],
+      "matrixNorm": 19.903324962806128,
+      "singularValues": [
+        20.009145998579537,
+        2.1258225370607629,
+        1.7770481670297102,
+        1.7770481670297082,
+        1.7770481670296816,
+        1,
+        0.99999999999999922,
+        0.99999999999999922,
+        0.81953785591269723,
+        0.41005821828506556,
+        0.0010822179508931606,
+        1.2713915641114435E-10
+      ],
+      "transverseSingularValues": [
+        20.00914599857953,
+        2.1258225370607629,
+        1.7770481670297109,
+        1.777048167029708,
+        1.7770481670296814,
+        0.99999999999999922,
+        0.99999999999999889,
+        0.99999999999999845,
+        0.81953785591269779,
+        0.4100582182850655,
+        0.00108221795089312
+      ],
+      "parentKernelResidual": 1.2713999646623721E-10,
+      "absoluteFinestRefinementChange": 1.5004957929917634E-6,
+      "relativeFinestRefinementChange": 7.2394685724985521E-8,
+      "maximumFinestForwardBackwardMismatch": 4.8023753266504692E-6,
+      "acceptedPerturbedMaps": 96,
+      "requestedPerturbedMaps": 96,
+      "spectrumReal": [
+        0.99999999987286148,
+        0.997099500070022,
+        0,
+        0,
+        0,
+        0,
+        -0.49875519949227309,
+        -0.49875519949227309,
+        -0.7770481670296816,
+        -0.77704816702970825,
+        -0.77704816702971036,
+        -0.77930858914485268
+      ],
+      "spectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.86674289785783,
+        -0.86674289785783,
+        0,
+        0,
+        0,
+        0
+      ],
+      "quotientSpectrumReal": [
+        0.99709950007002113,
+        0,
+        0,
+        0,
+        0,
+        -0.49875519949227332,
+        -0.49875519949227332,
+        -0.77704816702968182,
+        -0.77704816702970814,
+        -0.77704816702971036,
+        -0.77930858914485257
+      ],
+      "quotientSpectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.86674289785783076,
+        -0.86674289785783076,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "matrixSize": [
+        12,
+        12
+      ],
+      "matrixNorm": 19.919997480454729,
+      "singularValues": [
+        20.025406835666715,
+        2.1213876340033941,
+        1.7731000515607325,
+        1.7731000515607311,
+        1.773100051560706,
+        1.0000000000000002,
+        0.99999999999999911,
+        0.99999999999999911,
+        0.81978795587090558,
+        0.40960590992120183,
+        2.0948548804564446E-7,
+        7.5624029597148541E-10
+      ],
+      "transverseSingularValues": [
+        20.025406835666722,
+        2.1213876340033941,
+        1.7731000515607334,
+        1.7731000515607309,
+        1.7731000515607054,
+        1,
+        0.99999999999999989,
+        0.99999999999999944,
+        0.8197879558709058,
+        0.40960590992120127,
+        2.0948548815477044E-7
+      ],
+      "parentKernelResidual": 7.5624076144446719E-10,
+      "absoluteFinestRefinementChange": 1.5037698025569492E-6,
+      "relativeFinestRefinementChange": 7.24796339819364E-8,
+      "maximumFinestForwardBackwardMismatch": 4.824574275915521E-6,
+      "acceptedPerturbedMaps": 96,
+      "requestedPerturbedMaps": 96,
+      "spectrumReal": [
+        0.99999999924375871,
+        1.0000005623134134,
+        0,
+        0,
+        0,
+        0,
+        -0.49858518348708547,
+        -0.49858518348708547,
+        -0.77309965553186322,
+        -0.77310005156070494,
+        -0.77310005156073247,
+        -0.773100051560733
+      ],
+      "spectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.86684070901036026,
+        -0.86684070901036026,
+        0,
+        0,
+        0,
+        0
+      ],
+      "quotientSpectrumReal": [
+        1.0000005623134129,
+        0,
+        0,
+        0,
+        0,
+        -0.49858518348708536,
+        -0.49858518348708536,
+        -0.77309965553186333,
+        -0.7731000515607046,
+        -0.77310005156073214,
+        -0.77310005156073325
+      ],
+      "quotientSpectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8668407090103597,
+        -0.8668407090103597,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "matrixSize": [
+        12,
+        12
+      ],
+      "matrixNorm": 19.93644860119214,
+      "singularValues": [
+        20.041444283445394,
+        2.1169000838512977,
+        1.7691229519559082,
+        1.7691229519559075,
+        1.7691229519558798,
+        0.99999999999999956,
+        0.99999999999999944,
+        0.99999999999999845,
+        0.82004167140185624,
+        0.40915479545552591,
+        0.001109292692391979,
+        1.1129155321643962E-10
+      ],
+      "transverseSingularValues": [
+        20.041444283445387,
+        2.1169000838512981,
+        1.7691229519559073,
+        1.7691229519559071,
+        1.7691229519558778,
+        0.99999999999999911,
+        0.999999999999999,
+        0.99999999999999878,
+        0.8200416714018558,
+        0.4091547954555258,
+        0.001109292692391798
+      ],
+      "parentKernelResidual": 1.1129234215298712E-10,
+      "absoluteFinestRefinementChange": 1.5072759874044455E-6,
+      "relativeFinestRefinementChange": 7.2574123170944042E-8,
+      "maximumFinestForwardBackwardMismatch": 4.8471584803495172E-6,
+      "acceptedPerturbedMaps": 96,
+      "requestedPerturbedMaps": 96,
+      "spectrumReal": [
+        0.99999999988870769,
+        1.0029822275600153,
+        0,
+        0,
+        0,
+        0,
+        -0.49841479800997762,
+        -0.49841479800997762,
+        -0.7668361121897308,
+        -0.769122951955879,
+        -0.76912295195590652,
+        -0.76912295195590774
+      ],
+      "spectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.86693868821758036,
+        -0.86693868821758036,
+        0,
+        0,
+        0,
+        0
+      ],
+      "quotientSpectrumReal": [
+        1.0029822275600146,
+        0,
+        0,
+        0,
+        0,
+        -0.498414798009978,
+        -0.498414798009978,
+        -0.7668361121897298,
+        -0.7691229519558791,
+        -0.76912295195590652,
+        -0.76912295195590763
+      ],
+      "quotientSpectrumImag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.86693868821758024,
+        -0.86693868821758024,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "parentTangent": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "daughterResidualNorm": [
+    1.0873688215592524E-11,
+    1.0857387655053094E-11,
+    1.0868726942530004E-11,
+    1.0805707346542409E-11,
+    1.0812337905566425E-11,
+    1.0869829753325221E-11,
+    1.0847911073762645E-11,
+    1.0892270172511455E-11
+  ],
+  "daughterChecks": [
+    {
+      "velocityMagnitude": 0.01,
+      "sourceColumns": [
+        1,
+        8
+      ],
+      "rawDirection": [
+        0.46334591103342682,
+        0,
+        0,
+        0,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.46334591103342682,
+        0,
+        0,
+        0,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281,
+        0,
+        -0.443088751473281
+      ],
+      "kernelResidualNorm": 2.0042168494710642E-5,
+      "relativeKernelResidual": 9.5803876235815854E-7,
+      "distanceToTwoSmallestSingularSubspace": 9.0881514503420238E-6,
+      "projectedWholeKernelSingularValues": [
+        1,
+        3.8219015851037831E-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 9.08815145034265E-6,
+      "kernelSweep": [
+        [
+          1E-10,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1E-9,
+          1,
+          0.99999999999819289,
+          0,
+          1
+        ],
+        [
+          1E-8,
+          1,
+          0.99999999999819289,
+          0,
+          1
+        ],
+        [
+          1E-7,
+          1,
+          0.99999999999819289,
+          0,
+          1
+        ],
+        [
+          1E-6,
+          2,
+          9.0881514503420238E-6,
+          1,
+          9.0881514497175488E-6
+        ],
+        [
+          1E-5,
+          2,
+          9.0881514503420238E-6,
+          1,
+          9.0881514497175488E-6
+        ],
+        [
+          0.0001,
+          2,
+          9.0881514503420238E-6,
+          1,
+          9.0881514497175488E-6
+        ],
+        [
+          0.001,
+          2,
+          9.0881514503420238E-6,
+          1,
+          9.0881514497175488E-6
+        ]
+      ]
+    },
+    {
+      "velocityMagnitude": 0.005,
+      "sourceColumns": [
+        2,
+        7
+      ],
+      "rawDirection": [
+        0.4633398780428753,
+        0,
+        0,
+        0,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.4633398780428753,
+        0,
+        0,
+        0,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476,
+        0,
+        -0.44309032866200476
+      ],
+      "kernelResidualNorm": 5.3761103125813494E-6,
+      "relativeKernelResidual": 2.5698427151361642E-7,
+      "distanceToTwoSmallestSingularSubspace": 2.2871984990228966E-6,
+      "projectedWholeKernelSingularValues": [
+        1,
+        3.8219015851037831E-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 2.2871984990235213E-6,
+      "kernelSweep": [
+        [
+          1E-10,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1E-9,
+          1,
+          0.999999999998193,
+          0,
+          1
+        ],
+        [
+          1E-8,
+          1,
+          0.999999999998193,
+          0,
+          1
+        ],
+        [
+          1E-7,
+          1,
+          0.999999999998193,
+          0,
+          1
+        ],
+        [
+          1E-6,
+          2,
+          2.2871984990228966E-6,
+          1,
+          2.2871984983867058E-6
+        ],
+        [
+          1E-5,
+          2,
+          2.2871984990228966E-6,
+          1,
+          2.2871984983867058E-6
+        ],
+        [
+          0.0001,
+          2,
+          2.2871984990228966E-6,
+          1,
+          2.2871984983867058E-6
+        ],
+        [
+          0.001,
+          2,
+          2.2871984990228966E-6,
+          1,
+          2.2871984983867058E-6
+        ]
+      ]
+    },
+    {
+      "velocityMagnitude": 0.002,
+      "sourceColumns": [
+        3,
+        6
+      ],
+      "rawDirection": [
+        0.46333818889606548,
+        0,
+        0,
+        0,
+        0,
+        -0.44309077024649074,
+        0,
+        -0.44309077024649074,
+        0,
+        -0.44309077024649074,
+        0,
+        -0.44309077024649074
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.46333818889606554,
+        0,
+        0,
+        0,
+        0,
+        -0.44309077024649079,
+        0,
+        -0.44309077024649079,
+        0,
+        -0.44309077024649079,
+        0,
+        -0.44309077024649079
+      ],
+      "kernelResidualNorm": 1.3773375193710298E-6,
+      "relativeKernelResidual": 6.5838321474840407E-8,
+      "distanceToTwoSmallestSingularSubspace": 4.2478849706669043E-7,
+      "projectedWholeKernelSingularValues": [
+        1,
+        3.8219015851037831E-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 4.2478849706527149E-7,
+      "kernelSweep": [
+        [
+          1E-10,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1E-9,
+          1,
+          0.99999999999819289,
+          0,
+          1
+        ],
+        [
+          1E-8,
+          1,
+          0.99999999999819289,
+          0,
+          1
+        ],
+        [
+          1E-7,
+          1,
+          0.99999999999819289,
+          0,
+          1
+        ],
+        [
+          1E-6,
+          2,
+          4.2478849706669043E-7,
+          1,
+          4.2478849642088228E-7
+        ],
+        [
+          1E-5,
+          2,
+          4.2478849706669043E-7,
+          1,
+          4.2478849642088228E-7
+        ],
+        [
+          0.0001,
+          2,
+          4.2478849706669043E-7,
+          1,
+          4.2478849642088228E-7
+        ],
+        [
+          0.001,
+          2,
+          4.2478849706669043E-7,
+          1,
+          4.2478849642088228E-7
+        ]
+      ]
+    },
+    {
+      "velocityMagnitude": 0.001,
+      "sourceColumns": [
+        4,
+        5
+      ],
+      "rawDirection": [
+        0.46333794759261226,
+        0,
+        0,
+        0,
+        0,
+        -0.44309083332897609,
+        0,
+        -0.44309083332897609,
+        0,
+        -0.44309083332897609,
+        0,
+        -0.44309083332897609
+      ],
+      "parentComponent": 0,
+      "transverseDirection": [
+        0.46333794759261226,
+        0,
+        0,
+        0,
+        0,
+        -0.44309083332897609,
+        0,
+        -0.44309083332897609,
+        0,
+        -0.44309083332897609,
+        0,
+        -0.44309083332897609
+      ],
+      "kernelResidualNorm": 8.95649710931099E-7,
+      "relativeKernelResidual": 4.2813088852801846E-8,
+      "distanceToTwoSmallestSingularSubspace": 2.2819917424391159E-7,
+      "projectedWholeKernelSingularValues": [
+        1,
+        3.8219015851037831E-13
+      ],
+      "distanceToParentRemovedCriticalKernel": 2.2819917424320435E-7,
+      "kernelSweep": [
+        [
+          1E-10,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1E-9,
+          1,
+          0.999999999998193,
+          0,
+          1
+        ],
+        [
+          1E-8,
+          1,
+          0.999999999998193,
+          0,
+          1
+        ],
+        [
+          1E-7,
+          1,
+          0.999999999998193,
+          0,
+          1
+        ],
+        [
+          1E-6,
+          2,
+          2.2819917424391159E-7,
+          1,
+          2.2819917378510823E-7
+        ],
+        [
+          1E-5,
+          2,
+          2.2819917424391159E-7,
+          1,
+          2.2819917378510823E-7
+        ],
+        [
+          0.0001,
+          2,
+          2.2819917424391159E-7,
+          1,
+          2.2819917378510823E-7
+        ],
+        [
+          0.001,
+          2,
+          2.2819917424391159E-7,
+          1,
+          2.2819917378510823E-7
+        ]
+      ]
+    }
+  ],
+  "kernelSweepColumns": [
+    "threshold",
+    "fullNullity",
+    "distanceToFullKernel",
+    "transverseNullity",
+    "distanceToTransverseKernel"
+  ],
+  "elapsedSeconds": 24.570249541666666,
+  "frozenPathsVerified": true,
+  "ordinaryCriticalMetadata": {
+    "ordinaryPeriod": 1.4474776198606842,
+    "extraStanceDuration": 0.99345882657961
+  },
+  "method": "Fresh full12x12 production Floquet matrices on reduced apex state [dx,y,phi,dphi,all4legangles/rates], timing solve enabled, frozen snapshot only. Clustered topology and all default convergence/repeatability checks retained. Remove exact vertical parent height tangent; compare entire critical SVD subspace with signed traveling PK secants."
+}

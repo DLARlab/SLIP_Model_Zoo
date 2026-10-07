@@ -1,0 +1,86 @@
+{
+  "B2": {
+    "columns": 1358,
+    "oneTDandLOPerLegByStoredSchema": true,
+    "minStanceDuration": 0.09717211038772322,
+    "minSwingDuration": 0.7088212362771447,
+    "minStanceFraction": 0.08554808355585228,
+    "minSwingFraction": 0.348403849138282,
+    "minInitialVelocity": -20.175019627029947,
+    "maxInitialVelocity": 20.17332712060501,
+    "uniqueCyclicEventWords": {
+      "('1&5', '2&6', '3&7', '4&8')": 687,
+      "('1&5', '4&8', '2&6', '3&7')": 271,
+      "('1&5', '4&8', '3&7', '2&6')": 153,
+      "('1&5', '3&7', '2&6', '4&8')": 247
+    },
+    "finite": true,
+    "minPeriod": 0.8966099666036879,
+    "maxPeriod": 2.381886791471698
+  },
+  "BS": {
+    "columns": 213,
+    "oneTDandLOPerLegByStoredSchema": true,
+    "minStanceDuration": 2.0167157282462354,
+    "minSwingDuration": 5.600304664454825e-09,
+    "minStanceFraction": 0.5793916002606961,
+    "minSwingFraction": 1.999999959658066e-09,
+    "minInitialVelocity": -3.2634105794392876,
+    "maxInitialVelocity": -0.01556989855802603,
+    "uniqueCyclicEventWords": {
+      "('1&2&5&6', '3&4&7&8')": 2,
+      "('1&5', '4&8', '3&7', '2&6')": 211
+    },
+    "finite": true,
+    "minPeriod": 2.8001522496546767,
+    "maxPeriod": 3.672667383466387
+  },
+  "PK": {
+    "columns": 259,
+    "oneTDandLOPerLegByStoredSchema": true,
+    "minStanceDuration": 1.3726277195922325,
+    "minSwingDuration": 0.70851480866996,
+    "minStanceFraction": 0.6301782895836706,
+    "minSwingFraction": 0.323562563274819,
+    "minInitialVelocity": -0.709856645025154,
+    "maxInitialVelocity": 0.709807549547462,
+    "uniqueCyclicEventWords": {
+      "('1&3&5&7', '2&4&6&8')": 259
+    },
+    "finite": true,
+    "minPeriod": 2.123276736326943,
+    "maxPeriod": 2.4409364464402943
+  },
+  "PIP": {
+    "columns": 228,
+    "oneTDandLOPerLegByStoredSchema": true,
+    "minStanceDuration": 0.5216906186167634,
+    "minSwingDuration": 0.00028284271153189433,
+    "minStanceFraction": 0.11542891340267722,
+    "minSwingFraction": 0.00028470501639634365,
+    "minInitialVelocity": -3.2864148778561928e-12,
+    "maxInitialVelocity": 1.7564496188423896e-12,
+    "uniqueCyclicEventWords": {
+      "('1&3&5&7', '2&4&6&8')": 228
+    },
+    "finite": true,
+    "minPeriod": 0.9934588266549657,
+    "maxPeriod": 4.519583553531601
+  },
+  "BIP": {
+    "columns": 904,
+    "oneTDandLOPerLegByStoredSchema": true,
+    "minStanceDuration": 1.7367069041743903,
+    "minSwingDuration": 0.4288513795430511,
+    "minStanceFraction": 0.6950744874000288,
+    "minSwingFraction": 0.15235444196422512,
+    "minInitialVelocity": -3.663304575881847,
+    "maxInitialVelocity": 0.5208434019643811,
+    "uniqueCyclicEventWords": {
+      "('1&5', '4&8', '3&7', '2&6')": 904
+    },
+    "finite": true,
+    "minPeriod": 2.476936235882774,
+    "maxPeriod": 2.982224683529244
+  }
+}

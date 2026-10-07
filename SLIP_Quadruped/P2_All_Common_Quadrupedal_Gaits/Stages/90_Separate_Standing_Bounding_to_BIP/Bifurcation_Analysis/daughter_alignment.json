@@ -1,0 +1,158 @@
+{
+  "checks": [
+    {
+      "meanSpeedMagnitude": 0.001,
+      "rawDirection": [
+        0.10043222886142457,
+        4.47628813862728E-11,
+        6.8544698296729035E-11,
+        0.4215174237770658,
+        -1.0424845437718946E-10,
+        -0.54887507746179265,
+        -4.6217791780550575E-11,
+        0.32381223536248144,
+        -1.0424845437718946E-10,
+        -0.54887507746179265,
+        -4.6217791780550575E-11,
+        0.32381223536248172
+      ],
+      "parentComponent": 1.8017898015394612E-10,
+      "transverseDirection": [
+        0.10043222886142457,
+        -7.473189906118562E-12,
+        5.1922684109007682E-12,
+        0.4215174237770658,
+        -4.5286503553220808E-12,
+        -0.54887507746179265,
+        7.79261807020992E-12,
+        0.32381223536248144,
+        -4.5286503553220808E-12,
+        -0.54887507746179265,
+        7.79261807020992E-12,
+        0.32381223536248172
+      ],
+      "rawKernelResidual": 0.0054170699247641048,
+      "transverseKernelResidual": 0.0054170699247689229,
+      "distanceToFullCriticalTwoDimensionalSubspace": 0.0025763752481131538,
+      "maximumPhasedPeriodicResidual": 2.5950769244610269E-12
+    },
+    {
+      "meanSpeedMagnitude": 0.0002,
+      "rawDirection": [
+        0.1001059065255583,
+        1.0785994947260455E-9,
+        1.319738859820408E-9,
+        0.42239241671053396,
+        -2.0738709669377463E-9,
+        -0.54945739549567429,
+        -1.1055210565079202E-9,
+        0.32230156286803191,
+        -2.0738709669377463E-9,
+        -0.54945739549567429,
+        -1.1055210565079202E-9,
+        0.32230156286803108
+      ],
+      "parentComponent": 3.7350736840248771E-9,
+      "transverseDirection": [
+        0.1001059065255583,
+        -4.2436597548980571E-12,
+        6.45584820932284E-12,
+        0.42239241671053396,
+        -6.6996717069599506E-12,
+        -0.54945739549567429,
+        1.4103776114684343E-11,
+        0.32230156286803191,
+        -6.6996717069599506E-12,
+        -0.54945739549567429,
+        1.4103776114684343E-11,
+        0.32230156286803108
+      ],
+      "rawKernelResidual": 0.00021783586803496982,
+      "transverseKernelResidual": 0.00021783586813876063,
+      "distanceToFullCriticalTwoDimensionalSubspace": 0.00010362221446438823,
+      "maximumPhasedPeriodicResidual": 2.7838102346300138E-12
+    },
+    {
+      "meanSpeedMagnitude": 5E-5,
+      "rawDirection": [
+        0.1000930555966216,
+        1.2456724923068868E-8,
+        1.5093828653466478E-8,
+        0.42242683230182826,
+        -2.3758569995635398E-8,
+        -0.54948028270518268,
+        -1.28241967370677E-8,
+        0.3222419815986417,
+        -2.3758569995635398E-8,
+        -0.54948028270518268,
+        -1.28241967370677E-8,
+        0.32224198159864043
+      ],
+      "parentComponent": 4.2905122546394046E-8,
+      "transverseDirection": [
+        0.1000930555966217,
+        1.8009606624433251E-11,
+        8.0302682114462911E-12,
+        0.4224268323018287,
+        -1.279005945723033E-11,
+        -0.54948028270518323,
+        3.7032977119331834E-11,
+        0.32224198159864204,
+        -1.279005945723033E-11,
+        -0.54948028270518323,
+        3.7032977119331834E-11,
+        0.32224198159864076
+      ],
+      "rawKernelResidual": 1.3478216198340396E-5,
+      "transverseKernelResidual": 1.3478217204708946E-5,
+      "distanceToFullCriticalTwoDimensionalSubspace": 6.2738905684567437E-6,
+      "maximumPhasedPeriodicResidual": 2.3744782200035322E-12
+    }
+  ],
+  "phaseReports": [
+    {
+      "phase": 0.7550983405138898,
+      "residualNorm": 2.5950769244610269E-12,
+      "meanVelocity": -0.0010000000000628376,
+      "targetMean": -0.001,
+      "initialVerticalAcceleration": -0.014512021975403022
+    },
+    {
+      "phase": 0.73600984456919771,
+      "residualNorm": 1.5576759092551766E-12,
+      "meanVelocity": 0.00099999999998058955,
+      "targetMean": 0.001,
+      "initialVerticalAcceleration": -0.014512021978096423
+    },
+    {
+      "phase": 0.7474718542243084,
+      "residualNorm": 2.7838102346300138E-12,
+      "meanVelocity": -0.00020000000007033554,
+      "targetMean": -0.0002,
+      "initialVerticalAcceleration": -0.014391666261102887
+    },
+    {
+      "phase": 0.743641968676755,
+      "residualNorm": 1.6063922045663961E-12,
+      "meanVelocity": 0.00019999999997902325,
+      "targetMean": 0.0002,
+      "initialVerticalAcceleration": -0.014391666281407534
+    },
+    {
+      "phase": 0.74603581725141377,
+      "residualNorm": 2.3744782200035322E-12,
+      "meanVelocity": -5.0000000054633329E-5,
+      "targetMean": -5E-5,
+      "initialVerticalAcceleration": -0.014386936210385448
+    },
+    {
+      "phase": 0.74507822585279915,
+      "residualNorm": 1.7875133731877459E-12,
+      "meanVelocity": 4.9999999970464458E-5,
+      "targetMean": 5E-5,
+      "initialVerticalAcceleration": -0.01438693626982912
+    }
+  ],
+  "parentDistanceToFullCriticalTwoDimensionalSubspace": 2.0682415515338953E-5,
+  "method": "Phase the existing corrected signed-mean daughters to the same first downward apex as the parent; direct native replay validates the interpolated phase. Compare entire two-dimensional SVD subspace, after removing the independently corrected parent tangent. No new Floquet computation."
+}

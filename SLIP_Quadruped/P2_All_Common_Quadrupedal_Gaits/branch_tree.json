@@ -1,0 +1,167 @@
+{
+  "title": "PIP bifurcation tree and reached quadrupedal families",
+  "date": "2026-10-07",
+  "scope": "Existing verified numerical connections; no new continuation or complete global enumeration.",
+  "modelPolicy": {
+    "signedVelocitiesAllowed": true,
+    "negativeGRFAllowed": true
+  },
+  "nodes": [
+    {
+      "id": "ordinary_pip",
+      "label": "Ordinary PIP",
+      "branchFile": "PIP_10_20_2.mat",
+      "points": 228,
+      "stage": "Stages/00_Vertical_PIP_Families/README.md"
+    },
+    {
+      "id": "delayed_pip",
+      "label": "Delayed-liftoff PIP",
+      "branchFile": "PIP_Delayed_Analytic_10_20_2.mat",
+      "points": 1586,
+      "validation": "Analytic samples; native replay covers 18 delayed samples: 16 pass, 2 fail; all other samples untested natively.",
+      "stage": "Stages/00_Vertical_PIP_Families/README.md"
+    },
+    {
+      "id": "pk_b2_parent",
+      "label": "Traveling pronking",
+      "branchFile": "PK_B2_Parent.mat",
+      "points": 259,
+      "validation": "All 259 columns have native replay; 223 pass native compatibility (columns 19:241); 36 outer points fail native compatibility but pass independent Cartesian acceptance.",
+      "stage": "Stages/01_Delayed_PIP_to_Pronking/README.md"
+    },
+    {
+      "id": "b2",
+      "label": "B2 family",
+      "branchFile": "B2_10_20_2_G.mat",
+      "points": 1358,
+      "apexViewFile": "B2_10_20_2_E.mat",
+      "apexViewPoints": 1307,
+      "stage": "Stages/03_B2_Family_and_Apex_Views/README.md"
+    },
+    {
+      "id": "standing_bs",
+      "label": "Standing bounding",
+      "branchFile": "BS_10_20_2_BIP_Child.mat",
+      "points": 213,
+      "criticalColumn": 24,
+      "stage": "Stages/90_Separate_Standing_Bounding_to_BIP/README.md"
+    },
+    {
+      "id": "bip",
+      "label": "Traveling BIP",
+      "branchFile": "BIP_10_20_2.mat",
+      "points": 904,
+      "stage": "Stages/90_Separate_Standing_Bounding_to_BIP/README.md"
+    },
+    {
+      "id": "supplied_pk",
+      "label": "Supplied PK_20_2",
+      "branchFile": "PK_20_2.mat",
+      "points": 891,
+      "role": "comparison; no additional ancestry assigned",
+      "stage": "Stages/99_Comparison_Families/README.md"
+    },
+    {
+      "id": "pip_spread",
+      "label": "Supplied PIP_Spread",
+      "branchFile": "PIP_10_20_2_Spread.mat",
+      "points": 648,
+      "role": "comparison; no additional ancestry assigned",
+      "stage": "Stages/99_Comparison_Families/README.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ordinary_pip",
+      "to": "delayed_pip",
+      "kind": "singular_limit",
+      "verifiedRegularBifurcation": false,
+      "label": "Shared zero-flight grazing/double-cover limit; regular connection unverified",
+      "evidence": [
+        "Stages/00_Vertical_PIP_Families/Audit/VERTICAL_TOPOLOGY.md"
+      ]
+    },
+    {
+      "from": "delayed_pip",
+      "to": "pk_b2_parent",
+      "kind": "verified_bifurcation",
+      "point": "BP1",
+      "critical": {
+        "initialVelocity": 0.0,
+        "initialHeight": 1.045694946314,
+        "period": 2.44093644644
+      },
+      "extraMultipliers": [
+        0.9970990097,
+        1.0000000676,
+        1.0029817283
+      ],
+      "evidence": [
+        "Stages/01_Delayed_PIP_to_Pronking/Bifurcation_Analysis/coarse/pip_to_pk_floquet.mat",
+        "Stages/01_Delayed_PIP_to_Pronking/Bifurcation_Analysis/fine/pip_to_pk_floquet.mat"
+      ]
+    },
+    {
+      "from": "pk_b2_parent",
+      "to": "b2",
+      "kind": "verified_bifurcation",
+      "point": "BP2",
+      "critical": {
+        "initialVelocity": 0.593430750523,
+        "initialHeight": 1.156226918733,
+        "period": 2.297828248431
+      },
+      "extraMultipliers": [
+        0.9940944651,
+        1.0000000048,
+        1.0058994502
+      ],
+      "evidence": [
+        "Stages/02_Pronking_to_B2/Bifurcation_Analysis/pk_to_b2_floquet.mat"
+      ]
+    },
+    {
+      "from": "standing_bs",
+      "to": "bip",
+      "kind": "verified_bifurcation",
+      "point": "BS_BIP",
+      "critical": {
+        "period": 2.982228115452,
+        "meanVelocity": 0.0
+      },
+      "extraMultipliers": [
+        0.996933347,
+        0.999997153,
+        1.003084193
+      ],
+      "evidence": [
+        "Stages/90_Separate_Standing_Bounding_to_BIP/Bifurcation_Analysis/bip_floquet.mat"
+      ]
+    }
+  ],
+  "verifiedReachability": {
+    "ordinary_pip": [],
+    "delayed_pip": [
+      "pk_b2_parent",
+      "b2"
+    ],
+    "standing_bs": [
+      "bip"
+    ]
+  },
+  "phaseEquivalence": {
+    "family": "b2",
+    "files": [
+      "B2_10_20_2_G.mat",
+      "B2_10_20_2_E.mat"
+    ],
+    "meaning": "Different apex representations of the same cycles; not separate daughter families."
+  },
+  "archive": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_Numerical_Run_Archive/P2_original_layout_20261007.tar.gz",
+    "relativePathFromP2": "../P2_Numerical_Run_Archive/P2_original_layout_20261007.tar.gz",
+    "sha256": "d01fc32438488a5ea8252d7778146abea4495da4a66645f195407098f4522ee1",
+    "verifiedFiles": 407
+  }
+}

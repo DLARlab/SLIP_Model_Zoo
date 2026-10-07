@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "sourceColumn": 233,
+      "targetMeanVelocity": 0.00054056850295800213,
+      "sourceSolutionDifferenceInf": 2.9659252831493177E-10,
+      "sourceSolutionDifference2": 5.5663817664104681E-10,
+      "residualAndMeanConstraintInf": 3.6004532688593827E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 10,
+        "funcCount": 91,
+        "stepsize": 1.3177523488742105E-12,
+        "cgiterations": [],
+        "firstorderopt": 5.0478940748189425E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 2.935340e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.195152e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    },
+    {
+      "sourceColumn": 234,
+      "targetMeanVelocity": -0.0041110054953935821,
+      "sourceSolutionDifferenceInf": 4.1731063049610384E-11,
+      "sourceSolutionDifference2": 7.65739722609519E-11,
+      "residualAndMeanConstraintInf": 3.6673442060930483E-13,
+      "exitflag": 4,
+      "output": {
+        "iterations": 9,
+        "funcCount": 82,
+        "stepsize": 6.5321524744891256E-15,
+        "cgiterations": [],
+        "firstorderopt": 3.68766089520923E-14,
+        "algorithm": "levenberg-marquardt",
+        "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.454498e-15, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 2.270816e-25, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+      }
+    }
+  ],
+  "sourceSecantDaughterTangentAbsoluteCosine": 0.99966350651348479,
+  "method": "Re-correct the +/-0.001 mean-speed daughters to the measured mean speeds of saved columns233/234 and compare all22 state/event coordinates. Initializations use daughter solutions, not saved endpoint values."
+}

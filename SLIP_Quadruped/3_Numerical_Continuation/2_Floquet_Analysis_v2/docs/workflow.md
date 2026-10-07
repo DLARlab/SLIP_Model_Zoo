@@ -125,9 +125,29 @@ orbit, fixed topology, converged derivative, small multiplier uncertainty,
 adequate mode/subspace overlap, target residual, and final coordinate width.
 
 The detector interpolation is therefore never treated as the critical orbit.
-The current generic refiner fixes `X(1)=dx`; it is appropriate only where that
-coordinate is locally monotone. A fold in `dx` requires a pseudo-arclength or
-hyperplane refiner.
+The generic refiner defaults to `X(1)=dx`. For a branch with constant speed,
+set `ContinuationParameterRow=2` to use a locally monotone apex-height chart
+and use the same height coordinate in the analyzer and candidate bracket.
+`ContinuationParameterName` supplies its diagnostic label. All endpoint
+mapping, trial constraints, stopping widths, and final tangent estimates use
+the selected physical coordinate.
+
+An optional `ParentCorrector(guess,Para,coordinate,context)` returns a corrected
+22-vector and diagnostics containing a positive `exitflag` and the Jacobian
+of independent parent residuals **including the coordinate equation**. This
+supports a justified symmetry embedding without sending its restrictions into
+the physical event solver or the full 12-by-12 Floquet derivative. The refiner
+checks full column rank after column normalization, then independently checks
+the complete canonical residual, coordinate, topology, and normal solved
+timing. Put construction restrictions in this hook, not `FloquetOptions`.
+
+If height ceases to be transverse, `ContinuationCoordinateFunction=@(z)...`
+can instead specify a fixed local hyperplane
+`tHat'*((lift(z)-zReference)./stateScale)`, with fixed scales, fixed unit tangent,
+and event times lifted continuously about the same reference. The parent
+corrector must solve that same chart equation; changing the analyzer's display
+coordinate alone is insufficient. See `help floquet.refineCriticalOrbit` for
+the hook context and diagnostics contract.
 
 A simple additional real `+1` mode can become branch-switch-ready. A repeated
 kernel may yield an accepted critical orbit but not a unique physical

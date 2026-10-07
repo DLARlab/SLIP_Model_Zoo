@@ -1,0 +1,34 @@
+{
+  "sets": [
+    "PIP_delayed_local",
+    "PK_local_daughters",
+    "PK_B2_Parent",
+    "B2_local_daughters",
+    "B2"
+  ],
+  "pointCounts": [
+    7,
+    8,
+    23,
+    8,
+    852
+  ],
+  "acceptedCounts": [
+    7,
+    8,
+    23,
+    8,
+    852
+  ],
+  "maximumResidualNorm": [
+    1.0970448041655386E-11,
+    1.0892270172511455E-11,
+    1.0773120870002532E-11,
+    3.6941715930286816E-13,
+    3.545342690639738E-9
+  ],
+  "elapsedSeconds": 8.5154574583333336,
+  "threshold": 1E-8,
+  "dynamicsPath": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/code/SLIP_Quadruped/1_Dynamic_Frameworks/v2/Quadrupedal_ZeroFun_v2.m",
+  "method": "Direct full periodic residual without timing re-solving; signed GRF and velocity allowed. Contact events within1e-8 of period are clustered only for contact-count diagnostics."
+}

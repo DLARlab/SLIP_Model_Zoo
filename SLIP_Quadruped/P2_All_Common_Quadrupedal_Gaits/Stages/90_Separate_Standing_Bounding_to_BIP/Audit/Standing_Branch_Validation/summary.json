@@ -1,0 +1,308 @@
+{
+  "outputFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/BS_10_20_2_BIP_Child.mat",
+  "columns": 213,
+  "criticalColumn": 24,
+  "nativeAcceptedBeforeIndependentCutoff": 233,
+  "initialVelocityRange": [
+    -3.2634105794392876,
+    -0.01556989855802603
+  ],
+  "heightRange": [
+    0.04867977228910335,
+    0.9741932807583297
+  ],
+  "periodRange": [
+    2.8001522496546767,
+    3.672667383466387
+  ],
+  "meanVelocityRange": [
+    -1.4827397028358385e-12,
+    6.165576992700359e-10
+  ],
+  "maxResidualInf": 3.746023186090852e-09,
+  "maxHalfCycleResidualInf": 4.719650892326399e-09,
+  "maxTightReplayResidualInf": 9.632478356613738e-09,
+  "minimumHeight": 0.048679772258714046,
+  "minimumGRF": -8.321143028865784,
+  "minimumActiveLegLength": 0.10189757145082151,
+  "endpoints": [
+    [
+      -0.01556993134143349,
+      0.9741932768938215,
+      0.1112214736149297,
+      2.8001523887091944,
+      -1.6233853326672537e-14,
+      1.1361606100379618e-12,
+      1.1635069416861442e-12,
+      0.974116910268109,
+      0,
+      0.9499308524266344,
+      0.9988862844329581,
+      2.8001523831088897,
+      5.600304664454825e-09,
+      -0.000769972787115325,
+      1.5916296058904322e-12,
+      0,
+      0
+    ],
+    [
+      -3.2634105794392876,
+      0.04867977228910335,
+      0.17792251626473948,
+      3.497472831824011,
+      -6.826353580848656e-13,
+      3.8699797533237046e-10,
+      6.762225281388257e-10,
+      0.048679772258714046,
+      -8.321143028865784,
+      0.10189757145082151,
+      0.06504689514637657,
+      2.0270296150254965,
+      1.4704432167985146,
+      0.2905086659599272,
+      1.0542955397596643e-12,
+      0,
+      0
+    ]
+  ],
+  "coverageInfo": {
+    "entireMathematicalBranchEstablished": false,
+    "bothDirectionsContinued": true,
+    "negativeDirection": {
+      "reason": "tangent_or_integration_failure",
+      "message": "Previous tangent has little projection into the current numerical kernel; branch identity needs inspection.",
+      "elapsedSeconds": 19.588962583333334
+    },
+    "positiveDirection": {
+      "reason": "corrector_failed_at_minimum_step",
+      "message": "Rejected: residual2.07e-08 mean6.16e-11 correction/radius0.0344 forward/radius1",
+      "elapsedSeconds": 153.66459775
+    },
+    "zeroSwingBoundary": {
+      "checks": [
+        {
+          "delta": 1e-07,
+          "accepted": true,
+          "residualInf": 1.1367989882771212e-12,
+          "meanVelocity": -2.088998687940828e-14,
+          "swingDuration": 5.600304775477127e-07,
+          "minimumHeight": 0.9741169102681076,
+          "minimumGRF": 0,
+          "exitflag": 4,
+          "output": {
+            "iterations": 1,
+            "funcCount": 14,
+            "stepsize": 3.8116667485285644e-13,
+            "cgiterations": [],
+            "firstorderopt": 1.3850998249018834e-14,
+            "algorithm": "levenberg-marquardt",
+            "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.283914e-13, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.354198e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+          }
+        },
+        {
+          "delta": 3e-08,
+          "accepted": true,
+          "residualInf": 1.1364797991575415e-12,
+          "meanVelocity": -1.7336030055191647e-14,
+          "swingDuration": 1.6800914348635843e-07,
+          "minimumHeight": 0.9741169102681086,
+          "minimumGRF": 0,
+          "exitflag": 4,
+          "output": {
+            "iterations": 1,
+            "funcCount": 14,
+            "stepsize": 9.260503173605558e-14,
+            "cgiterations": [],
+            "firstorderopt": 1.9753579220897017e-14,
+            "algorithm": "levenberg-marquardt",
+            "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 3.119289e-14, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.354350e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+          }
+        },
+        {
+          "delta": 1e-08,
+          "accepted": true,
+          "residualInf": 1.136216121189193e-12,
+          "meanVelocity": -1.7346377814540927e-14,
+          "swingDuration": 5.600304797681588e-08,
+          "minimumHeight": 0.9741169102681088,
+          "minimumGRF": 0,
+          "exitflag": 4,
+          "output": {
+            "iterations": 1,
+            "funcCount": 8,
+            "stepsize": 2.987793734125567e-14,
+            "cgiterations": [],
+            "firstorderopt": 2.6523109977092317e-14,
+            "algorithm": "levenberg-marquardt",
+            "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.006402e-14, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.353612e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+          }
+        },
+        {
+          "delta": 3e-09,
+          "accepted": true,
+          "residualInf": 1.1359524432208445e-12,
+          "meanVelocity": -1.6222431104004482e-14,
+          "swingDuration": 1.6800914881542894e-08,
+          "minimumHeight": 0.9741169102681094,
+          "minimumGRF": 0,
+          "exitflag": 4,
+          "output": {
+            "iterations": 1,
+            "funcCount": 14,
+            "stepsize": 2.9982866851774087e-14,
+            "cgiterations": [],
+            "firstorderopt": 2.0707498655558688e-14,
+            "algorithm": "levenberg-marquardt",
+            "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 1.009937e-14, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.353524e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+          }
+        },
+        {
+          "delta": 1e-09,
+          "accepted": true,
+          "residualInf": 1.1361606100379618e-12,
+          "meanVelocity": -1.6233853326672537e-14,
+          "swingDuration": 5.600304664454825e-09,
+          "minimumHeight": 0.974116910268109,
+          "minimumGRF": 0,
+          "exitflag": 4,
+          "output": {
+            "iterations": 1,
+            "funcCount": 8,
+            "stepsize": 9.214498679860705e-15,
+            "cgiterations": [],
+            "firstorderopt": 3.3058842437514306e-14,
+            "algorithm": "levenberg-marquardt",
+            "message": "Equation solved, solver stalled.\n\nfsolve stopped because the relative size of the current step is less than the\nvalue of the step size tolerance and the vector of function values\nis near zero as measured by the value of the function tolerance.\n\n<stopping criteria details>\n\nfsolve stopped because the relative norm of the current step, 3.103793e-15, is less\nthan options.StepTolerance = 1.000000e-12. The sum of squared function values,\nr = 1.353748e-24, is less than sqrt(options.FunctionTolerance) = 3.162278e-07."
+          }
+        }
+      ],
+      "acceptedPoints": 5,
+      "limitChartCandidate": [
+        -0.015569931341433491,
+        0.9741932768938216,
+        0.11122147361492972,
+        -0.04064692253990014,
+        -0.09758320983570948,
+        0.75,
+        2.8001523887091944
+      ],
+      "interpretation": "Finite-swing standing bounding orbits approach an all-stance contact itinerary. Exact coincident touchdown/liftoff is excluded from the saved results because the native timing convention would select no contact rather than the limiting full stance.",
+      "genuineOrbitBoundaryProven": false,
+      "finiteSwingItineraryBoundaryEstablished": true
+    },
+    "statement": "Both directions of the finite-swing standing bounding family were continued through folds. One side approaches a full-stance contact-itinerary boundary; the high-compression side remains globally unresolved and is truncated conservatively by independent replay precision. The entire mathematical branch is not established.",
+    "deliveredEndpointReason": "Last contiguous point passing the unchanged native residual/mean/half-cycle gates AND independent full-period replays at ODE tolerances1e-13 and3e-14.",
+    "nativeAcceptedPoints": 233,
+    "tighterReplayFirstFailure": 214,
+    "tighterReplayTailStatus": "Raw native-passing tail retained in continuation artifacts, excluded from the deliverable because tighter full-period replays exceed1e-8."
+  },
+  "sourceInfo": {
+    "criticalSource": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/full_branches/bip_dynamics/drift_daughters.mat",
+    "parentSource": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/full_branches/bip_dynamics/standing_parent.mat",
+    "criticalSourceSHA256": "d2314c0a932871db3f80240ff1c72db5e9621ba0b5d4808d133030243fe52f61",
+    "parentSourceSHA256": "16b01376fbf15e2ae67e9e5d91337c26919e09ef321d0a5baeff4de9c1450935",
+    "chart": "q=[u0,y0,pitchRate,alphaH,dalphaH,TD_H/T,T]; all left/right paired, front alpha=-hind alpha, front angular rate=hind angular rate, LO_H/T=1.5-TD_H/T.",
+    "signedVelocitiesPermitted": true,
+    "negativeGRFPermitted": true,
+    "name": "Standing bounding parent connected to drifting BIP",
+    "parameters": [
+      10,
+      20,
+      2,
+      1,
+      0,
+      0.5,
+      1
+    ],
+    "criticalColumn": 24,
+    "criticalResult": [
+      -0.020691583207685958,
+      0.9690897843863454,
+      0,
+      0,
+      0.13075912657904729,
+      -0.04664107368373334,
+      -0.11259605098521179,
+      0.04664107368373334,
+      -0.11259605098521179,
+      -0.04664107368373334,
+      -0.11259605098521179,
+      0.04664107368373334,
+      -0.11259605098521179,
+      2.6142003734045054,
+      1.859141799772755,
+      1.123086315678898,
+      0.36802774204714767,
+      2.6142003734045054,
+      1.859141799772755,
+      1.123086315678898,
+      0.36802774204714767,
+      2.982228115451653,
+      10,
+      20,
+      2,
+      1,
+      0,
+      0.5,
+      1
+    ],
+    "nativeCriticalResidualInf": 3.5974001555416635e-13,
+    "outputFilename": "BS_10_20_2_BIP_Child.mat",
+    "sectionDefinition": "Stored turning section fixes dy0=phi0=0. The verified BIP critical orbit is at a height minimum; section orientation may change along the family. It is not generally a descending-apex section.",
+    "standingDefinition": "Cycle-average horizontal velocity is zero. Instantaneous horizontal velocity, pitch rate and leg angular rates generally are not zero.",
+    "GRFMetricDefinition": "minimumAxialGRF is the minimum per-leg axial spring force (native GRFs columns1:4). It is not the vertical GRF (columns9:12). Negative values represent axial tension.",
+    "floquetVerification": {
+      "summaryPath": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/full_branches/bip_floquet/compact_summary.json",
+      "reportPath": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_to_B2_Path_Audit/full_branches/bip_floquet/FLOQUET_REPORT.md",
+      "fullContactCycle": true,
+      "criticalColumnInThisFile": 24,
+      "extraMultipliersAtStandingParentNeighbors": [
+        0.9969333470717643,
+        0.999997153287177,
+        1.0030841930148848
+      ]
+    },
+    "criticalDownwardApexExample": {
+      "result": [
+        0,
+        0.9799063973111762,
+        0,
+        0.05989909002679321,
+        0,
+        -0.09849092954459404,
+        0,
+        -0.009794982989016009,
+        0,
+        -0.09849092954459404,
+        0,
+        -0.009794982989016009,
+        0,
+        1.868643344542349,
+        1.1135847709093039,
+        0.37752928681652254,
+        2.6046988286351302,
+        1.868643344542349,
+        1.1135847709093039,
+        0.37752928681652254,
+        2.6046988286351302,
+        2.982228115451653,
+        10,
+        20,
+        2,
+        1,
+        0,
+        0.5,
+        1
+      ],
+      "phaseShift": 0.7455570288913868,
+      "phaseFraction": 0.25000000000954775,
+      "residualNorm": 9.058159084034345e-13,
+      "initialVerticalAcceleration": -0.01438662082315334,
+      "sameFullPeriod": true
+    }
+  },
+  "minimumAxialGRF": -8.321143028865784,
+  "GRFMetricDefinition": "minimumAxialGRF is the minimum per-leg axial spring force (native GRFs columns1:4). It is not the vertical GRF (columns9:12). Negative values represent axial tension.",
+  "outputSHA256": "efbcefae3ed0ef823cf7421c8c59acd88bc0e3e64947d00c85db9b194e809732",
+  "figure": "BS_branch_summary.png"
+}

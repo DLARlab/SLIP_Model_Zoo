@@ -1,0 +1,802 @@
+[
+  {
+    "lowColumn": 6,
+    "referenceBranch": 1,
+    "referenceColumn": 28,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 0.0060666296276308948,
+    "correctorExitflag": 4,
+    "correctorIterations": 6,
+    "referenceCorrectionNorm": 0.0063277359791011015,
+    "targetNativeResidual": 1.9631724273745954E-12,
+    "correctedNativeResidual": 3.5980164806001992E-13,
+    "initialStateDifference": 2.9090178368175527E-13,
+    "eventPhaseDifference": 8.56466137241251E-13,
+    "periodDifference": -1.5853984791647235E-13,
+    "meanVelocityDifference": -1.4890866317784912E-13,
+    "fullTrajectoryStateDifference": 2.4932129743778012E-12,
+    "phase": {
+      "phaseTime": 1.1650374943658806,
+      "phaseFraction": 0.49999999999996686,
+      "sourceResidual": 3.8494788081397962E-13,
+      "nativeResidual": 1.9600781433827142E-12,
+      "nativeReturn": 1.8057418716177782E-12,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -0.077145531893098265,
+      "meanVelocity": -0.077145531893177757,
+      "meanVelocityDifference": -7.9491968563161208E-14,
+      "maxTrajectoryStateDifference": 1.7468997711995783E-12,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "contactCount": 4,
+        "bodyPitch": 0,
+        "bodyPitchRate": -0.14814319889334499,
+        "legAngles": [
+          0.0040305142569839313,
+          -0.0040305142569839313,
+          0.0040305142569839313,
+          -0.0040305142569839313
+        ],
+        "legLengths": [
+          1.0005959057091576,
+          1.0005959057091576,
+          1.0005959057091576,
+          1.0005959057091576
+        ],
+        "footBodyLongitudinal": [
+          -0.49596709485570123,
+          0.49596709485570123,
+          -0.49596709485570123,
+          0.49596709485570123
+        ],
+        "signedFrontMinusHindFootSpan": 0.99193418971140246,
+        "relativeSpreadBeyondHipSpan": -0.0080658102885975413,
+        "configuration": "contact_apex_no_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "contactCount": 4,
+        "bodyPitch": -1.0749864540193776E-14,
+        "bodyPitchRate": 0.15033823085534806,
+        "legAngles": [
+          -0.08595406236710755,
+          0.085954062367155429,
+          -0.08595406236710755,
+          0.085954062367155429
+        ],
+        "legLengths": [
+          0.99995655267532368,
+          0.99995655267531536,
+          0.99995655267532368,
+          0.99995655267531536
+        ],
+        "footBodyLongitudinal": [
+          -0.58584453203389253,
+          0.58584453203393949,
+          -0.58584453203389253,
+          0.58584453203393949
+        ],
+        "signedFrontMinusHindFootSpan": 1.1716890640678321,
+        "relativeSpreadBeyondHipSpan": 0.17168906406783213,
+        "configuration": "contact_apex_no_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  },
+  {
+    "lowColumn": 50,
+    "referenceBranch": 1,
+    "referenceColumn": 119,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 0.001005439170268521,
+    "correctorExitflag": 4,
+    "correctorIterations": 6,
+    "referenceCorrectionNorm": 0.0012018677236564313,
+    "targetNativeResidual": 1.4250169150704632E-11,
+    "correctedNativeResidual": 3.0034922068036806E-13,
+    "initialStateDifference": 8.9819125776138666E-13,
+    "eventPhaseDifference": 3.6443817829770734E-13,
+    "periodDifference": -1.3811174426336947E-13,
+    "meanVelocityDifference": 1.0590417431899368E-12,
+    "fullTrajectoryStateDifference": 1.2194664900325987E-11,
+    "phase": {
+      "phaseTime": 1.1852600366056225,
+      "phaseFraction": 0.50000000000010847,
+      "sourceResidual": 2.3280636110428439E-12,
+      "nativeResidual": 1.4311798947835449E-11,
+      "nativeReturn": 1.1337098885325771E-11,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -0.70791900572089328,
+      "meanVelocity": -0.70791900571970812,
+      "meanVelocityDifference": 1.1851630787873546E-12,
+      "maxTrajectoryStateDifference": 1.2730718603794294E-11,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": 0,
+        "bodyPitchRate": -0.12081740660835656,
+        "legAngles": [
+          0.1704815665514785,
+          -0.1704815665514785,
+          0.1704815665514785,
+          -0.1704815665514785
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          -0.33034304591118796,
+          0.33034304591118796,
+          -0.33034304591118796,
+          0.33034304591118796
+        ],
+        "signedFrontMinusHindFootSpan": 0.66068609182237592,
+        "relativeSpreadBeyondHipSpan": -0.33931390817762408,
+        "configuration": "gathered_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "contactCount": 4,
+        "bodyPitch": 1.5584267817198016E-14,
+        "bodyPitchRate": 0.17775493156099789,
+        "legAngles": [
+          -0.077876295077871888,
+          0.077876295078201138,
+          -0.077876295077871888,
+          0.077876295078201138
+        ],
+        "legLengths": [
+          1.0883452308560653,
+          1.0883452308561115,
+          1.0883452308560653,
+          1.0883452308561115
+        ],
+        "footBodyLongitudinal": [
+          -0.58467064982476269,
+          0.58467064982512351,
+          -0.58467064982476269,
+          0.58467064982512351
+        ],
+        "signedFrontMinusHindFootSpan": 1.1693412996498862,
+        "relativeSpreadBeyondHipSpan": 0.1693412996498862,
+        "configuration": "contact_apex_no_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  },
+  {
+    "lowColumn": 78,
+    "referenceBranch": 1,
+    "referenceColumn": 200,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 2.3999538525403302E-5,
+    "correctorExitflag": 4,
+    "correctorIterations": 6,
+    "referenceCorrectionNorm": 2.4704942336036296E-5,
+    "targetNativeResidual": 7.271093660408475E-12,
+    "correctedNativeResidual": 3.405749807317121E-13,
+    "initialStateDifference": 1.6133396015061946E-12,
+    "eventPhaseDifference": 4.5080428533152417E-13,
+    "periodDifference": -2.0294876890147862E-13,
+    "meanVelocityDifference": 3.5551561694546763E-12,
+    "fullTrajectoryStateDifference": 1.3846118340469459E-11,
+    "phase": {
+      "phaseTime": 1.1251599787739737,
+      "phaseFraction": 0.49999999999988359,
+      "sourceResidual": 2.3791586336391516E-12,
+      "nativeResidual": 7.2589087702977007E-12,
+      "nativeReturn": 6.9310713300512336E-12,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -1.1882715940149016,
+      "meanVelocity": -1.1882715940133182,
+      "meanVelocityDifference": 1.5834000777203983E-12,
+      "maxTrajectoryStateDifference": 1.0279526636044494E-11,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": 0,
+        "bodyPitchRate": 0.098888385291820563,
+        "legAngles": [
+          -0.15063742579458,
+          0.15063742579458,
+          -0.15063742579458,
+          0.15063742579458
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          -0.65006837026170383,
+          0.65006837026170383,
+          -0.65006837026170383,
+          0.65006837026170383
+        ],
+        "signedFrontMinusHindFootSpan": 1.3001367405234077,
+        "relativeSpreadBeyondHipSpan": 0.30013674052340766,
+        "configuration": "extended_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "contactCount": 4,
+        "bodyPitch": 2.4290709417854051E-14,
+        "bodyPitchRate": -0.14596642389162817,
+        "legAngles": [
+          0.05663860151694964,
+          -0.056638601517188511,
+          0.05663860151694964,
+          -0.056638601517188511
+        ],
+        "legLengths": [
+          1.1938686829689744,
+          1.1938686829690117,
+          1.1938686829689744,
+          1.1938686829690117
+        ],
+        "footBodyLongitudinal": [
+          -0.432417094481286,
+          0.43241709448099919,
+          -0.432417094481286,
+          0.43241709448099919
+        ],
+        "signedFrontMinusHindFootSpan": 0.86483418896228526,
+        "relativeSpreadBeyondHipSpan": -0.13516581103771474,
+        "configuration": "contact_apex_no_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  },
+  {
+    "lowColumn": 140,
+    "referenceBranch": 1,
+    "referenceColumn": 393,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 0.00044816979116936076,
+    "correctorExitflag": 4,
+    "correctorIterations": 7,
+    "referenceCorrectionNorm": 0.00082542766106703206,
+    "targetNativeResidual": 2.4694312302703266E-12,
+    "correctedNativeResidual": 1.5485912756820131E-13,
+    "initialStateDifference": 5.5240872911830966E-13,
+    "eventPhaseDifference": 8.4901741803963591E-13,
+    "periodDifference": 8.992806499463768E-13,
+    "meanVelocityDifference": 1.6925350010410511E-13,
+    "fullTrajectoryStateDifference": 6.6581548071645528E-12,
+    "phase": {
+      "phaseTime": 1.0769701855516434,
+      "phaseFraction": 0.50000000000002243,
+      "sourceResidual": 3.4656610062572187E-13,
+      "nativeResidual": 2.4715156659501411E-12,
+      "nativeReturn": 1.9002014804896091E-12,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -0.28934015949718905,
+      "meanVelocity": -0.28934015949713576,
+      "meanVelocityDifference": 5.3290705182007514E-14,
+      "maxTrajectoryStateDifference": 1.6835539402047341E-12,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "contactCount": 4,
+        "bodyPitch": 0,
+        "bodyPitchRate": 0.13780340609439029,
+        "legAngles": [
+          -0.21404636735769328,
+          0.21404636735769328,
+          -0.21404636735769328,
+          0.21404636735769328
+        ],
+        "legLengths": [
+          0.99388453029963575,
+          0.99388453029963575,
+          0.99388453029963575,
+          0.99388453029963575
+        ],
+        "footBodyLongitudinal": [
+          -0.711116633349901,
+          0.711116633349901,
+          -0.711116633349901,
+          0.711116633349901
+        ],
+        "signedFrontMinusHindFootSpan": 1.4222332666998021,
+        "relativeSpreadBeyondHipSpan": 0.4222332666998021,
+        "configuration": "contact_apex_no_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "contactCount": 4,
+        "bodyPitch": 1.6832618198597826E-14,
+        "bodyPitchRate": -0.13135470512244998,
+        "legAngles": [
+          0.10099513401065603,
+          -0.10099513401083419,
+          0.10099513401065603,
+          -0.10099513401083419
+        ],
+        "legLengths": [
+          0.99673253230579906,
+          0.99673253230583059,
+          0.99673253230579906,
+          0.99673253230583059
+        ],
+        "footBodyLongitudinal": [
+          -0.39950590808865921,
+          0.39950590808847936,
+          -0.39950590808865921,
+          0.39950590808847936
+        ],
+        "signedFrontMinusHindFootSpan": 0.79901181617713857,
+        "relativeSpreadBeyondHipSpan": -0.20098818382286143,
+        "configuration": "contact_apex_no_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  },
+  {
+    "lowColumn": 200,
+    "referenceBranch": 1,
+    "referenceColumn": 528,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 0.024288230594716409,
+    "correctorExitflag": 4,
+    "correctorIterations": 6,
+    "referenceCorrectionNorm": 0.024315895869206572,
+    "targetNativeResidual": 5.4639875679626784E-13,
+    "correctedNativeResidual": 1.9728385733205541E-13,
+    "initialStateDifference": 3.5545766205488297E-12,
+    "eventPhaseDifference": 1.9660560844867494E-13,
+    "periodDifference": 2.2204460492503131E-15,
+    "meanVelocityDifference": -1.9539925233402755E-14,
+    "fullTrajectoryStateDifference": 3.6666713698122444E-12,
+    "phase": {
+      "phaseTime": 0.6846683039701601,
+      "phaseFraction": 0.50000000000002065,
+      "sourceResidual": 2.9058992816450473E-13,
+      "nativeResidual": 5.0670354302015344E-13,
+      "nativeReturn": 3.9557430052116045E-13,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -4.1258039626929861,
+      "meanVelocity": -4.1258039626929524,
+      "meanVelocityDifference": 3.3750779948604759E-14,
+      "maxTrajectoryStateDifference": 9.938754145467435E-13,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": 0,
+        "bodyPitchRate": 0.096087507485622628,
+        "legAngles": [
+          -0.93979744058265458,
+          0.93979744058265458,
+          -0.93979744058265458,
+          0.93979744058265458
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          -1.3074386167200411,
+          1.3074386167200411,
+          -1.3074386167200411,
+          1.3074386167200411
+        ],
+        "signedFrontMinusHindFootSpan": 2.6148772334400823,
+        "relativeSpreadBeyondHipSpan": 1.6148772334400823,
+        "configuration": "extended_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": -2.7930674266485322E-14,
+        "bodyPitchRate": -0.075031866446355566,
+        "legAngles": [
+          0.9273214583862549,
+          -0.92732145838619384,
+          0.9273214583862549,
+          -0.92732145838619384
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          0.30001574395536068,
+          -0.30001574395532404,
+          0.30001574395536068,
+          -0.30001574395532404
+        ],
+        "signedFrontMinusHindFootSpan": -0.60003148791068472,
+        "relativeSpreadBeyondHipSpan": -1.6000314879106847,
+        "configuration": "gathered_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  },
+  {
+    "lowColumn": 260,
+    "referenceBranch": 1,
+    "referenceColumn": 737,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 0.024315473885489627,
+    "correctorExitflag": 4,
+    "correctorIterations": 8,
+    "referenceCorrectionNorm": 0.024320038339998653,
+    "targetNativeResidual": 1.4503555529983524E-12,
+    "correctedNativeResidual": 2.1957041652421523E-13,
+    "initialStateDifference": 1.2831462745889192E-11,
+    "eventPhaseDifference": 3.9515287722180327E-13,
+    "periodDifference": 4.5075054799781356E-14,
+    "meanVelocityDifference": 1.5987211554602254E-14,
+    "fullTrajectoryStateDifference": 1.9747518545834202E-10,
+    "phase": {
+      "phaseTime": 0.63089110523510894,
+      "phaseFraction": 0.50000000000004385,
+      "sourceResidual": 3.60392220726885E-13,
+      "nativeResidual": 1.4579494835252804E-12,
+      "nativeReturn": 1.4119094542174642E-12,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -14.588571693161203,
+      "meanVelocity": -14.588571693161111,
+      "meanVelocityDifference": 9.2370555648813024E-14,
+      "maxTrajectoryStateDifference": 9.4247286781390939E-12,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": 0,
+        "bodyPitchRate": 0.085289068015897682,
+        "legAngles": [
+          -1.8903200974142191,
+          1.8903200974142191,
+          -1.8903200974142191,
+          1.8903200974142191
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          -1.4493851162744749,
+          1.4493851162744749,
+          -1.4493851162744749,
+          1.4493851162744749
+        ],
+        "signedFrontMinusHindFootSpan": 2.8987702325489497,
+        "relativeSpreadBeyondHipSpan": 1.8987702325489497,
+        "configuration": "extended_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": -4.5454091879282288E-15,
+        "bodyPitchRate": -0.072405805914620536,
+        "legAngles": [
+          1.8355026160313452,
+          -1.8355026160314032,
+          1.8355026160313452,
+          -1.8355026160314032
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          0.46516938482401304,
+          -0.46516938482399783,
+          0.46516938482401304,
+          -0.46516938482399783
+        ],
+        "signedFrontMinusHindFootSpan": -0.93033876964801088,
+        "relativeSpreadBeyondHipSpan": -1.930338769648011,
+        "configuration": "gathered_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  },
+  {
+    "lowColumn": 302,
+    "referenceBranch": 2,
+    "referenceColumn": 23,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 0.030718922312171756,
+    "correctorExitflag": 4,
+    "correctorIterations": 8,
+    "referenceCorrectionNorm": 0.030887537332474006,
+    "targetNativeResidual": 2.0826277789197205E-12,
+    "correctedNativeResidual": 7.4476409624933058E-14,
+    "initialStateDifference": 3.8923726037731127E-12,
+    "eventPhaseDifference": 1.1281474873911159E-13,
+    "periodDifference": 2.0916601783937949E-13,
+    "meanVelocityDifference": 1.0658141036401503E-14,
+    "fullTrajectoryStateDifference": 6.92154631929054E-10,
+    "phase": {
+      "phaseTime": 0.50575313504387664,
+      "phaseFraction": 0.500000000000001,
+      "sourceResidual": 2.6299289922031849E-13,
+      "nativeResidual": 4.82854336748969E-13,
+      "nativeReturn": 4.5542965319738791E-13,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -19.848102395372941,
+      "meanVelocity": -19.848102395372859,
+      "meanVelocityDifference": 8.1712414612411521E-14,
+      "maxTrajectoryStateDifference": 1.1560721293609368E-10,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": 0,
+        "bodyPitchRate": 0.0676611480206235,
+        "legAngles": [
+          -1.4700513099635881,
+          1.4700513099635881,
+          -1.4700513099635881,
+          1.4700513099635881
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          -1.49492951157062,
+          1.49492951157062,
+          -1.49492951157062,
+          1.49492951157062
+        ],
+        "signedFrontMinusHindFootSpan": 2.98985902314124,
+        "relativeSpreadBeyondHipSpan": 1.98985902314124,
+        "configuration": "extended_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": -9.6879427223528491E-15,
+        "bodyPitchRate": -0.058780959817313516,
+        "legAngles": [
+          1.3679663530744544,
+          -1.3679663530744388,
+          1.3679663530744544,
+          -1.3679663530744388
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          0.47950042505439205,
+          -0.47950042505438895,
+          0.47950042505439205,
+          -0.47950042505438895
+        ],
+        "signedFrontMinusHindFootSpan": -0.959000850108781,
+        "relativeSpreadBeyondHipSpan": -1.959000850108781,
+        "configuration": "gathered_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  },
+  {
+    "lowColumn": 362,
+    "referenceBranch": 2,
+    "referenceColumn": 79,
+    "referenceBranchLegend": [
+      "1=original852",
+      "2=upper_reversible"
+    ],
+    "sampledDistanceBeforeCorrection": 0.058458487356402994,
+    "correctorExitflag": 4,
+    "correctorIterations": 6,
+    "referenceCorrectionNorm": 0.058502895615185443,
+    "targetNativeResidual": 3.7966284805754191E-12,
+    "correctedNativeResidual": 1.3221831621191305E-12,
+    "initialStateDifference": 4.188075964044222E-12,
+    "eventPhaseDifference": 3.4869637070201921E-13,
+    "periodDifference": 7.5939254884360707E-14,
+    "meanVelocityDifference": 7.9936057773011271E-14,
+    "fullTrajectoryStateDifference": 7.5469206001788462E-8,
+    "phase": {
+      "phaseTime": 0.47799034998514406,
+      "phaseFraction": 0.49999999999991807,
+      "sourceResidual": 1.854326349686796E-12,
+      "nativeResidual": 2.391935091656957E-12,
+      "nativeReturn": 2.2739449952960577E-12,
+      "nativeAccepted1e8": true,
+      "nativeAccepted1e7": true,
+      "sourceMeanVelocity": -8.5294385614744339,
+      "meanVelocity": -8.5294385614734587,
+      "meanVelocityDifference": 9.7521990483073751E-13,
+      "maxTrajectoryStateDifference": 6.8073667006318473E-9,
+      "modeMismatchCount": 0,
+      "sourceApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": 0,
+        "bodyPitchRate": 0.088279742805187092,
+        "legAngles": [
+          -1.5374541327773243,
+          1.5374541327773243,
+          -1.5374541327773243,
+          1.5374541327773243
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          -1.4994442005421857,
+          1.4994442005421857,
+          -1.4994442005421857,
+          1.4994442005421857
+        ],
+        "signedFrontMinusHindFootSpan": 2.9988884010843715,
+        "relativeSpreadBeyondHipSpan": 1.9988884010843715,
+        "configuration": "extended_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      },
+      "otherApexGeometry": {
+        "supportMask": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "contactCount": 0,
+        "bodyPitch": -1.2574224430780823E-14,
+        "bodyPitchRate": -0.031977043209943573,
+        "legAngles": [
+          0.80390743153788613,
+          -0.80390743153732,
+          0.80390743153788613,
+          -0.80390743153732014
+        ],
+        "legLengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "footBodyLongitudinal": [
+          0.22007294144380385,
+          -0.22007294144341105,
+          0.22007294144380385,
+          -0.22007294144341116
+        ],
+        "signedFrontMinusHindFootSpan": -0.44014588288721496,
+        "relativeSpreadBeyondHipSpan": -1.4401458828872149,
+        "configuration": "gathered_suspension",
+        "geometryDefinition": "Foot=hip+rho*[sin(phi+alpha),-cos(phi+alpha)]; signed front-minus-hind foot span projected onto torso axis. Hip span is1. Gathered/extended label is assigned only in all-leg flight."
+      }
+    }
+  }
+]

@@ -1,0 +1,265 @@
+{
+  "rawUpperFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G_continuation_20260909/endpoint_diagnostics/upper_failfast_combined.mat",
+  "rawLowFile": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/B2_10_20_2_G_continuation_20260909/low_reversible.mat",
+  "rawUpperColumns": 168,
+  "rawLowColumns": 362,
+  "tolerances": [
+    null,
+    1e-13,
+    3e-14
+  ],
+  "acceptanceTolerance": 1e-08,
+  "method": "Identical full angular equations and prescribed contact cycle at native,1e-13,3e-14 ODE tolerances; no corrector at refined tolerances. Full22 residual and13-state return norms each must be below1e-8.",
+  "upperContinuousPrefix": 148,
+  "upperFirstFailingColumn": 149,
+  "lowContinuousPrefix": 362,
+  "lowFirstFailingColumn": [],
+  "elapsedSeconds": 36.48941991666667,
+  "mathematicalEndpointEstablished": false,
+  "lastValidatedUpper": {
+    "column": 148,
+    "initialVelocity": 4.760455641078947,
+    "initialHeight": 0.11207917490624147,
+    "initialPitchRate": 0.05094122246708072,
+    "period": 1.3495272207986189,
+    "residualNorm": [
+      9.269687863828195e-11,
+      8.943055409028538e-09,
+      9.555270536983932e-09
+    ],
+    "stateReturnNorm": [
+      7.93869953464621e-11,
+      7.670073511974093e-09,
+      8.19513394198336e-09
+    ],
+    "meanVelocity": [
+      3.836471211530289,
+      3.836471211664971,
+      3.8364712116742576
+    ],
+    "minimumBodyHeight": [
+      0.011723982712174705,
+      0.011723982687360976,
+      0.01172398268971642
+    ],
+    "minimumStanceLegLength": [
+      0.0033655819520685957,
+      0.0033655805657560275,
+      0.0033655806409854205
+    ],
+    "minimumStanceHipHeight": [
+      0.0032921757054436094,
+      0.003292175689046101,
+      0.0032921756835005388
+    ],
+    "minimumAbsStanceCosine": [
+      0.021959049474507008,
+      0.021959049381763806,
+      0.0219590494034419
+    ],
+    "minimumAxialForce": [
+      0,
+      0,
+      0
+    ],
+    "accepted": [
+      1,
+      1,
+      1
+    ]
+  },
+  "firstRejectedUpper": {
+    "column": 149,
+    "initialVelocity": 4.754898432595073,
+    "initialHeight": 0.11224417960629823,
+    "initialPitchRate": 0.051140494275089696,
+    "period": 1.3522697761086422,
+    "residualNorm": [
+      1.9657860776074704e-12,
+      9.340611909876902e-09,
+      1.0072299551646913e-08
+    ],
+    "stateReturnNorm": [
+      1.7104201196723518e-12,
+      8.01167298148226e-09,
+      8.63926494565428e-09
+    ],
+    "meanVelocity": [
+      3.8261859215375615,
+      3.826185921680102,
+      3.826185921691226
+    ],
+    "minimumBodyHeight": [
+      0.011711145073220209,
+      0.01171114508025929,
+      0.011711145048161302
+    ],
+    "minimumStanceLegLength": [
+      0.003313699516911059,
+      0.003313699797274857,
+      0.003313699324748673
+    ],
+    "minimumStanceHipHeight": [
+      0.0032414362700749627,
+      0.003241436242215054,
+      0.003241436231480937
+    ],
+    "minimumAbsStanceCosine": [
+      0.02201193335849738,
+      0.02201193333033141,
+      0.022011933323939626
+    ],
+    "minimumAxialForce": [
+      0,
+      0,
+      0
+    ],
+    "accepted": [
+      1,
+      1,
+      0
+    ]
+  },
+  "lastRawUpper": {
+    "column": 168,
+    "initialVelocity": 4.673793749498671,
+    "initialHeight": 0.11495133728908374,
+    "initialPitchRate": 0.05450295619127268,
+    "period": 1.3983217825657883,
+    "residualNorm": [
+      9.196919541611008e-11,
+      2.802077085117908e-08,
+      3.091538765379853e-08
+    ],
+    "stateReturnNorm": [
+      5.4416551987435066e-11,
+      2.4057037521706138e-08,
+      2.65426869736016e-08
+    ],
+    "meanVelocity": [
+      3.6657380014257246,
+      3.6657380018632133,
+      3.665738001908272
+    ],
+    "minimumBodyHeight": [
+      0.011561402509070387,
+      0.01156140247299796,
+      0.011561402472353488
+    ],
+    "minimumStanceLegLength": [
+      0.0025056115549358477,
+      0.0025056104616027566,
+      0.002505610350944463
+    ],
+    "minimumStanceHipHeight": [
+      0.0024511526975221822,
+      0.0024511526385235047,
+      0.002451152643144095
+    ],
+    "minimumAbsStanceCosine": [
+      0.02294772499567738,
+      0.022947724983423744,
+      0.02294772494200979
+    ],
+    "minimumAxialForce": [
+      0,
+      0,
+      0
+    ],
+    "accepted": [
+      1,
+      0,
+      0
+    ]
+  },
+  "lastValidatedLow": {
+    "column": 362,
+    "initialVelocity": -8.739071580123664,
+    "initialHeight": 0.034145398515353025,
+    "initialPitchRate": 0.08827974280518709,
+    "period": 0.9559806999704448,
+    "residualNorm": [
+      1.854326349686796e-12,
+      3.212602329891624e-12,
+      3.4805677238585246e-12
+    ],
+    "stateReturnNorm": [
+      1.852949302359806e-12,
+      2.394191766388316e-12,
+      2.596044856477484e-12
+    ],
+    "meanVelocity": [
+      -8.529438561474434,
+      -8.529438561474848,
+      -8.529438561474795
+    ],
+    "minimumBodyHeight": [
+      0.030318488485000673,
+      0.030318488494832267,
+      0.030318488486139585
+    ],
+    "minimumStanceLegLength": [
+      0.025734063054421948,
+      0.02573406128839235,
+      0.025734060931202226
+    ],
+    "minimumStanceHipHeight": [
+      0.02553094711655861,
+      0.025530947129756752,
+      0.025530947116354143
+    ],
+    "minimumAbsStanceCosine": [
+      0.033993755747655056,
+      0.0339937557476555,
+      0.0339937557476555
+    ],
+    "minimumAxialForce": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "accepted": [
+      1,
+      1,
+      1
+    ]
+  },
+  "upperMaximumRetainedResidual": [
+    1.9309689846988428e-10,
+    8.943055409028538e-09,
+    9.555270536983932e-09
+  ],
+  "upperMaximumRetainedStateReturn": [
+    1.6551715390421914e-10,
+    7.670073511974093e-09,
+    8.19513394198336e-09
+  ],
+  "lowMaximumRetainedResidual": [
+    2.9417080292061283e-12,
+    4.792086824953355e-12,
+    5.109302371257096e-12
+  ],
+  "lowMaximumRetainedStateReturn": [
+    2.3485652503161062e-12,
+    4.790259455900983e-12,
+    5.1071795958778305e-12
+  ],
+  "newUpperPoints": 146,
+  "newLowPoints": 360,
+  "rawRetryNewPoints": 66,
+  "retainedRetryNewPoints": 46,
+  "stoppedProcessId": 81610,
+  "rawRunStop": "Supervised TERM after independently tighter replay approached1e-8; accepted points checkpointed before termination.",
+  "endpointInterpretation": "Finite numerical reproducibility cutoff for the present angular shooting implementation. Decreasing stance leg length is observed; no exact zero-leg collision, branch closure, or maximal mathematical extent is established.",
+  "sha256": {
+    "upper_failfast_combined.mat": "b034f4daae440612f96a2b8615ccd7723db9daa87ec455e37ed47da6f15325fd",
+    "upper_failfast_retry.mat": "87ac9ba81f00bc6420820479cd56399e9e111d2f242c1d5381754786370e2451",
+    "upper_jointly_validated.mat": "74b8b6796d128cb07ce8c0bad98a2a32b29dfaeb087026729b72b8451f6ad23e",
+    "joint_tight_validation.mat": "6b2f09d27815301a5da09675dae05ee3832ce2649d3759e0219c4c54e359579a",
+    "B2_Endpoint_tight13.m": "d889b755d44d0506171f6f0ef5d6efbaddceab8a348e6786869d3455f5b36a18",
+    "B2_Endpoint_tight314.m": "5f0b9c3d4475f2a8f6295493368fe290014514874b0aa4f36b67fc0fd5503dcc",
+    "frozen_runtime/Quadrupedal_ZeroFun_v2.m": "475d8bd4a2d2f356da1bdcdd56977d9fa2344d895489457f9b40a31b8e76a6d1",
+    "validate_b2_tight_prefix.m": "b0fe7bd8123abf024dc59d25e1b9c0381e66c0e8cf4352e849e795aac85fd438",
+    "retry_upper_failfast.m": "b3111b97d8674081c3fb9800a0e5fd10dc6d3d966c3ad383cbf5c2457ba5b963"
+  }
+}

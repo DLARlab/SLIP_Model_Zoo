@@ -1,0 +1,188 @@
+{
+  "definition": "H is the leg angle at the next flight apex after the selected outgoing rho=1 stance crossing; g=H/u is evaluated by regular x=u*xi equations",
+  "expansion": "H=u*[a*(y-ycrit)+b*u^2+O((y-ycrit)^2,u^2*(y-ycrit),u^4)]",
+  "critical_height": 1.045694946313664,
+  "critical_normalized_residual": -2.8310687127941492e-14,
+  "source_zero_height": 1.045694946313665,
+  "source_height_difference": -1.1102230246251565e-15,
+  "a": 32.08531735854521,
+  "b": -7.416671797588019,
+  "quadratic_height_coefficient": 0.23115469654573179,
+  "a_checks": [
+    {
+      "height_step": 0.001,
+      "a_estimate": 32.081494603470624
+    },
+    {
+      "height_step": 0.0005,
+      "a_estimate": 32.08436163197892
+    },
+    {
+      "height_step": 0.0002,
+      "a_estimate": 32.08516443950704
+    },
+    {
+      "height_step": 0.0001,
+      "a_estimate": 32.08527912777481
+    },
+    {
+      "height_step": 5e-05,
+      "a_estimate": 32.08530779997442
+    },
+    {
+      "height_step": 2e-05,
+      "a_estimate": 32.085315827122535
+    },
+    {
+      "height_step": 1e-05,
+      "a_estimate": 32.08531697533323
+    },
+    {
+      "height_step": 5e-06,
+      "a_estimate": 32.085317262742215
+    }
+  ],
+  "b_checks": [
+    {
+      "speed": 0.02,
+      "g": -0.002965702594772801,
+      "b_estimate": -7.414256486861226
+    },
+    {
+      "speed": 0.01,
+      "g": -0.0007416069649167079,
+      "b_estimate": -7.416069648883972
+    },
+    {
+      "speed": 0.005,
+      "g": -0.00018541303387797914,
+      "b_estimate": -7.416521353986738
+    },
+    {
+      "speed": 0.0025,
+      "g": -4.635396366625688e-05,
+      "b_estimate": -7.416634182071391
+    },
+    {
+      "speed": 0.00125,
+      "g": -1.1588535018480783e-05,
+      "b_estimate": -7.416662393708862
+    },
+    {
+      "speed": 0.000625,
+      "g": -2.8971365453323017e-06,
+      "b_estimate": -7.416669483575333
+    }
+  ],
+  "local_orbits": [
+    {
+      "initial_speed": -0.01,
+      "height": 1.0457180632385505,
+      "height_offset": 2.311692488654593e-05,
+      "offset_over_speed_squared": 0.2311692488654593,
+      "normalized_residual": 6.106226635438361e-16,
+      "physical_midpoint_residual": -6.106226635438361e-18,
+      "period": 2.4408667519144043,
+      "td": 1.6386581587565683,
+      "lo": 0.8022085931578362
+    },
+    {
+      "initial_speed": -0.005,
+      "height": 1.0457007252720183,
+      "height_offset": 5.778958354296648e-06,
+      "offset_over_speed_squared": 0.23115833417186593,
+      "normalized_residual": 2.4924506902834764e-14,
+      "physical_midpoint_residual": -1.2462253451417383e-16,
+      "period": 2.440919019351943,
+      "td": 1.6386834393292977,
+      "lo": 0.8022355800226454
+    },
+    {
+      "initial_speed": -0.002,
+      "height": 1.0456958709347774,
+      "height_offset": 9.246211134517068e-07,
+      "offset_over_speed_squared": 0.2311552783629267,
+      "normalized_residual": -6.217248937900877e-15,
+      "physical_midpoint_residual": 1.2434497875801754e-17,
+      "period": 2.440933657951236,
+      "td": 1.6386905196590231,
+      "lo": 0.8022431382922128
+    },
+    {
+      "initial_speed": -0.001,
+      "height": 1.0456951774685068,
+      "height_offset": 2.3115484282243415e-07,
+      "offset_over_speed_squared": 0.23115484282243415,
+      "normalized_residual": -2.55351295663786e-15,
+      "physical_midpoint_residual": 2.55351295663786e-18,
+      "period": 2.4409357493124952,
+      "td": 1.6386915311979142,
+      "lo": 0.8022442181145809
+    },
+    {
+      "initial_speed": 0.001,
+      "height": 1.0456951774685068,
+      "height_offset": 2.3115484282243415e-07,
+      "offset_over_speed_squared": 0.23115484282243415,
+      "normalized_residual": -2.55351295663786e-15,
+      "physical_midpoint_residual": -2.55351295663786e-18,
+      "period": 2.4409357493124952,
+      "td": 1.6386915311979142,
+      "lo": 0.8022442181145809
+    },
+    {
+      "initial_speed": 0.002,
+      "height": 1.0456958709347774,
+      "height_offset": 9.246211134517068e-07,
+      "offset_over_speed_squared": 0.2311552783629267,
+      "normalized_residual": -6.217248937900877e-15,
+      "physical_midpoint_residual": -1.2434497875801754e-17,
+      "period": 2.440933657951236,
+      "td": 1.6386905196590231,
+      "lo": 0.8022431382922128
+    },
+    {
+      "initial_speed": 0.005,
+      "height": 1.0457007252720183,
+      "height_offset": 5.778958354296648e-06,
+      "offset_over_speed_squared": 0.23115833417186593,
+      "normalized_residual": 2.4924506902834764e-14,
+      "physical_midpoint_residual": 1.2462253451417383e-16,
+      "period": 2.440919019351943,
+      "td": 1.6386834393292977,
+      "lo": 0.8022355800226454
+    },
+    {
+      "initial_speed": 0.01,
+      "height": 1.0457180632385505,
+      "height_offset": 2.311692488654593e-05,
+      "offset_over_speed_squared": 0.2311692488654593,
+      "normalized_residual": 6.106226635438361e-16,
+      "physical_midpoint_residual": 6.106226635438361e-18,
+      "period": 2.4408667519144043,
+      "td": 1.6386581587565683,
+      "lo": 0.8022085931578362
+    }
+  ],
+  "contact_topology": {
+    "full_period": 2.440936446440283,
+    "flight_duration": 0.8364472903218095,
+    "stance_duration": 1.6044891561184735,
+    "vertical_stance_natural_period": 0.99345882657961,
+    "ordinary_contact_stance_duration": 0.6110303295388638,
+    "ordinary_same_energy_period": 1.4474776198606734,
+    "tensile_apex_height": 1.045694946313664,
+    "flight_apex_height": 1.0874555086858373,
+    "compression_minimum_height": 0.904305053686336,
+    "compression_minimum_times": [
+      0.496729413289805,
+      1.9442070331504782
+    ],
+    "ignored_force_zero_times": [
+      0.1912142485203731,
+      2.24972219791991
+    ],
+    "minimum_period_reason": "One positive-duration flight interval and one labeled TD/LO per cycle; half-period apex has a different height and contact mode."
+  },
+  "interpretation": "Nonzero a and b imply an even traveling height curve y=ycrit-(b/a)u^2+O(u^4), giving two reflected signed-speed branches from the vertical family."
+}

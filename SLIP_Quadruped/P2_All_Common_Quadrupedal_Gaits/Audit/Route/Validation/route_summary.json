@@ -1,0 +1,110 @@
+{
+  "establishedRoute": "Delayed-liftoff in-place vertical pronking -> PK_B2_Parent -> B2 connected continuation -> two-flight B2 samples",
+  "ordinaryPIPConnectionEstablished": false,
+  "pkSourceColumns": [
+    132,
+    131,
+    130,
+    129,
+    128,
+    127,
+    126,
+    125,
+    124,
+    123,
+    122,
+    121,
+    120,
+    119,
+    118,
+    117,
+    116,
+    115,
+    114,
+    113,
+    112,
+    111,
+    110
+  ],
+  "pkRoutePointCount": 23,
+  "b2CriticalSourceBracket": [
+    162,
+    163
+  ],
+  "selectedB2SourceColumns": [
+    163,
+    441
+  ],
+  "B2RoutePointCount": 283,
+  "firstTwoFlightB2Column": 441,
+  "firstTwoFlightInitialVelocity": 0.7275373218167093,
+  "firstTwoFlightMeanVelocity": 0.7150856957477166,
+  "contactTransitionBrackets": [
+    {
+      "sourceColumns": [
+        383,
+        384
+      ],
+      "flightCounts": [
+        1,
+        0
+      ],
+      "initialVelocities": [
+        0.31232913263160106,
+        0.3082301580395103
+      ],
+      "periods": [
+        2.130908794967196,
+        2.132890570339765
+      ],
+      "type": "contact-itinerary change, not labeled a smooth +1 bifurcation"
+    },
+    {
+      "sourceColumns": [
+        434,
+        435
+      ],
+      "flightCounts": [
+        0,
+        1
+      ],
+      "initialVelocities": [
+        0.5681726437045328,
+        0.5807055456176862
+      ],
+      "periods": [
+        1.8083764340302317,
+        1.7983543061660845
+      ],
+      "type": "contact-itinerary change, not labeled a smooth +1 bifurcation"
+    },
+    {
+      "sourceColumns": [
+        440,
+        441
+      ],
+      "flightCounts": [
+        1,
+        2
+      ],
+      "initialVelocities": [
+        0.6991209562192998,
+        0.7275373218167093
+      ],
+      "periods": [
+        1.7196703636036832,
+        1.7043385621982736
+      ],
+      "type": "contact-itinerary change, not labeled a smooth +1 bifurcation"
+    }
+  ],
+  "localToStoredB2JoinStateDistance": 0.0052430717745970135,
+  "maximumStoredRouteStepNorm": 3.7124086243219674,
+  "maximumInitialStateStepNorm": 0.05000000016677197,
+  "maximumCircularEventChartStep": 0.052437635038969845,
+  "continuityMetric": "sqrt(||delta initial13-state||^2 + ||wrapped delta normalized event phases||^2 + delta log(T)^2). Raw event times jump by T when crossing the chart cut; they are not a continuity test.",
+  "inspectedOrbitRecords": 898,
+  "allOrbitRecordsPassed": true,
+  "periodicTolerance": 1e-08,
+  "limitation": "Finite continuation samples, corrected local daughters and matching Floquet kernels provide numerical connectivity evidence, not a global existence proof. Contact transitions are recorded separately from the two symmetry-breaking branch points."
+}
