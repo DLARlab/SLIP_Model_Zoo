@@ -1,0 +1,15 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                            first_value: -1.0000e-09
+                        revisited_value: 0
+           effective_relative_tolerance: 1.0000e-09
+           effective_absolute_tolerance: 1.0000e-11
+    requested_nested_relative_tolerance: 1.0000e-12
+    requested_nested_absolute_tolerance: 1.0000e-14
+                       same_point_equal: 0
+            same_point_value_difference: 1.0000e-09
+                            observation: 'The solver adapter deliberately queries the same (t,x) before and after an interior probe. Returned values must not depend on probe order. This is not an ode45 trajectory.'
+
+All 16 physical mode dimensions correct: 1; energy defect 6.51e-19; gradient defect 8.71e-11

@@ -1,0 +1,56 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/BS_10_20_2_BIP_Child.mat
+results
+    41
+
+    77
+
+    0.9459
+
+  Columns 1 through 7
+
+         0   -0.4165    0.7289         0         0    0.1586   -0.6667
+
+  Columns 8 through 14
+
+    0.1414   -0.6667    0.1414    0.6667    0.1414    0.6667    0.1414
+
+   1   1   1   1
+
+   1
+
+   -0.0570   -0.0570   -0.0570   -0.0570
+
+   2.0828e-13
+
+    1.2792
+
+P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PIP_10_20_2_Spread.mat
+results
+   290
+
+     1
+
+    0.8217
+
+  Columns 1 through 7
+
+         0         0    0.8217         0         0         0    0.9416
+
+  Columns 8 through 14
+
+         0    0.9416         0   -0.9416         0   -0.9416         0
+
+   0   0   0   0
+
+   1
+
+    0.2332    0.2332    0.2332    0.2332
+
+     0
+
+    -1
+

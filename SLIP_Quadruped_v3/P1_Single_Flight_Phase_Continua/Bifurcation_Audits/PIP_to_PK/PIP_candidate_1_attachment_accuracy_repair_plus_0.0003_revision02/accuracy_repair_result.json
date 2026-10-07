@@ -1,0 +1,121 @@
+{
+  "schema_version": "PIP-attachment-accuracy-repair-result-v3-1",
+  "state": "accepted",
+  "scientific_status": "numerically_supported_restricted_attachment",
+  "source_task_id": "PIP_candidate_1",
+  "method": "signed-daughter-attachment-accuracy-repair",
+  "artifact": "accuracy_repair_r000_attempt_001.mat",
+  "signed_amplitude": 0.0003,
+  "physically_accepted": true,
+  "domain_accepted": true,
+  "attachment_evidence": {
+    "schema_version": "restricted-pronk-attachment-evidence-v3-2",
+    "status": "numerically_supported_restricted_attachment",
+    "gates": {
+      "reliable_parent_derivatives": true,
+      "resolved_simple_kernel": true,
+      "critical_kernel_near_zero": true,
+      "resolved_left_kernel_transversality": true,
+      "both_signed_sequences": true,
+      "critical_direction_alignment": true,
+      "energy_approach_and_quadratic_scaling": true,
+      "genuine_large_amplitude_corrections": true,
+      "full_closure_and_tighter_replay": true,
+      "distinct_full_trajectories": true,
+      "synchronized_primitive_contact_cycles": true,
+      "signed_reflection_agreement": true
+    },
+    "failed_gates": [],
+    "kernel_gap_to_error_ratio": 9.23547153987664E+6,
+    "transversality_to_error_ratio": 853.28998177337041,
+    "energy_uncertainty_estimate": 5E-9,
+    "signed_sequences": [
+      {
+        "sign": -1,
+        "accepted_count": 5,
+        "resolved_energy_shift_count": 3,
+        "quadratic_energy_coefficient": 0.15761647851023267,
+        "maximum_relative_fit_error": 0.0025501869490451275,
+        "approaches_parent": true,
+        "quadratic_scaling_resolved": true,
+        "largest_amplitude": 0.01,
+        "largest_amplitude_genuinely_corrected": true
+      },
+      {
+        "sign": 1,
+        "accepted_count": 5,
+        "resolved_energy_shift_count": 3,
+        "quadratic_energy_coefficient": 0.15761564993046137,
+        "maximum_relative_fit_error": 0.011368872703842922,
+        "approaches_parent": true,
+        "quadratic_scaling_resolved": true,
+        "largest_amplitude": 0.01,
+        "largest_amplitude_genuinely_corrected": true
+      }
+    ],
+    "signed_reflection_maximum_error": 5.3053587523166357E-8,
+    "claim": "conditional numerical local attachment in the synchronized fixed-parameter pronk subspace",
+    "full_system_regular_cluster_derivative_claimed": false,
+    "global_network_or_exhaustiveness_claimed": false
+  },
+  "original_attachment_evidence": {
+    "schema_version": "restricted-pronk-attachment-evidence-v3-2",
+    "status": "candidate_only",
+    "gates": {
+      "reliable_parent_derivatives": true,
+      "resolved_simple_kernel": true,
+      "critical_kernel_near_zero": true,
+      "resolved_left_kernel_transversality": true,
+      "both_signed_sequences": true,
+      "critical_direction_alignment": true,
+      "energy_approach_and_quadratic_scaling": false,
+      "genuine_large_amplitude_corrections": true,
+      "full_closure_and_tighter_replay": true,
+      "distinct_full_trajectories": true,
+      "synchronized_primitive_contact_cycles": true,
+      "signed_reflection_agreement": false
+    },
+    "failed_gates": [
+      "energy_approach_and_quadratic_scaling",
+      "signed_reflection_agreement"
+    ],
+    "kernel_gap_to_error_ratio": 9.23547153987664E+6,
+    "transversality_to_error_ratio": 853.28998177337041,
+    "energy_uncertainty_estimate": 5E-9,
+    "signed_sequences": [
+      {
+        "sign": -1,
+        "accepted_count": 5,
+        "resolved_energy_shift_count": 3,
+        "quadratic_energy_coefficient": 0.15761647851023267,
+        "maximum_relative_fit_error": 0.0025501869490451275,
+        "approaches_parent": true,
+        "quadratic_scaling_resolved": true,
+        "largest_amplitude": 0.01,
+        "largest_amplitude_genuinely_corrected": true
+      },
+      {
+        "sign": 1,
+        "accepted_count": 5,
+        "resolved_energy_shift_count": 4,
+        "quadratic_energy_coefficient": 0.15761520725787764,
+        "maximum_relative_fit_error": 1.4006736423007518,
+        "approaches_parent": true,
+        "quadratic_scaling_resolved": false,
+        "largest_amplitude": 0.01,
+        "largest_amplitude_genuinely_corrected": true
+      }
+    ],
+    "signed_reflection_maximum_error": 1.8160141435075161E-7,
+    "claim": "conditional numerical local attachment in the synchronized fixed-parameter pronk subspace",
+    "full_system_regular_cluster_derivative_claimed": false,
+    "global_network_or_exhaustiveness_claimed": false
+  },
+  "function_evaluations": 92,
+  "solver_map_evaluations": 90,
+  "new_points": 0,
+  "accepted_record_count": 1,
+  "original_records_modified": false,
+  "original_task_counters_modified": false,
+  "full_system_stability_or_C2_claimed": false
+}

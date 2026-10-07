@@ -1,0 +1,30 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                   schema_version: 'GUI-BL2-occurrence-audit-v3-1'
+                           passed: 1
+                   matlab_version: '25.2.0.3177638 (R2025b) Update 5'
+                         platform: 'MACA64'
+                   input_artifact: '/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/next_round/solver/case6_marked_occurrence.mat'
+                     input_sha256: 'a032171b05c7c332c6d2a956c503a5d62a2f9f99c40f81acb31fca5048820ba4'
+       stored_selected_occurrence: 2
+                     GUI_override: 'stored'
+    GUI_default_occurrence_option: 1
+      service_declared_occurrence: 2
+            correction_occurrence: 2
+    independent_replay_occurrence: 2
+                 primitive_status: "multiple_cover_detected"
+                     full_closure: 6.1220e-11
+                 service_accepted: 0
+         returned_record_accepted: 0
+         selected_record_accepted: 0
+        failed_candidate_retained: 1
+           failed_report_retained: 1
+                       GUI_status: 'correction failed: Fresh full closure, energy, stance, constraint, determinism or primitive-period gate failed.'
+                  elapsed_seconds: 7.6725
+             GUIController_sha256: '0d5212c210b26df42027c028b36266f2c3e3af03ec6a0663dbfe4eb78ad8f268'
+    PeriodicSolutionSolver_sha256: '452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da'
+               PoincareMap_sha256: 'af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46'
+           HybridSimulator_sha256: '896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c'
+

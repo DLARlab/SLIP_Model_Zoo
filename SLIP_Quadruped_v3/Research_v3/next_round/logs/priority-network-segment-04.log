@@ -1,0 +1,43 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+
+Priority segment visit 1/13: PIP_candidate_1_attachment_accuracy_repair_plus_0.0003
+MATLAB research taskPIP_candidate_1_attachment_accuracy_repair_plus_0.0003, roundC, attempt1, remainingtotal4146.8s, slice480.0s
+
+Priority segment visit 2/13: PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003
+MATLAB research taskPIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003, roundC, attempt1, remainingtotal4070.5s, slice480.0s
+
+Priority segment visit 3/13: imported_PK_to_low_PIP_daughter_negative_0p01
+MATLAB research taskimported_PK_to_low_PIP_daughter_negative_0p01, roundC, attempt1, remainingtotal4062.3s, slice480.0s
+
+Priority segment visit 4/13: n0_positive_front_twisted_common_C1_Broyden_retry
+MATLAB research taskn0_positive_front_twisted_common_C1_Broyden_retry, roundC, attempt1, remainingtotal3717.7s, slice480.0s
+
+Priority segment visit 5/13: PIP_candidate_2
+MATLAB research taskPIP_candidate_2, roundB, attempt3, remainingtotal3246.0s, slice300.0s
+
+Priority segment visit 6/13: PIP_candidate_3
+MATLAB research taskPIP_candidate_3, roundB, attempt2, remainingtotal2972.6s, slice300.0s
+
+Priority segment visit 7/13: PK_continuation_m1
+MATLAB research taskPK_continuation_m1, roundB, attempt2, remainingtotal2659.7s, slice300.0s
+
+Priority segment visit 8/13: PK_continuation_p1
+MATLAB research taskPK_continuation_p1, roundB, attempt1, remainingtotal2342.7s, slice300.0s
+
+Priority segment visit 9/13: restricted_daughter_1_m1
+MATLAB research taskrestricted_daughter_1_m1, roundB, attempt1, remainingtotal2024.8s, slice300.0s
+
+Priority segment visit 10/13: restricted_daughter_1_p1
+MATLAB research taskrestricted_daughter_1_p1, roundB, attempt1, remainingtotal1717.2s, slice300.0s
+
+Priority segment visit 11/13: restricted_daughter_2_m1
+MATLAB research taskrestricted_daughter_2_m1, roundB, attempt1, remainingtotal1410.9s, slice300.0s
+
+Priority segment visit 12/13: restricted_daughter_2_p1
+MATLAB research taskrestricted_daughter_2_p1, roundB, attempt1, remainingtotal1103.5s, slice300.0s
+
+Priority segment visit 13/13: P2_source_17_C
+MATLAB research taskP2_source_17_C, roundC, attempt3, remainingtotal782.4s, slice300.0s

@@ -1,0 +1,47 @@
+{
+  "schema_version": "prospective-local-PK-bridge-domain-repair-v3-1",
+  "registered_utc": "07-Oct-2026 15:34:46",
+  "candidate_id": "imported_PK_to_low_PIP_daughter_negative_0p01",
+  "candidate_sha256": "fee4c91d037b61e7da301c7055aa83412ad031a5bf5fd1851aaded4eb23a60ac",
+  "original_registration": "Research_v3/next_round/low_energy_PK_bridge_registration.json",
+  "original_registration_sha256": "1b96e06b7e821ddb399128eca4a68220e3b921c3ab9ce6f596db9ddc4adb4380",
+  "diagnosis": "PoincareMap stride_displacement is rawReturnState minus sectionState (14D), so an unindexed && mean-speed gate throws after a valid service return.",
+  "repair": "Use horizontal component (1) for scalar speed/drift; explicitly check saved pitch and eight actual contact events against the registered domain.",
+  "replaced_source": {
+    "path": "Research_v3/Drivers_v3/RunLowEnergyPKBridge_v3.m",
+    "original_sha256": "1724908cd81cf59c1ee651fc742d60e3e47d157ba8891adc60326e884c246ef7",
+    "repaired_sha256": "ae2c797604f3e87fc0a5e9b8b9650823938a2e319d4d407bec6d78c5b1e21bcc"
+  },
+  "saved_actual_orbit_shapes": [
+    {
+      "role": 1,
+      "class": "HybridOrbit_v3",
+      "stride_displacement_size": [
+        14,
+        1
+      ],
+      "horizontal_displacement": -0.0087523309966865345,
+      "mean_speed": -0.0055942511256052846,
+      "maximum_saved_pitch": 4.2447773441484892E-16,
+      "actual_contact_event_count": 8
+    },
+    {
+      "role": 2,
+      "class": "HybridOrbit_v3",
+      "stride_displacement_size": [
+        14,
+        1
+      ],
+      "horizontal_displacement": -0.0083793003428803015,
+      "mean_speed": -0.00535581918734745,
+      "maximum_saved_pitch": 0,
+      "actual_contact_event_count": 8
+    }
+  ],
+  "full_closure_or_physics_changed": false,
+  "amplitude_grid_or_budget_changed": false,
+  "maps_executed": 0,
+  "new_simulations": 0,
+  "proof_of_shape_source": "Orbit_v3/PoincareMap_v3.m:261",
+  "proof_of_shape_source_sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+}

@@ -1,0 +1,105 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+STATE class=struct tasks=struct size=[1 239] status=running wall=9696.460599500 total=10800.000000000 unfinished=227
+    {'schema_version'                 }
+    {'profile'                        }
+    {'experiment_id'                  }
+    {'starting_commit'                }
+    {'created_utc'                    }
+    {'config'                         }
+    {'tasks'                          }
+    {'numerical_wall_seconds'         }
+    {'function_evaluations'           }
+    {'invocations'                    }
+    {'network_achieved'               }
+    {'global_completeness_claimed'    }
+    {'status'                         }
+    {'last_updated_utc'               }
+    {'external_interruption_audits'   }
+    {'source_interruption_audit'      }
+    {'continuation_interruption_audit'}
+    {'wrapper_warm_start_registration'}
+
+GATE class=struct hashes=struct size=[1 7] pass=1
+RESULT solver_validation kind=solver_validation class=struct size=[1 1]
+RESULT PIP_candidate_1 kind=PIP_candidate class=struct size=[1 1]
+ PIP fields phase=1 crit=1 amp=1 evidence=1
+ AMP class=struct size=[1 10]
+RESULT PIP_candidate_2 kind=PIP_candidate class=struct size=[1 1]
+ PIP fields phase=1 crit=1 amp=1 evidence=0
+ AMP class=struct size=[1 1]
+RESULT PIP_candidate_3 kind=PIP_candidate class=struct size=[1 1]
+ PIP fields phase=1 crit=1 amp=1 evidence=0
+ AMP class=struct size=[1 1]
+RESULT PK_continuation_m1 kind=continuation class=struct size=[1 1]
+ CONT energy=double/[1 23] speed=double/[1 23] finite=1/1
+RESULT PK_continuation_p1 kind=continuation class=struct size=[1 1]
+ CONT energy=double/[1 22] speed=double/[1 22] finite=1/1
+RESULT restricted_daughter_1_m1 kind=continuation class=struct size=[1 1]
+ CONT energy=double/[1 2] speed=double/[1 2] finite=1/1
+RESULT restricted_daughter_1_p1 kind=continuation class=struct size=[1 1]
+ CONT energy=double/[1 2] speed=double/[1 2] finite=1/1
+RESULT restricted_daughter_2_m1 kind=continuation class=struct size=[1 1]
+ CONT energy=double/[1 2] speed=double/[1 2] finite=1/1
+RESULT P1_source_01_A kind=P1_source class=struct size=[1 1]
+RESULT P1_source_03_A kind=P1_source class=struct size=[1 1]
+RESULT P1_source_05_A kind=P1_source class=struct size=[1 1]
+RESULT P1_source_07_A kind=P1_source class=struct size=[1 1]
+RESULT P2_source_10_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_11_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_12_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_13_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_14_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_15_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_16_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_17_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_18_A kind=P2_source class=struct size=[1 1]
+RESULT P1_source_01_B kind=P1_source class=struct size=[1 1]
+RESULT P1_source_03_B kind=P1_source class=struct size=[1 1]
+RESULT P1_source_05_B kind=P1_source class=struct size=[1 1]
+RESULT P2_source_17_B kind=P2_source class=struct size=[1 1]
+RESULT P2_source_18_B kind=P2_source class=struct size=[1 1]
+RESULT P2_source_17_C kind=P2_source class=struct size=[1 1]
+RESULT P2_source_18_C kind=P2_source class=struct size=[1 1]
+RESULT P1_source_19_A kind=P1_source class=struct size=[1 1]
+RESULT P1_source_23_A kind=P1_source class=struct size=[1 1]
+RESULT P1_source_24_A kind=P1_source class=struct size=[1 1]
+RESULT P1_source_25_A kind=P1_source class=struct size=[1 1]
+RESULT P2_source_26_A kind=P2_source class=struct size=[1 1]
+RESULT P2_source_27_A kind=P2_source class=struct size=[1 1]
+RESULT P1_source_19_B kind=P1_source class=struct size=[1 1]
+RESULT P1_source_23_B kind=P1_source class=struct size=[1 1]
+RESULT P1_source_24_B kind=P1_source class=struct size=[1 1]
+RESULT P1_source_25_B kind=P1_source class=struct size=[1 1]
+RESULT P2_source_26_B kind=P2_source class=struct size=[1 1]
+RESULT P2_source_27_B kind=P2_source class=struct size=[1 1]
+RESULT P1_source_19_C kind=P1_source class=struct size=[1 1]
+RESULT P1_source_23_C kind=P1_source class=struct size=[1 1]
+RESULT P1_source_24_C kind=P1_source class=struct size=[1 1]
+RESULT P1_source_25_C kind=P1_source class=struct size=[1 1]
+RESULT P2_source_26_C kind=P2_source class=struct size=[1 1]
+RESULT P2_source_27_C kind=P2_source class=struct size=[1 1]
+RESULT PIP_PK_low_energy_neighborhood kind=PIP_candidate class=struct size=[1 1]
+ PIP fields phase=1 crit=1 amp=1 evidence=1
+ AMP class=struct size=[1 10]
+RESULT P2_source_17_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT P2_source_18_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT P1_source_19_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT P1_source_23_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT P1_source_24_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT P1_source_25_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT P2_source_26_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT P2_source_27_B_predictor_trace kind=source_predictor_audit class=struct size=[1 1]
+RESULT opposed_spread_n0_negative_A1e-3_campaign kind=period_two_sector class=struct size=[1 1]
+RESULT opposed_spread_n0_positive_A1e-3_campaign kind=period_two_sector class=struct size=[1 1]
+RESULT n0_positive_front_twisted_common_C1_Broyden_retry kind=period_two_sector class=struct size=[1 1]
+RESULT imported_PK_to_low_PIP_daughter_negative_0p01 kind=branch_identity_bridge class=struct size=[1 1]
+ BRIDGE increments=1 local=1 ancestry=1
+RESULT PIP_candidate_1_attachment_accuracy_repair_plus_0.0003 kind=attachment_accuracy_repair class=struct size=[1 1]
+ ACC evidence=1 original=1 modified=1
+RESULT PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003 kind=attachment_accuracy_repair class=struct size=[1 1]
+ ACC evidence=1 original=1 modified=1
+{Unrecognized method, property, or field 'Options' for class 'RootSolver_v3'.
+} 

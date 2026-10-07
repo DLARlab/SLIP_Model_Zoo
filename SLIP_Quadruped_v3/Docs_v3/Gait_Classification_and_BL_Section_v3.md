@@ -1,6 +1,6 @@
 # State-based diagnostics and local BL apex charts
 
-The new services live in `Orbit_v3` and require only the v3 schema, dynamics, simulation, and orbit paths. They do not call the legacy classifier, modify event eligibility, or select itineraries from desired gait names.
+The new services live in `4_Solution_Management` and require only the v3 schema, dynamics, simulation, and orbit paths. They do not call the legacy classifier, modify event eligibility, or select itineraries from desired gait names.
 
 `GaitIdentification_v3(source, options)` accepts `Trajectory_v3`, `HybridOrbit_v3`, or an orbit struct containing a complete trajectory, period, parameter vector and event log. It returns descriptive labels, legacy display colors/abbreviations, all TD/LO occurrences and circular phases, duty factors, contact functions, sampled angle/rate trajectories, contact and motion synchronization residuals, front/hind pairing, signed right-minus-left lead, event clusters, sampled suspension geometry, numerical primitive diagnostics and physical flight count. `HB_front`/`F2` always means front spread; `HB_hind`/`H2` always means hind spread. The explicit display mapping is `GaitSemanticTable_v3`. Legacy suffix 2 was a timing heuristic; v3 reports the physical count separately and uses a 2 display suffix only for a numerically identified two-flight record. Names and colors carry no dynamical or isotropy proof.
 

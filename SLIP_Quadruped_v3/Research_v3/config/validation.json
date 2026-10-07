@@ -87,6 +87,28 @@
       0.001,
       0.003
     ],
-    "registration": "before parent-only pronk scan; no domain change"
+    "registration": "before parent-only pronk scan; no domain change",
+    "validation_version": "parent-only-pronk-validation-v3-2",
+    "relative_tolerance": 1e-11,
+    "absolute_tolerance": 1e-13,
+    "replay_relative_tolerance": 2e-12,
+    "replay_absolute_tolerance": 2e-14,
+    "derivative_step": 0.0001,
+    "derivative_relative_error": 0.001,
+    "transversality_energy_step": 0.0001,
+    "root_function_tolerance": 1e-12,
+    "root_residual_tolerance": 1e-10,
+    "full_closure_tolerance": 1e-08,
+    "replay_period_tolerance": 1e-08,
+    "kernel_gap_factor": 25,
+    "kernel_zero_factor": 10,
+    "transversality_factor": 5,
+    "minimum_signed_amplitudes": 3,
+    "minimum_critical_alignment": 0.995,
+    "energy_scaling_relative_tolerance": 0.15,
+    "trajectory_distinction_tolerance": 1e-06,
+    "synchronization_tolerance": 1e-09,
+    "signed_reflection_tolerance": 1e-07,
+    "validation_registration": "Schema repair supplies the existing driver mandatory fields; historical numerical outputs remain unchanged."
   }
 }

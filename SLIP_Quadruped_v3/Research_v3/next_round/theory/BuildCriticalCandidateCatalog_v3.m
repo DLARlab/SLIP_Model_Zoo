@@ -1,0 +1,88 @@
+function catalog=BuildCriticalCandidateCatalog_v3()
+%BUILDCRITICALCANDIDATECATALOG_V3 Extract exact critical predictors in MATLAB.
+% Critical 22-vectors are assembled with their OWN saved seven parameters.
+% No event schedule is used to constrain the autonomous v3 dynamics.
+    here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(fileparts(here)));
+    inventory=jsondecode(fileread(V3Path_v3(fullfile(here,'critical_source_inventory.json'))));
+    entries=struct('source',{},'variable',{},'raw',{},'family_hint',{}, ...
+        'construction',{},'source_column_indices',{});
+    summary=struct('source_path',{},'variable',{},'columns',{},'family_hint',{}, ...
+        'construction',{},'initial_speed_bounds',{},'source_period_bounds',{});
+    for k=1:numel(inventory.records)
+        provenance=inventory.records(k);data=load(V3Path_v3(fullfile(v3,provenance.fixture_path)));
+        if k<=4
+            payload=data.refinementReport.Payload;
+            for j=1:numel(payload)
+                candidate=payload(j);
+                raw=[candidate.CriticalSolution(:);candidate.Refinement.parameters(:)];
+                assert(numel(raw)==29,'Critical snapshot has an unexpected format.');
+                variable=sprintf('refinementReport.Payload(%d).CriticalSolution+Refinement.parameters',j);
+                add(raw,variable,provenance,familyHint(provenance.source_path), ...
+                    'exact-saved-critical-22-vector-plus-own-saved-7-parameters');
+            end
+        elseif k==5
+            critical=data.refinementReport.Payload.Critical;
+            raw=[critical.solution(:);critical.refinement.parameters(:)];
+            assert(numel(raw)==29,'Critical snapshot has an unexpected format.');
+            add(raw,'refinementReport.Payload.Critical.solution+refinement.parameters', ...
+                provenance,'PK','exact-saved-critical-22-vector-plus-own-saved-7-parameters');
+        else
+            arrays=collect(data,'',0);
+            for j=1:numel(arrays)
+                add(arrays(j).raw,arrays(j).variable,provenance, ...
+                    familyHint(provenance.source_path),'exact-complete-saved-29-row-array');
+            end
+        end
+    end
+    catalog=struct('schema_version','critical-candidate-catalog-v3-1', ...
+        'source_commit',inventory.source_commit,'matlab_version',version, ...
+        'created_utc',char(datetime('now','TimeZone','UTC')), ...
+        'interpretation','legacy seeds; no v3 acceptance or ancestry from import', ...
+        'entries',entries);
+    save(V3Path_v3(fullfile(here,'critical_branch_catalog.mat')),'catalog','-v7');
+    document=rmfield(catalog,'entries');document.entries=summary;
+    fid=fopen(V3Path_v3(fullfile(here,'critical_branch_catalog.json')),'w');assert(fid>=0);
+    cleanup=onCleanup(@()fclose(fid)); %#ok<NASGU>
+    fprintf(fid,'%s\n',jsonencode(document,'PrettyPrint',true));
+    fprintf('Critical candidate catalog: %d arrays, %d columns.\n', ...
+        numel(entries),sum(arrayfun(@(e)size(e.raw,2),entries)));
+    function add(raw,variable,source,family,construction)
+        entry=struct('source',source,'variable',variable,'raw',raw, ...
+            'family_hint',family,'construction',construction, ...
+            'source_column_indices',1:size(raw,2));
+        entries(end+1)=entry;
+        summary(end+1)=struct('source_path',source.source_path,'variable',variable, ...
+            'columns',size(raw,2),'family_hint',family,'construction',construction, ...
+            'initial_speed_bounds',[min(raw(1,:)),max(raw(1,:))], ...
+            'source_period_bounds',[min(raw(22,:)),max(raw(22,:))]);
+    end
+end
+function arrays=collect(value,label,depth)
+    arrays=struct('variable',{},'raw',{});
+    if isnumeric(value)&&ismatrix(value)&&size(value,1)==29
+        arrays=struct('variable',label,'raw',value);
+    elseif isstruct(value)&&depth<5
+        for index=1:numel(value)
+            fields=fieldnames(value(index));
+            for k=1:numel(fields)
+                next=[label,'.',fields{k}];
+                if numel(value)>1,next=sprintf('%s(%d).%s',label,index,fields{k});end
+                nested=collect(value(index).(fields{k}),next,depth+1);
+                arrays=[arrays;nested(:)]; %#ok<AGROW>
+            end
+        end
+    elseif iscell(value)&&depth<5
+        for index=1:numel(value)
+            nested=collect(value{index},sprintf('%s{%d}',label,index),depth+1);
+            arrays=[arrays;nested(:)]; %#ok<AGROW>
+        end
+    end
+end
+function family=familyHint(source)
+    if contains(source,'BE_half')||contains(source,'BG_half'),family='BD';
+    elseif contains(source,'FG_GG'),family='HB_front';
+    elseif contains(source,'GE_HE'),family='HB_hind';
+    elseif contains(source,'PIP_delayed'),family='PIP_delayed';
+    elseif contains(source,'PK_')||contains(source,'PK_multigait'),family='PK';
+    else,family='B2';end
+end

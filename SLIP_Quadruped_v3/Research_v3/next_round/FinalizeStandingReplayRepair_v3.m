@@ -1,0 +1,48 @@
+function audit=FinalizeStandingReplayRepair_v3()
+%FINALIZESTANDINGREPLAYREPAIR_V3 Accounting/registration only; no numerics.
+    here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(here));V3LegacyAddPath_v3(genpath(V3Path_v3(v3)));
+    saved=load(V3Path_v3(fullfile(here,'checkpoint_full.mat')),'state');state=saved.state;
+    id='PK_continuation_m1';index=find(strcmp({state.tasks.id},id),1);
+    if strcmp(state.tasks(index).state,'running')
+        state=RecordResearchInterruption_v3(id,'07-Oct-2026 14:58:48', ...
+            'Root stopped the master at a recorded UTC second to repair the standing replay-option schema; accepted branch checkpoints are preserved.','full');
+    end
+    stored=load(V3Path_v3(fullfile(here,'tasks/full',id,'branch.mat')),'branch');branch=stored.branch;
+    original=load(V3Path_v3(fullfile(v3,'Research_v3/runs/full/family_-1.mat')),'branch');historical=original.branch;
+    newCount=max(0,numel(branch.points)-numel(historical.points));known=0;
+    for k=numel(historical.points)+1:numel(branch.points),known=known+evaluations(branch.points(k));end
+    oldFailures=0;if isfield(historical,'failures'),oldFailures=numel(historical.failures);end
+    if isfield(branch,'failures')
+        for k=oldFailures+1:numel(branch.failures),known=known+evaluations(branch.failures(k));end
+    end
+    task=state.tasks(index);delta=max(0,known-task.function_evaluations);
+    task.new_points=max(task.new_points,newCount);task.function_evaluations=max(task.function_evaluations,known);
+    task.scientific_status='interrupted_continuation_accepted_checkpoint_preserved';
+    state.tasks(index)=task;state.function_evaluations=state.function_evaluations+delta;
+    audit=struct('task_id',id,'stop_utc','2026-10-07 14:58:48 UTC','clock_resolution_seconds',1, ...
+        'stop_second_observed_before_and_after_signal',true,'historical_point_count',numel(historical.points), ...
+        'preserved_point_count',numel(branch.points),'new_accepted_point_records',newCount, ...
+        'known_completed_function_evaluations_lower_bound',known,'inflight_evaluation_counts_unknown',true, ...
+        'branch_checkpoint','Research_v3/next_round/tasks/full/PK_continuation_m1/branch.mat', ...
+        'charged_numerical_wall_seconds',state.numerical_wall_seconds, ...
+        'remaining_total_wall_seconds',10800-state.numerical_wall_seconds);
+    state.continuation_interruption_audit=audit;
+    RoundSave_v3(fullfile(here,'checkpoint_full.mat'),struct('state',state));
+    RoundJSON_v3(fullfile(here,'continuation_interruption_reconciliation.json'),audit);
+    revision=RegisterOpposedSpreadReplayRepair_v3();
+    ids={'opposed_spread_n0_negative_A1e-3_campaign','opposed_spread_n0_positive_A1e-3_campaign'};
+    RegisterResearchRepair_v3(ids,revision.diagnosis,revision.repair, ...
+        'Research_v3/next_round/opposed_spread_campaign_method_revisions.json','full');
+    files={'Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m', ...
+        'Research_v3/Drivers_v3/RegisterOpposedSpreadReplayRepair_v3.m'};
+    for k=1:numel(files),issues=checkcode(fullfile(v3,files{k}),'-id');disp(files{k});disp(issues);end
+    report=RunResearchRound_v3('Profile','full','Resume',true,'ExecuteNumerics',false,'MinRepairRounds',3); %#ok<NASGU>
+    disp(audit);
+end
+function value=evaluations(point)
+    value=0;if ~isfield(point,'solverInfo'),return;end
+    info=point.solverInfo;
+    if isfield(info,'functionEvaluationCount'),value=info.functionEvaluationCount;
+    elseif isfield(info,'solver')&&isfield(info.solver,'functionEvaluationCount'),value=info.solver.functionEvaluationCount;end
+    if ~isnumeric(value)||~isscalar(value)||~isfinite(value),value=0;end
+end

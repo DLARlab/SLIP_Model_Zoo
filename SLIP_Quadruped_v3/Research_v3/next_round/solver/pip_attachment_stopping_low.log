@@ -1,0 +1,24 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+-0.0001 dE=-7.31369076412e-09 r=1.23e-12 Newton=2 cond=4.1e+05 predicted_dE=+7.599e-08
+-0.0003 dE=-1.00947448178e-08 r=9.81e-12 Newton=3 cond=1.51e+04 predicted_dE=+2.238e-08
+-0.001 dE=+1.37492776719e-07 r=1.89e-12 Newton=3 cond=4.54e+03 predicted_dE=+1.296e-09
+-0.003 dE=+1.24984060212e-06 r=4.07e-12 Newton=1 cond=1.51e+03 predicted_dE=+9.292e-10
+-0.01 dE=+1.38994733483e-05 r=9.06e-13 Newton=1 cond=454 predicted_dE=+6.744e-11
++0.0001 dE=-7.31369076412e-09 r=1.23e-12 Newton=2 cond=4.1e+05 predicted_dE=+7.599e-08
++0.0003 dE=-5.6634815282e-08 r=3.02e-11 Newton=0 cond=4.1e+05 predicted_dE=+1.867e-06
++0.001 dE=+1.34821783071e-07 r=5.8e-12 Newton=3 cond=4.54e+03 predicted_dE=+3.967e-09
++0.003 dE=+1.25148941943e-06 r=3.15e-12 Newton=2 cond=1.51e+03 predicted_dE=-7.196e-10
++0.01 dE=+1.38995274939e-05 r=1.09e-12 Newton=3 cond=447 predicted_dE=+1.339e-11
+  1×5 struct array with fields:
+
+    absolute_amplitude
+    reduced_coordinate_error
+    energy_error
+    period_error
+    mean_speed_error
+    maximum_error
+    reflection_gate_passed
+

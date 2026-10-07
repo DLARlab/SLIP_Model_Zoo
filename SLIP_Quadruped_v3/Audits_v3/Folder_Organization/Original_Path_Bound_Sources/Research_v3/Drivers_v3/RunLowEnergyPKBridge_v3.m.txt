@@ -1,0 +1,200 @@
+function result=RunLowEnergyPKBridge_v3(candidateIndex,cfg,outputDirectory,maxWallSeconds)
+%RUNLOWENERGYPKBRIDGE_V3 Four prospectively fixed observable continuation steps.
+% Source admission is separate from new continuation points. Energy is free
+% inside the five-dimensional constrained synchronized-pronk corrector.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));clock=tic;
+    outputDirectory=V3OutputPath_v3(outputDirectory);if ~isfolder(outputDirectory),mkdir(outputDirectory);end
+    entry=cfg.branch_identity_bridge_candidates(candidateIndex);
+    assert(strcmp(entry.candidate_sha256,RoundSHA256_v3(fullfile(v3,entry.candidate_artifact))), ...
+        'RunLowEnergyPKBridge_v3:CandidateHash','The frozen bridge candidate changed.');
+    loaded=load(fullfile(v3,entry.candidate_artifact),entry.candidate_variable);candidate=loaded.(entry.candidate_variable);
+    revisionFile='Research_v3/next_round/low_energy_PK_bridge_method_revision_001.json';
+    if isfile(fullfile(v3,revisionFile))
+        revision=jsondecode(fileread(fullfile(v3,revisionFile)));
+        assert(strcmp(revision.candidate_sha256,entry.candidate_sha256));
+        index=find(strcmp({candidate.source_hashes.path},revision.replaced_source.path));
+        assert(isscalar(index)&&strcmp(candidate.source_hashes(index).sha256,revision.replaced_source.original_sha256));
+        candidate.source_hashes(index).sha256=revision.replaced_source.repaired_sha256;
+    end
+    checkHashes(candidate.source_hashes);checkHashes(candidate.input_hashes);checkHashes(candidate.gate_hashes);
+    warm=jsondecode(fileread(fullfile(v3,candidate.warm_gate_path)));
+    assert(warm.passed&&warm.warm.accepted&&warm.cold.accepted&&warm.warm.initial_J_used ...
+        &&strcmp(warm.root_sha256,RoundSHA256_v3(fullfile(v3,'Numerics_v3/RootSolver_v3.m'))), ...
+        'RunLowEnergyPKBridge_v3:WarmGate','Current-source actual-model warm Jacobian gate must pass.');
+    canonical=jsondecode(fileread(fullfile(v3,candidate.solver_gate_path)));assert(canonical.all_required_gates_passed);
+    assert(isequal(candidate.parameter,cfg.baseline_v3_parameters(:)));
+    file=fullfile(outputDirectory,'bridge_checkpoint.mat');
+    if isfile(file),loaded=load(file,'phase');phase=loaded.phase;
+    else
+        phase=struct('schema_version','constrained-local-PK-bridge-v3-1','candidate_id',candidate.id, ...
+            'state','partial_checkpoint','next_index',1,'trial_serial',0,'trials',struct([]), ...
+            'accepted_points',struct([]),'fresh_seed_records',0,'accepted_increment_count',0, ...
+            'function_evaluations',0,'solver_map_evaluations',0,'elapsed_seconds',0, ...
+            'last_jacobian',[],'partial',struct(),'failure',struct(),'endpoint_comparison',struct(), ...
+            'local_numerical_connection_supported',false,'rigorous_ancestry_claimed',false);
+        checkpoint();
+    end
+    startingElapsed=phase.elapsed_seconds;
+    invocationBudget=min(maxWallSeconds,max(0,candidate.maximum_wall_seconds-startingElapsed));
+    while phase.next_index<=numel(candidate.amplitude_grid)&&toc(clock)<invocationBudget-20
+        index=phase.next_index;target=candidate.amplitude_grid(index);
+        if index==1,seed=candidate.seed;energy=candidate.start_energy;
+        else
+            previous=phase.accepted_points(end);coordinates=previous.coordinates;
+            if numel(phase.accepted_points)>=2
+                before=phase.accepted_points(end-1);
+                coordinates=coordinates+(target-previous.amplitude) ...
+                    *(coordinates-before.coordinates)/(previous.amplitude-before.amplitude);
+            else
+                positions=candidate.observable_positions;
+                coordinates(positions)=coordinates(positions)+(target-previous.amplitude) ...
+                    *candidate.parent_direction/(candidate.parent_direction.'*candidate.parent_direction);
+            end
+            positions=candidate.observable_positions;
+            mismatch=target-candidate.parent_direction.'*coordinates(positions);
+            coordinates(positions)=coordinates(positions)+mismatch*candidate.parent_direction ...
+                /(candidate.parent_direction.'*candidate.parent_direction);
+            energy=coordinates(end);seed=candidate.seed;seed.state=zeros(14,1);
+            seed.state(2)=coordinates(1);seed.state(3)=energy-coordinates(1)^2/2;
+            seed.state([7,9,11,13])=coordinates(3);seed.state([8,10,12,14])=coordinates(4);
+        end
+        originalPredictor=seed.state;initialJacobian=phase.last_jacobian;
+        if ~isempty(fieldnames(phase.partial))&&phase.partial.index==index
+            seed.state=phase.partial.state;energy=phase.partial.energy;
+            initialJacobian=phase.partial.jacobian;originalPredictor=phase.partial.original_predictor;
+        end
+        if ~isequal(size(initialJacobian),[5,5])||any(~isfinite(initialJacobian(:))),initialJacobian=[];end
+        seed.provenance.bridge_index=index;seed.provenance.target_parent_kernel_amplitude=target;
+        constraint=struct('reference',candidate.constraint_reference,'normal',candidate.constraint_normal,'target',target);
+        remaining=max(.001,invocationBudget-toc(clock)-10);
+        options=struct('Symmetry','pronk','Energy',energy,'FamilyConstraint','amplitude', ...
+            'Constraint',constraint,'MaxWallSeconds',remaining, ...
+            'MaxReturnTime',cfg.domain.primitive_period_max,'MaxCycleEvents',cfg.domain.event_count_max, ...
+            'Integration',candidate.integration,'ReplayIntegration',candidate.replay_integration, ...
+            'SolverOptions',struct('Algorithm','newton','MaxIterations',cfg.budgets.root_max_iterations, ...
+                'MaxFunctionEvaluations',cfg.budgets.root_max_function_evaluations, ...
+                'ReuseJacobian',~isempty(initialJacobian),'InitialJacobian',initialJacobian,'UseBroyden',true, ...
+                'Jacobian',HybridFiniteDifferenceJacobian_v3(candidate.jacobian_options), ...
+                'JacobianRefreshInterval',5,'FunctionTolerance',1e-12,'ResidualAcceptanceTolerance',1e-11), ...
+            'Acceptance',candidate.acceptance);
+        phase.trial_serial=phase.trial_serial+1;artifact=sprintf('bridge_point_%02d_attempt_%03d.mat',index,phase.trial_serial);
+        prediction=struct('index',index,'target_amplitude',target,'state',originalPredictor, ...
+            'resumed_state',seed.state,'energy',energy,'constraint',constraint, ...
+            'warm_jacobian_available',~isempty(initialJacobian),'candidate_sha256',entry.candidate_sha256);
+        RoundSave_v3(fullfile(outputDirectory,['predictor_',artifact]),struct('seed',seed,'prediction',prediction,'options',options));
+        checkpoint();
+        [solution,report]=PeriodicSolutionSolver_v3(seed,options);
+        phase.function_evaluations=phase.function_evaluations+member(report.solver,'functionEvaluationCount',0);
+        phase.solver_map_evaluations=phase.solver_map_evaluations+member(report.solver,'mapEvaluationCount',0);
+        accepted=~isempty(solution)&&report.accepted;continuationGate=false;physicalStep=NaN;energyStep=NaN;
+        label='unresolved';flights=NaN;counts=zeros(1,8);coordinates=member(report,'final_coordinates',[]);
+        meanSpeed=NaN;maximumPitch=NaN;actualEvents=NaN;
+        if accepted
+            data=HybridCycleData_v3.unpack(solution);ids=[data.history.guard_id];counts=arrayfun(@(id)sum(ids==id),1:8);
+            label=char(report.classification.label);flights=report.classification.flight_count;
+            orbitEnergy=QuadrupedEnergy_v3.evaluate(solution.initial_state,solution.initial_mode,solution.parameter);
+            meanSpeed=solution.stride_displacement(1)/solution.period;
+            maximumPitch=max(abs(data.state(:,5)));actualEvents=numel(data.history);
+            coordinates=[solution.initial_state(candidate.coordinate_indices);orbitEnergy];
+            accepted=isequal(solution.parameter,candidate.parameter)&&~any(solution.initial_mode) ...
+                &&strcmp(label,'PK')&&flights==1&&all(counts==1) ...
+                &&solution.section_chart.BL_touchdowns_per_return==1 ...
+                &&orbitEnergy>=cfg.domain.energy(1)&&orbitEnergy<=cfg.domain.energy(2) ...
+                &&solution.period<=cfg.domain.primitive_period_max ...
+                &&meanSpeed>=cfg.domain.mean_speed(1)&&meanSpeed<=cfg.domain.mean_speed(2) ...
+                &&maximumPitch<=cfg.domain.pitch_abs_max ...
+                &&actualEvents==8&&actualEvents<=cfg.domain.event_count_max;
+            if index==1
+                physicalStep=norm(solution.initial_state(2:end)-candidate.seed.state(2:end),inf);
+                energyStep=abs(orbitEnergy-candidate.start_energy);
+                continuationGate=physicalStep<=candidate.maximum_source_admission_displacement;
+            else
+                previous=phase.accepted_points(end);physicalStep=norm(solution.initial_state(2:end)-previous.state(2:end),inf);
+                energyStep=abs(orbitEnergy-previous.coordinates(end));
+                continuationGate=physicalStep<=candidate.maximum_increment_state_change ...
+                    &&energyStep<=candidate.maximum_increment_energy_change;
+            end
+            accepted=accepted&&continuationGate;
+        end
+        trial=struct('index',index,'amplitude',target,'artifact',artifact,'accepted',accepted, ...
+            'shared_service_accepted',report.accepted,'continuation_locality_gate',continuationGate, ...
+            'physical_step',physicalStep,'energy_step',energyStep,'actual_gait_label',label, ...
+            'actual_flight_count',flights,'contact_counts',counts,'full_closure',report.full_closure, ...
+            'mean_speed',meanSpeed,'maximum_pitch',maximumPitch,'actual_contact_event_count',actualEvents, ...
+            'initial_residual',report.initial_scaled_norm,'final_residual',report.final_scaled_norm, ...
+            'accepted_Newton_steps',member(report.solver,'acceptedNewtonIterations',0), ...
+            'initial_jacobian_used',member(member(report.solver,'output',struct()),'initialJacobianUsed',false), ...
+            'constraint_error',report.constraint_residual,'primary_failure',report.primary_failure, ...
+            'replay_failure',report.replay_failure,'is_source_admission',index==1);
+        RoundSave_v3(fullfile(outputDirectory,artifact),struct('solution',solution,'report',report,'trial',trial,'prediction',prediction));
+        if isempty(phase.trials),phase.trials=trial;else,phase.trials(end+1)=trial;end %#ok<AGROW>
+        if accepted
+            point=struct('index',index,'amplitude',target,'coordinates',coordinates,'state',solution.initial_state, ...
+                'artifact',artifact,'full_closure',report.full_closure,'period',solution.period,'drift',solution.stride_displacement(1));
+            if isempty(phase.accepted_points),phase.accepted_points=point;else,phase.accepted_points(end+1)=point;end %#ok<AGROW>
+            if index==1,phase.fresh_seed_records=phase.fresh_seed_records+1;
+            else,phase.accepted_increment_count=phase.accepted_increment_count+1;end
+            J=member(report.solver,'finalJacobian',[]);
+            if member(report.solver,'jacobianReliable',false)&&isequal(size(J),[5,5])&&all(isfinite(J(:)))
+                phase.last_jacobian=J;
+            end
+            phase.partial=struct();phase.next_index=index+1;
+            if index==numel(candidate.amplitude_grid)
+                [comparison,detail]=ComparePronkBridgeOrbits_v3(solution,candidate.target_orbit,candidate.comparison_tolerances);
+                phase.endpoint_comparison=comparison;
+                phase.local_numerical_connection_supported=comparison.same_local_numerical_orbit_supported;
+                RoundSave_v3(fullfile(outputDirectory,'endpoint_trajectory_comparison.mat'),struct('comparison',comparison,'detail',detail));
+                phase.state='accepted';
+            end
+            checkpoint();
+        else
+            wallFailure=contains(failureMessage(report),'wall budget','IgnoreCase',true)||toc(clock)>=invocationBudget-20;
+            if wallFailure&&numel(coordinates)==5&&numel(report.final_candidate)==14
+                J=member(report.solver,'finalJacobian',[]);
+                if ~member(report.solver,'jacobianReliable',false),J=[];end
+                phase.partial=struct('index',index,'state',report.final_candidate,'energy',coordinates(end), ...
+                    'jacobian',J,'original_predictor',originalPredictor,'artifact',artifact);
+                phase.state='partial_checkpoint';
+            else
+                phase.state='retryable_failure';phase.failure=struct('primary',report.primary_failure, ...
+                    'replay',report.replay_failure,'shared_service_accepted',report.accepted, ...
+                    'locality_gate_passed',continuationGate,'message','A finite increment failed; no connection or nonexistence inference.');
+            end
+            checkpoint();break
+        end
+    end
+    phase.elapsed_seconds=startingElapsed+toc(clock);
+    if phase.elapsed_seconds>=candidate.maximum_wall_seconds&&~strcmp(phase.state,'accepted')
+        phase.state='unresolved_obstruction';phase.failure.budget_exhausted=true;
+    end
+    checkpoint();scientific='local_PK_bridge_unresolved';
+    if phase.accepted_increment_count==4
+        scientific='four_increment_continuation_completed_endpoint_identity_unresolved';
+        if phase.local_numerical_connection_supported,scientific='local_numerical_PK_connection_and_endpoint_identity_supported';end
+    end
+    result=struct('schema_version','executed-local-PK-bridge-v3-1','state',phase.state, ...
+        'candidate_id',candidate.id,'scientific_status',scientific,'function_evaluations',phase.function_evaluations, ...
+        'solver_map_evaluations',phase.solver_map_evaluations,'new_points',phase.accepted_increment_count, ...
+        'fresh_seed_records',phase.fresh_seed_records,'accepted_increment_count',phase.accepted_increment_count, ...
+        'elapsed_seconds',phase.elapsed_seconds,'bridge',phase,'failure',phase.failure, ...
+        'local_numerical_connection_supported',phase.local_numerical_connection_supported, ...
+        'rigorous_ancestry_claimed',false,'global_connection_claimed',false);
+    RoundJSON_v3(fullfile(outputDirectory,'bridge_result.json'),result);
+    function checkpoint()
+        if exist('startingElapsed','var'),phase.elapsed_seconds=startingElapsed+toc(clock);end
+        RoundSave_v3(file,struct('phase',phase));summary=phase;summary.last_jacobian=[];
+        RoundJSON_v3(fullfile(outputDirectory,'bridge_checkpoint.json'),summary);
+    end
+    function checkHashes(items)
+        for k=1:numel(items)
+            assert(strcmp(items(k).sha256,RoundSHA256_v3(fullfile(v3,items(k).path))), ...
+                'RunLowEnergyPKBridge_v3:Epoch','Registered source/evidence changed: %s.',items(k).path);
+        end
+    end
+end
+function value=member(object,name,fallback)
+    value=fallback;if isstruct(object)&&isfield(object,name),value=object.(name);end
+end
+function message=failureMessage(report)
+    message=[member(report.primary_failure,'message',''),' ',member(report.replay_failure,'message','')];
+end

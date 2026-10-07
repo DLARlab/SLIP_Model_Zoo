@@ -1,0 +1,13 @@
+Final measured n0 BL2 attempt: incomplete refreshed FD after wall budget
+
+Bound report: Research_v3/next_round/tasks/full/PIP_n0_measured_flip_BL2_front_hind/sector_01_signed_-0.001_revision_000_attempt_001.mat
+SHA256: 9a2394c918249d3571c97f3545c061ac2f0e1432d23c9db6c5e67e70f095ad1e
+Unaccepted: residual 1.62483209937e-07 -> 2.83768318663e-08; closure 2.83768318663e-08 > 1e-08. 2 accepted Newton steps; 3 Jacobian evaluations.
+Primary exit -3: No finite hybrid Jacobian is available in the requested perturbation chart.
+Finalization: Reduced residual candidate failed full physical closure.
+Independent replay performed: 0
+Root counts: 164 objective calls, 157 actual map evaluations, 2 cache hits, 5 invalid evaluations. Difference is 5 failures before a map. Map limit 4000 was not reached.
+Service elapsed 237.436631500 s exceeds its 233.324793625 s limit. Final FD: 53 callback attempts, 48 accepted physical-chart observations, 5 rejected at tail indices [49 50 51 52 53].
+13x13 matrix: columns1-11 reliable central; column12 finite one-sided-forward and unreliable; column13 unavailable/NaN. All rejected samples report missing physical map context, and all completed candidates have topologyChanged=false.
+The counter identity establishes pre-map failure. Root source has only wall and map-count guards before map evaluation; map count is far below its limit. The original WallBudget identifier was not retained in these FD reasons, so the generic primary message alone is not a scientific chart-obstruction diagnosis.
+Best candidate and partial trial are retained; remaining registered predictions were not executed. No full rank, conditioning, daughter existence or nonexistence claim follows. This audit evaluates zero maps and changes no model, core, driver or task state.

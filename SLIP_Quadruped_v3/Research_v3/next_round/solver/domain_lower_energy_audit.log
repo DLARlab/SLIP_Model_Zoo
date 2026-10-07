@@ -1,0 +1,33 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Subunit source BL1 tolerance1 closureNaN gaitunresolved
+Subunit source BL1 tolerance2 closureNaN gaitunresolved
+Subunit source BL2 tolerance1 closureNaN gaitunresolved
+Subunit source BL2 tolerance2 closureNaN gaitunresolved
+                            schema_version: 'source-lower-energy-audit-v3-1'
+                               created_utc: '07-Oct-2026 13:09:42'
+                          inventory_sha256: 'da85c9943b777e240619070da5ba654415e93a4075d8b66665052c88019d9493'
+                  source_algebraic_minimum: 0.8217
+              registered_full_lower_energy: 1.0000
+                    subunit_target_columns: 331
+          exact_baseline_parameter_columns: 331
+                  physical_subunit_columns: 331
+            physical_downward_apex_columns: 301
+        physical_traveling_subunit_columns: 41
+    only_algebraic_or_off_manifold_columns: 0
+                          minimum_physical: [1×1 struct]
+                     minimum_downward_apex: [1×1 struct]
+                 minimum_repaired_corridor: [1×1 struct]
+                         minimum_traveling: [1×1 struct]
+      maximum_energy_definition_difference: 0
+      prospective_recommended_lower_energy: 0.8000
+     alternative_95_percent_source_minimum: 0.7806
+                            recommendation: 'Prospectively include source neighborhoods below one in the full comparison domain; retain ordinary vertical-parent stage above one. A floor0.8 covers observed source minimum with0.0217 margin; this is a bounded research domain, not a global physical lower bound.'
+                         fresh_diagnostics: [1×4 struct]
+                   validation_continuation: [1×1 struct]
+         campaign_or_configuration_written: 0
+                           elapsed_seconds: 7.1885
+                         traveling_rephase: [1×1 struct]
+

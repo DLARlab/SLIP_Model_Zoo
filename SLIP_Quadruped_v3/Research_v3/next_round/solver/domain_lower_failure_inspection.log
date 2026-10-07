@@ -1,0 +1,53 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+               success: 0
+            admissible: 0
+    termination_reason: 'diagnostic_failure'
+               message: 'Stance compression is below the admissibility tolerance for leg(s) BL, BR, FL, FR.'
+               failure: [1×1 struct]
+            final_time: 1.1893
+           final_state: [14×1 double]
+            final_mode: [4×1 logical]
+         event_history: [12×1 struct]
+         event_batches: [3×1 struct]
+
+            time: 1.1896
+          sample: 771
+           state: [14×1 double]
+            mode: [4×1 logical]
+          source: 'rejected-raw-segment'
+     diagnostics: [1×1 struct]
+    guard_values: [8×1 double]
+    axial_forces: [4×1 double]
+
+  1×16 struct array with fields:
+
+    type
+    time
+
+                      time: 2.4523
+                    source: 'rejected-raw-segment'
+                     state: [14×1 double]
+                      mode: [4×1 logical]
+              guard_values: [8×1 double]
+          guard_directions: [8×1 double]
+         guard_derivatives: [8×1 double]
+             guard_enabled: [8×1 logical]
+    physical_admissibility: [1×1 struct]
+              axial_forces: [4×1 double]
+                    energy: 0.8217
+          diagnostic_error: ''
+
+               success: 0
+            admissible: 0
+    termination_reason: 'diagnostic_failure'
+               message: 'Stance compression is below the admissibility tolerance for leg(s) FL, FR.'
+               failure: [1×1 struct]
+            final_time: 0.2566
+           final_state: [14×1 double]
+            final_mode: [4×1 logical]
+         event_history: [4×1 struct]
+         event_batches: [2×1 struct]
+

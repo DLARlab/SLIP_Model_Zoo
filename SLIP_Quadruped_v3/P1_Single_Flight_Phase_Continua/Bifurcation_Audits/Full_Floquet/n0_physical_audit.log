@@ -1,0 +1,13 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+n0 daughter E1.06168502357 versus imported PK turn col1 E1.11713894281: gap0.0554539, closure1.08e-12/3.01e-13
+n0_parent physical order-chart returns 12 elapsed22.6s
+n0_parent physical order-chart returns 24 elapsed49.1s
+n0_parent physical order-chart returns 36 elapsed74.7s
+n0_parent physical order-chart returns 48 elapsed99.7s
+n0_parent physical order-chart returns 60 elapsed124.8s
+n0_parent physical order-chart returns 72 elapsed151.4s
+n0_parent physical order-chart returns 84 elapsed180.0s
+n0_parent full12D reliable=1 refine1.01e-07 +/-3.73e-11 mixed5.79e-07 energycovector1.78e-11 radius1.00000000242

@@ -1,0 +1,45 @@
+{
+  "schema_version": "focused-periodic-solver-validation-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "started_utc": "07-Oct-2026 11:49:18",
+  "cases": [
+    {
+      "name": "known-PIP-and-PK",
+      "passed": true,
+      "evidence": "PIP closure 3.06108472e-11; PK closure 3.02693426e-11"
+    },
+    {
+      "name": "meaningful-nonlinear-correction",
+      "passed": false,
+      "evidence": "Initial 0.00694968913; final 5.93276074e-08; accepted Newton iterations 4"
+    }
+  ],
+  "all_required_gates_passed": false,
+  "source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "02f14d5e435395453e94795aa230b15015b127bbdacd9b62d1663ec6c037e19f"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "cc9821d0d94dd9df01bc059a46361262fa62ca0847ea27bd1f6cccf250cb7f5f"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "adda0901337b44bd9472ab588b1cec1722bd8c60703633da16f81671388dc1b5"
+    }
+  ]
+}

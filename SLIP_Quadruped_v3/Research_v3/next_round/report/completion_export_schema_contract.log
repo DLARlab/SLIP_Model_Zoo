@@ -1,0 +1,10 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+EXPORT_LOOP_JSON_PASS bytes=63578 auditSize=[1 1] gate=1 unfinished=227 rounds=3 branches=5 PIP=4 accuracy=2 bridge=1 status=running remaining=1103.5394
+ ROUND A tasks=19 attempts=19 IDsclass=cell IDsize=[1 19]
+ ROUND B tasks=30 attempts=39 IDsclass=cell IDsize=[1 30]
+ ROUND C tasks=14 attempts=19 IDsclass=cell IDsize=[1 14]
+OPTIONS_PASS PIP_candidate_1 Opt 1.0000000000000001e-18 Step 1e-13 Resid 9.9999999999999998e-13 Function 1e-13 InitialJfinite=1
+OPTIONS_PASS PIP_PK_low_energy_neighborhood Opt 1.0000000000000001e-18 Step 1e-13 Resid 9.9999999999999998e-13 Function 1e-13 InitialJfinite=1

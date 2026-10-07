@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                     schema_version: 'prospective-task-slice-repair-v3-1'
+                            profile: 'validation'
+                           revision: 1
+                     registered_utc: '07-Oct-2026 12:42:42'
+                          diagnosis: 'Measured 90-second slice appended zero points after FD/Broyden repair; independent two-batch workflow appended two points per batch with approximately 294 seconds per batch under concurrent CPU work.'
+                           evidence: [1×1 struct]
+        previous_task_slice_seconds: 90
+              per_task_wall_seconds: 480
+                 total_wall_seconds: 1800
+      acceptance_tolerances_changed: 0
+                     domain_changed: 0
+    original_registration_preserved: 1
+               total_budget_changed: 0
+
+partial_checkpoint

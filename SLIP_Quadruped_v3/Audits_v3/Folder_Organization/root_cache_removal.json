@@ -1,0 +1,6 @@
+{
+  "path": ".DS_Store",
+  "bytes": 10244,
+  "sha256": "3361c10bc2c9acd537b096c68823c1efda20e2a7aa1dba3b6297dee8b906a6c0",
+  "reason": "Latest user instruction explicitly requests working-path cache removal; protected SLIP_Quadruped caches are untouched."
+}

@@ -1,0 +1,29 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+SOLVER GATE known-PIP-and-PK: 1 PIP closure 3.06108472e-11; PK closure 3.02693426e-11
+SOLVER GATE meaningful-nonlinear-correction: 1 Initial 0.00694968913; final 3.16442185e-13; accepted Newton iterations 11
+SOLVER GATE fixed-energy-and-augmented-constraints: 1 Arc residual -3.0313073e-15; amplitude residual 7.54875763e-18; these are constrained family corrections, not branch-existence claims.
+SOLVER GATE failed-imported-seed-preserved: 1 Quadruped section-return is physically inadmissible: swing_foot_penetration:BL, contact_complementarity_loss:BL, swing_foot_penetration:BR, contact_complementarity_loss:BR, swing_foot_penetration:FL, contact_complementarity_loss:FL, swing_foot_penetration:FR, contact_complementarity_loss:FR.
+SOLVER GATE tolerance-gap-and-primary-finalization: 1 Historical accepted Newton iterations 0, map evaluations 290; reproduced primary: No finite hybrid Jacobian is available in the requested perturbation chart.; full closure secondary: Reduced residual candidate failed full physical closure.
+                   name: 'marked-occurrence-and-repeated-cycle-rejection'
+                 passed: 1
+    declared_occurrence: 2
+    replayed_occurrence: 2
+               accepted: 0
+           full_closure: 6.1220e-11
+       primitive_status: "multiple_cover_detected"
+          source_sha256: '452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da'
+
+                  schema_version: 'diagnostic-failure-schema-gate-v3-1'
+                          passed: 1
+                source_predictor: 'Research_v3/next_round/tasks/full/P1_source_25_B/column_00001_revision_000_predictor.mat'
+                   source_sha256: '7a00e1f2878aa7956811c1daf96ddc4f74e0b8c94bf25c9aba5b7702c052c1ec'
+    simulator_failure_identifier: 'ContinuousDynamics_v3:TensileStance'
+        diagnostic_stop_occurred: 0
+                     map_failure: [1×1 struct]
+          HybridSimulator_sha256: '896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c'
+              PoincareMap_sha256: 'af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46'
+               valid_return_gate: 'Full six-case validation in the same fresh MATLAB process and source hashes'
+

@@ -1,0 +1,64 @@
+{
+  "schema_version": "organized-saved-orbit-dataset-v3-1",
+  "id": "PIP_candidate_3_PK_Signed_Samples",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "dataset_type": "signed_samples",
+  "origin": "original signed daughter evidence",
+  "expected_primitive_flight_count": 1,
+  "count": 1,
+  "amplitude": -0.0001,
+  "amplitude_coordinate": "signed projection onto the registered PIP critical direction",
+  "resonance_index": null,
+  "energy": 2.7425757038731606,
+  "period": 4.2571606864736991,
+  "drift": -0.000270630556480787,
+  "mean_speed": -6.3570669845905282E-5,
+  "flight_count": 1,
+  "gait_label": [
+    "PK"
+  ],
+  "gait_status": [
+    "classified"
+  ],
+  "full_closure": 1.9375612225758232E-12,
+  "record_kind": [
+    "original_signed_daughter"
+  ],
+  "source_paths": [
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_3/daughter_-0.0001_attempt_1.mat"
+  ],
+  "source_original_paths": [
+    "Research_v3/next_round/tasks/full/PIP_candidate_3/daughter_-0.0001_attempt_1.mat"
+  ],
+  "source_sha256": [
+    "9364a379527efbce64dc82d54a9e8c04752575b4ee48f79e17a5ffd66f55f4a8"
+  ],
+  "source_acceptance": [
+    {
+      "accepted_in_source": true,
+      "selection_index": 1
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_3/phase_checkpoint.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_3/phase_checkpoint.mat",
+      "sha256": "f549e2a602adfe749ecd19ecef33e91ba97cec155b2582dac8f55294433368e9"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_3/daughter_-0.0001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_3/daughter_-0.0001_attempt_1.mat",
+      "sha256": "9364a379527efbce64dc82d54a9e8c04752575b4ee48f79e17a5ffd66f55f4a8"
+    }
+  ],
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "unique_cycle_count_claimed": false,
+  "certified_gait_claimed": false,
+  "bifurcation_certificate_created": false,
+  "interpretation": "A collection of previously accepted saved records. Sampling or exporting does not prove global connectivity, distinct cycles, a named gait, or a bifurcation.",
+  "critical_parent_energy": 2.742575708929035,
+  "mat_artifact": "P1_Single_Flight_Phase_Continua/PIP_candidate_3_PK_Signed_Samples.mat",
+  "mat_sha256": "caf210938f6e552bc5dc29271e93cd25b82ecaaad1cf8226e9e2f2fc374efc7f",
+  "mat_bytes": 291855
+}

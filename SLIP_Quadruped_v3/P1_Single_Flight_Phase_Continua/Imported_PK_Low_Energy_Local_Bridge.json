@@ -1,0 +1,178 @@
+{
+  "schema_version": "organized-saved-orbit-dataset-v3-1",
+  "id": "Imported_PK_Low_Energy_Local_Bridge",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "dataset_type": "local_bridge",
+  "origin": "saved imported-PK source admission and local continuation increments",
+  "expected_primitive_flight_count": 1,
+  "count": 5,
+  "amplitude": [
+    -0.010445179772861062,
+    -0.010333884829645796,
+    -0.01022258988643053,
+    -0.010111294943215266,
+    -0.01
+  ],
+  "amplitude_coordinate": "signed projection onto the registered low-energy PIP critical direction",
+  "resonance_index": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "energy": [
+    1.1171288670700437,
+    1.1171285455276647,
+    1.117128227457959,
+    1.1171279128945297,
+    1.117127601776617
+  ],
+  "period": [
+    1.5645223647960282,
+    1.5645224330351151,
+    1.5645225006482824,
+    1.5645225677610515,
+    1.5645226341465521
+  ],
+  "drift": [
+    -0.0087523309994334431,
+    -0.0086590733202576119,
+    -0.0085658156507578114,
+    -0.00847255799170161,
+    -0.0083793003418005229
+  ],
+  "mean_speed": [
+    -0.0055942511250547146,
+    -0.0055346431201113129,
+    -0.0054750351287427591,
+    -0.0054154271509336376,
+    -0.0053558191865798318
+  ],
+  "flight_count": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "gait_label": [
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK"
+  ],
+  "gait_status": [
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified"
+  ],
+  "full_closure": [
+    4.205984893145747E-12,
+    3.290701044988964E-13,
+    1.8216574082519088E-12,
+    1.8487728709049023E-12,
+    1.81961737344416E-12
+  ],
+  "record_kind": [
+    "fresh_source_admission",
+    "local_continuation_increment",
+    "local_continuation_increment",
+    "local_continuation_increment",
+    "local_continuation_increment"
+  ],
+  "source_paths": [
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_01_attempt_001.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_02_attempt_002.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_03_attempt_003.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_04_attempt_004.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_05_attempt_005.mat"
+  ],
+  "source_original_paths": [
+    "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_01_attempt_001.mat",
+    "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_02_attempt_002.mat",
+    "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_03_attempt_003.mat",
+    "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_04_attempt_004.mat",
+    "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_05_attempt_005.mat"
+  ],
+  "source_sha256": [
+    "bd2f65b4258681b3c1389a0f177316ed02fbb4e5b815520bad42446dce369e51",
+    "1e92efc1255a49b3a2367d54b1834e89155fae89b10870dfd4624a3e4a88d0ec",
+    "06b31744b2e36d32d022b28a9784b51665c65d2917a8e9e735dd7afc9b140191",
+    "67704ad3fd85005f062da24e9a2fbc700279a6795bb71db94bb0ada84658044c",
+    "e62abece077720696721dc3d7be35dc462aec5e1f842e2f20210c9b46981be95"
+  ],
+  "source_acceptance": [
+    {
+      "accepted_in_source": true,
+      "selection_index": 1,
+      "continuation_locality_gate": true
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 2,
+      "continuation_locality_gate": true
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 3,
+      "continuation_locality_gate": true
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 4,
+      "continuation_locality_gate": true
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 5,
+      "continuation_locality_gate": true
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_checkpoint.mat",
+      "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_checkpoint.mat",
+      "sha256": "2e417511d3d710fa94f8b03c73efc039fefb9f418370db2c7be9443b78e00f09"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_01_attempt_001.mat",
+      "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_01_attempt_001.mat",
+      "sha256": "bd2f65b4258681b3c1389a0f177316ed02fbb4e5b815520bad42446dce369e51"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_02_attempt_002.mat",
+      "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_02_attempt_002.mat",
+      "sha256": "1e92efc1255a49b3a2367d54b1834e89155fae89b10870dfd4624a3e4a88d0ec"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_03_attempt_003.mat",
+      "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_03_attempt_003.mat",
+      "sha256": "06b31744b2e36d32d022b28a9784b51665c65d2917a8e9e735dd7afc9b140191"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_04_attempt_004.mat",
+      "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_04_attempt_004.mat",
+      "sha256": "67704ad3fd85005f062da24e9a2fbc700279a6795bb71db94bb0ada84658044c"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_05_attempt_005.mat",
+      "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_05_attempt_005.mat",
+      "sha256": "e62abece077720696721dc3d7be35dc462aec5e1f842e2f20210c9b46981be95"
+    }
+  ],
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "unique_cycle_count_claimed": false,
+  "certified_gait_claimed": false,
+  "bifurcation_certificate_created": false,
+  "interpretation": "A collection of previously accepted saved records. Sampling or exporting does not prove global connectivity, distinct cycles, a named gait, or a bifurcation.",
+  "source_admission_record_count": 1,
+  "previously_executed_increment_count": 4,
+  "mat_artifact": "P1_Single_Flight_Phase_Continua/Imported_PK_Low_Energy_Local_Bridge.mat",
+  "mat_sha256": "7f0d73a2f0d24fa22345a5d9771d296b9e84020e2d8221eef1b2839d8b1ffb2f",
+  "mat_bytes": 1.208604E+6
+}

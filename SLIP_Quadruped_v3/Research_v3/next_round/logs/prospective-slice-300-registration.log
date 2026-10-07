@@ -1,0 +1,11 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{Unable to perform assignment because the left and right sides have a different
+number of elements.
+
+Error in RegisterResearchProfileRevision_v3 (line 22)
+    if isempty(revisions),revisions=revision;else,revisions(end+1)=revision;end
+                                                  ^^^^^^^^^^^^^^^^
+} 

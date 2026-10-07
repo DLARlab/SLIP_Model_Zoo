@@ -1,0 +1,67 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Research_v3/runs/full/pronk_predictions_v2_1.mat
+  3×1 struct array with fields:
+
+    name
+    size
+    bytes
+    class
+    global
+    sparse
+    complex
+    nesting
+    persistent
+
+    1.5552
+
+    1.9683   -0.0000    0.8543
+    0.2629   -0.0000    0.0873
+   -3.3647    0.0000   -1.9683
+
+Research_v3/runs/full/pronk_predictions_v2_2.mat
+  3×1 struct array with fields:
+
+    name
+    size
+    bytes
+    class
+    global
+    sparse
+    complex
+    nesting
+    persistent
+
+    1.6960
+
+    2.0831   -2.3194    0.8203
+   -0.1890    0.4047   -0.1431
+   -3.5364    4.7456   -1.6784
+
+Research_v3/next_round/tasks/full/PIP_candidate_2/phase_checkpoint.mat
+          name: 'record'
+          size: [1 1]
+         bytes: 4753107
+         class: 'struct'
+        global: 0
+        sparse: 0
+       complex: 0
+       nesting: [1×1 struct]
+    persistent: 0
+
+identify
+    2.4667    2.4889    2.5111    2.5334    2.5556    2.5778    2.6000
+
+  1×5 struct array with fields:
+
+    energy
+    matrix
+    reliable
+    singular_values
+    multipliers_real
+    multipliers_imaginary
+    determinant
+    derivative
+

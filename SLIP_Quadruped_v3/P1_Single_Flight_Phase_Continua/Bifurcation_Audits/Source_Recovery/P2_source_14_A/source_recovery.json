@@ -1,0 +1,1759 @@
+{
+  "schema_version": "source-correction-round-v3-1",
+  "state": "partial_checkpoint",
+  "scientific_status": "source_orbits_recovered_ancestry_unresolved",
+  "study": "P2",
+  "repair_round": "A",
+  "source": {
+    "study": "P2_All_Common_Quadrupedal_Gaits",
+    "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/PIP_10_20_2.mat",
+    "fixture_path": "P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PIP_10_20_2.mat",
+    "sha256": "9ae9cbf4c219e3843b61eaa1d979a787bef2b4ffc8f430c2aac55b8e0518c03d",
+    "bytes": 110313,
+    "source_head": "b54aa77e3f7af269101477a06c93d5ee60da4353",
+    "policy": "v2-exact",
+    "label_is_source_only": true
+  },
+  "variable": "originalResults",
+  "selected_columns": [
+    1,
+    2,
+    15,
+    28,
+    42
+  ],
+  "next_column_index": 6,
+  "observations": [
+    {
+      "column": 1,
+      "repair_revision": 0,
+      "state": "accepted",
+      "evidence_label": "exact_legacy_replay_with_fresh_acceptance",
+      "source_energy": 1.0134718677185475,
+      "source_period": 1.0674670565202025,
+      "source_initial_speed": 0,
+      "direct_residual": 1.0142331419160655E-11,
+      "final_closure": 1.9606538614880265E-13,
+      "accepted": true,
+      "correction_norm": 0,
+      "target_model_parameters": true,
+      "accepted_in_registered_domain": true,
+      "effective_domain_energy": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "domain_revision": 1,
+      "retraction_norm": 0,
+      "rephase_time": 0,
+      "return_occurrence": 1,
+      "symmetry": "pronk",
+      "symmetry_projection": {},
+      "regular_chart_repair": {},
+      "feasibility_predictor": {},
+      "failure_category": "unresolved",
+      "initial_physics": {
+        "context": "accepted-state",
+        "context_policy": {
+          "strict_accepted_state_checks": true,
+          "allows_transient_event_surface_overshoot": false
+        },
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "absolute_leg_angles": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hip_heights": [
+          1.0134718677185475,
+          1.0134718677185475,
+          1.0134718677185475,
+          1.0134718677185475
+        ],
+        "hip_clearances": [
+          1.0134718677185475,
+          1.0134718677185475,
+          1.0134718677185475,
+          1.0134718677185475
+        ],
+        "hip_clearance_margins": [
+          1.0134718677185475,
+          1.0134718677185475,
+          1.0134718677185475,
+          1.0134718677185475
+        ],
+        "torso_endpoint_heights": [
+          1.0134718677185475,
+          1.0134718677185475
+        ],
+        "torso_clearance": 1.0134718677185475,
+        "torso_clearance_margin": 1.0134718677185475,
+        "swing_foot_clearances": [
+          0.01347186771854747,
+          0.01347186771854747,
+          0.01347186771854747,
+          0.01347186771854747
+        ],
+        "swing_foot_margins": [
+          0.01347187771854747,
+          0.01347187771854747,
+          0.01347187771854747,
+          0.01347187771854747
+        ],
+        "minimum_swing_foot_clearance": 0.01347186771854747,
+        "minimum_swing_foot_margin": 0.01347187771854747,
+        "leg_lengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stance_leg_lengths": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compressions": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compression_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_stance_compression": null,
+        "minimum_stance_compression_margin": null,
+        "leg_length_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_leg_length": null,
+        "minimum_leg_length_margin": null,
+        "complementarity_residuals": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "complementarity_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_complementarity_margin": 1E-8,
+        "minimum_hip_clearance": 1.0134718677185475,
+        "minimum_hip_clearance_margin": 1.0134718677185475,
+        "downward_orientation_margins": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "finite_geometry_per_leg": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_validity": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_failure_reasons": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "per_leg_minimum_physical_margin": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "global_validity": true,
+        "strict_global_validity": true,
+        "minimum_physical_margin": 1E-8,
+        "failure_reasons": [],
+        "post_reset_consistency_evaluated": false,
+        "post_reset_guard_residuals": [],
+        "post_reset_guard_consistent": [],
+        "post_reset_mode_consistent": [],
+        "active_tolerances": {
+          "swing_penetration": 1E-8,
+          "stance_tension": 1E-8,
+          "minimum_leg_length": 1E-8,
+          "minimum_back_hip_height": 0,
+          "minimum_front_hip_height": 0,
+          "minimum_torso_clearance": 0,
+          "complementarity": 1E-8,
+          "post_reset_guard": 1E-7,
+          "geometry": 1E-10,
+          "minimum_downward_cosine": 0,
+          "ode_stage_surface": 1E-5
+        },
+        "active_checks": {
+          "back_hip_clearance": true,
+          "front_hip_clearance": true,
+          "torso_ground_intersection": true,
+          "finite_geometry": true,
+          "post_reset_guard_consistency": true,
+          "mode_guard_complementarity": true,
+          "downward_leg_orientation": true
+        },
+        "admissible": true,
+        "admissibility_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_stance_admissibility_margin": null,
+        "stance_admissibility_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_stance_legs": [],
+        "invalid_swing_legs": []
+      },
+      "first_divergence": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "primary_failure": {},
+      "predictor_first_physical_failure": {},
+      "predictor_first_event_discrepancy": {},
+      "solver_summary": {
+        "accepted": true,
+        "primary_failure": {},
+        "replay_failure": {},
+        "initial_scaled_norm": 0,
+        "final_scaled_norm": 0,
+        "initial_physical_norm": 0,
+        "final_physical_norm": 0,
+        "full_closure": 1.9606538614880265E-13
+      },
+      "gait": "PIP",
+      "flight_count": 1,
+      "artifact": "column_00001_revision_000_correction.mat",
+      "converted_artifact": "column_00001_revision_000_converted.mat"
+    },
+    {
+      "column": 2,
+      "repair_revision": 0,
+      "state": "accepted",
+      "evidence_label": "exact_legacy_replay_with_fresh_acceptance",
+      "source_energy": 1.0173000515200321,
+      "source_period": 1.0915365063012812,
+      "source_initial_speed": 0,
+      "direct_residual": 1.1179279724160551E-11,
+      "final_closure": 2.1760371282653068E-13,
+      "accepted": true,
+      "correction_norm": 0,
+      "target_model_parameters": true,
+      "accepted_in_registered_domain": true,
+      "effective_domain_energy": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "domain_revision": 1,
+      "retraction_norm": 0,
+      "rephase_time": 0,
+      "return_occurrence": 1,
+      "symmetry": "pronk",
+      "symmetry_projection": {},
+      "regular_chart_repair": {},
+      "feasibility_predictor": {},
+      "failure_category": "unresolved",
+      "initial_physics": {
+        "context": "accepted-state",
+        "context_policy": {
+          "strict_accepted_state_checks": true,
+          "allows_transient_event_surface_overshoot": false
+        },
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "absolute_leg_angles": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hip_heights": [
+          1.0173000515200321,
+          1.0173000515200321,
+          1.0173000515200321,
+          1.0173000515200321
+        ],
+        "hip_clearances": [
+          1.0173000515200321,
+          1.0173000515200321,
+          1.0173000515200321,
+          1.0173000515200321
+        ],
+        "hip_clearance_margins": [
+          1.0173000515200321,
+          1.0173000515200321,
+          1.0173000515200321,
+          1.0173000515200321
+        ],
+        "torso_endpoint_heights": [
+          1.0173000515200321,
+          1.0173000515200321
+        ],
+        "torso_clearance": 1.0173000515200321,
+        "torso_clearance_margin": 1.0173000515200321,
+        "swing_foot_clearances": [
+          0.017300051520032111,
+          0.017300051520032111,
+          0.017300051520032111,
+          0.017300051520032111
+        ],
+        "swing_foot_margins": [
+          0.017300061520032113,
+          0.017300061520032113,
+          0.017300061520032113,
+          0.017300061520032113
+        ],
+        "minimum_swing_foot_clearance": 0.017300051520032111,
+        "minimum_swing_foot_margin": 0.017300061520032113,
+        "leg_lengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stance_leg_lengths": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compressions": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compression_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_stance_compression": null,
+        "minimum_stance_compression_margin": null,
+        "leg_length_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_leg_length": null,
+        "minimum_leg_length_margin": null,
+        "complementarity_residuals": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "complementarity_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_complementarity_margin": 1E-8,
+        "minimum_hip_clearance": 1.0173000515200321,
+        "minimum_hip_clearance_margin": 1.0173000515200321,
+        "downward_orientation_margins": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "finite_geometry_per_leg": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_validity": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_failure_reasons": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "per_leg_minimum_physical_margin": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "global_validity": true,
+        "strict_global_validity": true,
+        "minimum_physical_margin": 1E-8,
+        "failure_reasons": [],
+        "post_reset_consistency_evaluated": false,
+        "post_reset_guard_residuals": [],
+        "post_reset_guard_consistent": [],
+        "post_reset_mode_consistent": [],
+        "active_tolerances": {
+          "swing_penetration": 1E-8,
+          "stance_tension": 1E-8,
+          "minimum_leg_length": 1E-8,
+          "minimum_back_hip_height": 0,
+          "minimum_front_hip_height": 0,
+          "minimum_torso_clearance": 0,
+          "complementarity": 1E-8,
+          "post_reset_guard": 1E-7,
+          "geometry": 1E-10,
+          "minimum_downward_cosine": 0,
+          "ode_stage_surface": 1E-5
+        },
+        "active_checks": {
+          "back_hip_clearance": true,
+          "front_hip_clearance": true,
+          "torso_ground_intersection": true,
+          "finite_geometry": true,
+          "post_reset_guard_consistency": true,
+          "mode_guard_complementarity": true,
+          "downward_leg_orientation": true
+        },
+        "admissible": true,
+        "admissibility_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_stance_admissibility_margin": null,
+        "stance_admissibility_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_stance_legs": [],
+        "invalid_swing_legs": []
+      },
+      "first_divergence": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "primary_failure": {},
+      "predictor_first_physical_failure": {},
+      "predictor_first_event_discrepancy": {},
+      "solver_summary": {
+        "accepted": true,
+        "primary_failure": {},
+        "replay_failure": {},
+        "initial_scaled_norm": 0,
+        "final_scaled_norm": 0,
+        "initial_physical_norm": 0,
+        "final_physical_norm": 0,
+        "full_closure": 2.1760371282653068E-13
+      },
+      "gait": "PIP",
+      "flight_count": 1,
+      "artifact": "column_00002_revision_000_correction.mat",
+      "converted_artifact": "column_00002_revision_000_converted.mat"
+    },
+    {
+      "column": 15,
+      "repair_revision": 0,
+      "state": "accepted",
+      "evidence_label": "exact_legacy_replay_with_fresh_acceptance",
+      "source_energy": 1.0884493666951456,
+      "source_period": 1.4516271960403251,
+      "source_initial_speed": 0,
+      "direct_residual": 2.7321922502210327E-11,
+      "final_closure": 5.6177285046032921E-13,
+      "accepted": true,
+      "correction_norm": 0,
+      "target_model_parameters": true,
+      "accepted_in_registered_domain": true,
+      "effective_domain_energy": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "domain_revision": 1,
+      "retraction_norm": 0,
+      "rephase_time": 0,
+      "return_occurrence": 1,
+      "symmetry": "pronk",
+      "symmetry_projection": {},
+      "regular_chart_repair": {},
+      "feasibility_predictor": {},
+      "failure_category": "unresolved",
+      "initial_physics": {
+        "context": "accepted-state",
+        "context_policy": {
+          "strict_accepted_state_checks": true,
+          "allows_transient_event_surface_overshoot": false
+        },
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "absolute_leg_angles": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hip_heights": [
+          1.0884493666951456,
+          1.0884493666951456,
+          1.0884493666951456,
+          1.0884493666951456
+        ],
+        "hip_clearances": [
+          1.0884493666951456,
+          1.0884493666951456,
+          1.0884493666951456,
+          1.0884493666951456
+        ],
+        "hip_clearance_margins": [
+          1.0884493666951456,
+          1.0884493666951456,
+          1.0884493666951456,
+          1.0884493666951456
+        ],
+        "torso_endpoint_heights": [
+          1.0884493666951456,
+          1.0884493666951456
+        ],
+        "torso_clearance": 1.0884493666951456,
+        "torso_clearance_margin": 1.0884493666951456,
+        "swing_foot_clearances": [
+          0.088449366695145581,
+          0.088449366695145581,
+          0.088449366695145581,
+          0.088449366695145581
+        ],
+        "swing_foot_margins": [
+          0.088449376695145576,
+          0.088449376695145576,
+          0.088449376695145576,
+          0.088449376695145576
+        ],
+        "minimum_swing_foot_clearance": 0.088449366695145581,
+        "minimum_swing_foot_margin": 0.088449376695145576,
+        "leg_lengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stance_leg_lengths": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compressions": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compression_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_stance_compression": null,
+        "minimum_stance_compression_margin": null,
+        "leg_length_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_leg_length": null,
+        "minimum_leg_length_margin": null,
+        "complementarity_residuals": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "complementarity_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_complementarity_margin": 1E-8,
+        "minimum_hip_clearance": 1.0884493666951456,
+        "minimum_hip_clearance_margin": 1.0884493666951456,
+        "downward_orientation_margins": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "finite_geometry_per_leg": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_validity": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_failure_reasons": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "per_leg_minimum_physical_margin": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "global_validity": true,
+        "strict_global_validity": true,
+        "minimum_physical_margin": 1E-8,
+        "failure_reasons": [],
+        "post_reset_consistency_evaluated": false,
+        "post_reset_guard_residuals": [],
+        "post_reset_guard_consistent": [],
+        "post_reset_mode_consistent": [],
+        "active_tolerances": {
+          "swing_penetration": 1E-8,
+          "stance_tension": 1E-8,
+          "minimum_leg_length": 1E-8,
+          "minimum_back_hip_height": 0,
+          "minimum_front_hip_height": 0,
+          "minimum_torso_clearance": 0,
+          "complementarity": 1E-8,
+          "post_reset_guard": 1E-7,
+          "geometry": 1E-10,
+          "minimum_downward_cosine": 0,
+          "ode_stage_surface": 1E-5
+        },
+        "active_checks": {
+          "back_hip_clearance": true,
+          "front_hip_clearance": true,
+          "torso_ground_intersection": true,
+          "finite_geometry": true,
+          "post_reset_guard_consistency": true,
+          "mode_guard_complementarity": true,
+          "downward_leg_orientation": true
+        },
+        "admissible": true,
+        "admissibility_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_stance_admissibility_margin": null,
+        "stance_admissibility_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_stance_legs": [],
+        "invalid_swing_legs": []
+      },
+      "first_divergence": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "primary_failure": {},
+      "predictor_first_physical_failure": {},
+      "predictor_first_event_discrepancy": {},
+      "solver_summary": {
+        "accepted": true,
+        "primary_failure": {},
+        "replay_failure": {},
+        "initial_scaled_norm": 0,
+        "final_scaled_norm": 0,
+        "initial_physical_norm": 0,
+        "final_physical_norm": 0,
+        "full_closure": 5.6177285046032921E-13
+      },
+      "gait": "PIP",
+      "flight_count": 1,
+      "artifact": "column_00015_revision_000_correction.mat",
+      "converted_artifact": "column_00015_revision_000_converted.mat"
+    },
+    {
+      "column": 28,
+      "repair_revision": 0,
+      "state": "accepted",
+      "evidence_label": "exact_legacy_replay_with_fresh_acceptance",
+      "source_energy": 1.1544200115831298,
+      "source_period": 1.6958519228074129,
+      "source_initial_speed": 0,
+      "direct_residual": 4.0945469237385623E-11,
+      "final_closure": 8.000267115448878E-13,
+      "accepted": true,
+      "correction_norm": 0,
+      "target_model_parameters": true,
+      "accepted_in_registered_domain": true,
+      "effective_domain_energy": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "domain_revision": 1,
+      "retraction_norm": 0,
+      "rephase_time": 0,
+      "return_occurrence": 1,
+      "symmetry": "pronk",
+      "symmetry_projection": {},
+      "regular_chart_repair": {},
+      "feasibility_predictor": {},
+      "failure_category": "unresolved",
+      "initial_physics": {
+        "context": "accepted-state",
+        "context_policy": {
+          "strict_accepted_state_checks": true,
+          "allows_transient_event_surface_overshoot": false
+        },
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "absolute_leg_angles": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hip_heights": [
+          1.1544200115831298,
+          1.1544200115831298,
+          1.1544200115831298,
+          1.1544200115831298
+        ],
+        "hip_clearances": [
+          1.1544200115831298,
+          1.1544200115831298,
+          1.1544200115831298,
+          1.1544200115831298
+        ],
+        "hip_clearance_margins": [
+          1.1544200115831298,
+          1.1544200115831298,
+          1.1544200115831298,
+          1.1544200115831298
+        ],
+        "torso_endpoint_heights": [
+          1.1544200115831298,
+          1.1544200115831298
+        ],
+        "torso_clearance": 1.1544200115831298,
+        "torso_clearance_margin": 1.1544200115831298,
+        "swing_foot_clearances": [
+          0.15442001158312979,
+          0.15442001158312979,
+          0.15442001158312979,
+          0.15442001158312979
+        ],
+        "swing_foot_margins": [
+          0.15442002158312979,
+          0.15442002158312979,
+          0.15442002158312979,
+          0.15442002158312979
+        ],
+        "minimum_swing_foot_clearance": 0.15442001158312979,
+        "minimum_swing_foot_margin": 0.15442002158312979,
+        "leg_lengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stance_leg_lengths": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compressions": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compression_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_stance_compression": null,
+        "minimum_stance_compression_margin": null,
+        "leg_length_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_leg_length": null,
+        "minimum_leg_length_margin": null,
+        "complementarity_residuals": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "complementarity_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_complementarity_margin": 1E-8,
+        "minimum_hip_clearance": 1.1544200115831298,
+        "minimum_hip_clearance_margin": 1.1544200115831298,
+        "downward_orientation_margins": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "finite_geometry_per_leg": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_validity": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_failure_reasons": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "per_leg_minimum_physical_margin": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "global_validity": true,
+        "strict_global_validity": true,
+        "minimum_physical_margin": 1E-8,
+        "failure_reasons": [],
+        "post_reset_consistency_evaluated": false,
+        "post_reset_guard_residuals": [],
+        "post_reset_guard_consistent": [],
+        "post_reset_mode_consistent": [],
+        "active_tolerances": {
+          "swing_penetration": 1E-8,
+          "stance_tension": 1E-8,
+          "minimum_leg_length": 1E-8,
+          "minimum_back_hip_height": 0,
+          "minimum_front_hip_height": 0,
+          "minimum_torso_clearance": 0,
+          "complementarity": 1E-8,
+          "post_reset_guard": 1E-7,
+          "geometry": 1E-10,
+          "minimum_downward_cosine": 0,
+          "ode_stage_surface": 1E-5
+        },
+        "active_checks": {
+          "back_hip_clearance": true,
+          "front_hip_clearance": true,
+          "torso_ground_intersection": true,
+          "finite_geometry": true,
+          "post_reset_guard_consistency": true,
+          "mode_guard_complementarity": true,
+          "downward_leg_orientation": true
+        },
+        "admissible": true,
+        "admissibility_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_stance_admissibility_margin": null,
+        "stance_admissibility_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_stance_legs": [],
+        "invalid_swing_legs": []
+      },
+      "first_divergence": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "primary_failure": {},
+      "predictor_first_physical_failure": {},
+      "predictor_first_event_discrepancy": {},
+      "solver_summary": {
+        "accepted": true,
+        "primary_failure": {},
+        "replay_failure": {},
+        "initial_scaled_norm": 0,
+        "final_scaled_norm": 0,
+        "initial_physical_norm": 0,
+        "final_physical_norm": 0,
+        "full_closure": 8.000267115448878E-13
+      },
+      "gait": "PIP",
+      "flight_count": 1,
+      "artifact": "column_00028_revision_000_correction.mat",
+      "converted_artifact": "column_00028_revision_000_converted.mat"
+    },
+    {
+      "column": 42,
+      "repair_revision": 0,
+      "state": "accepted",
+      "evidence_label": "exact_legacy_replay_with_fresh_acceptance",
+      "source_energy": 1.2927441732313538,
+      "source_period": 2.091511458315034,
+      "source_initial_speed": 0,
+      "direct_residual": 6.1176397281315076E-11,
+      "final_closure": 1.2418954753457001E-12,
+      "accepted": true,
+      "correction_norm": 2.2204460492503131E-16,
+      "target_model_parameters": true,
+      "accepted_in_registered_domain": true,
+      "effective_domain_energy": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "domain_revision": 1,
+      "retraction_norm": 0,
+      "rephase_time": 0,
+      "return_occurrence": 1,
+      "symmetry": "pronk",
+      "symmetry_projection": {},
+      "regular_chart_repair": {},
+      "feasibility_predictor": {},
+      "failure_category": "unresolved",
+      "initial_physics": {
+        "context": "accepted-state",
+        "context_policy": {
+          "strict_accepted_state_checks": true,
+          "allows_transient_event_surface_overshoot": false
+        },
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "absolute_leg_angles": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hip_heights": [
+          1.2927441732313538,
+          1.2927441732313538,
+          1.2927441732313538,
+          1.2927441732313538
+        ],
+        "hip_clearances": [
+          1.2927441732313538,
+          1.2927441732313538,
+          1.2927441732313538,
+          1.2927441732313538
+        ],
+        "hip_clearance_margins": [
+          1.2927441732313538,
+          1.2927441732313538,
+          1.2927441732313538,
+          1.2927441732313538
+        ],
+        "torso_endpoint_heights": [
+          1.2927441732313538,
+          1.2927441732313538
+        ],
+        "torso_clearance": 1.2927441732313538,
+        "torso_clearance_margin": 1.2927441732313538,
+        "swing_foot_clearances": [
+          0.29274417323135382,
+          0.29274417323135382,
+          0.29274417323135382,
+          0.29274417323135382
+        ],
+        "swing_foot_margins": [
+          0.29274418323135382,
+          0.29274418323135382,
+          0.29274418323135382,
+          0.29274418323135382
+        ],
+        "minimum_swing_foot_clearance": 0.29274417323135382,
+        "minimum_swing_foot_margin": 0.29274418323135382,
+        "leg_lengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stance_leg_lengths": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compressions": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compression_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_stance_compression": null,
+        "minimum_stance_compression_margin": null,
+        "leg_length_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_leg_length": null,
+        "minimum_leg_length_margin": null,
+        "complementarity_residuals": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "complementarity_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_complementarity_margin": 1E-8,
+        "minimum_hip_clearance": 1.2927441732313538,
+        "minimum_hip_clearance_margin": 1.2927441732313538,
+        "downward_orientation_margins": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "finite_geometry_per_leg": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_validity": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_failure_reasons": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "per_leg_minimum_physical_margin": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "global_validity": true,
+        "strict_global_validity": true,
+        "minimum_physical_margin": 1E-8,
+        "failure_reasons": [],
+        "post_reset_consistency_evaluated": false,
+        "post_reset_guard_residuals": [],
+        "post_reset_guard_consistent": [],
+        "post_reset_mode_consistent": [],
+        "active_tolerances": {
+          "swing_penetration": 1E-8,
+          "stance_tension": 1E-8,
+          "minimum_leg_length": 1E-8,
+          "minimum_back_hip_height": 0,
+          "minimum_front_hip_height": 0,
+          "minimum_torso_clearance": 0,
+          "complementarity": 1E-8,
+          "post_reset_guard": 1E-7,
+          "geometry": 1E-10,
+          "minimum_downward_cosine": 0,
+          "ode_stage_surface": 1E-5
+        },
+        "active_checks": {
+          "back_hip_clearance": true,
+          "front_hip_clearance": true,
+          "torso_ground_intersection": true,
+          "finite_geometry": true,
+          "post_reset_guard_consistency": true,
+          "mode_guard_complementarity": true,
+          "downward_leg_orientation": true
+        },
+        "admissible": true,
+        "admissibility_margins": [
+          1E-8,
+          1E-8,
+          1E-8,
+          1E-8
+        ],
+        "minimum_stance_admissibility_margin": null,
+        "stance_admissibility_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_stance_legs": [],
+        "invalid_swing_legs": []
+      },
+      "first_divergence": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "primary_failure": {},
+      "predictor_first_physical_failure": {},
+      "predictor_first_event_discrepancy": {},
+      "solver_summary": {
+        "accepted": true,
+        "primary_failure": {},
+        "replay_failure": {},
+        "initial_scaled_norm": 0,
+        "final_scaled_norm": 2.2204460492503131E-16,
+        "initial_physical_norm": 0,
+        "final_physical_norm": 2.2204460492503131E-16,
+        "full_closure": 1.2418954753457001E-12
+      },
+      "gait": "PIP",
+      "flight_count": 1,
+      "artifact": "column_00042_revision_000_correction.mat",
+      "converted_artifact": "column_00042_revision_000_converted.mat"
+    }
+  ],
+  "accepted_count": 5,
+  "source_column_count": 42,
+  "completed_source_columns": [
+    1,
+    2,
+    15,
+    28,
+    42
+  ],
+  "untested_source_columns": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41
+  ],
+  "diagnostic_method": "direct conversion + fixed-energy correction and quantitative trace",
+  "wall_seconds": 133.51509016666665,
+  "function_evaluations": 326,
+  "new_points": 5,
+  "last_repair_revision": 0,
+  "diagnosed_repairs": [],
+  "effective_domain": {
+    "energy": [
+      0.78061524791284342,
+      250.66912494952322
+    ],
+    "mean_speed": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 20.740683444789454,
+    "event_count_max": 128,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately",
+    "initial_speed_diagnostic": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "energy_stages": {
+      "ordinary_parent_and_P2": [
+        0.78061524791284342,
+        3
+      ],
+      "P1_critical_neighborhood": [
+        8,
+        14
+      ],
+      "full_source_comparison": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "ordinary_vertical_PIP": [
+        1.000001,
+        3
+      ]
+    },
+    "derivation": {
+      "energy": "1.2 times maximum algebraic mapped source energy; minimum12",
+      "mean_speed": "Prospective broad bound from1.5 times max initial source speed; initial and mean speed remain separate observables",
+      "period": "1.5 times max positive source period predictor; minimum12",
+      "pitch": "1.2 times maximum source absolute pitch; minimum1.2",
+      "source_initial_ranges": [
+        -20.175019627029947,
+        20.423184056395353
+      ],
+      "historical_P1_critical_initial_speed": 4.43406193516227,
+      "historical_P1_critical_kinetic_energy": 9.8304526224274884
+    },
+    "initial_subunit_source_audit": "Research_v3/next_round/solver/domain_lower_energy_audit.json"
+  },
+  "domain_revision": 1,
+  "ancestry_claimed": false,
+  "family_nonexistence_claimed": false,
+  "family_switch": {
+    "schema_version": "family-sector-correction-v3-1",
+    "study": "P2",
+    "state": "partial_checkpoint",
+    "phase": "correct",
+    "parent_seed": {
+      "state": [
+        0,
+        0,
+        1.0134718677185475,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "return_policy": "BLMarkedApexReturnPolicy_v3",
+      "occurrence": 1,
+      "provenance": {
+        "source_correction_artifact": "column_00001_revision_000_correction.mat"
+      }
+    },
+    "parent_descriptive_label": "PIP",
+    "parent_independently_admitted": true,
+    "parent_source_artifact": "column_00001_revision_000_correction.mat",
+    "predictions": [
+      {
+        "sector_index": 1,
+        "target_label": "B2",
+        "target_base_label": "BD",
+        "target_positive_duration_flights": 2,
+        "signed_amplitude": -0.001,
+        "repair_revision": 0,
+        "independent_indices": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "reference": [
+          0,
+          1.0134718677185475,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1.0134718677185475
+        ],
+        "normal": [
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0.5,
+          0,
+          -0.5,
+          0,
+          -0.5,
+          0,
+          0
+        ],
+        "seed_state": [
+          0,
+          0,
+          1.0134718677185475,
+          0,
+          0,
+          0,
+          -0.0005,
+          0,
+          -0.0005,
+          0,
+          0.0005,
+          0,
+          0.0005,
+          0
+        ],
+        "frozen_utc": "07-Oct-2026 14:00:20",
+        "direction_origin": "fixed-parameter leg symmetry sector; no critical eigenvector claim"
+      },
+      {
+        "sector_index": 1,
+        "target_label": "B2",
+        "target_base_label": "BD",
+        "target_positive_duration_flights": 2,
+        "signed_amplitude": 0.001,
+        "repair_revision": 0,
+        "independent_indices": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "reference": [
+          0,
+          1.0134718677185475,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1.0134718677185475
+        ],
+        "normal": [
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0.5,
+          0,
+          -0.5,
+          0,
+          -0.5,
+          0,
+          0
+        ],
+        "seed_state": [
+          0,
+          0,
+          1.0134718677185475,
+          0,
+          0,
+          0,
+          0.0005,
+          0,
+          0.0005,
+          0,
+          -0.0005,
+          0,
+          -0.0005,
+          0
+        ],
+        "frozen_utc": "07-Oct-2026 14:00:20",
+        "direction_origin": "fixed-parameter leg symmetry sector; no critical eigenvector claim"
+      }
+    ],
+    "next_trial": 1,
+    "trials": [],
+    "accepted_count": 0,
+    "function_evaluations": 316,
+    "last_repair_revision": 0,
+    "hypothesis": "signed physical symmetry-sector correction; no branch point or ancestry presumed",
+    "ancestry_claimed": false,
+    "regular_bifurcation_claimed": false,
+    "partial_trial": {
+      "prediction_index": 1,
+      "attempt": 1,
+      "best_candidate": [
+        0,
+        0,
+        1.0134718677185475,
+        0,
+        0,
+        0,
+        -0.0005,
+        0,
+        -0.0005,
+        0,
+        0.0005,
+        0,
+        0.0005,
+        0
+      ],
+      "final_jacobian": [
+        [
+          0.44056281311911311,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.00040768100060640855,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.00094902843039404959,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          -0.842055408517603,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1.6490631964337421,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          -0.842055408517603,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1.6490631964337421,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          -0.84205540853124272,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1.6490631963703166,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          -0.84205540853124272,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1.6490631963703166,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "artifact": "sector_01_signed_-0.001_revision_000_attempt_001.mat",
+      "reason": "Numerical task slice ended; same signed constraint resumes from best candidate and reliable final Jacobian."
+    }
+  },
+  "requested_network": [
+    "PIP",
+    "B2",
+    "F2",
+    "H2",
+    "G2",
+    "PK_B2_bridge"
+  ],
+  "phase_count_target": 2,
+  "family_specific_method": "P2 occurrence-aware double-flight correction, ordinary-PIP bridge and distinct front/hind spread directions"
+}

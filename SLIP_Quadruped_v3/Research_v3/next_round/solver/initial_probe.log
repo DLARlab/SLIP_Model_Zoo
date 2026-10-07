@@ -1,0 +1,54 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    {'guess'}
+    {'u'    }
+    {'info' }
+
+                            state: [12×1 double]
+                        fullState: [14×1 double]
+                        parameter: [11×1 double]
+                             mode: [4×1 logical]
+                         residual: [12×1 double]
+                     residualNorm: 0.0016
+                         exitflag: 0
+                           output: [1×1 struct]
+                           solver: 'damped-newton'
+                          message: 'Omitted/dependent closure failed: 0.001615.'
+                  errorIdentifier: 'EnergyFamilyResidual_v3:FullClosure'
+                        converged: 0
+                   evaluationInfo: [1×1 struct]
+                            orbit: []
+                         attempts: [1×1 struct]
+                   candidateModes: {[4×1 logical]}
+                  selectedAttempt: 1
+                     initialGuess: [12×1 double]
+                   modeResolution: [1×1 struct]
+                     selectedMode: [4×1 logical]
+          rejectedModeDiagnostics: [1×1 struct]
+                       stateScale: [12×1 double]
+                   parameterScale: [11×1 double]
+          functionEvaluationCount: 1798
+               mapEvaluationCount: 290
+                    cacheHitCount: 1508
+           invalidEvaluationCount: 60
+          jacobianEvaluationCount: 6
+                    finalJacobian: [12×12 double]
+                 jacobianReliable: 0
+                  derivativeModel: 'hybrid-topology-compatible-finite-difference'
+              derivativeEvaluated: 1
+         acceptedNewtonIterations: 0
+                invalidTrialCount: 60
+              jacobianDiagnostics: [1×1 struct]
+    selectedFiniteDifferenceSteps: [12×1 double]
+             perColumnReliability: [12×1 logical]
+             cyclicEventSignature: ''
+         sectionRelativeSignature: ''
+            eventClusterSignature: ''
+
+accepted
+  struct with no fields.
+
+  struct with no fields.
+

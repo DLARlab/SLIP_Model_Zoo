@@ -1,0 +1,73 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+  Columns 1 through 3
+
+                         0          4.43095563764463          1.00000009999999
+
+  Columns 4 through 6
+
+      3.79682088573584e-15      7.52288324190558e-17      6.79743262181018e-09
+
+  Columns 7 through 9
+
+      1.48283162092746e-07          4.28349938944166       1.4827646590005e-07
+
+  Columns 10 through 12
+
+          4.28349938944166      -1.4828324363799e-07          4.28349938944166
+
+  Columns 13 through 14
+
+     -1.48277314551292e-07          4.28349938944166
+
+      1.48283394641868e-07
+      1.48276698449172e-07
+     -1.48283011088869e-07
+      -1.4827708200217e-07
+
+                         0
+     -8.88178419700125e-16
+                         0
+      1.77635683940025e-15
+
+  Columns 1 through 3
+
+                        10                        10                        20
+
+  Columns 4 through 6
+
+                        20                         1                         1
+
+  Columns 7 through 9
+
+                         0                         0                         2
+
+  Column 10
+
+                       0.5
+
+    identifier: 'ContinuousDynamics_v3:TensileStance'
+       message: 'Stance compression is below the admissibility tolerance for leg(s) BL, BR.'
+
+               success: 0
+            admissible: 0
+    termination_reason: 'diagnostic_failure'
+               message: 'Quadruped accepted-state is physically inadmissible: swing_foot_penetration:BL, contact_complementarity_loss:BL, swing_foot_penetration:BR, contact_complementarity_loss:BR, swing_foot_penetration:FL, contact_complementarity_loss:FL, swing_foot_penetration:FR, contact_complementarity_loss:FR.'
+               failure: [1×1 struct]
+            final_time: 0
+           final_state: [14×1 double]
+            final_mode: [4×1 logical]
+         event_history: [0×1 struct]
+         event_batches: [0×1 struct]
+
+            time: 0
+          sample: 1
+           state: [14×1 double]
+            mode: [4×1 logical]
+          source: 'completed-physical-segment'
+     diagnostics: [1×1 struct]
+    guard_values: [8×1 double]
+    axial_forces: [4×1 double]
+

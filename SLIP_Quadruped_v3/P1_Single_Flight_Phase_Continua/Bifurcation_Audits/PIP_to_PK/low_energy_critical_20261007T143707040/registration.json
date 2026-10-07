@@ -1,0 +1,147 @@
+{
+  "schema_version": "focused-low-energy-critical-audit-v3-1",
+  "registered_utc": "20261007T143707040",
+  "maximum_wall_seconds": 120,
+  "source_snapshots": [
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/phase_checkpoint.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/01_phase_checkpoint.mat",
+      "sha256": "3fd079363512cc79acff3695247ffb36e5c936951ab34308a2eeb9592ecf81fd",
+      "bytes": 1.42869E+6
+    },
+    {
+      "source": "Research_v3/runs/full/family_-1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/02_family_-1.mat",
+      "sha256": "d4bac9d56c08d2388f96f3d783d42ee39f2da0009710f35356f0b7c030be0e72",
+      "bytes": 1.3102395E+7
+    },
+    {
+      "source": "Research_v3/runs/full/family_+1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/03_family_+1.mat",
+      "sha256": "b641e2db635813c9c2d1c08628445fc085e4975d7942e3f70e9d8b61c7254d1a",
+      "bytes": 1.3779772E+7
+    },
+    {
+      "source": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/04_branch.mat",
+      "sha256": "de8e3c29d07ce95044b92da67bff83098b82a324961f1f0cfe3fc72b30a6632e",
+      "bytes": 1.8015528E+7
+    },
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/05_daughter_+0.0001_attempt_1.mat",
+      "sha256": "9e8e481a062d1239d2e3faac337b592b1871eec4cfc148c240568c421d5e7b38",
+      "bytes": 1.219499E+6
+    },
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/06_daughter_+0.0003_attempt_1.mat",
+      "sha256": "74a3d62b96fc8db40bd3f182d4d3f5301e949c0486bd7af603f2f4a48e551544",
+      "bytes": 4.133207E+6
+    },
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/07_daughter_-0.0001_attempt_1.mat",
+      "sha256": "12d106b210194c881b400c7c73061e4785e2492d53441ef2eb3dd6475301a35a",
+      "bytes": 1.219745E+6
+    },
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/08_daughter_-0.0003_attempt_1.mat",
+      "sha256": "5f818afac387ef8e1c3ef67cfa761248605c163461c6d114633e897591b74ff9",
+      "bytes": 1.25161E+6
+    },
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/09_daughter_-0.001_attempt_1.mat",
+      "sha256": "2de0722fdc2fa1cc50a6c9e9501010bac2986a7f715b0769d3686e08e87a16c8",
+      "bytes": 1.296127E+6
+    },
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/10_daughter_-0.003_attempt_1.mat",
+      "sha256": "dbebc874a6cb0eeec87e687be2091df619d1de50341dc82e3ef3d146861a2db4",
+      "bytes": 1.336923E+6
+    },
+    {
+      "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+      "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/11_daughter_-0.01_attempt_1.mat",
+      "sha256": "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d",
+      "bytes": 1.40528E+6
+    }
+  ],
+  "source_critical_energy": 1.1171137022972106,
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "settings": {
+    "RelTol": 1E-12,
+    "AbsTol": 1E-14,
+    "MaxStep": 0.005,
+    "EventValueTolerance": 1E-10,
+    "EventTimeTolerance": 1E-12,
+    "SimultaneousTimeTolerance": 1E-10,
+    "ArmingTolerance": 1E-11
+  },
+  "fd_steps": [
+    1E-5,
+    5E-6
+  ],
+  "energy_slope_steps": [
+    0.0001,
+    5E-5
+  ],
+  "matrix_gate": 1E-6,
+  "slope_agreement_gate": 0.01,
+  "closure_gate": 1E-8,
+  "engine_hashes": [
+    {
+      "path": "Numerics_v3/RestrictedPIPParentMatrix_v3.m",
+      "sha256": "2a3c67d2ca8099d772a850c093bfccec7dbdbd2bf7c5e50e5b85578544c4136c"
+    },
+    {
+      "path": "Dynamics_v3/ContinuousDynamics_v3.m",
+      "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+    },
+    {
+      "path": "Dynamics_v3/GuardFunctions_v3.m",
+      "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+    },
+    {
+      "path": "Dynamics_v3/ResetMap_v3.m",
+      "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+    },
+    {
+      "path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+      "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+      "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+    }
+  ],
+  "helper_path": "Research_v3/next_round/theory/AuditLowEnergyPIPCritical_v3.m",
+  "helper_sha256": "cd215af8b3c454bd54623a870fe6828ff77f27142bd10fe29dfa159b7cd2c36c",
+  "scope": "Finite numerical evidence for a restricted critical point; no interval certification, imported-PK identity or attachment."
+}

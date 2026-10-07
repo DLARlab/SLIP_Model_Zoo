@@ -1,0 +1,23 @@
+{
+  "schema_version": "prospective-measured-flip-BL2-experiment-v3-1",
+  "registered_utc": "07-Oct-2026 12:54:33",
+  "source_spectral_artifact": "Research_v3/next_round/theory/floquet_service_PIP.mat",
+  "measured_front_multiplier": -0.99999999182964616,
+  "measured_hind_multiplier": -0.99999999182966925,
+  "signed_amplitudes": [
+    -0.001,
+    0.001
+  ],
+  "constraint": "Signed amplitude inside the full physical-coordinate/energy augmented corrector; symmetry none",
+  "BL_touchdowns_per_return": 2,
+  "required_primitive_BL_occurrence": 2,
+  "actual_flight_count_required": 2,
+  "acceptance_tolerances_changed": false,
+  "candidates": {
+    "id": "PIP_measured_flip_BL2_front_hind",
+    "candidate_artifact": "Research_v3/next_round/theory/PIP_flip_BL2_candidate.mat",
+    "candidate_variable": "candidate"
+  },
+  "hypothesis_scope": "Two TD and LO per leg over the two-BL cycle; this is distinct from archived B2 one-TD-per-leg two-flight cycles.",
+  "ancestry_claimed": false
+}

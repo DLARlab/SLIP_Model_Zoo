@@ -1,0 +1,73 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+MATLAB research taskP1_source_25_B_predictor_trace, roundB, attempt1, remainingtotal8710.1s, slice240.0s
+MATLAB research taskP1_source_19_B_predictor_trace, roundB, attempt1, remainingtotal8707.9s, slice240.0s
+MATLAB research taskP1_source_23_B_predictor_trace, roundB, attempt1, remainingtotal8706.9s, slice240.0s
+MATLAB research taskP1_source_24_B_predictor_trace, roundB, attempt1, remainingtotal8706.2s, slice240.0s
+MATLAB research taskP2_source_26_B_predictor_trace, roundB, attempt1, remainingtotal8705.5s, slice240.0s
+MATLAB research taskP2_source_27_B_predictor_trace, roundB, attempt1, remainingtotal8704.0s, slice240.0s
+MATLAB research taskP2_source_17_B_predictor_trace, roundB, attempt1, remainingtotal8701.2s, slice240.0s
+MATLAB research taskP2_source_18_B_predictor_trace, roundB, attempt1, remainingtotal8695.4s, slice240.0s
+MATLAB research taskP1_source_25_C, roundC, attempt1, remainingtotal8688.6s, slice240.0s
+P1 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/05_refined_candidates.mat column1 accepted0 closureNaN
+P1 signedsector1 amplitude-0.001 accepted0 target0 closureInf
+P1 signedsector1 amplitude+0.001 accepted0 target0 closureInf
+MATLAB research taskP1_source_19_C, roundC, attempt1, remainingtotal8674.0s, slice240.0s
+P1 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/01_refined_candidates.mat column1 accepted0 closureNaN
+P1 signedsector1 amplitude-0.001 accepted0 target0 closureInf
+P1 signedsector1 amplitude+0.001 accepted0 target0 closureInf
+P1 signedsector2 amplitude-0.001 accepted0 target0 closureInf
+P1 signedsector2 amplitude+0.001 accepted0 target0 closureInf
+MATLAB research taskP1_source_23_C, roundC, attempt1, remainingtotal8664.6s, slice240.0s
+P1 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/03_refined_candidates.mat column1 accepted0 closureNaN
+P1 signedsector1 amplitude-0.001 accepted0 target0 closureInf
+P1 signedsector1 amplitude+0.001 accepted0 target0 closureInf
+MATLAB research taskP1_source_24_C, roundC, attempt1, remainingtotal8659.6s, slice240.0s
+P1 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/04_refined_candidates.mat column1 accepted0 closureNaN
+P1 signedsector1 amplitude-0.001 accepted0 target0 closureInf
+P1 signedsector1 amplitude+0.001 accepted0 target0 closureInf
+MATLAB research taskP2_source_26_C, roundC, attempt1, remainingtotal8654.9s, slice240.0s
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/06_PK_at_B2_critical.mat column1 accepted0 closureNaN
+P2 signedsector1 amplitude-0.001 accepted0 target0 closureInf
+P2 signedsector1 amplitude+0.001 accepted0 target0 closureInf
+MATLAB research taskP2_source_27_C, roundC, attempt1, remainingtotal8646.1s, slice240.0s
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column1 accepted0 closureNaN
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column2 accepted0 closureNaN
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column3 accepted0 closureNaN
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column4 accepted0 closureNaN
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column5 accepted0 closureNaN
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column6 accepted0 closureNaN
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column7 accepted0 closureNaN
+P2 roundC Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat column8 accepted0 closureNaN
+P2 signedsector1 amplitude-0.001 accepted0 target0 closureInf
+P2 signedsector1 amplitude+0.001 accepted0 target0 closureInf
+P2 signedsector2 amplitude-0.001 accepted0 target0 closureInf
+P2 signedsector2 amplitude+0.001 accepted0 target0 closureInf
+MATLAB research taskP2_source_17_C, roundC, attempt1, remainingtotal8609.6s, slice240.0s
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_20_2.mat column1 accepted0 closureNaN
+MATLAB research taskP2_source_18_C, roundC, attempt1, remainingtotal8359.7s, slice240.0s
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column132 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column131 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column133 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column130 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column134 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column129 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column135 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column128 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column136 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column127 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column137 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column126 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column125 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column138 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column1 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column12 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column23 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column35 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column46 accepted0 closureNaN
+P2 roundC P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PK_B2_Parent.mat column57 accepted0 closureNaN
+partial_checkpoint
+   2.6890e+03
+

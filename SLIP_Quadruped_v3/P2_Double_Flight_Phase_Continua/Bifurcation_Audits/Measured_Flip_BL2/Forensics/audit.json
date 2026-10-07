@@ -1,0 +1,258 @@
+{
+  "schema_version": "saved-final-measured-BL2-forensics-v3-1",
+  "created_utc": "07-Oct-2026 17:06:58",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "artifact": "Research_v3/next_round/tasks/full/PIP_n0_measured_flip_BL2_front_hind/sector_01_signed_-0.001_revision_000_attempt_001.mat",
+  "artifact_sha256": "9a2394c918249d3571c97f3545c061ac2f0e1432d23c9db6c5e67e70f095ad1e",
+  "canonical_source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    }
+  ],
+  "accepted": false,
+  "phase_state": "partial_checkpoint",
+  "phase": "correct",
+  "next_prediction": 1,
+  "registered_predictions": 4,
+  "has_saved_partial_trial": true,
+  "initial_residual": 1.624832099372895E-7,
+  "final_residual": 2.8376831866325118E-8,
+  "full_closure": 2.8376831866325118E-8,
+  "full_closure_tolerance": 1E-8,
+  "primary_failure": {
+    "identifier": "",
+    "message": "No finite hybrid Jacobian is available in the requested perturbation chart.",
+    "exitflag": -3
+  },
+  "finalization_failure": {
+    "identifier": "RootSolver_v3:FullClosure",
+    "message": "Reduced residual candidate failed full physical closure."
+  },
+  "replay_failure": {},
+  "independent_replay_performed": false,
+  "accepted_Newton_steps": 2,
+  "Jacobian_evaluations": 3,
+  "function_evaluations": 164,
+  "core_map_evaluations": 157,
+  "cache_hits": 2,
+  "invalid_evaluations": 5,
+  "pre_map_failure_count_from_counters": 5,
+  "map_evaluation_limit": 4000,
+  "shared_service_elapsed_seconds": 237.4366315,
+  "shared_service_wall_limit_seconds": 233.32479362499768,
+  "final_Jacobian_dimensions": [
+    13,
+    13
+  ],
+  "finite_columns": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "reliable_columns": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "columns": [
+    {
+      "index": 1,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 1.3139366774669922E-7,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 2,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 4.0485499585136795E-7,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 3,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 1.4210819351340534E-6,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 4,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 8.6730879391542008E-8,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 5,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 3.0139599663107507E-10,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 6,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 1.2328578464811054E-8,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 7,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 3.0289763362277072E-10,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 8,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 1.2328579262303094E-8,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 9,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 1.2997109408463149E-9,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 10,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 7.513541580638569E-8,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 11,
+      "reliable": true,
+      "finite": true,
+      "difference_type": "central-richardson",
+      "estimated_relative_error": 1.2993776890033925E-9,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": []
+    },
+    {
+      "index": 12,
+      "reliable": false,
+      "finite": true,
+      "difference_type": "one-sided-forward",
+      "estimated_relative_error": 1.7514707417435295E-5,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": [
+        "minus-h/2 invalid: EventOrderChartJacobian_v3:OutsideDeclaredChart: Common C1 event-order derivative chart failed: : Complete physical map context is required.."
+      ]
+    },
+    {
+      "index": 13,
+      "reliable": false,
+      "finite": false,
+      "difference_type": "unavailable",
+      "estimated_relative_error": null,
+      "callback_attempts": 4,
+      "topology_changed": false,
+      "failure_reasons": [
+        "plus-h invalid: EventOrderChartJacobian_v3:OutsideDeclaredChart: Common C1 event-order derivative chart failed: : Complete physical map context is required..",
+        "minus-h invalid: EventOrderChartJacobian_v3:OutsideDeclaredChart: Common C1 event-order derivative chart failed: : Complete physical map context is required..",
+        "plus-h/2 invalid: EventOrderChartJacobian_v3:OutsideDeclaredChart: Common C1 event-order derivative chart failed: : Complete physical map context is required..",
+        "minus-h/2 invalid: EventOrderChartJacobian_v3:OutsideDeclaredChart: Common C1 event-order derivative chart failed: : Complete physical map context is required.."
+      ]
+    }
+  ],
+  "final_FD_callback_attempts": 53,
+  "chart_observation_count": 53,
+  "chart_accepted_count": 48,
+  "chart_rejected_indices": [
+    49,
+    50,
+    51,
+    52,
+    53
+  ],
+  "chart_rejection_reasons": [
+    ": Complete physical map context is required."
+  ],
+  "any_completed_candidate_topology_mismatch": false,
+  "wall_budget_attribution_supported_by_counters": true,
+  "original_WallBudget_identifier_retained_in_FD_reasons": false,
+  "diagnosis": "The last refreshed FD was cut off before five tail map evaluations. Root pre-map wall guards lost their identifier in hybridObjective, and the metadata decorator reported missing context. Completed samples do not show a physical event-order chart mismatch.",
+  "rank_scope": "The complete reliable matrix is unavailable; this partial matrix does not certify rank, conditioning, branch existence or a mathematical chart obstruction.",
+  "return_map_evaluations_in_forensics": 0,
+  "core_or_active_driver_changed": false
+}

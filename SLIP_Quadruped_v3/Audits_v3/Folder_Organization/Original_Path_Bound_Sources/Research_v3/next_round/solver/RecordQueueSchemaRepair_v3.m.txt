@@ -1,0 +1,35 @@
+function audit=RecordQueueSchemaRepair_v3()
+%RECORDQUEUESCHEMAREPAIR_V3 Preserve interrupted execution and causal repair.
+    root=fileparts(fileparts(fileparts(fileparts(mfilename('fullpath')))));
+    addpath(genpath(root));folder=fullfile(root,'Research_v3','next_round');
+    file=fullfile(folder,'checkpoint_full.mat');loaded=load(file,'state');state=loaded.state;
+    index=find(strcmp({state.tasks.id},'PIP_candidate_2'),1);task=state.tasks(index);
+    audit=struct('diagnosis','jsondecode heterogeneous object array is a cell array; unwrapping was missing.', ...
+        'repair','Dereference candidate cells and verify the sampled energy interval against the declared candidate.', ...
+        'task','PIP_candidate_2','counter_semantics','Retain wrong-range maps as failed-execution evidence, never target-candidate evidence.', ...
+        'interruption_utc_upper_bound','2026-10-07 12:28:41 UTC', ...
+        'wall_seconds_lower_bound',0,'wall_seconds_upper_bound',0, ...
+        'charge_basis','Conservative upper bound after a deliberate Ctrl-C; exact interrupt timestamp was not captured.', ...
+        'function_evaluations',0,'previous_task',task);
+    if strcmp(task.state,'running')
+        start=datetime(task.started_utc,'InputFormat','dd-MMM-yyyy HH:mm:ss','TimeZone','UTC','Locale','en_US');
+        lastCheckpoint=datetime('2026-10-07 12:27:05','InputFormat','yyyy-MM-dd HH:mm:ss','TimeZone','UTC');
+        upper=datetime('2026-10-07 12:28:41','InputFormat','yyyy-MM-dd HH:mm:ss','TimeZone','UTC');
+        audit.wall_seconds_lower_bound=max(0,seconds(lastCheckpoint-start));
+        audit.wall_seconds_upper_bound=max(audit.wall_seconds_lower_bound,seconds(upper-start));
+        phase=load(fullfile(folder,'tasks','full','PIP_candidate_2','phase_checkpoint.mat'),'record');
+        audit.function_evaluations=phase.record.function_evaluations;
+        state.numerical_wall_seconds=state.numerical_wall_seconds+audit.wall_seconds_upper_bound;
+        state.function_evaluations=state.function_evaluations+max(0,audit.function_evaluations-task.function_evaluations);
+        state.tasks(index).wall_seconds=task.wall_seconds+audit.wall_seconds_upper_bound;
+        state.tasks(index).function_evaluations=max(task.function_evaluations,audit.function_evaluations);
+        state.tasks(index).state='external_interruption';state.tasks(index).execution_completed=false;
+        state.tasks(index).message='Stopped wrong-range task; charged182s conservative upper bound, actual wall interval86–182s.';
+        state.external_interruption_audits=audit;
+        RoundSave_v3(file,struct('state',state));RoundJSON_v3(fullfile(folder,'task_queue_full.json'),state);
+    end
+    RoundSave_v3(fullfile(folder,'queue_schema_repair.mat'),struct('audit',audit));
+    RoundJSON_v3(fullfile(folder,'queue_schema_repair.json'),audit);
+    RegisterResearchRepair_v3({'PIP_candidate_2'},audit.diagnosis,audit.repair, ...
+        'Research_v3/next_round/queue_schema_repair.mat','full');
+end

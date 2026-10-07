@@ -1,0 +1,91 @@
+{
+  "schema_version": "prospective-opposed-spread-method-journal-v3-1",
+  "base_registration": "Research_v3/next_round/opposed_spread_campaign_registration.json",
+  "entries": [
+    {
+      "revision": 1,
+      "registered_utc": "07-Oct-2026 15:01:05",
+      "diagnosis": "Both standing tasks rejected unknown top-level ReplayIntegration.ArmingTolerance before map or Newton evaluation. Complete simulator settings had been passed through a narrower public replay-options interface.",
+      "repair": "Pass only the six public replay override fields; the delegated map retains its own simulator arming settings. No physics, map, acceptance or true numerical budget changes.",
+      "replay_integration": {
+        "RelTol": 1E-13,
+        "AbsTol": 1E-15,
+        "MaxStep": 0.0025,
+        "EventValueTolerance": 1.0000000000000001E-11,
+        "EventTimeTolerance": 1E-13,
+        "SimultaneousTimeTolerance": 1.0000000000000001E-11
+      },
+      "source_hashes": [
+        {
+          "path": "Orbit_v3/OpposedSpreadFamilyResidual_v3.m",
+          "sha256": "e51aaf801f9a8cca0aa144f098337e956ab0972224c2133610cdd1ee11feb63e"
+        },
+        {
+          "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+          "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+        },
+        {
+          "path": "Numerics_v3/RootSolver_v3.m",
+          "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+        },
+        {
+          "path": "Numerics_v3/HybridFiniteDifferenceJacobian_v3.m",
+          "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+        },
+        {
+          "path": "Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m",
+          "sha256": "4617853ac76e7036c8e4af769475c1331cf939907e20dfc81bb0e16af4aa4320"
+        }
+      ],
+      "previous_driver_source": "Research_v3/next_round/method_history/RunOpposedSpreadPeriodTwo_v3_before_replay_schema_fix.txt",
+      "failure_evidence": [
+        "Research_v3/next_round/method_history/opposed_spread_n0_negative_A1e-3_campaign_before_replay_schema_fix_result.mat",
+        "Research_v3/next_round/method_history/opposed_spread_n0_positive_A1e-3_campaign_before_replay_schema_fix_result.mat"
+      ],
+      "known_failed_solver_evaluations": 0,
+      "acceptance_tolerances_changed": false
+    },
+    {
+      "revision": 2,
+      "registered_utc": "07-Oct-2026 15:40:11",
+      "diagnosis": "Passing InitialJacobian alone did not enable RootSolver.ReuseJacobian; its public default is false.",
+      "repair": "Explicitly enable reuse only for finite matching-size same-parameter/mode/constraint partial matrices; keep independent physical acceptance.",
+      "replay_integration": {
+        "RelTol": 1E-13,
+        "AbsTol": 1E-15,
+        "MaxStep": 0.0025,
+        "EventValueTolerance": 1.0000000000000001E-11,
+        "EventTimeTolerance": 1E-13,
+        "SimultaneousTimeTolerance": 1.0000000000000001E-11
+      },
+      "source_hashes": [
+        {
+          "path": "Orbit_v3/OpposedSpreadFamilyResidual_v3.m",
+          "sha256": "e51aaf801f9a8cca0aa144f098337e956ab0972224c2133610cdd1ee11feb63e"
+        },
+        {
+          "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+          "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+        },
+        {
+          "path": "Numerics_v3/RootSolver_v3.m",
+          "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+        },
+        {
+          "path": "Numerics_v3/HybridFiniteDifferenceJacobian_v3.m",
+          "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+        },
+        {
+          "path": "Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m",
+          "sha256": "3778c100901f53bea68d63ff82909165b055dfeed1393e631c8995253a77b4b1"
+        }
+      ],
+      "previous_driver_source": "Research_v3/next_round/method_history/RunOpposedSpreadPeriodTwo_v3_before_replay_schema_fix.txt",
+      "failure_evidence": [
+        "Research_v3/next_round/tasks/full/P2_source_17_C/sector_01_signed_-0.001_revision_001_attempt_001.mat"
+      ],
+      "known_failed_solver_evaluations": null,
+      "acceptance_tolerances_changed": false
+    }
+  ]
+}

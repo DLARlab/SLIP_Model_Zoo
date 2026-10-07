@@ -1,0 +1,104 @@
+{
+  "schema_version": "conditional-restricted-imported-PK-composition-v3-1",
+  "created_utc": "07-Oct-2026 17:01:41",
+  "maps_executed": 0,
+  "critical_energy": 1.1171137022972106,
+  "critical_source_task_id": "PIP_PK_low_energy_neighborhood",
+  "attachment_accuracy_task_id": "PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003_revision02",
+  "attachment_status": "numerically_supported_restricted_attachment",
+  "bridge_task_id": "imported_PK_to_low_PIP_daughter_negative_0p01",
+  "bridge_four_increments_and_endpoint_identity_supported": true,
+  "accuracy_daughter_to_frozen_bridge_target_comparison": {
+    "schema_version": "saved-pronk-bridge-orbit-comparison-v3-1",
+    "horizontal_reflection_applied": false,
+    "phase_shift": 0,
+    "phase_convention": "Same labeled BL-marked apex; constant horizontal origin removed.",
+    "apex_state_gap": 0,
+    "energy_gap": 0,
+    "period_gap": 0,
+    "drift_gap": 0,
+    "contact_counts_first": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "contact_counts_second": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "contact_counts_equal": true,
+    "event_phase_gap": 0,
+    "one_sided_event_state_gap": 0,
+    "event_modes_match": true,
+    "smooth_history_state_gap": 0,
+    "smooth_history_modes_match": true,
+    "sample_count": 2001,
+    "interpolation_scope": "Saved one-sided linear interpolation in smooth spans; finite-resolution numerical diagnostic, not closure or a certified trajectory error bound.",
+    "same_local_numerical_orbit_supported": true,
+    "rigorous_identity_claimed": false
+  },
+  "composition_supported": true,
+  "source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    }
+  ],
+  "input_hashes": [
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003_revision02/accuracy_repair_r000_attempt_001.mat",
+      "sha256": "4779ac6b6c4c55ff2eb527c66d4df3ecb6de57f359dfa0aac6f3f89d9816965d"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/result.mat",
+      "sha256": "fd61f3bcbea1615dbe8d899fff288c39e70c9ddb7bef6821c3b5ef53a920f176"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+      "sha256": "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d"
+    },
+    {
+      "path": "Research_v3/next_round/theory/low_energy_PK_bridge_candidate.mat",
+      "sha256": "fee4c91d037b61e7da301c7055aa83412ad031a5bf5fd1851aaded4eb23a60ac"
+    }
+  ],
+  "scope": "Conditional numerical attachment and four-increment connection in the exact-baseline synchronized-pronk invariant subspace; parent anchored at the recorded low critical energy.",
+  "old_historical_critical_parent_orbits_identified": false,
+  "full_space_bifurcation_or_stability_claimed": false,
+  "rigorous_identity_or_global_network_claimed": false
+}

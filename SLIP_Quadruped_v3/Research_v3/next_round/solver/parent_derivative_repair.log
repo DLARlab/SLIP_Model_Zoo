@@ -1,0 +1,21 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                schema_version: 'parent-derivative-causal-repair-v3-1'
+                      accepted: 1
+                        status: 'accepted'
+              initial_residual: 0.0016
+                final_residual: 3.0481e-14
+                  full_closure: 3.0610e-11
+            distance_to_parent: 1.2427e-12
+               primary_failure: [1×1 struct]
+                replay_failure: [1×1 struct]
+    accepted_Newton_iterations: 4
+               map_evaluations: 199
+             jacobian_reliable: 1
+        per_column_reliability: [12×1 logical]
+               elapsed_seconds: 171.9194
+     branch_attachment_claimed: 0
+                          gait: "PIP"
+

@@ -1,0 +1,31 @@
+{
+  "schema_version": "parent-derivative-causal-repair-v3-1",
+  "accepted": true,
+  "status": "accepted",
+  "initial_residual": 0.0016152223176272794,
+  "final_residual": 3.0480589533635979E-14,
+  "full_closure": 3.0609959011940191E-11,
+  "distance_to_parent": 1.242665236345632E-12,
+  "primary_failure": {},
+  "replay_failure": {},
+  "accepted_Newton_iterations": 4,
+  "map_evaluations": 199,
+  "jacobian_reliable": true,
+  "per_column_reliability": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "elapsed_seconds": 171.91938891666666,
+  "branch_attachment_claimed": false,
+  "gait": "PIP"
+}

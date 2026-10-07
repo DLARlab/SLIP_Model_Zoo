@@ -3,7 +3,7 @@
 Historical audit: the test sources, runners and generated test payloads cited
 below were removed during the 2026-10-07 cleanup. These historical commands
 and file lists are retained to explain the reported observations. Production
-results remain in `Examples_v3/Results_v3`; concise verification records and
+results remain in `4_Solution_Management/Examples_v3/Results_v3`; concise verification records and
 the legacy file manifest remain in `Research_v3/Audits_v3`.
 
 Date: 2026-08-11  
@@ -54,7 +54,7 @@ The sole baseline failure was
 `TestHybridFramework_v3/everyRestoredLegacyFileRemainsPresent`: 70 files in
 the historically restored Floquet tree were absent from the reference
 commit. The actual baseline output is retained in
-`Docs_v3/Round4_Prechange_Test_Report_v3.md`.
+`Docs_v3/Round4_Prechange_Audit_v3.md`.
 
 The 70 files were restored byte-for-byte from historical commit `c1aafb0`.
 The historical `TestLegacyPreservationRound4_v3` verified every blob against
@@ -65,7 +65,7 @@ No tracked v1/v2 file differed from the reference commit.
 
 ### 3.1 Model-owned physical admissibility
 
-`Dynamics_v3/QuadrupedAdmissibility_v3.m` separates:
+`1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m` separates:
 
 1. transient ODE-stage checks;
 2. accepted integration-state checks;
@@ -172,7 +172,7 @@ physically irrelevant.
 
 ### 3.4 Event clusters and hybrid boundaries
 
-`Simulation_v3/EventCluster_v3.m` groups events when their spread satisfies
+`1_Dynamic_Frameworks/Simulation_v3/EventCluster_v3.m` groups events when their spread satisfies
 
 \[
 \max t_i-\min t_i\le
@@ -328,7 +328,7 @@ parent/child stabilizers; \(\lambda=1\) alone is never called a pitchfork.
 
 ### 3.10 Second generic hybrid model
 
-`Examples_v3/Models/BipedalHybridModel_v3.m` has state dimension 2 and
+`4_Solution_Management/Examples_v3/Models/BipedalHybridModel_v3.m` has state dimension 2 and
 parameter dimension 5, with no dependency on `QuadrupedSchema_v3`:
 
 \[
@@ -348,10 +348,10 @@ not energy conservative.
 ## 4. Actual quadruped numerical validation
 
 The executed artifact is
-`Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.mat`; its full
+`4_Solution_Management/Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.mat`; its full
 human-readable numerical index, including all three 8-by-8 matrices and
 multipliers, is
-`Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.md`.
+`4_Solution_Management/Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.md`.
 
 Execution environment: MATLAB R2025b Update 5, MACA64. Initial production
 wall time was 1375.7943515 s; bounded searches added 187.954 s. No prescribed
@@ -589,38 +589,38 @@ the MAT artifact rather than inferred from these defaults.
 
 ### Modified existing v3 sources
 
-- `Dynamics_v3/ContinuousDynamics_v3.m`
-- `Dynamics_v3/HybridSystemBase_v3.m`
-- `Dynamics_v3/Quadrupedal_Dynamics_v3.m`
-- `Simulation_v3/HybridSimulator_v3.m`
-- `Simulation_v3/Trajectory_v3.m`
-- `Orbit_v3/HybridOrbit_v3.m`
-- `Orbit_v3/PoincareMap_v3.m`
-- `Orbit_v3/PeriodicOrbitResidual_v3.m`
-- `Numerics_v3/HybridFiniteDifferenceJacobian_v3.m`
-- `Numerics_v3/NumericalContinuation1D_v3.m`
-- `Numerics_v3/PseudoArclengthContinuation_v3.m`
-- `Numerics_v3/RootSolver_v3.m`
-- `Stability_v3/BifurcationDetector_v3.m`
-- `Stability_v3/FloquetAnalysis_v3.m`
-- `Stability_v3/HybridBoundaryDetector_v3.m`
+- `1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m`
+- `1_Dynamic_Frameworks/Dynamics_v3/HybridSystemBase_v3.m`
+- `1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m`
+- `1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m`
+- `1_Dynamic_Frameworks/Simulation_v3/Trajectory_v3.m`
+- `4_Solution_Management/HybridOrbit_v3.m`
+- `4_Solution_Management/PoincareMap_v3.m`
+- `4_Solution_Management/PeriodicOrbitResidual_v3.m`
+- `3_Numerical_Continuation/1_Root_Solving/HybridFiniteDifferenceJacobian_v3.m`
+- `3_Numerical_Continuation/2_Continuation_Algorithms/NumericalContinuation1D_v3.m`
+- `3_Numerical_Continuation/2_Continuation_Algorithms/PseudoArclengthContinuation_v3.m`
+- `3_Numerical_Continuation/1_Root_Solving/RootSolver_v3.m`
+- `3_Numerical_Continuation/3_Bifurcation_Analysis/BifurcationDetector_v3.m`
+- `3_Numerical_Continuation/3_Bifurcation_Analysis/FloquetAnalysis_v3.m`
+- `3_Numerical_Continuation/3_Bifurcation_Analysis/HybridBoundaryDetector_v3.m`
 - `Tests_v3/TestHybridFramework_v3.m`
 - `Tests_v3/TestNumericsStabilityContracts_v3.m`
 - `Tests_v3/TestQuadrupedDynamicsContracts_v3.m`
 
 ### New v3 implementation sources
 
-- `Dynamics_v3/QuadrupedAdmissibility_v3.m`
-- `Simulation_v3/EventCluster_v3.m`
-- `Numerics_v3/BranchSwitching_v3.m`
-- `Stability_v3/BifurcationRefiner_v3.m`
-- `Stability_v3/EventClusterDerivative_v3.m`
-- `Stability_v3/SymmetryRestrictedFloquet_v3.m`
-- `Stability_v3/SymmetrySubspace_v3.m`
-- `Examples_v3/QuadrupedalContinuationStudy_v3.m`
-- `Examples_v3/Models/BipedalHybridModel_v3.m`
-- `Examples_v3/Models/BipedStrideReturnPolicy_v3.m`
-- `Examples_v3/Models/BipedalHybridExample_v3.m`
+- `1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m`
+- `1_Dynamic_Frameworks/Simulation_v3/EventCluster_v3.m`
+- `3_Numerical_Continuation/2_Continuation_Algorithms/BranchSwitching_v3.m`
+- `3_Numerical_Continuation/3_Bifurcation_Analysis/BifurcationRefiner_v3.m`
+- `3_Numerical_Continuation/3_Bifurcation_Analysis/EventClusterDerivative_v3.m`
+- `3_Numerical_Continuation/3_Bifurcation_Analysis/SymmetryRestrictedFloquet_v3.m`
+- `3_Numerical_Continuation/3_Bifurcation_Analysis/SymmetrySubspace_v3.m`
+- `4_Solution_Management/Examples_v3/QuadrupedalContinuationStudy_v3.m`
+- `4_Solution_Management/Examples_v3/Models/BipedalHybridModel_v3.m`
+- `4_Solution_Management/Examples_v3/Models/BipedStrideReturnPolicy_v3.m`
+- `4_Solution_Management/Examples_v3/Models/BipedalHybridExample_v3.m`
 
 ### New tests and support data
 
@@ -640,13 +640,13 @@ the MAT artifact rather than inferred from these defaults.
 
 ### Reports, runners, artifacts, and CI
 
-- `Docs_v3/Round4_Prechange_Test_Report_v3.md`
+- `Docs_v3/Round4_Prechange_Audit_v3.md`
 - `Docs_v3/Round4_Methods_and_Workflow_v3.md`
 - `Docs_v3/Round4_Production_Validation_Report_v3.md`
 - `Docs_v3/TestResults_v3/*`
-- `Examples_v3/Results_v3/README_v3.md`
-- `Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.mat`
-- `Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.md`
+- `4_Solution_Management/Examples_v3/Results_v3/README_v3.md`
+- `4_Solution_Management/Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.mat`
+- `4_Solution_Management/Examples_v3/Results_v3/Round4_Quadruped_Production_Study_v3.md`
 - `run_all_tests_v3.m`
 - `run_code_analyzer_v3.m`
 - `.github/workflows/slip-quadruped-v3-tests.yml`

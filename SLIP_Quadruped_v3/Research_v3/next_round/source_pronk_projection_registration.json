@@ -1,0 +1,18 @@
+{
+  "schema_version": "prospective-near-pronk-source-repair-v3-1",
+  "registered_utc": "07-Oct-2026 13:34:30",
+  "diagnosis": "HighE P1 PK B predictor differs from exact invariant pronk by angles≈1.48e-7/dpitch≈6.8e-9; small split contacts reach tensile compression−2.5094e-8 before the accepted return.",
+  "evidence": "Research_v3/next_round/tasks/full/P1_source_25_B/column_00001_revision_000_correction.mat",
+  "maximum_projection_distance": 1E-5,
+  "method": "Mean four angles/rates; phi=dphi=0; same mode; source energy restored by same-sign horizontal speed or flight height; physical admission checked. Shared fixed-energy pronk correction then full-space signed sectors.",
+  "source_conversion_overwritten": false,
+  "acceptance_tolerances_changed": false,
+  "physical_parameters_changed": false,
+  "full_closure_tolerance": 1E-8,
+  "ancestry_claimed": false,
+  "post_diagnostic_clarification": {
+    "recorded_utc": "07-Oct-2026 13:46:41",
+    "evidence": "Research_v3/next_round/solver/high_PK_source_forensics.json",
+    "finding": "Measured first TD pre-guard derivative−1.32241428 becomes post-reset extension+1.36291047. This O(1) outgoing extension is a physical landing obstruction; a small symmetry projection is an explicit experiment, not an assumed event-order repair."
+  }
+}

@@ -1,0 +1,10 @@
+18015528 ./SLIP_Quadruped_v3/Research_v3/next_round/theory/low_energy_critical_20261007T143707040/04_branch.mat
+18015528 ./SLIP_Quadruped_v3/Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat
+17332847 ./SLIP_Quadruped_v3/Research_v3/next_round/workflow_02/resume/branch.mat
+16836518 ./SLIP_Quadruped_v3/Research_v3/next_round/tasks/full/PK_continuation_m1/branch.mat
+15819633 ./SLIP_Quadruped_v3/Research_v3/next_round/tasks/full/PK_continuation_p1/branch.mat
+15547992 ./SLIP_Quadruped_v3/Research_v3/runs/full/solution_index.json
+15371053 ./SLIP_Quadruped_v3/Research_v3/runs/full/full_floquet.mat
+13959818 ./SLIP_Quadruped_v3/Research_v3/next_round/workflow/resume/branch.mat
+13779772 ./SLIP_Quadruped_v3/Research_v3/runs/full/family_+1.mat
+13779772 ./SLIP_Quadruped_v3/Research_v3/next_round/theory/low_energy_critical_20261007T143707040/03_family_+1.mat

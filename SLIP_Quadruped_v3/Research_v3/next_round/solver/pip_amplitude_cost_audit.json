@@ -1,0 +1,129 @@
+{
+  "failed_artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0003_attempt_1.mat",
+  "failed_sha256": "8b90e9159da78e7eb3f59f0efc20d581b76265e850a59c5605d294d74e27d800",
+  "initial_residual": 3.1019108381579972E-5,
+  "final_residual": 3.1019108381579972E-5,
+  "assigned_remaining_wall_seconds": 3.7796447083333362,
+  "elapsed_seconds": 7.9503250416666669,
+  "accepted_Newton_iterations": 0,
+  "actual_map_evaluations": 2,
+  "objective_attempts": 24,
+  "FD_attempts": 21,
+  "columns": [
+    {
+      "index": 1,
+      "step": 0.00010001708588207008,
+      "reliable": false,
+      "estimated_error": null,
+      "failure_reasons": [
+        "plus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "plus-h/2 invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h/2 invalid: Callback returned a nonfinite or nonvector value."
+      ]
+    },
+    {
+      "index": 2,
+      "step": 0.00015149598538378376,
+      "reliable": false,
+      "estimated_error": null,
+      "failure_reasons": [
+        "plus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "plus-h/2 invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h/2 invalid: Callback returned a nonfinite or nonvector value."
+      ]
+    },
+    {
+      "index": 3,
+      "step": 0.00010000647289118563,
+      "reliable": false,
+      "estimated_error": null,
+      "failure_reasons": [
+        "plus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "plus-h/2 invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h/2 invalid: Callback returned a nonfinite or nonvector value."
+      ]
+    },
+    {
+      "index": 4,
+      "step": 0.00010002397484923504,
+      "reliable": false,
+      "estimated_error": null,
+      "failure_reasons": [
+        "plus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "plus-h/2 invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h/2 invalid: Callback returned a nonfinite or nonvector value."
+      ]
+    },
+    {
+      "index": 5,
+      "step": 0.00015149598572730105,
+      "reliable": false,
+      "estimated_error": null,
+      "failure_reasons": [
+        "plus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h invalid: Callback returned a nonfinite or nonvector value.",
+        "plus-h/2 invalid: Callback returned a nonfinite or nonvector value.",
+        "minus-h/2 invalid: Callback returned a nonfinite or nonvector value."
+      ]
+    }
+  ],
+  "primary_failure": {
+    "identifier": "",
+    "message": "No finite hybrid Jacobian is available in the requested perturbation chart.",
+    "exitflag": -3
+  },
+  "accepted_previous_artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+  "previous_full_closure": 1.0843499289128235E-12,
+  "previous_Newton_iterations": 2,
+  "previous_finite_Jacobian": [
+    [
+      0.48230837381767855,
+      0.00048525861659993487,
+      -1.1711436247480055E-7,
+      -0.35551822748672846,
+      -9.1584313952803463E-12
+    ],
+    [
+      -0.2723125812719166,
+      -0.0002902435364314363,
+      -0.99999999132980621,
+      0.053463947214314661,
+      4.4492480540612541E-13
+    ],
+    [
+      3.36758580169252,
+      0.001495389691214761,
+      -4.954587408788547E-7,
+      -2.4823083857150126,
+      -3.8931853088890307E-11
+    ],
+    [
+      -5.7000266430694181E-5,
+      0.99999999998036337,
+      -1.8818567609466343E-7,
+      1.8688940120780921E-13,
+      -1.0000000000207241
+    ],
+    [
+      0.58921774139524541,
+      -1.4932123610410389E-20,
+      -0.11771482117159808,
+      0.799353284913263,
+      -1.455827749237775E-20
+    ]
+  ],
+  "previous_Jacobian_singular_values": [
+    4.2341754645703205,
+    1.4142135477498596,
+    1.0051252907890329,
+    0.99999999943674434,
+    0.00018975170189609525
+  ],
+  "previous_Jacobian_condition_estimate": 22314.29506170586,
+  "interpretation": "A3.78-second remainder starved all FD columns; the failed artifact supplies no conditioning estimate. The prior constrained branch Jacobian is finite and the prior correction converged.",
+  "prospective_optimization": "Checkpoint before a new daughter when the remaining slice cannot build its derivative. Warm-start the next same-sign point from the preceding accepted orbit and finite Jacobian in the same physical chart and equations, retain Broyden refresh5 and fresh acceptance. A quadratic energy predictor is a separately recorded reflection-symmetry hypothesis, not branch evidence."
+}

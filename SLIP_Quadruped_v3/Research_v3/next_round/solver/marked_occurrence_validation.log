@@ -1,0 +1,13 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                   name: 'marked-occurrence-and-repeated-cycle-rejection'
+                 passed: 1
+    declared_occurrence: 2
+    replayed_occurrence: 2
+               accepted: 0
+           full_closure: 6.1220e-11
+       primitive_status: "multiple_cover_detected"
+          source_sha256: '452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da'
+

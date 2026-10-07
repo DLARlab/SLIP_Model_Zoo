@@ -1,0 +1,31 @@
+{
+  "schema_version": "family-sector-registration-audit-v3-1",
+  "passed": true,
+  "created_utc": "07-Oct-2026 12:41:37",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "cases": [
+    {
+      "study": "P1",
+      "physical_dimension": 12,
+      "augmented_dimension": 13,
+      "signed_constraint_errors": [
+        0,
+        0
+      ],
+      "target_flights": 1,
+      "daughter_corrected": false
+    },
+    {
+      "study": "P2",
+      "physical_dimension": 12,
+      "augmented_dimension": 13,
+      "signed_constraint_errors": [
+        0,
+        0
+      ],
+      "target_flights": 2,
+      "daughter_corrected": false
+    }
+  ],
+  "scientific_scope": "Correct equation count, signed predictor consistency and distinct primitive flight targets; no daughter solve or ancestry claim."
+}

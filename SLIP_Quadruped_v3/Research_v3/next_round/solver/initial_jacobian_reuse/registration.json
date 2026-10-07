@@ -1,0 +1,73 @@
+{
+  "schema_version": "prospective-actual-initial-J-reuse-audit-v3-1",
+  "frozen_utc": "07-Oct-2026 14:34:35",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "source_artifact": "Research_v3/next_round/solver/validation_05/case2_actual_correction.mat",
+  "source_sha256": "9bda858561640f9acb20847fbccd047df827132e2236cb668f773ebd03e1d8b2",
+  "seed_state": [
+    0,
+    -0.0072864373026794334,
+    1.1171120311578109,
+    0,
+    3.5992669861713444E-16,
+    1.2599219821243557E-16,
+    3.3658404127362081E-12,
+    -0.011303362021189992,
+    3.3658404127362081E-12,
+    -0.011303362021189992,
+    3.3658404127362081E-12,
+    -0.011303362021189992,
+    3.3658404127362081E-12,
+    -0.011303362021189992
+  ],
+  "parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "mode": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "energy": 1.1171389428139562,
+  "InitialJacobian": [
+    [
+      0.54967303875665163,
+      -0.022106109444393,
+      1.0765904868227867,
+      -0.35676407334503035
+    ],
+    [
+      0.18528933943456177,
+      -0.030584305954462553,
+      -0.63711266240271569,
+      -0.1202547929810444
+    ],
+    [
+      3.3689397217976191,
+      -0.065682042942998023,
+      3.5808191161138279,
+      -2.1866235396547133
+    ],
+    [
+      -0.0073363091904418264,
+      0.99999999995319833,
+      5.368888801350844E-12,
+      -3.4252190795103709E-8
+    ]
+  ],
+  "perturbation_in_dx": 5E-5,
+  "compatibility": "Same fixed p10, q, energy, pronk chart, four residual equations, integration and BL1 marking as the validated source.",
+  "root_sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75",
+  "required": "Both accept fresh physics; warm uses its initial J, performs meaningful Newton steps, and uses fewer new FD evaluations.",
+  "acceptance_tolerances_changed": false
+}

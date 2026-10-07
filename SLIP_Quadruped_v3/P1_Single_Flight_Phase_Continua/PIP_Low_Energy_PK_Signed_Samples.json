@@ -1,0 +1,287 @@
+{
+  "schema_version": "organized-saved-orbit-dataset-v3-1",
+  "id": "PIP_Low_Energy_PK_Signed_Samples",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "dataset_type": "signed_samples",
+  "origin": "original signed daughter evidence",
+  "expected_primitive_flight_count": 1,
+  "count": 10,
+  "amplitude": [
+    -0.0001,
+    -0.0003,
+    -0.001,
+    -0.003,
+    -0.01,
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01
+  ],
+  "amplitude_coordinate": "signed projection onto the registered PIP critical direction",
+  "resonance_index": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "energy": [
+    1.1171136949835199,
+    1.1171136922024658,
+    1.1171138397899874,
+    1.1171149521378128,
+    1.1171276017705589,
+    1.1171136949835199,
+    1.1171136456623953,
+    1.1171138371189937,
+    1.11711495378663,
+    1.1171276018247045
+  ],
+  "period": [
+    1.5645255682274277,
+    1.5645255139499585,
+    1.5645255657491395,
+    1.5645253298778181,
+    1.5645226341239267,
+    1.5645255682274277,
+    1.5645253401718435,
+    1.5645255557757807,
+    1.5645253360344558,
+    1.5645226343261098
+  ],
+  "drift": [
+    -8.37928822817422E-5,
+    -0.00025137864741488463,
+    -0.00083792883432417295,
+    -0.00251378679385567,
+    -0.0083793003428803015,
+    8.37928822817422E-5,
+    0.0002513786483683292,
+    0.00083792883450728916,
+    0.00251378679350574,
+    0.0083793003423216477
+  ],
+  "mean_speed": [
+    -5.3558013996970119E-5,
+    -0.00016067404792922092,
+    -0.00053558014817287351,
+    -0.0016067408726786064,
+    -0.00535581918734745,
+    5.3558013996970119E-5,
+    0.00016067406638534752,
+    0.00053558015170407131,
+    0.0016067408661321789,
+    0.005355819186298242
+  ],
+  "flight_count": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "gait_label": [
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK"
+  ],
+  "gait_status": [
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified"
+  ],
+  "full_closure": [
+    1.2471179687903455E-12,
+    9.8313211955095015E-12,
+    1.9092424039315881E-12,
+    4.0834842018194761E-12,
+    9.1554454989539735E-13,
+    1.2471179687903455E-12,
+    3.0238065469503222E-11,
+    5.8130943635104071E-12,
+    3.1431190115893681E-12,
+    1.1042139425043729E-12
+  ],
+  "record_kind": [
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter"
+  ],
+  "source_paths": [
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_2.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.003_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.01_attempt_1.mat"
+  ],
+  "source_original_paths": [
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_2.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.003_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.01_attempt_1.mat"
+  ],
+  "source_sha256": [
+    "12d106b210194c881b400c7c73061e4785e2492d53441ef2eb3dd6475301a35a",
+    "5f818afac387ef8e1c3ef67cfa761248605c163461c6d114633e897591b74ff9",
+    "2de0722fdc2fa1cc50a6c9e9501010bac2986a7f715b0769d3686e08e87a16c8",
+    "dbebc874a6cb0eeec87e687be2091df619d1de50341dc82e3ef3d146861a2db4",
+    "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d",
+    "9e8e481a062d1239d2e3faac337b592b1871eec4cfc148c240568c421d5e7b38",
+    "eeb5d3f3fcf43b542aa762ff744139d619101d91a93010d6796e6bec401f7cb4",
+    "dc7733be278a3613f199af1e9736fb5a2f1c3a3b70a5c92414bfff064a2482b3",
+    "4720cc93c758d5ab46faaaaa2075b0923c8169a0695be519849b475516145281",
+    "d55fa1739c895f3c20f5b499332b3d679eff1b1837def2c10a50b17508e3bfa7"
+  ],
+  "source_acceptance": [
+    {
+      "accepted_in_source": true,
+      "selection_index": 1
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 2
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 3
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 4
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 5
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 6
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 7
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 8
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 9
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 10
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/phase_checkpoint.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/phase_checkpoint.mat",
+      "sha256": "b986ac25825c4e51c4da24b4e23883de0e2a6a77e0953f529a8cc89d61b611de"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+      "sha256": "12d106b210194c881b400c7c73061e4785e2492d53441ef2eb3dd6475301a35a"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+      "sha256": "5f818afac387ef8e1c3ef67cfa761248605c163461c6d114633e897591b74ff9"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+      "sha256": "2de0722fdc2fa1cc50a6c9e9501010bac2986a7f715b0769d3686e08e87a16c8"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+      "sha256": "dbebc874a6cb0eeec87e687be2091df619d1de50341dc82e3ef3d146861a2db4"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+      "sha256": "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+      "sha256": "9e8e481a062d1239d2e3faac337b592b1871eec4cfc148c240568c421d5e7b38"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_2.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_2.mat",
+      "sha256": "eeb5d3f3fcf43b542aa762ff744139d619101d91a93010d6796e6bec401f7cb4"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.001_attempt_1.mat",
+      "sha256": "dc7733be278a3613f199af1e9736fb5a2f1c3a3b70a5c92414bfff064a2482b3"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.003_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.003_attempt_1.mat",
+      "sha256": "4720cc93c758d5ab46faaaaa2075b0923c8169a0695be519849b475516145281"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.01_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.01_attempt_1.mat",
+      "sha256": "d55fa1739c895f3c20f5b499332b3d679eff1b1837def2c10a50b17508e3bfa7"
+    }
+  ],
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "unique_cycle_count_claimed": false,
+  "certified_gait_claimed": false,
+  "bifurcation_certificate_created": false,
+  "interpretation": "A collection of previously accepted saved records. Sampling or exporting does not prove global connectivity, distinct cycles, a named gait, or a bifurcation.",
+  "critical_parent_energy": 1.1171137022972106,
+  "mat_artifact": "P1_Single_Flight_Phase_Continua/PIP_Low_Energy_PK_Signed_Samples.mat",
+  "mat_sha256": "8f6c6042d3d172c28e273b36a0a456ba9f064b56689148361b4398fa4911c264",
+  "mat_bytes": 2.061111E+6
+}

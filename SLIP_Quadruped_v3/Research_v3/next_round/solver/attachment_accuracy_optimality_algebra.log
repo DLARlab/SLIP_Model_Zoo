@@ -1,0 +1,66 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{
+  "source": "PIP_candidate_1",
+  "actual_firstorderopt": 4.5778602955122324E-15,
+  "J_transpose_r": [
+    3.9120880223529706E-17,
+    -1.8554888511614663E-15,
+    5.1212413380392856E-18,
+    -3.2986663052762649E-17,
+    -2.2204460492495562E-15
+  ],
+  "J_transpose_r_inf_norm": 2.2204460492495562E-15,
+  "remaining_Newton_step_estimate": [
+    5.4849260366051334E-12,
+    1.2537608313991201E-8,
+    8.8707512050889022E-12,
+    -2.7367030297279184E-12,
+    1.2537611503982869E-8
+  ],
+  "remaining_internal_E_step": 1.2537611503982869E-8,
+  "linear_backward_residual": 2.2214323091023692E-27,
+  "stepsize": 1.2581373681056391E-8,
+  "coordinates": [
+    0.0001767653182416948,
+    1.0616850135420881,
+    -3.5314455267377807E-5,
+    0.00023980598723984827,
+    1.0616850291650748
+  ],
+  "final_residual": 7.0763693028105118E-12,
+  "return_map_evaluations": 0
+}
+{
+  "source": "PIP_PK_low_energy_neighborhood",
+  "actual_firstorderopt": 1.43623408649508E-15,
+  "J_transpose_r": [
+    -5.3354813331281546E-16,
+    -6.783925362183652E-16,
+    2.5215692770580464E-16,
+    1.8214188158402949E-16,
+    -6.8501886809413483E-22
+  ],
+  "J_transpose_r_inf_norm": 6.783925362183652E-16,
+  "remaining_Newton_step_estimate": [
+    -1.8967417888149132E-10,
+    1.8671040345041825E-6,
+    1.9097063057745386E-10,
+    1.2310702342298343E-10,
+    1.8671040241793826E-6
+  ],
+  "remaining_internal_E_step": 1.8671040241793826E-6,
+  "linear_backward_residual": 3.2311742677852644E-26,
+  "stepsize": null,
+  "coordinates": [
+    0.00016332736757262225,
+    1.1171136323244808,
+    -2.7858512641666954E-11,
+    0.00025164294347689871,
+    1.1171136456623953
+  ],
+  "final_residual": 3.021910282771656E-11,
+  "return_map_evaluations": 0
+}

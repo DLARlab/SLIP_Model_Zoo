@@ -1,0 +1,69 @@
+{
+  "schema_version": "focused-periodic-solver-validation-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "started_utc": "07-Oct-2026 12:06:38",
+  "cases": [
+    {
+      "name": "known-PIP-and-PK",
+      "passed": true,
+      "evidence": "PIP closure 3.06108472e-11; PK closure 3.02693426e-11"
+    },
+    {
+      "name": "meaningful-nonlinear-correction",
+      "passed": true,
+      "evidence": "Initial 0.00694968913; final 3.16442185e-13; accepted Newton iterations 11"
+    },
+    {
+      "name": "fixed-energy-and-augmented-constraints",
+      "passed": true,
+      "evidence": "Arc residual -3.0313073e-15; amplitude residual 7.54875763e-18; these are constrained family corrections, not branch-existence claims."
+    },
+    {
+      "name": "failed-imported-seed-preserved",
+      "passed": true,
+      "evidence": "Quadruped section-return is physically inadmissible: swing_foot_penetration:BL, contact_complementarity_loss:BL, swing_foot_penetration:BR, contact_complementarity_loss:BR, swing_foot_penetration:FL, contact_complementarity_loss:FL, swing_foot_penetration:FR, contact_complementarity_loss:FR."
+    },
+    {
+      "name": "tolerance-gap-and-primary-finalization",
+      "passed": true,
+      "evidence": "Historical accepted Newton iterations 0, map evaluations 290; reproduced primary: No finite hybrid Jacobian is available in the requested perturbation chart.; full closure secondary: Reduced residual candidate failed full physical closure."
+    },
+    {
+      "name": "marked-occurrence-and-repeated-cycle-rejection",
+      "passed": true,
+      "evidence": "Declared/replayed BL occurrence 2/2; full closure 6.12203621e-11; primitive multiple_cover_detected; accepted 0."
+    }
+  ],
+  "all_required_gates_passed": true,
+  "source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "d00a3dda192b48de61fc6fe14d331c9564899af221454e7410958c6765419369"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "adda0901337b44bd9472ab588b1cec1722bd8c60703633da16f81671388dc1b5"
+    }
+  ],
+  "post_occurrence_repair_source_sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da",
+  "occurrence_repair_scope": "Preserve immutable correction policy for fresh replay; audit proper event-located apex recurrences. Original five cases use occurrence one; this extra case exercises the changed occurrence-two path.",
+  "elapsed_seconds": 383.36345070833335,
+  "finished_utc": "07-Oct-2026 12:13:01"
+}

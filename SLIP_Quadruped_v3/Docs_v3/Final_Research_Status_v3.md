@@ -1,5 +1,7 @@
 # Final research status — quadruped v3
 
+This document preserves the campaign committed at `f53c39cca530d9782d00ba8699acb1d55484f7d8`. The subsequent MATLAB execution, expanded source domain, repaired solver, new branch results and qualified local PIP–imported-PK connection are documented in [Next_Round_Research_Findings_v3.md](Next_Round_Research_Findings_v3.md) and [Next_Round_Full_Execution_v3.md](Next_Round_Full_Execution_v3.md). Historical numbers and failure conclusions below retain their original scope. The full named P1/P2 network remains unestablished.
+
 Generated from saved execution evidence on 2026-10-07T11:00:36.825875+00:00.
 
 The requested single PIP-rooted gait network is **unresolved** in the registered autonomous model and bounded domain. Local mathematical propositions are derived conditionally. Ordinary vertical PIP and traveling pronk states are reproduced and continued; imported ancestry is not inferred. Restricted parent-only attachment status is determined by the checks below. Full simultaneous-contact smoothness, unrestricted stability, P1/P2 bridging, coverage, and global connectivity are not established.

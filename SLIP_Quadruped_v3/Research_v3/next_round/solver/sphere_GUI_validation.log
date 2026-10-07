@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                schema_version: 'focused-sphere-second-seed-validation-v3-1'
+                        passed: 1
+       requested_scaled_radius: 2.0000e-04
+          actual_scaled_radius: 2.0000e-04
+         radius_equation_error: -8.8130e-11
+            fresh_full_closure: 3.0409e-11
+    accepted_Newton_iterations: 20
+                  GUI_accepted: 1
+             GUI_scaled_radius: 2.0000e-04
+              GUI_radius_error: -8.8130e-11
+               GUI_replay_norm: 2.6750e-10
+                    GUI_status: 'Validated second seed at scaled physical-state distance 0.0002.'
+         sphere_adapter_sha256: '12a837dee413b335e90df3476a10f808bb4034a3b51dd116ea07e4801888f51c'
+         family_service_sha256: 'be6409a1a822106a389a803f4f24d23e9dc13c78a2ef105cbbe53457b93c6a15'
+

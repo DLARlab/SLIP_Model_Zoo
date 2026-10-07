@@ -1,0 +1,61 @@
+function audit=FinalizeRestrictedConnectionGraph_v3()
+%FINALIZERESTRICTEDCONNECTIONGRAPH_V3 Compare saved orbits without new maps.
+    v3=V3Root_v3(mfilename('fullpath'));
+    folders={'','Schema_v3','Adapters_v3','Dynamics_v3','Simulation_v3','Orbit_v3', ...
+        'Numerics_v3','Stability_v3','Graphics_v3','Research_v3/Drivers_v3'};
+    for k=1:numel(folders),V3LegacyAddPath_v3(fullfile(v3,folders{k}));end
+    folder=fullfile(v3,'Research_v3/next_round');before=load(V3Path_v3(fullfile(folder,'checkpoint_full.mat')),'state');
+    cfg=ResolveResearchRoundConfig_v3('full');
+    lowId='PIP_PK_low_energy_neighborhood';accuracyId=[lowId,'_attachment_accuracy_repair_plus_0.0003_revision02'];
+    accuracyFile=['Research_v3/next_round/tasks/full/',accuracyId,'/accuracy_repair_r000_attempt_001.mat'];
+    bridgeFile='Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/result.mat';
+    accuracy=load(V3Path_v3(fullfile(v3,accuracyFile)),'result','copiedRecord');bridge=load(V3Path_v3(fullfile(v3,bridgeFile)),'result');
+    candidate=load(V3Path_v3(fullfile(v3,cfg.branch_identity_bridge_candidates(1).candidate_artifact)),'candidate');candidate=candidate.candidate;
+    entries=accuracy.copiedRecord.amplitudes;
+    index=find([entries.accepted]&abs([entries.signed_amplitude]+.01)<1e-14);assert(isscalar(index));
+    negativeFile=strrep(fullfile('Research_v3/next_round/tasks/full',lowId,entries(index).artifact),filesep,'/');
+    negative=load(V3Path_v3(fullfile(v3,negativeFile)),'orbit');
+    assert(isequal(negative.orbit.parameter,candidate.parameter)&&isequal(candidate.parameter,cfg.baseline_v3_parameters(:)));
+    [comparison,detail]=ComparePronkBridgeOrbits_v3(negative.orbit,candidate.target_orbit,candidate.comparison_tolerances);
+    assert(accuracy.result.physically_accepted&&accuracy.result.domain_accepted);
+    assert(strcmp(accuracy.result.attachment_evidence.status,'numerically_supported_restricted_attachment'));
+    assert(all(structfun(@(value)logical(value),accuracy.result.attachment_evidence.gates)));
+    assert(bridge.result.local_numerical_connection_supported&&bridge.result.accepted_increment_count==4);
+    gate=jsondecode(fileread(V3Path_v3(fullfile(folder,'solver/solver_validation_summary.json'))));assert(gate.all_required_gates_passed);
+    for k=1:numel(gate.source_hashes)
+        item=gate.source_hashes(k);assert(V3HashMatches_v3(item.sha256, fullfile(v3,item.path)));
+    end
+    audit=struct('schema_version','conditional-restricted-imported-PK-composition-v3-1', ...
+        'created_utc',char(datetime('now','TimeZone','UTC')),'maps_executed',0, ...
+        'critical_energy',accuracy.copiedRecord.critical_energy,'critical_source_task_id',lowId, ...
+        'attachment_accuracy_task_id',accuracyId,'attachment_status',accuracy.result.attachment_evidence.status, ...
+        'bridge_task_id',bridge.result.candidate_id,'bridge_four_increments_and_endpoint_identity_supported',true, ...
+        'accuracy_daughter_to_frozen_bridge_target_comparison',comparison, ...
+        'composition_supported',comparison.same_local_numerical_orbit_supported, ...
+        'source_hashes',gate.source_hashes,'input_hashes',struct( ...
+        'path',{accuracyFile,bridgeFile,negativeFile,cfg.branch_identity_bridge_candidates(1).candidate_artifact}, ...
+        'sha256',{RoundSHA256_v3(fullfile(v3,accuracyFile)),RoundSHA256_v3(fullfile(v3,bridgeFile)), ...
+        RoundSHA256_v3(fullfile(v3,negativeFile)),cfg.branch_identity_bridge_candidates(1).candidate_sha256}), ...
+        'scope','Conditional numerical attachment and four-increment connection in the exact-baseline synchronized-pronk invariant subspace; parent anchored at the recorded low critical energy.', ...
+        'old_historical_critical_parent_orbits_identified',false, ...
+        'full_space_bifurcation_or_stability_claimed',false,'rigorous_identity_or_global_network_claimed',false);
+    assert(audit.composition_supported);
+    RoundSave_v3(fullfile(folder,'restricted_imported_PK_composition_audit.mat'),struct('audit',audit,'detail',detail));
+    RoundJSON_v3(fullfile(folder,'restricted_imported_PK_composition_audit.json'),audit);
+    report=RunResearchRound_v3('Profile','full','Resume',true,'ExecuteNumerics',false);
+    after=load(V3Path_v3(fullfile(folder,'checkpoint_full.mat')),'state');
+    assert(before.state.numerical_wall_seconds==after.state.numerical_wall_seconds ...
+        &&before.state.function_evaluations==after.state.function_evaluations);
+    assert(strcmp(report.status,'total_budget_exhausted'));
+    fprintf('FINAL CHARGED %.9f FE %d STATUS %s\n',after.state.numerical_wall_seconds,after.state.function_evaluations,report.status);
+    disp(comparison);
+    measured=fullfile(folder,'tasks/full/PIP_n0_measured_flip_BL2_front_hind/family_switch_checkpoint.mat');
+    if isfile(V3Path_v3(measured))
+        saved=load(V3Path_v3(measured),'phase');phase=saved.phase;
+        if isfield(phase,'partial_trial')
+            saved=load(V3Path_v3(fullfile(fileparts(measured),phase.partial_trial.artifact)),'report');r=saved.report;
+            fprintf('MEASURED N0 initial %.12g final %.12g closure %.12g Newton %d\n',r.initial_physical_norm,r.final_physical_norm,r.full_closure,r.solver.acceptedNewtonIterations);
+            disp(r.primary_failure);disp(r.replay_failure);
+        end
+    end
+end

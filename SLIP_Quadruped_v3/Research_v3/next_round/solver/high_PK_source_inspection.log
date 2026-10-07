@@ -1,0 +1,58 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    {'converted'   }
+    {'predictor'   }
+    {'solution'    }
+    {'solverReport'}
+    {'trace'       }
+    {'direct'      }
+    {'observation' }
+
+  Columns 1 through 7
+
+         0    4.4341    0.9862    0.0000    0.0000    0.0000    0.0000
+
+  Columns 8 through 14
+
+    4.2835    0.0000    4.2835   -0.0000    4.2835   -0.0000    4.2835
+
+  Columns 1 through 7
+
+         0    4.4310    1.0000    0.0000    0.0000    0.0000    0.0000
+
+  Columns 8 through 14
+
+    4.2835    0.0000    4.2835   -0.0000    4.2835   -0.0000    4.2835
+
+   0   0   0   0
+
+                           column: 1
+                  repair_revision: 0
+                            state: 'retryable_failure'
+                   evidence_label: 'unresolved_incompatibility'
+                    source_energy: 10.8167
+                    source_period: 1.3646
+             source_initial_speed: 4.4341
+                  direct_residual: NaN
+                    final_closure: NaN
+                         accepted: 0
+                  correction_norm: NaN
+          target_model_parameters: 1
+    accepted_in_registered_domain: 0
+                  retraction_norm: 0.0138
+                     rephase_time: 0
+                return_occurrence: 1
+                         symmetry: 'left-right'
+            feasibility_predictor: [1×1 struct]
+                 failure_category: 'mapping_or_physical_manifold'
+                  initial_physics: [1×1 struct]
+                 first_divergence: [1×1 struct]
+                  primary_failure: [1×1 struct]
+                   solver_summary: [1×1 struct]
+                             gait: 'unresolved'
+                     flight_count: NaN
+                         artifact: 'column_00001_revision_000_correction.mat'
+               converted_artifact: 'column_00001_revision_000_converted.mat'
+

@@ -1,0 +1,20 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+[Warning: Variable 'replayOrbit' not found.] 
+[> In AuditLowEnergyPIPCritical_v3 (line 113)] 
+[Warning: Variable 'replayOrbit' not found.] 
+[> In AuditLowEnergyPIPCritical_v3 (line 113)] 
+[Warning: Variable 'replayOrbit' not found.] 
+[> In AuditLowEnergyPIPCritical_v3 (line 113)] 
+[Warning: Variable 'replayOrbit' not found.] 
+[> In AuditLowEnergyPIPCritical_v3 (line 113)] 
+[Warning: Variable 'replayOrbit' not found.] 
+[> In AuditLowEnergyPIPCritical_v3 (line 113)] 
+[Warning: Variable 'replayOrbit' not found.] 
+[> In AuditLowEnergyPIPCritical_v3 (line 113)] 
+[Warning: Variable 'replayOrbit' not found.] 
+[> In AuditLowEnergyPIPCritical_v3 (line 113)] 
+Low-E critical root 1.11711370210144 versus source 1.11711370229721; actual matrix error 4.19e-10, slopes 1.72124618/1.72124596
+Saved imported turn E1.11711423281646, parent gap5.31e-07 stategap0.00164; 6 daughter/65 imported records; 40.80s, pass1

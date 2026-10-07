@@ -1,5 +1,7 @@
 # Typed ancestry graph
 
+The graph below preserves the preceding committed campaign. The executed MATLAB round has a separate [typed graph](../Research_v3/next_round/graph/index_full.json) and [execution report](Next_Round_Full_Execution_v3.md). It supports a conditional local numerical PIP-to-imported-PK connection in the synchronized-pronk restriction, anchored at `E=1.1171137022972106`; it does not certify unrestricted bifurcation or the complete P1/P2 network. See the [bridge and composition audit](Imported_PK_Low_Energy_Local_Bridge_v3.md). Historical graph rows below are retained rather than relabeled as new evidence.
+
 Generated from saved JSON by `Research_v3/generate_research_index.py`. This graph records hypotheses and evidence; it does not run experiments or grant numerical certification.
 
 The current restricted PIP→PK stage status is `budget_exhausted`. Each candidate displays its current source status. Earlier exploratory reports are not promoted to final certificates.

@@ -1,0 +1,899 @@
+{
+  "schema_version": "executed-opposed-side-spread-period-two-audit-v3-1",
+  "created_utc": "07-Oct-2026 14:22:27",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "registration": {
+    "schema_version": "prospective-opposed-side-spread-period-two-v3-1",
+    "registered_utc": "07-Oct-2026 14:22:26",
+    "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+    "physical_parameter": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "resonance_indices": [
+      0,
+      1
+    ],
+    "signed_TD_angles": [
+      -0.001,
+      0.001
+    ],
+    "analytic_formula": "E=cos(A)+t_n^2/2; [a;b]=(-1)^n*[t_n*sin(A)/sqrt(20);sqrt(20)*A]",
+    "phase_coordinates": [
+      "a",
+      "b",
+      "E"
+    ],
+    "leg_order": [
+      "BL",
+      "BR",
+      "FL",
+      "FR"
+    ],
+    "leg_signs": [
+      1,
+      -1,
+      1,
+      -1
+    ],
+    "return_policy": "BL-marked-apex-return",
+    "BL_occurrence": 2,
+    "minimum_primitive_BL_occurrence": 2,
+    "required_actual_flights": 2,
+    "claimed_target_gait": "No automatic B2/F2/G2 assignment; actual classifier is authoritative.",
+    "settings": {
+      "RelTol": 1E-12,
+      "AbsTol": 1E-14,
+      "MaxStep": 0.005,
+      "EventValueTolerance": 1E-10,
+      "EventTimeTolerance": 1E-12,
+      "SimultaneousTimeTolerance": 1E-10,
+      "ArmingTolerance": 1E-11
+    },
+    "fd_steps": [
+      2E-5,
+      1E-5
+    ],
+    "slope_energy_step": 0.0001,
+    "slope_direction_step": 1E-5,
+    "matrix_error_tolerance": 1E-6,
+    "matrix_refinement_tolerance": 1E-7,
+    "slope_error_tolerance": 0.001,
+    "full_closure_tolerance": 1E-8,
+    "energy_tolerance": 1E-8,
+    "maximum_audit_wall_seconds": 150,
+    "engine_hashes": [
+      {
+        "path": "Dynamics_v3/ContinuousDynamics_v3.m",
+        "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+      },
+      {
+        "path": "Dynamics_v3/GuardFunctions_v3.m",
+        "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+      },
+      {
+        "path": "Dynamics_v3/ResetMap_v3.m",
+        "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+      },
+      {
+        "path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+        "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+      },
+      {
+        "path": "Simulation_v3/EventDetector_v3.m",
+        "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+      },
+      {
+        "path": "Simulation_v3/HybridSimulator_v3.m",
+        "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+      },
+      {
+        "path": "Orbit_v3/PoincareMap_v3.m",
+        "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+      },
+      {
+        "path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+        "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+      },
+      {
+        "path": "Orbit_v3/GaitIdentification_v3.m",
+        "sha256": "c7afe94e320f1df1a4f0b17cdcadb96c7ccad945a28a5d6609491fd221efb7e3"
+      },
+      {
+        "path": "Orbit_v3/PrimitiveCycleCheck_v3.m",
+        "sha256": "6449c29aa22f2685de9c3ebe5d3c70199cabbc775c01ebd4dfa2a3a6536fdb6e"
+      }
+    ],
+    "audit_source_path": "Research_v3/next_round/theory/AuditOpposedSpreadPeriodTwo_v3.m",
+    "audit_source_sha256": "b6e2cee4b04abe38d2c60f865665b3c89f5dba6808bbb6c7c8349f9685a20570",
+    "proof_document": "Docs_v3/Restricted_PIP_Opposed_Spread_Period_Two_v3.md",
+    "predictor_admission_is_nonlinear_correction": false,
+    "unrestricted_C2_claimed": false,
+    "global_connection_claimed": false,
+    "full_stability_claimed": false,
+    "candidates": [
+      {
+        "id": "opposed_spread_n0_negative_A1e-3",
+        "artifact": "Research_v3/next_round/theory/opposed_spread_n0_negative_A1e-3_predictor.mat",
+        "variable": "predictor",
+        "sha256": "c95ebe07d1a5f010376f8a1ca961d6f5ed3e5aa72d000c3bc8c4b4146ac4005a",
+        "resonance_index": 0,
+        "touchdown_angle": -0.001,
+        "energy": 1.0616845275068503
+      },
+      {
+        "id": "opposed_spread_n0_positive_A1e-3",
+        "artifact": "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_predictor.mat",
+        "variable": "predictor",
+        "sha256": "cca1a61dfb96f5bd50085674e8916192b7b925e45460ccce44b4ed9bde759258",
+        "resonance_index": 0,
+        "touchdown_angle": 0.001,
+        "energy": 1.0616845275068503
+      },
+      {
+        "id": "opposed_spread_n1_negative_A1e-3",
+        "artifact": "Research_v3/next_round/theory/opposed_spread_n1_negative_A1e-3_predictor.mat",
+        "variable": "predictor",
+        "sha256": "336a5100bb3096321a24817f3a48a9fd672ab1db9fcd0525a7ff3defc26960e5",
+        "resonance_index": 1,
+        "touchdown_angle": -0.001,
+        "energy": 1.5551647475613182
+      },
+      {
+        "id": "opposed_spread_n1_positive_A1e-3",
+        "artifact": "Research_v3/next_round/theory/opposed_spread_n1_positive_A1e-3_predictor.mat",
+        "variable": "predictor",
+        "sha256": "f6241388361f3a55be665d5c68253da37cd84f19909551a3c5486af8572b85f1",
+        "resonance_index": 1,
+        "touchdown_angle": 0.001,
+        "energy": 1.5551647475613182
+      }
+    ]
+  },
+  "direct_invariance": {
+    "flight_flow_invariance_error": 0,
+    "stance_flow_invariance_error": 0,
+    "stance_flow_energy_identity": 5.1418288030125048E-17,
+    "TD_reset_rate_formula_error": 8.6736173798840355E-19,
+    "LO_reset_rate_formula_error": 8.6736173798840355E-19,
+    "TD_postreset_Lie_derivatives": [
+      -0.35120561364916797,
+      -0.35120561364916797,
+      -0.35120561364916797,
+      -0.35120561364916797
+    ],
+    "LO_prereset_Lie_derivatives": [
+      0.35120561364916797,
+      0.35120561364916797,
+      0.35120561364916797,
+      0.35120561364916797
+    ],
+    "expected_absolute_guard_derivative": 0.35120561364916791,
+    "reset_energy_error": 0,
+    "TD_mode_all_stance": true,
+    "LO_mode_all_flight": true,
+    "side_swap_flow_error": 0,
+    "side_swap_energy_error": 0,
+    "passed": true
+  },
+  "parent_cases": [
+    {
+      "n": 0,
+      "parent_energy": 1.0616850275068086,
+      "flight_time": 0.3512407365520363,
+      "predicted_matrix": [
+        [
+          -4.8091767343044714E-18,
+          -0.017562036827601803
+        ],
+        [
+          -2.7383934913210134E-16,
+          -1
+        ]
+      ],
+      "measured_matrices": [
+        [
+          [
+            1.7184381217445594E-13,
+            1.7182437473925801E-13
+          ],
+          [
+            -0.017562036856733958,
+            -0.017562036834359245
+          ]
+        ],
+        [
+          [
+            9.784962455279289E-12,
+            9.7838523191944352E-12
+          ],
+          [
+            -0.9999999999854251,
+            -0.99999999999292066
+          ]
+        ]
+      ],
+      "matrix_error": 1.6863463275065878E-11,
+      "refinement_difference": 2.2374732630764596E-11,
+      "predicted_nonzero_multiplier": -1,
+      "predicted_energy_slope": 2,
+      "measured_projected_energy_slope": 1.9999846991614056,
+      "projected_crossing_values": [
+        -1.00019838732059,
+        -0.99979839038075768
+      ],
+      "kernel_direction": [
+        0.017559329167106674,
+        0.99984582309434133
+      ],
+      "twisted_kernel_dimension": 1,
+      "twisted_cokernel_dimension": 1
+    },
+    {
+      "n": 1,
+      "parent_energy": 1.5551652475612765,
+      "flight_time": 1.053722209656109,
+      "predicted_matrix": [
+        [
+          -4.3282590608740233E-17,
+          -0.0526861104828054
+        ],
+        [
+          -8.21518047396304E-16,
+          -1
+        ]
+      ],
+      "measured_matrices": [
+        [
+          [
+            3.53451849102065E-13,
+            3.53451849102065E-13
+          ],
+          [
+            -0.052686110491156221,
+            -0.052686110483831157
+          ]
+        ],
+        [
+          [
+            6.70864505213229E-12,
+            6.70864505213229E-12
+          ],
+          [
+            -0.99999999997617284,
+            -0.99999999998367528
+          ]
+        ]
+      ],
+      "matrix_error": 2.3034185924267986E-11,
+      "refinement_difference": 7.5024431112069578E-12,
+      "predicted_nonzero_multiplier": -1,
+      "predicted_energy_slope": 2,
+      "measured_projected_energy_slope": 1.9999995977837415,
+      "projected_crossing_values": [
+        -1.0001998298140355,
+        -0.9997998298944788
+      ],
+      "kernel_direction": [
+        0.052613138621694616,
+        0.99861496966767649
+      ],
+      "twisted_kernel_dimension": 1,
+      "twisted_cokernel_dimension": 1
+    }
+  ],
+  "predictor_cases": [
+    {
+      "id": "opposed_spread_n0_negative_A1e-3",
+      "n": 0,
+      "touchdown_angle": -0.001,
+      "energy": 1.0616845275068503,
+      "state": [
+        0,
+        0,
+        1.0616845275068503,
+        0,
+        0,
+        0,
+        -7.8539803249776089E-5,
+        -0.00447213595499958,
+        7.8539803249776089E-5,
+        0.00447213595499958,
+        -7.8539803249776089E-5,
+        -0.00447213595499958,
+        7.8539803249776089E-5,
+        0.00447213595499958
+      ],
+      "restricted_unknown": [
+        -7.8539803249776089E-5,
+        -0.00447213595499958,
+        1.0616845275068503
+      ],
+      "BL1_twisted_full_state_residual": 2.2049029269055609E-13,
+      "BL1_actual_nonclosure": 0.00894427190999299,
+      "BL2_full_closure": 4.3920422854171193E-13,
+      "actual_period": 2.6659420999964358,
+      "actual_horizontal_drift": 0,
+      "energy_error_at_recorded_knots": 4.39648317751562E-13,
+      "smooth_invariance_leak": 1.7347234759768071E-18,
+      "mixed_mode_smooth_phase": false,
+      "actual_contact_counts_by_event_id": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "actual_event_times": [
+        0.35124073655203664,
+        0.35124073655203664,
+        0.35124073655203664,
+        0.35124073655203664,
+        0.98173031344732808,
+        0.98173031344732808,
+        0.98173031344732808,
+        0.98173031344732808,
+        1.6842117865501469,
+        1.6842117865501469,
+        1.6842117865501469,
+        1.6842117865501469,
+        2.3147013634456792,
+        2.3147013634456792,
+        2.3147013634456792,
+        2.3147013634456792
+      ],
+      "selected_next_BL_occurrence": 3,
+      "BL_touchdowns_per_return": 2,
+      "physical_admissible": true,
+      "minimum_guard_transversality": 0.35124038519888262,
+      "minimum_stance_admissibility_margin": 9.9999900079927786E-9,
+      "actual_flight_count": 2,
+      "actual_gait_label": "unclassified",
+      "actual_gait_status": "ambiguous",
+      "actual_gait_reason": "synchronized contacts conflict with leg-motion synchronization",
+      "primitive_status": "primitive_within_checked_bound",
+      "primitive_cover_count": 1,
+      "primitive_checked_cover_bound": 8,
+      "contact_sync_errors": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "motion_sync_errors": [
+        [
+          0,
+          0.00897145086746255,
+          2.6020852139652106E-18,
+          0.00897145086746255
+        ],
+        [
+          0.00897145086746255,
+          0,
+          0.00897145086746255,
+          2.6020852139652106E-18
+        ],
+        [
+          2.6020852139652106E-18,
+          0.00897145086746255,
+          0,
+          0.00897145086746255
+        ],
+        [
+          0.00897145086746255,
+          2.6020852139652106E-18,
+          0.00897145086746255,
+          0
+        ]
+      ],
+      "exact_predictor_replay_only": true,
+      "accepted_Newton_steps": 0,
+      "actual_trace_artifact": "Research_v3/next_round/theory/opposed_spread_n0_negative_A1e-3_actual_trace.mat",
+      "passed": true
+    },
+    {
+      "id": "opposed_spread_n0_positive_A1e-3",
+      "n": 0,
+      "touchdown_angle": 0.001,
+      "energy": 1.0616845275068503,
+      "state": [
+        0,
+        0,
+        1.0616845275068503,
+        0,
+        0,
+        0,
+        7.8539803249776089E-5,
+        0.00447213595499958,
+        -7.8539803249776089E-5,
+        -0.00447213595499958,
+        7.8539803249776089E-5,
+        0.00447213595499958,
+        -7.8539803249776089E-5,
+        -0.00447213595499958
+      ],
+      "restricted_unknown": [
+        7.8539803249776089E-5,
+        0.00447213595499958,
+        1.0616845275068503
+      ],
+      "BL1_twisted_full_state_residual": 2.2049029269055609E-13,
+      "BL1_actual_nonclosure": 0.00894427190999299,
+      "BL2_full_closure": 4.3920422854171193E-13,
+      "actual_period": 2.6659420999964358,
+      "actual_horizontal_drift": 0,
+      "energy_error_at_recorded_knots": 4.39648317751562E-13,
+      "smooth_invariance_leak": 1.7347234759768071E-18,
+      "mixed_mode_smooth_phase": false,
+      "actual_contact_counts_by_event_id": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "actual_event_times": [
+        0.35124073655203664,
+        0.35124073655203664,
+        0.35124073655203664,
+        0.35124073655203664,
+        0.98173031344732808,
+        0.98173031344732808,
+        0.98173031344732808,
+        0.98173031344732808,
+        1.6842117865501469,
+        1.6842117865501469,
+        1.6842117865501469,
+        1.6842117865501469,
+        2.3147013634456792,
+        2.3147013634456792,
+        2.3147013634456792,
+        2.3147013634456792
+      ],
+      "selected_next_BL_occurrence": 3,
+      "BL_touchdowns_per_return": 2,
+      "physical_admissible": true,
+      "minimum_guard_transversality": 0.35124038519888262,
+      "minimum_stance_admissibility_margin": 9.9999900079927786E-9,
+      "actual_flight_count": 2,
+      "actual_gait_label": "unclassified",
+      "actual_gait_status": "ambiguous",
+      "actual_gait_reason": "synchronized contacts conflict with leg-motion synchronization",
+      "primitive_status": "primitive_within_checked_bound",
+      "primitive_cover_count": 1,
+      "primitive_checked_cover_bound": 8,
+      "contact_sync_errors": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "motion_sync_errors": [
+        [
+          0,
+          0.00897145086746255,
+          2.6020852139652106E-18,
+          0.00897145086746255
+        ],
+        [
+          0.00897145086746255,
+          0,
+          0.00897145086746255,
+          2.6020852139652106E-18
+        ],
+        [
+          2.6020852139652106E-18,
+          0.00897145086746255,
+          0,
+          0.00897145086746255
+        ],
+        [
+          0.00897145086746255,
+          2.6020852139652106E-18,
+          0.00897145086746255,
+          0
+        ]
+      ],
+      "exact_predictor_replay_only": true,
+      "accepted_Newton_steps": 0,
+      "actual_trace_artifact": "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+      "passed": true
+    },
+    {
+      "id": "opposed_spread_n1_negative_A1e-3",
+      "n": 1,
+      "touchdown_angle": -0.001,
+      "energy": 1.5551647475613182,
+      "state": [
+        0,
+        0,
+        1.5551647475613182,
+        0,
+        0,
+        0,
+        0.00023561940974932828,
+        0.00447213595499958,
+        -0.00023561940974932828,
+        -0.00447213595499958,
+        0.00023561940974932828,
+        0.00447213595499958,
+        -0.00023561940974932828,
+        -0.00447213595499958
+      ],
+      "restricted_unknown": [
+        0.00023561940974932828,
+        0.00447213595499958,
+        1.5551647475613182
+      ],
+      "BL1_twisted_full_state_residual": 9.29034627006331E-13,
+      "BL1_actual_nonclosure": 0.008944271909981618,
+      "BL2_full_closure": 1.8589574324323621E-12,
+      "actual_period": 5.3025473257008784,
+      "actual_horizontal_drift": 0,
+      "energy_error_at_recorded_knots": 1.8594015216422122E-12,
+      "smooth_invariance_leak": 3.2526065174565133E-19,
+      "mixed_mode_smooth_phase": false,
+      "actual_contact_counts_by_event_id": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "actual_event_times": [
+        1.0537222096561079,
+        1.0537222096561079,
+        1.0537222096561079,
+        1.0537222096561079,
+        1.5975514531960879,
+        1.5975514531960879,
+        1.5975514531960879,
+        1.5975514531960879,
+        3.7049958725065566,
+        3.7049958725065566,
+        3.7049958725065566,
+        3.7049958725065566,
+        4.2488251160465333,
+        4.2488251160465333,
+        4.2488251160465333,
+        4.2488251160465333
+      ],
+      "selected_next_BL_occurrence": 3,
+      "BL_touchdowns_per_return": 2,
+      "physical_admissible": true,
+      "minimum_guard_transversality": 1.053721155704231,
+      "minimum_stance_admissibility_margin": 9.9999701350006378E-9,
+      "actual_flight_count": 2,
+      "actual_gait_label": "unclassified",
+      "actual_gait_status": "ambiguous",
+      "actual_gait_reason": "synchronized contacts conflict with leg-motion synchronization",
+      "primitive_status": "primitive_within_checked_bound",
+      "primitive_cover_count": 1,
+      "primitive_checked_cover_bound": 8,
+      "contact_sync_errors": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "motion_sync_errors": [
+        [
+          0,
+          0.0091891893995502214,
+          4.3368086899420177E-19,
+          0.0091891893995502214
+        ],
+        [
+          0.0091891893995502214,
+          0,
+          0.0091891893995502214,
+          4.3368086899420177E-19
+        ],
+        [
+          4.3368086899420177E-19,
+          0.0091891893995502214,
+          0,
+          0.0091891893995502214
+        ],
+        [
+          0.0091891893995502214,
+          4.3368086899420177E-19,
+          0.0091891893995502214,
+          0
+        ]
+      ],
+      "exact_predictor_replay_only": true,
+      "accepted_Newton_steps": 0,
+      "actual_trace_artifact": "Research_v3/next_round/theory/opposed_spread_n1_negative_A1e-3_actual_trace.mat",
+      "passed": true
+    },
+    {
+      "id": "opposed_spread_n1_positive_A1e-3",
+      "n": 1,
+      "touchdown_angle": 0.001,
+      "energy": 1.5551647475613182,
+      "state": [
+        0,
+        0,
+        1.5551647475613182,
+        0,
+        0,
+        0,
+        -0.00023561940974932828,
+        -0.00447213595499958,
+        0.00023561940974932828,
+        0.00447213595499958,
+        -0.00023561940974932828,
+        -0.00447213595499958,
+        0.00023561940974932828,
+        0.00447213595499958
+      ],
+      "restricted_unknown": [
+        -0.00023561940974932828,
+        -0.00447213595499958,
+        1.5551647475613182
+      ],
+      "BL1_twisted_full_state_residual": 9.29034627006331E-13,
+      "BL1_actual_nonclosure": 0.008944271909981618,
+      "BL2_full_closure": 1.8589574324323621E-12,
+      "actual_period": 5.3025473257008784,
+      "actual_horizontal_drift": 0,
+      "energy_error_at_recorded_knots": 1.8594015216422122E-12,
+      "smooth_invariance_leak": 3.2526065174565133E-19,
+      "mixed_mode_smooth_phase": false,
+      "actual_contact_counts_by_event_id": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "actual_event_times": [
+        1.0537222096561079,
+        1.0537222096561079,
+        1.0537222096561079,
+        1.0537222096561079,
+        1.5975514531960879,
+        1.5975514531960879,
+        1.5975514531960879,
+        1.5975514531960879,
+        3.7049958725065566,
+        3.7049958725065566,
+        3.7049958725065566,
+        3.7049958725065566,
+        4.2488251160465333,
+        4.2488251160465333,
+        4.2488251160465333,
+        4.2488251160465333
+      ],
+      "selected_next_BL_occurrence": 3,
+      "BL_touchdowns_per_return": 2,
+      "physical_admissible": true,
+      "minimum_guard_transversality": 1.053721155704231,
+      "minimum_stance_admissibility_margin": 9.9999701350006378E-9,
+      "actual_flight_count": 2,
+      "actual_gait_label": "unclassified",
+      "actual_gait_status": "ambiguous",
+      "actual_gait_reason": "synchronized contacts conflict with leg-motion synchronization",
+      "primitive_status": "primitive_within_checked_bound",
+      "primitive_cover_count": 1,
+      "primitive_checked_cover_bound": 8,
+      "contact_sync_errors": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "motion_sync_errors": [
+        [
+          0,
+          0.0091891893995502214,
+          4.3368086899420177E-19,
+          0.0091891893995502214
+        ],
+        [
+          0.0091891893995502214,
+          0,
+          0.0091891893995502214,
+          4.3368086899420177E-19
+        ],
+        [
+          4.3368086899420177E-19,
+          0.0091891893995502214,
+          0,
+          0.0091891893995502214
+        ],
+        [
+          0.0091891893995502214,
+          4.3368086899420177E-19,
+          0.0091891893995502214,
+          0
+        ]
+      ],
+      "exact_predictor_replay_only": true,
+      "accepted_Newton_steps": 0,
+      "actual_trace_artifact": "Research_v3/next_round/theory/opposed_spread_n1_positive_A1e-3_actual_trace.mat",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "completed": true,
+  "map_evaluations": 32,
+  "elapsed_seconds": 86.4787785,
+  "error_identifier": "",
+  "error_message": "",
+  "interpretation": "Exact predictor replay and finite-difference evidence in an analytic restricted model; not nonlinear correction, interval certification, unrestricted C2, a target-family attachment or full stability.",
+  "engine_hashes_unchanged": true
+}

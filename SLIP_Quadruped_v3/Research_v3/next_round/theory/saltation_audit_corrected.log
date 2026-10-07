@@ -1,0 +1,13 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Isolated BR_TD step2e-05 saltation defect8.73e-09 time-sensitivity defect3.31e-09
+Isolated BR_TD step1e-05 saltation defect3.48e-09 time-sensitivity defect8.32e-10
+Isolated BR_TD step5e-06 saltation defect7.61e-10 time-sensitivity defect2.05e-10
+PIP BL_TD all24order saltation difference3.03e-21
+PIP BL_LO all24order saltation difference2.22e-16
+imported_PK BL_TD all24order saltation difference1.02e-12
+imported_PK BL_LO all24order saltation difference3.74e-12
+   1
+

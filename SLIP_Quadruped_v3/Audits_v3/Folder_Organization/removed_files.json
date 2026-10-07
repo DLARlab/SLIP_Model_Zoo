@@ -1,0 +1,120 @@
+{
+  "reason": "User-requested cache and test-only cleanup; scientific evidence retained",
+  "files": [
+    {
+      "path": ".DS_Store",
+      "bytes": 8196,
+      "sha256": "b2a8c58515c149979442d1d61705ab35b6d9e2b992f0d99a3241d8140e990be7"
+    },
+    {
+      "path": "Research_v3/.DS_Store",
+      "bytes": 8196,
+      "sha256": "aafabef33a097b9e3c1966017aacf6335e8ea78ffb701ba2a588d1fda9ecac43"
+    },
+    {
+      "path": "Research_v3/Audits_v3/baseline_test_summary.txt",
+      "bytes": 136,
+      "sha256": "809e5054f9ad8554d306df43b472f36cbc03d5cc7d708bde20d26d21341478af"
+    },
+    {
+      "path": "Research_v3/Audits_v3/final_test_summary.txt",
+      "bytes": 136,
+      "sha256": "29abec79ecee5e0c75c55fec8d9b2db1b4fff8fae72de0b1f5c8558e0c380ba3"
+    },
+    {
+      "path": "Research_v3/Audits_v3/round4_test_summary.txt",
+      "bytes": 136,
+      "sha256": "6f86b7bbb62684263efbb5de041e3105192bcb9e9c1ed121c02c11231740e465"
+    },
+    {
+      "path": "Research_v3/next_round/campaign_code_audit.log",
+      "bytes": 1256,
+      "sha256": "69d10e7727f50ac09489cc7147af9381d21fe24b331dffc8f08a017f08ae341e"
+    },
+    {
+      "path": "Research_v3/next_round/campaign_code_audit.mat",
+      "bytes": 830,
+      "sha256": "ab4f032d7462a6cd5882934479ae10d1fb33a97f91cef102fa1d9342f0679200"
+    },
+    {
+      "path": "Research_v3/next_round/campaign_code_audit_after_repairs.log",
+      "bytes": 1521,
+      "sha256": "9415bd6c206cd964b70848fa4cc2143d8e82bf0ba89a3cb49cc7455654f65a4b"
+    },
+    {
+      "path": "Research_v3/next_round/campaign_code_audit_after_repairs.mat",
+      "bytes": 910,
+      "sha256": "e10b222680d6ceb3fbe48c0768153215ee2dceb2f4ab228c83337269f254b7bd"
+    },
+    {
+      "path": "Research_v3/next_round/logs/completion-audit-syntax.log",
+      "bytes": 221,
+      "sha256": "7f3c3b40b95e64b080d1c5f0f51193881532b38f69e5702a0c3ab15a806f71aa"
+    },
+    {
+      "path": "Research_v3/next_round/logs/opposed-figure-schema.log",
+      "bytes": 917,
+      "sha256": "441d5f8db709cf0f9057f9124c9278ddcd9ac98912176af22619739b984717d3"
+    },
+    {
+      "path": "Research_v3/next_round/logs/pip-scan-method-registration.log",
+      "bytes": 221,
+      "sha256": "3bf6bac0d14a46532378228134c099b0fbbb466ca14e68de363c40b951c422e7"
+    },
+    {
+      "path": "Research_v3/next_round/logs/prospective-slice-300-registration-retry.log",
+      "bytes": 139,
+      "sha256": "14f3cd2b4104dbc397c316a7c716b9fe959384144d1546a567171154933d9e6c"
+    },
+    {
+      "path": "Research_v3/next_round/solver/solver_audit_export.log",
+      "bytes": 834,
+      "sha256": "a13f834f369c760501692555c464eaa9c5f6a956b2bbfadafdd911ccbe41e7d5"
+    },
+    {
+      "path": "Research_v3/next_round/solver/solver_export_after_validation_05.log",
+      "bytes": 834,
+      "sha256": "b662ef91e79a73de2e2af9dbd0c8915e622a7d67ece002e39549d6d2e38e6d58"
+    },
+    {
+      "path": "Research_v3/next_round/solver/solver_plot_qa.log",
+      "bytes": 834,
+      "sha256": "086d43be4125e2c9475bab50504a37da4a3950e7a494e8c67528ef44d5e1e297"
+    },
+    {
+      "path": "Research_v3/next_round/theory/BL2_hash_field_alias.log",
+      "bytes": 139,
+      "sha256": "14f3cd2b4104dbc397c316a7c716b9fe959384144d1546a567171154933d9e6c"
+    },
+    {
+      "path": "Research_v3/next_round/theory/final_saved_data_readers_static.log",
+      "bytes": 1568,
+      "sha256": "7b5c22874cd14564d006d8a982af2e6855d6e7bf7999297c789cbdbdd009524b"
+    },
+    {
+      "path": "Research_v3/next_round/theory/final_saved_data_readers_static_final.log",
+      "bytes": 483,
+      "sha256": "fe3eb316218a9d82bd48ee6f46c47f85506b4ceea44d87ec0dd701fa9b56fa7e"
+    },
+    {
+      "path": "Research_v3/next_round/theory/opposed_spread_figures/figure_export_after_visual_fix.log",
+      "bytes": 226,
+      "sha256": "8f91b93fb723f7aedeb1c3b46247c147c293ee30dfb7114958bef7c97df799a6"
+    },
+    {
+      "path": "Research_v3/next_round/theory/opposed_spread_figures/figure_export_execution.log",
+      "bytes": 226,
+      "sha256": "ea10b88136cdfc345980252d87dab893e58f6a18402da244017f5b3a321d1101"
+    },
+    {
+      "path": "Research_v3/graph/.DS_Store",
+      "bytes": 6148,
+      "sha256": "60260b155834634ac1712a3c0755dddb1aae440b7f958e45e7f5a3ffb7982df6"
+    },
+    {
+      "path": "Research_v3/graph/edges/.DS_Store",
+      "bytes": 10244,
+      "sha256": "22a88dd1b61dafb617dcbba65fc5dc4109a7f6917a819a47e25726b1f83905ca"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+function audit=AuditLowEnergyPKBridgePreparation_v3()
+%AUDITLOWENERGYPKBRIDGEPREPARATION_V3 Schema/hash/data checks without maps.
+    clock=tic;here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(fileparts(here)));
+    for folder={'Schema_v3','Adapters_v3','Dynamics_v3','Simulation_v3','Orbit_v3', ...
+            'Numerics_v3','Stability_v3','Research_v3/Drivers_v3'}
+        V3LegacyAddPath_v3(fullfile(v3,folder{1}));
+    end
+    registrationPath='Research_v3/next_round/low_energy_PK_bridge_registration.json';
+    registration=jsondecode(fileread(V3Path_v3(fullfile(v3,registrationPath))));
+    loaded=load(V3Path_v3(fullfile(v3,registration.candidates.candidate_artifact)),'candidate');candidate=loaded.candidate;
+    cfg=jsondecode(fileread(V3Path_v3(fullfile(v3,'Research_v3/next_round/registration_full.json'))));
+    cfg.branch_identity_bridge_candidates=registration.candidates;
+    output=fullfile(here,'low_energy_PK_bridge_preparation');
+    result=RunLowEnergyPKBridge_v3(1,cfg,output,0);
+    [self,detail]=ComparePronkBridgeOrbits_v3(candidate.target_orbit,candidate.target_orbit,candidate.comparison_tolerances);
+    assert(result.new_points==0&&result.fresh_seed_records==0&&result.function_evaluations==0);
+    assert(self.same_local_numerical_orbit_supported&&self.one_sided_event_state_gap==0 ...
+        &&self.smooth_history_state_gap==0);
+    for index=1:5
+        amplitude=candidate.amplitude_grid(index);u=zeros(3,1);
+        if index==1,u=candidate.seed.state([2,7,8]);
+        else,u=candidate.seed.state([2,7,8])+(amplitude-candidate.start_amplitude) ...
+                *candidate.parent_direction/(candidate.parent_direction.'*candidate.parent_direction);end
+        w=[u(1);candidate.start_energy-u(1)^2/2;u(2);u(3);candidate.start_energy];
+        value=candidate.constraint_normal.'*(w-candidate.constraint_reference);
+        assert(abs(value-amplitude)<1e-14);
+    end
+    audit=struct('schema_version','no-map-local-PK-bridge-preparation-audit-v3-1', ...
+        'passed',true,'registration',registrationPath, ...
+        'registration_sha256',RoundSHA256_v3(fullfile(v3,registrationPath)), ...
+        'candidate_sha256',registration.candidates.candidate_sha256, ...
+        'current_source_and_gate_hashes_passed',true,'zero_wall_driver_preflight_passed',true, ...
+        'saved_target_self_comparison',self,'all_five_amplitude_constraints_verified',true, ...
+        'maps_executed',0,'new_simulations',0,'accepted_bridge_increments',0, ...
+        'elapsed_seconds',toc(clock),'scientific_status','prospective_bridge_not_yet_executed');
+    save(V3Path_v3(fullfile(output,'preparation_audit.mat')),'audit','detail','-v7');
+    RoundJSON_v3(fullfile(output,'preparation_audit.json'),audit);
+    fprintf('Bridge no-map preparation passed in %.3f s; source/four increments remain unexecuted.\n',audit.elapsed_seconds);
+end

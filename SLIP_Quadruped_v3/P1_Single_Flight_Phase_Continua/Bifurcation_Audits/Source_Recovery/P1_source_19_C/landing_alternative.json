@@ -1,0 +1,10 @@
+{
+  "schema_version": "causal-landing-alternative-v3-1",
+  "state": "accepted",
+  "next_trial": 1,
+  "candidates": [],
+  "trials": [],
+  "accepted_observations": [],
+  "accepted_count": 0,
+  "function_evaluations": 0
+}

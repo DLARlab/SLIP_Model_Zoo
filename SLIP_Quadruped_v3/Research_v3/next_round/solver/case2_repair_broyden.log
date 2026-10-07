@@ -1,0 +1,33 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    identifier: ''
+       message: 'No finite hybrid Jacobian is available in the requested perturbation chart.'
+      exitflag: -3
+
+            iterations: 5
+             funcCount: 5
+             algorithm: 'damped Levenberg-Newton trust region'
+         firstorderopt: 1.4620e-11
+              stepsize: 1.8850e-05
+    acceptedIterations: 4
+     invalidTrialCount: 0
+          jacobianInfo: [1×1 struct]
+               message: 'No finite hybrid Jacobian is available in the requested perturbation chart.'
+
+accepted
+  struct with no fields.
+
+            iterations: 12
+             funcCount: 17
+             algorithm: 'damped Levenberg-Newton trust region'
+         firstorderopt: 4.3245e-10
+              stepsize: 2.7378e-07
+    acceptedIterations: 11
+     invalidTrialCount: 0
+          jacobianInfo: [1×1 struct]
+               message: 'Residual tolerance satisfied.'
+
+   3.0268e-11
+

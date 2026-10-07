@@ -1,0 +1,10 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{Subscripted assignment between dissimilar structures.
+
+Error in PilotTwistedFrontReturn_v3 (line 40)
+        hashes(k)=struct('path',sources{k},'sha256',RoundSHA256_v3(fullfile(v3,sources{k})));
+        ^^^^^^^^^
+} 

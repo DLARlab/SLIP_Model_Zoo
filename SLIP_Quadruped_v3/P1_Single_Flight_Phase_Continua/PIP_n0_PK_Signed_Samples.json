@@ -1,0 +1,287 @@
+{
+  "schema_version": "organized-saved-orbit-dataset-v3-1",
+  "id": "PIP_n0_PK_Signed_Samples",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "dataset_type": "signed_samples",
+  "origin": "original signed daughter evidence",
+  "expected_primitive_flight_count": 1,
+  "count": 10,
+  "amplitude": [
+    -0.0001,
+    -0.0003,
+    -0.001,
+    -0.003,
+    -0.01,
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01
+  ],
+  "amplitude_coordinate": "signed projection onto the registered PIP critical direction",
+  "resonance_index": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "energy": [
+    1.0616850235730533,
+    1.0616850304587591,
+    1.0616851847223581,
+    1.0616864458320858,
+    1.0617007891787416,
+    1.0616850235730533,
+    1.0616849921030107,
+    1.0616851833506893,
+    1.0616864451164469,
+    1.0617007891733283
+  ],
+  "period": [
+    1.3329706012048508,
+    1.3329705683817201,
+    1.3329705545621391,
+    1.3329699830164186,
+    1.3329634723018742,
+    1.3329706012048508,
+    1.3329703867803058,
+    1.3329705480677363,
+    1.3329699796281165,
+    1.332963472276206
+  ],
+  "drift": [
+    -7.7139618613137313E-5,
+    -0.00023141884986007318,
+    -0.00077139621466099952,
+    -0.0023141889370129195,
+    -0.0077139741641743913,
+    7.7139618613137313E-5,
+    0.00023141884234994506,
+    0.00077139620992438683,
+    0.0023141889295985336,
+    0.0077139741650507423
+  ],
+  "mean_speed": [
+    -5.7870457565539738E-5,
+    -0.00017361137248590941,
+    -0.00057870461730821332,
+    -0.0017361148161611792,
+    -0.0057870859363109532,
+    5.7870457565539738E-5,
+    0.00017361139050427117,
+    0.00057870461657430971,
+    0.0017361148150119375,
+    0.0057870859370798382
+  ],
+  "flight_count": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "gait_label": [
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK"
+  ],
+  "gait_status": [
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified"
+  ],
+  "full_closure": [
+    1.0843499289128235E-12,
+    6.338145177968435E-12,
+    7.4643123713219461E-13,
+    1.1740506570406817E-12,
+    6.1494993125466024E-13,
+    1.0843499289128235E-12,
+    8.087108573410183E-11,
+    3.3272419108082429E-12,
+    5.2131864363563762E-12,
+    2.4893351269206221E-12
+  ],
+  "record_kind": [
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter",
+    "original_signed_daughter"
+  ],
+  "source_paths": [
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.0003_attempt_2.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.003_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.01_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.0001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.0003_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.001_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.003_attempt_1.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.01_attempt_2.mat"
+  ],
+  "source_original_paths": [
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0003_attempt_2.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.003_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.01_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.0001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.0003_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.001_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.003_attempt_1.mat",
+    "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.01_attempt_2.mat"
+  ],
+  "source_sha256": [
+    "bba983ec4be0305fbf5784710d5667e71b350967fdf21844d7f1aafe781cc294",
+    "07f87b3a061a276e42430a5d20e13f4255b6c53d0560ff45f13bc94e550cbce3",
+    "a85963659f737187dce50edb55319ea6fd645b7ff23f2d8d7b74914761f6abc9",
+    "fb13aee0e6990b4a68410b8ebb6320a28d70b5ef65f103588860f0eb51627ecc",
+    "4de22bdea9c2f7cf3b902781a8c3c3031caecc2ddca68a46de56e0aa77a7fe7a",
+    "08a002f5eaef17f2b59ec83e567de0a439b147b792a5d3f3c0eec9063e156cdb",
+    "b58ac9e4db6b8335f3a4d84a8baa14c1ad05a05500e2808b34fb38ab009e1d7b",
+    "a179e5a9e1b8e82c9e1c639cb6bca120d96e0de151646f4f8dd01cdef1c869ec",
+    "3c933f2060b3414d28160d84c2ac3343cf08b94d10dd7c20273b0c2fd65332e3",
+    "cfb8efd16e9e444ffcfb40544ad8ab49698a4c8c00bd27f643dfe3cf5acb596d"
+  ],
+  "source_acceptance": [
+    {
+      "accepted_in_source": true,
+      "selection_index": 1
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 2
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 3
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 4
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 5
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 6
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 7
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 8
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 9
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 10
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/phase_checkpoint.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/phase_checkpoint.mat",
+      "sha256": "a65c8f28913264e681b4c13b02d2d26d6b6d068dd54db769812d3a8d6052624f"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+      "sha256": "bba983ec4be0305fbf5784710d5667e71b350967fdf21844d7f1aafe781cc294"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.0003_attempt_2.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0003_attempt_2.mat",
+      "sha256": "07f87b3a061a276e42430a5d20e13f4255b6c53d0560ff45f13bc94e550cbce3"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.001_attempt_1.mat",
+      "sha256": "a85963659f737187dce50edb55319ea6fd645b7ff23f2d8d7b74914761f6abc9"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.003_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.003_attempt_1.mat",
+      "sha256": "fb13aee0e6990b4a68410b8ebb6320a28d70b5ef65f103588860f0eb51627ecc"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.01_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.01_attempt_1.mat",
+      "sha256": "4de22bdea9c2f7cf3b902781a8c3c3031caecc2ddca68a46de56e0aa77a7fe7a"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.0001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.0001_attempt_1.mat",
+      "sha256": "08a002f5eaef17f2b59ec83e567de0a439b147b792a5d3f3c0eec9063e156cdb"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.0003_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.0003_attempt_1.mat",
+      "sha256": "b58ac9e4db6b8335f3a4d84a8baa14c1ad05a05500e2808b34fb38ab009e1d7b"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.001_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.001_attempt_1.mat",
+      "sha256": "a179e5a9e1b8e82c9e1c639cb6bca120d96e0de151646f4f8dd01cdef1c869ec"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.003_attempt_1.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.003_attempt_1.mat",
+      "sha256": "3c933f2060b3414d28160d84c2ac3343cf08b94d10dd7c20273b0c2fd65332e3"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.01_attempt_2.mat",
+      "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.01_attempt_2.mat",
+      "sha256": "cfb8efd16e9e444ffcfb40544ad8ab49698a4c8c00bd27f643dfe3cf5acb596d"
+    }
+  ],
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "unique_cycle_count_claimed": false,
+  "certified_gait_claimed": false,
+  "bifurcation_certificate_created": false,
+  "interpretation": "A collection of previously accepted saved records. Sampling or exporting does not prove global connectivity, distinct cycles, a named gait, or a bifurcation.",
+  "critical_parent_energy": 1.0616850275068086,
+  "mat_artifact": "P1_Single_Flight_Phase_Continua/PIP_n0_PK_Signed_Samples.mat",
+  "mat_sha256": "42b91ac836c5fe1390da028d21644b8a2c0f613ff7a2aeb29ba2459622faba7a",
+  "mat_bytes": 1.911522E+6
+}

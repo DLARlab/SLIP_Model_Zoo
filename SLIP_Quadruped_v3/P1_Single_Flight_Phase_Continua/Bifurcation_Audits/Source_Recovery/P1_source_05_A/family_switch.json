@@ -1,0 +1,18 @@
+{
+  "schema_version": "family-sector-correction-v3-1",
+  "study": "P1",
+  "state": "accepted",
+  "phase": "executed_signed_sector_trials",
+  "parent_descriptive_label": "GP",
+  "parent_independently_admitted": false,
+  "parent_source_artifact": "column_00001_revision_000_correction.mat",
+  "predictions": [],
+  "next_trial": 1,
+  "trials": [],
+  "accepted_count": 0,
+  "function_evaluations": 0,
+  "last_repair_revision": 0,
+  "hypothesis": "signed physical symmetry-sector correction; no branch point or ancestry presumed",
+  "ancestry_claimed": false,
+  "regular_bifurcation_claimed": false
+}

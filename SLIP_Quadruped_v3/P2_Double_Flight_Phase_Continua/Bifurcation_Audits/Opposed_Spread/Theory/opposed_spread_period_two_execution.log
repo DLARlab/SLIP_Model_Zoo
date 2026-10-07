@@ -1,0 +1,11 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Froze four signed opposed-spread predictors at n0/n1 before numerical replay.
+Opposed spread n0 matrix error 1.69e-11 refinement 2.24e-11 crossing slope 1.9999847
+opposed_spread_n0_negative_A1e-3 closure 4.39e-13 twist 2.2e-13 energy 4.4e-13 flights 2 primitive primitive_within_checked_bound gait unclassified/ambiguous pass 1
+opposed_spread_n0_positive_A1e-3 closure 4.39e-13 twist 2.2e-13 energy 4.4e-13 flights 2 primitive primitive_within_checked_bound gait unclassified/ambiguous pass 1
+Opposed spread n1 matrix error 2.3e-11 refinement 7.5e-12 crossing slope 1.9999996
+opposed_spread_n1_negative_A1e-3 closure 1.86e-12 twist 9.29e-13 energy 1.86e-12 flights 2 primitive primitive_within_checked_bound gait unclassified/ambiguous pass 1
+opposed_spread_n1_positive_A1e-3 closure 1.86e-12 twist 9.29e-13 energy 1.86e-12 flights 2 primitive primitive_within_checked_bound gait unclassified/ambiguous pass 1

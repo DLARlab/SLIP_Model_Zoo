@@ -1,0 +1,12 @@
+{
+  "schema_version": "prospective-restricted-FD-repair-v3-1",
+  "registered_utc": "07-Oct-2026 12:15:52",
+  "measured_problem": "First240-second continuation slice retained20old points but appendedzero; repeated multi-grid tangent/corrector derivatives dominated work.",
+  "repair": "One h=1e-4 candidate with internal h/2 check, same operator for corrector and tangent, Broyden reuse/refresh5.",
+  "relative_candidate_steps": 0.0001,
+  "maximum_relative_error": 0.001,
+  "independent_full_closure_tolerance": 1E-8,
+  "acceptance_tolerances_changed": false,
+  "scope": "Synchronized-pronk continuation only; not a full-space derivative or stability certificate.",
+  "evidence_folder": "Research_v3/next_round/workflow"
+}

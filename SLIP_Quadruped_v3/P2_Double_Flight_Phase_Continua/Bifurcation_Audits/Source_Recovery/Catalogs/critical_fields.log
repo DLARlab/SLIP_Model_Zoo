@@ -1,0 +1,18 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    {'Critical'}
+    {'Symmetry'}
+
+Critical struct [1 1]
+    {'solution'              }
+    {'refinement'            }
+    {'targetSubspace'        }
+    {'excludedTrivialTangent'}
+    {'plusCandidates'        }
+
+Symmetry struct [1 1]
+    {'directions' }
+    {'diagnostics'}
+

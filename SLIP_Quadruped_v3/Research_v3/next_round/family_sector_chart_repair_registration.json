@@ -1,0 +1,17 @@
+{
+  "schema_version": "prospective-source-C-sector-chart-repair-v3-1",
+  "registered_utc": "07-Oct-2026 13:47:14",
+  "diagnosis": "RoundA PK-control signed bound sector had closure.00096176955 and no finite raw-order hybrid Jacobian despite independently admitted synchronous parent.",
+  "failed_evidence": "Research_v3/next_round/tasks/full/P2_source_17_A/source_recovery.json",
+  "repair": "Apply independently validated common-C1 event-order metadata only within actual regular BL1 cohort chart; h=1e-4 with h/2 refinement and unchanged acceptance.",
+  "gate": {
+    "BL1_evidence": "Research_v3/next_round/theory/event_order_chart_validation.json",
+    "current_source_gate": "Research_v3/next_round/theory/two_BL_chart_validation.json",
+    "helper_path": "Numerics_v3/EventOrderChartJacobian_v3.m",
+    "helper_sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d",
+    "scope": "Independently admitted synchronous flight-to-flight BL1 parent; every actual trial verifies its two transverse zero-compression cohorts; no C2 claim."
+  },
+  "full_closure_tolerance": 1E-8,
+  "acceptance_tolerances_changed": false,
+  "domain_changed": false
+}

@@ -1,0 +1,36 @@
+function audit=AuditFamilySectorRegistration_v3()
+%AUDITFAMILYSECTORREGISTRATION_V3 Validate signed equations/target distinction.
+% Uses the already independently validated PIP benchmark; it freezes but does
+% not correct daughters, so this is no gait discovery or attachment evidence.
+    here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(fileparts(here)));
+    V3LegacyAddPath_v3(v3,fullfile(v3,'Research_v3','Drivers_v3'));
+    for folder={'Schema_v3','Dynamics_v3','Simulation_v3','Orbit_v3','Numerics_v3'},V3LegacyAddPath_v3(fullfile(v3,folder{1}));end
+    cfg=ResolveResearchRoundConfig_v3('full');data=load(V3Path_v3(fullfile(v3,'Research_v3','next_round','solver','case1_pip.mat')));
+    solution=data.pip;predictor=struct('state',solution.initial_state,'mode',solution.initial_mode,'parameter',solution.parameter, ...
+        'return_policy',solution.return_policy,'occurrence',1,'provenance',struct('kind','independently-validated-PIP-benchmark'));
+    summaries=struct([]);
+    for study={'P1','P2'}
+        output=fullfile(here,['sector_freeze_',study{1}]);if ~isfolder(V3Path_v3(output)),mkdir(V3Path_v3(output));end
+        RoundSave_v3(fullfile(output,'parent.mat'),struct('solution',solution,'predictor',predictor));
+        sourceResult=struct('source',struct('source_path','validated ordinary PIP benchmark'), ...
+            'observations',struct('accepted',true,'artifact','parent.mat','gait','PIP'));
+        phase=RunFamilySectorCorrections_v3(sourceResult,cfg,output,0,study{1});
+        predictions=phase.predictions;errors=zeros(1,numel(predictions));
+        for k=1:numel(predictions)
+            p=predictions(k);coordinates=p.seed_state(p.independent_indices);
+            errors(k)=p.normal(1:end-1).'*(coordinates-p.reference(1:end-1))-p.signed_amplitude;
+            assert(numel(p.normal)==numel(p.reference)&&numel(p.reference)==13);
+        end
+        assert(max(abs(errors))<1e-14);assert(isequal([predictions.signed_amplitude],[-1e-3,1e-3]));
+        expected=1;if strcmp(study{1},'P2'),expected=2;end
+        assert(all([predictions.target_positive_duration_flights]==expected));
+        summary=struct('study',study{1},'physical_dimension',12,'augmented_dimension',13, ...
+            'signed_constraint_errors',errors,'target_flights',expected,'daughter_corrected',false);
+        if isempty(summaries),summaries=summary;else,summaries(end+1)=summary;end %#ok<AGROW>
+    end
+    audit=struct('schema_version','family-sector-registration-audit-v3-1','passed',true, ...
+        'created_utc',char(datetime('now','TimeZone','UTC')),'matlab_version',version,'cases',summaries, ...
+        'scientific_scope','Correct equation count, signed predictor consistency and distinct primitive flight targets; no daughter solve or ancestry claim.');
+    RoundSave_v3(fullfile(here,'family_sector_registration_audit.mat'),struct('audit',audit));
+    RoundJSON_v3(fullfile(here,'family_sector_registration_audit.json'),audit);
+end

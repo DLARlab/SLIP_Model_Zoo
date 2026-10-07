@@ -1,0 +1,93 @@
+{
+  "schema_version": "native-front-twisted-retry-result-v3-2",
+  "state": "partial_checkpoint",
+  "scientific_status": "front_twisted_candidate_unresolved",
+  "candidate_id": "n0_positive_front_twisted_common_C1_Broyden_retry",
+  "candidate_artifact": "Research_v3/next_round/solver/twisted_front_retry_02/front_retry_candidate.mat",
+  "correction_method": "front-twisted-BL1-common-C1-Broyden-retry",
+  "front_retry": {
+    "accepted": false,
+    "physically_accepted": false,
+    "campaign_domain": {
+      "checked": false,
+      "accepted": false
+    },
+    "state": "partial_checkpoint",
+    "coordinates": [
+      -3.1350942416064353E-9,
+      1.0616850219709806,
+      -1.355215698552242E-8,
+      2.7039910118708948E-9,
+      -1.184395741417965E-9,
+      6.9290784057140666E-9,
+      -1.1843957414179642E-9,
+      6.9290784057140633E-9,
+      1.2415137840430834E-5,
+      0.00070700469029461,
+      -1.2417506631923552E-5,
+      -0.00070699083213826141,
+      1.0616850219709819
+    ],
+    "starting_coordinates": [
+      -3.1327164852382411E-9,
+      1.0616850233580222,
+      -1.3551565161473939E-8,
+      2.7032937317271824E-9,
+      -1.1846900965878665E-9,
+      6.9309013905975705E-9,
+      -1.1846900965878667E-9,
+      6.9309013905975754E-9,
+      1.2415140236181614E-5,
+      0.00070700469207102246,
+      -1.24175096070474E-5,
+      -0.00070699083026744053,
+      1.0616850233580264
+    ],
+    "best_candidate": [
+      0,
+      -3.1350942416064353E-9,
+      1.0616850219709806,
+      0,
+      -1.355215698552242E-8,
+      2.7039910118708948E-9,
+      -1.184395741417965E-9,
+      6.9290784057140666E-9,
+      -1.1843957414179642E-9,
+      6.9290784057140633E-9,
+      1.2415137840430834E-5,
+      0.00070700469029461,
+      -1.2417506631923552E-5,
+      -0.00070699083213826141
+    ],
+    "initial_residual": 1.6061336494483076E-8,
+    "final_residual": 1.6061389415760744E-8,
+    "full_BL2_closure": 5.4919983186077319E-8,
+    "constraint_residual": -5.7707506308235512E-13,
+    "primary_failure": {
+      "identifier": "",
+      "message": "First-order optimality tolerance satisfied.",
+      "exitflag": 3
+    },
+    "finalization_failure": {
+      "identifier": "RootSolver_v3:FullClosure",
+      "message": "Reduced residual candidate failed full physical closure."
+    },
+    "replay_failure": {},
+    "elapsed_seconds": 468.84882383333331,
+    "initial_J_reused": false,
+    "accepted_Newton_steps": 1,
+    "artifact": "front_retry_attempt_r000_001.mat",
+    "classification": {},
+    "primitive": {}
+  },
+  "new_points": 0,
+  "accepted_record_count": 0,
+  "function_evaluations": 214,
+  "solver_map_evaluations": 212,
+  "accepted_Newton_steps": 1,
+  "attempt_count": 1,
+  "ancestry_claimed": false,
+  "target_gait_claimed": false,
+  "unrestricted_C2_claimed": false,
+  "message": "Compatible partial attempts resume their saved best iterate with fresh FD and cumulative costs; physical BL2 acceptance and campaign-domain admission remain separate."
+}

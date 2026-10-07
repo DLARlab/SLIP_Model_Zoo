@@ -1,0 +1,240 @@
+function result=RunOpposedSpreadPeriodTwo_v3(record,cfg,outputDirectory,maxWallSeconds,task)
+%RUNOPPOSEDSPREADPERIODTWO_V3 Admit, correct and sample a restricted BL2 family.
+% Exact replay, genuine nonlinear correction and branch progress are separate.
+% The strict Newton map is BL1 twisted; finalization/replay is physical BL2.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));clock=tic;
+    outputDirectory=V3OutputPath_v3(outputDirectory);if ~isfolder(outputDirectory),mkdir(outputDirectory);end
+    method=jsondecode(fileread(fullfile(v3,record.method_registration)));
+    methodJournal=fullfile(v3,'Research_v3/next_round/opposed_spread_campaign_method_revisions.json');
+    if isfile(methodJournal)
+        journal=jsondecode(fileread(methodJournal));revision=journal.entries(end);
+        method.replay_integration=revision.replay_integration;method.source_hashes=revision.source_hashes;
+    end
+    % The public service exposes six replay overrides. Its delegated map
+    % owns the simulator's additional arming settings, copied internally.
+    replayOverrides=method.replay_integration;
+    if isfield(replayOverrides,'ArmingTolerance'),replayOverrides=rmfield(replayOverrides,'ArmingTolerance');end
+    assert(strcmp(record.candidate_sha256,RoundSHA256_v3(fullfile(v3,record.candidate_artifact))), ...
+        'RunOpposedSpreadPeriodTwo_v3:PredictorHash','A frozen exact predictor changed.');
+    loaded=load(fullfile(v3,record.candidate_artifact),record.candidate_variable);predictor=loaded.(record.candidate_variable);
+    audit=jsondecode(fileread(fullfile(v3,record.proof_audit)));matched=strcmp({audit.predictor_cases.id},predictor.id);
+    assert(audit.passed&&sum(matched)==1&&audit.predictor_cases(matched).passed, ...
+        'RunOpposedSpreadPeriodTwo_v3:PhysicalAudit','The exact predictor physical audit must pass.');
+    for k=1:numel(method.physical_engine_hashes)
+        item=method.physical_engine_hashes(k);
+        assert(strcmp(item.sha256,RoundSHA256_v3(fullfile(v3,item.path))), ...
+            'RunOpposedSpreadPeriodTwo_v3:ModelEpoch','A physical engine changed after registration: %s.',item.path);
+    end
+    for k=1:numel(method.source_hashes)
+        item=method.source_hashes(k);
+        assert(strcmp(item.sha256,RoundSHA256_v3(fullfile(v3,item.path))), ...
+            'RunOpposedSpreadPeriodTwo_v3:SolverEpoch','A correction source changed after registration: %s.',item.path);
+    end
+    assert(predictor.occurrence==2&&predictor.resonance_index==0,'Expected an explicitly registered n0 BL2 representative.');
+    p=predictor.parameter(:);q=logical(predictor.mode(:));reference=predictor.amplitude_reference(:);
+    normal=predictor.amplitude_normal(:);base=[predictor.a;predictor.b;predictor.energy];
+    initialSeed=struct('state',predictor.state,'mode',q,'parameter',p, ...
+        'return_policy','BL-marked-apex-return','occurrence',2,'provenance',struct( ...
+        'kind','registered-exact-opposed-spread-campaign','predictor_artifact',record.candidate_artifact, ...
+        'predictor_sha256',record.candidate_sha256,'registration',record.method_registration, ...
+        'actual_gait_assignment','Actual classifier is retained; no requested target gait presumed.'));
+    one=family(1);two=family(2);file=fullfile(outputDirectory,'restricted_period_two_checkpoint.mat');
+    if isfile(file),saved=load(file,'phase');phase=saved.phase;
+    else
+        directionTemplate=struct('direction',0,'last_angle',predictor.touchdown_angle, ...
+            'last_coordinates',base,'step',method.initial_signed_angle_step,'arclength',0, ...
+            'records',struct([]),'registered_amplitude_boundary_reached',false);
+        directions=repmat(directionTemplate,1,2);directions(1).direction=-1;directions(2).direction=1;
+        phase=struct('schema_version','restricted-opposed-spread-campaign-v3-1','stage','exact_admission', ...
+            'state','partial_checkpoint','predictor_id',predictor.id,'candidate_id',record.id, ...
+            'repair_revision',task.repair_revision,'exact_admission',struct(),'meaningful_correction',struct(), ...
+            'directions',directions,'next_direction',1,'trial_serial',0,'trials',struct([]), ...
+            'function_evaluations',0,'solver_map_evaluations',0,'accepted_record_count',0,'new_arc_records',0, ...
+            'initial_meaningful_residual',NaN,'meaningful_accepted_Newton_steps',0, ...
+            'failure',struct(),'ancestry_claimed',false,'generic_fullspace_extension',false);
+        checkpoint();
+    end
+    if task.repair_revision>phase.repair_revision
+        phase.repair_revision=task.repair_revision;phase.state='partial_checkpoint';phase.failure=struct();
+        if isfield(phase,'partial'),phase=rmfield(phase,'partial');end
+        checkpoint();
+    end
+    completedSamples=0;
+    while toc(clock)<maxWallSeconds-15
+        if strcmp(phase.stage,'exact_admission')
+            coordinates=base;A=predictor.touchdown_angle;kind='exact_predictor_admission';
+        elseif strcmp(phase.stage,'meaningful_correction')
+            coordinates=base+method.meaningful_orthogonal_perturbation*[-normal(2);normal(1);0];
+            A=predictor.touchdown_angle;kind='meaningful_nonlinear_correction';
+        else
+            if completedSamples>=method.samples_per_checkpoint,break;end
+            active=~[phase.directions.registered_amplitude_boundary_reached];
+            if ~any(active),phase.state='unresolved_obstruction';break;end
+            directionIndex=phase.next_direction;if ~active(directionIndex),directionIndex=3-directionIndex;end
+            direction=phase.directions(directionIndex);A=direction.last_angle+direction.direction*direction.step;
+            angleSign=sign(predictor.touchdown_angle);
+            A=angleSign*min(method.maximum_absolute_angle,max(method.minimum_absolute_angle,angleSign*A));
+            if abs(A-direction.last_angle)<1e-13
+                phase.directions(directionIndex).registered_amplitude_boundary_reached=true;
+                phase.next_direction=3-directionIndex;checkpoint();continue
+            end
+            coordinates=formula(A);kind='restricted_branch_sample';
+        end
+        initialJacobian=[];initialCoordinates=coordinates;
+        if isfield(phase,'partial')&&strcmp(phase.partial.kind,kind)
+            coordinates=phase.partial.coordinates;A=phase.partial.touchdown_angle;
+            if strcmp(kind,'restricted_branch_sample'),directionIndex=phase.partial.direction_index;end
+            initialJacobian=phase.partial.final_jacobian;
+            if any(~isfinite(initialJacobian(:)))||~isequal(size(initialJacobian),[3,3]),initialJacobian=[];end
+            initialCoordinates=phase.partial.initial_coordinates;
+        end
+        target=normal.'*(formula(A)-reference);
+        constraint=struct('reference',reference,'normal',normal,'target',target);
+        residual=OpposedSpreadFamilyResidual_v3(one,two,constraint);
+        seed=initialSeed;seed.state=residual.fullState(coordinates);
+        seed.provenance.execution_phase=kind;seed.provenance.touchdown_angle=A;
+        derivative=HybridFiniteDifferenceJacobian_v3(struct('RelativeCandidateSteps',method.fd_relative_candidate_steps(:).', ...
+            'MaximumRelativeError',method.fd_maximum_relative_error,'UseRichardson',method.fd_use_richardson));
+        options=struct('Residual',residual,'Coordinates',coordinates,'AugmentedParameter',[p;coordinates(3)], ...
+            'MaxWallSeconds',max(.001,maxWallSeconds-toc(clock)-5), ...
+            'MaxReturnTime',cfg.domain.primitive_period_max,'MaxCycleEvents',cfg.domain.event_count_max, ...
+            'ReplayIntegration',replayOverrides, ...
+            'Acceptance',struct('FullClosureTolerance',cfg.acceptance.full_closure, ...
+                'EnergyTolerance',cfg.acceptance.energy), ...
+            'SolverOptions',struct('Algorithm','newton','MaxIterations',cfg.budgets.root_max_iterations, ...
+                'MaxFunctionEvaluations',cfg.budgets.root_max_function_evaluations,'Jacobian',derivative, ...
+                'UseBroyden',true,'JacobianRefreshInterval',5,'InitialJacobian',initialJacobian, ...
+                'ReuseJacobian',~isempty(initialJacobian), ...
+                'FunctionTolerance',1e-12,'ResidualAcceptanceTolerance',cfg.acceptance.reduced_residual));
+        phase.trial_serial=phase.trial_serial+1;
+        artifact=sprintf('restricted_trial_r%03d_%03d_%s.mat',phase.repair_revision,phase.trial_serial,kind);
+        frozen=struct('kind',kind,'touchdown_angle',A,'coordinates',initialCoordinates, ...
+            'current_coordinates',coordinates,'constraint',constraint,'seed',seed, ...
+            'registered_utc',char(datetime('now','TimeZone','UTC')),'method_registration',record.method_registration, ...
+            'independent_BL2_required',true,'nonlinear_correction_claimed_before_execution',false);
+        RoundSave_v3(fullfile(outputDirectory,['predictor_',artifact]),struct('frozen',frozen,'options',options));
+        checkpoint(); % A pre-service schema failure must not overwrite this predictor on retry.
+        [solution,report]=PeriodicSolutionSolver_v3(seed,options);
+        phase.function_evaluations=phase.function_evaluations+number(report.solver,'functionEvaluationCount',0);
+        phase.solver_map_evaluations=phase.solver_map_evaluations+number(report.solver,'mapEvaluationCount',0);
+        accepted=~isempty(solution)&&report.accepted&&admitted(solution,cfg);
+        flightCount=NaN;label='unresolved';gaitStatus='unresolved';primitive='unresolved';
+        if ~isempty(solution)
+            identification=GaitIdentification_v3(solution);flightCount=identification.flight_count;
+            label=char(identification.label);gaitStatus=char(identification.status);primitive=char(report.primitive.status);
+            accepted=accepted&&flightCount==2&&solution.section_chart.BL_touchdowns_per_return==2 ...
+                &&strcmp(primitive,'primitive_within_checked_bound')&&report.primitive.cover_count==1;
+        end
+        trial=struct('kind',kind,'touchdown_angle',A,'accepted',accepted,'artifact',artifact, ...
+            'actual_gait_label',label,'actual_gait_status',gaitStatus,'actual_flight_count',flightCount, ...
+            'primitive_status',primitive,'full_closure',report.full_closure, ...
+            'initial_residual',report.initial_scaled_norm,'final_residual',report.final_scaled_norm, ...
+            'accepted_Newton_steps',number(report.solver,'acceptedNewtonIterations',0), ...
+            'coordinates',member(report,'final_coordinates',coordinates),'initial_coordinates',initialCoordinates, ...
+            'constraint_error',report.constraint_residual,'primary_failure',report.primary_failure, ...
+            'replay_failure',report.replay_failure,'ancestry_claimed',false);
+        if strcmp(kind,'meaningful_nonlinear_correction')
+            if isnan(phase.initial_meaningful_residual),phase.initial_meaningful_residual=report.initial_scaled_norm;end
+            phase.meaningful_accepted_Newton_steps=phase.meaningful_accepted_Newton_steps+trial.accepted_Newton_steps;
+            trial.meaningful_nonlinear_correction=accepted ...
+                &&isfinite(phase.initial_meaningful_residual) ...
+                &&phase.initial_meaningful_residual>method.minimum_initial_correction_residual ...
+                &&phase.meaningful_accepted_Newton_steps>0;
+        end
+        RoundSave_v3(fullfile(outputDirectory,artifact),struct('solution',solution,'report',report,'trial',trial,'frozen',frozen));
+        if isempty(phase.trials),phase.trials=trial;
+        else
+            if ~isfield(phase.trials,'meaningful_nonlinear_correction')&&isfield(trial,'meaningful_nonlinear_correction')
+                [phase.trials.meaningful_nonlinear_correction]=deal(false);
+            elseif isfield(phase.trials,'meaningful_nonlinear_correction')&&~isfield(trial,'meaningful_nonlinear_correction')
+                trial.meaningful_nonlinear_correction=false;
+            end
+            trial=orderfields(trial,phase.trials);phase.trials(end+1)=trial;
+        end
+        if accepted
+            phase.accepted_record_count=phase.accepted_record_count+1;
+            if isfield(phase,'partial'),phase=rmfield(phase,'partial');end
+            if strcmp(kind,'exact_predictor_admission')
+                phase.exact_admission=trial;phase.stage='meaningful_correction';
+            elseif strcmp(kind,'meaningful_nonlinear_correction')
+                phase.meaningful_correction=trial;
+                if ~trial.meaningful_nonlinear_correction
+                    phase.state='retryable_failure';phase.failure=struct('identifier','RunOpposedSpreadPeriodTwo_v3:MeaningfulCorrection', ...
+                        'message','The admitted orbit did not establish a genuine correction of the frozen meaningful perturbation.');checkpoint();break
+                end
+                phase.stage='restricted_branch';
+            else
+                branch=phase.directions(directionIndex);arc=norm(trial.coordinates-branch.last_coordinates);
+                assert(arc>1e-12,'An unchanged seed is not new continuation progress.');
+                branch.arclength=branch.arclength+arc;trial.arclength=branch.arclength;
+                if isempty(branch.records),branch.records=trial;else,branch.records(end+1)=orderfields(trial,branch.records);end
+                branch.last_coordinates=trial.coordinates;branch.last_angle=A;
+                branch.step=min(method.maximum_signed_angle_step,branch.step*method.accepted_step_growth);
+                phase.directions(directionIndex)=branch;phase.next_direction=3-directionIndex;
+                phase.new_arc_records=phase.new_arc_records+1;completedSamples=completedSamples+1;
+            end
+            phase.state='partial_checkpoint';checkpoint();
+        else
+            message=[failureMessage(report.primary_failure),' ',failureMessage(report.replay_failure)];
+            wallFailure=contains(message,'wall budget','IgnoreCase',true)||toc(clock)>=maxWallSeconds-15;
+            if wallFailure&&isfield(report,'final_coordinates')&&numel(report.final_coordinates)==3
+                d=0;if strcmp(kind,'restricted_branch_sample'),d=directionIndex;end
+                phase.partial=struct('kind',kind,'coordinates',report.final_coordinates, ...
+                    'initial_coordinates',initialCoordinates,'touchdown_angle',A,'direction_index',d, ...
+                    'final_jacobian',member(report.solver,'finalJacobian',[]),'artifact',artifact);
+                phase.state='partial_checkpoint';
+            else
+                phase.state='retryable_failure';phase.failure=report.primary_failure;
+                if isempty(fieldnames(phase.failure)),phase.failure=report.replay_failure;end
+                if isempty(fieldnames(phase.failure)),phase.failure=struct('identifier','RunOpposedSpreadPeriodTwo_v3:Admission', ...
+                        'message','Physical BL2, primitive, two-flight, target-parameter or registered-domain admission failed.');end
+            end
+            checkpoint();break
+        end
+    end
+    scientific='restricted_period_two_admission_or_correction_pending';
+    if ~isempty(fieldnames(phase.exact_admission)),scientific='restricted_period_two_predictor_admitted_correction_pending';end
+    if ~isempty(fieldnames(phase.meaningful_correction))&&phase.meaningful_correction.meaningful_nonlinear_correction
+        scientific='restricted_period_two_corrected_branch_checkpoint_attachment_unresolved';
+    end
+    result=struct('schema_version','executed-opposed-spread-campaign-v3-1','state',phase.state, ...
+        'scientific_status',scientific,'candidate_id',record.id,'candidate_artifact',record.candidate_artifact, ...
+        'correction_method',method.method,'restricted_branch',phase,'function_evaluations',phase.function_evaluations, ...
+        'solver_map_evaluations',phase.solver_map_evaluations,'new_points',phase.new_arc_records, ...
+        'accepted_record_count',phase.accepted_record_count,'failure',phase.failure, ...
+        'generic_fullspace_extension',false,'ancestry_claimed',false,'target_gait_claimed',false, ...
+        'message','Exact predictor admission and meaningful correction are separate; restricted signed-amplitude branch samples retain actual unclassified gait naming and qualified ancestry.');
+    checkpoint();RoundJSON_v3(fullfile(outputDirectory,'restricted_period_two_result.json'),result);
+    function energyFamily=family(count)
+        map=PoincareMap_v3(Quadrupedal_Dynamics_v3(),PoincareSection_v3.apex(4), ...
+            HybridSimulator_v3(method.integration),BLMarkedApexReturnPolicy_v3(struct('BLTouchdownsPerReturn',count)), ...
+            struct('MaxReturnTime',cfg.domain.primitive_period_max,'MaxCycleEvents',cfg.domain.event_count_max));
+        energyFamily=EnergyFamilyResidual_v3(PeriodicOrbitResidual_v3(map,predictor.state),predictor.state,q,p);
+    end
+    function w=formula(A)
+        w=[(-1)^predictor.resonance_index*predictor.flight_time*sin(A)/sqrt(20); ...
+            (-1)^predictor.resonance_index*sqrt(20)*A;cos(A)+predictor.flight_time^2/2];
+    end
+    function checkpoint()
+        RoundSave_v3(file,struct('phase',phase));RoundJSON_v3(fullfile(outputDirectory,'restricted_period_two_phase.json'),phase);
+    end
+end
+function value=member(source,name,fallback)
+    value=fallback;if isfield(source,name),value=source.(name);end
+end
+function value=number(source,name,fallback)
+    value=member(source,name,fallback);if ~isnumeric(value)||~isscalar(value)||~isfinite(value),value=fallback;end
+end
+function text=failureMessage(failure)
+    text='';if isstruct(failure)&&isfield(failure,'message'),text=failure.message;end
+end
+function yes=admitted(orbit,cfg)
+    E=QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,orbit.parameter);
+    speed=orbit.stride_displacement(1)/orbit.period;
+    yes=norm(orbit.parameter-cfg.baseline_v3_parameters(:),inf)<=cfg.acceptance.parameter ...
+        &&E>=cfg.domain.energy(1)&&E<=cfg.domain.energy(2) ...
+        &&speed>=cfg.domain.mean_speed(1)&&speed<=cfg.domain.mean_speed(2) ...
+        &&orbit.period<=cfg.domain.primitive_period_max ...
+        &&sum(~[orbit.event_history.is_stop])<=cfg.domain.event_count_max ...
+        &&max(abs(orbit.trajectory.state(:,5)))<=cfg.domain.pitch_abs_max;
+end

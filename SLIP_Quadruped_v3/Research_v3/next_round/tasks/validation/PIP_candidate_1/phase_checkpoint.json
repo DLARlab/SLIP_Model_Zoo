@@ -1,0 +1,295 @@
+{
+  "schema_version": "phased-PIP-candidate-v3-1",
+  "candidate": {
+    "id": "PIP_odd_swing_resonance_n0",
+    "status": "unprocessed_analytic_spectral_candidate",
+    "origin": "post-campaign analytical parent diagnostic",
+    "energy_expression": "1 + pi^2/160",
+    "energy_approximate": 1.0616850275068086,
+    "restriction": "fixed-energy synchronized pronk",
+    "predicted_restricted_multipliers_real": [
+      1,
+      -1,
+      0
+    ],
+    "grid_interval": [
+      1.0001,
+      1.1334266666666666
+    ],
+    "endpoint_determinants": [
+      1.0973007370071888,
+      0.13342104860029075
+    ],
+    "not_refined_reason": "endpoint determinants have the same sign in the registered coarse grid",
+    "left_kernel_transversality_evaluated": false,
+    "daughter_correction_attempted": false,
+    "daughter_existence_proved": false,
+    "full_system_derivative_claimed": false
+  },
+  "state": "partial_checkpoint",
+  "scientific_status": "unprocessed",
+  "phase": "identify",
+  "restriction": "synchronized fixed-energy pronk, BL-marked apex",
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "settings": {
+    "scan_points": 24,
+    "wall_seconds": 240,
+    "maximum_connections": 5,
+    "energy_bracket_tolerance": 1E-8,
+    "amplitudes": [
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "registration": "before parent-only pronk scan; no domain change",
+    "validation_version": "parent-only-pronk-validation-v3-2",
+    "relative_tolerance": 1E-11,
+    "absolute_tolerance": 1E-13,
+    "replay_relative_tolerance": 2E-12,
+    "replay_absolute_tolerance": 2E-14,
+    "derivative_step": 0.0001,
+    "derivative_relative_error": 0.001,
+    "transversality_energy_step": 0.0001,
+    "root_function_tolerance": 1E-12,
+    "root_residual_tolerance": 1E-10,
+    "full_closure_tolerance": 1E-8,
+    "replay_period_tolerance": 1E-8,
+    "kernel_gap_factor": 25,
+    "kernel_zero_factor": 10,
+    "transversality_factor": 5,
+    "minimum_signed_amplitudes": 3,
+    "minimum_critical_alignment": 0.995,
+    "energy_scaling_relative_tolerance": 0.15,
+    "trajectory_distinction_tolerance": 1E-6,
+    "synchronization_tolerance": 1E-9,
+    "signed_reflection_tolerance": 1E-7,
+    "validation_registration": "v2 validation settings frozen before rerun; larger amplitude and tighter replay improve numerical evidence; registered domain and physical parameters unchanged"
+  },
+  "parent_samples": [
+    {
+      "energy": 1.0001,
+      "matrix": [
+        [
+          1.5347487115268947,
+          -1.1423475373782717,
+          -0.016176809160414574
+        ],
+        [
+          -1.2032645960170691,
+          1.5444562316115105,
+          0.021871079425967124
+        ],
+        [
+          -1.1802538396585971,
+          0.685509848625118,
+          0.0097075202369646934
+        ]
+      ],
+      "reliable": true,
+      "singular_values": [
+        2.26775936420077,
+        0.83930740730726761,
+        0.57651106343023584
+      ],
+      "multipliers_real": [
+        2.7250210648582835,
+        0.36389139865779968,
+        -1.4071142950083402E-10
+      ],
+      "multipliers_imaginary": [
+        0,
+        0,
+        0
+      ],
+      "determinant": 1.0973007370072383
+    },
+    {
+      "energy": 1.0223216666666666,
+      "matrix": [
+        [
+          1.4409237691950512,
+          -0.76408009556689083,
+          -0.23636959401900962
+        ],
+        [
+          -0.71291656262184289,
+          0.60063467016064143,
+          0.18580744856947576
+        ],
+        [
+          2.2487492746502427,
+          -2.7162891975095835,
+          -0.84028909900693838
+        ]
+      ],
+      "reliable": true,
+      "singular_values": [
+        4.0798431706395837,
+        0.82798139463802045,
+        0.1657125020370491
+      ],
+      "multipliers_real": [
+        1.4487355912720361,
+        8.9508358969705114E-10,
+        -0.24746625181836709
+      ],
+      "multipliers_imaginary": [
+        0,
+        0,
+        0
+      ],
+      "determinant": 0.55978250560057563
+    },
+    {
+      "energy": 1.0445433333333334,
+      "matrix": [
+        [
+          1.4617113835240991,
+          -0.34415915973067263,
+          -0.3200371117504397
+        ],
+        [
+          -0.44820576535674417,
+          0.13254570887592018,
+          0.12325560622681934
+        ],
+        [
+          3.0694754205786463,
+          -1.4293484240872445,
+          -1.3291656732263686
+        ]
+      ],
+      "reliable": true,
+      "singular_values": [
+        4.1614442504015141,
+        0.98623443664032284,
+        0.045347289366358415
+      ],
+      "multipliers_real": [
+        1.1013539775683197,
+        -1.0093154859676586E-10,
+        -0.83626255829373852
+      ],
+      "multipliers_imaginary": [
+        0,
+        0,
+        0
+      ],
+      "determinant": 0.18611251416163341
+    },
+    {
+      "energy": 1.066765,
+      "matrix": [
+        [
+          1.4885678853302577,
+          0.10284695563458353,
+          -0.3622428087115695
+        ],
+        [
+          -0.22365099631852145,
+          -0.0092847378436801,
+          0.032702275948415439
+        ],
+        [
+          3.4199054949304108,
+          0.42526608748396105,
+          -1.4978526215628207
+        ]
+      ],
+      "reliable": true,
+      "singular_values": [
+        4.3116527057714826,
+        0.987769773205126,
+        0.00867149332105654
+      ],
+      "multipliers_real": [
+        0.98153536884153159,
+        3.7460218927131608E-11,
+        -1.0001048429552339
+      ],
+      "multipliers_imaginary": [
+        0,
+        0,
+        0
+      ],
+      "determinant": -0.036931198202051756
+    },
+    {
+      "energy": 1.0889866666666665,
+      "matrix": [
+        [
+          1.5159248101769718,
+          0.54735833541958778,
+          -0.37452037111576625
+        ],
+        [
+          -0.027323276043207455,
+          0.072160740944691756,
+          -0.049374725711763844
+        ],
+        [
+          3.5057736580776315,
+          2.1100488982570895,
+          -1.4437640667287923
+        ]
+      ],
+      "reliable": true,
+      "singular_values": [
+        4.8531367231441971,
+        0.85515191169372839,
+        0.02514843980990741
+      ],
+      "multipliers_real": [
+        0.94193968501481451,
+        -6.6230413156626129E-10,
+        -0.79761819995963912
+      ],
+      "multipliers_imaginary": [
+        0,
+        0,
+        0
+      ],
+      "determinant": -0.10437027898188272
+    }
+  ],
+  "sample_energies": [
+    1.0001,
+    1.0223216666666666,
+    1.0445433333333334,
+    1.066765,
+    1.0889866666666665,
+    1.1112083333333334,
+    1.13343
+  ],
+  "next_sample": 6,
+  "bracket": [
+    1.0001,
+    1.13343
+  ],
+  "refinement_iterations": 0,
+  "critical_energy": null,
+  "critical_derivatives": [],
+  "transversality_samples": [],
+  "predictions": {},
+  "amplitudes": [],
+  "next_amplitude": 1,
+  "continuations": [],
+  "next_continuation": 1,
+  "failure": {},
+  "elapsed_seconds": 109.98960145833334,
+  "function_evaluations": 65,
+  "new_points": 0
+}

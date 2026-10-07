@@ -1,0 +1,695 @@
+{
+  "schema_version": "source-correction-round-v3-1",
+  "state": "retryable_failure",
+  "scientific_status": "selected_source_neighborhood_unresolved",
+  "study": "P1",
+  "repair_round": "A",
+  "source": {
+    "study": "P1_Breaking_Symmetries_Leads_to_Diverse_Qudrupedal_Gaits",
+    "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/GE_HE_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+    "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/04_refined_candidates.mat",
+    "sha256": "f7862dcb306865753517ff64c31342c7da365de2640b6effcd2e0182a7a9fbd9",
+    "bytes": 342154,
+    "source_head": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+    "policy": "v2-exact",
+    "label_is_source_only": true
+  },
+  "variable": "refinementReport.Payload(1).CriticalSolution+Refinement.parameters",
+  "selected_columns": 1,
+  "next_column_index": 2,
+  "observations": {
+    "column": 1,
+    "repair_revision": 0,
+    "state": "retryable_failure",
+    "evidence_label": "unresolved_incompatibility",
+    "source_energy": 19.721002267057987,
+    "source_period": 1.3240796112241764,
+    "source_initial_speed": 6.1362228798737135,
+    "direct_residual": null,
+    "final_closure": null,
+    "accepted": false,
+    "correction_norm": null,
+    "target_model_parameters": true,
+    "accepted_in_registered_domain": false,
+    "retraction_norm": 0,
+    "rephase_time": 0,
+    "return_occurrence": 1,
+    "symmetry": "none",
+    "feasibility_predictor": {},
+    "failure_category": "mapping_or_physical_manifold",
+    "initial_physics": {
+      "context": "accepted-state",
+      "context_policy": {
+        "strict_accepted_state_checks": true,
+        "allows_transient_event_surface_overshoot": false
+      },
+      "mode": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "absolute_leg_angles": [
+        -0.78393164646320135,
+        -0.27434018807413285,
+        0.5557771153858746,
+        0.55577711491008008
+      ],
+      "hip_heights": [
+        0.89011831449361745,
+        0.89011831449361745,
+        0.89759978880027613,
+        0.89759978880027613
+      ],
+      "hip_clearances": [
+        0.89011831449361745,
+        0.89011831449361745,
+        0.89759978880027613,
+        0.89759978880027613
+      ],
+      "hip_clearance_margins": [
+        0.89011831449361745,
+        0.89011831449361745,
+        0.89759978880027613,
+        0.89759978880027613
+      ],
+      "torso_endpoint_heights": [
+        0.89011831449361745,
+        0.89759978880027613
+      ],
+      "torso_clearance": 0.89011831449361745,
+      "torso_clearance_margin": 0.89011831449361745,
+      "swing_foot_clearances": [
+        0.18197530998705358,
+        -0.0724858435323038,
+        0.048109100866261745,
+        0.048109100615230771
+      ],
+      "swing_foot_margins": [
+        0.18197531998705357,
+        -0.072485833532303812,
+        0.048109110866261746,
+        0.048109110615230773
+      ],
+      "minimum_swing_foot_clearance": -0.0724858435323038,
+      "minimum_swing_foot_margin": -0.072485833532303812,
+      "leg_lengths": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "stance_leg_lengths": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "stance_compressions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "stance_compression_margins": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "minimum_stance_compression": null,
+      "minimum_stance_compression_margin": null,
+      "leg_length_margins": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "minimum_leg_length": null,
+      "minimum_leg_length_margin": null,
+      "complementarity_residuals": [
+        0,
+        0.0724858435323038,
+        0,
+        0
+      ],
+      "complementarity_margins": [
+        1E-8,
+        -0.072485833532303812,
+        1E-8,
+        1E-8
+      ],
+      "minimum_complementarity_margin": -0.072485833532303812,
+      "minimum_hip_clearance": 0.89011831449361745,
+      "minimum_hip_clearance_margin": 0.89011831449361745,
+      "downward_orientation_margins": [
+        0.70814300450656387,
+        0.96260415802592125,
+        0.84949068793401439,
+        0.84949068818504536
+      ],
+      "finite_geometry_per_leg": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "per_leg_validity": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "per_leg_failure_reasons": [
+        [],
+        [
+          "swing_foot_penetration:BR",
+          "contact_complementarity_loss:BR"
+        ],
+        [],
+        []
+      ],
+      "per_leg_minimum_physical_margin": [
+        1E-8,
+        -0.072485833532303812,
+        1E-8,
+        1E-8
+      ],
+      "global_validity": false,
+      "strict_global_validity": false,
+      "minimum_physical_margin": -0.072485833532303812,
+      "failure_reasons": [
+        "swing_foot_penetration:BR",
+        "contact_complementarity_loss:BR"
+      ],
+      "post_reset_consistency_evaluated": false,
+      "post_reset_guard_residuals": [],
+      "post_reset_guard_consistent": [],
+      "post_reset_mode_consistent": [],
+      "active_tolerances": {
+        "swing_penetration": 1E-8,
+        "stance_tension": 1E-8,
+        "minimum_leg_length": 1E-8,
+        "minimum_back_hip_height": 0,
+        "minimum_front_hip_height": 0,
+        "minimum_torso_clearance": 0,
+        "complementarity": 1E-8,
+        "post_reset_guard": 1E-7,
+        "geometry": 1E-10,
+        "minimum_downward_cosine": 0,
+        "ode_stage_surface": 1E-5
+      },
+      "active_checks": {
+        "back_hip_clearance": true,
+        "front_hip_clearance": true,
+        "torso_ground_intersection": true,
+        "finite_geometry": true,
+        "post_reset_guard_consistency": true,
+        "mode_guard_complementarity": true,
+        "downward_leg_orientation": true
+      },
+      "admissible": false,
+      "admissibility_margins": [
+        1E-8,
+        -0.072485833532303812,
+        1E-8,
+        1E-8
+      ],
+      "minimum_stance_admissibility_margin": null,
+      "stance_admissibility_margins": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "invalid_stance_legs": [],
+      "invalid_swing_legs": 2
+    },
+    "first_divergence": {
+      "found": true,
+      "cluster_index": 1,
+      "scheduled": {
+        "time": 0.46457744594837719,
+        "types": "FL_TD+FR_TD"
+      },
+      "actual": {},
+      "time_difference": null,
+      "reason": "available autonomous and source event histories have different cluster counts"
+    },
+    "primary_failure": {
+      "identifier": "ContinuousDynamics_v3:PhysicallyInadmissible",
+      "message": "Quadruped section-return is physically inadmissible: swing_foot_penetration:BR, contact_complementarity_loss:BR.",
+      "phase": "direct_replay"
+    },
+    "solver_summary": {
+      "accepted": false,
+      "primary_failure": {
+        "identifier": "ContinuousDynamics_v3:PhysicallyInadmissible",
+        "message": "Quadruped section-return is physically inadmissible: swing_foot_penetration:BR, contact_complementarity_loss:BR."
+      },
+      "replay_failure": {},
+      "initial_scaled_norm": null,
+      "final_scaled_norm": null,
+      "initial_physical_norm": null,
+      "final_physical_norm": null,
+      "full_closure": null
+    },
+    "gait": "unresolved",
+    "flight_count": null,
+    "artifact": "column_00001_revision_000_correction.mat",
+    "converted_artifact": "column_00001_revision_000_converted.mat"
+  },
+  "accepted_count": 0,
+  "source_column_count": 1,
+  "completed_source_columns": 1,
+  "untested_source_columns": [],
+  "diagnostic_method": "direct conversion + fixed-energy correction and quantitative trace",
+  "wall_seconds": 0.42536754166666668,
+  "function_evaluations": 0,
+  "new_points": 0,
+  "last_repair_revision": 0,
+  "diagnosed_repairs": [],
+  "ancestry_claimed": false,
+  "family_nonexistence_claimed": false,
+  "family_switch": {
+    "schema_version": "family-sector-correction-v3-1",
+    "study": "P1",
+    "state": "accepted",
+    "phase": "executed_signed_sector_trials",
+    "parent_seed": {
+      "state": [
+        0,
+        6.1362228798737135,
+        0.89385905164694679,
+        -1.6851568109389657E-19,
+        0.0074815441011674977,
+        -0.022969537832019504,
+        -0.79141319056436887,
+        4.1934833176441728,
+        -0.28182173217530032,
+        5.2393914109369577,
+        0.54829557128470707,
+        4.8006216942124951,
+        0.54829557080891256,
+        4.8006216952043728
+      ],
+      "mode": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "period_estimate": 1.3240796112241764,
+      "provenance": {
+        "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/GE_HE_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+        "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/04_refined_candidates.mat",
+        "source_sha256": "f7862dcb306865753517ff64c31342c7da365de2640b6effcd2e0182a7a9fbd9",
+        "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+        "historical_fixture_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+        "variable": "refinementReport.Payload(1).CriticalSolution+Refinement.parameters",
+        "column": 1,
+        "repair_round": "A",
+        "source_schedule_is_predictor_only": true
+      },
+      "scheduled_events_diagnostic_only": [
+        {
+          "type": "FL_TD",
+          "time": 0.46457744594837719
+        },
+        {
+          "type": "FR_TD",
+          "time": 0.46457744602908208
+        },
+        {
+          "type": "BR_TD",
+          "time": 0.60225100049424585
+        },
+        {
+          "type": "FL_LO",
+          "time": 0.67648148717731849
+        },
+        {
+          "type": "FR_LO",
+          "time": 0.67648148726417534
+        },
+        {
+          "type": "BL_TD",
+          "time": 0.69612502309164292
+        },
+        {
+          "type": "BR_LO",
+          "time": 0.81929143420776152
+        },
+        {
+          "type": "BL_LO",
+          "time": 0.906182788201278
+        }
+      ],
+      "source_state_unmodified": true,
+      "return_policy": "BL-marked-apex-return",
+      "occurrence": 1
+    },
+    "parent_descriptive_label": "HB_hind",
+    "parent_independently_admitted": false,
+    "parent_source_artifact": "column_00001_revision_000_correction.mat",
+    "predictions": [
+      {
+        "sector_index": 1,
+        "target_label": "GP",
+        "target_positive_duration_flights": 1,
+        "signed_amplitude": -0.001,
+        "independent_indices": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "reference": [
+          6.1362228798737135,
+          0.89385905164694679,
+          0.0074815441011674977,
+          -0.022969537832019504,
+          -0.79141319056436887,
+          4.1934833176441728,
+          -0.28182173217530032,
+          5.2393914109369577,
+          0.54829557128470707,
+          4.8006216942124951,
+          0.54829557080891256,
+          4.8006216952043728,
+          19.721002267057987
+        ],
+        "normal": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.70710678118654746,
+          0,
+          -0.70710678118654746,
+          0,
+          0
+        ],
+        "seed_state": [
+          0,
+          6.1362228798737135,
+          0.89385905164694679,
+          -1.6851568109389657E-19,
+          0.0074815441011674977,
+          -0.022969537832019504,
+          -0.79141319056436887,
+          4.1934833176441728,
+          -0.28182173217530032,
+          5.2393914109369577,
+          0.5475884645035205,
+          4.8006216942124951,
+          0.54900267759009913,
+          4.8006216952043728
+        ],
+        "frozen_utc": "07-Oct-2026 12:52:29",
+        "direction_origin": "fixed-parameter leg symmetry sector; no critical eigenvector claim"
+      },
+      {
+        "sector_index": 1,
+        "target_label": "GP",
+        "target_positive_duration_flights": 1,
+        "signed_amplitude": 0.001,
+        "independent_indices": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "reference": [
+          6.1362228798737135,
+          0.89385905164694679,
+          0.0074815441011674977,
+          -0.022969537832019504,
+          -0.79141319056436887,
+          4.1934833176441728,
+          -0.28182173217530032,
+          5.2393914109369577,
+          0.54829557128470707,
+          4.8006216942124951,
+          0.54829557080891256,
+          4.8006216952043728,
+          19.721002267057987
+        ],
+        "normal": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.70710678118654746,
+          0,
+          -0.70710678118654746,
+          0,
+          0
+        ],
+        "seed_state": [
+          0,
+          6.1362228798737135,
+          0.89385905164694679,
+          -1.6851568109389657E-19,
+          0.0074815441011674977,
+          -0.022969537832019504,
+          -0.79141319056436887,
+          4.1934833176441728,
+          -0.28182173217530032,
+          5.2393914109369577,
+          0.54900267806589365,
+          4.8006216942124951,
+          0.547588464027726,
+          4.8006216952043728
+        ],
+        "frozen_utc": "07-Oct-2026 12:52:29",
+        "direction_origin": "fixed-parameter leg symmetry sector; no critical eigenvector claim"
+      }
+    ],
+    "next_trial": 3,
+    "trials": [
+      {
+        "prediction": {
+          "sector_index": 1,
+          "target_label": "GP",
+          "target_positive_duration_flights": 1,
+          "signed_amplitude": -0.001,
+          "independent_indices": [
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "reference": [
+            6.1362228798737135,
+            0.89385905164694679,
+            0.0074815441011674977,
+            -0.022969537832019504,
+            -0.79141319056436887,
+            4.1934833176441728,
+            -0.28182173217530032,
+            5.2393914109369577,
+            0.54829557128470707,
+            4.8006216942124951,
+            0.54829557080891256,
+            4.8006216952043728,
+            19.721002267057987
+          ],
+          "normal": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.70710678118654746,
+            0,
+            -0.70710678118654746,
+            0,
+            0
+          ],
+          "seed_state": [
+            0,
+            6.1362228798737135,
+            0.89385905164694679,
+            -1.6851568109389657E-19,
+            0.0074815441011674977,
+            -0.022969537832019504,
+            -0.79141319056436887,
+            4.1934833176441728,
+            -0.28182173217530032,
+            5.2393914109369577,
+            0.5475884645035205,
+            4.8006216942124951,
+            0.54900267759009913,
+            4.8006216952043728
+          ],
+          "frozen_utc": "07-Oct-2026 12:52:29",
+          "direction_origin": "fixed-parameter leg symmetry sector; no critical eigenvector claim"
+        },
+        "accepted_periodic_orbit": false,
+        "target_model_parameters": false,
+        "accepted_in_registered_domain": false,
+        "target_gait_recovered": false,
+        "descriptive_label": "unresolved",
+        "physical_flight_count": null,
+        "full_closure": null,
+        "amplitude_constraint_error": null,
+        "primary_failure": {
+          "identifier": "ContinuousDynamics_v3:PhysicallyInadmissible",
+          "message": "Quadruped section-return is physically inadmissible: swing_foot_penetration:BR, contact_complementarity_loss:BR."
+        },
+        "replay_failure": {},
+        "artifact": "sector_01_signed_-0.001.mat",
+        "ancestry_claimed": false,
+        "parent_independently_admitted": false
+      },
+      {
+        "prediction": {
+          "sector_index": 1,
+          "target_label": "GP",
+          "target_positive_duration_flights": 1,
+          "signed_amplitude": 0.001,
+          "independent_indices": [
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "reference": [
+            6.1362228798737135,
+            0.89385905164694679,
+            0.0074815441011674977,
+            -0.022969537832019504,
+            -0.79141319056436887,
+            4.1934833176441728,
+            -0.28182173217530032,
+            5.2393914109369577,
+            0.54829557128470707,
+            4.8006216942124951,
+            0.54829557080891256,
+            4.8006216952043728,
+            19.721002267057987
+          ],
+          "normal": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.70710678118654746,
+            0,
+            -0.70710678118654746,
+            0,
+            0
+          ],
+          "seed_state": [
+            0,
+            6.1362228798737135,
+            0.89385905164694679,
+            -1.6851568109389657E-19,
+            0.0074815441011674977,
+            -0.022969537832019504,
+            -0.79141319056436887,
+            4.1934833176441728,
+            -0.28182173217530032,
+            5.2393914109369577,
+            0.54900267806589365,
+            4.8006216942124951,
+            0.547588464027726,
+            4.8006216952043728
+          ],
+          "frozen_utc": "07-Oct-2026 12:52:29",
+          "direction_origin": "fixed-parameter leg symmetry sector; no critical eigenvector claim"
+        },
+        "accepted_periodic_orbit": false,
+        "target_model_parameters": false,
+        "accepted_in_registered_domain": false,
+        "target_gait_recovered": false,
+        "descriptive_label": "unresolved",
+        "physical_flight_count": null,
+        "full_closure": null,
+        "amplitude_constraint_error": null,
+        "primary_failure": {
+          "identifier": "ContinuousDynamics_v3:PhysicallyInadmissible",
+          "message": "Quadruped section-return is physically inadmissible: swing_foot_penetration:BR, contact_complementarity_loss:BR."
+        },
+        "replay_failure": {},
+        "artifact": "sector_01_signed_+0.001.mat",
+        "ancestry_claimed": false,
+        "parent_independently_admitted": false
+      }
+    ],
+    "accepted_count": 0,
+    "function_evaluations": 0,
+    "hypothesis": "signed physical symmetry-sector correction; no branch point or ancestry presumed",
+    "ancestry_claimed": false,
+    "regular_bifurcation_claimed": false
+  },
+  "requested_network": [
+    "PK",
+    "BD",
+    "HB_front",
+    "HB_hind",
+    "GP"
+  ],
+  "phase_count_target": 1,
+  "family_specific_method": "P1 source/critical neighborhoods; physical unconstrained left/right directions after paired source correction"
+}

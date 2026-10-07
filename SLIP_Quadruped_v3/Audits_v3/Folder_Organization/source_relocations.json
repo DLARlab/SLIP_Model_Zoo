@@ -1,0 +1,790 @@
+{
+  "schema_version": "v3-source-path-relocation-1",
+  "scope": "Filename resolution, MATLAB path bootstrap, root discovery, and historical source hash compatibility only; pure numerical modules were moved byte-for-byte. The protection driver uses a separate explicit cleanup epoch, verified against the unchanged original protected manifest.",
+  "records": [
+    {
+      "old_path": "Examples_v3/QuadrupedalContinuationStudy_v3.m",
+      "new_path": "4_Solution_Management/Examples_v3/QuadrupedalContinuationStudy_v3.m",
+      "before_sha256": "7eff570e26df6158f654f451d78d075ec75e448247961298d3c202303107cd4b",
+      "after_sha256": "658341b57b8dd41909b5366cfcfcff03dd48e25f831d05da46e2c09b1708fe8a",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Examples_v3/QuadrupedalContinuationStudy_v3.m.txt"
+    },
+    {
+      "old_path": "Examples_v3/QuadrupedalExample_v3.m",
+      "new_path": "4_Solution_Management/Examples_v3/QuadrupedalExample_v3.m",
+      "before_sha256": "403cfa2dc41373ecb70f00be4c28355258e2b4da5497e92382724db6ea83890b",
+      "after_sha256": "2de5259acea2d76bdff7eb864a5aafea1f0648ad229a995820046966945fc3af",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Examples_v3/QuadrupedalExample_v3.m.txt"
+    },
+    {
+      "old_path": "Examples_v3/QuadrupedalGraphicsExample_v3.m",
+      "new_path": "4_Solution_Management/Examples_v3/QuadrupedalGraphicsExample_v3.m",
+      "before_sha256": "6a9276169d27ae84010d7401a0f731f4b0a285a2a439ed1259979e618c97277c",
+      "after_sha256": "428e9e8bd565740c68b02e5957171ed52dfe72dbadf3dc2a69999a7af8cb3a14",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Examples_v3/QuadrupedalGraphicsExample_v3.m.txt"
+    },
+    {
+      "old_path": "GUI_v3/QuadrupedGUIController_v3.m",
+      "new_path": "2_Graphic_ToolBox/GUI_v3/QuadrupedGUIController_v3.m",
+      "before_sha256": "0d5212c210b26df42027c028b36266f2c3e3af03ec6a0663dbfe4eb78ad8f268",
+      "after_sha256": "f01304198bd4c11916367c4addb8037f9aad4cc52243491df5911affff7f0ead",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/GUI_v3/QuadrupedGUIController_v3.m.txt"
+    },
+    {
+      "old_path": "GUI_v3/capture_gui_parity_v3.m",
+      "new_path": "2_Graphic_ToolBox/GUI_v3/capture_gui_parity_v3.m",
+      "before_sha256": "6fee89d28e9a857c1dab77631fef2e252bccb4dcf1ab65d99bb435703d8cacf0",
+      "after_sha256": "c8c23442dc6cc0a013142745231b0c6ac5d401a539e58d9d929777d4b96d739a",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/GUI_v3/capture_gui_parity_v3.m.txt"
+    },
+    {
+      "old_path": "GUI_v3/run_gui_workflow_v3.m",
+      "new_path": "2_Graphic_ToolBox/GUI_v3/run_gui_workflow_v3.m",
+      "before_sha256": "b322cc2fd8191709a3afca1dac24a79ef8617889df60ffd69f224b851da73057",
+      "after_sha256": "8e59637608d2468887996da9fccf3347c5d0752d720c231c7ca4af7eab39dc85",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/GUI_v3/run_gui_workflow_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/AppendCriticalRoundSources_v3.m",
+      "new_path": "Research_v3/Drivers_v3/AppendCriticalRoundSources_v3.m",
+      "before_sha256": "2a673c1dc703fe16da60822c3daca00dc87d3fecb063a390d1b54bce1788fa7e",
+      "after_sha256": "00738fd623355c2b9f51e51d0f3bf992229358e38918ded355605bf95a2452f2",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/AppendCriticalRoundSources_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/AuditPronkAttachments_v3.m",
+      "new_path": "Research_v3/Drivers_v3/AuditPronkAttachments_v3.m",
+      "before_sha256": "4bb912d1bfacc0f71ee5e2cbb50668cec351213cbe434f2970b8ac73c830826a",
+      "after_sha256": "2524d82f335f249274c36ff146cea38335a200d8ca31ea2396873eb38a3e6a0b",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/AuditPronkAttachments_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/AuditRoundPredictor_v3.m",
+      "new_path": "Research_v3/Drivers_v3/AuditRoundPredictor_v3.m",
+      "before_sha256": "8149e8dd54eb42322f86eecefaba4ba80ddab6056ea6ad69ee3534293c4ea82d",
+      "after_sha256": "b47cd6562cbf35f47dc01f73bf71779361e9df1dd2e9fe80d2e5177be4497b71",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/AuditRoundPredictor_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/DiscoverPronkFromPIP_v3.m",
+      "new_path": "Research_v3/Drivers_v3/DiscoverPronkFromPIP_v3.m",
+      "before_sha256": "b256eeca155645edf646227ddeb8071d88f1c373491a99f5946ece0d2a4fa607",
+      "after_sha256": "6116d5eb6e6c843d9a44749d5c541ba767508f57ec50fb7263f2a601195f275f",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/DiscoverPronkFromPIP_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/ExportOrganizedBranches_v3.m",
+      "new_path": "Research_v3/Drivers_v3/ExportOrganizedBranches_v3.m",
+      "before_sha256": "74c7f34b77b271502c7b806034f842f905031b181b3da12463bd76da8706f586",
+      "after_sha256": "571689f652f38b772a06a73b2e921f0023645a38573c70397db24d0686cfdf87",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/ExportOrganizedBranches_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/ExportResearchEvidence_v3.m",
+      "new_path": "Research_v3/Drivers_v3/ExportResearchEvidence_v3.m",
+      "before_sha256": "32e109b8a23f4d3a8dae5ff875bd9c5e778c2e6c537ca166e7ac961ebfd15be2",
+      "after_sha256": "245dbc83ff7d736896e6bbea8a6dc0d2c386de23e06f8bce15eec21fd228c039",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/ExportResearchEvidence_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/ExportResearchRound_v3.m",
+      "new_path": "Research_v3/Drivers_v3/ExportResearchRound_v3.m",
+      "before_sha256": "3899d446172e6396bfc1a271f253de98490b1aeb34b7bd6433910b7dd8734a5c",
+      "after_sha256": "24394ccbc6f35db780722ee3e59187cd8ae4ae4421da4f71ca40af0c504bd0a9",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/ExportResearchRound_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/ExportSourcePhaseAudit_v3.m",
+      "new_path": "Research_v3/Drivers_v3/ExportSourcePhaseAudit_v3.m",
+      "before_sha256": "06b5d1e81fcb24d6f2426c4c848b93440491e0f6c09b17e9d065f13d20cd6d25",
+      "after_sha256": "17fb59bf67355272bd88b2ab7476273708dc7766b9cc4251c6f57035cbe3c1e1",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/ExportSourcePhaseAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/ExtendRoundBranch_v3.m",
+      "new_path": "Research_v3/Drivers_v3/ExtendRoundBranch_v3.m",
+      "before_sha256": "89f4fb0464abaa988810a312cc0496c25e9d0d87e3c91730e4f07f791e7d5007",
+      "after_sha256": "ddfee04a750b3f31f24ebc0732d1a22295ca5be0898eb58c5bc96881f5fd580d",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/ExtendRoundBranch_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/ProcessPIPCandidateQueue_v3.m",
+      "new_path": "Research_v3/Drivers_v3/ProcessPIPCandidateQueue_v3.m",
+      "before_sha256": "ce756a640de1645334e4e5ff7b774a8cbcfce101b3f3eb40d4dbaa39d33a56fa",
+      "after_sha256": "7c1a9736417366952300a0d5b1c6f595e7cad10be4f4c595e5141823effc566d",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/ProcessPIPCandidateQueue_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RecordResearchInterruption_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RecordResearchInterruption_v3.m",
+      "before_sha256": "091d8a4bfd0ef0ef4b1156996329700cfe3f23b82e6dab07dd2f95b8ffa9f181",
+      "after_sha256": "f34401aec4938f8cd85afbb63dc4df78469d9df9ea393cf028e1f7d5ce2955b6",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RecordResearchInterruption_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RecoverRoundSource_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RecoverRoundSource_v3.m",
+      "before_sha256": "bc7e888af9fb87b4aae6e30cfce9a479549ee4e7ae6faebdf6a2d9a11eb7e7a2",
+      "after_sha256": "fc876038c5655b24a40bd075e50d641fa460e7d09da52ee90474d66f6f767735",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RecoverRoundSource_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterOpposedSpreadCampaign_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterOpposedSpreadCampaign_v3.m",
+      "before_sha256": "f142eff8bd572324cd3307c22f42513bec9e6aa2e1a8fb1c2175c12258e41082",
+      "after_sha256": "7179f7a0b4e5881b1a3fe3a404e5eff983f396f038d72ae0019b70d2060f0215",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterOpposedSpreadCampaign_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterOpposedSpreadReplayRepair_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterOpposedSpreadReplayRepair_v3.m",
+      "before_sha256": "67ccdf2ce51b67cbc2bb2c7ae5d9f00bdbcbc81ddebc9735a1ffc1c89a74e24c",
+      "after_sha256": "9b4462ac8962478bcb96f78d7cd1f674125d0deb655e62f70b2d87d9ae9b6812",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterOpposedSpreadReplayRepair_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair02_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair02_v3.m",
+      "before_sha256": "660bb11d90e9106dc74aa0a70017b964d9dce3315152c3841601ddd5484f950d",
+      "after_sha256": "4e134f19656094858bea8a17bafaeb2750c76faee4094b3e14cf4400cd939223",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair02_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair_v3.m",
+      "before_sha256": "a89d62e22c26d697ba2d8bf8f1832bc20722dc64c6e34e1f9d827860f7a0f18a",
+      "after_sha256": "f86e6092d6c4ac26fb9c29c62fa61abb90eff0691c7c6b1ca5a54c5bf96b6ffc",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterPhasePreservingWarmWrappers_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterPhasePreservingWarmWrappers_v3.m",
+      "before_sha256": "32ffd72b2e58e60b2b38f0177616f640bee3085e34fd666846e73912f5ca34f3",
+      "after_sha256": "4da94910da6f1fba4235b60d363a0be92cdc73625ce501341df3cae56928fc1b",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterPhasePreservingWarmWrappers_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterResearchDomainRevision_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterResearchDomainRevision_v3.m",
+      "before_sha256": "cdeed8c2e2cc5b4347c1a13f741ccd028f047a1afb5d76beb8402a8c98584d88",
+      "after_sha256": "ec3d03a83b7a1111b8d28273edce72ef4607e9d90d22d627be479f0e2848f5e3",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterResearchDomainRevision_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterResearchProfileRevision_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterResearchProfileRevision_v3.m",
+      "before_sha256": "1514c13369b20799a0dd3a38213c132176c4502311f1bdbf4fb4111fba143e6e",
+      "after_sha256": "d32b80e0f21300c6e6e716d91535a0ddfa594af7719a445c3d564d11e109cea5",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterResearchProfileRevision_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterResearchRepair_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterResearchRepair_v3.m",
+      "before_sha256": "bae7be5519aac626d953edad21dc16f9e839d5b8b355529c12156aa03820039b",
+      "after_sha256": "733b0bfc38dbc6242baaaa8bf9afd0f98420f835ba0463b607d3162ef4a97c9f",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterResearchRepair_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RegisterTwistedFrontRetry_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RegisterTwistedFrontRetry_v3.m",
+      "before_sha256": "79905af11084cc9e1f9c3dbf9940813ec03104ec483fc73bdc55e03f7304c877",
+      "after_sha256": "ab48c875eb80f1d14691199219e474117576b2f09e825c96e64f2ff278eed25c",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RegisterTwistedFrontRetry_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RepackCampaignCheckpoints_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RepackCampaignCheckpoints_v3.m",
+      "before_sha256": "80cbcfde71aaacb685413a781e9b7d03c1cc711c120a6c00b66e1ddf0a43bf52",
+      "after_sha256": "5bc5babfcce2a1c6ad4f3e9d40173a069948c3ab919694155ec5c0e0ee63530f",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RepackCampaignCheckpoints_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/ResolveResearchRoundConfig_v3.m",
+      "new_path": "Research_v3/Drivers_v3/ResolveResearchRoundConfig_v3.m",
+      "before_sha256": "df58b8645ec293da19326a11a23d5b52a5b397688066c2f9f3e6ef4c4689dee9",
+      "after_sha256": "3e2c58b905770d30f15535de4c57d371ac4300ec424b06ee48027cbf1e0b40fa",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/ResolveResearchRoundConfig_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundAcceptedSeeds_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundAcceptedSeeds_v3.m",
+      "before_sha256": "0799e16b3b214e0362888fd81ad3fc0fbd17d91b8c5f3e33dd238f448599330d",
+      "after_sha256": "4cbd4e156b02d69ed43da3f651d71d7f9e4369d9518903790709ea4bb4139e8d",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundAcceptedSeeds_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundAdditionalCandidates_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundAdditionalCandidates_v3.m",
+      "before_sha256": "16f4c34c3986f1b79bba02c68f10471e06c80949a30714441044a7be3599a494",
+      "after_sha256": "72275941efa52402509aee60f08fe3bf610b3c8f643a150551c3efd50ea74ab3",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundAdditionalCandidates_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundDomainRevisions_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundDomainRevisions_v3.m",
+      "before_sha256": "ddc1c7a5b75fb5c027d5fd0cd7b06778de088ff2996bbaada9bee7fa7421558d",
+      "after_sha256": "f9e8f69bff70215f61219edd13a29b0ff91a591ebab4b449119d7ac731f9f3a8",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundDomainRevisions_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundJSON_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundJSON_v3.m",
+      "before_sha256": "b952df91e09cc2ee30bd7769e76e0f38c331530c3dc45e30b501be3ef1d56c7d",
+      "after_sha256": "735bd4a4e58aae506f7e4e426a746ba40126c95e86b5deeddccf73dd5801d43d",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundJSON_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundPeriodTwoCandidates_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundPeriodTwoCandidates_v3.m",
+      "before_sha256": "0f04848634e5bd29e634c577ef5c696c1a709c60d71d04174bf815b26bda77b9",
+      "after_sha256": "ac1e2496e546dae50dee301d3b7146f7057e8af5d96e545918f9a81129f4c084",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundPeriodTwoCandidates_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundProfileRevisions_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundProfileRevisions_v3.m",
+      "before_sha256": "7bffce55da9fe782ec954283c71e61ba0041d9c06018ee77c5e027ba1bde2285",
+      "after_sha256": "2b746fff834328b8a376c48ffede937d7d15a396c2146f16e3ee54aea8138399",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundProfileRevisions_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundProtection_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundProtection_v3.m",
+      "before_sha256": "ceda6f72b888a6431e71c0d363a8992a8fc447bd6e6815b4884687c40a82b823",
+      "after_sha256": "12b5b3a8a486bd280eaf8475eaacc54b297064e1ccd38ef41782969d60052ded",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundProtection_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundSHA256_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundSHA256_v3.m",
+      "before_sha256": "f5924eca80c9d73bf7d55141745adb08e0ed051b1130f63a5b75554afae13432",
+      "after_sha256": "9267459be8c9dc6b21428bb0aecf5ff1a3b552aaeb8a27721822d5ccbcc5042e",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundSHA256_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundSave_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundSave_v3.m",
+      "before_sha256": "d623e8c5bc4f4e0fed514cd6fd37bb95728894222f70b35effac9016da41f8a9",
+      "after_sha256": "13367e5361d9e029e2af110bd81eb9791a96310a52b026b9beccc277482851a5",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundSave_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundSourceInventory_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundSourceInventory_v3.m",
+      "before_sha256": "3e3abb62eee99f342a356fd2a5e0ba6a826f84f21d3a49b8bc90d9607ad777ca",
+      "after_sha256": "5a9318fb2eb54f6f7c8ef9d354add38741ea5273828ab1cd1d37b6840e202fc1",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundSourceInventory_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundSourceMethods_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundSourceMethods_v3.m",
+      "before_sha256": "efdbe98763ca7aebc8765ad8de4bf4b2f718603c68beb50a01b5d4c0ef1e37f2",
+      "after_sha256": "04475d6ca1d55d77ac999748fd8546e766f50ed06f4d8da232fca9d577890c28",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundSourceMethods_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RoundTargetedCandidates_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RoundTargetedCandidates_v3.m",
+      "before_sha256": "cb00c5aec988e08bce375a6cea794a9f17c1b341b04c35972425ffd407547e67",
+      "after_sha256": "ebbfa4e09fa3f95cfcb8688c899c66c440609d3aaffc2e9ada1fa3bdd7f3b210",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RoundTargetedCandidates_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunFamilySectorCorrections_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunFamilySectorCorrections_v3.m",
+      "before_sha256": "d22c958194e78cdb6cb819edae70a6adc664fa58cb85c0482dcdd59532289586",
+      "after_sha256": "559d11b9a9c9812ad31a08952de84a5b63ea857f7c967a91bd823698eee68d22",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunFamilySectorCorrections_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunLandingPredictorAlternatives_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunLandingPredictorAlternatives_v3.m",
+      "before_sha256": "e31bc35634fc597bfdefcd07166ebb5cccc4d3666ac99c16e6a8f8b59b59017d",
+      "after_sha256": "ba225ec801c3ef6a715fbf46def6e8654eff4ede8ea8c6f4b80656913f785be0",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunLandingPredictorAlternatives_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunLowEnergyPKBridge_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunLowEnergyPKBridge_v3.m",
+      "before_sha256": "ae2c797604f3e87fc0a5e9b8b9650823938a2e319d4d407bec6d78c5b1e21bcc",
+      "after_sha256": "fc147c5657ddf25ba5c4215101fcf2d62e7e28ae61e1b36f8a1416408812d6a0",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunLowEnergyPKBridge_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m",
+      "before_sha256": "3778c100901f53bea68d63ff82909165b055dfeed1393e631c8995253a77b4b1",
+      "after_sha256": "8cdfddcda6fac3eeb91c0e18f3ef6e3411269202263c272a3adde1406910cc95",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunPIPAttachmentAccuracyRepair_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunPIPAttachmentAccuracyRepair_v3.m",
+      "before_sha256": "a530c15364976824fcf4d76030281d04fea63166ca517a5524d8ab191a14552e",
+      "after_sha256": "8dfc62d6d6d3d33cd30f7fdf7009fa2244f36778fc2758e66eb935460b196dd4",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunPIPAttachmentAccuracyRepair_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunPeriodTwoCandidate_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunPeriodTwoCandidate_v3.m",
+      "before_sha256": "c0235117b117875abb730ee9aedc996bfeb73af372770169b97b51810f5e2488",
+      "after_sha256": "1c34c4a58a1415f1aaa62ac842b1158413e9592d7b5bcb11239f1da8d406e21c",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunPeriodTwoCandidate_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunResearchCampaign_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunResearchCampaign_v3.m",
+      "before_sha256": "451cd5f7a943cc25ab35702138a2e1b180165a1b640e9b770168040a256245a9",
+      "after_sha256": "f8cdf7b5d9d0660c054ba03129e0b6a7a5a6798610543dc232064eae627d2511",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunResearchCampaign_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/RunTwistedFrontRetry_v3.m",
+      "new_path": "Research_v3/Drivers_v3/RunTwistedFrontRetry_v3.m",
+      "before_sha256": "25b67631a482fa562381795e4a4089cc7b210355cf3641d33ebf2b6fed0b7f0d",
+      "after_sha256": "dad117639337060fc7c2dafed6ab30e9254d5e991b574a24b2d12c3b81cf0949",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/RunTwistedFrontRetry_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/Drivers_v3/SourceTrialTrace_v3.m",
+      "new_path": "Research_v3/Drivers_v3/SourceTrialTrace_v3.m",
+      "before_sha256": "9fedd39bf66dc2caa75a4a7c48c1348203f64d4b4e6c81c5ae2febd2baeecfc0",
+      "after_sha256": "abb9dfdb81f5e0a0b1d6b7443d266e1f099c3f93cd685df2e6dba74ac691698a",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/Drivers_v3/SourceTrialTrace_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/FinalizeRestrictedConnectionGraph_v3.m",
+      "new_path": "Research_v3/next_round/FinalizeRestrictedConnectionGraph_v3.m",
+      "before_sha256": "492af2d3770b8dc5f6fa280d9b505d2a7ba9c39cc45b4655e9b348f9471c8c07",
+      "after_sha256": "56c43676c787040d24eeb5671b672ec6a6f2359fb2472e11b861de7558644345",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/FinalizeRestrictedConnectionGraph_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/FinalizeStandingReplayRepair_v3.m",
+      "new_path": "Research_v3/next_round/FinalizeStandingReplayRepair_v3.m",
+      "before_sha256": "15352ec99b4ea1e6fc56542a4bc1bbf2aba65323ed935d7060db09c53c8a0a34",
+      "after_sha256": "32ac7e3998102e23d17557816a2125b80bf38896276b92ffaf72558e7f1bada2",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/FinalizeStandingReplayRepair_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/FinalizeTargetedNetworkMethods_v3.m",
+      "new_path": "Research_v3/next_round/FinalizeTargetedNetworkMethods_v3.m",
+      "before_sha256": "6d9d3da464c6681803dea8738747792b39ee54972d622aac9d45797a195abe75",
+      "after_sha256": "71561bff7bd4db24f097fb1a97b63c31460393d1e8412096f4a4dfd5c49607ed",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/FinalizeTargetedNetworkMethods_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/audits/AuditFamilySectorRegistration_v3.m",
+      "new_path": "Research_v3/next_round/audits/AuditFamilySectorRegistration_v3.m",
+      "before_sha256": "ccffcebcbf2472a1f121cb4b34d02782004e1ee369255d8383ec1f57364377cc",
+      "after_sha256": "489ef6c61cc65c38a2c2e1422d4b5907d93e1e8af40855ad2a015dc094d78723",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/audits/AuditFamilySectorRegistration_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/report/ExportNextRoundCompletionAudit_v3.m",
+      "new_path": "Research_v3/next_round/report/ExportNextRoundCompletionAudit_v3.m",
+      "before_sha256": "4a860888a78f329ca80e7ced592155dab31cfa865cf378eadd2bc028f36bad97",
+      "after_sha256": "49f53cb076666f72f54aeef6822fca76e4a6b24b5b7dec92695b11fb6486adf7",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/report/ExportNextRoundCompletionAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/report/ExportScientificProgress_v3.m",
+      "new_path": "Research_v3/next_round/report/ExportScientificProgress_v3.m",
+      "before_sha256": "b5c9a1af8cbd83ae157110781ab78c3c9e06c79f11d6762ab4d1ae0f84ab8ef9",
+      "after_sha256": "c4e2b98f32ccf8088a2195be15de7a4d507f9915576894e5491c1ad699c2928e",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/report/ExportScientificProgress_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/AuditFinalMeasuredBL2_v3.m",
+      "new_path": "Research_v3/next_round/solver/AuditFinalMeasuredBL2_v3.m",
+      "before_sha256": "3cd09df8c3bfbe26de726884039db17144feb553020bd4f040859c0609fd71aa",
+      "after_sha256": "3057f5da844120ba77a0f19b306e6004f948a97fca251d4f12052511dbcaa5d6",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/AuditFinalMeasuredBL2_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/AuditFrontTwistedRetryForensics_v3.m",
+      "new_path": "Research_v3/next_round/solver/AuditFrontTwistedRetryForensics_v3.m",
+      "before_sha256": "7fd625c5f531a3016fba21c35de98529a6cc720dc5018bb8f49e94714a69e9bd",
+      "after_sha256": "b7e5e9f6b04ce2fa4106ee3d3994152269aaaaa14aae6a3e2b605997a09a1026",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/AuditFrontTwistedRetryForensics_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/AuditInitialJacobianReuse_v3.m",
+      "new_path": "Research_v3/next_round/solver/AuditInitialJacobianReuse_v3.m",
+      "before_sha256": "d00d228ea39b96e0fdb530814779dbb68d0dff2faebe3018b4ddf6ad4a853ed6",
+      "after_sha256": "f740e05d4aeea4e567174b82798fe49c0bab6421cf2339eda076b10aa58c2b1a",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/AuditInitialJacobianReuse_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/AuditPIPAttachmentStopping_v3.m",
+      "new_path": "Research_v3/next_round/solver/AuditPIPAttachmentStopping_v3.m",
+      "before_sha256": "8d00b87addbf5518d8f0c20e5015d4754e837ff2e737dde4ae75acf6fcd44fe5",
+      "after_sha256": "b18d68b5dd0dc59aca813c4f1bb83f7901d8fdd18601b1e58d8c699c2235c30c",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/AuditPIPAttachmentStopping_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/AuditRestrictedPIPParentMatrix_v3.m",
+      "new_path": "Research_v3/next_round/solver/AuditRestrictedPIPParentMatrix_v3.m",
+      "before_sha256": "910b1c5bb92e0640316a41b6677fad152f89107f6955aa1020b388896f2c6bb1",
+      "after_sha256": "6807d875813ac273fc1a24d28a64e1e3ea38cd200dc169ac0cedbe6100a91f47",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/AuditRestrictedPIPParentMatrix_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/AuditSourceLowerEnergy_v3.m",
+      "new_path": "Research_v3/next_round/solver/AuditSourceLowerEnergy_v3.m",
+      "before_sha256": "ad02b48e4aa1a189c0f570c8e0983ddc0159af934209017ce2f9880945fe82d4",
+      "after_sha256": "87ed2ff097a0c2f1572a674c97ef337ef853e37eed67077eb710cef6ac673897",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/AuditSourceLowerEnergy_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ExportOpposedSpreadAudit_v3.m",
+      "new_path": "Research_v3/next_round/solver/ExportOpposedSpreadAudit_v3.m",
+      "before_sha256": "c34a6ac55d132878fea811b7d5b0e20ae109c9c163d439e4b2cdd97cff6fedcc",
+      "after_sha256": "bcdbd73a969e84f492927a38f5d0bcba9a38988ea6a5abe83fb92b215a09eca6",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ExportOpposedSpreadAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ExportPeriodicSolverAudit_v3.m",
+      "new_path": "Research_v3/next_round/solver/ExportPeriodicSolverAudit_v3.m",
+      "before_sha256": "eb443e8d44fa342d744e3f2f44f3fe6916cd8f47984bbdc391acfa039894f113",
+      "after_sha256": "6b4ccca3b665041003e2cd45f86773591565a816222f2d01d2c554eff99be3e7",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ExportPeriodicSolverAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ExportSourceForensicFollowup_v3.m",
+      "new_path": "Research_v3/next_round/solver/ExportSourceForensicFollowup_v3.m",
+      "before_sha256": "11fba1e1cc25b0c9a1cbb2e81988b1cf1372f3534684d7eb71cb3e98cf3bbef4",
+      "after_sha256": "aa632ffc68b67e8e3fc510e408ee0eef50c153d5d62dd462ea32ba7a3453771e",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ExportSourceForensicFollowup_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ExportTwistedFrontPilot_v3.m",
+      "new_path": "Research_v3/next_round/solver/ExportTwistedFrontPilot_v3.m",
+      "before_sha256": "a2f9685da635e765ce8b29d274fe84662ebf6782a5529c95250fb7d3c4141613",
+      "after_sha256": "b9aed6d8b9251feff36804c3b83cd6da7616cdfe1c5246a88870d0cbb1cbad18",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ExportTwistedFrontPilot_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/PilotOpposedSpread_v3.m",
+      "new_path": "Research_v3/next_round/solver/PilotOpposedSpread_v3.m",
+      "before_sha256": "393229b81d1129b3d0ced0f2be2220b8a962320e18177f96dd292d25aa644581",
+      "after_sha256": "4eff60b234a6712b9991f84e89201248f363d630f904009353f613e11dfad917",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/PilotOpposedSpread_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/PilotTwistedFrontReturn_v3.m",
+      "new_path": "Research_v3/next_round/solver/PilotTwistedFrontReturn_v3.m",
+      "before_sha256": "7a49eb4abd5808713b160838f9f6c9842e91c8e14a95df91d1845d2ff6bfa3bf",
+      "after_sha256": "b01584c74f385ba722f77902d9fdc7394ee11989eea98db7af53e7c97fc49758",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/PilotTwistedFrontReturn_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/PublishSolverValidationGate_v3.m",
+      "new_path": "Research_v3/next_round/solver/PublishSolverValidationGate_v3.m",
+      "before_sha256": "f6cd2266065a934a65fd9408348bf905cda9a757519e5f9bddef74234ae53e39",
+      "after_sha256": "205a8a05ff8f765c9a0589e0ae49bf74f7c8f1c19b51fb7592940a90c6b87e8e",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/PublishSolverValidationGate_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/RecordQueueSchemaRepair_v3.m",
+      "new_path": "Research_v3/next_round/solver/RecordQueueSchemaRepair_v3.m",
+      "before_sha256": "901e7dcf9bb6548a8f7fd6660afbabf0f4c63e4bbb0afa545a3c80104fd2ec7f",
+      "after_sha256": "a9e4bad0ca4814b4fe3f2e8e450caca1354734f76c8d330ff5a34efa50d94e00",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/RecordQueueSchemaRepair_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/RegisterPIPScanMethod_v3.m",
+      "new_path": "Research_v3/next_round/solver/RegisterPIPScanMethod_v3.m",
+      "before_sha256": "85b94c2759d06d8dd35be287e72df8af5e2fc894295366c6e0ec786be6e220c6",
+      "after_sha256": "3da80ecbf30a1b7cd1cdf9b223e5021456c6ab0c4707a7e393627c81a12cab21",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/RegisterPIPScanMethod_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/RepairParentDerivativeTrial_v3.m",
+      "new_path": "Research_v3/next_round/solver/RepairParentDerivativeTrial_v3.m",
+      "before_sha256": "4a4ffb7b33f2cd0a5ad39fd09e500ae6cb9d4704414c5145be355924da677cf0",
+      "after_sha256": "6645e91bac8be2f388186e83cfdfdcbcad9c4cd31901952a506c3f3e767dac65",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/RepairParentDerivativeTrial_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/RunPeriodicSolverValidation_v3.m",
+      "new_path": "Research_v3/next_round/solver/RunPeriodicSolverValidation_v3.m",
+      "before_sha256": "2d3be33c960d8d618823d0e08c36c0f4d151a10bb4e7b71e9d501eab90f3e0b3",
+      "after_sha256": "d6730d9ea8f7256ffb5a31a23081a39cf760d8b53cf6892f7e820bee1f94566a",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/RunPeriodicSolverValidation_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/RunSharedWorkflowAudit_v3.m",
+      "new_path": "Research_v3/next_round/solver/RunSharedWorkflowAudit_v3.m",
+      "before_sha256": "67703ef623e9b5f6d04bc552a21018fd7fb3a71c73dad49e7932cae0d022532e",
+      "after_sha256": "90e4d3ec0382695603d34c24899250438a5165e2ff65f887136b5717e62740c1",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/RunSharedWorkflowAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ValidateDiagnosticFailureSchema_v3.m",
+      "new_path": "Research_v3/next_round/solver/ValidateDiagnosticFailureSchema_v3.m",
+      "before_sha256": "9f93290f11a8ef4c02f5a77f955ea10b06b8117bb2831a0aaff19cae9d399dbc",
+      "after_sha256": "a4e98785d4ca84709bb0ca58a65aec20122ef2c0a48201d39c2edcf2d5652ace",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ValidateDiagnosticFailureSchema_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ValidateFrontBroydenMetadata_v3.m",
+      "new_path": "Research_v3/next_round/solver/ValidateFrontBroydenMetadata_v3.m",
+      "before_sha256": "0ddfbcbc27824d50261c30e861395263dff061c261a1a73b91d433d62a46408b",
+      "after_sha256": "5fa2d4bdcc39b474fb3431b7a5b13fac0755860c631bbb08b4255c1db9cff1d7",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ValidateFrontBroydenMetadata_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ValidateGUIBL2Occurrence_v3.m",
+      "new_path": "Research_v3/next_round/solver/ValidateGUIBL2Occurrence_v3.m",
+      "before_sha256": "67d6e7662f6cc375ba99889d2785cf485f05d78ff165e106bd60faee93722f57",
+      "after_sha256": "f3c1205c4f5b08ef5878453cd4907595b544fac5091908d5c4893c2f06f42f11",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ValidateGUIBL2Occurrence_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ValidateMarkedOccurrence_v3.m",
+      "new_path": "Research_v3/next_round/solver/ValidateMarkedOccurrence_v3.m",
+      "before_sha256": "71e31f7b3745bdaa11a07cda249d4a88c68744f85df3b2fde38ef04e5e626adc",
+      "after_sha256": "de073367ec696c9734ffcfef2c42852294587173747f2f0b7c8fb4daf3feb138",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ValidateMarkedOccurrence_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/solver/ValidateSphereSecondSeed_v3.m",
+      "new_path": "Research_v3/next_round/solver/ValidateSphereSecondSeed_v3.m",
+      "before_sha256": "625de608867d0ee3ab29ef7e3948095bdf7317fbbfc88687ffbe88c2566770af",
+      "after_sha256": "2b1efc6fbc0d7e5f3ddf4ef0c2cf962e945629f93e183065642364238a5a9937",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/solver/ValidateSphereSecondSeed_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditEvidencePromotions_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditEvidencePromotions_v3.m",
+      "before_sha256": "356bde3d809a5ed9409d9f5a1a834682c1c5012f0e02cd1d2fe761467cc426e7",
+      "after_sha256": "8b6578f20e9bb70417a68be4d398ccb53398c4d81b591964d18490b5ff75be76",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditEvidencePromotions_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditFinalEvidencePromotions_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditFinalEvidencePromotions_v3.m",
+      "before_sha256": "8b628a79bace9d5df0e721a1c18a9e604d1a6598d2904ec75d25ddec7fb4e3f1",
+      "after_sha256": "a6a416bec64f05b476197ade7c219557683695eb7954c0bc4be9961e80311e03",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditFinalEvidencePromotions_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditLowEnergyPIPCritical_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditLowEnergyPIPCritical_v3.m",
+      "before_sha256": "cd215af8b3c454bd54623a870fe6828ff77f27142bd10fe29dfa159b7cd2c36c",
+      "after_sha256": "a55692a9900b97b437a071e8635a3d20562c78a58988c5757451e79596dc9498",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditLowEnergyPIPCritical_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditLowEnergyPKBridgePreparation_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditLowEnergyPKBridgePreparation_v3.m",
+      "before_sha256": "509694141cae92a4edfb7bc89a9920fe1cc5d856e197551b19e2aa8da00e9de9",
+      "after_sha256": "9ee8c945d31171481f15b5450160cf219392be5bad809790374ff32bb08b8cf2",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditLowEnergyPKBridgePreparation_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditOpposedSpreadPeriodTwo_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditOpposedSpreadPeriodTwo_v3.m",
+      "before_sha256": "b6e2cee4b04abe38d2c60f865665b3c89f5dba6808bbb6c7c8349f9685a20570",
+      "after_sha256": "9642b56df4c7e214c2a5c80e8df341b550e8e79002861c59c5c496d182fda7d4",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditOpposedSpreadPeriodTwo_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditOpposedSpreadPhaseEquivalence_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditOpposedSpreadPhaseEquivalence_v3.m",
+      "before_sha256": "7cdf58c124c8fff546dac0631255501a3d22a8a90ad6e0ba024e5a9a83f6de11",
+      "after_sha256": "24e97eeb8cdba0dc4515e4c16a03c8debd5127125b951d10f04561de4ce4f073",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditOpposedSpreadPhaseEquivalence_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditRestrictedOddQuarterProof_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditRestrictedOddQuarterProof_v3.m",
+      "before_sha256": "933d2e67028806e1a94a26db756683778a28d3865baa3a125bbddf9b0a80ecb4",
+      "after_sha256": "f41cc9057297f6497eb20ba23dc413f49ebfc3fa02dcec637dbaa751b48d4b63",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditRestrictedOddQuarterProof_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/AuditRestrictedProofLinks_v3.m",
+      "new_path": "Research_v3/next_round/theory/AuditRestrictedProofLinks_v3.m",
+      "before_sha256": "2ae8944c68df51d7d6c009478899e920cef5aca32d88c903c0dab92b15b4c593",
+      "after_sha256": "d99fde0f8738a3b3cbec5903241b9667321f82984186bcf60db809840423d8db",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/AuditRestrictedProofLinks_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/BuildCriticalCandidateCatalog_v3.m",
+      "new_path": "Research_v3/next_round/theory/BuildCriticalCandidateCatalog_v3.m",
+      "before_sha256": "39fb1f0a9b9270b3c8c193f7d5f019b5262695ee2140f290817ebc64dffe85e4",
+      "after_sha256": "eecaef52479e2110338259e6df77b186df4397b9bd228b3d4bb17f6103b301a6",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/BuildCriticalCandidateCatalog_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/FinalizeAdditionalTheoryAudits_v3.m",
+      "new_path": "Research_v3/next_round/theory/FinalizeAdditionalTheoryAudits_v3.m",
+      "before_sha256": "33d3421fc5adce2c2ade0322f19042152cac981b8e8655f22c10f5c31451bbef",
+      "after_sha256": "891b604ce7fdcccf64c2c8cbb89f121efc9195af661b81d38fc936e1b9aeba9d",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/FinalizeAdditionalTheoryAudits_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/FinalizeFloquetServiceAudit_v3.m",
+      "new_path": "Research_v3/next_round/theory/FinalizeFloquetServiceAudit_v3.m",
+      "before_sha256": "17048ea553890a973467b6320fb2cb61f3622c7a4955f20d4d082f06385f8167",
+      "after_sha256": "de78276da8dc2afcea14b939b7b6fc98d04cf9a1fdae784dfb670f11f5b7c9dd",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/FinalizeFloquetServiceAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/FreezeLowEnergyPKBridge_v3.m",
+      "new_path": "Research_v3/next_round/theory/FreezeLowEnergyPKBridge_v3.m",
+      "before_sha256": "a7cbb1e6f5ea1938b6c29cade9c1aee60203dbfde2de1120643db93f952425f4",
+      "after_sha256": "9cf0d190e4f8ad0157644271b61e5f334efca42778581cd4990f620b05f4fefb",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/FreezeLowEnergyPKBridge_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/FreezeN0FlipSectorCandidates_v3.m",
+      "new_path": "Research_v3/next_round/theory/FreezeN0FlipSectorCandidates_v3.m",
+      "before_sha256": "0c70d576924afd0642cd476325bf1330a89ccbd9ac49fdc117b09ae7d3f9808e",
+      "after_sha256": "a53f208e6adfcb9a37b7f03aaffccb8b7c0533e1299c543ae6ccc30547310400",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/FreezeN0FlipSectorCandidates_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/FreezeOpposedSpreadPeriodTwo_v3.m",
+      "new_path": "Research_v3/next_round/theory/FreezeOpposedSpreadPeriodTwo_v3.m",
+      "before_sha256": "4d3824920c2fb813ba1d22f6c5260a2c99d8b370a80ecc16f4d85f329bfbcfae",
+      "after_sha256": "fdd531408238080e0de3262231a7b45a75e9cf8453afa535fe437bf79106753e",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/FreezeOpposedSpreadPeriodTwo_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/FreezePIPFlipSectorCandidates_v3.m",
+      "new_path": "Research_v3/next_round/theory/FreezePIPFlipSectorCandidates_v3.m",
+      "before_sha256": "755889acc9dc98d2c0d7a621fa4af433d3c7cd4af9157199b89c280df9514a7f",
+      "after_sha256": "8589f2c0e46b04aaae55acb0dd117c903dc22a7c9faed2036d0994f8ff946c2d",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/FreezePIPFlipSectorCandidates_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/InventoryCriticalSources_v3.m",
+      "new_path": "Research_v3/next_round/theory/InventoryCriticalSources_v3.m",
+      "before_sha256": "7190c3e9b1b9f1533d12547149d866658d22ff1f82043c5944136c13de5d4106",
+      "after_sha256": "b45fc88dd9e398bad64ede969e76c064657122be5e185837f5137078dd0bbb15",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/InventoryCriticalSources_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/InventoryP2PlotSeeds_v3.m",
+      "new_path": "Research_v3/next_round/theory/InventoryP2PlotSeeds_v3.m",
+      "before_sha256": "b817209bd935dc80f937be9ab4d8f27d4ca9b82de3aba8e662d1f44e645e26fa",
+      "after_sha256": "53d541d3cca2ca87a5f29b9f4a2aa79a6228ad8634f02128e3d7061dfac9db91",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/InventoryP2PlotSeeds_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/MATLABCompareNextRoundBranches_v3.m",
+      "new_path": "Research_v3/next_round/theory/MATLABCompareNextRoundBranches_v3.m",
+      "before_sha256": "8e8249649adaa1e4a1424e5ad1b180f0481a9bab143b973ba757c7fe3c0c367b",
+      "after_sha256": "93450c200c6e1a0926486d0ae97bd9c7319963e0c315cc5cdaed2bef4e543a3d",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/MATLABCompareNextRoundBranches_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/PrepareN0PhysicalAudit_v3.m",
+      "new_path": "Research_v3/next_round/theory/PrepareN0PhysicalAudit_v3.m",
+      "before_sha256": "cf25be9fb14ea8e5dee2ff840f89fa1912e42d0ac0fb047738451b32c65dd1aa",
+      "after_sha256": "6c413d6ea3e229374fa04ada2c7c11ea79df34980c71e65e8cf993d37f7e9f34",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/PrepareN0PhysicalAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RegisterLowEnergyPKBridgeDomainRepair_v3.m",
+      "new_path": "Research_v3/next_round/theory/RegisterLowEnergyPKBridgeDomainRepair_v3.m",
+      "before_sha256": "550169f171e1c2f37046c9af4c71ebd41a65a7fe610fe01e459a3028f586bef7",
+      "after_sha256": "3a301885eb366ca365e288f55b7514de27262516b8b4bb42cb70c1635edbf75e",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RegisterLowEnergyPKBridgeDomainRepair_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RegisterN0FlipBL2_v3.m",
+      "new_path": "Research_v3/next_round/theory/RegisterN0FlipBL2_v3.m",
+      "before_sha256": "455cbb0c953ef6c8631393c3480f1af627c4fef2acddabccfa42c62dbceb42a7",
+      "after_sha256": "0c9256bd112a9952cbbb81bad287dd5455c9e245ed0f9f18a19567524316889f",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RegisterN0FlipBL2_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RegisterPIPFlipBL2_v3.m",
+      "new_path": "Research_v3/next_round/theory/RegisterPIPFlipBL2_v3.m",
+      "before_sha256": "c6a92051dc6ccd729e1198a4354bf0d610931658fd7f41066101b8679f6c9c67",
+      "after_sha256": "2828df1c3493861f75ef7f335010f8a6eaf334882ef3f7f8f966d7b256f8a886",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RegisterPIPFlipBL2_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RunDirectionalFloquetAudit_v3.m",
+      "new_path": "Research_v3/next_round/theory/RunDirectionalFloquetAudit_v3.m",
+      "before_sha256": "7ee51704ac7a3259619eebf666ded0b8d2492fdce20aed492c1b4e8108a4ba3c",
+      "after_sha256": "ea3f887719de25e2e49442ffa3a58df93b2f0ca233c580503ff310ca45f3730e",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RunDirectionalFloquetAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RunEventArmingRefinement_v3.m",
+      "new_path": "Research_v3/next_round/theory/RunEventArmingRefinement_v3.m",
+      "before_sha256": "81df8faeffaaec1fefcba9772bcbaeccd49090b23107ac4a4b83e3f3ff6b0120",
+      "after_sha256": "23043c5dbb9bb7acbc8396f1e1ac5101b303b1fca52c6a4640ff05c22dc66a06",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RunEventArmingRefinement_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RunEventOrderJacobianValidation_v3.m",
+      "new_path": "Research_v3/next_round/theory/RunEventOrderJacobianValidation_v3.m",
+      "before_sha256": "97dab46a3d573a0ed84dd3c596d77229f7ed30781278e9cbfb704dab2560953d",
+      "after_sha256": "719ae1723dd1823842d51ed3cb526989162ea33daeb251537ca00d1ff64db634",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RunEventOrderJacobianValidation_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RunFloquetServiceAudit_v3.m",
+      "new_path": "Research_v3/next_round/theory/RunFloquetServiceAudit_v3.m",
+      "before_sha256": "802ba5ad6000b6f0e2ddf566a18a20930bf1bc841f8ea05753f71dcee8ab1e3a",
+      "after_sha256": "73eb267467c0593d0c0eb2a03198143ccb8f7c7c3e628bd913a5d4f70f221bba",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RunFloquetServiceAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RunMathematicalAudit_v3.m",
+      "new_path": "Research_v3/next_round/theory/RunMathematicalAudit_v3.m",
+      "before_sha256": "d5d6260069f842ead9145a7eb7d97a77a5c49515ebc1d846f6ebfbd74bd5136b",
+      "after_sha256": "e81a691108032aed772ade8220e1feb2a2c38feeb911670612ce739bfa4578b2",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RunMathematicalAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/RunSaltationAudit_v3.m",
+      "new_path": "Research_v3/next_round/theory/RunSaltationAudit_v3.m",
+      "before_sha256": "7f720e22a1c563b396d53871cc82aef05d2ecdb18a7cf5e45bef933c6f110ea3",
+      "after_sha256": "1d0fcb199c86e162b7428bae4dc33e3fa64a4016e57417cff9199353f2310377",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/RunSaltationAudit_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/ValidateTwoBLChart_v3.m",
+      "new_path": "Research_v3/next_round/theory/ValidateTwoBLChart_v3.m",
+      "before_sha256": "5e333440ca602bcd8726a7943900b970f2db690dc36fdaf5eea571aa1d5b39ed",
+      "after_sha256": "bd2ea037091ce7622eabc2760684fe77dcf0b3c3fff4630d98caf407644e556c",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/ValidateTwoBLChart_v3.m.txt"
+    },
+    {
+      "old_path": "Research_v3/next_round/theory/opposed_spread_figures/GenerateOpposedSpreadFigures_v3.m",
+      "new_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Figures/GenerateOpposedSpreadFigures_v3.m",
+      "before_sha256": "b42a7d6795c94531c8f2d7070199257d83d5823f63882728b8608af08336a799",
+      "after_sha256": "7cdf441e30652925cff8de6ca7656aeab8f04af23e1282763dfa9d2583600c94",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/Research_v3/next_round/theory/opposed_spread_figures/GenerateOpposedSpreadFigures_v3.m.txt"
+    },
+    {
+      "old_path": "RunResearchRound_v3.m",
+      "new_path": "RunResearchRound_v3.m",
+      "before_sha256": "771cb18272cba65fdbd0c0b9bc2011e75b72fb7e0219ef6834a51d348664d3ad",
+      "after_sha256": "4f23e482c58c7db6a61bac7ac831a5bd5afb4e4d50568ad073fd8ba3c2949cff",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/RunResearchRound_v3.m.txt"
+    },
+    {
+      "old_path": "SLIP_Quadruped_GUI_v3.m",
+      "new_path": "SLIP_Quadruped_GUI_v3.m",
+      "before_sha256": "470ab9d6e5a4615fadf0ae46967019e6fec78ee9236c063a9f7e7bc2348911d8",
+      "after_sha256": "72b293174e19a52352092786ad68ced9a42494c3906b2484045eade23f37a64b",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/SLIP_Quadruped_GUI_v3.m.txt"
+    },
+    {
+      "old_path": "V3OutputPath_v3.m",
+      "new_path": "V3OutputPath_v3.m",
+      "before_sha256": "8f05d7833b86d61e7645f47adb9f81e2ca47371a234e77c0e56e734cbc49aa4a",
+      "after_sha256": "aa2bfd177a31cbaed32f0dd276fbc9a48ee79999e0a5e75fb270ba531b9f7a57",
+      "before_archive": "Audits_v3/Folder_Organization/Original_Path_Bound_Sources/V3OutputPath_v3.m.txt"
+    }
+  ]
+}

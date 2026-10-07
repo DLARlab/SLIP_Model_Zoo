@@ -1,0 +1,63 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+P2 MAT1/58: B2_10_20_2_E.mat, raw29=1364 explicitlabels=0
+P2 MAT2/58: B2_10_20_2_G.mat, raw29=4 explicitlabels=0
+P2 MAT3/58: BIP_10_20_2.mat, raw29=5 explicitlabels=0
+P2 MAT4/58: BS_10_20_2_BIP_Child.mat, raw29=3 explicitlabels=0
+P2 MAT5/58: PIP_10_20_2.mat, raw29=2 explicitlabels=0
+P2 MAT6/58: PIP_10_20_2_Spread.mat, raw29=5 explicitlabels=0
+P2 MAT7/58: PIP_Delayed_Analytic_10_20_2.mat, raw29=2 explicitlabels=0
+P2 MAT8/58: PK_20_2.mat, raw29=1 explicitlabels=0
+P2 MAT9/58: PK_B2_Parent.mat, raw29=3 explicitlabels=0
+P2 MAT10/58: full_branch_data.mat, raw29=8 explicitlabels=0
+P2 MAT11/58: event_transversality.mat, raw29=0 explicitlabels=0
+P2 MAT12/58: saved_ge_phase.mat, raw29=2 explicitlabels=0
+P2 MAT13/58: audit_summary.mat, raw29=3 explicitlabels=0
+P2 MAT14/58: route_segments.mat, raw29=3 explicitlabels=0
+P2 MAT15/58: path_validation.mat, raw29=5 explicitlabels=0
+P2 MAT16/58: native_sample_validation.mat, raw29=0 explicitlabels=0
+P2 MAT17/58: PIP_delayed_critical.mat, raw29=1 explicitlabels=0
+P2 MAT18/58: PIP_delayed_local.mat, raw29=1 explicitlabels=0
+P2 MAT19/58: PK_local_daughters.mat, raw29=1 explicitlabels=0
+P2 MAT20/58: common_map.mat, raw29=0 explicitlabels=0
+P2 MAT21/58: local_traveling_orbits.mat, raw29=1 explicitlabels=0
+P2 MAT22/58: pip_to_pk_floquet.mat, raw29=0 explicitlabels=0
+P2 MAT23/58: pip_to_pk_floquet.mat, raw29=0 explicitlabels=0
+P2 MAT24/58: B2_connection.mat, raw29=1 explicitlabels=0
+P2 MAT25/58: B2_local_daughters.mat, raw29=1 explicitlabels=0
+P2 MAT26/58: PK_at_B2_critical.mat, raw29=1 explicitlabels=0
+P2 MAT27/58: inputs.mat, raw29=0 explicitlabels=0
+P2 MAT28/58: pk_to_b2_floquet.mat, raw29=0 explicitlabels=0
+P2 MAT29/58: B2_original_852.mat, raw29=4 explicitlabels=0
+P2 MAT30/58: apex_audit.mat, raw29=2 explicitlabels=0
+P2 MAT31/58: apex_figure_data.mat, raw29=2 explicitlabels=0
+P2 MAT32/58: corrected_source_for_phase.mat, raw29=3 explicitlabels=0
+P2 MAT33/58: overlap_batch.mat, raw29=4 explicitlabels=0
+P2 MAT34/58: reflected_overlap.mat, raw29=4 explicitlabels=0
+P2 MAT35/58: selected_geometry.mat, raw29=0 explicitlabels=0
+P2 MAT36/58: stationary_fixed_point.mat, raw29=3 explicitlabels=0
+P2 MAT37/58: endpoint_diagnostics.mat, raw29=4 explicitlabels=0
+P2 MAT38/58: endpoint_jacobians.mat, raw29=1 explicitlabels=0
+P2 MAT39/58: joint_tight_validation.mat, raw29=2 explicitlabels=0
+P2 MAT40/58: zero_swing_refinement.mat, raw29=1 explicitlabels=0
+P2 MAT41/58: drift_daughters.mat, raw29=0 explicitlabels=0
+P2 MAT42/58: input_snapshot.mat, raw29=1 explicitlabels=0
+P2 MAT43/58: local_checks.mat, raw29=0 explicitlabels=0
+P2 MAT44/58: mean_zero.mat, raw29=0 explicitlabels=0
+P2 MAT45/58: mean_zero_neighbors.mat, raw29=0 explicitlabels=0
+P2 MAT46/58: pair_reset_diagnostic.mat, raw29=0 explicitlabels=0
+P2 MAT47/58: plot_data.mat, raw29=2 explicitlabels=0
+P2 MAT48/58: replay.mat, raw29=1 explicitlabels=0
+P2 MAT49/58: source_link.mat, raw29=0 explicitlabels=0
+P2 MAT50/58: standing_parent.mat, raw29=0 explicitlabels=0
+P2 MAT51/58: all_tight_replay.mat, raw29=0 explicitlabels=0
+P2 MAT52/58: assembled_validation.mat, raw29=2 explicitlabels=0
+P2 MAT53/58: tight_replay.mat, raw29=0 explicitlabels=0
+P2 MAT54/58: BIP_Standing_Parent_Local.mat, raw29=4 explicitlabels=0
+P2 MAT55/58: bip_floquet.mat, raw29=0 explicitlabels=0
+P2 MAT56/58: daughter_alignment.mat, raw29=0 explicitlabels=0
+P2 MAT57/58: phase_corrected_inputs.mat, raw29=0 explicitlabels=0
+P2 MAT58/58: comparison.mat, raw29=6 explicitlabels=0
+Complete P2 snapshot inventory: 58 MAT files, 1463 raw arrays, 0 explicit requested label hits.

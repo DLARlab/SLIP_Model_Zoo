@@ -1,0 +1,40 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Numerics_v3/PseudoArclengthContinuation_v3.m
+  3×1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+GUI_v3/QuadrupedGUIController_v3.m
+  7×1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+Research_v3/Drivers_v3/ProcessPIPCandidateQueue_v3.m
+  2×1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+Research_v3/next_round/solver/RunSharedWorkflowAudit_v3.m
+     matlab_version: '25.2.0.3177638 (R2025b) Update 5'
+           platform: 'MACA64'
+                gui: [1×1 struct]
+             resume: [1×1 struct]
+         all_passed: 0
+            failure: [1×1 struct]
+    elapsed_seconds: 535.0762
+

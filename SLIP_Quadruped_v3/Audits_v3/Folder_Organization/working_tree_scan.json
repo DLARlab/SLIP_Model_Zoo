@@ -1,0 +1,61 @@
+{
+  "schema_version": "v3-organization-working-tree-scan-1",
+  "checked_utc": "2026-10-07T18:15:25Z",
+  "tracked_and_untracked_working_files": 2952,
+  "git_metadata_excluded": true,
+  "file_limit_bytes": 100000000,
+  "oversized_files": [
+
+  ],
+  "caches_outside_protected_legacy": [
+
+  ],
+  "protected_files_checked": 534,
+  "protected_changes": [
+
+  ],
+  "relocated_retained_files": 1557,
+  "largest_files": [
+    {
+      "path": "SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/low_energy_critical_20261007T143707040/04_branch.mat",
+      "bytes": 18015528
+    },
+    {
+      "path": "SLIP_Quadruped_v3/Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+      "bytes": 18015528
+    },
+    {
+      "path": "SLIP_Quadruped_v3/Research_v3/next_round/workflow_02/resume/branch.mat",
+      "bytes": 17332847
+    },
+    {
+      "path": "SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/PK_continuation_m1.mat",
+      "bytes": 16836518
+    },
+    {
+      "path": "SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/PK_continuation_p1.mat",
+      "bytes": 15819633
+    },
+    {
+      "path": "SLIP_Quadruped_v3/Research_v3/runs/full/solution_index.json",
+      "bytes": 15547992
+    },
+    {
+      "path": "SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Full_Floquet/Historical/full_floquet.mat",
+      "bytes": 15371053
+    },
+    {
+      "path": "SLIP_Quadruped_v3/Research_v3/next_round/workflow/resume/branch.mat",
+      "bytes": 13959818
+    },
+    {
+      "path": "SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/Historical_PK_Continuation_p1.mat",
+      "bytes": 13779772
+    },
+    {
+      "path": "SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/low_energy_critical_20261007T143707040/03_family_+1.mat",
+      "bytes": 13779772
+    }
+  ],
+  "passed": true
+}

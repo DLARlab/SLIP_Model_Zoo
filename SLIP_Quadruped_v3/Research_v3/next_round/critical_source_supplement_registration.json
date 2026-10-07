@@ -1,0 +1,482 @@
+{
+  "schema_version": "critical-source-supplement-registration-v3-1",
+  "registered_utc": "07-Oct-2026 11:57:17",
+  "source_catalog": "Research_v3/next_round/theory/critical_branch_catalog.mat",
+  "source_catalog_sha256": "51c9066483a8083d10d7c4a090e5d983b8f38f18e766b7f1f4fd0ea50258d03d",
+  "new_inventory_indices": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+  ],
+  "provenance_aliases": [
+    {
+      "catalog_index": 10,
+      "identical_array_catalog_index": 9,
+      "source": {
+        "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/B2_connection.mat",
+        "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/08_B2_connection.mat",
+        "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+        "sha256": "28af3340750a49007c7019f2ac249c82fa2fbc0b1275e6d21fd732547a0d1844",
+        "bytes": 13207,
+        "variables": [
+          {
+            "name": "Para",
+            "class": "double",
+            "size": [
+              7,
+              1
+            ],
+            "bytes": 56,
+            "fields": []
+          },
+          {
+            "name": "alternateMetrics",
+            "class": "struct",
+            "size": [
+              1,
+              1
+            ],
+            "bytes": 1513,
+            "fields": [
+              "initialVelocity",
+              "initialHeight",
+              "initialLegRate",
+              "period",
+              "meanVelocity",
+              "residualNorm",
+              "minimumHeight",
+              "minimumVerticalGRF",
+              "maximumHeight",
+              "sampledTrajectoryRows"
+            ]
+          },
+          {
+            "name": "alternateParent",
+            "class": "double",
+            "size": [
+              22,
+              1
+            ],
+            "bytes": 176,
+            "fields": []
+          },
+          {
+            "name": "alternateReport",
+            "class": "struct",
+            "size": [
+              1,
+              1
+            ],
+            "bytes": 45965,
+            "fields": [
+              "accepted",
+              "valid",
+              "status",
+              "rejectionReasons",
+              "periodicResidualTolerance",
+              "solution",
+              "parameters",
+              "initialSectionState",
+              "sectionExtraction",
+              "mapInfo",
+              "eventTimingSolverSucceeded",
+              "eventOrderingConsistent",
+              "completeStride",
+              "initialOnValidApexSection",
+              "returnOnValidApexSection",
+              "timingRepeatabilityChecked",
+              "timingRepeatable",
+              "timingRepeatability",
+              "fullStateReturn",
+              "sectionStateReturn",
+              "periodicResidual",
+              "reducedPeriodicResidual",
+              "periodicResidualNorm2",
+              "periodicResidualNormInf",
+              "reducedPeriodicResidualNorm2",
+              "reducedPeriodicResidualNormInf",
+              "fixedPointConverged"
+            ]
+          },
+          {
+            "name": "amplitudes",
+            "class": "double",
+            "size": [
+              1,
+              8
+            ],
+            "bytes": 64,
+            "fields": []
+          },
+          {
+            "name": "criticalEstimate",
+            "class": "double",
+            "size": [
+              22,
+              1
+            ],
+            "bytes": 176,
+            "fields": []
+          },
+          {
+            "name": "daughterDistanceToAlternate",
+            "class": "double",
+            "size": [
+              1,
+              8
+            ],
+            "bytes": 64,
+            "fields": []
+          },
+          {
+            "name": "daughterReports",
+            "class": "cell",
+            "size": [
+              1,
+              8
+            ],
+            "bytes": 20000,
+            "fields": []
+          },
+          {
+            "name": "daughterResults",
+            "class": "double",
+            "size": [
+              29,
+              8
+            ],
+            "bytes": 1856,
+            "fields": []
+          },
+          {
+            "name": "nearestSuppliedColumn",
+            "class": "double",
+            "size": [
+              1,
+              1
+            ],
+            "bytes": 8,
+            "fields": []
+          },
+          {
+            "name": "residualNorm",
+            "class": "double",
+            "size": [
+              1,
+              8
+            ],
+            "bytes": 64,
+            "fields": []
+          },
+          {
+            "name": "sourceBracket",
+            "class": "double",
+            "size": [
+              1,
+              2
+            ],
+            "bytes": 16,
+            "fields": []
+          },
+          {
+            "name": "suppliedMetrics",
+            "class": "struct",
+            "size": [
+              1,
+              1
+            ],
+            "bytes": 1513,
+            "fields": [
+              "initialVelocity",
+              "initialHeight",
+              "initialLegRate",
+              "period",
+              "meanVelocity",
+              "residualNorm",
+              "minimumHeight",
+              "minimumVerticalGRF",
+              "maximumHeight",
+              "sampledTrajectoryRows"
+            ]
+          },
+          {
+            "name": "suppliedParent",
+            "class": "double",
+            "size": [
+              22,
+              1
+            ],
+            "bytes": 176,
+            "fields": []
+          },
+          {
+            "name": "suppliedReport",
+            "class": "struct",
+            "size": [
+              1,
+              1
+            ],
+            "bytes": 45965,
+            "fields": [
+              "accepted",
+              "valid",
+              "status",
+              "rejectionReasons",
+              "periodicResidualTolerance",
+              "solution",
+              "parameters",
+              "initialSectionState",
+              "sectionExtraction",
+              "mapInfo",
+              "eventTimingSolverSucceeded",
+              "eventOrderingConsistent",
+              "completeStride",
+              "initialOnValidApexSection",
+              "returnOnValidApexSection",
+              "timingRepeatabilityChecked",
+              "timingRepeatable",
+              "timingRepeatability",
+              "fullStateReturn",
+              "sectionStateReturn",
+              "periodicResidual",
+              "reducedPeriodicResidual",
+              "periodicResidualNorm2",
+              "periodicResidualNormInf",
+              "reducedPeriodicResidualNorm2",
+              "reducedPeriodicResidualNormInf",
+              "fixedPointConverged"
+            ]
+          }
+        ],
+        "legacy_29row_arrays": {
+          "variable": ".daughterResults",
+          "size": [
+            29,
+            8
+          ],
+          "columns": 8,
+          "initial_speed_bounds": [
+            0.59061196861029075,
+            0.59628308254408391
+          ],
+          "initial_pitch_bounds": [
+            0,
+            0
+          ],
+          "source_period_bounds": [
+            2.2960731146573403,
+            2.2996031031051549
+          ]
+        },
+        "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+      },
+      "variable": ".daughterResults"
+    },
+    {
+      "catalog_index": 17,
+      "identical_array_catalog_index": 13,
+      "source": {
+        "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/corrected_source_for_phase.mat",
+        "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/12_corrected_source_for_phase.mat",
+        "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+        "sha256": "121a21dd368254c644408c004814e67717dbb6e42f3dde57c60c9aab4a20f7dc",
+        "bytes": 358547,
+        "variables": [
+          {
+            "name": "Para",
+            "class": "double",
+            "size": [
+              7,
+              1
+            ],
+            "bytes": 56,
+            "fields": []
+          },
+          {
+            "name": "accepted1e7",
+            "class": "logical",
+            "size": [
+              1,
+              852
+            ],
+            "bytes": 852,
+            "fields": []
+          },
+          {
+            "name": "accepted1e8",
+            "class": "logical",
+            "size": [
+              1,
+              852
+            ],
+            "bytes": 852,
+            "fields": []
+          },
+          {
+            "name": "correctedSourceResults",
+            "class": "double",
+            "size": [
+              29,
+              852
+            ],
+            "bytes": 197664,
+            "fields": []
+          },
+          {
+            "name": "correctionMask",
+            "class": "logical",
+            "size": [
+              852,
+              1
+            ],
+            "bytes": 852,
+            "fields": []
+          },
+          {
+            "name": "correctionNorm",
+            "class": "double",
+            "size": [
+              1,
+              852
+            ],
+            "bytes": 6816,
+            "fields": []
+          },
+          {
+            "name": "correctionReports",
+            "class": "cell",
+            "size": [
+              1,
+              852
+            ],
+            "bytes": 421406,
+            "fields": []
+          },
+          {
+            "name": "nativeResidual",
+            "class": "double",
+            "size": [
+              1,
+              852
+            ],
+            "bytes": 6816,
+            "fields": []
+          },
+          {
+            "name": "note",
+            "class": "char",
+            "size": [
+              1,
+              236
+            ],
+            "bytes": 472,
+            "fields": []
+          },
+          {
+            "name": "rawResults",
+            "class": "double",
+            "size": [
+              29,
+              852
+            ],
+            "bytes": 197664,
+            "fields": []
+          },
+          {
+            "name": "results",
+            "class": "double",
+            "size": [
+              29,
+              852
+            ],
+            "bytes": 197664,
+            "fields": []
+          }
+        ],
+        "legacy_29row_arrays": [
+          {
+            "variable": ".rawResults",
+            "size": [
+              29,
+              852
+            ],
+            "columns": 852,
+            "initial_speed_bounds": [
+              -0.028931192692882933,
+              19.516016936793108
+            ],
+            "initial_pitch_bounds": [
+              -7.4128303464696874E-8,
+              6.25960997332194E-8
+            ],
+            "source_period_bounds": [
+              1.1445699038221842,
+              2.3818867914716981
+            ]
+          },
+          {
+            "variable": ".correctedSourceResults",
+            "size": [
+              29,
+              852
+            ],
+            "columns": 852,
+            "initial_speed_bounds": [
+              -0.028931192692882933,
+              19.516016936793108
+            ],
+            "initial_pitch_bounds": [
+              -7.4128303464696874E-8,
+              6.25960997332194E-8
+            ],
+            "source_period_bounds": [
+              1.1445699038221842,
+              2.3818867914716981
+            ]
+          },
+          {
+            "variable": ".results",
+            "size": [
+              29,
+              852
+            ],
+            "columns": 852,
+            "initial_speed_bounds": [
+              -0.075074140834866229,
+              19.516581292453111
+            ],
+            "initial_pitch_bounds": [
+              -7.390466311680237E-8,
+              6.2419995049515251E-8
+            ],
+            "source_period_bounds": [
+              1.1445699038221842,
+              2.3818867914716981
+            ]
+          }
+        ],
+        "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+      },
+      "variable": ".rawResults"
+    }
+  ],
+  "domain_changed": false,
+  "role": "Critical predictors and complete sources; no numerical acceptance or ancestry from import."
+}

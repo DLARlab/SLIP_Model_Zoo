@@ -1,0 +1,253 @@
+{
+  "id": "imported_PK_to_low_PIP_daughter_negative_0p01",
+  "schema_version": "prospective-constrained-local-PK-bridge-v3-1",
+  "frozen_utc": "07-Oct-2026 15:28:53",
+  "parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "original_source_state": [
+    0,
+    -0.0056866304200264639,
+    1.117112698187277,
+    0,
+    3.5992669861713444E-16,
+    1.2599219821243557E-16,
+    2.7984383928663276E-12,
+    -0.0087615075731268914,
+    2.7984383928663276E-12,
+    -0.0087615075731268914,
+    2.7984383928663276E-12,
+    -0.0087615075731268914,
+    2.7984383928663276E-12,
+    -0.0087615075731268914
+  ],
+  "source_saved_closure": 3.3068658922275063E-10,
+  "source_roundoff_projection_error": 3.5992669861713444E-16,
+  "start_energy": 1.1171288670700439,
+  "parent_energy": 1.1171137022972106,
+  "parent_direction": [
+    0.54442441131497765,
+    1.9818596763698793E-10,
+    0.83880990716868642
+  ],
+  "coordinate_indices": [
+    2,
+    3,
+    7,
+    8
+  ],
+  "observable_positions": [
+    1,
+    3,
+    4
+  ],
+  "constraint_reference": [
+    0,
+    1.1171137022972106,
+    0,
+    0,
+    1.1171137022972106
+  ],
+  "constraint_normal": [
+    0.54442441131497765,
+    0,
+    1.9818596763698793E-10,
+    0.83880990716868642,
+    0
+  ],
+  "start_amplitude": -0.010445179772861062,
+  "target_amplitude": -0.01,
+  "target_saved_observable": -0.0099999999999460087,
+  "amplitude_grid": [
+    -0.010445179772861062,
+    -0.010333884829645796,
+    -0.01022258988643053,
+    -0.010111294943215266,
+    -0.01
+  ],
+  "target_artifact": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/11_daughter_-0.01_attempt_1.mat",
+  "maximum_source_admission_displacement": 1E-6,
+  "maximum_increment_state_change": 0.0005,
+  "maximum_increment_energy_change": 1E-5,
+  "maximum_wall_seconds": 480,
+  "integration": {
+    "RelTol": 1E-11,
+    "AbsTol": 1E-13,
+    "MaxStep": 0.01,
+    "EventValueTolerance": 1E-9,
+    "EventTimeTolerance": 1E-11,
+    "SimultaneousTimeTolerance": 1E-9
+  },
+  "replay_integration": {
+    "RelTol": 1E-12,
+    "AbsTol": 1E-14,
+    "MaxStep": 0.005,
+    "EventValueTolerance": 1E-10,
+    "EventTimeTolerance": 1E-12,
+    "SimultaneousTimeTolerance": 1E-10
+  },
+  "jacobian_options": {
+    "RelativeCandidateSteps": [
+      1E-5,
+      5E-6
+    ],
+    "MaximumRelativeError": 0.001,
+    "UseRichardson": true,
+    "FailurePolicy": "nan"
+  },
+  "acceptance": {
+    "FullClosureTolerance": 1E-8,
+    "EnergyTolerance": 1E-8,
+    "ConstraintTolerance": 1E-8,
+    "StanceTolerance": 1E-8,
+    "RequirePrimitive": true
+  },
+  "comparison_tolerances": {
+    "apex_state": 1E-6,
+    "energy": 1E-7,
+    "period": 1E-7,
+    "drift": 1E-6,
+    "event_phase": 1E-6,
+    "event_state": 1E-6,
+    "smooth_history": 0.0001,
+    "event_exclusion_phase": 1E-6
+  },
+  "warm_gate_path": "Research_v3/next_round/solver/initial_jacobian_reuse/summary.json",
+  "solver_gate_path": "Research_v3/next_round/solver/solver_validation_summary.json",
+  "source_hashes": [
+    {
+      "path": "Dynamics_v3/ContinuousDynamics_v3.m",
+      "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+    },
+    {
+      "path": "Dynamics_v3/GuardFunctions_v3.m",
+      "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+    },
+    {
+      "path": "Dynamics_v3/ResetMap_v3.m",
+      "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+    },
+    {
+      "path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+      "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+      "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+    },
+    {
+      "path": "Orbit_v3/PeriodicOrbitResidual_v3.m",
+      "sha256": "0da58152164156b56654bd9e2acc1a1bd650b8192e93fde6b291ea621cc8bd3d"
+    },
+    {
+      "path": "Dynamics_v3/QuadrupedPhysicalChart_v3.m",
+      "sha256": "4cae5dc8027bb2d8fa9063273bfa3b19067612c4b622df844971ae2bcc9de701"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/GaitIdentification_v3.m",
+      "sha256": "c7afe94e320f1df1a4f0b17cdcadb96c7ccad945a28a5d6609491fd221efb7e3"
+    },
+    {
+      "path": "Orbit_v3/PrimitiveCycleCheck_v3.m",
+      "sha256": "6449c29aa22f2685de9c3ebe5d3c70199cabbc775c01ebd4dfa2a3a6536fdb6e"
+    },
+    {
+      "path": "Orbit_v3/HybridCycleData_v3.m",
+      "sha256": "1c5f70eab61d3d72fed9446c6c4801b202f9700ee80f311f68fc8ea40842d947"
+    },
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Numerics_v3/HybridFiniteDifferenceJacobian_v3.m",
+      "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RunLowEnergyPKBridge_v3.m",
+      "sha256": "1724908cd81cf59c1ee651fc742d60e3e47d157ba8891adc60326e884c246ef7"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/ComparePronkBridgeOrbits_v3.m",
+      "sha256": "1a6410262b04b8c55579e3cdc26d306260d3dd1f88feba4451faccc625c08182"
+    },
+    {
+      "path": "Research_v3/next_round/theory/FreezeLowEnergyPKBridge_v3.m",
+      "sha256": "a7cbb1e6f5ea1938b6c29cade9c1aee60203dbfde2de1120643db93f952425f4"
+    }
+  ],
+  "input_hashes": [
+    {
+      "path": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/01_phase_checkpoint.mat",
+      "sha256": "3fd079363512cc79acff3695247ffb36e5c936951ab34308a2eeb9592ecf81fd"
+    },
+    {
+      "path": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/02_family_-1.mat",
+      "sha256": "d4bac9d56c08d2388f96f3d783d42ee39f2da0009710f35356f0b7c030be0e72"
+    },
+    {
+      "path": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/11_daughter_-0.01_attempt_1.mat",
+      "sha256": "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d"
+    },
+    {
+      "path": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/audit.mat",
+      "sha256": "ab3af0f9bcb97db7acefdb368f58ce4f0035a59ba814a3ff66ea2d1511e68819"
+    }
+  ],
+  "gate_hashes": [
+    {
+      "path": "Research_v3/next_round/solver/solver_validation_summary.json",
+      "sha256": "ed8bcf30eb61ba75588bcab3f57778cab6dbac1afe57fe5394ebd154217dae07"
+    },
+    {
+      "path": "Research_v3/next_round/solver/initial_jacobian_reuse/summary.json",
+      "sha256": "97d968400a33fb6c2e8ae94e4cf7a466ba05536105a2f67b9a6f21f9cd21e54f"
+    }
+  ],
+  "maps_executed_during_freeze": 0,
+  "global_connection_claimed": false,
+  "rigorous_ancestry_claimed": false,
+  "hypothesis": "Four independently corrected local amplitude increments from imported PK to the frozen low-energy PIP daughter may support a local numerical continuation connection and endpoint orbit identity.",
+  "candidates": {
+    "id": "imported_PK_to_low_PIP_daughter_negative_0p01",
+    "candidate_artifact": "Research_v3/next_round/theory/low_energy_PK_bridge_candidate.mat",
+    "candidate_variable": "candidate",
+    "candidate_sha256": "fee4c91d037b61e7da301c7055aa83412ad031a5bf5fd1851aaded4eb23a60ac",
+    "maximum_wall_seconds": 480
+  },
+  "fresh_source_admission_counts_as_continuation_progress": false,
+  "accepted_increments_required": 4
+}

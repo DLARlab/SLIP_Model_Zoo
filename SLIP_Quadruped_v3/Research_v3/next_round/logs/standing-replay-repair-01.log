@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m
+Research_v3/Drivers_v3/RegisterOpposedSpreadReplayRepair_v3.m
+                                             task_id: 'PK_continuation_m1'
+                                            stop_utc: '2026-10-07 14:58:48 UTC'
+                            clock_resolution_seconds: 1
+        stop_second_observed_before_and_after_signal: 1
+                              historical_point_count: 20
+                               preserved_point_count: 22
+                          new_accepted_point_records: 2
+    known_completed_function_evaluations_lower_bound: 138
+                  inflight_evaluation_counts_unknown: 1
+                                   branch_checkpoint: 'Research_v3/next_round/tasks/full/PK_continuation_m1/branch.mat'
+                      charged_numerical_wall_seconds: 5.4632e+03
+                        remaining_total_wall_seconds: 5.3368e+03
+

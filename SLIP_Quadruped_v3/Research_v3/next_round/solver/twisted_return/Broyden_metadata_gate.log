@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                        schema_version: 'front-C1-Broyden-metadata-gate-v3-1'
+                                passed: 1
+                  initial_actual_chart: [1×1 struct]
+                    final_actual_chart: [1×1 struct]
+    verified_common_compatibility_keys: 1
+              raw_one_return_preserved: 1
+        missing_event_history_rejected: 1
+                      rejection_reason: 'MATLAB:nonExistentField: Unrecognized field name "event_history".'
+     rejected_raw_signatures_preserved: 1
+                        adapter_sha256: '35eb62758f789af822e429b503e2f29108ef7d0371832fa8a62146ead43875fb'
+                         helper_sha256: '3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d'
+                    map_info_unchanged: 1
+                new_correction_claimed: 0
+       no_physics_or_acceptance_change: 1
+

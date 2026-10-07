@@ -1,0 +1,101 @@
+function report=InventoryCriticalSources_v3()
+%INVENTORYCRITICALSOURCES_V3 Preserve complete legacy critical snapshots.
+% Existing full branch fixtures are handled by the MATLAB campaign inventory.
+    here=fileparts(mfilename('fullpath'));
+    v3=fileparts(fileparts(fileparts(here)));repo=fileparts(v3);
+    V3LegacyAddPath_v3(fullfile(v3,'Schema_v3'),fullfile(v3,'Adapters_v3'));
+    destination=fullfile(here,'SourceCriticalFixtures_v3');
+    if ~isfolder(V3Path_v3(destination)),mkdir(V3Path_v3(destination));end
+    [~,commit]=system('git rev-parse HEAD');commit=strtrim(commit);
+    legacy=fullfile(repo,'SLIP_Quadruped');
+    refinement=V3Dir_v3(fullfile(legacy,'3_Numerical_Continuation', ...
+        '2_Floquet_Analysis_v2','reference_experiments','**','refined_candidates.mat'));
+    files=strings(0,1);
+    for k=1:numel(refinement)
+        files(end+1)=string(fullfile(refinement(k).folder,refinement(k).name)); %#ok<AGROW>
+    end
+    p2=fullfile(legacy,'P2_All_Common_Quadrupedal_Gaits');
+    names={ ...
+        'Stages/02_Pronking_to_B2/Audit/Orbits/PK_at_B2_critical.mat', ...
+        'Stages/02_Pronking_to_B2/Audit/Orbits/B2_local_daughters.mat', ...
+        'Stages/02_Pronking_to_B2/Audit/Orbits/B2_connection.mat', ...
+        'Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PIP_delayed_critical.mat', ...
+        'Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PK_local_daughters.mat', ...
+        'Stages/03_B2_Family_and_Apex_Views/Audit/B2_original_852.mat', ...
+        'Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/corrected_source_for_phase.mat', ...
+        'Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/stationary_fixed_point.mat'};
+    for k=1:numel(names)
+        file=fullfile(p2,names{k});if isfile(V3Path_v3(file)),files(end+1)=string(file);end %#ok<AGROW>
+    end
+    records=cell(numel(files),1);
+    for k=1:numel(files)
+        source=char(files(k));[~,basename,extension]=fileparts(source);
+        copied=fullfile(destination,sprintf('%02d_%s%s',k,basename,extension));
+        expected=sha256(source);
+        if ~isfile(V3Path_v3(copied)),copyfile(V3Path_v3(source),V3Path_v3(copied));end
+        actual=sha256(copied);
+        assert(strcmp(expected,actual),'Copied critical fixture differs from protected source.');
+        variables=whos('-file',source);data=load(V3Path_v3(copied));
+        summaries=cell(numel(variables),1);
+        for j=1:numel(variables)
+            name=variables(j).name;value=data.(name);fields={};
+            if isstruct(value)&&~isempty(value),fields=fieldnames(value);end
+            summaries{j}=struct('name',name,'class',variables(j).class, ...
+                'size',variables(j).size,'bytes',variables(j).bytes,'fields',{fields});
+        end
+        arrays=legacyArrays(data,'',0);
+        info=V3Dir_v3(source);
+        records{k}=struct('source_path',strrep(erase(source,[repo,filesep]),filesep,'/'), ...
+            'fixture_path',strrep(erase(copied,[v3,filesep]),filesep,'/'), ...
+            'source_commit',commit,'sha256',expected,'bytes',info.bytes, ...
+            'variables',{vertcat(summaries{:})},'legacy_29row_arrays',{arrays}, ...
+            'evidence_label','legacy snapshot seed only; no v3 closure or ancestry asserted');
+        fprintf('Critical snapshot %d/%d: %s (%d bytes), arrays=%d\n', ...
+            k,numel(files),basename,info.bytes,numel(arrays));
+    end
+    report=struct('schema_version','critical-source-provenance-v3-1', ...
+        'source_commit',commit,'matlab_version',version, ...
+        'created_utc',char(datetime('now','TimeZone','UTC')), ...
+        'records',{vertcat(records{:})});
+    save(V3Path_v3(fullfile(here,'critical_source_inventory.mat')),'report','-v7');
+    fid=fopen(V3Path_v3(fullfile(here,'critical_source_inventory.json')),'w');
+    assert(fid>=0);cleanup=onCleanup(@()fclose(fid)); %#ok<NASGU>
+    fprintf(fid,'%s\n',jsonencode(report,'PrettyPrint',true));
+end
+function result=legacyArrays(value,label,depth)
+    result=struct('variable',{},'size',{},'columns',{}, ...
+        'initial_speed_bounds',{},'initial_pitch_bounds',{},'source_period_bounds',{});
+    if isnumeric(value)&&ismatrix(value)&&size(value,1)==29
+        finiteColumns=all(isfinite(value),1);
+        selected=value(:,finiteColumns);
+        if isempty(selected),return;end
+        result=struct('variable',label,'size',size(value),'columns',size(value,2), ...
+            'initial_speed_bounds',[min(selected(1,:)),max(selected(1,:))], ...
+            'initial_pitch_bounds',[min(selected(4,:)),max(selected(4,:))], ...
+            'source_period_bounds',[min(selected(22,:)),max(selected(22,:))]);
+    elseif isstruct(value)&&depth<3
+        for index=1:min(numel(value),200)
+            fields=fieldnames(value(index));
+            for k=1:numel(fields)
+                name=fields{k};next=[label,'.',name];
+                if numel(value)>1,next=sprintf('%s(%d).%s',label,index,name);end
+                nested=legacyArrays(value(index).(name),next,depth+1);
+                result=[result;nested(:)]; %#ok<AGROW>
+            end
+        end
+    elseif iscell(value)&&depth<3
+        for index=1:min(numel(value),200)
+            nested=legacyArrays(value{index},sprintf('%s{%d}',label,index),depth+1);
+            result=[result;nested(:)]; %#ok<AGROW>
+        end
+    end
+end
+function digest=sha256(file)
+    fid=fopen(V3Path_v3(file),'r');assert(fid>=0);cleanup=onCleanup(@()fclose(fid)); %#ok<NASGU>
+    engine=java.security.MessageDigest.getInstance('SHA-256');
+    while ~feof(fid)
+        bytes=fread(fid,1024*1024,'*uint8');engine.update(bytes);
+    end
+    bytes=typecast(engine.digest(),'uint8');
+    digest=lower(reshape(dec2hex(bytes,2).',1,[]));
+end

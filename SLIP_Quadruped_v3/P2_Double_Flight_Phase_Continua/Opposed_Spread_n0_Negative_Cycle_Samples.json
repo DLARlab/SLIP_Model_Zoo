@@ -1,0 +1,182 @@
+{
+  "schema_version": "organized-saved-orbit-dataset-v3-1",
+  "id": "Opposed_Spread_n0_Negative_Cycle_Samples",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "dataset_type": "primitive_cycle_samples",
+  "origin": "saved opposed-spread n0 restricted campaign records",
+  "expected_primitive_flight_count": 2,
+  "count": 5,
+  "amplitude": [
+    -0.001,
+    -0.001,
+    -0.00125,
+    -0.00075,
+    -0.0016250000000000001
+  ],
+  "amplitude_coordinate": "signed marked touchdown angle",
+  "resonance_index": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "energy": [
+    1.0616845275068503,
+    1.0616845275069207,
+    1.06168424625691,
+    1.0616847462568217,
+    1.061683707194599
+  ],
+  "period": [
+    2.6659420999984684,
+    2.6659420999991763,
+    2.6659425747386214,
+    2.6659417307564124,
+    2.6659434846581695
+  ],
+  "drift": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "mean_speed": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "flight_count": [
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "gait_label": [
+    "unclassified",
+    "unclassified",
+    "unclassified",
+    "unclassified",
+    "unclassified"
+  ],
+  "gait_status": [
+    "ambiguous",
+    "ambiguous",
+    "ambiguous",
+    "ambiguous",
+    "ambiguous"
+  ],
+  "full_closure": [
+    4.5519144009631418E-14,
+    4.2632564145606011E-14,
+    4.6851411639181606E-14,
+    4.3742787170231168E-14,
+    4.241051954068098E-14
+  ],
+  "record_kind": [
+    "exact_predictor_admission",
+    "meaningful_nonlinear_correction",
+    "restricted_branch_sample",
+    "restricted_branch_sample",
+    "restricted_branch_sample"
+  ],
+  "source_paths": [
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat"
+  ],
+  "source_original_paths": [
+    "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+    "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+    "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+    "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+    "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat"
+  ],
+  "source_sha256": [
+    "f1b6c6bf4efc770cb852513fd8067fda301c553b11db97e0527ad3a877128e60",
+    "f27e69989781982c308ed145ac96caf64a7fd9811954fa7c1a412aa0fbbc22ca",
+    "44919782b7c832708739840303ac55e33cd0f157d97d745bcc979bada2f9ced7",
+    "1fedcf381a3516449982664ae728cbd28ca7a37beac366ba84d30cc20cbc99ad",
+    "edb0f3aac87a6830f537edb5a811eee907d772f6dac219ae8eb991038b4fdb1b"
+  ],
+  "source_acceptance": [
+    {
+      "accepted_in_source": true,
+      "selection_index": 1,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 2,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 3,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 4,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 5,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_period_two_checkpoint.mat",
+      "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_period_two_checkpoint.mat",
+      "sha256": "93df2d5eb94934f2394293bbf6de0e99dd12061abfb09fcdf2bae07662eb53c2"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+      "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+      "sha256": "f1b6c6bf4efc770cb852513fd8067fda301c553b11db97e0527ad3a877128e60"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+      "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+      "sha256": "f27e69989781982c308ed145ac96caf64a7fd9811954fa7c1a412aa0fbbc22ca"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+      "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+      "sha256": "44919782b7c832708739840303ac55e33cd0f157d97d745bcc979bada2f9ced7"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+      "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+      "sha256": "1fedcf381a3516449982664ae728cbd28ca7a37beac366ba84d30cc20cbc99ad"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat",
+      "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat",
+      "sha256": "edb0f3aac87a6830f537edb5a811eee907d772f6dac219ae8eb991038b4fdb1b"
+    }
+  ],
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "unique_cycle_count_claimed": false,
+  "certified_gait_claimed": false,
+  "bifurcation_certificate_created": false,
+  "interpretation": "A collection of previously accepted saved records. Sampling or exporting does not prove global connectivity, distinct cycles, a named gait, or a bifurcation.",
+  "phase_equivalence_note": "Positive and negative touchdown-angle representatives at a fixed resonance index and absolute amplitude are marked half-period phases of the same labeled cycle. Admission and meaningful correction may also repeat an existing amplitude. No unique-cycle count is inferred here.",
+  "mat_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Negative_Cycle_Samples.mat",
+  "mat_sha256": "819551f9a074b50ee18198e65838606ccc412ca7920f2dd7a7ef5cf331abe1f2",
+  "mat_bytes": 2.648454E+6
+}

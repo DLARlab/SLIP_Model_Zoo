@@ -1,0 +1,30 @@
+{
+  "schema_version": "prospective-BL2-chart-correction-v3-1",
+  "registered_utc": "07-Oct-2026 16:54:28",
+  "diagnosis": "Strict raw contact-order signatures obstructed derivatives despite commuting independent zero-compression factors; measured two-return limiting derivatives agree.",
+  "gate": "Research_v3/next_round/theory/two_BL_n0_chart_validation.json",
+  "helper_path": "Numerics_v3/EventOrderChartJacobian_v3.m",
+  "helper_sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d",
+  "correction": "Explicitly counted BL2 common-C1 event-order chart; h=1e-4 with internal h/2 comparison; Broyden reuse and best-candidate continuation between task slices.",
+  "jacobian_options": {
+    "PhysicalParameter": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "BLTouchdownsPerReturn": 2,
+    "RelativeCandidateSteps": 0.0001,
+    "MaximumRelativeError": 0.001,
+    "FailurePolicy": "nan"
+  },
+  "acceptance_tolerances_changed": false,
+  "domain_changed": false,
+  "scope": "Baseline regular two-TD/LO-per-leg contact cohorts; not the archived one-TD-per-leg two-flight B2 chart or a C2/bifurcation certificate."
+}

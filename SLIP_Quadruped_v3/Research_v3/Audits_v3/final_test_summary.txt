@@ -1,7 +1,0 @@
-MATLAB: 25.2.0.3177638 (R2025b) Update 5
-Platform: MACA64
-Elapsed seconds: 267.750724250
-Total: 190
-Passed: 188
-Failed: 2
-Incomplete: 1

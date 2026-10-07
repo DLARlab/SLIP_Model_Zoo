@@ -1,0 +1,164 @@
+function report=RunSaltationAudit_v3()
+%RUNSALTATIONAUDIT_V3 Event-time and common-coordinate derivative audits.
+% Local smooth extensions compare at a common clock, possibly backward by
+% O(h) after a perturbed reset. These are derivative probes, not accepted
+% quadruped trajectories or full-system Floquet calculations.
+    here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(fileparts(here)));
+    folders={'Schema_v3','Dynamics_v3','Simulation_v3','Orbit_v3'};
+    for k=1:numel(folders),addpath(fullfile(v3,folders{k}));end
+    system=Quadrupedal_Dynamics_v3();schema=system.Schema;
+    p=[10;10;20;20;1;1;0;0;2;.5];q=false(4,1);
+    x=zeros(14,1);x(2)=.2;x(3)=1.5;x(5)=.07;x(6)=.03;
+    x(schema.Leg.AngleIndices)=[.4;.7;.2;-.6];
+    x(schema.Leg.RateIndices)=[.7;-.3;.2;.9];
+    chart=QuadrupedPhysicalChart_v3.create(x,q,p);
+    [basis,~]=QuadrupedPhysicalChart_v3.tangentBasis(chart);
+    settings=struct('RelTol',1e-12,'AbsTol',1e-14,'MaxStep',.003, ...
+        'EventValueTolerance',1e-10,'EventTimeTolerance',1e-12, ...
+        'SimultaneousTimeTolerance',1e-10,'ArmingTolerance',1e-11);
+    detector=EventDetector_v3(settings);options=odeset('RelTol',1e-12, ...
+        'AbsTol',1e-14,'MaxStep',.003);
+    [segment,event]=detector.integrate(system,x,q,p,[0,2],[],options);
+    assert(numel(event.guard_batch)==1,'An isolated contact is required by this audit.');
+    id=event.guard_batch.id;time=event.time;xm=event.state;
+    [saltation,detail]=factor(system,id,time,xm,q,p,2e-6);
+    refinements=cell(3,1);
+    for refinement=1:3
+        h=2e-5/2^(refinement-1);
+        flowJacobian=zeros(14,chart.dimension);
+        transportedJacobian=flowJacobian;timeDerivative=zeros(1,chart.dimension);
+        for column=1:chart.dimension
+            displacement=h*basis(:,column);
+            smoothPlus=propagate(system,0,time,x+displacement,q,p,options);
+            smoothMinus=propagate(system,0,time,x-displacement,q,p,options);
+            flowJacobian(:,column)=(smoothPlus-smoothMinus)/(2*h);
+            [mappedPlus,tplus]=resetTransport(x+displacement);
+            [mappedMinus,tminus]=resetTransport(x-displacement);
+            transportedJacobian(:,column)=(mappedPlus-mappedMinus)/(2*h);
+            timeDerivative(column)=(tplus-tminus)/(2*h);
+        end
+        predicted=saltation*flowJacobian;
+        predictedTime=-detail.normal.'*flowJacobian/detail.normal_speed;
+        refinements{refinement}=struct('step',h,'flowJacobian',flowJacobian, ...
+            'predicted_common_clock_Jacobian',predicted, ...
+            'measured_common_clock_Jacobian',transportedJacobian, ...
+            'matrix_error',norm(predicted-transportedJacobian,inf), ...
+            'predicted_event_time_derivative',predictedTime, ...
+            'measured_event_time_derivative',timeDerivative, ...
+            'event_time_derivative_error',norm(predictedTime-timeDerivative,inf));
+        fprintf('Isolated %s step%.3g saltation defect%.3g time-sensitivity defect%.3g\n', ...
+            schema.Event.Names{id},h,refinements{refinement}.matrix_error, ...
+            refinements{refinement}.event_time_derivative_error);
+        save(fullfile(here,'saltation_partial.mat'),'refinements','detail','time','id','-v7');
+    end
+    report=struct('schema_version','saltation-common-coordinate-audit-v3-1', ...
+        'matlab_version',version,'created_utc',char(datetime('now','TimeZone','UTC')), ...
+        'physical_parameters',p,'isolated_event',schema.Event.Names{id}, ...
+        'isolated_event_time',time,'isolated_event_detail',detail, ...
+        'refinements',{vertcat(refinements{:})}, ...
+        'interpretation','local derivative evidence only; no complete Floquet/stability assertion');
+    report.simultaneous_clusters=clusterAudits();
+    % A concrete mathematical counterexample: identity resets commute,
+    % while event-time corrections of different vector fields do not.
+    before=[1;1];afterX=[1;2];afterY=[2;1];afterBoth=[1;1];
+    nx=[1;0];ny=[0;1];
+    sx=eye(2)+(afterX-before)*nx.'/(nx.'*before);
+    syAfterX=eye(2)+(afterBoth-afterX)*ny.'/(ny.'*afterX);
+    sy=eye(2)+(afterY-before)*ny.'/(ny.'*before);
+    sxAfterY=eye(2)+(afterBoth-afterY)*nx.'/(nx.'*afterY);
+    report.commuting_reset_counterexample=struct('reset_maps','both identity', ...
+        'X_then_Y',syAfterX*sx,'Y_then_X',sxAfterY*sy, ...
+        'derivative_difference',norm(syAfterX*sx-sxAfterY*sy,inf), ...
+        'interpretation','counterexample is not the quadruped model');
+    data=load(fullfile(here,'arming_PIP_03.mat'),'info','parameters');
+    final=data.info.raw_return_state;mode=data.info.final_mode;
+    flow=system.flow(data.info.return_time,final,mode,data.parameters);
+    normal=zeros(14,1);normal(4)=1;
+    sectionProjection=eye(14)-flow*normal.'/(normal.'*flow);
+    translationProjection=eye(14);translationProjection(1,1)=0;
+    projected=translationProjection*sectionProjection;
+    report.section_projection=struct('matrix',sectionProjection, ...
+        'translation_matrix',translationProjection,'combined_matrix',projected, ...
+        'section_normal_speed',normal.'*flow,'rank',rank(projected), ...
+        'idempotence_error',norm(projected^2-projected,inf), ...
+        'phase_elimination_error',norm(projected*flow,inf), ...
+        'section_and_translation_rows',norm(projected([1,4],:),inf));
+    assert(report.refinements(end).matrix_error<1e-5, ...
+        'Isolated event-time linearization failed refinement.');
+    report.local_audit_passed=true;
+    save(fullfile(here,'saltation_audit.mat'),'report','segment','event','x','q','p','-v7');
+    fid=fopen(fullfile(here,'saltation_audit.json'),'w');assert(fid>=0);
+    cleanup=onCleanup(@()fclose(fid)); %#ok<NASGU>
+    fprintf(fid,'%s\n',jsonencode(report,'PrettyPrint',true));
+    function [mapped,eventTime]=resetTransport(initial)
+        [~,localEvent]=detector.integrate(system,initial,q,p,[0,2],[],options);
+        assert(numel(localEvent.guard_batch)==1&&localEvent.guard_batch.id==id, ...
+            'Perturbation left the isolated event chart.');
+        eventTime=localEvent.time;
+        post=system.reset(id,eventTime,localEvent.state,q,p);
+        postMode=system.transition(id,q);
+        mapped=propagate(system,eventTime,time,post,postMode,p,options);
+    end
+    function records=clusterAudits()
+        records=cell(4,1);recordIndex=0;
+        for target={'PIP','imported_PK'}
+            loaded=load(fullfile(here,['arming_',target{1},'_03.mat']),'info','parameters');
+            history=loaded.info.event_history;history=history(~[history.is_stop]);
+            for first=[1,5]
+                entries=history(first:first+3);
+                assert(max([entries.time])-min([entries.time])<1e-8);
+                baseState=entries(1).state_before(:);baseMode=entries(1).mode_before(:);
+                ids=[entries.guard_id];orders=perms(ids);matrices=zeros(14,14,size(orders,1));
+                for order=1:size(orders,1)
+                    state=baseState;mode=baseMode;product=eye(14);
+                    for position=1:4
+                        eventId=orders(order,position);
+                        scalar=factor(system,eventId,entries(1).time,state,mode,loaded.parameters,2e-6);
+                        product=scalar*product;
+                        state=system.reset(eventId,entries(1).time,state,mode,loaded.parameters);
+                        mode=system.transition(eventId,mode);
+                    end
+                    matrices(:,:,order)=product;
+                end
+                differences=zeros(size(orders,1),1);
+                for order=1:numel(differences)
+                    differences(order)=norm(matrices(:,:,order)-matrices(:,:,1),inf);
+                end
+                recordIndex=recordIndex+1;
+                records{recordIndex}=struct('target',target{1}, ...
+                    'cluster_kind',schema.Event.Names{ids(1)},'time',entries(1).time, ...
+                    'orders',orders,'matrix_products',matrices, ...
+                    'max_same_coordinate_order_difference',max(differences), ...
+                    'scope','instantaneous saltation products only; feasible return cones and full derivatives unestablished');
+                fprintf('%s %s all24order saltation difference%.3g\n', ...
+                    target{1},schema.Event.Names{ids(1)},max(differences));
+            end
+        end
+        records=vertcat(records{:});
+    end
+end
+function final=propagate(system,startTime,endTime,initial,mode,p,options)
+    if startTime==endTime,final=initial;return;end
+    [~,states]=ode45(@(t,x)system.flow(t,x,mode,p),[startTime,endTime],initial,options);
+    final=states(end,:).';
+end
+function [saltation,detail]=factor(system,id,time,minus,mode,p,h)
+    schema=system.Schema;[leg,~]=schema.eventLegKind(id);expanded=schema.expandParameters(p);
+    theta=minus(5)+minus(schema.Leg.AngleIndices(leg));
+    normal=zeros(14,1);normal(3)=1;
+    normal(5)=expanded.s(leg)*cos(minus(5))+expanded.l_0(leg)*sin(theta);
+    normal(schema.Leg.AngleIndices(leg))=expanded.l_0(leg)*sin(theta);
+    resetJacobian=zeros(14);
+    for k=1:14
+        step=zeros(14,1);step(k)=h;
+        resetJacobian(:,k)=(system.reset(id,time,minus+step,mode,p)- ...
+            system.reset(id,time,minus-step,mode,p))/(2*h);
+    end
+    plus=system.reset(id,time,minus,mode,p);postMode=system.transition(id,mode);
+    fminus=system.flow(time,minus,mode,p);fplus=system.flow(time,plus,postMode,p);
+    speed=normal.'*fminus;assert(abs(speed)>1e-6,'A transverse event is required.');
+    saltation=resetJacobian+(fplus-resetJacobian*fminus)*normal.'/speed;
+    detail=struct('normal',normal,'normal_speed',speed,'reset_Jacobian',resetJacobian, ...
+        'saltation_matrix',saltation,'pre_flow',fminus,'post_flow',fplus, ...
+        'pre_mode',mode,'post_mode',postMode,'post_state',plus);
+end

@@ -2,13 +2,13 @@ function report=ExportResearchEvidence_v3(outputDirectory)
 %EXPORTRESEARCHEVIDENCE_V3 Replay and index accepted campaign orbits.
 % This is validation, not discovery. Raw trajectories remain in referenced MAT
 % artifacts. Independent replay uses tighter tolerances than the main sweep.
-    root=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    root=V3Root_v3(mfilename('fullpath'));
     oldPath=path;cleanup=onCleanup(@()path(oldPath)); %#ok<NASGU>
-    addpath(root);
+    V3LegacyAddPath_v3(root);
     if nargin<1,outputDirectory=fullfile(root,'Research_v3','runs','full');end
     outputDirectory=V3OutputPath_v3(outputDirectory);
     folders={'Schema_v3','Dynamics_v3','Simulation_v3','Orbit_v3','Numerics_v3'};
-    for k=1:numel(folders),addpath(fullfile(root,folders{k}));end
+    for k=1:numel(folders),V3LegacyAddPath_v3(fullfile(root,folders{k}));end
     s=QuadrupedSchema_v3.shared();system=Quadrupedal_Dynamics_v3();
     simulator=HybridSimulator_v3(struct('RelTol',1e-11,'AbsTol',1e-13));
     timer=tic;report=struct('schema_version','replayed-solution-index-v3-1', ...
@@ -16,12 +16,12 @@ function report=ExportResearchEvidence_v3(outputDirectory)
         'purpose','independent tighter replay of stored accepted states', ...
         'replay_settings',struct('relative_tolerance',1e-11,'absolute_tolerance',1e-13, ...
         'closure_target',1e-8),'solutions',struct([]),'status','running');
-    files=[dir(fullfile(outputDirectory,'vertical_*.mat')); ...
-        dir(fullfile(outputDirectory,'fixture_*.mat')); ...
-        dir(fullfile(outputDirectory,'pronk_daughter_v2_*.mat')); ...
-        dir(fullfile(outputDirectory,'family_*.mat'))];
+    files=[V3Dir_v3(fullfile(outputDirectory,'vertical_*.mat')); ...
+        V3Dir_v3(fullfile(outputDirectory,'fixture_*.mat')); ...
+        V3Dir_v3(fullfile(outputDirectory,'pronk_daughter_v2_*.mat')); ...
+        V3Dir_v3(fullfile(outputDirectory,'family_*.mat'))];
     for fileIndex=1:numel(files)
-        file=V3OutputPath_v3(fullfile(files(fileIndex).folder,files(fileIndex).name));data=load(file);
+        file=V3OutputPath_v3(fullfile(files(fileIndex).folder,files(fileIndex).name));data=load(V3Path_v3(file));
         if isfield(data,'branch')
             for j=1:numel(data.branch.points)
                 record(data.branch.points(j).orbit,file,j,'imported-seed continuation');
@@ -130,7 +130,7 @@ function policy=storedReturnPolicy(orbit,schema)
 end
 
 function writeJSON(file,data)
-    fid=fopen(file,'w');if fid<0,error('ExportResearchEvidence_v3:Output','Cannot open %s',file);end
+    fid=fopen(V3Path_v3(file),'w');if fid<0,error('ExportResearchEvidence_v3:Output','Cannot open %s',file);end
     cleanup=onCleanup(@()fclose(fid)); %#ok<NASGU>
     fprintf(fid,'%s\n',jsonencode(data,'PrettyPrint',true));
 end

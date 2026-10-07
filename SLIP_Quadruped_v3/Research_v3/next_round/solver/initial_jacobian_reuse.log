@@ -1,0 +1,24 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                            schema_version: 'opposed-spread-corrector-result-v3-1'
+                             completed_utc: '07-Oct-2026 14:28:56'
+                  combined_elapsed_seconds: 106.6668
+                           exact_predictor: [1×1 struct]
+                      nonlinear_correction: [1×1 struct]
+                  exact_predictor_admitted: 1
+    meaningful_nonlinear_correction_passed: 1
+                             source_hashes: [1×9 struct]
+                          ancestry_claimed: 0
+                          new_gait_claimed: 0
+                            evidence_epoch: 'Both scientific cases executed before the subsequent RootSolver warm-initial-J cost repair; neither supplied an initial Jacobian.'
+
+      schema_version: 'actual-initial-J-reuse-audit-v3-1'
+              passed: 1
+       completed_utc: '07-Oct-2026 14:36:20'
+         root_sha256: 'ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75'
+                warm: [1×1 struct]
+                cold: [1×1 struct]
+    state_difference: 2.5572e-12
+

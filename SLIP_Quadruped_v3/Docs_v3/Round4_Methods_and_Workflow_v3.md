@@ -21,7 +21,7 @@ that a particular physical quadruped orbit, bifurcation, switched branch, or
 Floquet spectrum has been validated. Executed production results, test output,
 parameter ranges, convergence tables, and unresolved physical searches belong
 in `Docs_v3/Round4_Production_Validation_Report_v3.md`. The pre-change baseline
-is recorded separately in `Docs_v3/Round4_Prechange_Test_Report_v3.md`.
+is recorded separately in `Docs_v3/Round4_Prechange_Audit_v3.md`.
 
 ## 2. Architectural view
 
@@ -116,32 +116,32 @@ flowchart LR
     Legacy -. "one-way explicit conversion" .-> OrbitLayer
 ```
 
-The apparent two-way relation between `Numerics_v3` and `Stability_v3` is at
+The apparent two-way relation between `3_Numerical_Continuation` and `3_Numerical_Continuation/3_Bifurcation_Analysis` is at
 the workflow level: continuation may call a supplied stability analyzer, while
-branch switching in `Numerics_v3/BranchSwitching_v3.m` consumes a refined
-critical point produced in `Stability_v3`. The base simulation and map layers
+branch switching in `3_Numerical_Continuation/2_Continuation_Algorithms/BranchSwitching_v3.m` consumes a refined
+critical point produced in `3_Numerical_Continuation/3_Bifurcation_Analysis`. The base simulation and map layers
 do not depend on either analysis layer.
 
 ### 2.3 Directory responsibilities
 
 | Directory | Responsibility |
 |---|---|
-| `Schema_v3` | Canonical quadruped state, parameter, leg, mode, event, and root-chart metadata |
-| `Adapters_v3` | Explicit state/parameter/mode/event conversion at the legacy/v3 boundary |
-| `Dynamics_v3` | Generic hybrid contract and quadruped flow, guards, resets, mode transitions, admissibility, and batch semantics |
-| `Simulation_v3` | One-mode event location, event-driven replay, trajectory storage, and cycle-level event clustering |
-| `Orbit_v3` | Geometric sections, return policies, local section-mode charts, Poincare maps, periodic residuals, and orbit records |
-| `Numerics_v3` | Ordinary and hybrid finite differences, nonlinear root solving, continuation, and branch switching |
-| `Stability_v3` | Floquet analysis, symmetry/nonsmooth derivatives, smooth-candidate detection/refinement, and hybrid-boundary detection |
-| `Graphics_v3` | Construction, resampling, animation, trajectory, GRF, and periodic-orbit views from v3 orbit/trajectory data |
-| `Examples_v3` | Reproducible quadruped and second-model factories and search/continuation harnesses |
+| `1_Dynamic_Frameworks/Schema_v3` | Canonical quadruped state, parameter, leg, mode, event, and root-chart metadata |
+| `1_Dynamic_Frameworks/Adapters_v3` | Explicit state/parameter/mode/event conversion at the legacy/v3 boundary |
+| `1_Dynamic_Frameworks/Dynamics_v3` | Generic hybrid contract and quadruped flow, guards, resets, mode transitions, admissibility, and batch semantics |
+| `1_Dynamic_Frameworks/Simulation_v3` | One-mode event location, event-driven replay, trajectory storage, and cycle-level event clustering |
+| `4_Solution_Management` | Geometric sections, return policies, local section-mode charts, Poincare maps, periodic residuals, and orbit records |
+| `3_Numerical_Continuation` | Ordinary and hybrid finite differences, nonlinear root solving, continuation, and branch switching |
+| `3_Numerical_Continuation/3_Bifurcation_Analysis` | Floquet analysis, symmetry/nonsmooth derivatives, smooth-candidate detection/refinement, and hybrid-boundary detection |
+| `2_Graphic_ToolBox/Graphics_v3` | Construction, resampling, animation, trajectory, GRF, and periodic-orbit views from v3 orbit/trajectory data |
+| `4_Solution_Management/Examples_v3` | Reproducible quadruped and second-model factories and search/continuation harnesses |
 | `Tests_v3` | Source contracts, synthetic numerical tests, and separately identified production-model tests |
 
 ## 3. Canonical quadruped model
 
 ### 3.1 Schema
 
-`Schema_v3/QuadrupedSchema_v3.m` is the only production source of quadruped
+`1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m` is the only production source of quadruped
 coordinate, parameter, leg, mode, and event ordering.
 
 The state is
@@ -194,17 +194,17 @@ root problem. Event times and the discrete mode are not continuous unknowns.
 
 ### 3.2 Model assembly
 
-`Dynamics_v3/Quadrupedal_Dynamics_v3.m` derives from
-`Dynamics_v3/HybridSystemBase_v3.m` and delegates to these model-owned
+`1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m` derives from
+`1_Dynamic_Frameworks/Dynamics_v3/HybridSystemBase_v3.m` and delegates to these model-owned
 components:
 
 | Mathematical object | Code path and method |
 |---|---|
-| \(F_q(t,x,p)\) | `Dynamics_v3/ContinuousDynamics_v3.m`, `evaluate` |
-| guard descriptors | `Dynamics_v3/GuardFunctions_v3.m`, `descriptors` |
-| \(\Delta_i(x^-,q^-,p)\) | `Dynamics_v3/ResetMap_v3.m`, `apply` / `applyBatch` |
-| \(q^+=T(q^-,i)\) | `Dynamics_v3/ModeTransition_v3.m`, `apply` / `applyBatch` |
-| physical domain | `Dynamics_v3/QuadrupedAdmissibility_v3.m`, `evaluate` / `assertAdmissible` |
+| \(F_q(t,x,p)\) | `1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m`, `evaluate` |
+| guard descriptors | `1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m`, `descriptors` |
+| \(\Delta_i(x^-,q^-,p)\) | `1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m`, `apply` / `applyBatch` |
+| \(q^+=T(q^-,i)\) | `1_Dynamic_Frameworks/Dynamics_v3/ModeTransition_v3.m`, `apply` / `applyBatch` |
+| physical domain | `1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m`, `evaluate` / `assertAdmissible` |
 | simultaneous event semantics | `Quadrupedal_Dynamics_v3.resolveEventBatch` |
 
 `Quadrupedal_Dynamics_v3.flow`, `activeGuards`, `reset`, and `transition`
@@ -347,11 +347,11 @@ The detailed workflow is as follows.
 
 ### Step 1: validate the input and initialize storage
 
-1. `Simulation_v3/HybridSimulator_v3.m`, `simulate`, checks the time span and
+1. `1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m`, `simulate`, checks the time span and
    hybrid-system interface.
 2. Model methods `validateState`, `validateMode`, and `validateParameter`
    enforce the active model schema.
-3. `Simulation_v3/Trajectory_v3.m` is created with the initial sample and
+3. `1_Dynamic_Frameworks/Simulation_v3/Trajectory_v3.m` is created with the initial sample and
    mode.
 4. If the model supplies `assertAdmissible`, the initial state is checked in
    the `accepted-state` context.
@@ -359,7 +359,7 @@ The detailed workflow is as follows.
 ### Step 2: freeze the mode and integrate its flow
 
 1. `HybridSimulator_v3.simulate` calls
-   `Simulation_v3/EventDetector_v3.m`, `integrate`.
+   `1_Dynamic_Frameworks/Simulation_v3/EventDetector_v3.m`, `integrate`.
 2. `EventDetector_v3` obtains the active descriptor set through
    `system.activeGuards(t,x,q,p)` and freezes that set for the current smooth
    segment.
@@ -383,7 +383,7 @@ The detailed workflow is as follows.
    alone does not define their physics.
 
 This is the local event batch at one integration restart. Longer-orbit event
-clusters are constructed later by `Simulation_v3/EventCluster_v3.m`.
+clusters are constructed later by `1_Dynamic_Frameworks/Simulation_v3/EventCluster_v3.m`.
 
 ### Step 4: resolve the batch atomically at model level
 
@@ -440,7 +440,7 @@ classification. `HybridOrbit_v3` deliberately has no stored `gait_type`.
 
 ## 5. Physical admissibility
 
-`Dynamics_v3/QuadrupedAdmissibility_v3.m` separates four contexts:
+`1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m` separates four contexts:
 
 1. `ode-stage`: reports a configurable small event-surface overshoot and does
    not throw merely because a transient Runge--Kutta stage passed a guard;
@@ -494,13 +494,13 @@ The structured report includes per-leg clearances, compressions, lengths,
 hip and torso margins, complementarity residuals, active tolerances, validity,
 and failure reasons. `HybridSimulator_v3` accumulates minimum margins;
 `PoincareMap_v3`, `PeriodicOrbitResidual_v3`, `HybridOrbit_v3`, both
-continuation classes, and `Stability_v3/HybridBoundaryDetector_v3.m` propagate
+continuation classes, and `3_Numerical_Continuation/3_Bifurcation_Analysis/HybridBoundaryDetector_v3.m` propagate
 them. Physical-domain losses are hybrid boundaries, not smooth Floquet
 bifurcations.
 
 ## 6. Event clusters over an accepted cycle
 
-`Simulation_v3/EventCluster_v3.m` groups physical events whose times fit
+`1_Dynamic_Frameworks/Simulation_v3/EventCluster_v3.m` groups physical events whose times fit
 inside an adaptive tolerance
 
 \[
@@ -537,7 +537,7 @@ classified as a saddle-node, period doubling, or Neimark--Sacker bifurcation.
 
 ### 7.1 Geometric section
 
-`Orbit_v3/PoincareSection_v3.m` represents a general section
+`4_Solution_Management/PoincareSection_v3.m` represents a general section
 
 \[
 h(x,p)=0
@@ -568,7 +568,7 @@ x_{k+1}=x_k-
 
 ### 7.2 Leaving and rearming the section
 
-`Orbit_v3/PoincareMap_v3.m`, `evaluate`, first projects and validates the
+`4_Solution_Management/PoincareMap_v3.m`, `evaluate`, first projects and validates the
 initial state. For each candidate return, its private
 `nextSectionCrossing` executes three simulator phases:
 
@@ -585,14 +585,14 @@ by the stopping condition.
 
 Section geometry and cycle acceptance are independent.
 
-- `Orbit_v3/FirstReturnPolicy_v3.m` accepts the first valid directional
+- `4_Solution_Management/FirstReturnPolicy_v3.m` accepts the first valid directional
   crossing.
-- `Orbit_v3/IteratedReturnPolicy_v3.m` accepts a requested iterate \(P^m\).
-- `Orbit_v3/EventCycleReturnPolicy_v3.m` is the quadruped default. It accepts
+- `4_Solution_Management/IteratedReturnPolicy_v3.m` accepts a requested iterate \(P^m\).
+- `4_Solution_Management/EventCycleReturnPolicy_v3.m` is the quadruped default. It accepts
   only when the final right-continuous mode equals the initial mode and every
   leg has at least one touchdown and one liftoff in the cumulative physical
   event history.
-- `Orbit_v3/ReturnPolicyBase_v3.m` defines the model-independent candidate
+- `4_Solution_Management/ReturnPolicyBase_v3.m` defines the model-independent candidate
   contract.
 
 Intermediate apexes are retained as candidates and ignored when the event
@@ -616,7 +616,7 @@ canonical event words are identical.
 
 At continuation or root correction, a contact event may move through the
 section and change the right-continuous section mode.
-`Orbit_v3/SectionModeResolver_v3.m` begins with the previous accepted mode and
+`4_Solution_Management/SectionModeResolver_v3.m` begins with the previous accepted mode and
 adds only modes obtained by applying section-near, directionally consistent
 guards and their combinations. `Quadrupedal_Dynamics_v3.adjacentMode` toggles
 the corresponding leg chart on either side of the guard. Exhaustive all-mode
@@ -627,7 +627,7 @@ production default.
 
 ### 8.1 Residual construction
 
-`Orbit_v3/PeriodicOrbitResidual_v3.m` reconstructs a full state from the
+`4_Solution_Management/PeriodicOrbitResidual_v3.m` reconstructs a full state from the
 unknown vector, projects it to the section, evaluates the full policy-selected
 map, and forms
 
@@ -652,12 +652,12 @@ zero by the system. The residual rejects a return that fails required discrete
 closure; event timing and event order remain outputs of `PoincareMap_v3`.
 
 `PeriodicOrbitResidual_v3.createOrbit` packages an accepted solution as
-`Orbit_v3/HybridOrbit_v3.m`, including event, mode, cluster, return-policy,
+`4_Solution_Management/HybridOrbit_v3.m`, including event, mode, cluster, return-policy,
 stability, topology, and physical-margin metadata, but no gait label.
 
 ### 8.2 Discrete modes are resolved outside the continuous solver
 
-`Numerics_v3/RootSolver_v3.m` requests local candidates from the residual and
+`3_Numerical_Continuation/1_Root_Solving/RootSolver_v3.m` requests local candidates from the residual and
 `SectionModeResolver_v3`. Each candidate mode is a separate continuous solve.
 The mode is never passed to `fsolve` or Newton as a real-valued unknown. The
 solver selects the converged candidate with the best residual and reports all
@@ -666,7 +666,7 @@ attempts and rejection reasons.
 ### 8.3 Default hybrid finite-difference Jacobian
 
 Unless explicitly replaced, `RootSolver_v3` constructs
-`Numerics_v3/HybridFiniteDifferenceJacobian_v3.m`. For coordinate \(i\), a
+`3_Numerical_Continuation/1_Root_Solving/HybridFiniteDifferenceJacobian_v3.m`. For coordinate \(i\), a
 candidate physical step is
 
 \[
@@ -705,7 +705,7 @@ are diagnostic Bouligand limits; neither is promoted to a unique classical
 derivative merely because one side matches the right-continuous baseline
 chart. The code does not average incompatible one-sided limits.
 
-`Numerics_v3/FiniteDifferenceJacobian_v3.m` remains the dimension-independent
+`3_Numerical_Continuation/1_Root_Solving/FiniteDifferenceJacobian_v3.m` remains the dimension-independent
 ordinary forward/central alternative. Its default scale is
 
 \[
@@ -735,7 +735,7 @@ hybrid trials are rejected, not converted into finite penalty residuals.
 
 ### 9.1 Simple parameter continuation
 
-`Numerics_v3/NumericalContinuation1D_v3.m` fixes one selected component
+`3_Numerical_Continuation/2_Continuation_Algorithms/NumericalContinuation1D_v3.m` fixes one selected component
 \(\mu=p_j\) at each requested value and solves
 
 \[
@@ -750,7 +750,7 @@ stored separately; no event ordering or timing is supplied to the solver.
 
 ### 9.2 Pseudo-arclength continuation
 
-`Numerics_v3/PseudoArclengthContinuation_v3.m` frees one scalar parameter and
+`3_Numerical_Continuation/2_Continuation_Algorithms/PseudoArclengthContinuation_v3.m` frees one scalar parameter and
 uses \(z=[u;\mu]\). With component scale \(s\), tangent \(t\), base point
 \(z_k\), and arclength step \(\Delta s\), its corrector solves
 
@@ -785,7 +785,7 @@ neighboring compatible chart can supply a new tangent.
 
 ### 10.1 Classical full-cycle derivative
 
-`Stability_v3/FloquetAnalysis_v3.m` differentiates the complete accepted hybrid
+`3_Numerical_Continuation/3_Bifurcation_Analysis/FloquetAnalysis_v3.m` differentiates the complete accepted hybrid
 map \(P_C\), including variations in guard times and all resets. It does not
 differentiate only a continuous state-transition matrix and does not silently
 replace `EventCycleReturnPolicy_v3` by a first-apex return.
@@ -823,7 +823,7 @@ declare one reliable classical matrix.
 
 ### 10.2 Symmetry-restricted derivative
 
-`Stability_v3/SymmetrySubspace_v3.m` represents linear actions
+`3_Numerical_Continuation/3_Bifurcation_Analysis/SymmetrySubspace_v3.m` represents linear actions
 \(\rho(g)\) and computes
 
 \[
@@ -837,7 +837,7 @@ For a supplied basis \(B\), `FloquetAnalysis_v3` differentiates perturbations
 \eta=Bz
 \]
 
-and returns the reduced block. `Stability_v3/SymmetryRestrictedFloquet_v3.m`
+and returns the reduced block. `3_Numerical_Continuation/3_Bifurcation_Analysis/SymmetryRestrictedFloquet_v3.m`
 labels the result `symmetry-restricted-classical`, checks that the base belongs
 to the requested subspace, and verifies preservation of the baseline cluster
 signature on the selected (h,h/2) stencil. It also measures the component of
@@ -849,7 +849,7 @@ section-tangent basis from the canonical schema.
 ### 10.3 Bouligand event-order set
 
 When a simultaneous cluster splits under transverse perturbation,
-`Stability_v3/EventClusterDerivative_v3.m` can enumerate supplied admissible
+`3_Numerical_Continuation/3_Bifurcation_Analysis/EventClusterDerivative_v3.m` can enumerate supplied admissible
 event orders \(\sigma\), or walk each scalar reset and transition of an actual
 hybrid model and filter the permutations with a supplied one-sided guard-cone
 predicate. It computes the corresponding one-sided matrices
@@ -872,7 +872,7 @@ arbitrarily selected ordering are not called “the” Floquet multipliers.
 
 ### 11.1 Candidate detection is only bracketing
 
-`Stability_v3/BifurcationDetector_v3.m` matches multiplier tracks between
+`3_Numerical_Continuation/3_Bifurcation_Analysis/BifurcationDetector_v3.m` matches multiplier tracks between
 continuation points using eigenvalue distance and, when available,
 eigenvector overlap. It brackets sign changes of
 
@@ -890,7 +890,7 @@ excluded by default. A bracket is a candidate, not a classification.
 
 ### 11.2 Moore--Spence and multiplier refinements
 
-`Stability_v3/BifurcationRefiner_v3.m` first rejects candidates marked with
+`3_Numerical_Continuation/3_Bifurcation_Analysis/BifurcationRefiner_v3.m` first rejects candidates marked with
 unreliable Floquet data, incompatible topology, a section/contact boundary, or
 unresolved simultaneous-event ordering. It also requires an explicit candidate
 multiplier consistent with the requested augmented system: (+1) for the
@@ -948,7 +948,7 @@ by itself.
 
 ### 11.3 Branch switching
 
-`Numerics_v3/BranchSwitching_v3.m` constructs signed predictors
+`3_Numerical_Continuation/2_Continuation_Algorithms/BranchSwitching_v3.m` constructs signed predictors
 
 \[
 u_+=u_*+\varepsilon v,
@@ -995,7 +995,7 @@ stabilizers. It never infers a pitchfork solely from \(\lambda=1\).
 
 ## 12. Second-model extensibility demonstration
 
-`Examples_v3/Models/BipedalHybridModel_v3.m` derives directly from
+`4_Solution_Management/Examples_v3/Models/BipedalHybridModel_v3.m` derives directly from
 `HybridSystemBase_v3`; it does not use or inspect `QuadrupedSchema_v3`.
 Its state and parameter dimensions differ from the quadruped:
 
@@ -1029,10 +1029,10 @@ and liftoff applies
 
 Touchdown loss, stance damping, and the liftoff impulse make the model
 non-energy-conservative. The discrete mode alternates left and right legs.
-`Examples_v3/Models/BipedStrideReturnPolicy_v3.m` ignores the intermediate
+`4_Solution_Management/Examples_v3/Models/BipedStrideReturnPolicy_v3.m` ignores the intermediate
 step apex and accepts only after one TD/LO for each leg and mode closure.
 
-`Examples_v3/Models/BipedalHybridExample_v3.m` wires this model to the same
+`4_Solution_Management/Examples_v3/Models/BipedalHybridExample_v3.m` wires this model to the same
 `HybridSimulator_v3`, `PoincareMap_v3`, `PeriodicOrbitResidual_v3`,
 `RootSolver_v3`, `NumericalContinuation1D_v3`, and `FloquetAnalysis_v3` used by
 the quadruped. It is a compact infrastructure demonstration, not a migration
@@ -1068,7 +1068,7 @@ meaningful only together with the active options stored in the result.
 
 The v3 framework is independent. Existing v1/v2 files are not edited, and v3
 production components do not call legacy zero functions. Migration is an
-explicit boundary operation through `Adapters_v3`:
+explicit boundary operation through `1_Dynamic_Frameworks/Adapters_v3`:
 
 - `LegacyStateAdapter_v3.m` maps old leg-coordinate order to canonical
   `[BL,BR,FL,FR]` for the full 14-state vector and the 13 root coordinates;
@@ -1098,13 +1098,13 @@ A migrated workflow should therefore:
 4. use the converted state only as a v3 root initial guess;
 5. rediscover all event times and ordering with `HybridSimulator_v3`;
 6. validate the full event cycle and physical margins before accepting it;
-7. store the result as `HybridOrbit_v3` and use `Graphics_v3`, which consumes
+7. store the result as `HybridOrbit_v3` and use `2_Graphic_ToolBox/Graphics_v3`, which consumes
    the trajectory and event/mode histories rather than an old packed `P`
    vector or event-time guesses.
 
 The concrete seed-conversion factory is
-`Examples_v3/QuadrupedalExample_v3.m`. The continuation/search harness is
-`Examples_v3/QuadrupedalContinuationStudy_v3.m`. Their existence describes a
+`4_Solution_Management/Examples_v3/QuadrupedalExample_v3.m`. The continuation/search harness is
+`4_Solution_Management/Examples_v3/QuadrupedalContinuationStudy_v3.m`. Their existence describes a
 reproducible workflow; only executed results in the Round 4 production report
 establish which physical cases were actually found.
 

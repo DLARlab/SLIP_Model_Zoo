@@ -1,0 +1,264 @@
+{
+  "schema_version": "restricted-PIP-variational-audit-v3-1",
+  "passed": true,
+  "registration": {
+    "schema_version": "restricted-PIP-variational-registration-v3-1",
+    "registered_utc": "07-Oct-2026 12:42:52",
+    "helper_sha256": "2a3c67d2ca8099d772a850c093bfccec7dbdbd2bf7c5e50e5b85578544c4136c",
+    "physical_parameter": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "fresh_energies": [
+      1.1,
+      3,
+      8
+    ],
+    "relative_matrix_threshold": 1E-5,
+    "flow_generator_absolute_threshold": 1E-8,
+    "independent_replay_closure_threshold": 1E-8,
+    "scope": "Fixed-energy synchronized pronk parent; no unrestricted derivative claim"
+  },
+  "recorded_comparisons": [
+    {
+      "artifact": "Research_v3/runs/full/pronk_predictions_v2_1.mat",
+      "artifact_sha256": "1d34a58eac6e3893f2113a7fe62771e301445835746d25bd6fac67865fe7499e",
+      "energy": 1.5551652516426646,
+      "recorded_matrix": [
+        [
+          1.968339249575598,
+          -6.9165334614844386E-8,
+          0.854257238761039
+        ],
+        [
+          0.26285859582087723,
+          -6.9237620970765567E-9,
+          0.087313578484651336
+        ],
+        [
+          -3.3647469057062853,
+          1.6295328259805704E-7,
+          -1.9683392420165655
+        ]
+      ],
+      "analytic_matrix": [
+        [
+          1.9683392495843981,
+          -6.6175989857092241E-8,
+          0.85425724322922414
+        ],
+        [
+          0.26285859646689536,
+          -6.763843787093003E-9,
+          0.087313579436786248
+        ],
+        [
+          -3.3647469092375637,
+          1.5247959522242729E-7,
+          -1.9683392563482567
+        ]
+      ],
+      "relative_matrix_error": 4.239878781957786E-9
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_predictions_v2_2.mat",
+      "artifact_sha256": "32428b46ed8454df9dbe499486f371bfc431e823e4b9dda933ed15d896614a41",
+      "energy": 1.6959508361671367,
+      "recorded_matrix": [
+        [
+          2.0831271168358581,
+          -2.3194451330743528,
+          0.82033020317123384
+        ],
+        [
+          -0.18900082468583579,
+          0.40473277767187943,
+          -0.14314394383696591
+        ],
+        [
+          -3.53643143880976,
+          4.7455811531340037,
+          -1.6783943215198758
+        ]
+      ],
+      "analytic_matrix": [
+        [
+          2.0831271168443584,
+          -2.3194451336579864,
+          0.82033020827441117
+        ],
+        [
+          -0.18900082393519357,
+          0.40473277814972153,
+          -0.14314394394465521
+        ],
+        [
+          -3.5364314447236,
+          4.7455811598518292,
+          -1.6783943386946296
+        ]
+      ],
+      "relative_matrix_error": 2.8670576488383529E-9
+    }
+  ],
+  "fresh_comparisons": [
+    {
+      "energy": 1.1,
+      "finite_difference_matrix": [
+        [
+          1.5292932524709053,
+          0.76042345787959775,
+          -0.37153511919554622
+        ],
+        [
+          0.060557489164488394,
+          0.16809572002932938,
+          -0.082129848213805021
+        ],
+        [
+          3.4793171571305739,
+          2.7859722527725741,
+          -1.361197530145696
+        ]
+      ],
+      "analytic_matrix": [
+        [
+          1.5292932524756333,
+          0.76042345736097916,
+          -0.37153511968601088
+        ],
+        [
+          0.060557489220719685,
+          0.16809571953565491,
+          -0.082129848404635039
+        ],
+        [
+          3.4793171580595259,
+          2.7859722521635431,
+          -1.3611975329400228
+        ]
+      ],
+      "relative_matrix_error": 6.1923295644396315E-10,
+      "finite_difference_reliable": true,
+      "map_evaluations": 19,
+      "returned_reduced_state": [
+        0,
+        0,
+        0
+      ],
+      "independent_full_closure": 3.0420110874729289E-13,
+      "independent_period_error": 6.2527760746888816E-13,
+      "minimum_vertical_height": 0.89999999999999991
+    },
+    {
+      "energy": 3,
+      "finite_difference_matrix": [
+        [
+          3.0689483813322465,
+          7.938736299939376,
+          -0.92530724292158151
+        ],
+        [
+          0.711045918480099,
+          2.1552848150407251,
+          -0.25121134776522952
+        ],
+        [
+          2.99753201905385,
+          7.8388384995652087,
+          -0.9136635526142195
+        ]
+      ],
+      "analytic_matrix": [
+        [
+          3.0689483813454248,
+          7.9387363082134064,
+          -0.925307249637295
+        ],
+        [
+          0.71104591923871152,
+          2.1552848181419741,
+          -0.25121135024936736
+        ],
+        [
+          2.9975320225600735,
+          7.8388385107079808,
+          -0.9136635632033554
+        ]
+      ],
+      "relative_matrix_error": 1.5805119228643071E-9,
+      "finite_difference_reliable": true,
+      "map_evaluations": 19,
+      "returned_reduced_state": [
+        0,
+        0,
+        0
+      ],
+      "independent_full_closure": 2.1151969065158482E-12,
+      "independent_period_error": 1.0667022820598504E-12,
+      "minimum_vertical_height": 0.657785561488762
+    },
+    {
+      "energy": 8,
+      "finite_difference_matrix": [
+        [
+          8.4319276980824078,
+          19.058929678189696,
+          7.02079990008401
+        ],
+        [
+          1.2370868481990442,
+          2.784142191703538,
+          1.0256035114912778
+        ],
+        [
+          -6.6260046747318491,
+          -15.331692580204034,
+          -5.6477854467698307
+        ]
+      ],
+      "analytic_matrix": [
+        [
+          8.4319276981142828,
+          19.058929722151341,
+          7.0207999572696087
+        ],
+        [
+          1.237086849604135,
+          2.7841421993436741,
+          1.0256035212442223
+        ],
+        [
+          -6.6260046807417252,
+          -15.331692622204949,
+          -5.6477854987702312
+        ]
+      ],
+      "relative_matrix_error": 3.4968345647293856E-9,
+      "finite_difference_reliable": true,
+      "map_evaluations": 19,
+      "returned_reduced_state": [
+        0,
+        0,
+        0
+      ],
+      "independent_full_closure": 4.6611603465862572E-12,
+      "independent_period_error": 1.2700951401711791E-12,
+      "minimum_vertical_height": 0.38286403588364948
+    }
+  ],
+  "flow_generator_error": 2.0006218903741986E-11,
+  "liftoff_projection_error": 2.4948931809376518E-12,
+  "integration_refinement_error": 8.75321913632249E-14,
+  "invalid_parameter_rejected": true,
+  "invalid_energy_rejected": true,
+  "elapsed_seconds": 137.76685658333332
+}

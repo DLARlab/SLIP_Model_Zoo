@@ -1,0 +1,9 @@
+{
+  "registered_utc": "07-Oct-2026 14:21:49",
+  "measured_obstacle": "The n0 -0.0003 attempt started with only3.7796 seconds left: zero Newton steps and unavailable Jacobian, not an ill-conditioning diagnosis.",
+  "evidence": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0003_attempt_1.mat",
+  "repair": "Checkpoint before a new daughter with less than30 seconds remaining; scale a preceding accepted same-sign daughter and its finite corrector Jacobian as a numerical warm start.",
+  "frozen_parent_predictions_changed": false,
+  "acceptance_tolerances_changed": false,
+  "jacobian_refresh_interval": 5
+}

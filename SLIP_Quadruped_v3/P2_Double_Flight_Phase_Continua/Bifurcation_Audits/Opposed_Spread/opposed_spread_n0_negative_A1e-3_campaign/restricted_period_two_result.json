@@ -1,0 +1,358 @@
+{
+  "schema_version": "executed-opposed-spread-campaign-v3-1",
+  "state": "partial_checkpoint",
+  "scientific_status": "restricted_period_two_corrected_branch_checkpoint_attachment_unresolved",
+  "candidate_id": "opposed_spread_n0_negative_A1e-3_campaign",
+  "candidate_artifact": "Research_v3/next_round/theory/opposed_spread_n0_negative_A1e-3_predictor.mat",
+  "correction_method": "exact-opposed-spread-twisted-restriction",
+  "restricted_branch": {
+    "schema_version": "restricted-opposed-spread-campaign-v3-1",
+    "stage": "restricted_branch",
+    "state": "partial_checkpoint",
+    "predictor_id": "opposed_spread_n0_negative_A1e-3",
+    "candidate_id": "opposed_spread_n0_negative_A1e-3_campaign",
+    "repair_revision": 1,
+    "exact_admission": {
+      "kind": "exact_predictor_admission",
+      "touchdown_angle": -0.001,
+      "accepted": true,
+      "artifact": "restricted_trial_r001_001_exact_predictor_admission.mat",
+      "actual_gait_label": "unclassified",
+      "actual_gait_status": "ambiguous",
+      "actual_flight_count": 2,
+      "primitive_status": "primitive_within_checked_bound",
+      "full_closure": 4.5519144009631418E-14,
+      "initial_residual": 6.168676680573526E-15,
+      "final_residual": 6.168676680573526E-15,
+      "accepted_Newton_steps": 0,
+      "coordinates": [
+        -7.8539803249776089E-5,
+        -0.00447213595499958,
+        1.0616845275068503
+      ],
+      "initial_coordinates": [
+        -7.8539803249776089E-5,
+        -0.00447213595499958,
+        1.0616845275068503
+      ],
+      "constraint_error": 0,
+      "primary_failure": {},
+      "replay_failure": {},
+      "ancestry_claimed": false
+    },
+    "meaningful_correction": {
+      "kind": "meaningful_nonlinear_correction",
+      "touchdown_angle": -0.001,
+      "accepted": true,
+      "artifact": "restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+      "actual_gait_label": "unclassified",
+      "actual_gait_status": "ambiguous",
+      "actual_flight_count": 2,
+      "primitive_status": "primitive_within_checked_bound",
+      "full_closure": 4.2632564145606011E-14,
+      "initial_residual": 0.00010001542523153458,
+      "final_residual": 6.7853708762832809E-15,
+      "accepted_Newton_steps": 3,
+      "coordinates": [
+        -7.8539803247739835E-5,
+        -0.0044721359549996153,
+        1.0616845275069207
+      ],
+      "initial_coordinates": [
+        -0.00017852438555921021,
+        -0.0044703800220828689,
+        1.0616845275068503
+      ],
+      "constraint_error": 0,
+      "primary_failure": {},
+      "replay_failure": {},
+      "ancestry_claimed": false,
+      "meaningful_nonlinear_correction": true
+    },
+    "directions": [
+      {
+        "direction": -1,
+        "last_angle": -0.0016250000000000001,
+        "last_coordinates": [
+          -0.00012762714538282958,
+          -0.0072672209268743173,
+          1.061683707194599
+        ],
+        "step": 0.00056250000000000007,
+        "arclength": 0.0027955160971142945,
+        "records": [
+          {
+            "kind": "restricted_branch_sample",
+            "touchdown_angle": -0.00125,
+            "accepted": true,
+            "artifact": "restricted_trial_r001_003_restricted_branch_sample.mat",
+            "actual_gait_label": "unclassified",
+            "actual_gait_status": "ambiguous",
+            "actual_flight_count": 2,
+            "primitive_status": "primitive_within_checked_bound",
+            "full_closure": 4.6851411639181606E-14,
+            "initial_residual": 5.9813265451680309E-15,
+            "final_residual": 5.9813265451680309E-15,
+            "accepted_Newton_steps": 0,
+            "coordinates": [
+              -9.8174744858336562E-5,
+              -0.0055901699437494743,
+              1.06168424625691
+            ],
+            "initial_coordinates": [
+              -9.8174744858336562E-5,
+              -0.0055901699437494743,
+              1.06168424625691
+            ],
+            "constraint_error": 0,
+            "primary_failure": {},
+            "replay_failure": {},
+            "ancestry_claimed": false,
+            "meaningful_nonlinear_correction": false,
+            "arclength": 0.0011182064255017942
+          },
+          {
+            "kind": "restricted_branch_sample",
+            "touchdown_angle": -0.0016250000000000001,
+            "accepted": true,
+            "artifact": "restricted_trial_r001_005_restricted_branch_sample.mat",
+            "actual_gait_label": "unclassified",
+            "actual_gait_status": "ambiguous",
+            "actual_flight_count": 2,
+            "primitive_status": "primitive_within_checked_bound",
+            "full_closure": 4.241051954068098E-14,
+            "initial_residual": 5.8199972619021878E-15,
+            "final_residual": 5.8199972619021878E-15,
+            "accepted_Newton_steps": 0,
+            "coordinates": [
+              -0.00012762714538282958,
+              -0.0072672209268743173,
+              1.061683707194599
+            ],
+            "initial_coordinates": [
+              -0.00012762714538282958,
+              -0.0072672209268743173,
+              1.061683707194599
+            ],
+            "constraint_error": 0,
+            "primary_failure": {},
+            "replay_failure": {},
+            "ancestry_claimed": false,
+            "meaningful_nonlinear_correction": false,
+            "arclength": 0.0027955160971142945
+          }
+        ],
+        "registered_amplitude_boundary_reached": false
+      },
+      {
+        "direction": 1,
+        "last_angle": -0.00075,
+        "last_coordinates": [
+          -5.890485673247794E-5,
+          -0.0033541019662496848,
+          1.0616847462568217
+        ],
+        "step": 0.000375,
+        "arclength": 0.0011182064116147285,
+        "records": {
+          "kind": "restricted_branch_sample",
+          "touchdown_angle": -0.00075,
+          "accepted": true,
+          "artifact": "restricted_trial_r001_004_restricted_branch_sample.mat",
+          "actual_gait_label": "unclassified",
+          "actual_gait_status": "ambiguous",
+          "actual_flight_count": 2,
+          "primitive_status": "primitive_within_checked_bound",
+          "full_closure": 4.3742787170231168E-14,
+          "initial_residual": 6.43539041500496E-15,
+          "final_residual": 6.43539041500496E-15,
+          "accepted_Newton_steps": 0,
+          "coordinates": [
+            -5.890485673247794E-5,
+            -0.0033541019662496848,
+            1.0616847462568217
+          ],
+          "initial_coordinates": [
+            -5.890485673247794E-5,
+            -0.0033541019662496848,
+            1.0616847462568217
+          ],
+          "constraint_error": 0,
+          "primary_failure": {},
+          "replay_failure": {},
+          "ancestry_claimed": false,
+          "meaningful_nonlinear_correction": false,
+          "arclength": 0.0011182064116147285
+        },
+        "registered_amplitude_boundary_reached": false
+      }
+    ],
+    "next_direction": 2,
+    "trial_serial": 5,
+    "trials": [
+      {
+        "kind": "exact_predictor_admission",
+        "touchdown_angle": -0.001,
+        "accepted": true,
+        "artifact": "restricted_trial_r001_001_exact_predictor_admission.mat",
+        "actual_gait_label": "unclassified",
+        "actual_gait_status": "ambiguous",
+        "actual_flight_count": 2,
+        "primitive_status": "primitive_within_checked_bound",
+        "full_closure": 4.5519144009631418E-14,
+        "initial_residual": 6.168676680573526E-15,
+        "final_residual": 6.168676680573526E-15,
+        "accepted_Newton_steps": 0,
+        "coordinates": [
+          -7.8539803249776089E-5,
+          -0.00447213595499958,
+          1.0616845275068503
+        ],
+        "initial_coordinates": [
+          -7.8539803249776089E-5,
+          -0.00447213595499958,
+          1.0616845275068503
+        ],
+        "constraint_error": 0,
+        "primary_failure": {},
+        "replay_failure": {},
+        "ancestry_claimed": false,
+        "meaningful_nonlinear_correction": false
+      },
+      {
+        "kind": "meaningful_nonlinear_correction",
+        "touchdown_angle": -0.001,
+        "accepted": true,
+        "artifact": "restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+        "actual_gait_label": "unclassified",
+        "actual_gait_status": "ambiguous",
+        "actual_flight_count": 2,
+        "primitive_status": "primitive_within_checked_bound",
+        "full_closure": 4.2632564145606011E-14,
+        "initial_residual": 0.00010001542523153458,
+        "final_residual": 6.7853708762832809E-15,
+        "accepted_Newton_steps": 3,
+        "coordinates": [
+          -7.8539803247739835E-5,
+          -0.0044721359549996153,
+          1.0616845275069207
+        ],
+        "initial_coordinates": [
+          -0.00017852438555921021,
+          -0.0044703800220828689,
+          1.0616845275068503
+        ],
+        "constraint_error": 0,
+        "primary_failure": {},
+        "replay_failure": {},
+        "ancestry_claimed": false,
+        "meaningful_nonlinear_correction": true
+      },
+      {
+        "kind": "restricted_branch_sample",
+        "touchdown_angle": -0.00125,
+        "accepted": true,
+        "artifact": "restricted_trial_r001_003_restricted_branch_sample.mat",
+        "actual_gait_label": "unclassified",
+        "actual_gait_status": "ambiguous",
+        "actual_flight_count": 2,
+        "primitive_status": "primitive_within_checked_bound",
+        "full_closure": 4.6851411639181606E-14,
+        "initial_residual": 5.9813265451680309E-15,
+        "final_residual": 5.9813265451680309E-15,
+        "accepted_Newton_steps": 0,
+        "coordinates": [
+          -9.8174744858336562E-5,
+          -0.0055901699437494743,
+          1.06168424625691
+        ],
+        "initial_coordinates": [
+          -9.8174744858336562E-5,
+          -0.0055901699437494743,
+          1.06168424625691
+        ],
+        "constraint_error": 0,
+        "primary_failure": {},
+        "replay_failure": {},
+        "ancestry_claimed": false,
+        "meaningful_nonlinear_correction": false
+      },
+      {
+        "kind": "restricted_branch_sample",
+        "touchdown_angle": -0.00075,
+        "accepted": true,
+        "artifact": "restricted_trial_r001_004_restricted_branch_sample.mat",
+        "actual_gait_label": "unclassified",
+        "actual_gait_status": "ambiguous",
+        "actual_flight_count": 2,
+        "primitive_status": "primitive_within_checked_bound",
+        "full_closure": 4.3742787170231168E-14,
+        "initial_residual": 6.43539041500496E-15,
+        "final_residual": 6.43539041500496E-15,
+        "accepted_Newton_steps": 0,
+        "coordinates": [
+          -5.890485673247794E-5,
+          -0.0033541019662496848,
+          1.0616847462568217
+        ],
+        "initial_coordinates": [
+          -5.890485673247794E-5,
+          -0.0033541019662496848,
+          1.0616847462568217
+        ],
+        "constraint_error": 0,
+        "primary_failure": {},
+        "replay_failure": {},
+        "ancestry_claimed": false,
+        "meaningful_nonlinear_correction": false
+      },
+      {
+        "kind": "restricted_branch_sample",
+        "touchdown_angle": -0.0016250000000000001,
+        "accepted": true,
+        "artifact": "restricted_trial_r001_005_restricted_branch_sample.mat",
+        "actual_gait_label": "unclassified",
+        "actual_gait_status": "ambiguous",
+        "actual_flight_count": 2,
+        "primitive_status": "primitive_within_checked_bound",
+        "full_closure": 4.241051954068098E-14,
+        "initial_residual": 5.8199972619021878E-15,
+        "final_residual": 5.8199972619021878E-15,
+        "accepted_Newton_steps": 0,
+        "coordinates": [
+          -0.00012762714538282958,
+          -0.0072672209268743173,
+          1.061683707194599
+        ],
+        "initial_coordinates": [
+          -0.00012762714538282958,
+          -0.0072672209268743173,
+          1.061683707194599
+        ],
+        "constraint_error": 0,
+        "primary_failure": {},
+        "replay_failure": {},
+        "ancestry_claimed": false,
+        "meaningful_nonlinear_correction": false
+      }
+    ],
+    "function_evaluations": 64,
+    "solver_map_evaluations": 58,
+    "accepted_record_count": 5,
+    "new_arc_records": 3,
+    "initial_meaningful_residual": 0.00010001542523153458,
+    "meaningful_accepted_Newton_steps": 3,
+    "failure": {},
+    "ancestry_claimed": false,
+    "generic_fullspace_extension": false
+  },
+  "function_evaluations": 64,
+  "solver_map_evaluations": 58,
+  "new_points": 3,
+  "accepted_record_count": 5,
+  "failure": {},
+  "generic_fullspace_extension": false,
+  "ancestry_claimed": false,
+  "target_gait_claimed": false,
+  "message": "Exact predictor admission and meaningful correction are separate; restricted signed-amplitude branch samples retain actual unclassified gait naming and qualified ancestry."
+}

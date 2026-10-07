@@ -1,0 +1,8 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+n0 front_antisymmetric flip -0.999999999941 residual4.18e-11 leakage3.14e-12
+n0 hind_antisymmetric flip -0.999999999941 residual4.17e-11 leakage1.11e-16
+BL2 front_antisymmetric reliable1 compositionerror1.37e-10
+BL2 hind_antisymmetric reliable1 compositionerror1.37e-10

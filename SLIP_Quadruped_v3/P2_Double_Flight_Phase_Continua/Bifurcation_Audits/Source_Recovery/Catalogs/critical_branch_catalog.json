@@ -1,0 +1,339 @@
+{
+  "schema_version": "critical-candidate-catalog-v3-1",
+  "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "created_utc": "07-Oct-2026 11:51:32",
+  "interpretation": "legacy seeds; no v3 acceptance or ancestry from import",
+  "entries": [
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BE_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "variable": "refinementReport.Payload(1).CriticalSolution+Refinement.parameters",
+      "columns": 1,
+      "family_hint": "BD",
+      "construction": "exact-saved-critical-22-vector-plus-own-saved-7-parameters",
+      "initial_speed_bounds": [
+        4.8336382144115335,
+        4.8336382144115335
+      ],
+      "source_period_bounds": [
+        1.3394154938944305,
+        1.3394154938944305
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BE_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "variable": "refinementReport.Payload(2).CriticalSolution+Refinement.parameters",
+      "columns": 1,
+      "family_hint": "BD",
+      "construction": "exact-saved-critical-22-vector-plus-own-saved-7-parameters",
+      "initial_speed_bounds": [
+        6.0480702555948858,
+        6.0480702555948858
+      ],
+      "source_period_bounds": [
+        1.3213335343102612,
+        1.3213335343102612
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BG_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "variable": "refinementReport.Payload(1).CriticalSolution+Refinement.parameters",
+      "columns": 1,
+      "family_hint": "BD",
+      "construction": "exact-saved-critical-22-vector-plus-own-saved-7-parameters",
+      "initial_speed_bounds": [
+        4.5061611093570129,
+        4.5061611093570129
+      ],
+      "source_period_bounds": [
+        1.3522513864212711,
+        1.3522513864212711
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BG_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "variable": "refinementReport.Payload(2).CriticalSolution+Refinement.parameters",
+      "columns": 1,
+      "family_hint": "BD",
+      "construction": "exact-saved-critical-22-vector-plus-own-saved-7-parameters",
+      "initial_speed_bounds": [
+        5.64566295496185,
+        5.64566295496185
+      ],
+      "source_period_bounds": [
+        1.3344430210927758,
+        1.3344430210927758
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/FG_GG_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "variable": "refinementReport.Payload(1).CriticalSolution+Refinement.parameters",
+      "columns": 1,
+      "family_hint": "HB_front",
+      "construction": "exact-saved-critical-22-vector-plus-own-saved-7-parameters",
+      "initial_speed_bounds": [
+        5.9116491526208632,
+        5.9116491526208632
+      ],
+      "source_period_bounds": [
+        1.3300711772376432,
+        1.3300711772376432
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/GE_HE_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "variable": "refinementReport.Payload(1).CriticalSolution+Refinement.parameters",
+      "columns": 1,
+      "family_hint": "HB_hind",
+      "construction": "exact-saved-critical-22-vector-plus-own-saved-7-parameters",
+      "initial_speed_bounds": [
+        6.1362228798737135,
+        6.1362228798737135
+      ],
+      "source_period_bounds": [
+        1.3240796112241764,
+        1.3240796112241764
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/PK_multigait_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "variable": "refinementReport.Payload.Critical.solution+refinement.parameters",
+      "columns": 1,
+      "family_hint": "PK",
+      "construction": "exact-saved-critical-22-vector-plus-own-saved-7-parameters",
+      "initial_speed_bounds": [
+        4.43406193516227,
+        4.43406193516227
+      ],
+      "source_period_bounds": [
+        1.3645980463806602,
+        1.3645980463806602
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/PK_at_B2_critical.mat",
+      "variable": ".results",
+      "columns": 1,
+      "family_hint": "PK",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        0.59343075052335847,
+        0.59343075052335847
+      ],
+      "source_period_bounds": [
+        2.2978282484307506,
+        2.2978282484307506
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/B2_local_daughters.mat",
+      "variable": ".results",
+      "columns": 8,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        0.59061196861029075,
+        0.59628308254408391
+      ],
+      "source_period_bounds": [
+        2.2960731146573403,
+        2.2996031031051549
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/B2_connection.mat",
+      "variable": ".daughterResults",
+      "columns": 8,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        0.59061196861029075,
+        0.59628308254408391
+      ],
+      "source_period_bounds": [
+        2.2960731146573403,
+        2.2996031031051549
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PIP_delayed_critical.mat",
+      "variable": ".results",
+      "columns": 1,
+      "family_hint": "PIP_delayed",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        0,
+        0
+      ],
+      "source_period_bounds": [
+        2.4409364464402943,
+        2.4409364464402943
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PK_local_daughters.mat",
+      "variable": ".results",
+      "columns": 8,
+      "family_hint": "PK",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.01,
+        0.01
+      ],
+      "source_period_bounds": [
+        2.4408667519144043,
+        2.4409357493124952
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/B2_original_852.mat",
+      "variable": ".results",
+      "columns": 852,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.028931192692882933,
+        19.516016936793108
+      ],
+      "source_period_bounds": [
+        1.1445699038221842,
+        2.3818867914716981
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/B2_original_852.mat",
+      "variable": ".continuationInfo.low{1}.nativeContinuationInfo.results_lifted",
+      "columns": 400,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.028931192692882933,
+        0.91888026571932213
+      ],
+      "source_period_bounds": [
+        2.108180801444373,
+        2.3818867914716981
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/B2_original_852.mat",
+      "variable": ".continuationInfo.upper.continuationInfo.results_lifted",
+      "columns": 15,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        19.449103000733604,
+        19.516016936793108
+      ],
+      "source_period_bounds": [
+        1.1445699038221842,
+        1.1482846151933979
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/B2_original_852.mat",
+      "variable": ".continuationInfo.results_lifted",
+      "columns": 852,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.028931192692882933,
+        19.516016936793108
+      ],
+      "source_period_bounds": [
+        1.1445699038221842,
+        2.3818867914716981
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/corrected_source_for_phase.mat",
+      "variable": ".rawResults",
+      "columns": 852,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.028931192692882933,
+        19.516016936793108
+      ],
+      "source_period_bounds": [
+        1.1445699038221842,
+        2.3818867914716981
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/corrected_source_for_phase.mat",
+      "variable": ".correctedSourceResults",
+      "columns": 852,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.028931192692882933,
+        19.516016936793108
+      ],
+      "source_period_bounds": [
+        1.1445699038221842,
+        2.3818867914716981
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/corrected_source_for_phase.mat",
+      "variable": ".results",
+      "columns": 852,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.075074140834866229,
+        19.516581292453111
+      ],
+      "source_period_bounds": [
+        1.1445699038221842,
+        2.3818867914716981
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/stationary_fixed_point.mat",
+      "variable": ".original",
+      "columns": 1,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        0.023471941072785,
+        0.023471941072785
+      ],
+      "source_period_bounds": [
+        2.3401369962076353,
+        2.3401369962076353
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/stationary_fixed_point.mat",
+      "variable": ".other",
+      "columns": 1,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        -0.023471941072705959,
+        -0.023471941072705959
+      ],
+      "source_period_bounds": [
+        2.3401369962076353,
+        2.3401369962076353
+      ]
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/stationary_fixed_point.mat",
+      "variable": ".reflected",
+      "columns": 1,
+      "family_hint": "B2",
+      "construction": "exact-complete-saved-29-row-array",
+      "initial_speed_bounds": [
+        0.023471941072705959,
+        0.023471941072705959
+      ],
+      "source_period_bounds": [
+        2.3401369962076353,
+        2.3401369962076353
+      ]
+    }
+  ]
+}

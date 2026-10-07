@@ -1,0 +1,29 @@
+{
+  "schema_version": "opposed-spread-scientific-figure-visual-review-v3-1",
+  "PNG_artifact": "Research_v3/next_round/theory/opposed_spread_figures/opposed_spread_n0_physical_and_energy.png",
+  "PNG_sha256": "0c18a0461c1cfd17b5ffc6545f80141a5fc7fcfb07bfbc36c0d1159f108d8624",
+  "visually_inspected_with": "view_image",
+  "visual_review_passed": true,
+  "first_export_issues": [
+    "Default MATLAB text colors were too pale on the white background.",
+    "The bottom evidence panel extended past the figure boundary."
+  ],
+  "corrections": [
+    "Explicit dark axes, labels, titles and legend text.",
+    "Compact evidence panel with all requested qualifications retained."
+  ],
+  "verified": [
+    "Readable white background and distinct plotted histories.",
+    "Actual TD and LO cohorts and BL1 phaseflip are marked.",
+    "Exact energy curve and four executed predictor records remain shown.",
+    "Opposite signs are qualified as phases of the same labeled cycle.",
+    "Actual unclassified/ambiguous gait and finite closure evidence are visible.",
+    "No labels or evidence text clipped in the final exported PNG."
+  ],
+  "first_export_postprocessing_seconds": 6.144468958333333,
+  "final_export_postprocessing_seconds": 5.849834583333333,
+  "total_postprocessing_seconds": 11.994303541666667,
+  "new_simulations": 0,
+  "new_map_evaluations": 0,
+  "source_hashes_unchanged": true
+}

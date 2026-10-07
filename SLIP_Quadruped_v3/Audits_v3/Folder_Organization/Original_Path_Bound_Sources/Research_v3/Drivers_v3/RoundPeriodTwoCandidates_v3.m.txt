@@ -1,0 +1,45 @@
+function cfg=RoundPeriodTwoCandidates_v3(cfg)
+%ROUNDPERIODTWOCANDIDATES_V3 Load separately preregistered measured -1 modes.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    names={'period_two_candidate_registration.json','period_two_n0_candidate_registration.json'};
+    audits={'Research_v3/next_round/theory/two_BL_chart_validation.json', ...
+        'Research_v3/next_round/theory/two_BL_n0_chart_validation.json'};
+    exemplar=struct('id','','candidate_artifact','','candidate_variable','','chart_audit','', ...
+        'method','measured-flip-sector','candidate_sha256','','proof_audit','','method_registration','');
+    candidates=exemplar([]);registrations={};
+    for k=1:numel(names)
+        file=fullfile(v3,'Research_v3','next_round',names{k});if ~isfile(file),continue;end
+        registration=jsondecode(fileread(file));entries=registration.candidates;
+        for j=1:numel(entries)
+            record=exemplar;record.id=entries(j).id;record.candidate_artifact=entries(j).candidate_artifact;
+            record.candidate_variable=entries(j).candidate_variable;record.chart_audit=audits{k};
+            candidates(end+1)=record; %#ok<AGROW>
+        end
+        registrations{end+1}=['Research_v3/next_round/',names{k}]; %#ok<AGROW>
+    end
+    standingFile=fullfile(v3,'Research_v3/next_round/opposed_spread_campaign_registration.json');
+    if isfile(standingFile)
+        registration=jsondecode(fileread(standingFile));entries=registration.candidates;
+        for j=1:numel(entries)
+            record=exemplar;record.id=entries(j).id;
+            record.candidate_artifact=entries(j).candidate_artifact;record.candidate_variable=entries(j).candidate_variable;
+            record.candidate_sha256=entries(j).candidate_sha256;record.method=registration.method;
+            record.proof_audit=registration.proof_audit;
+            record.method_registration='Research_v3/next_round/opposed_spread_campaign_registration.json';
+            candidates(end+1)=record; %#ok<AGROW>
+        end
+        registrations{end+1}='Research_v3/next_round/opposed_spread_campaign_registration.json';
+    end
+    frontFile=fullfile(v3,'Research_v3/next_round/solver/twisted_front_retry_02/method_registration.json');
+    if isfile(frontFile)
+        registration=jsondecode(fileread(frontFile));entries=registration.candidates;
+        for j=1:numel(entries)
+            record=exemplar;names=fieldnames(entries(j));
+            for n=1:numel(names),if isfield(record,names{n}),record.(names{n})=entries(j).(names{n});end,end
+            candidates(end+1)=record; %#ok<AGROW>
+        end
+        registrations{end+1}='Research_v3/next_round/solver/twisted_front_retry_02/method_registration.json';
+    end
+    if isempty(candidates),return;end
+    cfg.period_two_candidates=candidates;cfg.period_two_candidate_registrations=registrations;
+end

@@ -1,0 +1,10 @@
+function RoundSave_v3(file,data)
+%ROUNDSAVE_V3 Atomic lossless compressed MAT checkpoint below100MB.
+    file=V3OutputPath_v3(file);folder=fileparts(file);if ~isfolder(folder),mkdir(folder);end
+    temporary=[file,'.partial.mat'];save(temporary,'-struct','data','-v7');
+    details=dir(temporary);
+    if details.bytes>=100000000
+        delete(temporary);error('RoundSave_v3:ArtifactSize','Checkpoint exceeded the registered100MB artifact limit.');
+    end
+    movefile(temporary,file,'f');
+end

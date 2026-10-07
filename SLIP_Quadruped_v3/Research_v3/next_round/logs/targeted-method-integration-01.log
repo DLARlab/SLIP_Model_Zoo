@@ -1,0 +1,26 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+RunResearchRound_v3.m
+  15×1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+Research_v3/Drivers_v3/RoundTargetedCandidates_v3.m
+Research_v3/Drivers_v3/RunFamilySectorCorrections_v3.m
+  4×1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m
+Research_v3/Drivers_v3/ExportResearchRound_v3.m
+CHARGED 6653.215374875 REMAINING 4146.784625125

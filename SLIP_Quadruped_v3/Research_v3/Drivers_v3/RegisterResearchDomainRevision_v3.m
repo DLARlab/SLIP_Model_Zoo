@@ -1,0 +1,27 @@
+function revision=RegisterResearchDomainRevision_v3(energyFloor,diagnosis,evidence)
+%REGISTERRESEARCHDOMAINREVISION_V3 Preserve and prospectively widen energy.
+% Applies to future profiles; acceptance/physical parameters/budgets are fixed.
+    validateattributes(energyFloor,{'numeric'},{'scalar','finite','positive'});
+    validateattributes(diagnosis,{'char','string'},{'nonempty'});
+    v3=V3Root_v3(mfilename('fullpath'));folder=fullfile(v3,'Research_v3','next_round');
+    cfg=ResolveResearchRoundConfig_v3('full');
+    if energyFloor==cfg.domain.energy(1),error('RegisterResearchDomainRevision_v3:Unchanged','A new domain revision needs a measured change.');end
+    if energyFloor>cfg.domain.energy(1)
+        if ~isstruct(evidence)||~isfield(evidence,'measured_minimum_physically_admitted_energy') ...
+                ||energyFloor>=evidence.measured_minimum_physically_admitted_energy
+            error('RegisterResearchDomainRevision_v3:SourceCoverage','A higher floor must preserve every physically admitted source energy in its recorded evidence.');
+        end
+    end
+    file=fullfile(folder,'domain_revisions.mat');revisions=struct([]);
+    if isfile(V3Path_v3(file)),saved=load(V3Path_v3(file),'revisions');revisions=saved.revisions;end
+    revision=struct('schema_version','prospective-source-domain-repair-v3-1', ...
+        'revision',numel(revisions)+1,'registered_utc',char(datetime('now','TimeZone','UTC')), ...
+        'diagnosis',char(diagnosis),'evidence',evidence,'previous_energy_floor',cfg.domain.energy(1), ...
+        'energy_floor',energyFloor,'energy_ceiling',cfg.domain.energy(2), ...
+        'model_id',cfg.model_id,'physical_parameters',cfg.baseline_v3_parameters, ...
+        'old_observations_reinterpreted',false,'original_registration_preserved',true, ...
+        'acceptance_tolerances_changed',false,'total_budget_changed',false, ...
+        'other_bounds_changed',false,'applies_to','Future full/validation invocations and their separately saved effective domains.');
+    if isempty(revisions),revisions=revision;else,revisions(end+1)=revision;end
+    RoundSave_v3(file,struct('revisions',revisions));RoundJSON_v3(fullfile(folder,'domain_revisions.json'),revisions);
+end

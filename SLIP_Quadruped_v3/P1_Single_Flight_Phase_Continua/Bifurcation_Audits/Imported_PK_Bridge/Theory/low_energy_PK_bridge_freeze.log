@@ -1,0 +1,15 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{Error using RoundSHA256_v3 (line 3)
+Cannot read
+/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Orbit_v3/QuadrupedPhysicalChart_v3.m.
+
+Error in FreezeLowEnergyPKBridge_v3/hashes (line 100)
+        for j=1:numel(paths),items(j)=struct('path',paths{j},'sha256',RoundSHA256_v3(fullfile(v3,paths{j})));end
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in FreezeLowEnergyPKBridge_v3 (line 86)
+        'source_hashes',hashes(sourcePaths),'input_hashes',hashes(inputs),'gate_hashes',hashes(gatePaths), ...
+                        ^^^^^^^^^^^^^^^^^^^
+} 

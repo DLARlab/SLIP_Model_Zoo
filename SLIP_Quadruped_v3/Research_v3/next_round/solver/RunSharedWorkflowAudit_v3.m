@@ -1,0 +1,39 @@
+function audit=RunSharedWorkflowAudit_v3(outputDirectory,wallSeconds)
+%RUNSHAREDWORKFLOWAUDIT_V3 Actual GUI correction and continuation/resume gates.
+    root=V3Root_v3(mfilename('fullpath'));
+    V3LegacyAddPath_v3(genpath(V3Path_v3(root)));
+    if nargin<1,outputDirectory=fullfile(root,'Research_v3','next_round','workflow');end
+    if nargin<2,wallSeconds=240;end
+    out=V3OutputPath_v3(outputDirectory);
+    if ~isfolder(V3Path_v3(out)),mkdir(V3Path_v3(out));end
+    audit=struct('matlab_version',version,'platform',computer,'gui',struct(), ...
+        'resume',struct(),'all_passed',false,'failure',struct());timer=tic;
+    try
+        fixture=load(V3Path_v3(fullfile(root,'Research_v3','next_round','solver','case1_pk.mat')),'pkAccepted');
+        orbit=fixture.pkAccepted;assert(~isempty(orbit));save(V3Path_v3(fullfile(out,'gui_seed.mat')),'orbit','-v7');
+        gui=QuadrupedGUIController_v3(root);gui.CorrectionSymmetry='pronk';
+        dataset=gui.loadDataset(fullfile(out,'gui_seed.mat'));gui.select(dataset,1);
+        record=gui.correct(gui.selected());
+        audit.gui=struct('accepted',record.accepted,'full_closure',record.validation.full_closure, ...
+            'status',record.status,'shared_service',isfield(record.validation,'independent_replay'));
+        save(V3Path_v3(fullfile(out,'gui_correction.mat')),'record','-v7');
+        assert(audit.gui.accepted&&audit.gui.shared_service,'GUI shared correction failed.');
+        cfg=ResolveResearchRoundConfig_v3('full');cfg.budgets.continuation_batch_points=3;
+        branchFolder=fullfile(out,'resume');
+        first=ExtendRoundBranch_v3('imported_PK',1,-1,cfg,branchFolder,wallSeconds);
+        save(V3Path_v3(fullfile(out,'resume_first.mat')),'first','-v7');
+        second=ExtendRoundBranch_v3('imported_PK',1,-1,cfg,branchFolder,wallSeconds);
+        save(V3Path_v3(fullfile(out,'resume_second.mat')),'second','-v7');
+        audit.resume=struct('first_new_points',first.new_points,'second_new_points',second.new_points, ...
+            'first_arclength_end',first.arclength_end,'second_arclength_end',second.arclength_end, ...
+            'seam_deduplicated',second.shared_seam_deduplicated,'tangent_reused',second.restart_tangent_reused, ...
+            'full_closure',second.max_full_closure,'first_reason',first.termination_reason,'second_reason',second.termination_reason);
+        audit.all_passed=first.new_points>0&&second.new_points>0 ...
+            &&second.arclength_end>first.arclength_end&&second.shared_seam_deduplicated ...
+            &&second.restart_tangent_reused&&second.max_full_closure<1e-8;
+    catch exception
+        audit.failure=struct('identifier',exception.identifier,'message',exception.message,'stack',exception.stack);
+    end
+    audit.elapsed_seconds=toc(timer);save(V3Path_v3(fullfile(out,'workflow_audit.mat')),'audit','-v7');
+    RoundJSON_v3(fullfile(out,'workflow_audit.json'),audit);disp(audit);
+end

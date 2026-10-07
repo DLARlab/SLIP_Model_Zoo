@@ -1,0 +1,10 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{Unrecognized field name "elapsed_time".
+
+Error in AuditRestrictedPIPParentMatrix_v3 (line 86)
+            'independent_period_error',abs(replay.elapsed_time-details.period), ...
+                                           ^^^^^^^^^^^^^^^^^^^
+} 

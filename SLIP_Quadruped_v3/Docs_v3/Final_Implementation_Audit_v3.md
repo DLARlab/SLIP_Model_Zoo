@@ -17,70 +17,70 @@ the prescribed-event asymmetric legacy fixtures.
 
 | File | Responsibility |
 |---|---|
-| `Schema_v3/QuadrupedSchema_v3.m` | Sole source of state, parameter, leg, event, mode, root, and tangent ordering; validation and family expansion. |
-| `Adapters_v3/LegacyStateAdapter_v3.m` | Exact old/new full-state and 13-coordinate permutations with round trips. |
-| `Adapters_v3/LegacyModeAdapter_v3.m` | Explicit `[BL,FL,BR,FR]` to `[BL,BR,FL,FR]` conversion. |
-| `Adapters_v3/LegacyEventAdapter_v3.m` | Converts every event through its name rather than retaining old numeric IDs. |
-| `Adapters_v3/LegacyParameterAdapter_v3.m` | Seven-to-ten parameter conversion with explicit `semantic-rsla` and `v2-exact` policies. |
+| `1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m` | Sole source of state, parameter, leg, event, mode, root, and tangent ordering; validation and family expansion. |
+| `1_Dynamic_Frameworks/Adapters_v3/LegacyStateAdapter_v3.m` | Exact old/new full-state and 13-coordinate permutations with round trips. |
+| `1_Dynamic_Frameworks/Adapters_v3/LegacyModeAdapter_v3.m` | Explicit `[BL,FL,BR,FR]` to `[BL,BR,FL,FR]` conversion. |
+| `1_Dynamic_Frameworks/Adapters_v3/LegacyEventAdapter_v3.m` | Converts every event through its name rather than retaining old numeric IDs. |
+| `1_Dynamic_Frameworks/Adapters_v3/LegacyParameterAdapter_v3.m` | Seven-to-ten parameter conversion with explicit `semantic-rsla` and `v2-exact` policies. |
 
 ### Dynamics and simulation
 
 | File | Responsibility |
 |---|---|
-| `Dynamics_v3/HybridSystemBase_v3.m` | Generic configurable \((Q,X,F,G,\Delta)\) interface, validation, adjacency, and canonicalization hooks. |
-| `Dynamics_v3/Quadrupedal_Dynamics_v3.m` | Schema-owned quadruped assembly and strict collaborator-interface validation. |
-| `Dynamics_v3/ContinuousDynamics_v3.m` | Ten-parameter body/swing/stance flow, diagnostics, infinite inertia, and tensile-stance admissibility. |
-| `Dynamics_v3/GuardFunctions_v3.m` | Eight named mode-enabled directional guards and true Lie derivatives. |
-| `Dynamics_v3/ResetMap_v3.m` | Massless-leg rate projection with singularity checks and simultaneous independent reset support. |
-| `Dynamics_v3/ModeTransition_v3.m` | Named contact-bit transitions and explicit debug-only all-mode enumeration. |
-| `Simulation_v3/EventDetector_v3.m` | Guard arming, ODE integration, earliest-event selection, direction checks, and simultaneous batching. |
-| `Simulation_v3/HybridSimulator_v3.m` | Repeated flow/guard/reset/transition execution with accepted-state admissibility and stop handling. |
-| `Simulation_v3/Trajectory_v3.m` | Right-continuous time/state/mode/event storage, concatenation, termination metadata, and reset samples. |
+| `1_Dynamic_Frameworks/Dynamics_v3/HybridSystemBase_v3.m` | Generic configurable \((Q,X,F,G,\Delta)\) interface, validation, adjacency, and canonicalization hooks. |
+| `1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m` | Schema-owned quadruped assembly and strict collaborator-interface validation. |
+| `1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m` | Ten-parameter body/swing/stance flow, diagnostics, infinite inertia, and tensile-stance admissibility. |
+| `1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m` | Eight named mode-enabled directional guards and true Lie derivatives. |
+| `1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m` | Massless-leg rate projection with singularity checks and simultaneous independent reset support. |
+| `1_Dynamic_Frameworks/Dynamics_v3/ModeTransition_v3.m` | Named contact-bit transitions and explicit debug-only all-mode enumeration. |
+| `1_Dynamic_Frameworks/Simulation_v3/EventDetector_v3.m` | Guard arming, ODE integration, earliest-event selection, direction checks, and simultaneous batching. |
+| `1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m` | Repeated flow/guard/reset/transition execution with accepted-state admissibility and stop handling. |
+| `1_Dynamic_Frameworks/Simulation_v3/Trajectory_v3.m` | Right-continuous time/state/mode/event storage, concatenation, termination metadata, and reset samples. |
 
 ### Orbit, section, and return policies
 
 | File | Responsibility |
 |---|---|
-| `Orbit_v3/PoincareSection_v3.m` | General section; apex is `dy=0`, `ddy<0`, with no flight restriction. |
-| `Orbit_v3/ReturnPolicyBase_v3.m` | Crossing-acceptance contract separated from section geometry. |
-| `Orbit_v3/FirstReturnPolicy_v3.m` | First directional section return. |
-| `Orbit_v3/IteratedReturnPolicy_v3.m` | Geometric \(P^m\) return. |
-| `Orbit_v3/EventCycleReturnPolicy_v3.m` | Mode closure plus per-leg touchdown/liftoff completion without prescribed ordering. |
-| `Orbit_v3/SectionModeResolver_v3.m` | Previous chart plus local toggles for section-near, directionally consistent guards. |
-| `Orbit_v3/PoincareMap_v3.m` | Repeated crossings until policy acceptance, direct quadruped event-cycle default, and event/signature/coincidence/topology diagnostics. |
-| `Orbit_v3/PeriodicOrbitResidual_v3.m` | Twelve independent periodic equations plus raw `dy` phase equation and policy/apex diagnostic propagation. |
-| `Orbit_v3/HybridOrbit_v3.m` | State, mode, period, parameters, histories, return policy/apex diagnostics, Poincare state, trajectory, and stability; no gait label. |
+| `4_Solution_Management/PoincareSection_v3.m` | General section; apex is `dy=0`, `ddy<0`, with no flight restriction. |
+| `4_Solution_Management/ReturnPolicyBase_v3.m` | Crossing-acceptance contract separated from section geometry. |
+| `4_Solution_Management/FirstReturnPolicy_v3.m` | First directional section return. |
+| `4_Solution_Management/IteratedReturnPolicy_v3.m` | Geometric \(P^m\) return. |
+| `4_Solution_Management/EventCycleReturnPolicy_v3.m` | Mode closure plus per-leg touchdown/liftoff completion without prescribed ordering. |
+| `4_Solution_Management/SectionModeResolver_v3.m` | Previous chart plus local toggles for section-near, directionally consistent guards. |
+| `4_Solution_Management/PoincareMap_v3.m` | Repeated crossings until policy acceptance, direct quadruped event-cycle default, and event/signature/coincidence/topology diagnostics. |
+| `4_Solution_Management/PeriodicOrbitResidual_v3.m` | Twelve independent periodic equations plus raw `dy` phase equation and policy/apex diagnostic propagation. |
+| `4_Solution_Management/HybridOrbit_v3.m` | State, mode, period, parameters, histories, return policy/apex diagnostics, Poincare state, trajectory, and stability; no gait label. |
 
 ### Numerics and stability
 
 | File | Responsibility |
 |---|---|
-| `Numerics_v3/FiniteDifferenceJacobian_v3.m` | Smooth adaptive forward/central differences with baseline reuse. |
-| `Numerics_v3/HybridFiniteDifferenceJacobian_v3.m` | `h`/`h/2` refinement, Richardson plateau, fail-closed topology evidence checks, one-sided labels, and reliability. |
-| `Numerics_v3/RootSolver_v3.m` | Local modes, scaling, map cache, invalid-trial rejection, fsolve/trust-region Newton, counters, and Jacobian reuse. |
-| `Numerics_v3/NumericalContinuation1D_v3.m` | Named/indexed parameter correction and complete branch/topology metadata. |
-| `Numerics_v3/PseudoArclengthContinuation_v3.m` | Extended tangent, predictor/corrector, adaptive step, chart boundaries, and unresolved tangent marking. |
-| `Stability_v3/FloquetAnalysis_v3.m` | Full-cycle reduced derivative, multipliers, standard event-history signatures, optional ambient diagnostic, and selected-step reliability. |
-| `Stability_v3/BifurcationDetector_v3.m` | Reliable finite multiplier matching and unit, period-doubling, and Neimark--Sacker candidates. |
-| `Stability_v3/HybridBoundaryDetector_v3.m` | Grazing, collision, insertion/deletion, section, multiplicity/signature, and force boundaries. |
+| `3_Numerical_Continuation/1_Root_Solving/FiniteDifferenceJacobian_v3.m` | Smooth adaptive forward/central differences with baseline reuse. |
+| `3_Numerical_Continuation/1_Root_Solving/HybridFiniteDifferenceJacobian_v3.m` | `h`/`h/2` refinement, Richardson plateau, fail-closed topology evidence checks, one-sided labels, and reliability. |
+| `3_Numerical_Continuation/1_Root_Solving/RootSolver_v3.m` | Local modes, scaling, map cache, invalid-trial rejection, fsolve/trust-region Newton, counters, and Jacobian reuse. |
+| `3_Numerical_Continuation/2_Continuation_Algorithms/NumericalContinuation1D_v3.m` | Named/indexed parameter correction and complete branch/topology metadata. |
+| `3_Numerical_Continuation/2_Continuation_Algorithms/PseudoArclengthContinuation_v3.m` | Extended tangent, predictor/corrector, adaptive step, chart boundaries, and unresolved tangent marking. |
+| `3_Numerical_Continuation/3_Bifurcation_Analysis/FloquetAnalysis_v3.m` | Full-cycle reduced derivative, multipliers, standard event-history signatures, optional ambient diagnostic, and selected-step reliability. |
+| `3_Numerical_Continuation/3_Bifurcation_Analysis/BifurcationDetector_v3.m` | Reliable finite multiplier matching and unit, period-doubling, and Neimark--Sacker candidates. |
+| `3_Numerical_Continuation/3_Bifurcation_Analysis/HybridBoundaryDetector_v3.m` | Grazing, collision, insertion/deletion, section, multiplicity/signature, and force boundaries. |
 
 ### Graphics and examples
 
 | File | Responsibility |
 |---|---|
-| `Graphics_v3/GraphicsDataAdapter_v3.m` | Normalizes trajectory/orbit inputs without the packed legacy contract. |
-| `Graphics_v3/ComputeBodyGraphics_v3.m` | Schema-based torso geometry. |
-| `Graphics_v3/ComputeJointLegGeometry_v3.m` | Mode-aware stance/swing leg geometry with family lengths and `l_com`. |
-| `Graphics_v3/ComputeLegGraphics_v3.m` | Per-leg drawable geometry in canonical order. |
-| `Graphics_v3/ComputePhaseDiagram_v3.m` | Contact phases from event history and accepted period. |
-| `Graphics_v3/ResampleHybridTrajectory_v3.m` | Uniform reset-safe right-continuous frames and exact event frames. |
-| `Graphics_v3/SLIP_Animation_Quad_v3.m` | Headless/classic/UI animation and optional video export. |
-| `Graphics_v3/SLIP_GRF_Quad_v3.m` | Diagnostic GRFs in `[BL,BR,FL,FR]` order. |
-| `Graphics_v3/SLIP_PeriodicOrbit_Quad_v3.m` | Periodic body/orbit visualization. |
-| `Graphics_v3/SLIP_Trajectories_Quad_v3.m` | Canonical torso/back/front state plots. |
-| `Graphics_v3/OutputCLASS_v3.m` | V3 graphics output container retaining attribution. |
-| `Examples_v3/QuadrupedalExample_v3.m` | Fixture conversion, event-cycle map, optional seed perturbation, root correction, counters, and optional Floquet call. |
-| `Examples_v3/QuadrupedalGraphicsExample_v3.m` | Noninteractive animation, trajectory, GRF, orbit, and phase-diagram example. |
+| `2_Graphic_ToolBox/Graphics_v3/GraphicsDataAdapter_v3.m` | Normalizes trajectory/orbit inputs without the packed legacy contract. |
+| `2_Graphic_ToolBox/Graphics_v3/ComputeBodyGraphics_v3.m` | Schema-based torso geometry. |
+| `2_Graphic_ToolBox/Graphics_v3/ComputeJointLegGeometry_v3.m` | Mode-aware stance/swing leg geometry with family lengths and `l_com`. |
+| `2_Graphic_ToolBox/Graphics_v3/ComputeLegGraphics_v3.m` | Per-leg drawable geometry in canonical order. |
+| `2_Graphic_ToolBox/Graphics_v3/ComputePhaseDiagram_v3.m` | Contact phases from event history and accepted period. |
+| `2_Graphic_ToolBox/Graphics_v3/ResampleHybridTrajectory_v3.m` | Uniform reset-safe right-continuous frames and exact event frames. |
+| `2_Graphic_ToolBox/Graphics_v3/SLIP_Animation_Quad_v3.m` | Headless/classic/UI animation and optional video export. |
+| `2_Graphic_ToolBox/Graphics_v3/SLIP_GRF_Quad_v3.m` | Diagnostic GRFs in `[BL,BR,FL,FR]` order. |
+| `2_Graphic_ToolBox/Graphics_v3/SLIP_PeriodicOrbit_Quad_v3.m` | Periodic body/orbit visualization. |
+| `2_Graphic_ToolBox/Graphics_v3/SLIP_Trajectories_Quad_v3.m` | Canonical torso/back/front state plots. |
+| `2_Graphic_ToolBox/Graphics_v3/OutputCLASS_v3.m` | V3 graphics output container retaining attribution. |
+| `4_Solution_Management/Examples_v3/QuadrupedalExample_v3.m` | Fixture conversion, event-cycle map, optional seed perturbation, root correction, counters, and optional Floquet call. |
+| `4_Solution_Management/Examples_v3/QuadrupedalGraphicsExample_v3.m` | Noninteractive animation, trajectory, GRF, orbit, and phase-diagram example. |
 
 ### Tests and documentation
 

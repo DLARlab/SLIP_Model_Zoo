@@ -1,0 +1,16 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Isolated BR_TD step2e-05 saltation defect8.73e-09 time-sensitivity defect3.31e-09
+Isolated BR_TD step1e-05 saltation defect3.48e-09 time-sensitivity defect8.32e-10
+Isolated BR_TD step5e-06 saltation defect7.61e-10 time-sensitivity defect2.05e-10
+{Unrecognized field name "id".
+
+Error in RunSaltationAudit_v3/clusterAudits (line 110)
+                baseState=entries(1).state_before(:);baseMode=entries(1).mode_before(:);
+                     ^
+Error in RunSaltationAudit_v3 (line 59)
+        'interpretation','local derivative evidence only; no complete Floquet/stability assertion');
+                                 ^
+} 

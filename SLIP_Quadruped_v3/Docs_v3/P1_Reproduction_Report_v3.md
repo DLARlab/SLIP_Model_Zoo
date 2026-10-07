@@ -46,7 +46,7 @@ P1 requested edges are ordinary PIP -> P1 PK -> BD -> HB_front/HB_hind -> GP, in
 
 ## Separate restricted parent-only checkpoint
 
-The saved `Research_v3/runs/full/pip_pk_local.json` status is `budget_exhausted`, origin `parent-only`, and restriction `pronk invariant subspace; no split-contact derivative claimed`. The artifact reports held-out daughter use as `False`. These records are separate from imported-seed replay. A stored restricted attachment status does not establish unrestricted contact-cluster smoothness, a theorem-backed pitchfork or ancestry of the imported PK/B2-parent datasets.
+The saved `P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pip_pk_local.json` status is `budget_exhausted`, origin `parent-only`, and restriction `pronk invariant subspace; no split-contact derivative claimed`. The artifact reports held-out daughter use as `False`. These records are separate from imported-seed replay. A stored restricted attachment status does not establish unrestricted contact-cluster smoothness, a theorem-backed pitchfork or ancestry of the imported PK/B2-parent datasets.
 
 | Critical energy | Saved evidence status | Signed amplitude samples | Maximum saved complete-state closure |
 |---|---|---|---|
@@ -69,7 +69,7 @@ The fixed-parameter family stage snapshot status is `completed`. Its final count
 
 The protected-source manifest is `Research_v3/baseline/source_fixture_manifest.json`. Each observation records its immutable in-v3 fixture path, original path, checksum, source HEAD, variable, column, model parameter policy and mapped state/mode/parameter. Converted seeds preserve source provenance separately from v3 result identity. The local P2 original-run archive was absent in the recorded inventory; no native scheduled campaign execution is claimed.
 
-Run/resume through `python3 SLIP_Quadruped_v3/Research_v3/run_campaign.py --config full --stage compatibility` from the repository root (using the driver's registered MATLAB environment). After a completed corrected-code replay, refresh this report with `python3 SLIP_Quadruped_v3/Research_v3/generate_family_reports.py`. The source JSON, MAT checkpoints, logs and execution ledger are authoritative for what actually ran. Model-gate failures are distinct from physical-boundary results and search-budget limits.
+This report records the preserved previous campaign. The next round runs and resumes entirely in MATLAB through `RunResearchRound_v3('Profile','full','Resume',true,'MinRepairRounds',3)` after adding `SLIP_Quadruped_v3` to the MATLAB path. The distinct `RunP1ResearchRound_v3` driver corrects source/critical neighborhoods, preserves failed candidates and releases physical symmetry directions in later repair rounds. Read `Next_Round_Full_Execution_v3.md`, `MATLAB_Research_Runner_v3.md` and `Research_v3/next_round/task_queue_full.json` for actual new execution, coverage and unfinished tasks. The previous source JSON, MAT checkpoints, logs and ledger remain authoritative for the historical numbers above; the public next-round workflow does not require their Python generators. Model-gate failures remain distinct from physical-boundary results and search-budget limits.
 
 The generic parent-only stage status is `completed_bounded_search`: No branch edge is certified by this search. Its attempt diagnostics are separate from the restricted local pronking study. The corrected compatibility replay uses effective top-level integration RelTol=1e-09, AbsTol=1e-10; earlier ODEOptions-only runs were superseded.
 

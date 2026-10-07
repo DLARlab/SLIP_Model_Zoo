@@ -94,11 +94,11 @@ rsla_b,rsla_f,j_{pitch},l_{com}]^T.
 
 There is no event-time vector. Starting from `(x0,q0)`, enabled guard roots
 determine all event times and their order. Legacy saved data enter only through
-the four explicit classes in `Adapters_v3/`.
+the four explicit classes in `1_Dynamic_Frameworks/Adapters_v3/`.
 
 ## End-to-end quadruped entry point
 
-[`QuadrupedalExample_v3.m`](../Examples_v3/QuadrupedalExample_v3.m) performs
+[`QuadrupedalExample_v3.m`](../4_Solution_Management/Examples_v3/QuadrupedalExample_v3.m) performs
 the executable workflow.
 
 1. `resolveFixture` loads one saved v2 branch point as an initial guess.
@@ -146,7 +146,7 @@ HybridSimulator_v3.simulate
 
 ### Flow evaluation
 
-[`ContinuousDynamics_v3.evaluate`](../Dynamics_v3/ContinuousDynamics_v3.m)
+[`ContinuousDynamics_v3.evaluate`](../1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m)
 validates the canonical vectors, expands family parameters in
 `[BL,BR,FL,FR]` order, computes hip geometry and stance compression, sums body
 force and pitch torque, evaluates either the swing equation or fixed-foot
@@ -157,13 +157,13 @@ surface and retained a tensile stance leg is rejected.
 
 ### Guard arming and first-event selection
 
-[`GuardFunctions_v3`](../Dynamics_v3/GuardFunctions_v3.m) creates all eight
+[`GuardFunctions_v3`](../1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m) creates all eight
 named descriptors, but the current contact bit enables only touchdown or
 liftoff for each leg. Touchdown has direction `-1`; liftoff has direction
 `+1`. `attachFlowDerivatives` records the true Lie derivative `Dg*F`, including
 the projected stance rate.
 
-[`EventDetector_v3.integrate`](../Simulation_v3/EventDetector_v3.m) freezes
+[`EventDetector_v3.integrate`](../1_Dynamic_Frameworks/Simulation_v3/EventDetector_v3.m) freezes
 the active descriptor IDs during one smooth mode. A guard starting at zero is
 unarmed until it first enters the pre-crossing interior; this prevents a reset
 surface from immediately retriggering without adding artificial time. The ODE
@@ -174,17 +174,17 @@ deterministic; it is not a gait schedule.
 
 ### Reset, transition, and trajectory
 
-[`ResetMap_v3.apply`](../Dynamics_v3/ResetMap_v3.m) leaves body position and
+[`ResetMap_v3.apply`](../1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m) leaves body position and
 velocity continuous and projects only the affected massless-leg angular rate
-onto zero horizontal foot velocity. [`ModeTransition_v3.apply`](../Dynamics_v3/ModeTransition_v3.m)
+onto zero horizontal foot velocity. [`ModeTransition_v3.apply`](../1_Dynamic_Frameworks/Dynamics_v3/ModeTransition_v3.m)
 then toggles the event leg. The simulator records `x-`, `x+`, `q-`, `q+`, guard
-name, time, and transversality in [`Trajectory_v3`](../Simulation_v3/Trajectory_v3.m).
+name, time, and transversality in [`Trajectory_v3`](../1_Dynamic_Frameworks/Simulation_v3/Trajectory_v3.m).
 Duplicate event times are retained when a state or mode jumps, giving
 right-continuous post-event data without interpolating through a reset.
 
 ## From hybrid simulation to a Poincare map
 
-[`PoincareSection_v3.apex`](../Orbit_v3/PoincareSection_v3.m) defines
+[`PoincareSection_v3.apex`](../4_Solution_Management/PoincareSection_v3.m) defines
 
 \[
 h(x,p)=dy=0,\qquad \dot h=ddy<0.
@@ -196,7 +196,7 @@ three phases: leave the initial section, reach the opposite side to rearm,
 then locate the next downward crossing. Every phase calls the complete hybrid
 simulator, so contact events remain active.
 
-[`PoincareMap_v3.evaluate`](../Orbit_v3/PoincareMap_v3.m) repeatedly calls that
+[`PoincareMap_v3.evaluate`](../4_Solution_Management/PoincareMap_v3.m) repeatedly calls that
 next-crossing operation. After each candidate, it passes the cumulative
 right-continuous mode and automatically generated event history to the chosen
 return policy:
@@ -215,7 +215,7 @@ and admissibility margins.
 
 ## Periodic residual
 
-[`PeriodicOrbitResidual_v3`](../Orbit_v3/PeriodicOrbitResidual_v3.m)
+[`PeriodicOrbitResidual_v3`](../4_Solution_Management/PeriodicOrbitResidual_v3.m)
 reconstructs a 14-state section point from `u` by fixing `x(1)=0`. It projects
 a copy onto the section, evaluates the accepted full-cycle map `P_C`, and
 forms
@@ -236,7 +236,7 @@ structured trial rejection, not a fabricated finite physical residual.
 
 ## Root solving
 
-[`RootSolver_v3.solve`](../Numerics_v3/RootSolver_v3.m) first asks the residual's
+[`RootSolver_v3.solve`](../3_Numerical_Continuation/1_Root_Solving/RootSolver_v3.m) first asks the residual's
 `SectionModeResolver_v3` for local charts. It retains the supplied/previous
 mode and only toggles guards near the section with directionally consistent
 events. It does not enumerate all 16 quadruped modes unless an exhaustive
@@ -265,7 +265,7 @@ region and reduces damping. Optional Broyden updates are used only while
 topology remains compatible; a topology or reliability change forces a fresh
 Jacobian.
 
-[`FiniteDifferenceJacobian_v3`](../Numerics_v3/FiniteDifferenceJacobian_v3.m)
+[`FiniteDifferenceJacobian_v3`](../3_Numerical_Continuation/1_Root_Solving/FiniteDifferenceJacobian_v3.m)
 is the smooth-function utility. It uses
 
 \[
@@ -281,7 +281,7 @@ piecewise smooth and unreliable as unique classical derivatives.
 
 ## Continuation
 
-[`NumericalContinuation1D_v3.run`](../Numerics_v3/NumericalContinuation1D_v3.m)
+[`NumericalContinuation1D_v3.run`](../3_Numerical_Continuation/2_Continuation_Algorithms/NumericalContinuation1D_v3.m)
 accepts a numeric parameter index or schema name. For every requested value it
 copies `p`, changes only the active entry, solves from the preceding `u,q`, and
 stores the full orbit, event/mode histories, signatures, counts, margins,
@@ -289,7 +289,7 @@ solver counters, schema, and optional Floquet result. A section-relative
 signature, section mode, multiplicity, or coincidence change marks a hybrid
 topology boundary even when the cyclic physical event sequence is unchanged.
 
-[`PseudoArclengthContinuation_v3`](../Numerics_v3/PseudoArclengthContinuation_v3.m)
+[`PseudoArclengthContinuation_v3`](../3_Numerical_Continuation/2_Continuation_Algorithms/PseudoArclengthContinuation_v3.m)
 first differentiates the extended residual with respect to `(u,mu)`. The
 oriented null vector of this matrix is the predictor tangent. Its corrector
 solves
@@ -309,17 +309,17 @@ classical tangent can be computed.
 
 ## Stability and bifurcations
 
-[`FloquetAnalysis_v3.analyze`](../Stability_v3/FloquetAnalysis_v3.m)
+[`FloquetAnalysis_v3.analyze`](../3_Numerical_Continuation/3_Bifurcation_Analysis/FloquetAnalysis_v3.m)
 differentiates the same accepted full-cycle map on the section-tangent,
 translation-reduced coordinates. The default topology-aware derivative
 returns selected steps, error estimates, difference type, and per-column
 reliability. Multipliers are eigenvalues of that reduced full-cycle matrix.
 
-[`BifurcationDetector_v3`](../Stability_v3/BifurcationDetector_v3.m) matches
+[`BifurcationDetector_v3`](../3_Numerical_Continuation/3_Bifurcation_Analysis/BifurcationDetector_v3.m) matches
 finite reliable multipliers between compatible points and detects bracketed
 crossings of `+1`, `-1`, or a complex-pair modulus through one. Nonfinite or
 unreliable points break, rather than poison, multiplier tracks.
-[`HybridBoundaryDetector_v3`](../Stability_v3/HybridBoundaryDetector_v3.m)
+[`HybridBoundaryDetector_v3`](../3_Numerical_Continuation/3_Bifurcation_Analysis/HybridBoundaryDetector_v3.m)
 separately reports grazing, event collision/insertion/deletion,
 section/event coincidence, mode/multiplicity/signature change, and stance-force
 admissibility loss. Those boundaries are not automatically smooth
@@ -327,9 +327,9 @@ bifurcations.
 
 ## Post-processing
 
-[`HybridOrbit_v3`](../Orbit_v3/HybridOrbit_v3.m) stores initial state/mode,
+[`HybridOrbit_v3`](../4_Solution_Management/HybridOrbit_v3.m) stores initial state/mode,
 period, parameters, event/mode history, Poincare state, trajectory, and
-stability. It contains no gait label. Files in [`Graphics_v3`](../Graphics_v3/)
+stability. It contains no gait label. Files in [`2_Graphic_ToolBox/Graphics_v3`](../2_Graphic_ToolBox/Graphics_v3)
 consume recorded modes, events, and dynamics diagnostics; they never reconstruct
 contact from prescribed event-time inputs. Gait classification, if desired,
 is a separate post-processing operation on event history.

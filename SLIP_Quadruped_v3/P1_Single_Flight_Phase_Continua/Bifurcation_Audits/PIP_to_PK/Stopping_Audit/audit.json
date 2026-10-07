@@ -1,0 +1,716 @@
+{
+  "schema_version": "saved-PIP-attachment-stopping-audit-v3-1",
+  "completed_utc": "07-Oct-2026 15:28:22",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "source_checkpoint": "Research_v3/next_round/tasks/full/PIP_candidate_1",
+  "checkpoint_json_sha256": "2db3e59c855535cb740ebbd4a3820e129ac3dfbea6cf40c6219c27002c80325e",
+  "original_attachment_evidence": {
+    "schema_version": "restricted-pronk-attachment-evidence-v3-2",
+    "status": "candidate_only",
+    "gates": {
+      "reliable_parent_derivatives": true,
+      "resolved_simple_kernel": true,
+      "critical_kernel_near_zero": true,
+      "resolved_left_kernel_transversality": true,
+      "both_signed_sequences": true,
+      "critical_direction_alignment": true,
+      "energy_approach_and_quadratic_scaling": false,
+      "genuine_large_amplitude_corrections": true,
+      "full_closure_and_tighter_replay": true,
+      "distinct_full_trajectories": true,
+      "synchronized_primitive_contact_cycles": true,
+      "signed_reflection_agreement": false
+    },
+    "failed_gates": [
+      "energy_approach_and_quadratic_scaling",
+      "signed_reflection_agreement"
+    ],
+    "kernel_gap_to_error_ratio": 9.23547153987664E+6,
+    "transversality_to_error_ratio": 853.28998177337041,
+    "energy_uncertainty_estimate": 5E-9,
+    "signed_sequences": [
+      {
+        "sign": -1,
+        "accepted_count": 5,
+        "resolved_energy_shift_count": 3,
+        "quadratic_energy_coefficient": 0.15761647851023267,
+        "maximum_relative_fit_error": 0.0025501869490451275,
+        "approaches_parent": true,
+        "quadratic_scaling_resolved": true,
+        "largest_amplitude": 0.01,
+        "largest_amplitude_genuinely_corrected": true
+      },
+      {
+        "sign": 1,
+        "accepted_count": 5,
+        "resolved_energy_shift_count": 4,
+        "quadratic_energy_coefficient": 0.15761520725787764,
+        "maximum_relative_fit_error": 1.4006736423007518,
+        "approaches_parent": true,
+        "quadratic_scaling_resolved": false,
+        "largest_amplitude": 0.01,
+        "largest_amplitude_genuinely_corrected": true
+      }
+    ],
+    "signed_reflection_maximum_error": 1.8160141435075161E-7,
+    "claim": "conditional numerical local attachment in the synchronized fixed-parameter pronk subspace",
+    "full_system_regular_cluster_derivative_claimed": false,
+    "global_network_or_exhaustiveness_claimed": false
+  },
+  "critical_energy": 1.0616850275068086,
+  "energy_uncertainty": 5E-9,
+  "records": [
+    {
+      "signed_amplitude": -0.0001,
+      "artifact": "daughter_-0.0001_attempt_1.mat",
+      "artifact_sha256": "bba983ec4be0305fbf5784710d5667e71b350967fdf21844d7f1aafe781cc294",
+      "accepted": true,
+      "energy": 1.0616850235730533,
+      "energy_shift": -3.9337553214835452E-9,
+      "energy_coefficient": -0.39337553214835452,
+      "energy_shift_resolved": false,
+      "initial_residual": 1.0339706109619162E-5,
+      "final_residual": 1.0936386955003215E-12,
+      "physical_full_closure": 1.0843499289128235E-12,
+      "constraint_error": 4.1267445190229513E-17,
+      "accepted_Newton_steps": 2,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        -1.0936386955003215E-12,
+        4.4225402826654145E-15,
+        -2.0412091342267985E-13,
+        0,
+        4.1267445190229513E-17
+      ],
+      "coordinates": [
+        -5.8921773521807669E-5,
+        1.0616850218371656,
+        1.1771483391058258E-5,
+        -7.9935328759007417E-5,
+        1.0616850235730533
+      ],
+      "internal_energy_consistency": 0,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2341754645703205,
+        1.4142135477498596,
+        1.0051252907890329,
+        0.99999999943674434,
+        0.00018975170189609525
+      ],
+      "Jacobian_condition_estimate": 22314.29506170586,
+      "linear_remaining_step_estimate": [
+        -1.1456286944718723E-12,
+        3.9264206790931969E-9,
+        -7.842556155031477E-13,
+        7.289204734056482E-13,
+        3.92642074438345E-9
+      ],
+      "linear_remaining_energy_estimate": 3.92642074438345E-9,
+      "linear_solve_backward_residual": 5.5535807727559231E-28,
+      "core_objective_count": 24,
+      "elapsed_seconds": 30.766286041666667
+    },
+    {
+      "signed_amplitude": -0.0003,
+      "artifact": "daughter_-0.0003_attempt_2.mat",
+      "artifact_sha256": "07f87b3a061a276e42430a5d20e13f4255b6c53d0560ff45f13bc94e550cbce3",
+      "accepted": true,
+      "energy": 1.0616850304587591,
+      "energy_shift": 2.951950461849151E-9,
+      "energy_coefficient": 0.032799449576101682,
+      "energy_shift_resolved": false,
+      "initial_residual": 3.1019108381579972E-5,
+      "final_residual": 6.3462020198374464E-12,
+      "physical_full_closure": 6.338145177968435E-12,
+      "constraint_error": 1.463672932855431E-18,
+      "accepted_Newton_steps": 3,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        -6.3462020198374464E-12,
+        3.6524060685605431E-18,
+        9.0888754855633636E-13,
+        1.7763568394002505E-15,
+        1.463672932855431E-18
+      ],
+      "coordinates": [
+        -0.00017676531880765487,
+        1.0616850148357702,
+        3.5314454352059442E-5,
+        -0.00023980598695746448,
+        1.0616850304587573
+      ],
+      "internal_energy_consistency": 1.7763568394002505E-15,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.234175265623441,
+        1.4142137603500169,
+        1.0051253401013198,
+        0.99999999457519162,
+        0.00040317162412363024
+      ],
+      "Jacobian_condition_estimate": 10502.165857597794,
+      "linear_remaining_step_estimate": [
+        -4.9189680643330784E-12,
+        1.1243919419140278E-8,
+        -7.9554304575957875E-12,
+        2.4543212025989929E-12,
+        1.1243922065000067E-8
+      ],
+      "linear_remaining_energy_estimate": 1.1243922065000067E-8,
+      "linear_solve_backward_residual": 1.6155871338926322E-27,
+      "core_objective_count": 46,
+      "elapsed_seconds": 89.442422208333326
+    },
+    {
+      "signed_amplitude": -0.001,
+      "artifact": "daughter_-0.001_attempt_1.mat",
+      "artifact_sha256": "a85963659f737187dce50edb55319ea6fd645b7ff23f2d8d7b74914761f6abc9",
+      "accepted": true,
+      "energy": 1.0616851847223581,
+      "energy_shift": 1.5721554946779293E-7,
+      "energy_coefficient": 0.15721554946779293,
+      "energy_shift_resolved": true,
+      "initial_residual": 5.4288450276017419E-10,
+      "final_residual": 7.5576253154990836E-13,
+      "physical_full_closure": 7.4643123713219461E-13,
+      "constraint_error": 4.5536491244391186E-18,
+      "accepted_Newton_steps": 3,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        -7.5576253154990836E-13,
+        1.6574740711872149E-17,
+        1.0817432019583073E-13,
+        4.4408920985006262E-16,
+        4.5536491244391186E-18
+      ],
+      "coordinates": [
+        -0.00058921778056320853,
+        1.0616850111335616,
+        0.00011771482883215835,
+        -0.00079935325491373068,
+        1.0616851847223576
+      ],
+      "internal_energy_consistency": 4.4408920985006262E-16,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2341776107864106,
+        1.4142157621363323,
+        1.0051256186990436,
+        0.99999993968038214,
+        0.0013439024773930911
+      ],
+      "Jacobian_condition_estimate": 3150.6583863137821,
+      "linear_remaining_step_estimate": [
+        -5.8577681138906557E-13,
+        4.0170298431993949E-10,
+        -9.4738016424108316E-13,
+        2.9226732786397438E-13,
+        4.0170377527233379E-10
+      ],
+      "linear_remaining_energy_estimate": 4.0170377527233379E-10,
+      "linear_solve_backward_residual": 2.1194242740399327E-28,
+      "core_objective_count": 25,
+      "elapsed_seconds": 54.214694541666667
+    },
+    {
+      "signed_amplitude": -0.003,
+      "artifact": "daughter_-0.003_attempt_1.mat",
+      "artifact_sha256": "fb13aee0e6990b4a68410b8ebb6320a28d70b5ef65f103588860f0eb51627ecc",
+      "accepted": true,
+      "energy": 1.0616864458320858,
+      "energy_shift": 1.4183252772248522E-6,
+      "energy_coefficient": 0.15759169746942803,
+      "energy_shift_resolved": true,
+      "initial_residual": 4.8539644296151374E-9,
+      "final_residual": 1.1852764863345966E-12,
+      "physical_full_closure": 1.1740506570406817E-12,
+      "constraint_error": 2.6723415147422713E-15,
+      "accepted_Newton_steps": 1,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        -1.1852764863345966E-12,
+        -1.7797178661349555E-16,
+        1.7260628690229929E-13,
+        3.3306690738754696E-15,
+        2.6723415147422713E-15
+      ],
+      "coordinates": [
+        -0.0017676542761393503,
+        1.0616848835312658,
+        0.0003531446577429756,
+        -0.0023980590507198993,
+        1.0616864458320825
+      ],
+      "internal_energy_consistency": 3.3306690738754696E-15,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2342106408007787,
+        1.4142333598729786,
+        1.0051256108618141,
+        0.99999945535688028,
+        0.004031625644270208
+      ],
+      "Jacobian_condition_estimate": 1050.2489601976033,
+      "linear_remaining_step_estimate": [
+        -9.2112921095187947E-13,
+        2.1007222187768067E-10,
+        -1.4860323218301189E-12,
+        4.5680090338989262E-13,
+        2.1007718078370662E-10
+      ],
+      "linear_remaining_energy_estimate": 2.1007718078370662E-10,
+      "linear_solve_backward_residual": 2.5849394142282115E-26,
+      "core_objective_count": 23,
+      "elapsed_seconds": 53.800729541666669
+    },
+    {
+      "signed_amplitude": -0.01,
+      "artifact": "daughter_-0.01_attempt_1.mat",
+      "artifact_sha256": "4de22bdea9c2f7cf3b902781a8c3c3031caecc2ddca68a46de56e0aa77a7fe7a",
+      "accepted": true,
+      "energy": 1.0617007891787416,
+      "energy_shift": 1.5761671932956745E-5,
+      "energy_coefficient": 0.15761671932956745,
+      "energy_shift_resolved": true,
+      "initial_residual": 1.8622786360049381E-7,
+      "final_residual": 6.204880359517162E-13,
+      "physical_full_closure": 6.1494993125466024E-13,
+      "constraint_error": 1.0107539805126464E-13,
+      "accepted_Newton_steps": 1,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        -6.204880359517162E-13,
+        -6.4323546489220007E-15,
+        1.969813201441184E-13,
+        3.1086244689504383E-15,
+        1.0107539805126464E-13
+      ],
+      "coordinates": [
+        -0.00589221632195273,
+        1.0616834300721492,
+        0.0011771553984332166,
+        -0.0079935031108820942,
+        1.0617007891787384
+      ],
+      "internal_energy_consistency": 3.1086244689504383E-15,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2345687501608555,
+        1.4144335062207345,
+        1.0051292547479618,
+        0.99999369710888841,
+        0.013435810384282933
+      ],
+      "Jacobian_condition_estimate": 315.17032683896826,
+      "linear_remaining_step_estimate": [
+        -5.7261112200336452E-13,
+        3.3785339891779959E-11,
+        -7.850386477079336E-13,
+        1.8002872159080864E-13,
+        3.3791822462120694E-11
+      ],
+      "linear_remaining_energy_estimate": 3.3791822462120694E-11,
+      "linear_solve_backward_residual": 6.4623485355705287E-27,
+      "core_objective_count": 23,
+      "elapsed_seconds": 58.624674916666663
+    },
+    {
+      "signed_amplitude": 0.0001,
+      "artifact": "daughter_+0.0001_attempt_1.mat",
+      "artifact_sha256": "08a002f5eaef17f2b59ec83e567de0a439b147b792a5d3f3c0eec9063e156cdb",
+      "accepted": true,
+      "energy": 1.0616850235730533,
+      "energy_shift": -3.9337553214835452E-9,
+      "energy_coefficient": -0.39337553214835452,
+      "energy_shift_resolved": false,
+      "initial_residual": 1.0339706109619162E-5,
+      "final_residual": 1.0936386955003215E-12,
+      "physical_full_closure": 1.0843499289128235E-12,
+      "constraint_error": -4.1267445190229513E-17,
+      "accepted_Newton_steps": 2,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        1.0936386955003215E-12,
+        -4.4225402826654145E-15,
+        2.0412091342267985E-13,
+        0,
+        -4.1267445190229513E-17
+      ],
+      "coordinates": [
+        5.8921773521807669E-5,
+        1.0616850218371656,
+        -1.1771483391058258E-5,
+        7.9935328759007417E-5,
+        1.0616850235730533
+      ],
+      "internal_energy_consistency": 0,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2341754645703205,
+        1.4142135477498596,
+        1.0051252907890329,
+        0.99999999943674434,
+        0.00018975170189609525
+      ],
+      "Jacobian_condition_estimate": 22314.29506170586,
+      "linear_remaining_step_estimate": [
+        1.1456286944718723E-12,
+        3.9264206790931969E-9,
+        7.842556155031477E-13,
+        -7.289204734056482E-13,
+        3.92642074438345E-9
+      ],
+      "linear_remaining_energy_estimate": 3.92642074438345E-9,
+      "linear_solve_backward_residual": 5.5535807727559231E-28,
+      "core_objective_count": 24,
+      "elapsed_seconds": 49.615026875
+    },
+    {
+      "signed_amplitude": 0.0003,
+      "artifact": "daughter_+0.0003_attempt_1.mat",
+      "artifact_sha256": "b58ac9e4db6b8335f3a4d84a8baa14c1ad05a05500e2808b34fb38ab009e1d7b",
+      "accepted": true,
+      "energy": 1.0616849921030107,
+      "energy_shift": -3.5403797893351907E-8,
+      "energy_coefficient": -0.39337553214835458,
+      "energy_shift_resolved": true,
+      "initial_residual": 8.0889059312456643E-11,
+      "final_residual": 8.0889059312456643E-11,
+      "physical_full_closure": 8.087108573410183E-11,
+      "constraint_error": -1.2376167798922033E-16,
+      "accepted_Newton_steps": 0,
+      "initial_J_used": null,
+      "solver": "residual-check",
+      "message": "Initial point satisfies the root tolerance.",
+      "root_residual_vector": [
+        4.01538488873851E-11,
+        -3.6848824989596518E-11,
+        8.0889059312456643E-11,
+        0,
+        -1.2376167798922033E-16
+      ],
+      "coordinates": [
+        0.00017676532056542298,
+        1.0616849764800214,
+        -3.5314450173174767E-5,
+        0.00023980598627702221,
+        1.0616849921030107
+      ],
+      "internal_energy_consistency": 0,
+      "Jacobian_role": "unused supplied warm matrix from a different amplitude",
+      "Jacobian_singular_values": [
+        4.2341754645703205,
+        1.4142135477498596,
+        1.0051252907890329,
+        0.99999999943674434,
+        0.00018975170189609525
+      ],
+      "Jacobian_condition_estimate": 22314.29506170586,
+      "linear_remaining_step_estimate": [
+        1.4005046064021175E-11,
+        1.0538602099915805E-7,
+        -1.0711215862212197E-11,
+        -1.1900578739829492E-11,
+        1.0538602179118024E-7
+      ],
+      "linear_remaining_energy_estimate": 1.0538602179118024E-7,
+      "linear_solve_backward_residual": 1.3234889800848443E-23,
+      "core_objective_count": 1,
+      "elapsed_seconds": 10.016914291666666
+    },
+    {
+      "signed_amplitude": 0.001,
+      "artifact": "daughter_+0.001_attempt_1.mat",
+      "artifact_sha256": "a179e5a9e1b8e82c9e1c639cb6bca120d96e0de151646f4f8dd01cdef1c869ec",
+      "accepted": true,
+      "energy": 1.0616851833506893,
+      "energy_shift": 1.5584388068923261E-7,
+      "energy_coefficient": 0.15584388068923261,
+      "energy_shift_resolved": true,
+      "initial_residual": 3.3160109246151148E-9,
+      "final_residual": 3.3365753736303017E-12,
+      "physical_full_closure": 3.3272419108082429E-12,
+      "constraint_error": -2.3418766925686896E-17,
+      "accepted_Newton_steps": 3,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        3.3365753736303017E-12,
+        -2.0137700101202638E-16,
+        -4.7642987645313273E-13,
+        3.5527136788005009E-15,
+        -2.3418766925686896E-17
+      ],
+      "coordinates": [
+        0.00058921777856322328,
+        1.0616850097618939,
+        -0.00011771483206705921,
+        0.00079935325591155252,
+        1.0616851833506857
+      ],
+      "internal_energy_consistency": 3.5527136788005009E-15,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2341721865188582,
+        1.4142157621965206,
+        1.0051266933987579,
+        0.99999993952852217,
+        0.0013439016961185547
+      ],
+      "Jacobian_condition_estimate": 3150.6561817340939,
+      "linear_remaining_step_estimate": [
+        2.5857728409681238E-12,
+        1.7733726654332206E-9,
+        4.1822762358233312E-12,
+        -1.2900978160069888E-12,
+        1.7733777611266709E-9
+      ],
+      "linear_remaining_energy_estimate": 1.7733777611266709E-9,
+      "linear_solve_backward_residual": 2.0679515313825692E-25,
+      "core_objective_count": 25,
+      "elapsed_seconds": 56.298132708333334
+    },
+    {
+      "signed_amplitude": 0.003,
+      "artifact": "daughter_+0.003_attempt_1.mat",
+      "artifact_sha256": "3c933f2060b3414d28160d84c2ac3343cf08b94d10dd7c20273b0c2fd65332e3",
+      "accepted": true,
+      "energy": 1.0616864451164469,
+      "energy_shift": 1.4176096383433645E-6,
+      "energy_coefficient": 0.15751218203815162,
+      "energy_shift_resolved": true,
+      "initial_residual": 4.6428197024786511E-9,
+      "final_residual": 5.2244148677355051E-12,
+      "physical_full_closure": 5.2131864363563762E-12,
+      "constraint_error": -2.6940255581919814E-15,
+      "accepted_Newton_steps": 1,
+      "initial_J_used": null,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        5.2244148677355051E-12,
+        3.0379344873043834E-16,
+        -7.5106067198849047E-13,
+        1.5099033134902129E-14,
+        -2.6940255581919814E-15
+      ],
+      "coordinates": [
+        0.0017676542730086029,
+        1.0616848828156324,
+        -0.0003531446628064657,
+        0.0023980590522819398,
+        1.0616864451164318
+      ],
+      "internal_energy_consistency": 1.5099033134902129E-14,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2342104836719479,
+        1.414233359887394,
+        1.0051256420090724,
+        0.99999945533758228,
+        0.0040316272408933394
+      ],
+      "Jacobian_condition_estimate": 1050.2485052992447,
+      "linear_remaining_step_estimate": [
+        4.0518731466930317E-12,
+        9.2570532566240237E-10,
+        6.5495194153587881E-12,
+        -2.0188395320006646E-12,
+        9.2572758700271341E-10
+      ],
+      "linear_remaining_energy_estimate": 9.2572758700271341E-10,
+      "linear_solve_backward_residual": 8.0779356694631609E-28,
+      "core_objective_count": 23,
+      "elapsed_seconds": 55.2763475
+    },
+    {
+      "signed_amplitude": 0.01,
+      "artifact": "daughter_+0.01_attempt_2.mat",
+      "artifact_sha256": "cfb8efd16e9e444ffcfb40544ad8ab49698a4c8c00bd27f643dfe3cf5acb596d",
+      "accepted": true,
+      "energy": 1.0617007891733283,
+      "energy_shift": 1.5761666519731321E-5,
+      "energy_coefficient": 0.15761666519731321,
+      "energy_shift_resolved": true,
+      "initial_residual": 1.8576330864696067E-7,
+      "final_residual": 2.4049269520265426E-12,
+      "physical_full_closure": 2.4893351269206221E-12,
+      "constraint_error": -1.7347234759768071E-18,
+      "accepted_Newton_steps": 3,
+      "initial_J_used": true,
+      "solver": "damped-newton",
+      "message": "Residual tolerance satisfied.",
+      "root_residual_vector": [
+        1.097177036724073E-12,
+        -1.0446292268706525E-12,
+        2.4049269520265426E-12,
+        7.7715611723760958E-15,
+        -1.7347234759768071E-18
+      ],
+      "coordinates": [
+        0.0058922163224987278,
+        1.0616834300667328,
+        -0.0011771553976911687,
+        0.0079935031107153491,
+        1.0617007891733206
+      ],
+      "internal_energy_consistency": 7.7715611723760958E-15,
+      "Jacobian_role": "saved final root linear model",
+      "Jacobian_singular_values": [
+        4.2068631359943938,
+        1.4142442571133911,
+        1.0068007972834676,
+        0.99999944535158491,
+        0.013514789977533578
+      ],
+      "Jacobian_condition_estimate": 311.27846921688814,
+      "linear_remaining_step_estimate": [
+        2.6589738563593432E-14,
+        3.9159417737197634E-11,
+        4.3037750836437106E-14,
+        -1.3259752185123632E-14,
+        3.9167276982940993E-11
+      ],
+      "linear_remaining_energy_estimate": 3.9167276982940993E-11,
+      "linear_solve_backward_residual": 2.0194839173657902E-28,
+      "core_objective_count": 5,
+      "elapsed_seconds": 15.651082166666667
+    }
+  ],
+  "signed_pairs": [
+    {
+      "absolute_amplitude": 0.0001,
+      "reduced_coordinate_error": 0,
+      "energy_error": 0,
+      "period_error": 0,
+      "mean_speed_error": 0,
+      "maximum_error": 0,
+      "reflection_gate_passed": true
+    },
+    {
+      "absolute_amplitude": 0.0003,
+      "reduced_coordinate_error": 4.1788846756357807E-12,
+      "energy_error": 3.8355748355201058E-8,
+      "period_error": 1.8160141435075161E-7,
+      "mean_speed_error": 1.801836175922833E-11,
+      "maximum_error": 1.8160141435075161E-7,
+      "reflection_gate_passed": false
+    },
+    {
+      "absolute_amplitude": 0.001,
+      "reduced_coordinate_error": 3.2349008590110487E-12,
+      "energy_error": 1.3716687785603199E-9,
+      "period_error": 6.4944027933222515E-9,
+      "mean_speed_error": 7.3390360628977636E-13,
+      "maximum_error": 6.4944027933222515E-9,
+      "reflection_gate_passed": true
+    },
+    {
+      "absolute_amplitude": 0.003,
+      "reduced_coordinate_error": 5.0634901003002164E-12,
+      "energy_error": 7.1563888148773458E-10,
+      "period_error": 3.388302083351391E-9,
+      "mean_speed_error": 1.1492417260894339E-12,
+      "maximum_error": 3.388302083351391E-9,
+      "reflection_gate_passed": true
+    },
+    {
+      "absolute_amplitude": 0.01,
+      "reduced_coordinate_error": 7.42047916169053E-13,
+      "energy_error": 5.4132254234673383E-12,
+      "period_error": 2.5668134284728694E-11,
+      "mean_speed_error": 7.6888495570415216E-13,
+      "maximum_error": 2.5668134284728694E-11,
+      "reflection_gate_passed": true
+    }
+  ],
+  "energy_fits": [
+    {
+      "sign": -1,
+      "amplitudes": [
+        0.0001,
+        0.0003,
+        0.001,
+        0.003,
+        0.01
+      ],
+      "energy_shifts": [
+        -3.9337553214835452E-9,
+        2.951950461849151E-9,
+        1.5721554946779293E-7,
+        1.4183252772248522E-6,
+        1.5761671932956745E-5
+      ],
+      "resolved": [
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      "fitted_coefficient": 0.15761647851023267,
+      "per_point_relative_fit_error": [
+        1.1019840213171743,
+        2.2467065208143571,
+        0.0025501869490451275,
+        0.00015724839063583756,
+        1.5278793758721503E-6
+      ],
+      "maximum_resolved_fit_error": 0.0025501869490451275
+    },
+    {
+      "sign": 1,
+      "amplitudes": [
+        0.0001,
+        0.0003,
+        0.001,
+        0.003,
+        0.01
+      ],
+      "energy_shifts": [
+        -3.9337553214835452E-9,
+        -3.5403797893351907E-8,
+        1.5584388068923261E-7,
+        1.4176096383433645E-6,
+        1.5761666519731321E-5
+      ],
+      "resolved": [
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "fitted_coefficient": 0.15761520725787764,
+      "per_point_relative_fit_error": [
+        1.1019814788124644,
+        1.4006736423007518,
+        0.011366032216415441,
+        0.00065407778873313358,
+        9.2499066245415772E-6
+      ],
+      "maximum_resolved_fit_error": 1.4006736423007518
+    }
+  ],
+  "return_map_evaluations": 0,
+  "correction_executed": false,
+  "conditioning_scope": "Saved current or explicitly unused warm linear models, not newly validated derivatives or rigorous forward-error bounds.",
+  "recommended_first_amplitude": 0.0003,
+  "recommended_function_tolerance": 1E-14,
+  "recommended_residual_acceptance_tolerance": 1E-13,
+  "physical_acceptance_thresholds_changed": false
+}

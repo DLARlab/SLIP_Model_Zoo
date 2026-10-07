@@ -1,0 +1,29 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+MATLAB research taskPK_continuation_m1, roundB, attempt3, remainingtotal1474.2s, slice480.0s
+MATLAB research taskPK_continuation_m1, roundB, attempt4, remainingtotal1201.2s, slice480.0s
+                    schema_version: 'matlab-next-round-report-v3-1'
+                           profile: 'validation'
+                     generated_utc: '07-Oct-2026 12:54:18'
+                   starting_commit: 'f53c39cca530d9782d00ba8699acb1d55484f7d8'
+                    matlab_version: '25.2.0.3177638 (R2025b) Update 5'
+                          platform: 'MACA64'
+                     experiment_id: 'next-round-validation-20261007'
+                            status: 'partial_checkpoint'
+            numerical_wall_seconds: 914.2648
+     registered_total_wall_seconds: 1800
+              function_evaluations: 413
+                 new_point_records: 4
+           accepted_source_records: 0
+                     repair_rounds: [1×3 struct]
+                          coverage: [0×0 struct]
+                  unfinished_tasks: [1×2 struct]
+                  network_achieved: 0
+       global_completeness_claimed: 0
+      historical_results_preserved: 1
+                             graph: 'Research_v3/next_round/graph/index_validation.json'
+                        protection: 'Research_v3/next_round/baseline/protected_verification.json'
+    executed_tasks_this_invocation: 1
+

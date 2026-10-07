@@ -1,0 +1,67 @@
+function inventory=RoundSourceInventory_v3()
+%ROUNDSOURCEINVENTORY_V3 Inventory every column before search registration.
+% Algebraic source energy is diagnostic even when the mapped contact mode is
+% invalid. Initial speed is deliberately not called mean speed.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));repo=fileparts(v3);
+    manifest=jsondecode(fileread(fullfile(v3,'Research_v3','baseline','source_fixture_manifest.json')));
+    records=struct([]);globalEnergy=[];globalSpeed=[];globalPeriod=[];globalPitch=[];
+    for k=1:numel(manifest.records)
+        source=manifest.records(k);file=fullfile(v3,source.fixture_path);
+        hash=RoundSHA256_v3(file);sourceHash=RoundSHA256_v3(fullfile(repo,source.source_path));
+        if ~strcmp(hash,source.sha256)||~strcmp(hash,sourceHash)
+            error('RoundSourceInventory_v3:SourceHash','Immutable source fixture hash mismatch.');
+        end
+        data=load(file);names=fieldnames(data);variables=struct([]);
+        for j=1:numel(names)
+            array=data.(names{j});if ~isnumeric(array)||size(array,1)~=29||isempty(array),continue;end
+            n=size(array,2);E=nan(1,n);q=false(4,n);x=zeros(14,n);p=zeros(10,n);
+            x(2:14,:)=LegacyStateAdapter_v3.toV3Unknown(array(1:13,:));
+            for column=1:n
+                p(:,column)=LegacyParameterAdapter_v3.toV3(array(23:29,column),'v2-exact');
+                oldMode=array([15,17,19,21],column)<array([14,16,18,20],column);
+                q(:,column)=LegacyModeAdapter_v3.toV3(oldMode);
+                try,E(column)=algebraicEnergy(x(:,column),q(:,column),p(:,column));catch,end
+            end
+            initialSpeed=x(2,:);period=array(22,:);pitch=x(5,:);
+            globalEnergy=[globalEnergy,E(isfinite(E))];globalSpeed=[globalSpeed,initialSpeed]; %#ok<AGROW>
+            globalPeriod=[globalPeriod,period(isfinite(period)&period>0)];globalPitch=[globalPitch,pitch]; %#ok<AGROW>
+            variable=struct('variable',names{j},'rows',29,'columns',n,'energy',E, ...
+                'initial_horizontal_speed',initialSpeed,'period_predictor',period,'pitch',pitch, ...
+                'mapped_initial_state',x,'mapped_initial_mode',q,'mapped_physical_parameters',p, ...
+                'parameter_target_columns',find(max(abs(p-[10;10;20;20;1;1;0;0;2;.5]),[],1)<1e-12), ...
+                'coordinate_roles','rows1:13 state;14:21 scheduled diagnostic events;22 period predictor;23:29 physical parameters');
+            if isempty(variables),variables=variable;else,variables(end+1)=variable;end %#ok<AGROW>
+        end
+        rec=struct('source',source,'fixture_sha256',hash,'source_sha256',sourceHash,'variables',variables);
+        if isempty(records),records=rec;else,records(end+1)=rec;end %#ok<AGROW>
+    end
+    inventory=struct('schema_version','source-informed-round-inventory-v3-1', ...
+        'created_utc',char(datetime('now','TimeZone','UTC')),'records',records, ...
+        'source_initial_energy_range',[min(globalEnergy),max(globalEnergy)], ...
+        'source_initial_speed_range',[min(globalSpeed),max(globalSpeed)], ...
+        'source_period_predictor_range',[min(globalPeriod),max(globalPeriod)], ...
+        'source_pitch_range',[min(globalPitch),max(globalPitch)], ...
+        'source_mean_speed_known',false,'columns_inventoried',sum(arrayfun(@(r)sum([r.variables.columns]),records)), ...
+        'source_energy_semantics','Algebraic mapped-state energy; not an admissibility or closure certificate.');
+    folder=fullfile(v3,'Research_v3','next_round');save(fullfile(folder,'source_inventory.mat'),'inventory','-v7');
+    summary=rmfield(inventory,'records');summary.records=arrayfun(@summaryRecord,records);
+    RoundJSON_v3(fullfile(folder,'source_inventory.json'),summary);
+end
+function r=summaryRecord(record)
+    r=rmfield(record,'variables');r.variables=struct([]);
+    for k=1:numel(record.variables)
+        v=record.variables(k);E=v.energy(isfinite(v.energy));
+        entry=struct('variable',v.variable,'columns',v.columns,'energy_range',[min(E),max(E)], ...
+            'initial_horizontal_speed_range',[min(v.initial_horizontal_speed),max(v.initial_horizontal_speed)], ...
+            'period_predictor_range',[min(v.period_predictor),max(v.period_predictor)], ...
+            'pitch_range',[min(v.pitch),max(v.pitch)],'target_parameter_column_count',numel(v.parameter_target_columns));
+        if isempty(r.variables),r.variables=entry;else,r.variables(end+1)=entry;end
+    end
+end
+function E=algebraicEnergy(x,q,p)
+    s=QuadrupedSchema_v3.shared();ex=s.expandParameters(p);theta=x(5)+x(s.Leg.AngleIndices);
+    height=x(3)+ex.s.*sin(x(5));compression=zeros(4,1);
+    compression(q)=ex.l_0(q)-height(q)./cos(theta(q));
+    pitchEnergy=0;if isfinite(ex.j_pitch),pitchEnergy=.5*ex.j_pitch*x(6)^2;end
+    E=.5*(x(2)^2+x(4)^2)+pitchEnergy+x(3)+sum(.5*ex.k_l.*compression.^2);
+end

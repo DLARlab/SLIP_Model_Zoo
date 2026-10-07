@@ -1,0 +1,21 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                     schema_version: 'prospective-source-domain-repair-v3-1'
+                           revision: 1
+                     registered_utc: '07-Oct-2026 13:11:09'
+                          diagnosis: 'The physical baseline P2 PIP_10_20_2_Spread source column1 has algebraicE=.8217002609608879, all legs in swing, positive swing clearance≈.2332 and a downward apex. The old1.000001 lower bound excludes this admissible source candidate before periodic correction.'
+                           evidence: [1×1 struct]
+              previous_energy_floor: 1.0000
+                       energy_floor: 0.7806
+                     energy_ceiling: 250.6691
+                           model_id: 'v3-autonomous-first-directed-root-compressive-stance'
+                physical_parameters: [10×1 double]
+     old_observations_reinterpreted: 0
+    original_registration_preserved: 1
+      acceptance_tolerances_changed: 0
+               total_budget_changed: 0
+               other_bounds_changed: 0
+                         applies_to: 'Future full/validation invocations and their separately saved effective domains.'
+

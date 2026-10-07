@@ -1,0 +1,44 @@
+{
+  "state": "partial_checkpoint",
+  "scientific_status": "continued_branch_attachment_unresolved",
+  "seed_kind": "restricted_PIP_daughter",
+  "seed_index": 2,
+  "direction": -1,
+  "source_checkpoint": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+  "seed_artifact": "",
+  "seed_node": "",
+  "symmetry": "pronk",
+  "previous_count": 0,
+  "accepted_count": 2,
+  "new_points": 1,
+  "fresh_seed_records": 1,
+  "shared_seam_deduplicated": false,
+  "restart_tangent_reused": false,
+  "requested_step": 0.02,
+  "maximum_step": 0.05,
+  "energy": [
+    1.695968139922106,
+    1.6959686464274961
+  ],
+  "termination_reason": "wall budget checkpoint inside recovery",
+  "arclength_start": 0,
+  "arclength_end": 0.02,
+  "max_full_closure": 9.4588781252014087E-12,
+  "function_evaluations": 99,
+  "wall_seconds": 307.263663,
+  "batch_limit_is_branch_endpoint": false,
+  "primitive_period": [
+    2.8984353166378578,
+    2.8984352819408929
+  ],
+  "mean_speed": [
+    -0.0059547257219662482,
+    0.006041262719927336
+  ],
+  "gait_labels": [
+    "PK",
+    "PK"
+  ],
+  "ancestry_claimed": false,
+  "branch_artifact": "branch.mat"
+}

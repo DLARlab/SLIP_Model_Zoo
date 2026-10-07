@@ -1,0 +1,30 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+front_antisymmetric measured flip -0.99999999183 residual 5.77e-09 leakage 6.28e-12
+hind_antisymmetric measured flip -0.99999999183 residual 5.77e-09 leakage 2.22e-16
+Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat
+  4×1 struct array with fields:
+
+    name
+    size
+    bytes
+    class
+    global
+    sparse
+    complex
+    nesting
+    persistent
+
+Research_v3/next_round/tasks/full/PIP_candidate_1/phase_checkpoint.mat
+          name: 'record'
+          size: [1 1]
+         bytes: 13300297
+         class: 'struct'
+        global: 0
+        sparse: 0
+       complex: 0
+       nesting: [1×1 struct]
+    persistent: 0
+

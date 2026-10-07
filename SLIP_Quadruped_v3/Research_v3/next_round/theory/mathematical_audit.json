@@ -1,0 +1,671 @@
+{
+  "schema_version": "next-round-mathematical-audit-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "created_utc": "07-Oct-2026 11:46:51",
+  "semantics": "focused audit, not branch or periodic-solution evidence",
+  "callback_probe": {
+    "first_value": [
+      -1E-9,
+      -1E-9
+    ],
+    "revisited_value": [
+      -1E-9,
+      -1E-9
+    ],
+    "effective_relative_tolerance": 1E-12,
+    "effective_absolute_tolerance": 1E-14,
+    "requested_nested_relative_tolerance": 1E-12,
+    "requested_nested_absolute_tolerance": 1E-14,
+    "same_point_equal": true,
+    "same_point_value_difference": 0,
+    "observation": "The solver adapter deliberately queries the same (t,x) before and after an interior probe. Returned values must not depend on probe order. This is not an ode45 trajectory."
+  },
+  "physical_mode_algebra": [
+    {
+      "mode": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "stance_count": 0,
+      "dimension": 12,
+      "expected_dimension": 12,
+      "constraint_rank": 0,
+      "section_gauge_constraint_rank": 2,
+      "basis_rank": 12,
+      "basis_constraint_residual": 0,
+      "basis_refinement": 1.1102341268554028E-11,
+      "energy": 1.1709,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 1.000000000010252,
+      "energy_pivot_magnitude": 1.000000000010252,
+      "energy_gradient_fd_error": 3.1606661732297425E-11,
+      "energy_conservation_residual": 0,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_flow_derivative": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 0,
+        "maximum_anchor_tangency_residual": 0,
+        "finite_difference_step": 1.9999210206884187E-7
+      },
+      "anchor_translation_error": 0
+    },
+    {
+      "mode": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "stance_count": 1,
+      "dimension": 11,
+      "expected_dimension": 11,
+      "constraint_rank": 1,
+      "section_gauge_constraint_rank": 3,
+      "basis_rank": 11,
+      "basis_constraint_residual": 6.0024192991335051E-11,
+      "basis_refinement": 7.7715611723760958E-11,
+      "energy": 1.1714971919330748,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.89070426020474436,
+      "energy_pivot_magnitude": 0.89070426020474436,
+      "energy_gradient_fd_error": 3.2107649872159527E-11,
+      "energy_conservation_residual": 1.0842021724855044E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_flow_derivative": [
+          1.392088820442524E-10,
+          null,
+          null,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 0,
+        "maximum_anchor_tangency_residual": 1.392088820442524E-10,
+        "finite_difference_step": 1.9938078093900529E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "stance_count": 1,
+      "dimension": 11,
+      "expected_dimension": 11,
+      "constraint_rank": 1,
+      "section_gauge_constraint_rank": 3,
+      "basis_rank": 11,
+      "basis_constraint_residual": 6.0024192991335051E-11,
+      "basis_refinement": 7.7715611723760958E-11,
+      "energy": 1.1714971919330748,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.89070426020474436,
+      "energy_pivot_magnitude": 0.89070426020474436,
+      "energy_gradient_fd_error": 3.2107649872159527E-11,
+      "energy_conservation_residual": 1.0842021724855044E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_flow_derivative": [
+          null,
+          1.392088820442524E-10,
+          null,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 0,
+        "maximum_anchor_tangency_residual": 1.392088820442524E-10,
+        "finite_difference_step": 1.9938078093900529E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "stance_count": 2,
+      "dimension": 10,
+      "expected_dimension": 10,
+      "constraint_rank": 2,
+      "section_gauge_constraint_rank": 4,
+      "basis_rank": 10,
+      "basis_constraint_residual": 6.002425074581635E-11,
+      "basis_refinement": 7.7715611723760958E-11,
+      "energy": 1.1720943838661497,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.78140852039923681,
+      "energy_pivot_magnitude": 0.78140852039923681,
+      "energy_gradient_fd_error": 8.71345912090149E-11,
+      "energy_conservation_residual": 2.1684043449710089E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_flow_derivative": [
+          -2.7851979314370884E-10,
+          -2.7851979314370884E-10,
+          null,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 0,
+        "maximum_anchor_tangency_residual": 2.7851979314370884E-10,
+        "finite_difference_step": 1.9930774256541095E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "stance_count": 1,
+      "dimension": 11,
+      "expected_dimension": 11,
+      "constraint_rank": 1,
+      "section_gauge_constraint_rank": 3,
+      "basis_rank": 11,
+      "basis_constraint_residual": 1.6912945320550307E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1712986034527997,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.91070712714620117,
+      "energy_pivot_magnitude": 0.91070712714620117,
+      "energy_gradient_fd_error": 6.7649885042778135E-11,
+      "energy_conservation_residual": 1.0842021724855044E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          -2.7947912324194944E-10,
+          0
+        ],
+        "anchor_flow_derivative": [
+          null,
+          null,
+          0,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 2.7947912324194944E-10,
+        "maximum_anchor_tangency_residual": 0,
+        "finite_difference_step": 1.9862360589703496E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "stance_count": 2,
+      "dimension": 10,
+      "expected_dimension": 10,
+      "constraint_rank": 2,
+      "section_gauge_constraint_rank": 4,
+      "basis_rank": 10,
+      "basis_constraint_residual": 1.6912943570576459E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1718957953858744,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.8014113873406935,
+      "energy_pivot_magnitude": 0.8014113873406935,
+      "energy_gradient_fd_error": 4.3372417419737519E-11,
+      "energy_conservation_residual": 4.3368086899420177E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          2.800550793493626E-10,
+          0
+        ],
+        "anchor_flow_derivative": [
+          0,
+          null,
+          -2.800550793493626E-10,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 2.800550793493626E-10,
+        "maximum_anchor_tangency_residual": 2.800550793493626E-10,
+        "finite_difference_step": 1.9821512025500127E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "stance_count": 2,
+      "dimension": 10,
+      "expected_dimension": 10,
+      "constraint_rank": 2,
+      "section_gauge_constraint_rank": 4,
+      "basis_rank": 10,
+      "basis_constraint_residual": 1.6912943570576459E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1718957953858744,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.8014113873406935,
+      "energy_pivot_magnitude": 0.8014113873406935,
+      "energy_gradient_fd_error": 4.3372417419737519E-11,
+      "energy_conservation_residual": 4.3368086899420177E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          2.800550793493626E-10,
+          0
+        ],
+        "anchor_flow_derivative": [
+          null,
+          0,
+          -2.800550793493626E-10,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 2.800550793493626E-10,
+        "maximum_anchor_tangency_residual": 2.800550793493626E-10,
+        "finite_difference_step": 1.9821512025500127E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "stance_count": 3,
+      "dimension": 9,
+      "expected_dimension": 9,
+      "constraint_rank": 3,
+      "section_gauge_constraint_rank": 5,
+      "basis_rank": 9,
+      "basis_constraint_residual": 1.6912943570576459E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1724929873189494,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.69211564753518584,
+      "energy_pivot_magnitude": 0.69211564753518584,
+      "energy_gradient_fd_error": 7.9866002700157424E-11,
+      "energy_conservation_residual": 6.5052130349130266E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          -2.8045412124348914E-10,
+          -2.8045412124348914E-10,
+          -5.6090824248697827E-10,
+          0
+        ],
+        "anchor_flow_derivative": [
+          0,
+          0,
+          2.8045412124348914E-10,
+          null
+        ],
+        "maximum_constraint_tangency_residual": 5.6090824248697827E-10,
+        "maximum_anchor_tangency_residual": 2.8045412124348914E-10,
+        "finite_difference_step": 1.9793309146298219E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "stance_count": 1,
+      "dimension": 11,
+      "expected_dimension": 11,
+      "constraint_rank": 1,
+      "section_gauge_constraint_rank": 3,
+      "basis_rank": 11,
+      "basis_constraint_residual": 1.6912945320550307E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1712986034527997,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.91070712714620117,
+      "energy_pivot_magnitude": 0.91070712714620117,
+      "energy_gradient_fd_error": 6.7649885042778135E-11,
+      "energy_conservation_residual": 1.0842021724855044E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          0,
+          -2.7947912324194944E-10
+        ],
+        "anchor_flow_derivative": [
+          null,
+          null,
+          null,
+          0
+        ],
+        "maximum_constraint_tangency_residual": 2.7947912324194944E-10,
+        "maximum_anchor_tangency_residual": 0,
+        "finite_difference_step": 1.9862360589703496E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "stance_count": 2,
+      "dimension": 10,
+      "expected_dimension": 10,
+      "constraint_rank": 2,
+      "section_gauge_constraint_rank": 4,
+      "basis_rank": 10,
+      "basis_constraint_residual": 1.6912943570576459E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1718957953858744,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.8014113873406935,
+      "energy_pivot_magnitude": 0.8014113873406935,
+      "energy_gradient_fd_error": 4.3372417419737519E-11,
+      "energy_conservation_residual": 4.3368086899420177E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          0,
+          2.800550793493626E-10
+        ],
+        "anchor_flow_derivative": [
+          0,
+          null,
+          null,
+          -2.800550793493626E-10
+        ],
+        "maximum_constraint_tangency_residual": 2.800550793493626E-10,
+        "maximum_anchor_tangency_residual": 2.800550793493626E-10,
+        "finite_difference_step": 1.9821512025500127E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "stance_count": 2,
+      "dimension": 10,
+      "expected_dimension": 10,
+      "constraint_rank": 2,
+      "section_gauge_constraint_rank": 4,
+      "basis_rank": 10,
+      "basis_constraint_residual": 1.6912943570576459E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1718957953858744,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.8014113873406935,
+      "energy_pivot_magnitude": 0.8014113873406935,
+      "energy_gradient_fd_error": 4.3372417419737519E-11,
+      "energy_conservation_residual": 4.3368086899420177E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          0,
+          2.800550793493626E-10
+        ],
+        "anchor_flow_derivative": [
+          null,
+          0,
+          null,
+          -2.800550793493626E-10
+        ],
+        "maximum_constraint_tangency_residual": 2.800550793493626E-10,
+        "maximum_anchor_tangency_residual": 2.800550793493626E-10,
+        "finite_difference_step": 1.9821512025500127E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "stance_count": 3,
+      "dimension": 9,
+      "expected_dimension": 9,
+      "constraint_rank": 3,
+      "section_gauge_constraint_rank": 5,
+      "basis_rank": 9,
+      "basis_constraint_residual": 1.691294357302282E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1724929873189494,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.69211564753518584,
+      "energy_pivot_magnitude": 0.69211564753518584,
+      "energy_gradient_fd_error": 7.9866002700157424E-11,
+      "energy_conservation_residual": 6.5052130349130266E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          -2.8045412124348914E-10,
+          -2.8045412124348914E-10,
+          0,
+          -5.6090824248697827E-10
+        ],
+        "anchor_flow_derivative": [
+          0,
+          0,
+          null,
+          2.8045412124348914E-10
+        ],
+        "maximum_constraint_tangency_residual": 5.6090824248697827E-10,
+        "maximum_anchor_tangency_residual": 2.8045412124348914E-10,
+        "finite_difference_step": 1.9793309146298219E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "stance_count": 2,
+      "dimension": 10,
+      "expected_dimension": 10,
+      "constraint_rank": 2,
+      "section_gauge_constraint_rank": 4,
+      "basis_rank": 10,
+      "basis_constraint_residual": 1.6912943570576459E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1716972069055993,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.8214142542821502,
+      "energy_pivot_magnitude": 0.8214142542821502,
+      "energy_gradient_fd_error": 6.7649885042778135E-11,
+      "energy_conservation_residual": 2.1684043449710089E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          2.8084134769212473E-10,
+          2.8084134769212473E-10
+        ],
+        "anchor_flow_derivative": [
+          null,
+          null,
+          -2.8084134769212473E-10,
+          -2.8084134769212473E-10
+        ],
+        "maximum_constraint_tangency_residual": 2.8084134769212473E-10,
+        "maximum_anchor_tangency_residual": 2.8084134769212473E-10,
+        "finite_difference_step": 1.9766017962608734E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "stance_count": 3,
+      "dimension": 9,
+      "expected_dimension": 9,
+      "constraint_rank": 3,
+      "section_gauge_constraint_rank": 5,
+      "basis_rank": 9,
+      "basis_constraint_residual": 1.691294357302282E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1722943988386743,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.71211851447664254,
+      "energy_pivot_magnitude": 0.71211851447664254,
+      "energy_gradient_fd_error": 4.3372417419737519E-11,
+      "energy_conservation_residual": 2.1684043449710089E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          -2.816923946102204E-10,
+          0,
+          -2.816923946102204E-10,
+          -2.816923946102204E-10
+        ],
+        "anchor_flow_derivative": [
+          -1.408461973051102E-10,
+          null,
+          -2.816923946102204E-10,
+          -2.816923946102204E-10
+        ],
+        "maximum_constraint_tangency_residual": 2.816923946102204E-10,
+        "maximum_anchor_tangency_residual": 2.816923946102204E-10,
+        "finite_difference_step": 1.9706301019617149E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "stance_count": 3,
+      "dimension": 9,
+      "expected_dimension": 9,
+      "constraint_rank": 3,
+      "section_gauge_constraint_rank": 5,
+      "basis_rank": 9,
+      "basis_constraint_residual": 1.691294357302282E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.1722943988386743,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.71211851447664254,
+      "energy_pivot_magnitude": 0.71211851447664254,
+      "energy_gradient_fd_error": 4.3372417419737519E-11,
+      "energy_conservation_residual": 2.1684043449710089E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          -2.816923946102204E-10,
+          -2.816923946102204E-10,
+          -2.816923946102204E-10
+        ],
+        "anchor_flow_derivative": [
+          null,
+          -1.408461973051102E-10,
+          -2.816923946102204E-10,
+          -2.816923946102204E-10
+        ],
+        "maximum_constraint_tangency_residual": 2.816923946102204E-10,
+        "maximum_anchor_tangency_residual": 2.816923946102204E-10,
+        "finite_difference_step": 1.9706301019617149E-7
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    },
+    {
+      "mode": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "stance_count": 4,
+      "dimension": 8,
+      "expected_dimension": 8,
+      "constraint_rank": 4,
+      "section_gauge_constraint_rank": 6,
+      "basis_rank": 8,
+      "basis_constraint_residual": 1.6912943570576459E-10,
+      "basis_refinement": 1.0547118733938987E-10,
+      "energy": 1.172891590771749,
+      "energy_pivot_state_index": 3,
+      "energy_pivot_derivative": 0.602822774671135,
+      "energy_pivot_magnitude": 0.602822774671135,
+      "energy_gradient_fd_error": 7.94471114329981E-11,
+      "energy_conservation_residual": 6.5052130349130266E-19,
+      "flow_tangency": {
+        "constraint_flow_derivative": [
+          0,
+          0,
+          -8.3266726846886741E-11,
+          -8.3266726846886741E-11
+        ],
+        "anchor_flow_derivative": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "maximum_constraint_tangency_residual": 8.3266726846886741E-11,
+        "maximum_anchor_tangency_residual": 0,
+        "finite_difference_step": 2E-6
+      },
+      "anchor_translation_error": 2.2204460492503131E-16
+    }
+  ],
+  "all_dimension_counts_correct": true,
+  "max_energy_conservation_residual": 6.5052130349130266E-19,
+  "max_energy_gradient_error": 8.71345912090149E-11,
+  "max_basis_constraint_residual": 1.6912945320550307E-10,
+  "max_anchor_translation_error": 2.2204460492503131E-16
+}

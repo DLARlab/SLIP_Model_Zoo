@@ -1,0 +1,28 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+PK full audit recorded 90 actual returns, 240.08s
+   1.0000 + 0.0000i
+   0.9997 + 0.0000i
+  -0.8174 + 0.5761i
+  -0.8174 - 0.5761i
+  -0.2740 + 0.0000i
+  -0.2739 + 0.0000i
+  -0.2739 + 0.0000i
+  -0.2739 + 0.0000i
+   0.0000 + 0.0000i
+   0.0000 + 0.0000i
+   0.0000 + 0.0000i
+   0.0000 + 0.0000i
+
+PIP physical order-chart returns 12 elapsed30.9s
+PIP physical order-chart returns 24 elapsed64.8s
+PIP physical order-chart returns 36 elapsed100.5s
+PIP physical order-chart returns 48 elapsed134.8s
+PIP physical order-chart returns 60 elapsed172.6s
+PIP physical order-chart returns 72 elapsed208.8s
+PIP physical order-chart returns 84 elapsed248.6s
+PIP full12D reliable=1 refine1.24e-07 +/-1.29e-10 mixed5.26e-08 energycovector1.58e-11 radius3.43292760356
+   1
+

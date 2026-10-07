@@ -1,0 +1,31 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Critical snapshot 1/13: refined_candidates (785937 bytes), arrays=0
+Critical snapshot 2/13: refined_candidates (764744 bytes), arrays=0
+Critical snapshot 3/13: refined_candidates (351498 bytes), arrays=0
+Critical snapshot 4/13: refined_candidates (342154 bytes), arrays=0
+Critical snapshot 5/13: refined_candidates (450923 bytes), arrays=0
+Critical snapshot 6/13: PK_at_B2_critical (800 bytes), arrays=1
+Critical snapshot 7/13: B2_local_daughters (2400 bytes), arrays=1
+Critical snapshot 8/13: B2_connection (13207 bytes), arrays=1
+Critical snapshot 9/13: PIP_delayed_critical (912 bytes), arrays=1
+Critical snapshot 10/13: PK_local_daughters (2784 bytes), arrays=1
+Critical snapshot 11/13: B2_original_852 (346793 bytes), arrays=2
+Critical snapshot 12/13: corrected_source_for_phase (358547 bytes), arrays=3
+Critical snapshot 13/13: stationary_fixed_point (2308 bytes), arrays=3
+    {'SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BE_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat'}
+    {'SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BG_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat'}
+    {'SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/FG_GG_bifurcation/artifacts/02_refinement/refined_candidates.mat'           }
+    {'SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/GE_HE_bifurcation/artifacts/02_refinement/refined_candidates.mat'           }
+    {'SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/PK_multigait_bifurcation/artifacts/02_refinement/refined_candidates.mat'    }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/PK_at_B2_critical.mat'                                                     }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/B2_local_daughters.mat'                                                    }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/B2_connection.mat'                                                         }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PIP_delayed_critical.mat'                                         }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PK_local_daughters.mat'                                           }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/B2_original_852.mat'                                                    }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/corrected_source_for_phase.mat'                        }
+    {'SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/stationary_fixed_point.mat'                            }
+

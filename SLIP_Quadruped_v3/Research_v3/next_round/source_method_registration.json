@@ -1,0 +1,21 @@
+{
+  "schema_version": "source-recovery-method-supplement-v3-1",
+  "registered_utc": "07-Oct-2026 12:52:16",
+  "original_registration_preserved": true,
+  "acceptance_tolerances_changed": false,
+  "domain_changed": false,
+  "round_A": "Raw conversion preserved before physics; quantitative trace; source-energy correction with state-qualified pronk/left-right/none chart.",
+  "round_B": "Source neighbors; explicit stance retraction; nearest feasible height with1e-7 margin; preserve source energy by horizontal kinetic adjustment when possible; autonomous apex predictor.",
+  "round_C": "Denser source neighbors; unrestricted physical coordinates; measure h=1e-4 pitch/angle feasibility; if invalid, prospectively use1e-3 predictor clearance and retain measured before/after evidence.",
+  "primary_return_policy": "One BL touchdown per marked-apex return for P1 and P2; two positive-duration primitive flights do not imply two BL returns.",
+  "secondary_return_policy": "BL2 only in separately named source hypothesis or measured -1-mode candidate; independent primitive/minimality gates remain mandatory.",
+  "family_specific_phases": "P1 PK→BD front/hind split, BD→HB_front/HB_hind antisymmetry, HB orientations→GP; P2 analogous B2/F2/H2/G2 with independently measured two-flight target.",
+  "signed_amplitudes": [
+    -0.001,
+    0.001
+  ],
+  "constraint": "Physical sector amplitude included in d+1 coordinates [u;E] and d+1 equations; E free family coordinate, ten model parameters fixed.",
+  "continuation": "Every accepted in-domain target-model source/sector seed registered in both arclength directions; shared total numerical budget bounds coverage.",
+  "ancestry_claimed": false,
+  "regular_bifurcation_claimed": false
+}

@@ -1,0 +1,20 @@
+function cfg=RoundTargetedCandidates_v3(cfg)
+%ROUNDTARGETEDCANDIDATES_V3 Load independently frozen targeted bridge tasks.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    file=fullfile(v3,'Research_v3/next_round/low_energy_PK_bridge_registration.json');
+    if isfile(file)
+        registration=jsondecode(fileread(file));cfg.branch_identity_bridge_candidates=registration.candidates;
+        cfg.branch_identity_bridge_registration='Research_v3/next_round/low_energy_PK_bridge_registration.json';
+    end
+    names={'PIP_candidate_1','PIP_PK_low_energy_neighborhood'};records=struct([]);
+    revisions={'attachment_accuracy_repair','attachment_accuracy_repair_02'};
+    for revision=1:numel(revisions)
+        for k=1:numel(names)
+            file=fullfile(v3,'Research_v3/next_round/solver',revisions{revision},names{k},'registration.json');
+            if ~isfile(file),continue;end
+            registration=jsondecode(fileread(file));record=registration.candidate;
+            if isempty(records),records=record;else,records(end+1)=orderfields(record,records(1));end %#ok<AGROW>
+        end
+    end
+    if ~isempty(records),cfg.attachment_accuracy_repair_candidates=records;end
+end

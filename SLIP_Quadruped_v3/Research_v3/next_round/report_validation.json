@@ -1,0 +1,206 @@
+{
+  "schema_version": "matlab-next-round-report-v3-1",
+  "profile": "validation",
+  "generated_utc": "07-Oct-2026 14:47:32",
+  "starting_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "experiment_id": "next-round-validation-20261007",
+  "status": "partial_checkpoint",
+  "numerical_wall_seconds": 914.26477495833342,
+  "effective_domain": {
+    "energy": [
+      0.78061524791284342,
+      250.66912494952322
+    ],
+    "mean_speed": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 20.740683444789454,
+    "event_count_max": 128,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately",
+    "initial_speed_diagnostic": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "energy_stages": {
+      "ordinary_parent_and_P2": [
+        0.78061524791284342,
+        3
+      ],
+      "P1_critical_neighborhood": [
+        8,
+        14
+      ],
+      "full_source_comparison": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "ordinary_vertical_PIP": [
+        1.000001,
+        3
+      ]
+    },
+    "derivation": {
+      "energy": "1.2 times maximum algebraic mapped source energy; minimum12",
+      "mean_speed": "Prospective broad bound from1.5 times max initial source speed; initial and mean speed remain separate observables",
+      "period": "1.5 times max positive source period predictor; minimum12",
+      "pitch": "1.2 times maximum source absolute pitch; minimum1.2",
+      "source_initial_ranges": [
+        -20.175019627029947,
+        20.423184056395353
+      ],
+      "historical_P1_critical_initial_speed": 4.43406193516227,
+      "historical_P1_critical_kinetic_energy": 9.8304526224274884
+    },
+    "initial_subunit_source_audit": "Research_v3/next_round/solver/domain_lower_energy_audit.json"
+  },
+  "domain_revision": 1,
+  "domain_revision_history": "Research_v3/next_round/domain_revisions.json",
+  "registered_total_wall_seconds": 1800,
+  "function_evaluations": 413,
+  "new_point_records": 4,
+  "accepted_source_records": 0,
+  "accepted_pip_daughter_records": 0,
+  "repair_rounds": [
+    {
+      "id": "A",
+      "executed_tasks": 0,
+      "accepted_orbits": 0,
+      "states": [],
+      "methods": "direct conversion + fixed-energy correction and quantitative trace"
+    },
+    {
+      "id": "B",
+      "executed_tasks": 2,
+      "accepted_orbits": 0,
+      "states": [
+        "partial_checkpoint",
+        "partial_checkpoint"
+      ],
+      "methods": "adjacent/source-minimum neighbors + physical rephase/retraction + scaled correction"
+    },
+    {
+      "id": "C",
+      "executed_tasks": 0,
+      "accepted_orbits": 0,
+      "states": [],
+      "methods": "denser source neighbors + unrestricted physical chart + measured-stencil feasible predictor repair; separate BL2 hypothesis"
+    }
+  ],
+  "coverage": [],
+  "unfinished_tasks": [
+    {
+      "id": "PK_continuation_m1",
+      "kind": "continuation",
+      "repair_round": "B",
+      "dependencies": [
+        "solver_validation"
+      ],
+      "fixture_index": 0,
+      "candidate_index": 0,
+      "seed_kind": "imported_PK",
+      "seed_index": 1,
+      "seed_artifact": "",
+      "seed_variable": "",
+      "seed_node": "",
+      "symmetry": "pronk",
+      "additional_occurrence": [],
+      "occurrence_hypothesis": "",
+      "direction": -1,
+      "state": "partial_checkpoint",
+      "scientific_status": "continued_branch_attachment_unresolved",
+      "execution_completed": false,
+      "attempts": 4,
+      "wall_seconds": 803.85415075,
+      "function_evaluations": 348,
+      "new_points": 4,
+      "started_utc": "07-Oct-2026 12:49:02",
+      "finished_utc": "07-Oct-2026 12:54:17",
+      "artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/result.mat",
+      "message": "",
+      "last_failure": [],
+      "repair_revision": 2,
+      "last_attempt_repair_revision": 2,
+      "repair_log": [
+        {
+          "utc": "07-Oct-2026 12:36:52",
+          "diagnosis": "The90-second slice ended before an accepted corrector; default multi-grid finite differences dominated tangent/corrector cost.",
+          "repair_action": "Use the prospectively registered one-candidate h/h2 operator and Broyden refresh5, as independently validated by workflow_02.",
+          "evidence": "Research_v3/next_round/workflow_02/workflow_audit.mat",
+          "previous_state": "retryable_failure"
+        },
+        {
+          "utc": "07-Oct-2026 12:44:21",
+          "diagnosis": "The corrected derivative operator still could not finish a point inside90s; the independently executed workflow accepted and resumed two new points per294s batch.",
+          "repair_action": "Use separately preregistered480s validation slices, retaining the original1800s total budget and all closure tolerances.",
+          "evidence": "Research_v3/next_round/profile_revisions_validation.json",
+          "previous_state": "retryable_failure"
+        }
+      ]
+    },
+    {
+      "id": "PIP_candidate_1",
+      "kind": "PIP_candidate",
+      "repair_round": "B",
+      "dependencies": [
+        "solver_validation"
+      ],
+      "fixture_index": 0,
+      "candidate_index": 1,
+      "seed_kind": "",
+      "seed_index": 1,
+      "seed_artifact": "",
+      "seed_variable": "",
+      "seed_node": "",
+      "symmetry": "pronk",
+      "additional_occurrence": [],
+      "occurrence_hypothesis": "",
+      "direction": 1,
+      "state": "partial_checkpoint",
+      "scientific_status": "unprocessed",
+      "execution_completed": false,
+      "attempts": 1,
+      "wall_seconds": 110.360306375,
+      "function_evaluations": 65,
+      "new_points": 0,
+      "started_utc": "07-Oct-2026 12:17:39",
+      "finished_utc": "07-Oct-2026 12:19:30",
+      "artifact": "Research_v3/next_round/tasks/validation/PIP_candidate_1/result.mat",
+      "message": "",
+      "last_failure": {},
+      "repair_revision": 0,
+      "last_attempt_repair_revision": 0,
+      "repair_log": []
+    }
+  ],
+  "network_achieved": false,
+  "global_completeness_claimed": false,
+  "historical_results_preserved": true,
+  "graph": "Research_v3/next_round/graph/index_validation.json",
+  "protection": "Research_v3/next_round/baseline/protected_verification.json",
+  "executed_tasks_this_invocation": 0
+}

@@ -1,0 +1,163 @@
+{
+  "schema_version": "prospective-opposed-spread-corrector-v3-1",
+  "frozen_utc": "07-Oct-2026 14:25:57",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "predictor_artifact": "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_predictor.mat",
+  "predictor_sha256": "cca1a61dfb96f5bd50085674e8916192b7b925e45460ccce44b4ed9bde759258",
+  "audit_artifact": "Research_v3/next_round/theory/opposed_spread_period_two_audit.mat",
+  "audit_sha256": "82be485ed580cbe51885ef14765268a79fb376325f27fa477a81c67cda0ccf3a",
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "resonance_index": 0,
+  "touchdown_angle": 0.001,
+  "flight_time": 0.3512407365520363,
+  "exact_coordinates": [
+    7.8539803249776089E-5,
+    0.00447213595499958,
+    1.0616845275068503
+  ],
+  "exact_state": [
+    0,
+    0,
+    1.0616845275068503,
+    0,
+    0,
+    0,
+    7.8539803249776089E-5,
+    0.00447213595499958,
+    -7.8539803249776089E-5,
+    -0.00447213595499958,
+    7.8539803249776089E-5,
+    0.00447213595499958,
+    -7.8539803249776089E-5,
+    -0.00447213595499958
+  ],
+  "state_swap": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    7,
+    8,
+    13,
+    14,
+    11,
+    12
+  ],
+  "reference": [
+    0,
+    0,
+    1.0616850275068086
+  ],
+  "normal": [
+    0.017559329167106674,
+    0.99984582309434133,
+    0
+  ],
+  "signed_amplitude": 0.0044728255611743359,
+  "perturbation": [
+    -9.9984582309434135E-5,
+    1.7559329167106676E-6,
+    0
+  ],
+  "perturbed_coordinates": [
+    -2.1444779059658046E-5,
+    0.0044738918879162906,
+    1.0616845275068503
+  ],
+  "perturbed_state": [
+    0,
+    0,
+    1.0616845275068503,
+    0,
+    0,
+    0,
+    -2.1444779059658046E-5,
+    0.0044738918879162906,
+    2.1444779059658046E-5,
+    -0.0044738918879162906,
+    -2.1444779059658046E-5,
+    0.0044738918879162906,
+    2.1444779059658046E-5,
+    -0.0044738918879162906
+  ],
+  "integration": {
+    "RelTol": 1E-12,
+    "AbsTol": 1E-14,
+    "MaxStep": 0.005,
+    "EventValueTolerance": 1E-10,
+    "EventTimeTolerance": 1E-12,
+    "SimultaneousTimeTolerance": 1E-10,
+    "ArmingTolerance": 1E-11
+  },
+  "replay_integration": {
+    "RelTol": 1E-13,
+    "AbsTol": 1E-15,
+    "MaxStep": 0.0025,
+    "EventValueTolerance": 1E-11,
+    "EventTimeTolerance": 1E-13,
+    "SimultaneousTimeTolerance": 1E-11,
+    "ArmingTolerance": 1E-12
+  },
+  "combined_wall_seconds": 240,
+  "source_hashes": [
+    {
+      "path": "Orbit_v3/OpposedSpreadFamilyResidual_v3.m",
+      "sha256": "e51aaf801f9a8cca0aa144f098337e956ab0972224c2133610cdd1ee11feb63e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "d00a3dda192b48de61fc6fe14d331c9564899af221454e7410958c6765419369"
+    },
+    {
+      "path": "Numerics_v3/HybridFiniteDifferenceJacobian_v3.m",
+      "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Research_v3/next_round/solver/PilotOpposedSpread_v3.m",
+      "sha256": "c22c4e30f94ac2d8d8420b14687f9e067ed0d0f7a11c58164e3df014bec01c19"
+    }
+  ],
+  "scope": "Exact baseline paired opposed-spread restriction; not the earlier front-only experiment.",
+  "marked_policy_hypothesis": "BL/BR exchange is used only on the measured synchronous TD/LO restriction, with actual marked return ownership.",
+  "predictor_admission_interpretation": "Zero Newton iterations indicate replay admission of the exact predictor, not nonlinear correction.",
+  "correction_requirement": "Perturbation must have initial norm greater than1e-6 and at least one accepted Newton iteration, then actual independent full BL2 acceptance.",
+  "acceptance_tolerances_changed": false,
+  "ancestry_claimed": false,
+  "unrestricted_C2_claimed": false
+}

@@ -1,0 +1,32 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+SOURCE PIP_candidate_1 artifactSHA=1edb1977f36dec760dddf0ce6639ceac8f2f5bcffa069c8891c4c1eedd0bdedf
+ ACCEPTED 1 domain1 Newton5 fe92 maps90 Jac4 initialJused1 elapsed102.84180654166667
+ RES initialphysical7.0763693028105118e-12 finalphysical2.1762214426346294e-14 initialscaled7.0763693028105118e-12 finalscaled2.1762214426346294e-14 fullFresh2.2182256032010628e-13 energy1.0616850416641301
+  struct with no fields.
+
+  struct with no fields.
+
+  struct with no fields.
+
+ PRIMARYEXIT 1 ROOTEXIT 1 message=Residual tolerance satisfied.
+ REPLAY repeated_difference0 primitiveprimitive_within_checked_bound stance4.0115480381963664e-17 energyError2.233768725545815e-13 constraint-5.4210108624275222e-20
+ OPTIONS Opt 1.0000000000000001e-18 Step 1e-13 Resid 9.9999999999999998e-13 Function 1e-13
+ EVIDENCE numerically_supported_restricted_attachment fit0.011368872703842922 reflection5.3053587523166357e-08 allgates1 originalcandidate_only newpoints0
+ COPY other9unchanged1 original_modified0 counters_modified0
+SOURCE PIP_PK_low_energy_neighborhood artifactSHA=4779ac6b6c4c55ff2eb527c66d4df3ecb6de57f359dfa0aac6f3f89d9816965d
+ ACCEPTED 1 domain1 Newton6 fe93 maps91 Jac4 initialJused1 elapsed139.036001
+ RES initialphysical3.021910282771656e-11 finalphysical5.3874548051890958e-15 initialscaled3.021910282771656e-11 finalscaled5.3874548051890958e-15 fullFresh3.3595348725157237e-13 energy1.1171137145679753
+  struct with no fields.
+
+  struct with no fields.
+
+  struct with no fields.
+
+ PRIMARYEXIT 1 ROOTEXIT 1 message=Residual tolerance satisfied.
+ REPLAY repeated_difference0 primitiveprimitive_within_checked_bound stance3.5372095877339582e-17 energyError3.3950620093037287e-13 constraint5.4210108624275222e-20
+ OPTIONS Opt 1.0000000000000001e-18 Step 1e-13 Resid 9.9999999999999998e-13 Function 1e-13
+ EVIDENCE numerically_supported_restricted_attachment fit0.030956071596804347 reflection8.3511603854447003e-08 allgates1 originalcandidate_only newpoints0
+ COPY other9unchanged1 original_modified0 counters_modified0

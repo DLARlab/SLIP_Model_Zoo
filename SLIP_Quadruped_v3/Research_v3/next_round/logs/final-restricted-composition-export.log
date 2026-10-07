@@ -1,0 +1,33 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+FINAL CHARGED 10804.966922625 FE 4990 STATUS total_budget_exhausted
+                          schema_version: 'saved-pronk-bridge-orbit-comparison-v3-1'
+           horizontal_reflection_applied: 0
+                             phase_shift: 0
+                        phase_convention: 'Same labeled BL-marked apex; constant horizontal origin removed.'
+                          apex_state_gap: 0
+                              energy_gap: 0
+                              period_gap: 0
+                               drift_gap: 0
+                    contact_counts_first: [1 1 1 1 1 1 1 1]
+                   contact_counts_second: [1 1 1 1 1 1 1 1]
+                    contact_counts_equal: 1
+                         event_phase_gap: 0
+               one_sided_event_state_gap: 0
+                       event_modes_match: 1
+                smooth_history_state_gap: 0
+              smooth_history_modes_match: 1
+                            sample_count: 2001
+                     interpolation_scope: 'Saved one-sided linear interpolation in smooth spans; finite-resolution numerical diagnostic, not closure or a certified trajectory error bound.'
+    same_local_numerical_orbit_supported: 1
+               rigorous_identity_claimed: 0
+
+MEASURED N0 initial 1.62483209937e-07 final 2.83768318663e-08 closure 2.83768318663e-08 Newton 2
+    identifier: ''
+       message: 'No finite hybrid Jacobian is available in the requested perturbation chart.'
+      exitflag: -3
+
+  struct with no fields.
+

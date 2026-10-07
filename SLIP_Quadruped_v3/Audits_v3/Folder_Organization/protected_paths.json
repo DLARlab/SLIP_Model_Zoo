@@ -1,0 +1,24 @@
+{
+  "protected_reference_records": 544,
+  "retained_records": 534,
+  "retained_bytes_match": true,
+  "changed": [
+
+  ],
+  "additional_files": [
+
+  ],
+  "pre_existing_missing_paths": [
+    "SLIP_Model_Zoo_Round1_Audit_Prompt.md",
+    "artifacts/round1-audit/mat-schema-static.txt",
+    "artifacts/round1-audit/static-environment.txt",
+    "artifacts/round1-audit/static-validation.txt",
+    "artifacts/round1-audit/reference-hashes-static.sha256",
+    "tools/runRound1Audit.m",
+    "tools/audit/round1ArtifactHashes.m",
+    "tools/audit/round1ContactMembership.m",
+    "tools/audit/round1FiniteDifferenceJacobian.m",
+    "SLIP_Quadruped_v3_Codex_Research_Prompt.txt"
+  ],
+  "note": "The ten missing historical paths were absent at this organization task start and were not restored. All 534 retained protected files match the earlier reference bytes. The latest cache-removal instruction also authorized removal of repository-root .DS_Store (recorded separately); no legacy SLIP_Quadruped file was changed. The original research protection manifest remains unchanged."
+}

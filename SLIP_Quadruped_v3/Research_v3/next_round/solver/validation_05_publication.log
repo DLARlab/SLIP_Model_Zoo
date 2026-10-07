@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                          schema_version: 'focused-periodic-solver-validation-v3-1'
+                          matlab_version: '25.2.0.3177638 (R2025b) Update 5'
+                                platform: 'MACA64'
+                             started_utc: '07-Oct-2026 13:21:46'
+                                   cases: [1×7 struct]
+               all_required_gates_passed: 1
+                           source_hashes: [1×7 struct]
+    post_occurrence_repair_source_sha256: '452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da'
+                 occurrence_repair_scope: 'Preserve immutable correction policy for fresh replay; audit proper event-located apex recurrences. Original five cases use occurrence one; this extra case exercises the changed occurrence-two path.'
+                         elapsed_seconds: 360.8986
+                            finished_utc: '07-Oct-2026 13:27:47'
+           validation_artifact_directory: 'Research_v3/next_round/solver/validation_05'
+               diagnostic_failure_schema: [1×1 struct]
+                 canonical_published_utc: '07-Oct-2026 13:28:40'
+

@@ -1,0 +1,1976 @@
+{
+  "schema_version": "executed-low-energy-critical-independent-audit-v3-1",
+  "created_utc": "20261007T143707040",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "registration": {
+    "schema_version": "focused-low-energy-critical-audit-v3-1",
+    "registered_utc": "20261007T143707040",
+    "maximum_wall_seconds": 120,
+    "source_snapshots": [
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/phase_checkpoint.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/01_phase_checkpoint.mat",
+        "sha256": "3fd079363512cc79acff3695247ffb36e5c936951ab34308a2eeb9592ecf81fd",
+        "bytes": 1.42869E+6
+      },
+      {
+        "source": "Research_v3/runs/full/family_-1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/02_family_-1.mat",
+        "sha256": "d4bac9d56c08d2388f96f3d783d42ee39f2da0009710f35356f0b7c030be0e72",
+        "bytes": 1.3102395E+7
+      },
+      {
+        "source": "Research_v3/runs/full/family_+1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/03_family_+1.mat",
+        "sha256": "b641e2db635813c9c2d1c08628445fc085e4975d7942e3f70e9d8b61c7254d1a",
+        "bytes": 1.3779772E+7
+      },
+      {
+        "source": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/04_branch.mat",
+        "sha256": "de8e3c29d07ce95044b92da67bff83098b82a324961f1f0cfe3fc72b30a6632e",
+        "bytes": 1.8015528E+7
+      },
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/05_daughter_+0.0001_attempt_1.mat",
+        "sha256": "9e8e481a062d1239d2e3faac337b592b1871eec4cfc148c240568c421d5e7b38",
+        "bytes": 1.219499E+6
+      },
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/06_daughter_+0.0003_attempt_1.mat",
+        "sha256": "74a3d62b96fc8db40bd3f182d4d3f5301e949c0486bd7af603f2f4a48e551544",
+        "bytes": 4.133207E+6
+      },
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/07_daughter_-0.0001_attempt_1.mat",
+        "sha256": "12d106b210194c881b400c7c73061e4785e2492d53441ef2eb3dd6475301a35a",
+        "bytes": 1.219745E+6
+      },
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/08_daughter_-0.0003_attempt_1.mat",
+        "sha256": "5f818afac387ef8e1c3ef67cfa761248605c163461c6d114633e897591b74ff9",
+        "bytes": 1.25161E+6
+      },
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/09_daughter_-0.001_attempt_1.mat",
+        "sha256": "2de0722fdc2fa1cc50a6c9e9501010bac2986a7f715b0769d3686e08e87a16c8",
+        "bytes": 1.296127E+6
+      },
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/10_daughter_-0.003_attempt_1.mat",
+        "sha256": "dbebc874a6cb0eeec87e687be2091df619d1de50341dc82e3ef3d146861a2db4",
+        "bytes": 1.336923E+6
+      },
+      {
+        "source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+        "snapshot": "Research_v3/next_round/theory/low_energy_critical_20261007T143707040/11_daughter_-0.01_attempt_1.mat",
+        "sha256": "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d",
+        "bytes": 1.40528E+6
+      }
+    ],
+    "source_critical_energy": 1.1171137022972106,
+    "physical_parameter": [
+      10,
+      10,
+      20,
+      20,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0.5
+    ],
+    "settings": {
+      "RelTol": 1E-12,
+      "AbsTol": 1E-14,
+      "MaxStep": 0.005,
+      "EventValueTolerance": 1E-10,
+      "EventTimeTolerance": 1E-12,
+      "SimultaneousTimeTolerance": 1E-10,
+      "ArmingTolerance": 1E-11
+    },
+    "fd_steps": [
+      1E-5,
+      5E-6
+    ],
+    "energy_slope_steps": [
+      0.0001,
+      5E-5
+    ],
+    "matrix_gate": 1E-6,
+    "slope_agreement_gate": 0.01,
+    "closure_gate": 1E-8,
+    "engine_hashes": [
+      {
+        "path": "Numerics_v3/RestrictedPIPParentMatrix_v3.m",
+        "sha256": "2a3c67d2ca8099d772a850c093bfccec7dbdbd2bf7c5e50e5b85578544c4136c"
+      },
+      {
+        "path": "Dynamics_v3/ContinuousDynamics_v3.m",
+        "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+      },
+      {
+        "path": "Dynamics_v3/GuardFunctions_v3.m",
+        "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+      },
+      {
+        "path": "Dynamics_v3/ResetMap_v3.m",
+        "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+      },
+      {
+        "path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+        "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+      },
+      {
+        "path": "Simulation_v3/EventDetector_v3.m",
+        "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+      },
+      {
+        "path": "Simulation_v3/HybridSimulator_v3.m",
+        "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+      },
+      {
+        "path": "Orbit_v3/PoincareMap_v3.m",
+        "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+      },
+      {
+        "path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+        "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+      }
+    ],
+    "helper_path": "Research_v3/next_round/theory/AuditLowEnergyPIPCritical_v3.m",
+    "helper_sha256": "cd215af8b3c454bd54623a870fe6828ff77f27142bd10fe29dfa159b7cd2c36c",
+    "scope": "Finite numerical evidence for a restricted critical point; no interval certification, imported-PK identity or attachment."
+  },
+  "numerical": {
+    "source_energy": 1.1171137022972106,
+    "independent_numerical_root_energy": 1.1171137021014406,
+    "root_energy_difference": -1.9577006682425235E-10,
+    "root_determinant": 3.9990769515835555E-14,
+    "source_model_matrix": [
+      [
+        1.5496940547733031,
+        1.0766138468159727,
+        -0.35677554693730823
+      ],
+      [
+        0.18535675182248068,
+        0.363034024500379,
+        -0.120304659865771
+      ],
+      [
+        3.3690482100165471,
+        3.5808917708123897,
+        -1.1866600302729289
+      ]
+    ],
+    "independent_root_matrix": [
+      [
+        1.5496940545426787,
+        1.07661384331913,
+        -0.35677554717050591
+      ],
+      [
+        0.18535675047477529,
+        0.36303402204303287,
+        -0.12030465952082296
+      ],
+      [
+        3.3690482116945581,
+        3.5808917635604915,
+        -1.1866600324996506
+      ]
+    ],
+    "actual_fd_matrices": [
+      [
+        [
+          1.5496940546622446,
+          1.5496940547451374
+        ],
+        [
+          1.0766138470525906,
+          1.0766138468731525
+        ],
+        [
+          -0.35677554693219027,
+          -0.35677554693482239
+        ]
+      ],
+      [
+        [
+          0.18535675116265191,
+          0.18535675165702972
+        ],
+        [
+          0.36303402442664529,
+          0.363034024480504
+        ],
+        [
+          -0.1203046598581404,
+          -0.12030465986321053
+        ]
+      ],
+      [
+        [
+          3.3690482106687893,
+          3.3690482101712731
+        ],
+        [
+          3.5808917718883961,
+          3.5808917710676416
+        ],
+        [
+          -1.1866600302636428,
+          -1.1866600302641839
+        ]
+      ]
+    ],
+    "actual_fd_refinement_difference": 1.3188119485363359E-9,
+    "actual_vs_model_matrix_error": 4.1872283418342704E-10,
+    "restricted_integrator_refinement_difference": 2.1405099914773018E-13,
+    "source_saved_matrix_difference": 1.9099188675042456E-8,
+    "independent_singular_values": [
+      5.5215469720138595,
+      0.714407806537748,
+      9.9474972342674E-15
+    ],
+    "independent_unit_kernel": [
+      0.54442441330460112,
+      8.992806499463768E-15,
+      0.83880990587733351
+    ],
+    "independent_left_kernel": [
+      0.84916331444910842,
+      0.5013204321130097,
+      -0.16613094154861718
+    ],
+    "independent_transversality_estimates": [
+      1.7212461760855422,
+      1.7212459625614989
+    ],
+    "source_transversality_estimate": 1.7212460445306481,
+    "source_transversality_uncertainty_estimate": 0.0022198907874280524,
+    "kernel_alignment_with_source": 1.0000000000000002,
+    "parent_minimum_height": 0.894497297529387,
+    "parent_actual_full_closure": 3.3240077357277187E-13,
+    "parent_actual_period": 1.5645256010229789,
+    "restricted_predicted_period": 1.5645256010236976,
+    "root_matrix_multipliers": {
+      "real": [
+        1.0000000000000315,
+        -0.27393195591397124,
+        5.6505254120915241E-16
+      ],
+      "imag": [
+        0,
+        0,
+        0
+      ]
+    },
+    "finite_difference_observations": [
+      {
+        "fd_level": 1,
+        "column": 1,
+        "signed_step": -1E-5,
+        "initial_state": [
+          0,
+          -1E-5,
+          1.1171137022472106,
+          0,
+          0,
+          0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0
+        ],
+        "actual_return_state": [
+          0,
+          -1.5496940546622447E-5,
+          1.1171137021767978,
+          -1.0755285551056204E-16,
+          0,
+          0,
+          -1.8535675116265193E-6,
+          -3.3690482106687895E-5,
+          -1.8535675116265193E-6,
+          -3.3690482106687895E-5,
+          -1.8535675116265193E-6,
+          -3.3690482106687895E-5,
+          -1.8535675116265193E-6,
+          -3.3690482106687895E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045828688878,
+          0.48397045828688878,
+          0.48397045828688878,
+          0.48397045828688878,
+          1.0805551425346991,
+          1.0805551425346991,
+          1.0805551425346991,
+          1.0805551425346991
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045826012919,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256007308748,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045828688878,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256007308748,
+            "apex_to_touchdown_margin": 0.48397045828688878,
+            "touchdown_to_next_apex_margin": 1.0805551424439859
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960589002954,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512013508458,
+            "apex_to_touchdown_margin": 0.48397045816942064,
+            "touchdown_to_next_apex_margin": 1.0805551424505504
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 1,
+        "column": 1,
+        "signed_step": 1E-5,
+        "initial_state": [
+          0,
+          1E-5,
+          1.1171137022472106,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "actual_return_state": [
+          0,
+          1.5496940546622447E-5,
+          1.1171137021767978,
+          -1.0755285551056204E-16,
+          0,
+          0,
+          1.8535675116265193E-6,
+          3.3690482106687895E-5,
+          1.8535675116265193E-6,
+          3.3690482106687895E-5,
+          1.8535675116265193E-6,
+          3.3690482106687895E-5,
+          1.8535675116265193E-6,
+          3.3690482106687895E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045828688878,
+          0.48397045828688878,
+          0.48397045828688878,
+          0.48397045828688878,
+          1.0805551425346991,
+          1.0805551425346991,
+          1.0805551425346991,
+          1.0805551425346991
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045826012919,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256007308748,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045828688878,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256007308748,
+            "apex_to_touchdown_margin": 0.48397045828688878,
+            "touchdown_to_next_apex_margin": 1.0805551424439859
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960589002954,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512013508458,
+            "apex_to_touchdown_margin": 0.48397045816942064,
+            "touchdown_to_next_apex_margin": 1.0805551424505504
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 1,
+        "column": 2,
+        "signed_step": -1E-5,
+        "initial_state": [
+          0,
+          -0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          -1E-5,
+          -0,
+          -1E-5,
+          -0,
+          -1E-5,
+          -0,
+          -1E-5,
+          -0
+        ],
+        "actual_return_state": [
+          0,
+          -1.0766138470525907E-5,
+          1.1171137022389219,
+          -1.420738526825005E-14,
+          0,
+          0,
+          -3.6303402442664534E-6,
+          -3.5808917718883966E-5,
+          -3.6303402442664534E-6,
+          -3.5808917718883966E-5,
+          -3.6303402442664534E-6,
+          -3.5808917718883966E-5,
+          -3.6303402442664534E-6,
+          -3.5808917718883966E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045842252279,
+          0.48397045842252279,
+          0.48397045842252279,
+          0.48397045842252279,
+          1.0805551426555193,
+          1.0805551426555193,
+          1.0805551426555193,
+          1.0805551426555193
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045801327293,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010029183,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045842252279,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010029183,
+            "apex_to_touchdown_margin": 0.48397045842252279,
+            "touchdown_to_next_apex_margin": 1.0805551425803954
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960592946062,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512018673744,
+            "apex_to_touchdown_margin": 0.48397045829168794,
+            "touchdown_to_next_apex_margin": 1.0805551425727682
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 1,
+        "column": 2,
+        "signed_step": 1E-5,
+        "initial_state": [
+          0,
+          0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          1E-5,
+          0,
+          1E-5,
+          0,
+          1E-5,
+          0,
+          1E-5,
+          0
+        ],
+        "actual_return_state": [
+          0,
+          1.0766138470525907E-5,
+          1.1171137022389219,
+          -1.420738526825005E-14,
+          0,
+          0,
+          3.6303402442664534E-6,
+          3.5808917718883966E-5,
+          3.6303402442664534E-6,
+          3.5808917718883966E-5,
+          3.6303402442664534E-6,
+          3.5808917718883966E-5,
+          3.6303402442664534E-6,
+          3.5808917718883966E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045842252279,
+          0.48397045842252279,
+          0.48397045842252279,
+          0.48397045842252279,
+          1.0805551426555193,
+          1.0805551426555193,
+          1.0805551426555193,
+          1.0805551426555193
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045801327293,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010029183,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045842252279,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010029183,
+            "apex_to_touchdown_margin": 0.48397045842252279,
+            "touchdown_to_next_apex_margin": 1.0805551425803954
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960592946062,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512018673744,
+            "apex_to_touchdown_margin": 0.48397045829168794,
+            "touchdown_to_next_apex_margin": 1.0805551425727682
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 1,
+        "column": 3,
+        "signed_step": -1E-5,
+        "initial_state": [
+          0,
+          -0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          -0,
+          -1E-5,
+          -0,
+          -1E-5,
+          -0,
+          -1E-5,
+          -0,
+          -1E-5
+        ],
+        "actual_return_state": [
+          0,
+          3.5677554693219031E-6,
+          1.1171137022905093,
+          -1.0755285551056204E-16,
+          0,
+          0,
+          1.2030465985814041E-6,
+          1.1866600302636428E-5,
+          1.2030465985814041E-6,
+          1.1866600302636428E-5,
+          1.2030465985814041E-6,
+          1.1866600302636428E-5,
+          1.2030465985814041E-6,
+          1.1866600302636428E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045839375036,
+          0.48397045839375036,
+          0.48397045839375036,
+          0.48397045839375036,
+          1.0805551426359032,
+          1.0805551426359032,
+          1.0805551426359032,
+          1.0805551426359032
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045846312076,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010207678,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045839375036,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010207678,
+            "apex_to_touchdown_margin": 0.48397045839375036,
+            "touchdown_to_next_apex_margin": 1.0805551426270175
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.04849605939953,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512020252357,
+            "apex_to_touchdown_margin": 0.48397045837876207,
+            "touchdown_to_next_apex_margin": 1.0805551426257058
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 1,
+        "column": 3,
+        "signed_step": 1E-5,
+        "initial_state": [
+          0,
+          0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          0,
+          1E-5,
+          0,
+          1E-5,
+          0,
+          1E-5,
+          0,
+          1E-5
+        ],
+        "actual_return_state": [
+          0,
+          -3.5677554693219031E-6,
+          1.1171137022905093,
+          -1.0755285551056204E-16,
+          0,
+          0,
+          -1.2030465985814041E-6,
+          -1.1866600302636428E-5,
+          -1.2030465985814041E-6,
+          -1.1866600302636428E-5,
+          -1.2030465985814041E-6,
+          -1.1866600302636428E-5,
+          -1.2030465985814041E-6,
+          -1.1866600302636428E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045839375036,
+          0.48397045839375036,
+          0.48397045839375036,
+          0.48397045839375036,
+          1.0805551426359032,
+          1.0805551426359032,
+          1.0805551426359032,
+          1.0805551426359032
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045846312076,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010207678,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045839375036,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010207678,
+            "apex_to_touchdown_margin": 0.48397045839375036,
+            "touchdown_to_next_apex_margin": 1.0805551426270175
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.04849605939953,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512020252357,
+            "apex_to_touchdown_margin": 0.48397045837876207,
+            "touchdown_to_next_apex_margin": 1.0805551426257058
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 2,
+        "column": 1,
+        "signed_step": -5E-6,
+        "initial_state": [
+          0,
+          -5E-6,
+          1.1171137022847106,
+          0,
+          0,
+          0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0,
+          -0
+        ],
+        "actual_return_state": [
+          0,
+          -7.7484702737256883E-6,
+          1.1171137022668554,
+          -1.420738526825005E-14,
+          0,
+          0,
+          -9.2678375828514868E-7,
+          -1.6845241050856368E-5,
+          -9.2678375828514868E-7,
+          -1.6845241050856368E-5,
+          -9.2678375828514858E-7,
+          -1.6845241050856364E-5,
+          -9.2678375828514858E-7,
+          -1.6845241050856364E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.4839704583643728,
+          0.4839704583643728,
+          0.4839704583643728,
+          0.4839704583643728,
+          1.080555142608788,
+          1.080555142608788,
+          1.080555142608788,
+          1.080555142608788
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045824503243,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.564525600949962,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.4839704583643728,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.564525600949962,
+            "apex_to_touchdown_margin": 0.4839704583643728,
+            "touchdown_to_next_apex_margin": 1.080555142585589
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960592844468,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.129051201871246,
+            "apex_to_touchdown_margin": 0.48397045833448482,
+            "touchdown_to_next_apex_margin": 1.0805551425867992
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 2,
+        "column": 1,
+        "signed_step": 5E-6,
+        "initial_state": [
+          0,
+          5E-6,
+          1.1171137022847106,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "actual_return_state": [
+          0,
+          7.7484702737256883E-6,
+          1.1171137022668554,
+          -1.420738526825005E-14,
+          0,
+          0,
+          9.2678375828514868E-7,
+          1.6845241050856368E-5,
+          9.2678375828514868E-7,
+          1.6845241050856368E-5,
+          9.2678375828514858E-7,
+          1.6845241050856364E-5,
+          9.2678375828514858E-7,
+          1.6845241050856364E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.4839704583643728,
+          0.4839704583643728,
+          0.4839704583643728,
+          0.4839704583643728,
+          1.080555142608788,
+          1.080555142608788,
+          1.080555142608788,
+          1.080555142608788
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045824503243,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.564525600949962,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.4839704583643728,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.564525600949962,
+            "apex_to_touchdown_margin": 0.4839704583643728,
+            "touchdown_to_next_apex_margin": 1.080555142585589
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960592844468,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.129051201871246,
+            "apex_to_touchdown_margin": 0.48397045833448482,
+            "touchdown_to_next_apex_margin": 1.0805551425867992
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 2,
+        "column": 2,
+        "signed_step": -5E-6,
+        "initial_state": [
+          0,
+          -0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          -5E-6,
+          -0,
+          -5E-6,
+          -0,
+          -5E-6,
+          -0,
+          -5E-6,
+          -0
+        ],
+        "actual_return_state": [
+          0,
+          -5.3830692343657634E-6,
+          1.1171137022823858,
+          -5.2041704279304213E-17,
+          0,
+          0,
+          -1.81517012240252E-6,
+          -1.790445885533821E-5,
+          -1.81517012240252E-6,
+          -1.790445885533821E-5,
+          -1.81517012240252E-6,
+          -1.790445885533821E-5,
+          -1.81517012240252E-6,
+          -1.790445885533821E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045839828146,
+          0.48397045839828146,
+          0.48397045839828146,
+          0.48397045839828146,
+          1.0805551426389786,
+          1.0805551426389786,
+          1.0805551426389786,
+          1.0805551426389786
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045846266518,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010179536,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045839828146,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010179536,
+            "apex_to_touchdown_margin": 0.48397045839828146,
+            "touchdown_to_next_apex_margin": 1.080555142619672
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960593830044,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512020003813,
+            "apex_to_touchdown_margin": 0.48397045836505082,
+            "touchdown_to_next_apex_margin": 1.080555142617377
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 2,
+        "column": 2,
+        "signed_step": 5E-6,
+        "initial_state": [
+          0,
+          0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          5E-6,
+          0,
+          5E-6,
+          0,
+          5E-6,
+          0,
+          5E-6,
+          0
+        ],
+        "actual_return_state": [
+          0,
+          5.3830692343657634E-6,
+          1.1171137022823858,
+          -5.2041704279304213E-17,
+          0,
+          0,
+          1.81517012240252E-6,
+          1.790445885533821E-5,
+          1.81517012240252E-6,
+          1.790445885533821E-5,
+          1.81517012240252E-6,
+          1.790445885533821E-5,
+          1.81517012240252E-6,
+          1.790445885533821E-5
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045839828146,
+          0.48397045839828146,
+          0.48397045839828146,
+          0.48397045839828146,
+          1.0805551426389786,
+          1.0805551426389786,
+          1.0805551426389786,
+          1.0805551426389786
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045846266518,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010179536,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045839828146,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010179536,
+            "apex_to_touchdown_margin": 0.48397045839828146,
+            "touchdown_to_next_apex_margin": 1.080555142619672
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960593830044,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512020003813,
+            "apex_to_touchdown_margin": 0.48397045836505082,
+            "touchdown_to_next_apex_margin": 1.080555142617377
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 2,
+        "column": 3,
+        "signed_step": -5E-6,
+        "initial_state": [
+          0,
+          -0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          -0,
+          -5E-6,
+          -0,
+          -5E-6,
+          -0,
+          -5E-6,
+          -0,
+          -5E-6
+        ],
+        "actual_return_state": [
+          0,
+          1.7838777346741121E-6,
+          1.1171137022952842,
+          -1.0755285551056204E-16,
+          0,
+          0,
+          6.0152329931605267E-7,
+          5.93330015132092E-6,
+          6.0152329931605267E-7,
+          5.93330015132092E-6,
+          6.0152329931605267E-7,
+          5.93330015132092E-6,
+          6.0152329931605267E-7,
+          5.93330015132092E-6
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045839108815,
+          0.48397045839108815,
+          0.48397045839108815,
+          0.48397045839108815,
+          1.0805551426340723,
+          1.0805551426340723,
+          1.0805551426340723,
+          1.0805551426340723
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045823991092,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010224236,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045839108815,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010224236,
+            "apex_to_touchdown_margin": 0.48397045839108815,
+            "touchdown_to_next_apex_margin": 1.0805551426313353
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960594092456,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512020398489,
+            "apex_to_touchdown_margin": 0.48397045838682207,
+            "touchdown_to_next_apex_margin": 1.0805551426306033
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      },
+      {
+        "fd_level": 2,
+        "column": 3,
+        "signed_step": 5E-6,
+        "initial_state": [
+          0,
+          0,
+          1.1171137022972106,
+          0,
+          0,
+          0,
+          0,
+          5E-6,
+          0,
+          5E-6,
+          0,
+          5E-6,
+          0,
+          5E-6
+        ],
+        "actual_return_state": [
+          0,
+          -1.7838777346741121E-6,
+          1.1171137022952842,
+          -1.0755285551056204E-16,
+          0,
+          0,
+          -6.0152329931605267E-7,
+          -5.93330015132092E-6,
+          -6.0152329931605267E-7,
+          -5.93330015132092E-6,
+          -6.0152329931605267E-7,
+          -5.93330015132092E-6,
+          -6.0152329931605267E-7,
+          -5.93330015132092E-6
+        ],
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          0.48397045839108815,
+          0.48397045839108815,
+          0.48397045839108815,
+          0.48397045839108815,
+          1.0805551426340723,
+          1.0805551426340723,
+          1.0805551426340723,
+          1.0805551426340723
+        ],
+        "physical_admissible": true,
+        "minimum_guard_transversality": 0.48397045823991092,
+        "section_chart": {
+          "id": "apex-before-BL-TD-local",
+          "geometry": "dy=0, ddy<0",
+          "marking": "last downward apex strictly before next BL touchdown",
+          "BL_touchdowns_per_return": 1,
+          "selected_return_BL_occurrence": 2,
+          "selected_initial_BL_occurrence": 1,
+          "contact_mode": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "crossing_orientation": -1,
+          "boundary_ownership": "post-reset/right-continuous",
+          "time_translation": 1.5645256010224236,
+          "translational_gauge": "system.canonicalizeState",
+          "return_multiplicity": 1,
+          "initial_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 0.48397045839108815,
+            "touchdown_event_index": 2,
+            "next_apex_time": 1.5645256010224236,
+            "apex_to_touchdown_margin": 0.48397045839108815,
+            "touchdown_to_next_apex_margin": 1.0805551426313353
+          },
+          "return_mark": {
+            "marked": true,
+            "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+            "touchdown_time": 2.0484960594092456,
+            "touchdown_event_index": 2,
+            "next_apex_time": 3.1290512020398489,
+            "apex_to_touchdown_margin": 0.48397045838682207,
+            "touchdown_to_next_apex_margin": 1.0805551426306033
+          },
+          "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+        }
+      }
+    ],
+    "interval_error_bound_supplied": false
+  },
+  "accepted_daughter_snapshots": 6,
+  "imported_saved_point_records": 65,
+  "daughter_imported_comparisons": [
+    {
+      "signed_amplitude": 0.0001,
+      "daughter_artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+      "daughter_state": [
+        0,
+        5.4442443122148768E-5,
+        1.11711369350153,
+        0,
+        0,
+        0,
+        -1.1513265536119798E-12,
+        8.3880989425007125E-5,
+        -1.1513265536119798E-12,
+        8.3880989425007125E-5,
+        -1.1513265536119798E-12,
+        8.3880989425007125E-5,
+        -1.1513265536119798E-12,
+        8.3880989425007125E-5
+      ],
+      "daughter_energy": 1.1171136949835199,
+      "daughter_period": 1.5645255682274277,
+      "daughter_drift": 8.37928822817422E-5,
+      "closest_imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "closest_imported_point_index": 4,
+      "closest_imported_state": [
+        0,
+        -0.0010642292725046225,
+        1.1171136665244907,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824
+      ],
+      "closest_imported_energy": 1.1171142328164629,
+      "closest_imported_period": 1.5645254847588763,
+      "closest_imported_drift": -0.0016379653440482711,
+      "horizontal_reflection_applied": true,
+      "closest_apex_distance": 0.0015558065059158752,
+      "energy_gap": 5.3783294307052643E-7,
+      "period_gap": 8.3468551403953484E-8,
+      "reflected_drift_gap": 0.001554172461766529,
+      "same_saved_contact_count": true,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "signed_amplitude": -0.0001,
+      "daughter_artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+      "daughter_state": [
+        0,
+        -5.4442443122148768E-5,
+        1.11711369350153,
+        0,
+        0,
+        0,
+        1.1513265536119798E-12,
+        -8.3880989425007125E-5,
+        1.1513265536119798E-12,
+        -8.3880989425007125E-5,
+        1.1513265536119798E-12,
+        -8.3880989425007125E-5,
+        1.1513265536119798E-12,
+        -8.3880989425007125E-5
+      ],
+      "daughter_energy": 1.1171136949835199,
+      "daughter_period": 1.5645255682274277,
+      "daughter_drift": -8.37928822817422E-5,
+      "closest_imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "closest_imported_point_index": 4,
+      "closest_imported_state": [
+        0,
+        -0.0010642292725046225,
+        1.1171136665244907,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824
+      ],
+      "closest_imported_energy": 1.1171142328164629,
+      "closest_imported_period": 1.5645254847588763,
+      "closest_imported_drift": -0.0016379653440482711,
+      "horizontal_reflection_applied": false,
+      "closest_apex_distance": 0.0015558065059158752,
+      "energy_gap": 5.3783294307052643E-7,
+      "period_gap": 8.3468551403953484E-8,
+      "reflected_drift_gap": 0.001554172461766529,
+      "same_saved_contact_count": true,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "signed_amplitude": -0.0003,
+      "daughter_artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+      "daughter_state": [
+        0,
+        -0.00016332733846548343,
+        1.1171136788645561,
+        0,
+        0,
+        0,
+        9.0570424147800819E-12,
+        -0.0002516429623688786,
+        9.0570424147800819E-12,
+        -0.0002516429623688786,
+        9.0570424147800819E-12,
+        -0.0002516429623688786,
+        9.0570424147800819E-12,
+        -0.0002516429623688786
+      ],
+      "daughter_energy": 1.1171136922024658,
+      "daughter_period": 1.5645255139499585,
+      "daughter_drift": -0.00025137864741488463,
+      "closest_imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "closest_imported_point_index": 4,
+      "closest_imported_state": [
+        0,
+        -0.0010642292725046225,
+        1.1171136665244907,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824
+      ],
+      "closest_imported_energy": 1.1171142328164629,
+      "closest_imported_period": 1.5645254847588763,
+      "closest_imported_drift": -0.0016379653440482711,
+      "horizontal_reflection_applied": false,
+      "closest_apex_distance": 0.0013880445329720037,
+      "energy_gap": 5.4061399712423963E-7,
+      "period_gap": 2.919108221810518E-8,
+      "reflected_drift_gap": 0.0013865866966333864,
+      "same_saved_contact_count": true,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "signed_amplitude": -0.001,
+      "daughter_artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+      "daughter_state": [
+        0,
+        -0.00054442443317461267,
+        1.1171136915910056,
+        0,
+        0,
+        0,
+        1.7518047668262166E-12,
+        -0.00083880989298083927,
+        1.7518047668262166E-12,
+        -0.00083880989298083927,
+        1.7518047668262166E-12,
+        -0.00083880989298083927,
+        1.7518047668262166E-12,
+        -0.00083880989298083927
+      ],
+      "daughter_energy": 1.1171138397899874,
+      "daughter_period": 1.5645255657491395,
+      "daughter_drift": -0.00083792883432417295,
+      "closest_imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "closest_imported_point_index": 4,
+      "closest_imported_state": [
+        0,
+        -0.0010642292725046225,
+        1.1171136665244907,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824,
+        5.8132345104035922E-13,
+        -0.0016396874953408824
+      ],
+      "closest_imported_energy": 1.1171142328164629,
+      "closest_imported_period": 1.5645254847588763,
+      "closest_imported_drift": -0.0016379653440482711,
+      "horizontal_reflection_applied": false,
+      "closest_apex_distance": 0.00080087760236004311,
+      "energy_gap": 3.9302647558692172E-7,
+      "period_gap": 8.0990263162661336E-8,
+      "reflected_drift_gap": 0.00080003650972409817,
+      "same_saved_contact_count": true,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "signed_amplitude": -0.003,
+      "daughter_artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+      "daughter_state": [
+        0,
+        -0.001633273708929859,
+        1.1171136183463086,
+        0,
+        0,
+        0,
+        3.7580209033374039E-12,
+        -0.002516429413218313,
+        3.7580209033374039E-12,
+        -0.002516429413218313,
+        3.7580209033374039E-12,
+        -0.002516429413218313,
+        3.7580209033374039E-12,
+        -0.002516429413218313
+      ],
+      "daughter_energy": 1.1171149521378128,
+      "daughter_period": 1.5645253298778181,
+      "daughter_drift": -0.00251378679385567,
+      "closest_imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "closest_imported_point_index": 5,
+      "closest_imported_state": [
+        0,
+        0.0021304450453960289,
+        1.1171135610570277,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        -7.5608908311826762E-13,
+        0.0032824339585874494,
+        -7.5608908311826762E-13,
+        0.0032824339585874494,
+        -7.5608908311826762E-13,
+        0.0032824339585874494,
+        -7.5608908311826762E-13,
+        0.0032824339585874494
+      ],
+      "closest_imported_energy": 1.1171158304550735,
+      "closest_imported_period": 1.5645251449909279,
+      "closest_imported_drift": 0.0032789874896342122,
+      "horizontal_reflection_applied": true,
+      "closest_apex_distance": 0.00076600454536913639,
+      "energy_gap": 8.7831726069964589E-7,
+      "period_gap": 1.8488689024209748E-7,
+      "reflected_drift_gap": 0.00076520069577854215,
+      "same_saved_contact_count": true,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "signed_amplitude": -0.01,
+      "daughter_artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+      "daughter_state": [
+        0,
+        -0.0054442612896707064,
+        1.1171127817800639,
+        0,
+        0,
+        0,
+        7.5489565657749926E-13,
+        -0.0083880879233072247,
+        7.5489565657749926E-13,
+        -0.0083880879233072247,
+        7.5489565657749926E-13,
+        -0.0083880879233072247,
+        7.5489565657749926E-13,
+        -0.0083880879233072247
+      ],
+      "daughter_energy": 1.1171276017705589,
+      "daughter_period": 1.5645226341239267,
+      "daughter_drift": -0.0083793003428803015,
+      "closest_imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "closest_imported_point_index": 2,
+      "closest_imported_state": [
+        0,
+        -0.0056866304200264639,
+        1.117112698187277,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        2.7984383928663276E-12,
+        -0.0087615075731268914,
+        2.7984383928663276E-12,
+        -0.0087615075731268914,
+        2.7984383928663276E-12,
+        -0.0087615075731268914,
+        2.7984383928663276E-12,
+        -0.0087615075731268914
+      ],
+      "closest_imported_energy": 1.1171288670700439,
+      "closest_imported_period": 1.5645223641510289,
+      "closest_imported_drift": -0.0087523309966865345,
+      "horizontal_reflection_applied": false,
+      "closest_apex_distance": 0.00037341964981966666,
+      "energy_gap": 1.2652994849648991E-6,
+      "period_gap": 2.6997289781505174E-7,
+      "reflected_drift_gap": 0.000373030653806233,
+      "same_saved_contact_count": true,
+      "identity_or_imported_attachment_established": false
+    }
+  ],
+  "parent_validation_imported_turn_comparison": {
+    "imported_artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+    "imported_point_index": 4,
+    "imported_state": [
+      0,
+      -0.0010642292725046225,
+      1.1171136665244907,
+      0,
+      3.5992669861713444E-16,
+      1.2599219821243557E-16,
+      5.8132345104035922E-13,
+      -0.0016396874953408824,
+      5.8132345104035922E-13,
+      -0.0016396874953408824,
+      5.8132345104035922E-13,
+      -0.0016396874953408824,
+      5.8132345104035922E-13,
+      -0.0016396874953408824
+    ],
+    "imported_energy": 1.1171142328164629,
+    "imported_period": 1.5645254847588763,
+    "imported_drift": -0.0016379653440482711,
+    "horizontal_reflection_applied": false,
+    "apex_distance": 0.0016396874953408824,
+    "energy_gap": 5.3051925230640506E-7,
+    "period_gap": 1.1626410256759812E-7,
+    "reflected_drift_gap": 0.0016379653440482711,
+    "identity_or_imported_attachment_established": false
+  },
+  "parent_imported_endpoint_comparisons": [
+    {
+      "imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "imported_point_index": 1,
+      "imported_state": [
+        0,
+        -0.0073364571486461009,
+        1.1171120310122093,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814
+      ],
+      "imported_energy": 1.1171389428139562,
+      "imported_period": 1.5645202138709908,
+      "imported_drift": -0.011291576420157096,
+      "horizontal_reflection_applied": false,
+      "apex_distance": 0.011303392598235814,
+      "energy_gap": 2.5240516745572705E-5,
+      "period_gap": 5.3871519880566154E-6,
+      "reflected_drift_gap": 0.011291576420157096,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "imported_artifact": "Research_v3/runs/full/family_-1.mat",
+      "imported_point_index": 20,
+      "imported_state": [
+        0,
+        0.07064039910429587,
+        1.1169591204232052,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        -2.2817108061350286E-11,
+        0.10875578844600099,
+        -2.2817108061350286E-11,
+        0.10875578844600099,
+        -2.2817108061350286E-11,
+        0.10875578844600099,
+        -2.2817108061350286E-11,
+        0.10875578844600099
+      ],
+      "imported_energy": 1.1194541534160123,
+      "imported_period": 1.5640277102368672,
+      "imported_drift": 0.108692204320255,
+      "horizontal_reflection_applied": false,
+      "apex_distance": 0.10875578844600099,
+      "energy_gap": 0.0023404511188016563,
+      "period_gap": 0.0004978907861117321,
+      "reflected_drift_gap": 0.108692204320255,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "imported_artifact": "Research_v3/runs/full/family_+1.mat",
+      "imported_point_index": 1,
+      "imported_state": [
+        0,
+        -0.0073364571486461009,
+        1.1171120310122093,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814
+      ],
+      "imported_energy": 1.1171389428139562,
+      "imported_period": 1.5645202138709908,
+      "imported_drift": -0.011291576420157096,
+      "horizontal_reflection_applied": false,
+      "apex_distance": 0.011303392598235814,
+      "energy_gap": 2.5240516745572705E-5,
+      "period_gap": 5.3871519880566154E-6,
+      "reflected_drift_gap": 0.011291576420157096,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "imported_artifact": "Research_v3/runs/full/family_+1.mat",
+      "imported_point_index": 21,
+      "imported_state": [
+        0,
+        -0.10913173255394275,
+        1.1167459150757708,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        3.4876981566387053E-11,
+        -0.16784161186603597,
+        3.4876981566387053E-11,
+        -0.16784161186603597,
+        3.4876981566387053E-11,
+        -0.16784161186603597,
+        3.4876981566387053E-11,
+        -0.16784161186603597
+      ],
+      "imported_energy": 1.1227007826008835,
+      "imported_period": 1.5633420495343424,
+      "imported_drift": -0.16785144283778089,
+      "horizontal_reflection_applied": false,
+      "apex_distance": 0.16784161186603597,
+      "energy_gap": 0.0055870803036728311,
+      "period_gap": 0.0011835514886364695,
+      "reflected_drift_gap": 0.16785144283778089,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "imported_artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+      "imported_point_index": 1,
+      "imported_state": [
+        0,
+        -0.0073364571486461009,
+        1.1171120310122093,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814,
+        1.4947957228051857E-13,
+        -0.011303392598235814
+      ],
+      "imported_energy": 1.1171389428139562,
+      "imported_period": 1.5645202138709908,
+      "imported_drift": -0.011291576420157096,
+      "horizontal_reflection_applied": false,
+      "apex_distance": 0.011303392598235814,
+      "energy_gap": 2.5240516745572705E-5,
+      "period_gap": 5.3871519880566154E-6,
+      "reflected_drift_gap": 0.011291576420157096,
+      "identity_or_imported_attachment_established": false
+    },
+    {
+      "imported_artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+      "imported_point_index": 24,
+      "imported_state": [
+        0,
+        0.078746090964510962,
+        1.1169217150838759,
+        0,
+        3.5992669861713444E-16,
+        1.2599219821243557E-16,
+        -2.9355778268485429E-12,
+        0.12121299450424797,
+        -2.9355778268485429E-12,
+        0.12121299450424797,
+        -2.9355778268485429E-12,
+        0.12121299450424797,
+        -2.9355778268485429E-12,
+        0.12121299450424797
+      ],
+      "imported_energy": 1.1200221885049715,
+      "imported_period": 1.5639073285015543,
+      "imported_drift": 0.12115579737678463,
+      "horizontal_reflection_applied": false,
+      "apex_distance": 0.12121299450424797,
+      "energy_gap": 0.002908486207760852,
+      "period_gap": 0.00061827252142454547,
+      "reflected_drift_gap": 0.12115579737678463,
+      "identity_or_imported_attachment_established": false
+    }
+  ],
+  "fresh_replay_closures": [
+    1.2488602816815297E-12,
+    9.1553674363975546E-13,
+    4.0801763009912229E-12
+  ],
+  "engine_hashes_unchanged": true,
+  "explicit_map_evaluations": 16,
+  "elapsed_seconds": 40.804157333333336,
+  "restricted_C2_analyticity_established": true,
+  "interval_certification_performed": false,
+  "conditional_simple_local_branch_theorem_applicable": true,
+  "imported_identity_established": false,
+  "imported_attachment_established": false,
+  "unrestricted_C2_or_branch_claimed": false,
+  "interpretation": "The exact restriction is analytic. The numerically identified simple unit crossing and corrected nontrivial daughters support a restricted local branch candidate. Exact simple-kernel/transversality validation would complete the conditional local theorem; sampled imported PK nearness does not prove identity or a connecting branch.",
+  "passed": true
+}

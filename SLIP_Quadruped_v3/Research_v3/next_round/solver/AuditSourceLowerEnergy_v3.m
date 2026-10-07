@@ -1,0 +1,171 @@
+function summary=AuditSourceLowerEnergy_v3(outputDirectory)
+%AUDITSOURCELOWERENERGY_V3 Read source/domain evidence without campaign writes.
+    v3=V3Root_v3(mfilename('fullpath'));
+    V3LegacyAddPath_v3(genpath(V3Path_v3(v3)));if nargin<1,outputDirectory=fileparts(mfilename('fullpath'));end
+    outputDirectory=V3OutputPath_v3(outputDirectory);
+    inventoryFile=fullfile(v3,'Research_v3','next_round','source_inventory.mat');
+    saved=load(V3Path_v3(inventoryFile),'inventory');inventory=saved.inventory;
+    p0=[10;10;20;20;1;1;0;0;2;.5];schema=QuadrupedSchema_v3.shared();
+    model=Quadrupedal_Dynamics_v3();flow=ContinuousDynamics_v3();
+    rows=struct([]);timer=tic;
+    for recordIndex=1:numel(inventory.records)
+        source=inventory.records(recordIndex);
+        for variableIndex=1:numel(source.variables)
+            variable=source.variables(variableIndex);
+            columns=variable.parameter_target_columns(variable.energy(variable.parameter_target_columns)<1);
+            for column=columns
+                x=variable.mapped_initial_state(:,column);q=variable.mapped_initial_mode(:,column);
+                p=variable.mapped_physical_parameters(:,column);
+                geometry=model.admissibilityReport(x,q,p,'accepted-state');
+                physical=QuadrupedPhysicalChart_v3.report(x,q,p);
+                energy=QuadrupedEnergy_v3.evaluate(x,q,p);vector=flow.evaluate(0,x,q,p);
+                [repaired,corridor]=nearestCorridor(x,q,p,energy);
+                repairedGeometry=model.admissibilityReport(repaired,q,p,'accepted-state');
+                repairedPhysical=QuadrupedPhysicalChart_v3.report(repaired,q,p);
+                repairedEnergy=QuadrupedEnergy_v3.evaluate(repaired,q,p);
+                row=struct('record_index',recordIndex,'variable_index',variableIndex, ...
+                    'fixture_path',source.source.fixture_path,'source_path',source.source.source_path, ...
+                    'fixture_sha256',source.fixture_sha256,'variable',variable.variable,'column',column, ...
+                    'state',x,'mode',q,'physical_parameter',p, ...
+                    'exact_baseline_parameter',isequal(p,p0),'source_algebraic_energy',variable.energy(column), ...
+                    'mechanical_energy',energy,'energy_definition_difference',energy-variable.energy(column), ...
+                    'geometry_admissible',geometry.global_validity, ...
+                    'stance_constraint_residual',physical.maximum_constraint_residual, ...
+                    'physical_state',geometry.global_validity&&physical.maximum_constraint_residual<=1e-8, ...
+                    'downward_apex',abs(x(schema.State.dy))<=1e-8&&vector(schema.State.dy)<-1e-10, ...
+                    'vertical_acceleration',vector(schema.State.dy), ...
+                    'swing_foot_clearances',geometry.swing_foot_clearances, ...
+                    'hip_heights',geometry.hip_heights,'stance_compressions',geometry.stance_compressions, ...
+                    'failure_reasons',{geometry.failure_reasons}, ...
+                    'repaired_state',repaired,'repaired_energy',repairedEnergy, ...
+                    'repair_corridor',corridor,'repair_norm',norm(repaired-x,inf), ...
+                    'repaired_physical_state',corridor.nonempty&&repairedGeometry.global_validity ...
+                    &&repairedPhysical.maximum_constraint_residual<=1e-8);
+                rows=[rows,row]; %#ok<AGROW>
+            end
+        end
+    end
+    valid=[rows.physical_state];apex=valid&[rows.downward_apex];repairedValid=[rows.repaired_physical_state];
+    energy=[rows.mechanical_energy];repairEnergy=[rows.repaired_energy];
+    minimumPhysical=minimumRow(rows,energy,valid);
+    minimumApex=minimumRow(rows,energy,apex);
+    minimumRepair=minimumRow(rows,repairEnergy,repairedValid);
+    traveling=valid&abs(arrayfun(@(r)r.state(2),rows))>1e-8;
+    minimumTraveling=minimumRow(rows,energy,traveling);
+    cfg=jsondecode(fileread(V3Path_v3(fullfile(v3,'Research_v3','next_round','registration_full.json'))));
+    summary=struct('schema_version','source-lower-energy-audit-v3-1', ...
+        'created_utc',char(datetime('now','TimeZone','UTC')), ...
+        'inventory_sha256',RoundSHA256_v3(inventoryFile),'source_algebraic_minimum',inventory.source_initial_energy_range(1), ...
+        'registered_full_lower_energy',cfg.domain.energy(1),'subunit_target_columns',numel(rows), ...
+        'exact_baseline_parameter_columns',sum([rows.exact_baseline_parameter]), ...
+        'physical_subunit_columns',sum(valid),'physical_downward_apex_columns',sum(apex), ...
+        'physical_traveling_subunit_columns',sum(traveling), ...
+        'only_algebraic_or_off_manifold_columns',sum(~valid), ...
+        'minimum_physical',minimumPhysical,'minimum_downward_apex',minimumApex, ...
+        'minimum_repaired_corridor',minimumRepair,'minimum_traveling',minimumTraveling, ...
+        'maximum_energy_definition_difference',max(abs([rows.energy_definition_difference])), ...
+        'prospective_recommended_lower_energy',.8, ...
+        'alternative_95_percent_source_minimum',.95*minimumPhysical.mechanical_energy, ...
+        'recommendation','Prospectively include source neighborhoods below one in the full comparison domain; retain ordinary vertical-parent stage above one. A floor0.8 covers observed source minimum with0.0217 margin; this is a bounded research domain, not a global physical lower bound.', ...
+        'fresh_diagnostics',struct([]),'validation_continuation',struct(), ...
+        'campaign_or_configuration_written',false,'elapsed_seconds',toc(timer));
+    checkpoint();
+    % Each converted forensic seed is saved before autonomous replay. Both
+    % occurrences are preregistered hypotheses; no closure-selected section.
+    freshRegistration=struct('registered_utc',char(datetime('now','TimeZone','UTC')), ...
+        'minimum_source',minimumApex,'BL_occurrences',[1,2], ...
+        'hypothesis','Wide antisymmetric spread may reverse signed leg angles after one return and close after two; neither occurrence is selected by minimizing a residual.', ...
+        'no_nonlinear_correction',true,'full_closure_threshold',1e-8);
+    save(V3Path_v3(fullfile(outputDirectory,'domain_lower_fresh_registration.mat')),'freshRegistration','-v7');
+    integration=struct('RelTol',1e-10,'AbsTol',1e-12,'MaxStep',.025);
+    source=inventory.records(minimumApex.record_index);data=load(V3Path_v3(fullfile(v3,source.source.fixture_path)));
+    raw=data.(minimumApex.variable)(:,minimumApex.column);
+    seed=struct('state',minimumApex.state,'mode',minimumApex.mode,'parameter',p0, ...
+        'provenance',minimumApex,'period',raw(22));
+    save(V3Path_v3(fullfile(outputDirectory,'domain_lower_minimum_converted.mat')),'seed','raw','-v7');
+    trace=SourceTrialTrace_v3(seed,struct('Horizon',1.1*raw(22),'Integration',integration));
+    save(V3Path_v3(fullfile(outputDirectory,'domain_lower_minimum_trace.mat')),'trace','-v7');
+    for occurrence=freshRegistration.BL_occurrences
+        for refinement=1:2
+            settings=integration;settings.RelTol=settings.RelTol/10^(refinement-1);
+            settings.AbsTol=settings.AbsTol/10^(refinement-1);settings.MaxStep=settings.MaxStep/2^(refinement-1);
+            policy=BLMarkedApexReturnPolicy_v3(struct('BLTouchdownsPerReturn',occurrence));
+            map=PoincareMap_v3(model,PoincareSection_v3.apex(schema.State.dy),HybridSimulator_v3(settings),policy);
+            problem=PeriodicOrbitResidual_v3(map,seed.state);
+            item=struct('source_column',minimumApex.column,'occurrence',occurrence,'refinement',refinement, ...
+                'success',false,'full_closure',NaN,'period',NaN,'mean_speed',NaN,'gait','unresolved', ...
+                'flight_count',NaN,'primitive',struct(),'energy_variation',NaN, ...
+                'minimum_physical_margin',NaN,'failure',struct(),'artifact','');
+            info=struct();orbit=[];
+            try
+                [~,info]=problem.evaluateWithInfo(problem.packState(seed.state),p0,seed.mode);
+                item.success=info.admissible;item.full_closure=info.residual_norm;item.period=info.map_info.period;
+                item.minimum_physical_margin=info.minimum_physical_margin;
+                if item.full_closure<=1e-8&&item.success
+                    orbit=problem.createOrbit(problem.packState(seed.state),p0,seed.mode,info);
+                    gait=GaitIdentification_v3(orbit);item.gait=char(gait.label);item.flight_count=gait.flight_count;
+                    item.mean_speed=orbit.stride_displacement(1)/orbit.period;
+                    item.primitive=PrimitiveCycleCheck_v3(orbit);
+                    sampleEnergy=zeros(numel(orbit.trajectory.time),1);
+                    for k=1:numel(sampleEnergy)
+                        sampleEnergy(k)=QuadrupedEnergy_v3.evaluate(orbit.trajectory.state(k,:).',orbit.trajectory.mode(k,:).',p0);
+                    end
+                    item.energy_variation=max(abs(sampleEnergy-sampleEnergy(1)));
+                end
+            catch exception
+                item.failure=struct('identifier',exception.identifier,'message',exception.message);
+            end
+            item.artifact=sprintf('domain_lower_minimum_BL%d_tolerance%d.mat',occurrence,refinement);
+            save(V3Path_v3(fullfile(outputDirectory,item.artifact)),'seed','settings','item','info','orbit','-v7');
+            summary.fresh_diagnostics=[summary.fresh_diagnostics,item];checkpoint();
+            fprintf('Subunit source BL%d tolerance%d closure%.9g gait%s\n',occurrence,refinement,item.full_closure,item.gait);
+        end
+    end
+    % Rephase the lowest traveling subunit source with an actual directed
+    % stopping event; never interpolate an apex and label it exact.
+    travelSeed=struct('state',minimumTraveling.state,'mode',minimumTraveling.mode,'parameter',p0);
+    sim=HybridSimulator_v3(integration);
+    [initialTrajectory,initialExecution]=sim.simulate(model,travelSeed.state,travelSeed.mode,p0,[0,1e-4]);
+    [phaseTrajectory,phaseExecution]=sim.simulate(model,initialExecution.final_state,initialExecution.final_mode, ...
+        p0,[1e-4,10],struct('StopCondition',PoincareSection_v3.apex(schema.State.dy).stopCondition(0),'FailurePolicy','return'));
+    summary.traveling_rephase=struct('success',phaseExecution.success&&phaseExecution.stop_occurred, ...
+        'time',phaseExecution.final_time,'state',phaseExecution.final_state,'mode',phaseExecution.final_mode, ...
+        'energy',QuadrupedEnergy_v3.evaluate(phaseExecution.final_state,phaseExecution.final_mode,p0), ...
+        'failure',struct());
+    if isfield(phaseExecution,'failure'),summary.traveling_rephase.failure=phaseExecution.failure;end
+    save(V3Path_v3(fullfile(outputDirectory,'domain_lower_traveling_rephase.mat')),'travelSeed','initialTrajectory','initialExecution','phaseTrajectory','phaseExecution','-v7');
+    validation=jsondecode(fileread(V3Path_v3(fullfile(v3,'Research_v3','next_round','report_validation.json'))));
+    continuation=jsondecode(fileread(V3Path_v3(fullfile(v3,'Research_v3','next_round','tasks','validation','PK_continuation_m1','continuation.json'))));
+    summary.validation_continuation=struct('new_point_records',validation.new_point_records, ...
+        'accepted_count',continuation.accepted_count,'arclength_end',continuation.arclength_end, ...
+        'maximum_full_closure',continuation.max_full_closure, ...
+        'branch_endpoint_claimed',continuation.batch_limit_is_branch_endpoint);
+    checkpoint();disp(summary);
+    function checkpoint()
+        summary.elapsed_seconds=toc(timer);
+        save(V3Path_v3(fullfile(outputDirectory,'domain_lower_energy_audit.mat')),'summary','rows','-v7');
+        RoundJSON_v3(fullfile(outputDirectory,'domain_lower_energy_audit.json'),summary);
+    end
+end
+
+function row=minimumRow(rows,energy,mask)
+    indices=find(mask);[~,minimum]=min(energy(indices));row=rows(indices(minimum));
+end
+
+function [candidate,report]=nearestCorridor(x,q,p,energy)
+    schema=QuadrupedSchema_v3.shared();expanded=schema.expandParameters(p);
+    theta=x(5)+x(schema.Leg.AngleIndices);surface=expanded.l_0.*cos(theta)-expanded.s.*sin(x(5));
+    lower=max([abs(expanded.s*sin(x(5)));surface(~q)])+1e-7;
+    upper=Inf;if any(q),upper=min(surface(q))-1e-7;end
+    candidate=x;report=struct('interval',[lower,upper],'nonempty',lower<=upper, ...
+        'height_change',0,'horizontal_speed_change',0,'source_energy_preserved',false);
+    if lower>upper,return;end
+    candidate(3)=min(max(x(3),lower),upper);report.height_change=candidate(3)-x(3);
+    if report.height_change~=0&&abs(x(2))>1e-12
+        candidate(2)=0;otherEnergy=QuadrupedEnergy_v3.evaluate(candidate,q,p);
+        if energy>=otherEnergy,candidate(2)=sign(x(2))*sqrt(2*(energy-otherEnergy));else,candidate(2)=x(2);end
+    end
+    report.horizontal_speed_change=candidate(2)-x(2);
+    candidate=QuadrupedPhysicalChart_v3.retract(candidate,q,p);
+    report.source_energy_preserved=abs(QuadrupedEnergy_v3.evaluate(candidate,q,p)-energy)<=1e-10;
+end

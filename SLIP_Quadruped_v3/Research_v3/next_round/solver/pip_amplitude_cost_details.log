@@ -1,0 +1,210 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    7.9503
+
+    3.7796
+
+    24
+
+     2
+
+   0
+   0
+   0
+   0
+   0
+
+   1.0e-03 *
+
+    0.1000
+    0.1515
+    0.1000
+    0.1000
+    0.1515
+
+    {'method'                     }
+    {'baseMetadata'               }
+    {'baseSignature'              }
+    {'baseSectionSignature'       }
+    {'baseClusterSignature'       }
+    {'returnMultiplicity'         }
+    {'columns'                    }
+    {'selectedSteps'              }
+    {'estimatedErrors'            }
+    {'perColumnReliability'       }
+    {'allReliable'                }
+    {'classicalDerivative'        }
+    {'returnMultiplicityPreserved'}
+    {'forwardOneSidedJacobian'    }
+    {'backwardOneSidedJacobian'   }
+    {'forwardOneSidedAvailable'   }
+    {'backwardOneSidedAvailable'  }
+    {'mapEvaluations'             }
+    {'parallelRequested'          }
+    {'parallelUsed'               }
+    {'coordinateScale'            }
+    {'baselineResidual'           }
+
+                         method: 'hybrid-step-refinement'
+                   baseMetadata: [1×1 struct]
+                  baseSignature: 'BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD'
+           baseSectionSignature: 'BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO'
+           baseClusterSignature: 'BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO'
+             returnMultiplicity: 1
+                        columns: [1×5 struct]
+                  selectedSteps: [5×1 double]
+                estimatedErrors: [5×1 double]
+           perColumnReliability: [5×1 logical]
+                    allReliable: 0
+            classicalDerivative: 0
+    returnMultiplicityPreserved: 0
+        forwardOneSidedJacobian: [5×5 double]
+       backwardOneSidedJacobian: [5×5 double]
+       forwardOneSidedAvailable: 0
+      backwardOneSidedAvailable: 0
+                 mapEvaluations: 21
+              parallelRequested: 0
+                   parallelUsed: 0
+                coordinateScale: [5×1 double]
+               baselineResidual: [5×1 double]
+
+                          index: 1
+                   selectedStep: 1.0002e-04
+             derivativeEstimate: [5×1 double]
+                 estimatedError: Inf
+                       reliable: 0
+                 differenceType: 'unavailable'
+                       oneSided: 0
+                piecewiseSmooth: 0
+                eventSignatures: {''  ''  ''  ''}
+              sectionSignatures: {''  ''  ''  ''}
+              clusterSignatures: {''  ''  ''  ''}
+           returnMultiplicities: [NaN NaN NaN NaN]
+    returnMultiplicityPreserved: 0
+                forwardOneSided: [1×1 struct]
+               backwardOneSided: [1×1 struct]
+                 failureReasons: {1×4 cell}
+                 mapEvaluations: 4
+                 candidateSteps: 1.0002e-04
+              selectedCandidate: 1
+                     candidates: [1×1 struct]
+
+                          index: 2
+                   selectedStep: 1.5150e-04
+             derivativeEstimate: [5×1 double]
+                 estimatedError: Inf
+                       reliable: 0
+                 differenceType: 'unavailable'
+                       oneSided: 0
+                piecewiseSmooth: 0
+                eventSignatures: {''  ''  ''  ''}
+              sectionSignatures: {''  ''  ''  ''}
+              clusterSignatures: {''  ''  ''  ''}
+           returnMultiplicities: [NaN NaN NaN NaN]
+    returnMultiplicityPreserved: 0
+                forwardOneSided: [1×1 struct]
+               backwardOneSided: [1×1 struct]
+                 failureReasons: {1×4 cell}
+                 mapEvaluations: 4
+                 candidateSteps: 1.5150e-04
+              selectedCandidate: 1
+                     candidates: [1×1 struct]
+
+                          index: 3
+                   selectedStep: 1.0001e-04
+             derivativeEstimate: [5×1 double]
+                 estimatedError: Inf
+                       reliable: 0
+                 differenceType: 'unavailable'
+                       oneSided: 0
+                piecewiseSmooth: 0
+                eventSignatures: {''  ''  ''  ''}
+              sectionSignatures: {''  ''  ''  ''}
+              clusterSignatures: {''  ''  ''  ''}
+           returnMultiplicities: [NaN NaN NaN NaN]
+    returnMultiplicityPreserved: 0
+                forwardOneSided: [1×1 struct]
+               backwardOneSided: [1×1 struct]
+                 failureReasons: {1×4 cell}
+                 mapEvaluations: 4
+                 candidateSteps: 1.0001e-04
+              selectedCandidate: 1
+                     candidates: [1×1 struct]
+
+                          index: 4
+                   selectedStep: 1.0002e-04
+             derivativeEstimate: [5×1 double]
+                 estimatedError: Inf
+                       reliable: 0
+                 differenceType: 'unavailable'
+                       oneSided: 0
+                piecewiseSmooth: 0
+                eventSignatures: {''  ''  ''  ''}
+              sectionSignatures: {''  ''  ''  ''}
+              clusterSignatures: {''  ''  ''  ''}
+           returnMultiplicities: [NaN NaN NaN NaN]
+    returnMultiplicityPreserved: 0
+                forwardOneSided: [1×1 struct]
+               backwardOneSided: [1×1 struct]
+                 failureReasons: {1×4 cell}
+                 mapEvaluations: 4
+                 candidateSteps: 1.0002e-04
+              selectedCandidate: 1
+                     candidates: [1×1 struct]
+
+                          index: 5
+                   selectedStep: 1.5150e-04
+             derivativeEstimate: [5×1 double]
+                 estimatedError: Inf
+                       reliable: 0
+                 differenceType: 'unavailable'
+                       oneSided: 0
+                piecewiseSmooth: 0
+                eventSignatures: {''  ''  ''  ''}
+              sectionSignatures: {''  ''  ''  ''}
+              clusterSignatures: {''  ''  ''  ''}
+           returnMultiplicities: [NaN NaN NaN NaN]
+    returnMultiplicityPreserved: 0
+                forwardOneSided: [1×1 struct]
+               backwardOneSided: [1×1 struct]
+                 failureReasons: {1×4 cell}
+                 mapEvaluations: 4
+                 candidateSteps: 1.5150e-04
+              selectedCandidate: 1
+                     candidates: [1×1 struct]
+
+                     signed_amplitude: -1.0000e-04
+                             accepted: 1
+                         full_closure: 1.0843e-12
+                     constraint_error: 4.1267e-17
+                                 gait: "PK"
+                     initial_residual: 1.0340e-05
+                       final_residual: 1.0936e-12
+           accepted_newton_iterations: 2
+    state_distance_to_critical_parent: 1.7200e-04
+                      primary_failure: [1×1 struct]
+                       replay_failure: [1×1 struct]
+                             artifact: 'daughter_-0.0001_attempt_1.mat'
+                            converged: 1
+                 in_registered_domain: 1
+                               energy: 1.0617
+                               period: 1.3330
+                           mean_speed: -5.7870e-05
+                  reduced_coordinates: [3×1 double]
+                   critical_alignment: 1.0000
+           amplitude_constraint_error: 4.1267e-17
+                   genuine_correction: 1
+                  replay_full_closure: 1.0843e-12
+               replay_signature_match: 1
+             replay_period_difference: 5.1310e-12
+               trajectory_distinction: [1×1 struct]
+                       classification: [1×1 struct]
+
+    0.4823    0.0005   -0.0000   -0.3555   -0.0000
+   -0.2723   -0.0003   -1.0000    0.0535    0.0000
+    3.3676    0.0015   -0.0000   -2.4823   -0.0000
+   -0.0001    1.0000   -0.0000    0.0000   -1.0000
+    0.5892   -0.0000   -0.1177    0.7994   -0.0000
+

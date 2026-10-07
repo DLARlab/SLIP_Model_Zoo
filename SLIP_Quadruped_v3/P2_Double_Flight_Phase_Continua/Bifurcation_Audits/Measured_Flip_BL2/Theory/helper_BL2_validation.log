@@ -1,0 +1,14 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Opt-in commonC1 helper strictreliable0 -> commonreliable1 error9.49e-08
+{Unrecognized field name "physical_chart".
+
+Error in ValidateTwoBLChart_v3/reduced (line 63)
+        indices=parent.physical_chart.independent_indices;
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in ValidateTwoBLChart_v3 (line 29)
+    direction=zeros(12,1);sector='baseline';[base,baseline]=reduced(0);
+                                                            ^^^^^^^^^^
+} 

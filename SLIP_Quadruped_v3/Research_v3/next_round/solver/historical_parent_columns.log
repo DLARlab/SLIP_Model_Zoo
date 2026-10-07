@@ -1,0 +1,54 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+   1   1   1   1   1   1   1   1   1   1   1   1
+
+   NaN
+
+    {'method'                     }
+    {'baseMetadata'               }
+    {'baseSignature'              }
+    {'baseSectionSignature'       }
+    {'baseClusterSignature'       }
+    {'returnMultiplicity'         }
+    {'columns'                    }
+    {'selectedSteps'              }
+    {'estimatedErrors'            }
+    {'perColumnReliability'       }
+    {'allReliable'                }
+    {'classicalDerivative'        }
+    {'returnMultiplicityPreserved'}
+    {'forwardOneSidedJacobian'    }
+    {'backwardOneSidedJacobian'   }
+    {'forwardOneSidedAvailable'   }
+    {'backwardOneSidedAvailable'  }
+    {'mapEvaluations'             }
+    {'parallelRequested'          }
+    {'parallelUsed'               }
+    {'coordinateScale'            }
+    {'baselineResidual'           }
+
+                         method: 'hybrid-step-refinement'
+                   baseMetadata: [1×1 struct]
+                  baseSignature: 'BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD>FL_TD&FR_TD'
+           baseSectionSignature: 'BL_TD&BR_TD>FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO'
+           baseClusterSignature: 'BL_TD&BR_TD>FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO'
+             returnMultiplicity: 1
+                        columns: [1×12 struct]
+                  selectedSteps: [12×1 double]
+                estimatedErrors: [12×1 double]
+           perColumnReliability: [12×1 logical]
+                    allReliable: 0
+            classicalDerivative: 0
+    returnMultiplicityPreserved: 1
+        forwardOneSidedJacobian: [12×12 double]
+       backwardOneSidedJacobian: [12×12 double]
+       forwardOneSidedAvailable: 1
+      backwardOneSidedAvailable: 1
+                 mapEvaluations: 289
+              parallelRequested: 0
+                   parallelUsed: 0
+                coordinateScale: [12×1 double]
+               baselineResidual: [12×1 double]
+

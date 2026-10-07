@@ -1,0 +1,8 @@
+{
+  "superseded_artifact": "Research_v3/next_round/theory/branch_comparison_20261007T133654813.mat",
+  "scientifically_usable": false,
+  "reason": "Audit harness defects: a nested MATLAB workspace variable overwrote the stored apex distance with an event phase distance; the event reflection permutation assumed grouped TD/LO IDs instead of the schema's interleaved leg TD/LO IDs.",
+  "repair": "Separate apex distance variable, recompute the selected-state distance independently, derive reflection event IDs from the schema, and require flow/guard/reset/energy reflection checks before exporting a new snapshot.",
+  "source_orbits_or_engines_changed": false,
+  "replacement_pointer": "Research_v3/next_round/theory/branch_comparison_latest.json"
+}

@@ -1,0 +1,254 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{
+  "accepted": false,
+  "status": "retryable_failure",
+  "primary_failure": {
+    "identifier": "",
+    "message": "First-order optimality tolerance satisfied.",
+    "exitflag": 3
+  },
+  "finalization_failure": {
+    "identifier": "RootSolver_v3:FullClosure",
+    "message": "Reduced residual candidate failed full physical closure."
+  },
+  "replay_failure": {},
+  "initial_residual": 1.6061336494483076E-8,
+  "final_residual": 1.6061389415760744E-8,
+  "full_BL2_closure": 5.4919983186077319E-8,
+  "coordinates": [
+    -3.1350942416064353E-9,
+    1.0616850219709806,
+    -1.355215698552242E-8,
+    2.7039910118708948E-9,
+    -1.184395741417965E-9,
+    6.9290784057140666E-9,
+    -1.1843957414179642E-9,
+    6.9290784057140633E-9,
+    1.2415137840430834E-5,
+    0.00070700469029461,
+    -1.2417506631923552E-5,
+    -0.00070699083213826141,
+    1.0616850219709819
+  ],
+  "final_candidate": [
+    0,
+    -3.1350942416064353E-9,
+    1.0616850219709806,
+    0,
+    -1.355215698552242E-8,
+    2.7039910118708948E-9,
+    -1.184395741417965E-9,
+    6.9290784057140666E-9,
+    -1.1843957414179642E-9,
+    6.9290784057140633E-9,
+    1.2415137840430834E-5,
+    0.00070700469029461,
+    -1.2417506631923552E-5,
+    -0.00070699083213826141
+  ],
+  "constraint_error": -5.7707506308235512E-13,
+  "elapsed_seconds": 468.84882383333331,
+  "J_size": [
+    13,
+    13
+  ],
+  "J_all_finite": true,
+  "acceptedNewtonIterations": 1,
+  "functionEvaluationCount": 214,
+  "mapEvaluationCount": 212,
+  "jacobianEvaluationCount": 2,
+  "invalidEvaluationCount": 0,
+  "jacobianReliable": true,
+  "derivativeEvaluated": true,
+  "perColumnReliability": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "primaryExitflag": 3,
+  "finalizationMessage": "Reduced residual candidate failed full physical closure.",
+  "selectedFiniteDifferenceSteps": [
+    0.00030000000094052823,
+    0.00045448795668725389,
+    0.000300000004065647,
+    0.00030000000081119727,
+    0.00030000000035531867,
+    0.00030000000207872351,
+    0.00030000000035531867,
+    0.00030000000207872351,
+    0.000300003724495112,
+    0.00030021195155634353,
+    0.0003000037252057318,
+    0.0003002119474047698,
+    0.00045448795668725372
+  ],
+  "output": {
+    "iterations": 2,
+    "funcCount": 2,
+    "algorithm": "damped Levenberg-Newton trust region",
+    "firstorderopt": 2.9657425650749507E-15,
+    "stepsize": 9.5146089866082128E-10,
+    "acceptedIterations": 1,
+    "invalidTrialCount": 0,
+    "initialJacobianUsed": false,
+    "message": "First-order optimality tolerance satisfied."
+  },
+  "singular_values": [
+    14.217949168280343,
+    2.1190265545944391,
+    2.0001028014572131,
+    2.0001027767751252,
+    1.414217391463638,
+    1.0001544215610212,
+    1.0000000014307491,
+    0.99994860129133945,
+    0.99994860102729977,
+    0.97201590449371167,
+    0.84523136321453651,
+    0.0014137544919184688,
+    4.4274595207831261E-9
+  ],
+  "condition": 3.2113109338525319E+9,
+  "saved_JTr": [
+    -1.0318490880710205E-16,
+    1.4385041999502219E-15,
+    4.9310996450553947E-16,
+    2.0005075159066942E-17,
+    -4.4693050861582107E-17,
+    5.4624033460486028E-17,
+    -4.4693051068364331E-17,
+    5.4624020199746833E-17,
+    5.4584813403414269E-16,
+    4.0658743453201126E-17,
+    -6.3566121055966954E-16,
+    6.15900605014468E-17,
+    1.332267629550135E-15
+  ],
+  "saved_JTr_inf": 1.4385041999502219E-15,
+  "residual_left_SVD_coordinates": [
+    3.4801511670857224E-17,
+    4.3765955315878046E-17,
+    -7.773341598620524E-24,
+    -1.7503102308161167E-18,
+    -5.1883371021000928E-17,
+    -8.3169148278172386E-16,
+    1.1152064043400264E-19,
+    -2.6146144807058242E-24,
+    1.9289734403816149E-19,
+    5.2118125887637312E-17,
+    1.2649402082795254E-16,
+    -1.3870742786787704E-12,
+    1.6986389494317528E-8
+  ],
+  "remaining_step": [
+    -1.3142830748370316,
+    -1.2077304012189423E-8,
+    -4.6770971874281567E-10,
+    -2.7029886826909144E-9,
+    0.26256957591652985,
+    -1.7830021069900561,
+    0.2625695759165298,
+    -1.7830021069900559,
+    0.26256940304343507,
+    -1.7830021299656611,
+    0.26256940284052294,
+    -1.7830021299629122,
+    -7.9576460882844413E-9
+  ],
+  "remaining_step_norm": 3.8365996879914372,
+  "linear_backward_residual": 1.5839109537840734E-15,
+  "two_weakest_right_vectors": [
+    [
+      5.1939902539731183E-8,
+      0.34256455760832649
+    ],
+    [
+      -0.7071045142837159,
+      2.9668913437141953E-9
+    ],
+    [
+      1.7270312440657153E-8,
+      1.2190723189076581E-10
+    ],
+    [
+      1.6602195754447633E-7,
+      7.0452748343208547E-10
+    ],
+    [
+      2.7971513368708685E-8,
+      -0.0684380955194186
+    ],
+    [
+      -3.6036968984934168E-9,
+      0.46473498722602052
+    ],
+    [
+      2.7971513202175231E-8,
+      -0.068438095519418568
+    ],
+    [
+      -3.603696954004568E-9,
+      0.46473498722602052
+    ],
+    [
+      -0.0014851830443976643,
+      -0.068438050460864278
+    ],
+    [
+      2.6079753844138292E-5,
+      0.46473499321456063
+    ],
+    [
+      0.001485238987380602,
+      -0.06843805040721497
+    ],
+    [
+      -2.6086961231781651E-5,
+      0.46473499321383072
+    ],
+    [
+      -0.70710592757758106,
+      1.8931125383441722E-9
+    ]
+  ],
+  "J_diagnostic_fields": [
+    "method",
+    "baseMetadata",
+    "baseSignature",
+    "baseSectionSignature",
+    "baseClusterSignature",
+    "returnMultiplicity",
+    "columns",
+    "selectedSteps",
+    "estimatedErrors",
+    "perColumnReliability",
+    "allReliable",
+    "classicalDerivative",
+    "returnMultiplicityPreserved",
+    "forwardOneSidedJacobian",
+    "backwardOneSidedJacobian",
+    "forwardOneSidedAvailable",
+    "backwardOneSidedAvailable",
+    "mapEvaluations",
+    "parallelRequested",
+    "parallelUsed",
+    "coordinateScale",
+    "commonC1EventOrderChart",
+    "eventOrderChartObservations",
+    "derivativeRegularityScope",
+    "baselineResidual"
+  ]
+}

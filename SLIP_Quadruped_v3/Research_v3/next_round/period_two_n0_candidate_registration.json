@@ -1,0 +1,30 @@
+{
+  "schema_version": "prospective-n0-measured-flip-BL2-experiment-v3-1",
+  "registered_utc": "07-Oct-2026 13:10:59",
+  "source_spectral_artifact": "Research_v3/next_round/theory/n0_full_physical_spectrum.mat",
+  "source_spectral_sha256": "e5705a244e90984685f48c6d4556b5a3c7fc9664287fde360bcc3c787acffd42",
+  "helper_path": "Numerics_v3/EventOrderChartJacobian_v3.m",
+  "helper_sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d",
+  "chart_validation_artifact": "Research_v3/next_round/theory/two_BL_n0_chart_validation.mat",
+  "parent_admission_artifact": "Research_v3/next_round/theory/n0_parent_service_admission.mat",
+  "parent_admission_full_closure": 2.375877272697835E-14,
+  "source_energy": 1.0616850275068086,
+  "measured_front_multiplier": -0.99999999994095989,
+  "measured_hind_multiplier": -0.99999999994095912,
+  "signed_amplitudes": [
+    -0.001,
+    0.001
+  ],
+  "constraint": "Signed amplitude inside full physical-coordinate/energy augmented corrector; symmetry none",
+  "BL_touchdowns_per_return": 2,
+  "required_primitive_BL_occurrence": 2,
+  "actual_flight_count_required": 2,
+  "acceptance_tolerances_changed": false,
+  "candidates": {
+    "id": "PIP_n0_measured_flip_BL2_front_hind",
+    "candidate_artifact": "Research_v3/next_round/theory/n0_flip_BL2_candidate.mat",
+    "candidate_variable": "candidate"
+  },
+  "hypothesis_scope": "Two actual TD and LO per leg over the two-BL cycle; no automatic promotion to archived one-TD-per-leg B2.",
+  "ancestry_claimed": false
+}

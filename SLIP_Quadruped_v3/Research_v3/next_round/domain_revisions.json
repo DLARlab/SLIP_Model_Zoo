@@ -1,0 +1,35 @@
+{
+  "schema_version": "prospective-source-domain-repair-v3-1",
+  "revision": 1,
+  "registered_utc": "07-Oct-2026 13:11:09",
+  "diagnosis": "The physical baseline P2 PIP_10_20_2_Spread source column1 has algebraicE=.8217002609608879, all legs in swing, positive swing clearance≈.2332 and a downward apex. The old1.000001 lower bound excludes this admissible source candidate before periodic correction.",
+  "evidence": {
+    "source_fixture": "P2_All_Common_Quadrupedal_Gaits/SourceFixtures_v3/PIP_10_20_2_Spread.mat",
+    "inventory_index": 15,
+    "column": 1,
+    "measured_energy": 0.82170026096088788,
+    "lower_bound_rule": "0.95 times minimum physically admitted mapped source energy; no periodic acceptance inferred"
+  },
+  "previous_energy_floor": 1.000001,
+  "energy_floor": 0.78061524791284342,
+  "energy_ceiling": 250.66912494952322,
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "physical_parameters": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "old_observations_reinterpreted": false,
+  "original_registration_preserved": true,
+  "acceptance_tolerances_changed": false,
+  "total_budget_changed": false,
+  "other_bounds_changed": false,
+  "applies_to": "Future full/validation invocations and their separately saved effective domains."
+}

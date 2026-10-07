@@ -1,0 +1,2344 @@
+{
+  "schema_version": "physical-branch-comparison-v3-1",
+  "created_utc": "20261007T133654813",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "options": {
+    "ClosureTolerance": 1E-8,
+    "SynchronizationTolerance": 1E-7,
+    "SampleCount": 257,
+    "PhaseTolerance": 1E-9
+  },
+  "baseline_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "helper_path": "Research_v3/next_round/theory/MATLABCompareNextRoundBranches_v3.m",
+  "helper_sha256": "80e26744b8fda2104056f2ed11c402c25478a50c0831a7239d725a2193b751ab",
+  "manifest": [
+    {
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+      "sha256": "bba983ec4be0305fbf5784710d5667e71b350967fdf21844d7f1aafe781cc294",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0003_attempt_1.mat",
+      "sha256": "8b90e9159da78e7eb3f59f0efc20d581b76265e850a59c5605d294d74e27d800",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+      "sha256": "0c0f4676781ca668b5c128250a004cd53c19db05575219392b3ae9f90c1efc19",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0003.mat",
+      "sha256": "74a0ad1eb17a24fcb45411797de2e9cce748a258e479bb20daa2587a89a6e956",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.001.mat",
+      "sha256": "f2a2d4ab2003863027b1631ae41c6cfb94a55849a0066c7ad7945b1b998bb18a",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.003.mat",
+      "sha256": "4dd063e061c7662bc2444abea2ac8426d9770f7dfd36eb1948b0f4a52292af6e",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+      "sha256": "1adebb7e5a7ba6f6b39c75fe0cf79ddc1ca0d879133eabce56965774bebc5817",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0001.mat",
+      "sha256": "0de78b9e435a01779d81f47d36211891f83fceaac392d1eadfe91903bcabbdc5",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0003.mat",
+      "sha256": "ff10ffa1f4958027ab533ff91c69f9b686d4e53e38c475a1283393a3f932c77e",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_-0.001.mat",
+      "sha256": "fa267d50758eade589db36d71a9aeba31539bb42c2e8810a6270c2957789fc38",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_-0.003.mat",
+      "sha256": "4d4283bbae410960cd24d48d594267c24200ba3c2b7df3ed494dd6ac95f048a2",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_-0.01.mat",
+      "sha256": "2de0fcc178bf2fbb7388213173a87d43e4544580f179f7b168e76cac58cfc213",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0001.mat",
+      "sha256": "eb928b8d4b9cb104008b3f80c20bdf54186d7c21fdce3e699f6dc4ffed65c270",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0003.mat",
+      "sha256": "3bcb3b7a1dfe0e5646c79c47eb4009db86f7a7d55fd275d9f465e6061b1accab",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.001.mat",
+      "sha256": "bdac65f4e51a58fa31c96d887397812f7ee4fa7b35eb648f044b88f6e33d667b",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.003.mat",
+      "sha256": "287681cfcc6bfb89e7cfa18230ef741ecdc7197f0b31894fb38d3e8699965af0",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+      "sha256": "87fc731b387df5a90ea155fc95af08e66e26b0231f8e631675249a71917bf606",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0001.mat",
+      "sha256": "4b38a7cd1891d8ce2661b81bbe41039c021c85bce9b87a557cea70b694aa2d76",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0003.mat",
+      "sha256": "c0acf0cdd7b2b912cce1b3df8852d5cded1259753ce46c7c9bea40bdd49f094d",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_-0.001.mat",
+      "sha256": "350fe5fb55215cce6c4ad8b68ed4ea3ce4c174f045d8f66a1081da956ed26e8c",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_-0.003.mat",
+      "sha256": "3edc0d7385af4a81d33bea39b91592b1d69314e5da6d2b1a0e8984ba4deba37e",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_-0.01.mat",
+      "sha256": "9fbcfeaad0cc06d4b386a3e0242db0bf2e65f8465bad889ae88f52aa8420dcfb",
+      "kind": "signed daughter"
+    },
+    {
+      "artifact": "Research_v3/runs/full/family_-1.mat",
+      "sha256": "d4bac9d56c08d2388f96f3d783d42ee39f2da0009710f35356f0b7c030be0e72",
+      "kind": "branch"
+    },
+    {
+      "artifact": "Research_v3/runs/full/family_+1.mat",
+      "sha256": "b641e2db635813c9c2d1c08628445fc085e4975d7942e3f70e9d8b61c7254d1a",
+      "kind": "branch"
+    },
+    {
+      "artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+      "sha256": "de8e3c29d07ce95044b92da67bff83098b82a324961f1f0cfe3fc72b30a6632e",
+      "kind": "branch"
+    }
+  ],
+  "skipped": {
+    "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0003_attempt_1.mat",
+    "reason": "saved daughter was not accepted"
+  },
+  "branch_summaries": [
+    {
+      "id": "full_PIP_candidate_1_amplitude_samples",
+      "scope": "full-task corrected signed daughters",
+      "accepted_point_records": 1,
+      "point_artifacts": [
+        "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat"
+      ],
+      "point_indices": 1,
+      "energy_range": [
+        1.0616850235730533,
+        1.0616850235730533
+      ],
+      "period_range": [
+        1.3329706012048508,
+        1.3329706012048508
+      ],
+      "synchronized_pronk_reflection_eligible_count": 1,
+      "endpoints_are_finite_checkpoint_boundaries": true
+    },
+    {
+      "id": "historical_restricted_daughter_1",
+      "scope": "historical restricted amplitude representatives",
+      "accepted_point_records": 10,
+      "point_artifacts": [
+        "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_+0.0003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_+0.001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_+0.003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_-0.0001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_-0.0003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_-0.001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_-0.003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_1_-0.01.mat"
+      ],
+      "point_indices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "energy_range": [
+        1.5551652516426646,
+        1.555185486438313
+      ],
+      "period_range": [
+        2.6512711553170747,
+        2.6512732760710871
+      ],
+      "synchronized_pronk_reflection_eligible_count": 10,
+      "endpoints_are_finite_checkpoint_boundaries": true
+    },
+    {
+      "id": "historical_restricted_daughter_2",
+      "scope": "historical restricted amplitude representatives",
+      "accepted_point_records": 10,
+      "point_artifacts": [
+        "Research_v3/runs/full/pronk_daughter_v2_2_+0.0001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_+0.0003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_+0.001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_+0.003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_-0.0001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_-0.0003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_-0.001.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_-0.003.mat",
+        "Research_v3/runs/full/pronk_daughter_v2_2_-0.01.mat"
+      ],
+      "point_indices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "energy_range": [
+        1.6959508361671367,
+        1.695968139922106
+      ],
+      "period_range": [
+        2.8984353166450281,
+        2.8984364941302707
+      ],
+      "synchronized_pronk_reflection_eligible_count": 10,
+      "endpoints_are_finite_checkpoint_boundaries": true
+    },
+    {
+      "id": "historical_imported_PK",
+      "scope": "historical imported PK fallback; ancestry unresolved",
+      "accepted_point_records": 41,
+      "point_artifacts": [
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_-1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat",
+        "Research_v3/runs/full/family_+1.mat"
+      ],
+      "point_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "energy_range": [
+        1.1171142328164629,
+        1.1227007826008835
+      ],
+      "period_range": [
+        1.5633420495343424,
+        1.5645254847588763
+      ],
+      "synchronized_pronk_reflection_eligible_count": 41,
+      "endpoints_are_finite_checkpoint_boundaries": true
+    },
+    {
+      "id": "validation_imported_PK_m1",
+      "scope": "executed validation reference only",
+      "accepted_point_records": 24,
+      "point_artifacts": [
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat"
+      ],
+      "point_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "energy_range": [
+        1.1171142328164629,
+        1.1200221885049715
+      ],
+      "period_range": [
+        1.5639073285015543,
+        1.5645254847588763
+      ],
+      "synchronized_pronk_reflection_eligible_count": 24,
+      "endpoints_are_finite_checkpoint_boundaries": true
+    }
+  ],
+  "comparisons": [
+    {
+      "first_group": "full_PIP_candidate_1_amplitude_samples",
+      "second_group": "historical_restricted_daughter_1",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -5.8921773521807669E-5,
+          1.0616850218371656,
+          0,
+          0,
+          0,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.0616850235730533,
+        "period": 1.3329706012048508,
+        "drift": -7.7139618613137313E-5,
+        "saved_full_closure": 1.0843499289128235E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 3.3881317890172014E-21,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0065769908375304421,
+          1.5551638580340745,
+          0,
+          0,
+          0,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.555185486438313,
+        "period": 2.6512711553170747,
+        "drift": -0.017194749456867796,
+        "saved_full_closure": 1.6291412663349547E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 1.7347234759768071E-18,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.3974403778164361,
+          0.3974403778164361,
+          0.3974403778164361,
+          0.3974403778164361,
+          0.6025596221841365,
+          0.6025596221841365,
+          0.6025596221841365,
+          0.6025596221841365
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.13393815162501066,
+      "absolute_energy_gap": 0.49350046286525973,
+      "absolute_period_gap": 1.3183005541122239,
+      "signed_drift_gap": 0.017117609838254659,
+      "absolute_reflected_drift_gap": 0.017117609838254659,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.49347883619690891,
+          0.49347883619690891
+        ],
+        [
+          0.49348022764266619,
+          0.49347883619690891
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.8012693854936227,
+        "maximum_interior_nontranslation_mismatch": 0.8012693854936227,
+        "interior_mode_mismatch_fraction": 0.26459143968871596,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.13393815162510736,
+        "maximum_matched_pre_event_state_mismatch": 0.7024814887979649,
+        "maximum_matched_post_event_state_mismatch": 0.7024814887979649,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "full_PIP_candidate_1_amplitude_samples",
+      "second_group": "historical_restricted_daughter_2",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -5.8921773521807669E-5,
+          1.0616850218371656,
+          0,
+          0,
+          0,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.0616850235730533,
+        "period": 1.3329706012048508,
+        "drift": -7.7139618613137313E-5,
+        "saved_full_closure": 1.0843499289128235E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 3.3881317890172014E-21,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0060375520198947862,
+          1.6959499139049097,
+          0,
+          0,
+          0,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.695968139922106,
+        "period": 2.8984353166450281,
+        "drift": -0.017259387333387055,
+        "saved_full_closure": 1.9442225607235741E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 8.6736173798840355E-19,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.14354118749548106,
+      "absolute_energy_gap": 0.63428311634905277,
+      "absolute_period_gap": 1.5654647154401773,
+      "signed_drift_gap": 0.017182247714773918,
+      "absolute_reflected_drift_gap": 0.017182247714773918,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.63426489206774406,
+          0.63426489206774406
+        ],
+        [
+          0.63426581250737346,
+          0.63426489206774406
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.94316340125408415,
+        "maximum_interior_nontranslation_mismatch": 0.94316340125408415,
+        "interior_mode_mismatch_fraction": 0.28793774319066145,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.14354118749556488,
+        "maximum_matched_pre_event_state_mismatch": 0.82854828477277231,
+        "maximum_matched_post_event_state_mismatch": 0.82854828477277231,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "full_PIP_candidate_1_amplitude_samples",
+      "second_group": "historical_imported_PK",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -5.8921773521807669E-5,
+          1.0616850218371656,
+          0,
+          0,
+          0,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.0616850235730533,
+        "period": 1.3329706012048508,
+        "drift": -7.7139618613137313E-5,
+        "saved_full_closure": 1.0843499289128235E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 3.3881317890172014E-21,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/runs/full/family_-1.mat",
+        "point_index": 14,
+        "state": [
+          0,
+          0.035694126345026556,
+          1.117074167556309,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          -1.1262998393404156E-11,
+          0.054984357747826069,
+          -1.1262998393404156E-11,
+          0.054984357747826069,
+          -1.1262998393404156E-11,
+          0.054984357747826069,
+          -1.1262998393404156E-11,
+          0.054984357747826069
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1177112028840763,
+        "period": 1.5643982029019428,
+        "drift": 0.054933149127189523,
+        "saved_full_closure": 2.1362867030916277E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 1.0234868508263162E-15,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.30938162832889632,
+          0.30938162832889632,
+          0.30938162832889632,
+          0.30938162832889632,
+          0.690618371953204,
+          0.690618371953204,
+          0.690618371953204,
+          0.690618371953204
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.045879401855943192,
+      "absolute_energy_gap": 0.05602617931102305,
+      "absolute_period_gap": 0.23142760169709198,
+      "signed_drift_gap": -0.05501028874580266,
+      "absolute_reflected_drift_gap": 0.05501028874580266,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.055389145719143329,
+          0.055389145719143329
+        ],
+        [
+          0.055427009175043729,
+          0.16776167653727697
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.14620050430671744,
+        "maximum_interior_nontranslation_mismatch": 0.14620050430671744,
+        "interior_mode_mismatch_fraction": 0.0933852140077821,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.045879402137567582,
+        "maximum_matched_pre_event_state_mismatch": 0.1327553425035301,
+        "maximum_matched_post_event_state_mismatch": 0.1327553425035301,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "full_PIP_candidate_1_amplitude_samples",
+      "second_group": "validation_imported_PK_m1",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -5.8921773521807669E-5,
+          1.0616850218371656,
+          0,
+          0,
+          0,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5,
+          1.1771483391058258E-5,
+          -7.9935328759007417E-5
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.0616850235730533,
+        "period": 1.3329706012048508,
+        "drift": -7.7139618613137313E-5,
+        "saved_full_closure": 1.0843499289128235E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 3.3881317890172014E-21,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.26350222619132874,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716,
+          0.73649777380914716
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "point_index": 14,
+        "state": [
+          0,
+          0.035694126345026556,
+          1.117074167556309,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          -1.1262998393404156E-11,
+          0.054984357747826069,
+          -1.1262998393404156E-11,
+          0.054984357747826069,
+          -1.1262998393404156E-11,
+          0.054984357747826069,
+          -1.1262998393404156E-11,
+          0.054984357747826069
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1177112028840763,
+        "period": 1.5643982029019428,
+        "drift": 0.054933149127189523,
+        "saved_full_closure": 2.1362867030916277E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 1.0234868508263162E-15,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.30938162832889632,
+          0.30938162832889632,
+          0.30938162832889632,
+          0.30938162832889632,
+          0.690618371953204,
+          0.690618371953204,
+          0.690618371953204,
+          0.690618371953204
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.045879401855943192,
+      "absolute_energy_gap": 0.05602617931102305,
+      "absolute_period_gap": 0.23142760169709198,
+      "signed_drift_gap": -0.05501028874580266,
+      "absolute_reflected_drift_gap": 0.05501028874580266,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.055389145719143329,
+          0.055389145719143329
+        ],
+        [
+          0.055427009175043729,
+          0.12113305917548896
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.14620050430671744,
+        "maximum_interior_nontranslation_mismatch": 0.14620050430671744,
+        "interior_mode_mismatch_fraction": 0.0933852140077821,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.045879402137567582,
+        "maximum_matched_pre_event_state_mismatch": 0.1327553425035301,
+        "maximum_matched_post_event_state_mismatch": 0.1327553425035301,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "historical_restricted_daughter_1",
+      "second_group": "historical_restricted_daughter_2",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -6.5769791074120028E-5,
+          1.5551652494798318,
+          0,
+          0,
+          0,
+          -1.0778662589335497E-5,
+          7.455303491375696E-5,
+          -1.0778662589335497E-5,
+          7.455303491375696E-5,
+          -1.0778662589335497E-5,
+          7.455303491375696E-5,
+          -1.0778662589335497E-5,
+          7.455303491375696E-5
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.5551652516426646,
+        "period": 2.6512732760710871,
+        "drift": -0.00017194730985565867,
+        "saved_full_closure": 1.7930101847696278E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 6.7762635780344027E-21,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.397440060637673,
+          0.397440060637673,
+          0.397440060637673,
+          0.397440060637673,
+          0.60255993936298,
+          0.60255993936298,
+          0.60255993936298,
+          0.60255993936298
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0060375520198947862,
+          1.6959499139049097,
+          0,
+          0,
+          0,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.695968139922106,
+        "period": 2.8984353166450281,
+        "drift": -0.017259387333387055,
+        "saved_full_closure": 1.9442225607235741E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 8.6736173798840355E-19,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.009603353049313923,
+      "absolute_energy_gap": 0.14080288827944143,
+      "absolute_period_gap": 0.24716204057394098,
+      "signed_drift_gap": 0.017087440023531398,
+      "absolute_reflected_drift_gap": 0.017087440023531398,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.14078466442507787,
+          0.14078605587083515
+        ],
+        [
+          0.14078558486470727,
+          0.14078466442507787
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.16120410139696251,
+        "maximum_interior_nontranslation_mismatch": 0.16120410139696251,
+        "interior_mode_mismatch_fraction": 0.023346303501945526,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.009603353049313923,
+        "maximum_matched_pre_event_state_mismatch": 0.12606679402919063,
+        "maximum_matched_post_event_state_mismatch": 0.12606679402919063,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "historical_restricted_daughter_1",
+      "second_group": "historical_imported_PK",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0065769908375304421,
+          1.5551638580340745,
+          0,
+          0,
+          0,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.555185486438313,
+        "period": 2.6512711553170747,
+        "drift": -0.017194749456867796,
+        "saved_full_closure": 1.6291412663349547E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 1.7347234759768071E-18,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.3974403778164361,
+          0.3974403778164361,
+          0.3974403778164361,
+          0.3974403778164361,
+          0.6025596221841365,
+          0.6025596221841365,
+          0.6025596221841365,
+          0.6025596221841365
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/runs/full/family_-1.mat",
+        "point_index": 4,
+        "state": [
+          0,
+          -0.0010642292725046225,
+          1.1171136665244907,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1171142328164629,
+        "period": 1.5645254847588763,
+        "drift": -0.0016379653440482711,
+        "saved_full_closure": 3.3885294570268343E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 9.1672474835306232E-16,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.0881002718727002,
+      "absolute_energy_gap": 0.43807125362185007,
+      "absolute_period_gap": 1.0867456705581984,
+      "signed_drift_gap": -0.015556784112819525,
+      "absolute_reflected_drift_gap": 0.015556784112819525,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.43805158295534108,
+          0.4380501915095838
+        ],
+        [
+          0.43805182702186518,
+          0.43841794295830372
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.67591184962699236,
+        "maximum_interior_nontranslation_mismatch": 0.67591184962699236,
+        "interior_mode_mismatch_fraction": 0.17120622568093385,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.0881002718727002,
+        "maximum_matched_pre_event_state_mismatch": 0.569751730455401,
+        "maximum_matched_post_event_state_mismatch": 0.569751730455401,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "historical_restricted_daughter_1",
+      "second_group": "validation_imported_PK_m1",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0065769908375304421,
+          1.5551638580340745,
+          0,
+          0,
+          0,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678,
+          -0.0010778676104701856,
+          0.0074552929478049678
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.555185486438313,
+        "period": 2.6512711553170747,
+        "drift": -0.017194749456867796,
+        "saved_full_closure": 1.6291412663349547E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 1.7347234759768071E-18,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.3974403778164361,
+          0.3974403778164361,
+          0.3974403778164361,
+          0.3974403778164361,
+          0.6025596221841365,
+          0.6025596221841365,
+          0.6025596221841365,
+          0.6025596221841365
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "point_index": 4,
+        "state": [
+          0,
+          -0.0010642292725046225,
+          1.1171136665244907,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1171142328164629,
+        "period": 1.5645254847588763,
+        "drift": -0.0016379653440482711,
+        "saved_full_closure": 3.3885294570268343E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 9.1672474835306232E-16,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.0881002718727002,
+      "absolute_energy_gap": 0.43807125362185007,
+      "absolute_period_gap": 1.0867456705581984,
+      "signed_drift_gap": -0.015556784112819525,
+      "absolute_reflected_drift_gap": 0.015556784112819525,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.43805158295534108,
+          0.4380501915095838
+        ],
+        [
+          0.43805182702186518,
+          0.43824214295019859
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.67591184962699236,
+        "maximum_interior_nontranslation_mismatch": 0.67591184962699236,
+        "interior_mode_mismatch_fraction": 0.17120622568093385,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.0881002718727002,
+        "maximum_matched_pre_event_state_mismatch": 0.569751730455401,
+        "maximum_matched_post_event_state_mismatch": 0.569751730455401,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "historical_restricted_daughter_2",
+      "second_group": "historical_imported_PK",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0060375520198947862,
+          1.6959499139049097,
+          0,
+          0,
+          0,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.695968139922106,
+        "period": 2.8984353166450281,
+        "drift": -0.017259387333387055,
+        "saved_full_closure": 1.9442225607235741E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 8.6736173798840355E-19,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/runs/full/family_-1.mat",
+        "point_index": 4,
+        "state": [
+          0,
+          -0.0010642292725046225,
+          1.1171136665244907,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1171142328164629,
+        "period": 1.5645254847588763,
+        "drift": -0.0016379653440482711,
+        "saved_full_closure": 3.3885294570268343E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 9.1672474835306232E-16,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.0977033077431706,
+      "absolute_energy_gap": 0.57885390710564311,
+      "absolute_period_gap": 1.3339098318861518,
+      "signed_drift_gap": -0.015621421989338784,
+      "absolute_reflected_drift_gap": 0.015621421989338784,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.57883716782004835,
+          0.578836247380419
+        ],
+        [
+          0.57883788289270033,
+          0.57920399882913887
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.82337315027233926,
+        "maximum_interior_nontranslation_mismatch": 0.82337315027233926,
+        "interior_mode_mismatch_fraction": 0.19455252918287938,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.0977033077431706,
+        "maximum_matched_pre_event_state_mismatch": 0.69581852643010422,
+        "maximum_matched_post_event_state_mismatch": 0.69581852643010422,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "historical_restricted_daughter_2",
+      "second_group": "validation_imported_PK_m1",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0060375520198947862,
+          1.6959499139049097,
+          0,
+          0,
+          0,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467,
+          -6.6339278374543069E-14,
+          0.0079716977869924467
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.695968139922106,
+        "period": 2.8984353166450281,
+        "drift": -0.017259387333387055,
+        "saved_full_closure": 1.9442225607235741E-12,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 8.6736173798840355E-19,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.40704341368689362,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661,
+          0.5929565863136661
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "point_index": 4,
+        "state": [
+          0,
+          -0.0010642292725046225,
+          1.1171136665244907,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824,
+          5.8132345104035922E-13,
+          -0.0016396874953408824
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1171142328164629,
+        "period": 1.5645254847588763,
+        "drift": -0.0016379653440482711,
+        "saved_full_closure": 3.3885294570268343E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 9.1672474835306232E-16,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.30934010639067955,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367,
+          0.6906598940568367
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0.0977033077431706,
+      "absolute_energy_gap": 0.57885390710564311,
+      "absolute_period_gap": 1.3339098318861518,
+      "signed_drift_gap": -0.015621421989338784,
+      "absolute_reflected_drift_gap": 0.015621421989338784,
+      "endpoint_to_other_branch_distances": [
+        [
+          0.57883716782004835,
+          0.578836247380419
+        ],
+        [
+          0.57883788289270033,
+          0.57902819882103373
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 3,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0.82337315027233926,
+        "maximum_interior_nontranslation_mismatch": 0.82337315027233926,
+        "interior_mode_mismatch_fraction": 0.19455252918287938,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0.0977033077431706,
+        "maximum_matched_pre_event_state_mismatch": 0.69581852643010422,
+        "maximum_matched_post_event_state_mismatch": 0.69581852643010422,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    },
+    {
+      "first_group": "historical_imported_PK",
+      "second_group": "validation_imported_PK_m1",
+      "all_accepted_points_searched": true,
+      "first_point": {
+        "artifact": "Research_v3/runs/full/family_-1.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0073364571486461009,
+          1.1171120310122093,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          1.4947957228051857E-13,
+          -0.011303392598235814,
+          1.4947957228051857E-13,
+          -0.011303392598235814,
+          1.4947957228051857E-13,
+          -0.011303392598235814,
+          1.4947957228051857E-13,
+          -0.011303392598235814
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1171389428139562,
+        "period": 1.5645202138709908,
+        "drift": -0.011291576420157096,
+        "saved_full_closure": 2.961066947193558E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 9.1788115100563833E-16,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.309341826250966,
+          0.309341826250966,
+          0.309341826250966,
+          0.309341826250966,
+          0.6906581741400929,
+          0.6906581741400929,
+          0.6906581741400929,
+          0.6906581741400929
+        ]
+      },
+      "second_point": {
+        "artifact": "Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+        "point_index": 1,
+        "state": [
+          0,
+          -0.0073364571486461009,
+          1.1171120310122093,
+          0,
+          3.5992669861713444E-16,
+          1.2599219821243557E-16,
+          1.4947957228051857E-13,
+          -0.011303392598235814,
+          1.4947957228051857E-13,
+          -0.011303392598235814,
+          1.4947957228051857E-13,
+          -0.011303392598235814,
+          1.4947957228051857E-13,
+          -0.011303392598235814
+        ],
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "energy": 1.1171389428139562,
+        "period": 1.5645202138709908,
+        "drift": -0.011291576420157096,
+        "saved_full_closure": 2.961066947193558E-10,
+        "exact_baseline_parameter": true,
+        "synchronization_motion_residual": 9.1788115100563833E-16,
+        "synchronization_contact_fraction": 0,
+        "reflection_eligible": true,
+        "ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "phases": [
+          0.309341826250966,
+          0.309341826250966,
+          0.309341826250966,
+          0.309341826250966,
+          0.6906581741400929,
+          0.6906581741400929,
+          0.6906581741400929,
+          0.6906581741400929
+        ]
+      },
+      "horizontal_reflection_applied": false,
+      "same_physical_parameters": true,
+      "closest_physical_apex_state_distance": 0,
+      "absolute_energy_gap": 0,
+      "absolute_period_gap": 0,
+      "signed_drift_gap": 0,
+      "absolute_reflected_drift_gap": 0,
+      "endpoint_to_other_branch_distances": [
+        [
+          0,
+          0.046628617361788
+        ],
+        [
+          0,
+          0.00045008741145276254
+        ]
+      ],
+      "trajectory": {
+        "phase_shift_of_second": 0,
+        "searched_phase_candidates": 1,
+        "phase_alignment_method": "zero and all matching per-leg contact-phase differences",
+        "interpolation": "saved smooth-side linear interpolation with explicit left/right event values",
+        "maximum_interior_state_mismatch": 0,
+        "maximum_interior_nontranslation_mismatch": 0,
+        "interior_mode_mismatch_fraction": 0,
+        "per_guard_contact_count_match": true,
+        "first_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_contact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_matched_event_phase_gap": 0,
+        "maximum_matched_pre_event_state_mismatch": 0,
+        "maximum_matched_post_event_state_mismatch": 0,
+        "finite_sampling_is_isotropy_proof": false,
+        "different_energy_excludes_ancestry": false
+      },
+      "identity_or_ancestry_established": false
+    }
+  ],
+  "reflection_model_audit": {
+    "baseline_parameter_required_exactly": true,
+    "model_reflection_leg_permutation": [
+      3,
+      4,
+      1,
+      2
+    ],
+    "sample_count": 65,
+    "flow_equivariance_error": 2.907223073389531E-13,
+    "guard_equivariance_error": 4.4408920985006262E-16,
+    "reset_equivariance_error": 0.017870734949675005,
+    "energy_invariance_error": 0,
+    "numerical_check_replaces_algebraic_proof": false
+  },
+  "new_shooting_simulations": 0,
+  "ancestry_established": false,
+  "closure_certification_performed": false,
+  "scope": "Nearest sampled physical states and event-aware trajectory differences are numerical diagnostics. Different energies exclude individual orbit identity, not ancestry. Finite endpoints are checkpoints, and no sampled nearness establishes a connected branch. Reflection is restricted to exact baseline parameters and numerically synchronized-pronk trajectories, with finite residuals retained."
+}

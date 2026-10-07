@@ -3,18 +3,18 @@ function [report,audit]=AuditPronkAttachments_v3(outputDirectory)
 % Numerical states, frozen predictions, settings, and source orbit artifacts
 % stay intact. Physical left/right event histories replace an erroneous raw
 % row synchrony diagnostic; the original report is preserved before rewriting.
-    root=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    root=V3Root_v3(mfilename('fullpath'));
     originalPath=path;pathCleanup=onCleanup(@()path(originalPath));
-    addpath(root,fullfile(root,'Research_v3','Drivers_v3'));
+    V3LegacyAddPath_v3(root,fullfile(root,'Research_v3','Drivers_v3'));
     folders={'Schema_v3','Dynamics_v3','Simulation_v3','Orbit_v3','Numerics_v3'};
-    for k=1:numel(folders),addpath(fullfile(root,folders{k}));end
+    for k=1:numel(folders),V3LegacyAddPath_v3(fullfile(root,folders{k}));end
     if nargin<1||isempty(outputDirectory)
         outputDirectory=fullfile(root,'Research_v3','runs','full');
     end
     outputDirectory=V3OutputPath_v3(outputDirectory);
     checkpoint=V3OutputPath_v3(fullfile(outputDirectory,'pip_pk_local_checkpoint.mat'));
     jsonFile=V3OutputPath_v3(fullfile(outputDirectory,'pip_pk_local.json'));
-    loaded=load(checkpoint,'report');report=loaded.report;
+    loaded=load(V3Path_v3(checkpoint),'report');report=loaded.report;
     if strcmp(report.status,'running')
         error('AuditPronkAttachments_v3:Running','Wait until the numerical stage has stopped before auditing.');
     end
@@ -23,9 +23,9 @@ function [report,audit]=AuditPronkAttachments_v3(outputDirectory)
     end
     stamp=char(datetime('now','TimeZone','UTC','Format','yyyyMMdd''T''HHmmssSSS'));
     archiveDirectory=V3OutputPath_v3(fullfile(outputDirectory,['before_pronk_history_audit_',stamp]));
-    mkdir(archiveDirectory);
-    copyfile(checkpoint,fullfile(archiveDirectory,'pip_pk_local_checkpoint.mat'));
-    copyfile(jsonFile,fullfile(archiveDirectory,'pip_pk_local.json'));
+    mkdir(V3Path_v3(archiveDirectory));
+    copyfile(V3Path_v3(checkpoint),V3Path_v3(fullfile(archiveDirectory,'pip_pk_local_checkpoint.mat')));
+    copyfile(V3Path_v3(jsonFile),V3Path_v3(fullfile(archiveDirectory,'pip_pk_local.json')));
     audit=struct('schema_version','independent-pronk-artifact-audit-v3-1', ...
         'utc',char(datetime('now','TimeZone','UTC')),'pre_audit_archive',archiveDirectory, ...
         'numerical_states_changed',false,'frozen_predictions_changed',false, ...
@@ -48,7 +48,7 @@ function [report,audit]=AuditPronkAttachments_v3(outputDirectory)
         for pointIndex=1:numel(connection.amplitudes)
             entry=connection.amplitudes(pointIndex);
             sourceFile=V3OutputPath_v3(fullfile(outputDirectory,entry.artifact));
-            values=load(sourceFile,'replayOrbit','orbit','entry');
+            values=load(V3Path_v3(sourceFile),'replayOrbit','orbit','entry');
             if isempty(values.replayOrbit),continue;end
             orbit=values.replayOrbit;data=HybridCycleData_v3.unpack(orbit);
             [~,first]=unique(data.time,'stable');[~,last]=unique(data.time,'last');rows=unique([first;last]);
@@ -76,7 +76,7 @@ function [report,audit]=AuditPronkAttachments_v3(outputDirectory)
                 'synchronized_physical_history',entry.trajectory_distinction.synchronized_contact_history, ...
                 'paired_motion_error',entry.trajectory_distinction.paired_leg_motion_error);
             auditFile=V3OutputPath_v3(fullfile(outputDirectory,entry.physical_history_audit_artifact));
-            save(auditFile,'entry','point');
+            save(V3Path_v3(auditFile),'entry','point');
             if isempty(item.points),item.points=point;else,item.points(end+1)=point;end
             % Add the audit link to the struct array without removing fields.
             connection.amplitudes(pointIndex).trajectory_distinction=entry.trajectory_distinction;
@@ -90,11 +90,11 @@ function [report,audit]=AuditPronkAttachments_v3(outputDirectory)
         if isempty(audit.connections),audit.connections=item;else,audit.connections(end+1)=item;end
     end
     report.diagnostic_audit=audit;
-    fid=fopen(jsonFile,'w');
+    fid=fopen(V3Path_v3(jsonFile),'w');
     if fid<0,error('AuditPronkAttachments_v3:Output','Cannot open report output.');end
     cleanup=onCleanup(@()fclose(fid));
     fprintf(fid,'%s\n',jsonencode(report,'PrettyPrint',true));
-    save(checkpoint,'report','-v7');
+    save(V3Path_v3(checkpoint),'report','-v7');
     auditFile=V3OutputPath_v3(fullfile(outputDirectory,'pip_pk_local_independent_audit.mat'));
-    save(auditFile,'audit');
+    save(V3Path_v3(auditFile),'audit');
 end

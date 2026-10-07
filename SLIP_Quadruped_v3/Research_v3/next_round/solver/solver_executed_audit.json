@@ -1,0 +1,704 @@
+{
+  "schema_version": "periodic-solver-executed-audit-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "exported_utc": "07-Oct-2026 14:46:07",
+  "known_PIP": {
+    "accepted": true,
+    "status": "accepted",
+    "initial_scaled_norm": 0,
+    "initial_physical_norm": 0,
+    "final_scaled_norm": 0,
+    "final_physical_norm": 0,
+    "full_closure": 3.0610847190359891E-11,
+    "constraint_residual": 0,
+    "elapsed_seconds": 5.51628425,
+    "primary_failure": {},
+    "finalization_failure": {},
+    "replay_failure": {},
+    "integration": {
+      "RelTol": 1E-9,
+      "AbsTol": 1E-11,
+      "EventValueTolerance": 1E-8,
+      "EventTimeTolerance": 1E-10,
+      "SimultaneousTimeTolerance": 1E-8,
+      "MaxStep": 0.05
+    },
+    "replay_integration": {
+      "RelTol": 1E-10,
+      "AbsTol": 1E-12,
+      "EventValueTolerance": 1E-9,
+      "EventTimeTolerance": 1.0000000000000001E-11,
+      "SimultaneousTimeTolerance": 1E-9,
+      "MaxStep": 0.025
+    },
+    "acceptedNewtonIterations": 0,
+    "functionEvaluationCount": 2,
+    "mapEvaluationCount": 1,
+    "invalidEvaluationCount": 0,
+    "jacobianEvaluationCount": 0,
+    "jacobianReliable": false,
+    "primaryMessage": "Initial point satisfies the root tolerance.",
+    "primaryExitflag": 1,
+    "period": 1.4986224709089631,
+    "gait": "PIP",
+    "flight_count": 1,
+    "energy_error": 3.08610914601104E-11,
+    "stance_constraint_error": 0
+  },
+  "known_PK": {
+    "accepted": true,
+    "status": "accepted",
+    "initial_scaled_norm": 6.1061111793395619E-12,
+    "initial_physical_norm": 6.1061111793395619E-12,
+    "final_scaled_norm": 6.1061111793395619E-12,
+    "final_physical_norm": 6.1061111793395619E-12,
+    "full_closure": 3.0269342587985193E-11,
+    "constraint_residual": 0,
+    "elapsed_seconds": 7.4811653333333332,
+    "primary_failure": {},
+    "finalization_failure": {},
+    "replay_failure": {},
+    "integration": {
+      "RelTol": 1E-9,
+      "AbsTol": 1E-11,
+      "EventValueTolerance": 1E-8,
+      "EventTimeTolerance": 1E-10,
+      "SimultaneousTimeTolerance": 1E-8,
+      "MaxStep": 0.05
+    },
+    "replay_integration": {
+      "RelTol": 1E-10,
+      "AbsTol": 1E-12,
+      "EventValueTolerance": 1E-9,
+      "EventTimeTolerance": 1.0000000000000001E-11,
+      "SimultaneousTimeTolerance": 1E-9,
+      "MaxStep": 0.025
+    },
+    "acceptedNewtonIterations": 0,
+    "functionEvaluationCount": 2,
+    "mapEvaluationCount": 1,
+    "invalidEvaluationCount": 0,
+    "jacobianEvaluationCount": 0,
+    "jacobianReliable": false,
+    "primaryMessage": "Initial point satisfies the root tolerance.",
+    "primaryExitflag": 1,
+    "period": 1.5645202144395942,
+    "gait": "PK",
+    "flight_count": 1,
+    "energy_error": 3.0270674855614743E-11,
+    "stance_constraint_error": 1.259331181002743E-13
+  },
+  "nonlinear_correction": {
+    "accepted": true,
+    "status": "accepted",
+    "initial_scaled_norm": 0.0069496891296691923,
+    "initial_physical_norm": 0.0069496891296691923,
+    "final_scaled_norm": 3.1644218495552323E-13,
+    "final_physical_norm": 3.1644218495552323E-13,
+    "full_closure": 3.0268232364960568E-11,
+    "constraint_residual": 0,
+    "elapsed_seconds": 156.50781704166667,
+    "primary_failure": {},
+    "finalization_failure": {},
+    "replay_failure": {},
+    "integration": {
+      "RelTol": 1E-9,
+      "AbsTol": 1E-11,
+      "EventValueTolerance": 1E-8,
+      "EventTimeTolerance": 1E-10,
+      "SimultaneousTimeTolerance": 1E-8,
+      "MaxStep": 0.05
+    },
+    "replay_integration": {
+      "RelTol": 1E-10,
+      "AbsTol": 1E-12,
+      "EventValueTolerance": 1E-9,
+      "EventTimeTolerance": 1.0000000000000001E-11,
+      "SimultaneousTimeTolerance": 1E-9,
+      "MaxStep": 0.025
+    },
+    "acceptedNewtonIterations": 11,
+    "functionEvaluationCount": 118,
+    "mapEvaluationCount": 116,
+    "invalidEvaluationCount": 0,
+    "jacobianEvaluationCount": 3,
+    "jacobianReliable": true,
+    "primaryMessage": "Residual tolerance satisfied.",
+    "primaryExitflag": 1,
+    "period": 1.564520214978647,
+    "gait": "PK",
+    "flight_count": 1,
+    "energy_error": 3.0272007123244293E-11,
+    "stance_constraint_error": 1.2593485282375028E-13
+  },
+  "correction_before_reuse": {
+    "accepted": false,
+    "status": "retryable_failure",
+    "initial_scaled_norm": 0.0069496891296691923,
+    "initial_physical_norm": 0.0069496891296691923,
+    "final_scaled_norm": 5.9327607443947217E-8,
+    "final_physical_norm": 5.9327607443947217E-8,
+    "full_closure": 5.9327607443947217E-8,
+    "constraint_residual": 0,
+    "elapsed_seconds": 180.209866375,
+    "primary_failure": {
+      "identifier": "",
+      "message": "No finite hybrid Jacobian is available in the requested perturbation chart.",
+      "exitflag": -3
+    },
+    "finalization_failure": {
+      "identifier": "RootSolver_v3:FullClosure",
+      "message": "Reduced residual candidate failed full physical closure."
+    },
+    "replay_failure": {},
+    "integration": {
+      "RelTol": 1E-9,
+      "AbsTol": 1E-11,
+      "EventValueTolerance": 1E-8,
+      "EventTimeTolerance": 1E-10,
+      "SimultaneousTimeTolerance": 1E-8,
+      "MaxStep": 0.05
+    },
+    "replay_integration": {
+      "RelTol": 1E-10,
+      "AbsTol": 1E-12,
+      "EventValueTolerance": 1E-9,
+      "EventTimeTolerance": 1.0000000000000001E-11,
+      "SimultaneousTimeTolerance": 1E-9,
+      "MaxStep": 0.025
+    },
+    "acceptedNewtonIterations": 4,
+    "functionEvaluationCount": 172,
+    "mapEvaluationCount": 159,
+    "invalidEvaluationCount": 11,
+    "jacobianEvaluationCount": 5,
+    "jacobianReliable": false,
+    "primaryMessage": "No finite hybrid Jacobian is available in the requested perturbation chart.",
+    "primaryExitflag": -3,
+    "failure_reasons": [
+      "column 4: plus-h invalid: Callback returned a nonfinite or nonvector value.",
+      "column 4: minus-h invalid: Callback returned a nonfinite or nonvector value.",
+      "column 4: plus-h/2 invalid: Callback returned a nonfinite or nonvector value.",
+      "column 4: minus-h/2 invalid: Callback returned a nonfinite or nonvector value."
+    ]
+  },
+  "arclength": {
+    "accepted": true,
+    "status": "accepted",
+    "initial_scaled_norm": 0.0001,
+    "initial_physical_norm": 0.0001,
+    "final_scaled_norm": 1.0582807200010258E-11,
+    "final_physical_norm": 1.0582807200010258E-11,
+    "full_closure": 3.0313307419760349E-11,
+    "constraint_residual": -3.0313073015250658E-15,
+    "elapsed_seconds": 58.916982125,
+    "primary_failure": {},
+    "finalization_failure": {},
+    "replay_failure": {},
+    "integration": {
+      "RelTol": 1E-9,
+      "AbsTol": 1E-11,
+      "EventValueTolerance": 1E-8,
+      "EventTimeTolerance": 1E-10,
+      "SimultaneousTimeTolerance": 1E-8,
+      "MaxStep": 0.05
+    },
+    "replay_integration": {
+      "RelTol": 1E-10,
+      "AbsTol": 1E-12,
+      "EventValueTolerance": 1E-9,
+      "EventTimeTolerance": 1.0000000000000001E-11,
+      "SimultaneousTimeTolerance": 1E-9,
+      "MaxStep": 0.025
+    },
+    "acceptedNewtonIterations": 2,
+    "functionEvaluationCount": 46,
+    "mapEvaluationCount": 44,
+    "invalidEvaluationCount": 0,
+    "jacobianEvaluationCount": 1,
+    "jacobianReliable": true,
+    "primaryMessage": "Step tolerance satisfied.",
+    "primaryExitflag": 2,
+    "period": 1.5645202938336087,
+    "gait": "PK",
+    "flight_count": 1,
+    "energy_error": 3.0347946378128654E-11,
+    "stance_constraint_error": 1.2601031329495527E-13
+  },
+  "signed_amplitude": {
+    "accepted": true,
+    "status": "accepted",
+    "initial_scaled_norm": 0.0001,
+    "initial_physical_norm": 0.0001,
+    "final_scaled_norm": 6.5796326720324316E-14,
+    "final_physical_norm": 6.5796326720324316E-14,
+    "full_closure": 3.0118352256636172E-11,
+    "constraint_residual": 7.5487576259303246E-18,
+    "elapsed_seconds": 59.011107458333335,
+    "primary_failure": {},
+    "finalization_failure": {},
+    "replay_failure": {},
+    "integration": {
+      "RelTol": 1E-9,
+      "AbsTol": 1E-11,
+      "EventValueTolerance": 1E-8,
+      "EventTimeTolerance": 1E-10,
+      "SimultaneousTimeTolerance": 1E-8,
+      "MaxStep": 0.05
+    },
+    "replay_integration": {
+      "RelTol": 1E-10,
+      "AbsTol": 1E-12,
+      "EventValueTolerance": 1E-9,
+      "EventTimeTolerance": 1.0000000000000001E-11,
+      "SimultaneousTimeTolerance": 1E-9,
+      "MaxStep": 0.025
+    },
+    "acceptedNewtonIterations": 3,
+    "functionEvaluationCount": 47,
+    "mapEvaluationCount": 45,
+    "invalidEvaluationCount": 0,
+    "jacobianEvaluationCount": 1,
+    "jacobianReliable": true,
+    "primaryMessage": "Residual tolerance satisfied.",
+    "primaryExitflag": 1,
+    "period": 1.5645200670039441,
+    "gait": "PK",
+    "flight_count": 1,
+    "energy_error": 3.0125457683993773E-11,
+    "stance_constraint_error": 1.2579780966914811E-13
+  },
+  "failed_imported": {
+    "accepted": false,
+    "status": "retryable_failure",
+    "initial_scaled_norm": null,
+    "initial_physical_norm": null,
+    "final_scaled_norm": null,
+    "final_physical_norm": null,
+    "full_closure": null,
+    "constraint_residual": null,
+    "elapsed_seconds": 0.27318820833333335,
+    "primary_failure": {
+      "identifier": "ContinuousDynamics_v3:PhysicallyInadmissible",
+      "message": "Quadruped section-return is physically inadmissible: swing_foot_penetration:BL, contact_complementarity_loss:BL, swing_foot_penetration:BR, contact_complementarity_loss:BR, swing_foot_penetration:FL, contact_complementarity_loss:FL, swing_foot_penetration:FR, contact_complementarity_loss:FR."
+    },
+    "finalization_failure": {},
+    "replay_failure": {},
+    "integration": {
+      "RelTol": 1E-9,
+      "AbsTol": 1E-11,
+      "EventValueTolerance": 1E-8,
+      "EventTimeTolerance": 1E-10,
+      "SimultaneousTimeTolerance": 1E-8,
+      "MaxStep": 0.05
+    },
+    "replay_integration": {
+      "RelTol": 1E-10,
+      "AbsTol": 1E-12,
+      "EventValueTolerance": 1E-9,
+      "EventTimeTolerance": 1.0000000000000001E-11,
+      "SimultaneousTimeTolerance": 1E-9,
+      "MaxStep": 0.025
+    },
+    "trace_completed_samples": 1,
+    "trace_events": 0,
+    "first_physical_failure": {
+      "time": 0,
+      "sample": 1,
+      "state": [
+        0,
+        4.431664902282904,
+        0.986307401761349,
+        -3.1049697449420673E-15,
+        -4.8326349928775874E-12,
+        0.00031436185240608889,
+        0.0068544307116534114,
+        4.28152568381475,
+        0.0068544306752043975,
+        4.2815256838157731,
+        -0.0068544304266292422,
+        4.2815256838688409,
+        -0.0068544309941037584,
+        4.2815256838518145
+      ],
+      "mode": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "source": "completed-physical-segment",
+      "diagnostics": {
+        "context": "accepted-state",
+        "context_policy": {
+          "strict_accepted_state_checks": true,
+          "allows_transient_event_surface_overshoot": false
+        },
+        "mode": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "absolute_leg_angles": [
+          0.0068544307068207763,
+          0.0068544306703717623,
+          -0.0068544304314618774,
+          -0.0068544309989363936
+        ],
+        "hip_heights": [
+          0.9863074017637653,
+          0.9863074017637653,
+          0.98630740175893272,
+          0.98630740175893272
+        ],
+        "hip_clearances": [
+          0.9863074017637653,
+          0.9863074017637653,
+          0.98630740175893272,
+          0.98630740175893272
+        ],
+        "hip_clearance_margins": [
+          0.9863074017637653,
+          0.9863074017637653,
+          0.98630740175893272,
+          0.98630740175893272
+        ],
+        "torso_endpoint_heights": [
+          0.9863074017637653,
+          0.98630740175893272
+        ],
+        "torso_clearance": 0.98630740175893272,
+        "torso_clearance_margin": 0.98630740175893272,
+        "swing_foot_clearances": [
+          -0.013669106718053214,
+          -0.013669106718303015,
+          -0.013669106724773172,
+          -0.013669106720883506
+        ],
+        "swing_foot_margins": [
+          -0.013669096718053214,
+          -0.013669096718303015,
+          -0.013669096724773172,
+          -0.013669096720883506
+        ],
+        "minimum_swing_foot_clearance": -0.013669106724773172,
+        "minimum_swing_foot_margin": -0.013669096724773172,
+        "leg_lengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stance_leg_lengths": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compressions": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "stance_compression_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_stance_compression": null,
+        "minimum_stance_compression_margin": null,
+        "leg_length_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "minimum_leg_length": null,
+        "minimum_leg_length_margin": null,
+        "complementarity_residuals": [
+          0.013669106718053214,
+          0.013669106718303015,
+          0.013669106724773172,
+          0.013669106720883506
+        ],
+        "complementarity_margins": [
+          -0.013669096718053214,
+          -0.013669096718303015,
+          -0.013669096724773172,
+          -0.013669096720883506
+        ],
+        "minimum_complementarity_margin": -0.013669096724773172,
+        "minimum_hip_clearance": 0.98630740175893272,
+        "minimum_hip_clearance_margin": 0.98630740175893272,
+        "downward_orientation_margins": [
+          0.99997650848181852,
+          0.99997650848206832,
+          0.99997650848370589,
+          0.99997650847981623
+        ],
+        "finite_geometry_per_leg": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_validity": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "per_leg_failure_reasons": [
+          [
+            "swing_foot_penetration:BL",
+            "contact_complementarity_loss:BL"
+          ],
+          [
+            "swing_foot_penetration:BR",
+            "contact_complementarity_loss:BR"
+          ],
+          [
+            "swing_foot_penetration:FL",
+            "contact_complementarity_loss:FL"
+          ],
+          [
+            "swing_foot_penetration:FR",
+            "contact_complementarity_loss:FR"
+          ]
+        ],
+        "per_leg_minimum_physical_margin": [
+          -0.013669096718053214,
+          -0.013669096718303015,
+          -0.013669096724773172,
+          -0.013669096720883506
+        ],
+        "global_validity": false,
+        "strict_global_validity": false,
+        "minimum_physical_margin": -0.013669096724773172,
+        "failure_reasons": [
+          "swing_foot_penetration:BL",
+          "contact_complementarity_loss:BL",
+          "swing_foot_penetration:BR",
+          "contact_complementarity_loss:BR",
+          "swing_foot_penetration:FL",
+          "contact_complementarity_loss:FL",
+          "swing_foot_penetration:FR",
+          "contact_complementarity_loss:FR"
+        ],
+        "post_reset_consistency_evaluated": false,
+        "post_reset_guard_residuals": [],
+        "post_reset_guard_consistent": [],
+        "post_reset_mode_consistent": [],
+        "active_tolerances": {
+          "swing_penetration": 1E-8,
+          "stance_tension": 1E-8,
+          "minimum_leg_length": 1E-8,
+          "minimum_back_hip_height": 0,
+          "minimum_front_hip_height": 0,
+          "minimum_torso_clearance": 0,
+          "complementarity": 1E-8,
+          "post_reset_guard": 1E-7,
+          "geometry": 1E-10,
+          "minimum_downward_cosine": 0,
+          "ode_stage_surface": 1E-5
+        },
+        "active_checks": {
+          "back_hip_clearance": true,
+          "front_hip_clearance": true,
+          "torso_ground_intersection": true,
+          "finite_geometry": true,
+          "post_reset_guard_consistency": true,
+          "mode_guard_complementarity": true,
+          "downward_leg_orientation": true
+        },
+        "admissible": false,
+        "admissibility_margins": [
+          -0.013669096718053214,
+          -0.013669096718303015,
+          -0.013669096724773172,
+          -0.013669096720883506
+        ],
+        "minimum_stance_admissibility_margin": null,
+        "stance_admissibility_margins": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_stance_legs": [],
+        "invalid_swing_legs": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "guard_values": [
+        -0.013669106718053214,
+        -0.013669106718053214,
+        -0.013669106718303015,
+        -0.013669106718303015,
+        -0.013669106724773172,
+        -0.013669106724773172,
+        -0.013669106720883506,
+        -0.013669106720883506
+      ],
+      "axial_forces": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "marked_occurrence": {
+    "name": "marked-occurrence-and-repeated-cycle-rejection",
+    "passed": true,
+    "declared_occurrence": 2,
+    "replayed_occurrence": 2,
+    "accepted": false,
+    "full_closure": 6.1220362113090232E-11,
+    "primitive_status": "multiple_cover_detected",
+    "source_sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+  },
+  "historical_parent": {
+    "residual_norm": 0.0016152222717467327,
+    "exitflag": 0,
+    "overwritten_final_message": "Omitted/dependent closure failed: 0.001615.",
+    "original_solver_message": "Maximum iteration count reached.",
+    "iterations": 5,
+    "solver_function_count": 61,
+    "accepted_Newton_iterations": 0,
+    "invalid_evaluations": 60,
+    "map_evaluations": 290,
+    "jacobian_reliable": false,
+    "per_column_reliability": [
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "full_metadata_artifact": "case5_parent_failure_reproduced.mat"
+  },
+  "reproduced_parent": {
+    "primary_message": "No finite hybrid Jacobian is available in the requested perturbation chart.",
+    "primary_exitflag": -3,
+    "finalization_message": "Reduced residual candidate failed full physical closure.",
+    "accepted_Newton_iterations": 0,
+    "map_evaluations": 98,
+    "invalid_evaluations": 0,
+    "jacobian_reliable": false,
+    "per_column_reliability": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "residual_norm": 0.0016152223176272794,
+    "failure_reasons": [
+      "column 1: plus-h changed cycle topology",
+      "column 1: minus-h changed cycle topology",
+      "column 1: plus-h/2 changed cycle topology",
+      "column 1: minus-h/2 changed cycle topology",
+      "column 3: plus-h changed cycle topology",
+      "column 3: minus-h changed cycle topology",
+      "column 3: plus-h/2 changed cycle topology",
+      "column 3: minus-h/2 changed cycle topology",
+      "column 4: plus-h changed cycle topology",
+      "column 4: minus-h changed cycle topology",
+      "column 4: plus-h/2 changed cycle topology",
+      "column 4: minus-h/2 changed cycle topology",
+      "column 5: plus-h changed cycle topology",
+      "column 5: minus-h changed cycle topology",
+      "column 7: plus-h changed cycle topology",
+      "column 7: minus-h changed cycle topology",
+      "column 9: plus-h changed cycle topology",
+      "column 9: minus-h changed cycle topology",
+      "column 9: plus-h/2 changed cycle topology",
+      "column 9: minus-h/2 changed cycle topology",
+      "column 10: plus-h changed cycle topology",
+      "column 10: minus-h changed cycle topology",
+      "column 10: plus-h/2 changed cycle topology",
+      "column 10: minus-h/2 changed cycle topology",
+      "column 11: plus-h changed cycle topology",
+      "column 11: minus-h changed cycle topology",
+      "column 11: plus-h/2 changed cycle topology",
+      "column 11: minus-h/2 changed cycle topology",
+      "column 12: plus-h changed cycle topology",
+      "column 12: minus-h changed cycle topology",
+      "column 12: plus-h/2 changed cycle topology",
+      "column 12: minus-h/2 changed cycle topology"
+    ]
+  },
+  "tolerance_gap": {
+    "found": true,
+    "perturbation": 1E-8,
+    "old_reduced_norm": 3.368813033741147E-8,
+    "old_full_closure": 3.3688130340880917E-8,
+    "old_primary_converged": true,
+    "old_final_accepted": false,
+    "corrected": {
+      "accepted": true,
+      "status": "accepted",
+      "initial_scaled_norm": 3.368813033741147E-8,
+      "initial_physical_norm": 3.368813033741147E-8,
+      "final_scaled_norm": 1.6628235247062584E-12,
+      "final_physical_norm": 1.6628235247062584E-12,
+      "full_closure": 3.0254687644060141E-11,
+      "constraint_residual": 0,
+      "elapsed_seconds": 62.020701,
+      "primary_failure": {},
+      "finalization_failure": {},
+      "replay_failure": {},
+      "integration": {
+        "RelTol": 1E-9,
+        "AbsTol": 1E-11,
+        "EventValueTolerance": 1E-8,
+        "EventTimeTolerance": 1E-10,
+        "SimultaneousTimeTolerance": 1E-8,
+        "MaxStep": 0.05
+      },
+      "replay_integration": {
+        "RelTol": 1E-10,
+        "AbsTol": 1E-12,
+        "EventValueTolerance": 1E-9,
+        "EventTimeTolerance": 1.0000000000000001E-11,
+        "SimultaneousTimeTolerance": 1E-9,
+        "MaxStep": 0.025
+      },
+      "acceptedNewtonIterations": 1,
+      "functionEvaluationCount": 37,
+      "mapEvaluationCount": 35,
+      "invalidEvaluationCount": 0,
+      "jacobianEvaluationCount": 1,
+      "jacobianReliable": true,
+      "primaryMessage": "Residual tolerance satisfied.",
+      "primaryExitflag": 1,
+      "period": 1.5645202145759527,
+      "gait": "PK",
+      "flight_count": 1,
+      "energy_error": 3.0272007123244293E-11,
+      "stance_constraint_error": 1.2593398546201229E-13
+    }
+  }
+}

@@ -1,0 +1,2390 @@
+{
+  "schema_version": "next-round-completion-audit-v3-1",
+  "created_utc": "07-Oct-2026 17:13:08",
+  "starting_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "architecture": "MACA64",
+  "execution_status": "total_budget_exhausted",
+  "network_achieved": false,
+  "global_completeness_claimed": false,
+  "charged_numerical_task_wall_seconds": 10804.966922625003,
+  "registered_total_wall_seconds": 10800,
+  "remaining_wall_seconds": 0,
+  "counted_function_evaluations": 4990,
+  "registered_total_function_evaluations": 300000,
+  "total_budget_exhausted": true,
+  "evaluation_count_scope": "Completed stored solver/map counters; interruption uncertainties and uncaptured in-flight work remain separately recorded in the ledger.",
+  "solver_gates_passed": true,
+  "solver_gate_source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    }
+  ],
+  "protection": {
+    "schema_version": "fresh-protection-v3-1",
+    "action": "verify",
+    "checked_utc": "07-Oct-2026 17:13:07",
+    "baseline_count": 544,
+    "current_count": 544,
+    "added": [],
+    "missing": [],
+    "changed": [],
+    "passed": true
+  },
+  "unfinished_tasks": [
+    {
+      "id": "PIP_candidate_1",
+      "kind": "PIP_candidate",
+      "state": "partial_checkpoint",
+      "scientific_status": "restricted_spectral_candidate_with_executed_daughter_attempts",
+      "attempts": 4,
+      "phase": "continue_daughters",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/result.mat"
+    },
+    {
+      "id": "PIP_candidate_2",
+      "kind": "PIP_candidate",
+      "state": "partial_checkpoint",
+      "scientific_status": "independently_closed_restricted_daughter_records",
+      "attempts": 3,
+      "phase": "correct_daughters",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_2/result.mat"
+    },
+    {
+      "id": "PIP_candidate_3",
+      "kind": "PIP_candidate",
+      "state": "partial_checkpoint",
+      "scientific_status": "independently_closed_restricted_daughter_records",
+      "attempts": 2,
+      "phase": "correct_daughters",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_3/result.mat"
+    },
+    {
+      "id": "PK_continuation_m1",
+      "kind": "continuation",
+      "state": "partial_checkpoint",
+      "scientific_status": "continued_branch_attachment_unresolved",
+      "attempts": 2,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/PK_continuation_m1/result.mat"
+    },
+    {
+      "id": "PK_continuation_p1",
+      "kind": "continuation",
+      "state": "partial_checkpoint",
+      "scientific_status": "continued_branch_attachment_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/PK_continuation_p1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_1_m1",
+      "kind": "continuation",
+      "state": "partial_checkpoint",
+      "scientific_status": "continued_branch_attachment_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_1_m1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_1_p1",
+      "kind": "continuation",
+      "state": "partial_checkpoint",
+      "scientific_status": "continued_branch_attachment_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_1_p1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_2_m1",
+      "kind": "continuation",
+      "state": "partial_checkpoint",
+      "scientific_status": "continued_branch_attachment_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_2_m1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_2_p1",
+      "kind": "continuation",
+      "state": "partial_checkpoint",
+      "scientific_status": "continued_branch_attachment_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_2_p1/result.mat"
+    },
+    {
+      "id": "P1_source_01_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_01_A/result.mat"
+    },
+    {
+      "id": "P1_source_02_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_03_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_03_A/result.mat"
+    },
+    {
+      "id": "P1_source_04_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_05_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_05_A/result.mat"
+    },
+    {
+      "id": "P1_source_06_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_07_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_07_A/result.mat"
+    },
+    {
+      "id": "P1_source_08_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_09_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_10_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_10_A/result.mat"
+    },
+    {
+      "id": "P2_source_11_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_11_A/result.mat"
+    },
+    {
+      "id": "P2_source_12_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_12_A/result.mat"
+    },
+    {
+      "id": "P2_source_13_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_13_A/result.mat"
+    },
+    {
+      "id": "P2_source_14_A",
+      "kind": "P2_source",
+      "state": "partial_checkpoint",
+      "scientific_status": "source_orbits_recovered_ancestry_unresolved",
+      "attempts": 1,
+      "phase": "correct",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_14_A/result.mat"
+    },
+    {
+      "id": "P2_source_15_A",
+      "kind": "P2_source",
+      "state": "partial_checkpoint",
+      "scientific_status": "source_recovery_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_15_A/result.mat"
+    },
+    {
+      "id": "P2_source_16_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_16_A/result.mat"
+    },
+    {
+      "id": "P2_source_17_A",
+      "kind": "P2_source",
+      "state": "partial_checkpoint",
+      "scientific_status": "source_orbits_recovered_ancestry_unresolved",
+      "attempts": 1,
+      "phase": "correct",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_A/result.mat"
+    },
+    {
+      "id": "P2_source_18_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_18_A/result.mat"
+    },
+    {
+      "id": "P1_source_01_B",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_01_B/result.mat"
+    },
+    {
+      "id": "P1_source_02_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_03_B",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_03_B/result.mat"
+    },
+    {
+      "id": "P1_source_04_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_05_B",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_05_B/result.mat"
+    },
+    {
+      "id": "P1_source_06_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_07_B",
+      "kind": "P1_source",
+      "state": "external_interruption",
+      "scientific_status": "not_executed",
+      "attempts": 1,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_08_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_09_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_10_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_11_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_12_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_13_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_15_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_16_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B",
+      "kind": "P2_source",
+      "state": "partial_checkpoint",
+      "scientific_status": "source_recovery_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/result.mat"
+    },
+    {
+      "id": "P2_source_18_B",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_18_B/result.mat"
+    },
+    {
+      "id": "P1_source_01_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_02_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_03_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_04_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_05_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_06_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_07_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_08_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_09_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_10_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_11_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_12_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_13_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_15_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_16_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_C",
+      "kind": "P2_source",
+      "state": "partial_checkpoint",
+      "scientific_status": "source_orbits_recovered_ancestry_unresolved",
+      "attempts": 3,
+      "phase": "correct",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_C/result.mat"
+    },
+    {
+      "id": "P2_source_18_C",
+      "kind": "P2_source",
+      "state": "partial_checkpoint",
+      "scientific_status": "source_recovery_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_18_C/result.mat"
+    },
+    {
+      "id": "P1_source_19_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_19_A/result.mat"
+    },
+    {
+      "id": "P1_source_20_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_21_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_22_A",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_23_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_23_A/result.mat"
+    },
+    {
+      "id": "P1_source_24_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_24_A/result.mat"
+    },
+    {
+      "id": "P1_source_25_A",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_25_A/result.mat"
+    },
+    {
+      "id": "P2_source_26_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_26_A/result.mat"
+    },
+    {
+      "id": "P2_source_27_A",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_27_A/result.mat"
+    },
+    {
+      "id": "P2_source_28_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_29_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_30_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_31_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_32_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_33_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_34_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_35_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_36_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_37_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_38_A",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_19_B",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_19_B/result.mat"
+    },
+    {
+      "id": "P1_source_20_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_21_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_22_B",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_23_B",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_23_B/result.mat"
+    },
+    {
+      "id": "P1_source_24_B",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_24_B/result.mat"
+    },
+    {
+      "id": "P1_source_25_B",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_25_B/result.mat"
+    },
+    {
+      "id": "P2_source_26_B",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_26_B/result.mat"
+    },
+    {
+      "id": "P2_source_27_B",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_27_B/result.mat"
+    },
+    {
+      "id": "P2_source_28_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_29_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_30_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_31_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_32_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_33_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_34_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_35_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_36_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_37_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_38_B",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_19_C",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_19_C/result.mat"
+    },
+    {
+      "id": "P1_source_20_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_21_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_22_C",
+      "kind": "P1_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_23_C",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_23_C/result.mat"
+    },
+    {
+      "id": "P1_source_24_C",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_24_C/result.mat"
+    },
+    {
+      "id": "P1_source_25_C",
+      "kind": "P1_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 3,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P1_source_25_C/result.mat"
+    },
+    {
+      "id": "P2_source_26_C",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_26_C/result.mat"
+    },
+    {
+      "id": "P2_source_27_C",
+      "kind": "P2_source",
+      "state": "retryable_failure",
+      "scientific_status": "selected_source_neighborhood_unresolved",
+      "attempts": 1,
+      "phase": "executed_signed_sector_trials",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_27_C/result.mat"
+    },
+    {
+      "id": "P2_source_28_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_29_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_30_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_31_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_32_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_33_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_34_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_35_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_36_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_37_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_38_C",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood",
+      "kind": "PIP_candidate",
+      "state": "partial_checkpoint",
+      "scientific_status": "restricted_spectral_candidate_with_executed_daughter_attempts",
+      "attempts": 3,
+      "phase": "continue_daughters",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/result.mat"
+    },
+    {
+      "id": "P2_source_10_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_11_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_12_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_13_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_15_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_16_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_18_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_26_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_27_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_28_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_29_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_30_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_31_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_32_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_33_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_34_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_35_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_36_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_37_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_38_C_BL2_hypothesis",
+      "kind": "P2_source",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_A_column_1_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_A_column_1_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_A_column_2_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_A_column_2_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_measured_flip_BL2_front_hind",
+      "kind": "period_two_sector",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_1_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_1_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_2_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_2_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_3_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_3_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_4_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_4_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_5_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_5_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_6_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_B_column_6_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_n0_measured_flip_BL2_front_hind",
+      "kind": "period_two_sector",
+      "state": "partial_checkpoint",
+      "scientific_status": "period_two_sector_hypothesis_unresolved",
+      "attempts": 1,
+      "phase": "correct",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_n0_measured_flip_BL2_front_hind/result.mat"
+    },
+    {
+      "id": "P1_source_01_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_02_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_03_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_04_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_05_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_06_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_07_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_08_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_09_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_10_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_11_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_12_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_13_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_15_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_16_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_20_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_21_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P1_source_22_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_28_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_29_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_30_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_31_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_32_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_33_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_34_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_35_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_36_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_37_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_38_B_predictor_trace",
+      "kind": "source_predictor_audit",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_1_daughter_1_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_1_daughter_1_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_C_column_1_revision_1_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_17_C_column_1_revision_1_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_1_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_1_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_2_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_2_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_15_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_15_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_28_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_28_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_42_revision_0_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "P2_source_14_A_column_42_revision_0_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_daughter_5_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_daughter_5_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_daughter_6_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_daughter_6_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_1_daughter_5_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_1_daughter_5_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_1_daughter_9_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_1_daughter_9_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "opposed_spread_n0_negative_A1e-3_campaign",
+      "kind": "period_two_sector",
+      "state": "partial_checkpoint",
+      "scientific_status": "restricted_period_two_corrected_branch_checkpoint_attachment_unresolved",
+      "attempts": 2,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/result.mat"
+    },
+    {
+      "id": "opposed_spread_n0_positive_A1e-3_campaign",
+      "kind": "period_two_sector",
+      "state": "partial_checkpoint",
+      "scientific_status": "restricted_period_two_corrected_branch_checkpoint_attachment_unresolved",
+      "attempts": 2,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/opposed_spread_n0_positive_A1e-3_campaign/result.mat"
+    },
+    {
+      "id": "PIP_candidate_1_daughter_10_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_1_daughter_10_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_daughter_10_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_daughter_10_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "n0_positive_front_twisted_common_C1_Broyden_retry",
+      "kind": "period_two_sector",
+      "state": "partial_checkpoint",
+      "scientific_status": "front_twisted_candidate_unresolved",
+      "attempts": 1,
+      "phase": "",
+      "artifact": "Research_v3/next_round/tasks/full/n0_positive_front_twisted_common_C1_Broyden_retry/result.mat"
+    },
+    {
+      "id": "PIP_candidate_2_daughter_1_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_2_daughter_1_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_3_daughter_1_continuation_m1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    },
+    {
+      "id": "PIP_candidate_3_daughter_1_continuation_p1",
+      "kind": "continuation",
+      "state": "pending",
+      "scientific_status": "not_executed",
+      "attempts": 0,
+      "phase": "",
+      "artifact": ""
+    }
+  ],
+  "executed_rounds": [
+    {
+      "round": "A",
+      "distinct_executed_tasks": 19,
+      "task_ids": [
+        "P1_source_01_A",
+        "P1_source_03_A",
+        "P1_source_05_A",
+        "P1_source_07_A",
+        "P2_source_10_A",
+        "P2_source_11_A",
+        "P2_source_12_A",
+        "P2_source_13_A",
+        "P2_source_14_A",
+        "P2_source_15_A",
+        "P2_source_16_A",
+        "P2_source_17_A",
+        "P2_source_18_A",
+        "P1_source_19_A",
+        "P1_source_23_A",
+        "P1_source_24_A",
+        "P1_source_25_A",
+        "P2_source_26_A",
+        "P2_source_27_A"
+      ],
+      "actual_attempts": 19
+    },
+    {
+      "round": "B",
+      "distinct_executed_tasks": 30,
+      "task_ids": [
+        "PIP_candidate_1",
+        "PIP_candidate_2",
+        "PIP_candidate_3",
+        "PK_continuation_m1",
+        "PK_continuation_p1",
+        "restricted_daughter_1_m1",
+        "restricted_daughter_1_p1",
+        "restricted_daughter_2_m1",
+        "restricted_daughter_2_p1",
+        "P1_source_01_B",
+        "P1_source_03_B",
+        "P1_source_05_B",
+        "P1_source_07_B",
+        "P2_source_17_B",
+        "P2_source_18_B",
+        "P1_source_19_B",
+        "P1_source_23_B",
+        "P1_source_24_B",
+        "P1_source_25_B",
+        "P2_source_26_B",
+        "P2_source_27_B",
+        "PIP_PK_low_energy_neighborhood",
+        "P2_source_17_B_predictor_trace",
+        "P2_source_18_B_predictor_trace",
+        "P1_source_19_B_predictor_trace",
+        "P1_source_23_B_predictor_trace",
+        "P1_source_24_B_predictor_trace",
+        "P1_source_25_B_predictor_trace",
+        "P2_source_26_B_predictor_trace",
+        "P2_source_27_B_predictor_trace"
+      ],
+      "actual_attempts": 39
+    },
+    {
+      "round": "C",
+      "distinct_executed_tasks": 17,
+      "task_ids": [
+        "P2_source_17_C",
+        "P2_source_18_C",
+        "P1_source_19_C",
+        "P1_source_23_C",
+        "P1_source_24_C",
+        "P1_source_25_C",
+        "P2_source_26_C",
+        "P2_source_27_C",
+        "PIP_n0_measured_flip_BL2_front_hind",
+        "opposed_spread_n0_negative_A1e-3_campaign",
+        "opposed_spread_n0_positive_A1e-3_campaign",
+        "n0_positive_front_twisted_common_C1_Broyden_retry",
+        "imported_PK_to_low_PIP_daughter_negative_0p01",
+        "PIP_candidate_1_attachment_accuracy_repair_plus_0.0003",
+        "PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003",
+        "PIP_candidate_1_attachment_accuracy_repair_plus_0.0003_revision02",
+        "PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003_revision02"
+      ],
+      "actual_attempts": 23
+    }
+  ],
+  "branch_coverage": [
+    {
+      "id": "PK_continuation_m1",
+      "state": "partial_checkpoint",
+      "accepted_records": 23,
+      "new_point_records": 3,
+      "energy_interval": [
+        1.1171142328164629,
+        1.1228083252449503
+      ],
+      "mean_speed_interval": [
+        -0.0072172774247633922,
+        0.10839525245491387
+      ],
+      "artifact": "Research_v3/next_round/tasks/full/PK_continuation_m1/result.mat"
+    },
+    {
+      "id": "PK_continuation_p1",
+      "state": "partial_checkpoint",
+      "accepted_records": 22,
+      "new_point_records": 1,
+      "energy_interval": [
+        1.1171389428139562,
+        1.1240615033324497
+      ],
+      "mean_speed_interval": [
+        -0.11972688231853468,
+        -0.0072172774247633922
+      ],
+      "artifact": "Research_v3/next_round/tasks/full/PK_continuation_p1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_1_m1",
+      "state": "partial_checkpoint",
+      "accepted_records": 2,
+      "new_point_records": 1,
+      "energy_interval": [
+        1.555185486438313,
+        1.5551860572921048
+      ],
+      "mean_speed_interval": [
+        -0.006485473740569658,
+        0.0065762925293716863
+      ],
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_1_m1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_1_p1",
+      "state": "partial_checkpoint",
+      "accepted_records": 2,
+      "new_point_records": 1,
+      "energy_interval": [
+        1.555185486438313,
+        1.5553491065802754
+      ],
+      "mean_speed_interval": [
+        -0.019547468135960287,
+        -0.006485473740569658
+      ],
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_1_p1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_2_m1",
+      "state": "partial_checkpoint",
+      "accepted_records": 2,
+      "new_point_records": 1,
+      "energy_interval": [
+        1.695968139922106,
+        1.6959686464274961
+      ],
+      "mean_speed_interval": [
+        -0.0059547257219662482,
+        0.006041262719927336
+      ],
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_2_m1/result.mat"
+    },
+    {
+      "id": "restricted_daughter_2_p1",
+      "state": "partial_checkpoint",
+      "accepted_records": 2,
+      "new_point_records": 1,
+      "energy_interval": [
+        1.695968139922106,
+        1.696108067356614
+      ],
+      "mean_speed_interval": [
+        -0.017950849386810245,
+        -0.0059547257219662482
+      ],
+      "artifact": "Research_v3/next_round/tasks/full/restricted_daughter_2_p1/result.mat"
+    }
+  ],
+  "pip_candidates": [
+    {
+      "id": "PIP_candidate_1",
+      "phase": "continue_daughters",
+      "critical_energy": 1.0616850275068086,
+      "accepted_signed_daughter_records": 10,
+      "attachment_status": "candidate_only",
+      "state": "partial_checkpoint",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/result.mat"
+    },
+    {
+      "id": "PIP_candidate_2",
+      "phase": "correct_daughters",
+      "critical_energy": 2.5421256876702123,
+      "accepted_signed_daughter_records": 1,
+      "attachment_status": "not_yet_evaluated",
+      "state": "partial_checkpoint",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_2/result.mat"
+    },
+    {
+      "id": "PIP_candidate_3",
+      "phase": "correct_daughters",
+      "critical_energy": 2.742575708929035,
+      "accepted_signed_daughter_records": 1,
+      "attachment_status": "not_yet_evaluated",
+      "state": "partial_checkpoint",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_3/result.mat"
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood",
+      "phase": "continue_daughters",
+      "critical_energy": 1.1171137022972106,
+      "accepted_signed_daughter_records": 10,
+      "attachment_status": "candidate_only",
+      "state": "partial_checkpoint",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/result.mat"
+    }
+  ],
+  "attachment_accuracy_repairs": [
+    {
+      "id": "PIP_candidate_1_attachment_accuracy_repair_plus_0.0003",
+      "source_task_id": "PIP_candidate_1",
+      "state": "unresolved_obstruction",
+      "scientific_status": "accuracy_repair_not_yet_supporting_attachment",
+      "attachment_status": "candidate_only",
+      "original_attachment_status": "candidate_only",
+      "physically_accepted": false,
+      "domain_accepted": false,
+      "original_records_modified": false,
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1_attachment_accuracy_repair_plus_0.0003/result.mat"
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003",
+      "source_task_id": "PIP_PK_low_energy_neighborhood",
+      "state": "unresolved_obstruction",
+      "scientific_status": "accuracy_repair_not_yet_supporting_attachment",
+      "attachment_status": "candidate_only",
+      "original_attachment_status": "candidate_only",
+      "physically_accepted": false,
+      "domain_accepted": false,
+      "original_records_modified": false,
+      "artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003/result.mat"
+    },
+    {
+      "id": "PIP_candidate_1_attachment_accuracy_repair_plus_0.0003_revision02",
+      "source_task_id": "PIP_candidate_1",
+      "state": "accepted",
+      "scientific_status": "numerically_supported_restricted_attachment",
+      "attachment_status": "numerically_supported_restricted_attachment",
+      "original_attachment_status": "candidate_only",
+      "physically_accepted": true,
+      "domain_accepted": true,
+      "original_records_modified": false,
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1_attachment_accuracy_repair_plus_0.0003_revision02/result.mat"
+    },
+    {
+      "id": "PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003_revision02",
+      "source_task_id": "PIP_PK_low_energy_neighborhood",
+      "state": "accepted",
+      "scientific_status": "numerically_supported_restricted_attachment",
+      "attachment_status": "numerically_supported_restricted_attachment",
+      "original_attachment_status": "candidate_only",
+      "physically_accepted": true,
+      "domain_accepted": true,
+      "original_records_modified": false,
+      "artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003_revision02/result.mat"
+    }
+  ],
+  "branch_identity_bridges": {
+    "id": "imported_PK_to_low_PIP_daughter_negative_0p01",
+    "state": "accepted",
+    "scientific_status": "local_numerical_PK_connection_and_endpoint_identity_supported",
+    "new_continuation_increments": 4,
+    "local_numerical_connection_supported": true,
+    "rigorous_ancestry_claimed": false,
+    "artifact": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/result.mat"
+  },
+  "files_over_100000000_bytes": [],
+  "maximum_working_file": {
+    "path": "SLIP_Quadruped_v3/Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat",
+    "bytes": 1.8015528E+7
+  },
+  "working_file_count": 6421,
+  "solver_gate_artifact": "Research_v3/next_round/solver/solver_validation_summary.mat",
+  "working_files_fit_github_limit": true
+}

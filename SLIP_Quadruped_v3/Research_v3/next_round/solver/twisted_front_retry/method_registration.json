@@ -1,0 +1,246 @@
+{
+  "schema_version": "prospective-native-front-twisted-retry-v3-1",
+  "registered_utc": "07-Oct-2026 15:04:50",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "method": "front-twisted-BL1-common-C1-Broyden-retry",
+  "candidates": {
+    "id": "n0_positive_front_twisted_common_C1_Broyden_retry",
+    "candidate_artifact": "Research_v3/next_round/solver/twisted_front_retry/front_retry_candidate.mat",
+    "candidate_variable": "candidate",
+    "candidate_sha256": "7d135bae2a1903d5457404b76f3f78bb4191c0f74a7e3d4d85e540015c9f532e",
+    "chart_audit": "Research_v3/next_round/solver/twisted_return/Broyden_metadata_gate.json",
+    "method": "front-twisted-BL1-common-C1-Broyden-retry",
+    "method_registration": "Research_v3/next_round/solver/twisted_front_retry/method_registration.json"
+  },
+  "source_hashes": [
+    {
+      "path": "Orbit_v3/TwistedReturnFamilyResidual_v3.m",
+      "sha256": "35eb62758f789af822e429b503e2f29108ef7d0371832fa8a62146ead43875fb"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Numerics_v3/EventOrderChartJacobian_v3.m",
+      "sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RunTwistedFrontRetry_v3.m",
+      "sha256": "618c0eb7d39030eb0558c765e050ff3250c5694737c1529b61c769a9726d322f"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RegisterTwistedFrontRetry_v3.m",
+      "sha256": "d2f8b87f7eb9f3790869ed06138bcfddd2b9773702fa115c16dd919898eb25b1"
+    }
+  ],
+  "canonical_gate": "Research_v3/next_round/solver/solver_validation_summary.json",
+  "canonical_gate_sha256": "ed8bcf30eb61ba75588bcab3f57778cab6dbac1afe57fe5394ebd154217dae07",
+  "canonical_source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    }
+  ],
+  "metadata_gate": "Research_v3/next_round/solver/twisted_return/Broyden_metadata_gate.json",
+  "metadata_gate_sha256": "8111343f5fae00925411282f411355f5023180cd891a074ca48a5602134f9b9f",
+  "original_pilot": "Research_v3/next_round/solver/twisted_return/pilot.mat",
+  "original_pilot_sha256": "690e085bf79d0069cfb2dc69b84c565e996bc8d904964c12a485bf2da5ff1809",
+  "original_source_hashes": [
+    {
+      "path": "Orbit_v3/TwistedReturnFamilyResidual_v3.m",
+      "sha256": "af9322e1a67c453407be7620dcfe7e35c2ed49963f0f97def3efcd2540ecd149"
+    },
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "d00a3dda192b48de61fc6fe14d331c9564899af221454e7410958c6765419369"
+    },
+    {
+      "path": "Numerics_v3/EventOrderChartJacobian_v3.m",
+      "sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    }
+  ],
+  "original_physical_engine_hashes": [
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    }
+  ],
+  "production_model_audit_registration": "Research_v3/next_round/opposed_spread_period_two_registration.json",
+  "physical_model_hashes": [
+    {
+      "path": "Dynamics_v3/ContinuousDynamics_v3.m",
+      "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+    },
+    {
+      "path": "Dynamics_v3/GuardFunctions_v3.m",
+      "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+    },
+    {
+      "path": "Dynamics_v3/ResetMap_v3.m",
+      "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+    },
+    {
+      "path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+      "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+      "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+    },
+    {
+      "path": "Orbit_v3/GaitIdentification_v3.m",
+      "sha256": "c7afe94e320f1df1a4f0b17cdcadb96c7ccad945a28a5d6609491fd221efb7e3"
+    },
+    {
+      "path": "Orbit_v3/PrimitiveCycleCheck_v3.m",
+      "sha256": "6449c29aa22f2685de9c3ebe5d3c70199cabbc775c01ebd4dfa2a3a6536fdb6e"
+    }
+  ],
+  "epoch_qualification": "Original pilot recorded the three engine hashes above; additional production model hashes come from the completed later actual-model audit, not retroactive original-pilot hashes.",
+  "integration": {
+    "RelTol": 1E-11,
+    "AbsTol": 1E-13,
+    "MaxStep": 0.005
+  },
+  "replay_integration": {
+    "RelTol": 1E-12,
+    "AbsTol": 1E-14,
+    "MaxStep": 0.0025
+  },
+  "acceptance": {
+    "FullClosureTolerance": 1E-8,
+    "EnergyTolerance": 1E-8,
+    "ConstraintTolerance": 1E-8,
+    "StanceTolerance": 1E-8,
+    "PrimitiveStateTolerance": 1E-7,
+    "PrimitiveEventTolerance": 1E-7,
+    "MaxCover": 8,
+    "RequirePrimitive": true
+  },
+  "constraint": {
+    "reference": [
+      0,
+      1.0616850275068086,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1.0616850275068086
+    ],
+    "normal": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.012416320851189938,
+      0.70699776164887562,
+      -0.012416320851189938,
+      -0.70699776164887562,
+      0
+    ],
+    "target": 0.001
+  },
+  "fd_relative_candidate_steps": [
+    0.0003,
+    0.0001
+  ],
+  "fd_maximum_relative_error": 0.01,
+  "fd_use_richardson": false,
+  "maximum_correction_wall_seconds": 480,
+  "maximum_newton_iterations": 25,
+  "maximum_function_evaluations": 1000,
+  "initial_J_reuse": false,
+  "CommonC1BroydenMetadata": true,
+  "Jacobian_refresh_accepted_steps": 5,
+  "function_tolerance": 1E-11,
+  "residual_acceptance_tolerance": 1E-10,
+  "diagnosis": "Original second FD exhausted its slice after raw TD cluster merging invalidated Broyden; actual regular C1 chart permits verified compatibility normalization.",
+  "Newton_policy": "Actual BL1 twisted return with fresh full13D derivative, frozen signed amplitude and free internal E.",
+  "acceptance_policy": "Actual physical BL2 orbit and new tighter shared-service replay; unchanged full-state/energy/stance/primitive gates.",
+  "standalone_preparation_only": true,
+  "active_queue_modified": false,
+  "numerics_executed": false,
+  "acceptance_tolerances_changed": false,
+  "target_gait_claimed": false,
+  "ancestry_claimed": false,
+  "unrestricted_C2_claimed": false
+}

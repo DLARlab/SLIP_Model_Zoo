@@ -1,0 +1,13 @@
+{
+  "schema_version": "prospective-adaptive-continuation-v3-1",
+  "registered_utc": "07-Oct-2026 12:15:52",
+  "validation_initial_step": 0.003,
+  "validation_maximum_step": 0.02,
+  "first_full_step_after_validated_resume": 0.02,
+  "first_full_maximum_step": 0.05,
+  "subsequent_batch_growth": 1.5,
+  "full_maximum_step": 0.1,
+  "minimum_recovery_step": 1E-6,
+  "acceptance_tolerances_changed": false,
+  "semantics": "Larger prospective arc steps after checked resume; failed corrections replay/chart/tangent shrink inside production recovery."
+}

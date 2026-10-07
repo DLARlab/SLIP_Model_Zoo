@@ -1,0 +1,166 @@
+{
+  "schema_version": "repaired-source-flow-audit-v3-1",
+  "state": "accepted",
+  "scientific_status": "repaired_predictor_flow_diagnosis_executed",
+  "source_task": "P2_source_17_B",
+  "observation_indices": [
+    1,
+    2,
+    3
+  ],
+  "next_index": 4,
+  "cases": [
+    {
+      "column": 1,
+      "execution_success": true,
+      "completed_physical_samples": 977,
+      "actual_events": [
+        {
+          "type": "BL_TD",
+          "time": 0.48397154010579246
+        },
+        {
+          "type": "BR_TD",
+          "time": 0.48397154010579246
+        },
+        {
+          "type": "FL_TD",
+          "time": 0.48397154010579246
+        },
+        {
+          "type": "FR_TD",
+          "time": 0.48397154010579246
+        },
+        {
+          "type": "BL_LO",
+          "time": 1.0805486742745902
+        },
+        {
+          "type": "BR_LO",
+          "time": 1.0805486742745902
+        },
+        {
+          "type": "FL_LO",
+          "time": 1.0805486742745902
+        },
+        {
+          "type": "FR_LO",
+          "time": 1.0805486742745902
+        }
+      ],
+      "first_physical_failure": {},
+      "first_event_discrepancy": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "artifact": "column_00001_repaired_predictor_trace.mat",
+      "accepted_periodic_solution": false
+    },
+    {
+      "column": 2,
+      "execution_success": true,
+      "completed_physical_samples": 989,
+      "actual_events": [
+        {
+          "type": "BL_TD",
+          "time": 0.48397177629882449
+        },
+        {
+          "type": "BR_TD",
+          "time": 0.48397177629882449
+        },
+        {
+          "type": "FL_TD",
+          "time": 0.48397177629882449
+        },
+        {
+          "type": "FR_TD",
+          "time": 0.48397177629882449
+        },
+        {
+          "type": "BL_LO",
+          "time": 1.0805472630562862
+        },
+        {
+          "type": "BR_LO",
+          "time": 1.0805472630562862
+        },
+        {
+          "type": "FL_LO",
+          "time": 1.0805472630562862
+        },
+        {
+          "type": "FR_LO",
+          "time": 1.0805472630562862
+        }
+      ],
+      "first_physical_failure": {},
+      "first_event_discrepancy": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "artifact": "column_00002_repaired_predictor_trace.mat",
+      "accepted_periodic_solution": false
+    },
+    {
+      "column": 3,
+      "execution_success": true,
+      "completed_physical_samples": 1069,
+      "actual_events": [
+        {
+          "type": "BL_TD",
+          "time": 0.48398159061770613
+        },
+        {
+          "type": "BR_TD",
+          "time": 0.48398159061770613
+        },
+        {
+          "type": "FL_TD",
+          "time": 0.48398159061770613
+        },
+        {
+          "type": "FR_TD",
+          "time": 0.48398159061770613
+        },
+        {
+          "type": "BL_LO",
+          "time": 1.0804886111050065
+        },
+        {
+          "type": "BR_LO",
+          "time": 1.0804886111050065
+        },
+        {
+          "type": "FL_LO",
+          "time": 1.0804886111050065
+        },
+        {
+          "type": "FR_LO",
+          "time": 1.0804886111050065
+        }
+      ],
+      "first_physical_failure": {},
+      "first_event_discrepancy": {
+        "found": false,
+        "cluster_index": null,
+        "scheduled": {},
+        "actual": {},
+        "time_difference": null,
+        "reason": ""
+      },
+      "artifact": "column_00003_repaired_predictor_trace.mat",
+      "accepted_periodic_solution": false
+    }
+  ],
+  "new_points": 0,
+  "function_evaluations": 0
+}

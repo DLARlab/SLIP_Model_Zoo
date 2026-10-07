@@ -1,0 +1,22 @@
+function state=RecordResearchInterruption_v3(taskId,stoppedUTC,reason,profile)
+%RECORDRESEARCHINTERRUPTION_V3 Recover accounting after a process-level stop.
+% STOPPEDUTC is external execution evidence, not the later resume timestamp.
+    if nargin<4,profile='full';end
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));folder=fullfile(v3,'Research_v3','next_round');
+    file=fullfile(folder,['checkpoint_',profile,'.mat']);loaded=load(file,'state');state=loaded.state;
+    index=find(strcmp({state.tasks.id},taskId),1);
+    if isempty(index)||~strcmp(state.tasks(index).state,'running')
+        error('RecordResearchInterruption_v3:Task','Only an unfinalized running task can receive interruption accounting.');
+    end
+    start=datetime(state.tasks(index).started_utc,'TimeZone','UTC');finish=datetime(stoppedUTC,'TimeZone','UTC');
+    elapsed=seconds(finish-start);if elapsed<0,error('RecordResearchInterruption_v3:Time','Stop time precedes start.');end
+    state.tasks(index).state='external_interruption';state.tasks(index).execution_completed=false;
+    state.tasks(index).wall_seconds=state.tasks(index).wall_seconds+elapsed;
+    state.tasks(index).finished_utc=char(finish);state.tasks(index).message=char(reason);
+    state.numerical_wall_seconds=state.numerical_wall_seconds+elapsed;state.status='external_interruption';
+    RoundSave_v3(file,struct('state',state));RoundJSON_v3(fullfile(folder,['task_queue_',profile,'.json']),state);
+    record=struct('utc',char(datetime('now','TimeZone','UTC')),'task_id',taskId, ...
+        'started_utc',state.tasks(index).started_utc,'stopped_utc',char(finish), ...
+        'charged_wall_seconds',elapsed,'reason',char(reason),'phase_checkpoint_preserved',true);
+    RoundJSON_v3(fullfile(folder,['interruption_',taskId,'.json']),record);
+end

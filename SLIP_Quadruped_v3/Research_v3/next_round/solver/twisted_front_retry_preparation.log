@@ -1,0 +1,52 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+         id: 'ALIGN'
+    message: 'This keyword might not be aligned with its matching END on line 61.'
+        fix: 0
+       line: 59
+     column: [42 44]
+
+         id: 'ALIGN'
+    message: 'This keyword might not be aligned with its matching END on line 14.'
+        fix: 0
+       line: 11
+     column: [25 27]
+
+                  Algorithm: 'newton'
+              MaxIterations: 25
+     MaxFunctionEvaluations: 1000
+                   Jacobian: [1×1 EventOrderChartJacobian_v3]
+                 UseBroyden: 1
+    JacobianRefreshInterval: 5
+
+                     StopCondition: []
+               ProcessGuardsAtStop: 0
+                   RecordStopEvent: 1
+                     FailurePolicy: 'throw'
+                         MaxEvents: 1000
+                   MaxEventBatches: 1000
+                 MaxZeroTimeEvents: 32
+                        ODEOptions: [1×1 struct]
+                         ODESolver: @ode45
+                            RelTol: 1.0000e-11
+                            AbsTol: 1.0000e-13
+                           MaxStep: 0.0050
+               EventValueTolerance: 1.0000e-08
+                EventTimeTolerance: 1.0000e-10
+         SimultaneousTimeTolerance: 1.0000e-08
+    DirectionalDerivativeTolerance: 1.0000e-10
+                    DerivativeStep: 1.0000e-07
+                   ArmingTolerance: 1.0000e-09
+                      InteriorBias: 1.0000e-09
+
+       FullClosureTolerance: 1.0000e-08
+            EnergyTolerance: 1.0000e-08
+        ConstraintTolerance: 1.0000e-08
+            StanceTolerance: 1.0000e-08
+    PrimitiveStateTolerance: 1.0000e-07
+    PrimitiveEventTolerance: 1.0000e-07
+                   MaxCover: 8
+           RequirePrimitive: 1
+

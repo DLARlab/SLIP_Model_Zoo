@@ -1,0 +1,70 @@
+{
+  "schema_version": "restricted-proof-scope-and-link-review-v3-1",
+  "created_utc": "07-Oct-2026 17:05:31",
+  "documents": [
+    {
+      "document": "Docs_v3/Restricted_Odd_Quarter_PIP_Existence_v3.md",
+      "sha256": "9e942e7a21f74e234eb54f1264eadfe89d58e2ab1642b6320d7d4f093ab0cf16",
+      "markdown_links": 7
+    },
+    {
+      "document": "Docs_v3/Restricted_PIP_Opposed_Spread_Period_Two_v3.md",
+      "sha256": "9fd849bec2fff9c83d51b7225dc22ca670bdb8f0da560ed71dc9de44f5c6b679",
+      "markdown_links": 21
+    },
+    {
+      "document": "Docs_v3/Low_Energy_PIP_Critical_Independent_Audit_v3.md",
+      "sha256": "c5eb6d159671ec1faf4f9531e44b1230c32f82b239bd2c6a2e3a6649d79aa901",
+      "markdown_links": 10
+    },
+    {
+      "document": "Docs_v3/Restricted_PIP_Parent_Variational_Map_v3.md",
+      "sha256": "f0048a092a8e7b89b55cb1cc2cc4c4ecc4d1e5a1487efcb83f1f4aeff0e04ca0",
+      "markdown_links": 0
+    },
+    {
+      "document": "Docs_v3/Next_Round_Mathematical_Audit_v3.md",
+      "sha256": "511c2301898424360637216217a9e55fe9b55ddbbde49279e8006f89b60c5a2f",
+      "markdown_links": 50
+    },
+    {
+      "document": "Docs_v3/Low_Energy_PK_Bridge_Experiment_v3.md",
+      "sha256": "5a22b834f32ad3e1031b6a4244296c7ee25c8475de0db94843675ed049617e19",
+      "markdown_links": 7
+    },
+    {
+      "document": "Docs_v3/Restricted_Existence_Final_Scientific_Review_v3.md",
+      "sha256": "1eb08dda010e44cbd5f62b03a9aaceee05d29b9d0c23d6f579393c1329936b75",
+      "markdown_links": 16
+    }
+  ],
+  "local_links_checked": 102,
+  "missing_local_links": [],
+  "external_primary_links": [
+    "https://arxiv.org/html/1407.1775v3",
+    "https://arxiv.org/html/2306.06862v3",
+    "https://jxshix.people.wm.edu/2013-taiwan/crandall-rabinowitz-1971-JFA.pdf",
+    "https://www.mathworks.com/help/matlab/math/ode-event-location.html",
+    "https://www.mathworks.com/help/matlab/ref/odeset.html"
+  ],
+  "external_links_not_filesystem_checked": true,
+  "exact_odd_quarter_energies_n0_n1_n2": [
+    1.0616850275068086,
+    1.5551652475612765,
+    2.5421256876702123
+  ],
+  "additional_numerical_candidates": [
+    1.1171137022972106,
+    1.6959508361671367
+  ],
+  "numerical_candidate2_is_exact_n2": false,
+  "unrestricted_C2_supplied_by_restricted_proofs": false,
+  "named_low_root_interval_certified": false,
+  "opposite_signed_standing_states_are_half_period_phases": true,
+  "automatic_requested_B2_F2_H2_G2_assignment": false,
+  "final_campaign_snapshot_reviewed": false,
+  "new_maps": 0,
+  "new_simulations": 0,
+  "elapsed_seconds": 0.0369995,
+  "passed": true
+}

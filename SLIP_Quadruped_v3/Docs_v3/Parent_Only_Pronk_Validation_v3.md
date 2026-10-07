@@ -292,7 +292,7 @@ or global network connectivity follows from them. The unrefined brackets near
 `[2.46669,2.60002]` and `[2.73335,2.86667]`, tangent/even-multiplicity crossings,
 and possible additional cycles remain unresolved.
 
-The authoritative stage report is `Research_v3/runs/full/pip_pk_local.json`;
+The authoritative stage report is `P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pip_pk_local.json`;
 `pip_pk_local_independent_audit.mat` stores the independent matrix/trajectory
 audit. Separate `pronk_history_audit_*.mat` companions store corrected diagnostics
 without editing the source orbit artifacts. Pre-audit reports remain under

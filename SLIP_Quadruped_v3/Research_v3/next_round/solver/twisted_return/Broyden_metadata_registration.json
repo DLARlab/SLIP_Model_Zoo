@@ -1,0 +1,11 @@
+{
+  "schema_version": "prospective-front-C1-Broyden-metadata-gate-v3-1",
+  "frozen_utc": "07-Oct-2026 14:44:53",
+  "adapter_sha256": "35eb62758f789af822e429b503e2f29108ef7d0371832fa8a62146ead43875fb",
+  "helper_sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d",
+  "source_pilot_sha256": "690e085bf79d0069cfb2dc69b84c565e996bc8d904964c12a485bf2da5ff1809",
+  "scope": "Metadata-only optional compatibility on verified real one-BL trajectories; no correction or physical replay in this gate.",
+  "negative_control": "Remove the actual event history; normalization must be rejected and raw signatures preserved.",
+  "acceptance_tolerances_changed": false,
+  "new_correction_claimed": false
+}

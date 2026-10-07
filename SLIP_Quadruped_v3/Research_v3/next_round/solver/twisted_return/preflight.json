@@ -1,0 +1,10 @@
+{
+  "initial_twisted_norm": 5.2677620115894504E-8,
+  "initial_ordinary_BL1_closure": 0.0014140481739000972,
+  "front_swap_equivariance_error": 5.082197683525802E-21,
+  "energy_invariance_error": 0,
+  "actual_one_return_occurrence": 1,
+  "actual_finalization_map_occurrence": 2,
+  "amplitude_equation_error": 0,
+  "nonperiodic_objective_valid": true
+}

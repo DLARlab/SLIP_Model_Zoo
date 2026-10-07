@@ -1,0 +1,8 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Starting imported_PK full physical Floquet wrapper at tighter ODE and FD settings
+imported_PK wrapper passed1 12D radius1.00000004591 11D radius0.999996455045 refine9.31e-09 energy-leak6.24e-10 49 maps 191.1s
+Starting PIP full physical Floquet wrapper at tighter ODE and FD settings
+PIP wrapper passed1 12D radius3.43292764858 11D radius3.43292764858 refine3.09e-08 energy-leak1.73e-10 49 maps 241.3s

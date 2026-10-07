@@ -1,0 +1,15 @@
+{
+  "schema_version": "post-segment-targeted-method-integration-v3-1",
+  "registered_utc": "07-Oct-2026 16:48:55",
+  "maps_executed": 0,
+  "diagnosis": "A final MaxTasks-limited call can leave counters beyond the true budget without the next loop check; an export-only call also resets status to running.",
+  "repair": "Prioritize cumulative wall/evaluation exhaustion at the end of every invocation; preserve counters and task/phase scientific states.",
+  "physical_model_or_acceptance_changed": false,
+  "total_budget_changed": false,
+  "previous_main_sha256": "be7358b62cbb128cb12425624b49b3e19021c0f6459a2dd880de4a22dda8c58f",
+  "current_main_sha256": "771cb18272cba65fdbd0c0b9bc2011e75b72fb7e0219ef6834a51d348664d3ad",
+  "previous_export_sha256": "dcd05a5e20f5bded136ebc4bbf6beb37a61033a4ba530eca63efebcb3105106e",
+  "current_export_sha256": "165eb9b9eb923cbb4c8e7dd77c7d545e3b4d4e2a2c62e64f1e222410afc5e0de",
+  "previous_target_loader_sha256": "01b7c5b4aa08a5745a47580ba2a907b320d96dd2837a70a789d0da1a134ca6b8",
+  "current_target_loader_sha256": "cb00c5aec988e08bce375a6cea794a9f17c1b341b04c35972425ffd407547e67"
+}

@@ -1,0 +1,56 @@
+function report=RoundProtection_v3(action)
+%ROUNDPROTECTION_V3 Fresh starting-checkout protection, including added files.
+% The existing shell manifest records pre-existing working changes. Importing
+% it does not reset that baseline; a new baseline is captured only if absent.
+    if nargin<1,action='verify';end
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));repo=fileparts(v3);
+    folder=fullfile(v3,'Research_v3','next_round','baseline');if ~isfolder(folder),mkdir(folder);end
+    baselineFile=fullfile(folder,'protected_manifest.mat');
+    if ~isfile(baselineFile)
+        shellFile=fullfile(folder,'protected_files.sha256');
+        if isfile(shellFile)
+            lines=splitlines(string(fileread(shellFile)));records=struct('path',{},'sha256',{});
+            for k=1:numel(lines)
+                token=regexp(char(lines(k)),'^([0-9a-f]{64})  \./(.*)$','tokens','once');
+                if isempty(token),continue;end
+                records(end+1)=struct('path',token{2},'sha256',token{1}); %#ok<AGROW>
+            end
+            origin='imported fresh initial shell SHA baseline including working changes';
+        else
+            paths=protectedPaths(repo);records=struct('path',{},'sha256',{});
+            for k=1:numel(paths),records(k)=struct('path',paths{k},'sha256',RoundSHA256_v3(fullfile(repo,paths{k})));end
+            origin='fresh MATLAB capture';
+        end
+        baseline=struct('schema_version','fresh-protection-v3-1','origin',origin, ...
+            'created_utc',char(datetime('now','TimeZone','UTC')),'records',records);
+        save(baselineFile,'baseline','-v7');RoundJSON_v3(fullfile(folder,'protected_manifest.json'),baseline);
+    end
+    loaded=load(baselineFile,'baseline');baseline=loaded.baseline;
+    paths=protectedPaths(repo);expected={baseline.records.path};
+    report=struct('schema_version','fresh-protection-v3-1','action',char(action), ...
+        'checked_utc',char(datetime('now','TimeZone','UTC')),'baseline_count',numel(expected), ...
+        'current_count',numel(paths),'added',{setdiff(paths,expected)}, ...
+        'missing',{setdiff(expected,paths)},'changed',{{}},'passed',false);
+    for k=1:numel(baseline.records)
+        rec=baseline.records(k);file=fullfile(repo,rec.path);
+        if isfile(file)&&~strcmp(RoundSHA256_v3(file),rec.sha256)
+            report.changed{end+1}=rec.path;
+        end
+    end
+    report.passed=isempty(report.added)&&isempty(report.missing)&&isempty(report.changed);
+    RoundJSON_v3(fullfile(folder,'protected_verification.json'),report);
+    if ~report.passed,error('RoundProtection_v3:Violation','Protected paths changed, missing, or newly added. Inspect fresh verification.');end
+end
+function paths=protectedPaths(repo)
+    paths=walk(repo,'');paths=sort(paths);
+end
+function paths=walk(root,prefix)
+    listing=dir(fullfile(root,prefix));paths={};
+    for k=1:numel(listing)
+        name=listing(k).name;if any(strcmp(name,{'.','..','.git'})),continue;end
+        relative=fullfile(prefix,name);
+        if isempty(prefix)&&strcmp(name,'SLIP_Quadruped_v3'),continue;end
+        if listing(k).isdir,paths=[paths,walk(root,relative)]; %#ok<AGROW>
+        else,paths{end+1}=strrep(relative,filesep,'/');end %#ok<AGROW>
+    end
+end

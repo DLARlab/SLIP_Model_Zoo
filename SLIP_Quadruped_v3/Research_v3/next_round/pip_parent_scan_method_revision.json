@@ -1,0 +1,30 @@
+{
+  "schema_version": "prospective-PIP-scan-method-revision-v3-1",
+  "registered_utc": "07-Oct-2026 12:53:42",
+  "measured_obstacle": "Several240s slices reached only coarse parent sampling or a few bisections.",
+  "method": "Analytic vertical orbit plus integrated2x2 stance variational fundamental matrix for identify/refine only.",
+  "validated_energy_interval": [
+    1.0001,
+    3
+  ],
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "helper_sha256": "2a3c67d2ca8099d772a850c093bfccec7dbdbd2bf7c5e50e5b85578544c4136c",
+  "independent_gate": "Research_v3/next_round/solver/pip_analytic_audit.mat",
+  "maximum_fresh_FD_comparison_error": 3.4968345647293856E-9,
+  "critical_subspace_validation": "Three actual production return-map FD steps retained.",
+  "transversality_validation": "Four actual production return-map FD matrices retained.",
+  "daughter_acceptance": "Shared constrained correction and independent tighter physical replay unchanged.",
+  "acceptance_tolerances_changed": false,
+  "evaluation_counter_scope": "Return-map/root-residual evaluations; variational RHS work is charged by measured wall time."
+}

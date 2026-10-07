@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+[Warning: Variable 'replayOrbit' not found.] 
+[> In MATLABCompareNextRoundBranches_v3/readDaughter (line 104)
+In MATLABCompareNextRoundBranches_v3 (line 22)] 
+{Unrecognized field name "id".
+
+Error in MATLABCompareNextRoundBranches_v3/addPoint (line 135)
+        g=find(strcmp({groups.id},id),1);
+                       ^^^^^^^^^
+Error in MATLABCompareNextRoundBranches_v3/readDaughter (line 114)
+        addPoint(id,scope,orbit,path,1);
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in MATLABCompareNextRoundBranches_v3 (line 22)
+        readDaughter(path,['full_',id,'_amplitude_samples'],'full-task corrected signed daughters',false);
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

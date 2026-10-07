@@ -1,0 +1,12 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                     id: 'n0_positive_front_twisted_common_C1_Broyden_retry'
+     candidate_artifact: 'Research_v3/next_round/solver/twisted_front_retry_02/front_retry_candidate.mat'
+     candidate_variable: 'candidate'
+       candidate_sha256: 'ab021c96c71bc6898e16b375f499587df0786e54b2c10ab08f02d5e95f68bf33'
+            chart_audit: 'Research_v3/next_round/solver/twisted_return/Broyden_metadata_gate.json'
+                 method: 'front-twisted-BL1-common-C1-Broyden-retry'
+    method_registration: 'Research_v3/next_round/solver/twisted_front_retry_02/method_registration.json'
+

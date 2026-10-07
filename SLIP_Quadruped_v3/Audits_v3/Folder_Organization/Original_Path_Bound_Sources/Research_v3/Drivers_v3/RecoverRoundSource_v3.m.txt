@@ -1,0 +1,425 @@
+function result=RecoverRoundSource_v3(task,cfg,outputDirectory,maxWallSeconds,study)
+%RECOVERROUNDSOURCE_V3 Conversion, diagnostic replay, correction and retry.
+% Each mapped seed is saved before any replay/chart/physics call can throw.
+% RoundA samples geometry-ranked representatives; B adds neighboring columns
+% and explicit stance-manifold retraction; C releases paired restrictions and
+% samples denser source neighborhoods/return occurrences. All changes are
+% separately recorded. No invalid integration is converted into a residual.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    if ~isfield(task,'repair_revision'),task.repair_revision=0;end
+    if ~isfield(task,'repair_log'),task.repair_log={};end
+    outputDirectory=V3OutputPath_v3(outputDirectory);if ~isfolder(outputDirectory),mkdir(outputDirectory);end
+    loaded=load(fullfile(v3,'Research_v3','next_round','source_inventory.mat'),'inventory');inventory=loaded.inventory;
+    rec=inventory.records(task.fixture_index);variable=rec.variables(1);
+    letter=char(task.repair_round);roundIndex=find('ABC'==letter,1);
+    if isempty(roundIndex),error('RecoverRoundSource_v3:Round','Unknown repair round.');end
+    checkpoint=fullfile(outputDirectory,'source_checkpoint.mat');timer=tic;sliceClock=tic;
+    if isfile(checkpoint)
+        saved=load(checkpoint,'result');result=saved.result;
+        if ~isfield(result,'last_repair_revision'),result.last_repair_revision=0;end
+        if task.repair_revision>result.last_repair_revision
+            result.next_column_index=1;result.last_repair_revision=task.repair_revision;
+            result.diagnosed_repairs=task.repair_log;
+        end
+    else
+        columns=selectColumns(variable,cfg.budgets.fixture_columns_per_repair_round(roundIndex),roundIndex);
+        result=struct('schema_version','source-correction-round-v3-1','state','running', ...
+            'scientific_status','source_recovery_unresolved','study',study,'repair_round',letter, ...
+            'source',rec.source,'variable',variable.variable,'selected_columns',columns, ...
+            'next_column_index',1,'observations',struct([]),'accepted_count',0, ...
+            'source_column_count',variable.columns,'completed_source_columns',[], ...
+            'untested_source_columns',setdiff(1:variable.columns,columns), ...
+            'diagnostic_method',cfg.repair_rounds(roundIndex).method, ...
+            'wall_seconds',0,'function_evaluations',0,'new_points',0, ...
+            'last_repair_revision',task.repair_revision,'diagnosed_repairs',{task.repair_log}, ...
+            'effective_domain',cfg.domain,'domain_revision',numericField(cfg,'domain_revision',0), ...
+            'ancestry_claimed',false,'family_nonexistence_claimed',false);
+        RoundSave_v3(checkpoint,struct('result',result));
+    end
+    if isfield(variable,'raw_array'),array=variable.raw_array;
+    else,sourceData=load(fullfile(v3,rec.source.fixture_path),variable.variable);array=sourceData.(variable.variable);end
+    chartRepair=roundIndex==3&&isAcceptedControlRepair(task);
+    if chartRepair&&~isfield(result,'original_density_selected_columns')
+        result.original_density_selected_columns=result.selected_columns;
+        result.selected_columns=result.selected_columns(1);
+        result.untested_source_columns=setdiff(1:result.source_column_count,result.completed_source_columns);
+        result.diagnostic_method='Finite accepted-control common-C1 chart retry; original24-column density selection retained separately.';
+    end
+    system=Quadrupedal_Dynamics_v3();sim=HybridSimulator_v3(struct('RelTol',cfg.integration.relative_tolerance, ...
+        'AbsTol',cfg.integration.absolute_tolerance,'FailurePolicy','return'));
+    section=PoincareSection_v3.apex(4);
+    for index=result.next_column_index:numel(result.selected_columns)
+        if toc(sliceClock)>=maxWallSeconds,result.state='partial_checkpoint';break;end
+        column=result.selected_columns(index);raw=array(:,column);x=variable.mapped_initial_state(:,column);
+        q=logical(variable.mapped_initial_mode(:,column));p=variable.mapped_physical_parameters(:,column);
+        schedule=sourceSchedule(raw);provenance=struct('source_path',rec.source.source_path, ...
+            'fixture_path',rec.source.fixture_path,'source_sha256',rec.source_sha256, ...
+            'source_commit',cfg.starting_commit,'historical_fixture_commit',rec.source.source_head, ...
+            'variable',variable.variable,'column',column,'repair_round',letter, ...
+            'source_schedule_is_predictor_only',true);
+        converted=struct('state',x,'mode',q,'parameter',p,'period_estimate',raw(22), ...
+            'provenance',provenance,'scheduled_events_diagnostic_only',schedule, ...
+            'source_state_unmodified',true);
+        base=sprintf('column_%05d_revision_%03d',column,task.repair_revision);RoundSave_v3(fullfile(outputDirectory,[base,'_converted.mat']),struct('converted',converted,'raw_source_column',raw));
+        observation=struct('column',column,'repair_revision',task.repair_revision,'state','retryable_failure','evidence_label','unresolved_incompatibility', ...
+            'source_energy',variable.energy(column),'source_period',raw(22),'source_initial_speed',x(2), ...
+            'direct_residual',NaN,'final_closure',NaN,'accepted',false,'correction_norm',NaN, ...
+            'target_model_parameters',norm(p-cfg.baseline_v3_parameters(:),inf)<=cfg.acceptance.parameter, ...
+            'accepted_in_registered_domain',false, ...
+            'effective_domain_energy',cfg.domain.energy,'domain_revision',numericField(cfg,'domain_revision',0), ...
+            'retraction_norm',0,'rephase_time',0,'return_occurrence',1,'symmetry','none', ...
+            'symmetry_projection',struct(),'regular_chart_repair',struct(), ...
+            'feasibility_predictor',struct(),'failure_category','unresolved', ...
+            'initial_physics',struct(),'first_divergence',struct(),'primary_failure',struct(), ...
+            'predictor_first_physical_failure',struct(),'predictor_first_event_discrepancy',struct(), ...
+            'solver_summary',struct(),'gait','unresolved','flight_count',NaN, ...
+            'artifact',[base,'_correction.mat'],'converted_artifact',[base,'_converted.mat']);
+        trace=struct();predictorTrace=struct();direct=struct();solution=[];solverReport=struct();predictor=converted;
+        try
+            observation.initial_physics=system.admissibilityReport(x,q,p,'accepted-state');
+            if exist('SourceTrialTrace_v3','file')
+                traceSeed=converted;traceSeed.initial_state=x;traceSeed.initial_mode=q;
+                trace=SourceTrialTrace_v3(traceSeed,struct('Horizon',min(raw(22),cfg.domain.primitive_period_max), ...
+                    'Integration',struct('RelTol',cfg.integration.relative_tolerance,'AbsTol',cfg.integration.absolute_tolerance)));
+                if isfield(trace,'first_event_discrepancy'),observation.first_divergence=trace.first_event_discrepancy;end
+            else
+                [trajectory,execution]=sim.simulate(system,x,q,p,[0,min(raw(22),cfg.domain.primitive_period_max)]);
+                trace=struct('trajectory',trajectory,'execution',execution);
+            end
+            map=PoincareMap_v3(system,section,sim,BLMarkedApexReturnPolicy_v3(), ...
+                struct('MaxReturnTime',cfg.domain.primitive_period_max,'MaxCycleEvents',cfg.domain.event_count_max));
+            problem=PeriodicOrbitResidual_v3(map,x);
+            [~,direct]=problem.evaluateWithInfo(problem.packState(x),p,q);
+            observation.direct_residual=direct.residual_norm;
+        catch ex
+            observation.primary_failure=struct('identifier',ex.identifier,'message',ex.message,'phase','direct_replay');
+        end
+        % Physical retraction changes dependent stance rates only, and is
+        % explicitly saved independently from the corrected solution.
+        if roundIndex>=2
+            try
+                [predictor.state,observation.feasibility_predictor]=feasiblePredictor(x,q,p,variable.energy(column));
+                if roundIndex==3
+                    probe=physicalStencilProbe(predictor.state,q,p);
+                    observation.feasibility_predictor.full_coordinate_stencil_probe=probe;
+                    if probe.invalid_count>0
+                        [candidate,repair]=feasiblePredictor(x,q,p,variable.energy(column),1e-3);
+                        repair.causal_evidence=probe;repair.prospective_clearance=1e-3;
+                        predictor.state=candidate;observation.feasibility_predictor=repair;
+                    end
+                end
+                predictor.state=QuadrupedPhysicalChart_v3.retract(predictor.state,q,p);
+                observation.retraction_norm=norm(predictor.state-x,inf);
+                if isfield(trace,'trajectory')&&~isempty(trace.trajectory)
+                    [candidate,time,mode]=apexPredictor(trace.trajectory,p,system);
+                    if ~isempty(candidate)
+                        predictor.state=candidate;predictor.mode=mode;observation.rephase_time=time;
+                    end
+                end
+            catch ex
+                observation.primary_failure=struct('identifier',ex.identifier,'message',ex.message,'phase','explicit_retraction_rephase');
+            end
+        end
+        % Restriction is chosen from state evidence; C deliberately restores
+        % all admissible coordinates rather than discovering only pronks.
+        symmetry='none';
+        if roundIndex<3
+            a=predictor.state([7,9,11,13]);w=predictor.state([8,10,12,14]);
+            if all(predictor.mode==predictor.mode(1))&&norm(a-a(1),inf)<1e-8&&norm(w-w(1),inf)<1e-8 ...
+                    &&norm(predictor.state([5,6]),inf)<1e-8,symmetry='pronk';
+            elseif predictor.mode(1)==predictor.mode(2)&&predictor.mode(3)==predictor.mode(4) ...
+                    &&norm(a([2,4])-a([1,3]),inf)<1e-8&&norm(w([2,4])-w([1,3]),inf)<1e-8,symmetry='left-right';end
+        end
+        if roundIndex==3
+            [projected,projection]=exactPronkPredictor(predictor.state,predictor.mode,p,variable.energy(column));
+            observation.symmetry_projection=projection;
+            if projection.applied
+                registerPronkProjection(cfg);predictor.state=projected;symmetry='pronk';
+                predictor.provenance.exact_pronk_projection=projection;
+            end
+        end
+        if chartRepair
+            [predictor,observation.regular_chart_repair]=acceptedControlSeed(task,predictor,column,cfg,outputDirectory);
+            symmetry='none';
+        end
+        occurrence=1;
+        if isfield(task,'additional_occurrence')&&~isempty(task.additional_occurrence)
+            occurrence=task.additional_occurrence;
+            if ~isfield(task,'occurrence_hypothesis')||isempty(task.occurrence_hypothesis)
+                error('RecoverRoundSource_v3:OccurrenceHypothesis','A secondary occurrence requires a separate explicit hypothesis/evidence.');
+            end
+            predictor.provenance.additional_occurrence_hypothesis=task.occurrence_hypothesis;
+        end
+        observation.return_occurrence=occurrence;observation.symmetry=symmetry;
+        predictor.return_policy='BL-marked-apex-return';predictor.occurrence=occurrence;
+        predictor.source_state_unmodified=norm(predictor.state-x,inf)==0&&isequal(predictor.mode,q);
+        RoundSave_v3(fullfile(outputDirectory,[base,'_predictor.mat']),struct('predictor',predictor,'observation',observation));
+        if roundIndex>=2&&toc(sliceClock)<maxWallSeconds
+            try
+                predictorTrace=SourceTrialTrace_v3(predictor,struct('Horizon',min(raw(22),cfg.domain.primitive_period_max), ...
+                    'Integration',struct('RelTol',cfg.integration.relative_tolerance,'AbsTol',cfg.integration.absolute_tolerance)));
+                observation.predictor_first_physical_failure=predictorTrace.first_physical_failure;
+                observation.predictor_first_event_discrepancy=predictorTrace.first_event_discrepancy;
+            catch exception
+                predictorTrace=struct('failure',struct('identifier',exception.identifier,'message',exception.message));
+            end
+        end
+        try
+            options=struct('FamilyConstraint','fixed-energy','Symmetry',symmetry,'Energy',variable.energy(column), ...
+                'SolverOptions',struct('FunctionTolerance',1e-12,'ResidualAcceptanceTolerance',cfg.acceptance.reduced_residual, ...
+                'MaxIterations',cfg.budgets.root_max_iterations,'MaxFunctionEvaluations',cfg.budgets.root_max_function_evaluations, ...
+                'UseBroyden',true,'JacobianRefreshInterval',5), ...
+                'Acceptance',struct('FullClosureTolerance',cfg.acceptance.full_closure,'EnergyTolerance',cfg.acceptance.energy), ...
+                'MaxReturnTime',cfg.domain.primitive_period_max,'MaxCycleEvents',cfg.domain.event_count_max, ...
+                'MaxWallSeconds',max(1,maxWallSeconds-toc(sliceClock)), ...
+                'Integration',struct('RelTol',cfg.integration.relative_tolerance,'AbsTol',cfg.integration.absolute_tolerance), ...
+                'ReplayIntegration',struct('RelTol',cfg.integration.replay_relative_tolerance,'AbsTol',cfg.integration.replay_absolute_tolerance));
+            if chartRepair
+                options.SolverOptions.Jacobian=EventOrderChartJacobian_v3(struct('PhysicalParameter',p, ...
+                    'BLTouchdownsPerReturn',1,'RelativeCandidateSteps',1e-4,'MaximumRelativeError',.001));
+            end
+            [solution,solverReport]=PeriodicSolutionSolver_v3(predictor,options);
+            observation.solver_summary=solverSummary(solverReport);
+            if isfield(solverReport,'primary_failure')&&~isempty(fieldnames(solverReport.primary_failure))
+                observation.failure_category=failureCategory(solverReport.primary_failure);
+            end
+            observation.accepted=~isempty(solution);
+            if observation.accepted
+                observation.state='accepted';observation.evidence_label='nearby_corrected_v3_orbit';
+                observation.correction_norm=norm(solution.initial_state-x,inf);
+                observation.final_closure=norm(solution.poincare_state(2:end)-solution.initial_state(2:end),inf);
+                gait=GaitIdentification_v3(solution);observation.gait=char(gait.label);observation.flight_count=gait.flight_count;
+                observation.accepted_in_registered_domain=withinDomain(solution,cfg);
+                if observation.correction_norm<1e-7&&observation.rephase_time==0
+                    observation.evidence_label='exact_legacy_replay_with_fresh_acceptance';
+                elseif observation.correction_norm>0.1,observation.evidence_label='different_corrected_v3_orbit';end
+                if ~observation.target_model_parameters,observation.evidence_label='diagnostic_orbit_at_other_physical_parameters';end
+                if ~observation.accepted_in_registered_domain,observation.evidence_label='diagnostic_orbit_outside_registered_domain';end
+                result.accepted_count=result.accepted_count+1;result.new_points=result.new_points+1;
+            end
+        catch ex
+            observation.primary_failure=struct('identifier',ex.identifier,'message',ex.message,'phase','correction');
+            observation.failure_category=failureCategory(observation.primary_failure);
+        end
+        RoundSave_v3(fullfile(outputDirectory,[base,'_correction.mat']),struct('converted',converted, ...
+            'predictor',predictor,'solution',solution,'solverReport',solverReport,'trace',trace, ...
+            'predictor_trace',predictorTrace,'direct',direct,'observation',observation));
+        if isempty(result.observations),result.observations=observation;
+        else
+            fields=fieldnames(observation);
+            for fieldIndex=1:numel(fields)
+                name=fields{fieldIndex};
+                if ~isfield(result.observations,name)
+                    for oldIndex=1:numel(result.observations),result.observations(oldIndex).(name)=[];end
+                end
+            end
+            observation=orderfields(observation,result.observations);result.observations(end+1)=observation;
+        end %#ok<AGROW>
+        result.next_column_index=index+1;result.completed_source_columns(end+1)=column;
+        if isfield(solverReport,'solver')&&isfield(solverReport.solver,'functionEvaluationCount')
+            result.function_evaluations=result.function_evaluations+solverReport.solver.functionEvaluationCount;
+        elseif isfield(solverReport,'solver')&&isfield(solverReport.solver,'stats')
+            result.function_evaluations=result.function_evaluations+numericField(solverReport.solver.stats,'residual_evaluations',0);
+        end
+        checkpointResult=result;checkpointResult.wall_seconds=result.wall_seconds+toc(timer);
+        checkpointResult.state='partial_checkpoint';
+        RoundSave_v3(checkpoint,struct('result',checkpointResult));
+        result.wall_seconds=result.wall_seconds+toc(timer);timer=tic;
+        RoundSave_v3(checkpoint,struct('result',result));RoundJSON_v3(fullfile(outputDirectory,'source_recovery.json'),result);
+        fprintf('%s round%s %s column%d accepted%d closure%.3g\n',study,letter,rec.source.fixture_path,column,observation.accepted,observation.final_closure);
+    end
+    result.wall_seconds=result.wall_seconds+toc(timer);
+    if result.next_column_index>numel(result.selected_columns)
+        if result.accepted_count>0,result.state='accepted';result.scientific_status='source_orbits_recovered_ancestry_unresolved';
+        else,result.state='retryable_failure';result.scientific_status='selected_source_neighborhood_unresolved';end
+    else,result.state='partial_checkpoint';end
+    RoundSave_v3(checkpoint,struct('result',result));
+end
+function yes=isAcceptedControlRepair(task)
+    yes=false;
+    for k=1:numel(task.repair_log)
+        entry=task.repair_log{k};
+        if contains(entry.repair_action,'accepted-control-common-C1'),yes=true;return;end
+    end
+end
+function [predictor,evidence]=acceptedControlSeed(task,predictor,column,cfg,outputDirectory)
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    original=predictor.state;evidence=struct();orbit=[];artifact='';
+    for letter=['B','A']
+        sibling=[task.id(1:end-1),letter];folder=fullfile(fileparts(outputDirectory),sibling);
+        file=fullfile(folder,'source_checkpoint.mat');if ~isfile(file),continue;end
+        saved=load(file,'result');observations=saved.result.observations;
+        match=find([observations.accepted]&[observations.column]==column,1,'last');
+        if isempty(match),continue;end
+        artifact=strrep(fullfile(folder,observations(match).artifact),[v3,filesep],'');
+        corrected=load(fullfile(v3,artifact),'solution');orbit=corrected.solution;
+        if ~isempty(orbit),break;end
+    end
+    if isempty(orbit),error('RecoverRoundSource_v3:AcceptedControl','No independently admitted A/B orbit exists for the same source column.');end
+    if any(orbit.initial_mode)||norm(orbit.parameter-cfg.baseline_v3_parameters(:),inf)>cfg.acceptance.parameter ...
+            ||norm(orbit.poincare_state(2:end)-orbit.initial_state(2:end),inf)>cfg.acceptance.full_closure
+        error('RecoverRoundSource_v3:AcceptedControlScope','The accepted control is outside the registered baseline flight-to-flight scope.');
+    end
+    gateFile='Research_v3/next_round/theory/two_BL_chart_validation.json';
+    gate=jsondecode(fileread(fullfile(v3,gateFile)));
+    BL1=jsondecode(fileread(fullfile(v3,'Research_v3/next_round/theory/event_order_chart_validation.json')));
+    if ~gate.passed||~strcmp(RoundSHA256_v3(fullfile(v3,gate.helper_path)),gate.helper_sha256) ...
+            ||~BL1.common_reliable||~BL1.common_classical_first_derivative||~BL1.common_chart_verified
+        error('RecoverRoundSource_v3:ChartGate','Current executed common-C1 chart evidence is required.');
+    end
+    predictor.state=orbit.initial_state;predictor.mode=orbit.initial_mode;predictor.parameter=orbit.parameter;
+    evidence=struct('method','Accepted A/B source-column control as explicitly distinct C initial iterate; unrestricted common-C1 chart corrector.', ...
+        'source_artifact',artifact,'current_helper_gate',gateFile,'helper_sha256',gate.helper_sha256, ...
+        'state_change_from_C_predictor',predictor.state-original, ...
+        'source_conversion_overwritten',false,'acceptance_tolerances_changed',false,'ancestry_claimed',false, ...
+        'scope','Baseline physical parameters, flight-to-flight BL1, actual transverse TD-all then LO-all; every finite-difference trial independently verifies its cohorts; no C2 certificate.');
+    predictor.provenance.accepted_control_common_C1=evidence;
+    RoundJSON_v3(fullfile(outputDirectory,'accepted_control_chart_repair_registration.json'), ...
+        struct('registered_utc',char(datetime('now','TimeZone','UTC')),'task',task.id,'column',column,'method',evidence));
+end
+function [candidate,evidence]=exactPronkPredictor(x,q,p,E)
+    candidate=x;angles=x([7,9,11,13]);rates=x([8,10,12,14]);
+    distance=max([norm(angles-mean(angles),inf),norm(rates-mean(rates),inf),norm(x([5,6]),inf)]);
+    eligible=all(q==q(1))&&distance<=1e-5 ...
+        &&norm(p([1,3,5,7])-p([2,4,6,8]),inf)<=1e-12&&abs(p(10)-.5)<=1e-12;
+    evidence=struct('method','Explicit nearest synchronized angle/rate and zero-pitch projection, followed by energy preservation.', ...
+        'eligible',eligible,'applied',false,'maximum_prescribed_projection_distance',1e-5, ...
+        'initial_symmetry_departure',distance,'state_change',zeros(14,1), ...
+        'source_energy',E,'projected_energy',NaN,'physical_admission',struct(),'reason','outside measured near-pronk scope');
+    if ~eligible,return;end
+    candidate([5,6])=0;candidate([7,9,11,13])=mean(angles);candidate([8,10,12,14])=mean(rates);
+    if abs(x(2))>1e-12
+        zeroSpeed=candidate;zeroSpeed(2)=0;
+        remainder=E-QuadrupedEnergy_v3.evaluate(zeroSpeed,q,p);
+        if remainder<0,evidence.reason='Projected energy has no real source-sign horizontal speed';return;end
+        candidate(2)=sign(x(2))*sqrt(2*remainder);
+    elseif ~any(q)
+        candidate(3)=E-.5*candidate(4)^2;
+    end
+    candidate=QuadrupedPhysicalChart_v3.retract(candidate,q,p);
+    system=Quadrupedal_Dynamics_v3();physical=system.admissibilityReport(candidate,q,p,'accepted-state');
+    evidence.physical_admission=physical;evidence.projected_energy=QuadrupedEnergy_v3.evaluate(candidate,q,p);
+    evidence.state_change=candidate-x;
+    evidence.applied=physical.admissible&&abs(evidence.projected_energy-E)<=1e-10;
+    evidence.reason='Explicit invariant parent predictor; unrestricted daughter directions remain separate.';
+    if ~evidence.applied,evidence.reason='Projected predictor did not preserve energy or physical admission';end
+end
+function registerPronkProjection(cfg)
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    file=fullfile(v3,'Research_v3','next_round','source_pronk_projection_registration.json');
+    if isfile(file)
+        original=jsondecode(fileread(file));
+        if ~isfield(original,'post_diagnostic_clarification')
+            original.post_diagnostic_clarification=struct('recorded_utc',char(datetime('now','TimeZone','UTC')), ...
+                'evidence','Research_v3/next_round/solver/high_PK_source_forensics.json', ...
+                'finding','Measured first TD pre-guard derivative−1.32241428 becomes post-reset extension+1.36291047. This O(1) outgoing extension is a physical landing obstruction; a small symmetry projection is an explicit experiment, not an assumed event-order repair.');
+            RoundJSON_v3(file,original);
+        end
+        return
+    end
+    registration=struct('schema_version','prospective-near-pronk-source-repair-v3-1', ...
+        'registered_utc',char(datetime('now','TimeZone','UTC')), ...
+        'diagnosis','HighE P1 PK B predictor differs from exact invariant pronk by angles≈1.48e-7/dpitch≈6.8e-9; measured first-TD reset changes pre-guard derivative−1.32241428 to post-reset extension+1.36291047 and tensile compression follows. Projection is an explicit experiment, not an assumed repair.', ...
+        'evidence','Research_v3/next_round/tasks/full/P1_source_25_B/column_00001_revision_000_correction.mat', ...
+        'maximum_projection_distance',1e-5, ...
+        'method','Mean four angles/rates; phi=dphi=0; same mode; source energy restored by same-sign horizontal speed or flight height; physical admission checked. Shared fixed-energy pronk correction then full-space signed sectors.', ...
+        'source_conversion_overwritten',false,'acceptance_tolerances_changed',false,'physical_parameters_changed',false, ...
+        'full_closure_tolerance',cfg.acceptance.full_closure,'ancestry_claimed',false);
+    RoundJSON_v3(file,registration);
+end
+function [candidate,evidence]=feasiblePredictor(x,q,p,E,clearance)
+    if nargin<5,clearance=1e-7;end
+    candidate=x;s=QuadrupedSchema_v3.shared();expanded=s.expandParameters(p);
+    theta=x(5)+x(s.Leg.AngleIndices);surface=expanded.l_0.*cos(theta)-expanded.s.*sin(x(5));
+    lower=max([abs(expanded.s*sin(x(5)));surface(~q)])+clearance;
+    upper=Inf;if any(q),upper=min(surface(q))-clearance;end
+    evidence=struct('method','nearest feasible height at fixed mode/angles, then source-energy horizontal kinetic predictor', ...
+        'height_interval',[lower,upper],'height_change',0,'horizontal_speed_change',0, ...
+        'corridor_nonempty',lower<=upper,'energy_predictor_preserved',false,'source_energy',E);
+    if lower>upper,return;end
+    candidate(3)=min(max(x(3),lower),upper);evidence.height_change=candidate(3)-x(3);
+    if evidence.height_change==0,evidence.energy_predictor_preserved=true;return;end
+    heights=candidate(3)+expanded.s.*sin(candidate(5));compression=zeros(4,1);
+    compression(q)=expanded.l_0(q)-heights(q)./cos(theta(q));
+    nonhorizontal=candidate(3)+.5*candidate(4)^2+.5*expanded.j_pitch*candidate(6)^2+sum(.5*expanded.k_l.*compression.^2);
+    if isfinite(nonhorizontal)&&E>=nonhorizontal&&abs(x(2))>1e-12
+        candidate(2)=sign(x(2))*sqrt(2*(E-nonhorizontal));
+        evidence.horizontal_speed_change=candidate(2)-x(2);evidence.energy_predictor_preserved=true;
+    end
+end
+function probe=physicalStencilProbe(x,q,p)
+    system=Quadrupedal_Dynamics_v3();indices=[5,7,9,11,13];rows=struct([]);
+    for index=indices
+        for signValue=[-1,1]
+            candidate=x;candidate(index)=candidate(index)+signValue*1e-4*max(1,abs(x(index)));
+            candidate=QuadrupedPhysicalChart_v3.retract(candidate,q,p);
+            report=system.admissibilityReport(candidate,q,p,'accepted-state');
+            row=struct('coordinate',index,'sign',signValue,'step',1e-4*max(1,abs(x(index))), ...
+                'admissible',report.admissible,'minimum_physical_margin',report.minimum_physical_margin);
+            if isempty(rows),rows=row;else,rows(end+1)=row;end %#ok<AGROW>
+        end
+    end
+    probe=struct('purpose','Measure physical feasibility of h=1e-4 pitch/angle trial coordinates before enlarging predictor clearance.', ...
+        'samples',rows,'invalid_count',sum(~[rows.admissible]),'acceptance_tolerances_changed',false);
+end
+function category=failureCategory(failure)
+    category='solver_or_rank_failure';if ~isfield(failure,'identifier'),return;end
+    id=failure.identifier;
+    if contains(id,'Physical')||contains(id,'Tensile')||contains(id,'Manifold'),category='mapping_or_physical_manifold';
+    elseif contains(id,'InitialSection')||contains(id,'OutsideChart')||contains(id,'Occurrence'),category='section_occurrence';
+    elseif contains(id,'Event')||contains(id,'Guard'),category='autonomous_event_or_itinerary';
+    elseif contains(id,'NoReturn')||contains(id,'Integration'),category='integration_or_return_unavailable';
+    elseif contains(id,'Closure'),category='nonclosure';end
+end
+function accepted=withinDomain(orbit,cfg)
+    E=QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,orbit.parameter);
+    speed=orbit.stride_displacement(1)/orbit.period;state=orbit.trajectory.state;
+    events=orbit.event_history;count=0;for k=1:numel(events),count=count+~events(k).is_stop;end
+    accepted=E>=cfg.domain.energy(1)&&E<=cfg.domain.energy(2) ...
+        &&speed>=cfg.domain.mean_speed(1)&&speed<=cfg.domain.mean_speed(2) ...
+        &&orbit.period<=cfg.domain.primitive_period_max&&max(abs(state(:,5)))<=cfg.domain.pitch_abs_max ...
+        &&count<=cfg.domain.event_count_max;
+end
+function columns=selectColumns(v,count,roundIndex)
+    n=v.columns;x=v.mapped_initial_state;q=v.mapped_initial_mode;p=v.mapped_physical_parameters;
+    score=nan(1,n);system=Quadrupedal_Dynamics_v3();
+    for k=1:n
+        try
+            report=system.admissibilityReport(x(:,k),q(:,k),p(:,k),'accepted-state');
+            physical=QuadrupedPhysicalChart_v3.report(x(:,k),q(:,k),p(:,k));
+            score(k)=max(0,-report.minimum_physical_margin)+physical.maximum_constraint_residual;
+        catch,score(k)=Inf;end
+    end
+    [~,rank]=sort(score);anchors=rank(1:min(n,max(1,ceil(count/3))));
+    if roundIndex==1,columns=unique([anchors,round(linspace(1,n,max(2,count-numel(anchors))))],'stable');
+    else
+        neighbors=unique(reshape(anchors(:)+(-roundIndex:roundIndex),1,[]));neighbors=neighbors(neighbors>=1&neighbors<=n);
+        columns=unique([rank(1:min(n,ceil(count/2))),neighbors,round(linspace(1,n,count))],'stable');
+    end
+    columns=columns(1:min(count,numel(columns)));
+end
+function schedule=sourceSchedule(raw)
+    ids=LegacyEventAdapter_v3.toV3(1:8);s=QuadrupedSchema_v3.shared();
+    schedule=struct('type',{},'time',{});for k=1:8,schedule(k)=struct('type',s.Event.Names{ids(k)},'time',raw(13+k));end
+    [~,order]=sort([schedule.time]);schedule=schedule(order);
+end
+function [x,t,q]=apexPredictor(trajectory,p,system)
+    x=[];t=NaN;q=[];
+    if ~isa(trajectory,'Trajectory_v3')||isempty(trajectory.time),return;end
+    state=trajectory.state;time=trajectory.time;
+    for k=1:numel(time)-1
+        if time(k+1)<=time(k)||state(k,4)<0||state(k+1,4)>0,continue;end
+        weight=state(k,4)/(state(k,4)-state(k+1,4));candidate=(1-weight)*state(k,:).'+weight*state(k+1,:).';candidate(4)=0;candidate(1)=0;
+        mode=trajectory.mode(k,:).';candidate=QuadrupedPhysicalChart_v3.retract(candidate,mode,p);
+        report=system.admissibilityReport(candidate,mode,p,'accepted-state');
+        if report.admissible,x=candidate;t=time(k)+weight*(time(k+1)-time(k));q=mode;return;end
+    end
+end
+function summary=solverSummary(report)
+    summary=struct();fields={'accepted','converged','primary_failure','replay_failure','initial_scaled_norm', ...
+        'final_scaled_norm','initial_physical_norm','final_physical_norm','full_closure','iterations','evaluations','message'};
+    for k=1:numel(fields),if isfield(report,fields{k}),summary.(fields{k})=report.(fields{k});end,end
+end
+function value=numericField(report,name,fallback)
+    value=fallback;if isfield(report,name)&&isnumeric(report.(name))&&isscalar(report.(name)),value=report.(name);end
+end

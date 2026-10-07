@@ -1,0 +1,13 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{Subscripted assignment between dissimilar structures.
+
+Error in ExportResearchRound_v3 (line 17)
+        graph.edges(end+1)=edge('historical_PIP',sprintf('historical_restricted_daughter_%d',k), ...
+        ^^^^^^^^^^^^^^^^^^
+Error in RunResearchRound_v3 (line 101)
+    report=ExportResearchRound_v3(state,cfg);report.executed_tasks_this_invocation=executed;
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

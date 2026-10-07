@@ -1,0 +1,43 @@
+{
+  "registered_utc": "07-Oct-2026 15:40:11",
+  "schema_version": "prospective-phase-preserving-warm-wrapper-v3-1",
+  "diagnosis": "Passing InitialJacobian alone did not enable RootSolver.ReuseJacobian; its public default is false.",
+  "repair": "Explicitly enable reuse only for finite matching-size same-parameter/mode/constraint partial matrices; keep independent physical acceptance.",
+  "source_hashes": [
+    {
+      "path": "Research_v3/Drivers_v3/RunFamilySectorCorrections_v3.m",
+      "sha256": "d22c958194e78cdb6cb819edae70a6adc664fa58cb85c0482dcdd59532289586"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m",
+      "sha256": "3778c100901f53bea68d63ff82909165b055dfeed1393e631c8995253a77b4b1"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    }
+  ],
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "source_fullspace_matrix_size": [
+    13,
+    13
+  ],
+  "standing_restricted_matrix_size": [
+    3,
+    3
+  ],
+  "phase_reset_required": false,
+  "acceptance_tolerances_changed": false,
+  "evidence": "Research_v3/next_round/tasks/full/P2_source_17_C/sector_01_signed_-0.001_revision_001_attempt_001.mat"
+}

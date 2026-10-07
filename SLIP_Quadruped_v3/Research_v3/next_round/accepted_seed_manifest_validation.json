@@ -1,0 +1,10 @@
+{
+  "schema_version": "accepted-seed-continuation-registration-v3-1",
+  "profile": "validation",
+  "registered_utc": "07-Oct-2026 14:47:32",
+  "method": "Both arclength directions for every independently accepted target-model in-domain source/sector orbit; finite total budget shared with all tasks.",
+  "seed_count": 0,
+  "seeds": [],
+  "domain_changed": false,
+  "acceptance_tolerances_changed": false
+}

@@ -1,0 +1,1164 @@
+{
+  "schema_version": "critical-source-provenance-v3-1",
+  "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "created_utc": "07-Oct-2026 11:44:44",
+  "records": [
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BE_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/01_refined_candidates.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "ef84ca38a914406576a3845bb29af4a579d2b3cad6c0801e8cd10462b067b4c7",
+      "bytes": 785937,
+      "variables": {
+        "name": "refinementReport",
+        "class": "struct",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 6.486472E+6,
+        "fields": [
+          "SchemaVersion",
+          "ArtifactLayoutVersion",
+          "CreatedAt",
+          "Payload"
+        ]
+      },
+      "legacy_29row_arrays": [],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/BG_half_bounding_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/02_refined_candidates.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "635d73c1b9f362935323080852fed64d65a6b4d4778968971e85e649674ba52c",
+      "bytes": 764744,
+      "variables": {
+        "name": "refinementReport",
+        "class": "struct",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 6.307264E+6,
+        "fields": [
+          "SchemaVersion",
+          "ArtifactLayoutVersion",
+          "CreatedAt",
+          "Payload"
+        ]
+      },
+      "legacy_29row_arrays": [],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/FG_GG_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/03_refined_candidates.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "e32569df62f3b299800bd51dddf5de98cf79465b5f35d24ddaf3acf50f7b4c06",
+      "bytes": 351498,
+      "variables": {
+        "name": "refinementReport",
+        "class": "struct",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 2.871391E+6,
+        "fields": [
+          "SchemaVersion",
+          "ArtifactLayoutVersion",
+          "CreatedAt",
+          "Payload"
+        ]
+      },
+      "legacy_29row_arrays": [],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/GE_HE_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/04_refined_candidates.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "f7862dcb306865753517ff64c31342c7da365de2640b6effcd2e0182a7a9fbd9",
+      "bytes": 342154,
+      "variables": {
+        "name": "refinementReport",
+        "class": "struct",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 2.780032E+6,
+        "fields": [
+          "SchemaVersion",
+          "ArtifactLayoutVersion",
+          "CreatedAt",
+          "Payload"
+        ]
+      },
+      "legacy_29row_arrays": [],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/3_Numerical_Continuation/2_Floquet_Analysis_v2/reference_experiments/PK_multigait_bifurcation/artifacts/02_refinement/refined_candidates.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/05_refined_candidates.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "a80eb3976c9da529a3fd91e8fd06f0f32968c0ace93cf74ed67ef511cb6384e9",
+      "bytes": 450923,
+      "variables": {
+        "name": "refinementReport",
+        "class": "struct",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 3.591452E+6,
+        "fields": [
+          "SchemaVersion",
+          "ArtifactLayoutVersion",
+          "CreatedAt",
+          "Payload"
+        ]
+      },
+      "legacy_29row_arrays": [],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/PK_at_B2_critical.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/06_PK_at_B2_critical.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "65188274e2ee5ff30aadc047ec5e2096539a061ea84e3ffd9f50f34a29d695d2",
+      "bytes": 800,
+      "variables": [
+        {
+          "name": "note",
+          "class": "char",
+          "size": [
+            1,
+            103
+          ],
+          "bytes": 206,
+          "fields": []
+        },
+        {
+          "name": "results",
+          "class": "double",
+          "size": [
+            29,
+            1
+          ],
+          "bytes": 232,
+          "fields": []
+        },
+        {
+          "name": "sourceArtifact",
+          "class": "char",
+          "size": [
+            1,
+            142
+          ],
+          "bytes": 284,
+          "fields": []
+        }
+      ],
+      "legacy_29row_arrays": {
+        "variable": ".results",
+        "size": [
+          29,
+          1
+        ],
+        "columns": 1,
+        "initial_speed_bounds": [
+          0.59343075052335847,
+          0.59343075052335847
+        ],
+        "initial_pitch_bounds": [
+          0,
+          0
+        ],
+        "source_period_bounds": [
+          2.2978282484307506,
+          2.2978282484307506
+        ]
+      },
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/B2_local_daughters.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/07_B2_local_daughters.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "f23978448cd93d114a3cb2e8a1b9be7a4d0b5d8b74a78a9cbbfedf3006389247",
+      "bytes": 2400,
+      "variables": [
+        {
+          "name": "note",
+          "class": "char",
+          "size": [
+            1,
+            75
+          ],
+          "bytes": 150,
+          "fields": []
+        },
+        {
+          "name": "results",
+          "class": "double",
+          "size": [
+            29,
+            8
+          ],
+          "bytes": 1856,
+          "fields": []
+        },
+        {
+          "name": "sourceArtifact",
+          "class": "char",
+          "size": [
+            1,
+            142
+          ],
+          "bytes": 284,
+          "fields": []
+        }
+      ],
+      "legacy_29row_arrays": {
+        "variable": ".results",
+        "size": [
+          29,
+          8
+        ],
+        "columns": 8,
+        "initial_speed_bounds": [
+          0.59061196861029075,
+          0.59628308254408391
+        ],
+        "initial_pitch_bounds": [
+          0,
+          0
+        ],
+        "source_period_bounds": [
+          2.2960731146573403,
+          2.2996031031051549
+        ]
+      },
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/02_Pronking_to_B2/Audit/Orbits/B2_connection.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/08_B2_connection.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "28af3340750a49007c7019f2ac249c82fa2fbc0b1275e6d21fd732547a0d1844",
+      "bytes": 13207,
+      "variables": [
+        {
+          "name": "Para",
+          "class": "double",
+          "size": [
+            7,
+            1
+          ],
+          "bytes": 56,
+          "fields": []
+        },
+        {
+          "name": "alternateMetrics",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 1513,
+          "fields": [
+            "initialVelocity",
+            "initialHeight",
+            "initialLegRate",
+            "period",
+            "meanVelocity",
+            "residualNorm",
+            "minimumHeight",
+            "minimumVerticalGRF",
+            "maximumHeight",
+            "sampledTrajectoryRows"
+          ]
+        },
+        {
+          "name": "alternateParent",
+          "class": "double",
+          "size": [
+            22,
+            1
+          ],
+          "bytes": 176,
+          "fields": []
+        },
+        {
+          "name": "alternateReport",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 45965,
+          "fields": [
+            "accepted",
+            "valid",
+            "status",
+            "rejectionReasons",
+            "periodicResidualTolerance",
+            "solution",
+            "parameters",
+            "initialSectionState",
+            "sectionExtraction",
+            "mapInfo",
+            "eventTimingSolverSucceeded",
+            "eventOrderingConsistent",
+            "completeStride",
+            "initialOnValidApexSection",
+            "returnOnValidApexSection",
+            "timingRepeatabilityChecked",
+            "timingRepeatable",
+            "timingRepeatability",
+            "fullStateReturn",
+            "sectionStateReturn",
+            "periodicResidual",
+            "reducedPeriodicResidual",
+            "periodicResidualNorm2",
+            "periodicResidualNormInf",
+            "reducedPeriodicResidualNorm2",
+            "reducedPeriodicResidualNormInf",
+            "fixedPointConverged"
+          ]
+        },
+        {
+          "name": "amplitudes",
+          "class": "double",
+          "size": [
+            1,
+            8
+          ],
+          "bytes": 64,
+          "fields": []
+        },
+        {
+          "name": "criticalEstimate",
+          "class": "double",
+          "size": [
+            22,
+            1
+          ],
+          "bytes": 176,
+          "fields": []
+        },
+        {
+          "name": "daughterDistanceToAlternate",
+          "class": "double",
+          "size": [
+            1,
+            8
+          ],
+          "bytes": 64,
+          "fields": []
+        },
+        {
+          "name": "daughterReports",
+          "class": "cell",
+          "size": [
+            1,
+            8
+          ],
+          "bytes": 20000,
+          "fields": []
+        },
+        {
+          "name": "daughterResults",
+          "class": "double",
+          "size": [
+            29,
+            8
+          ],
+          "bytes": 1856,
+          "fields": []
+        },
+        {
+          "name": "nearestSuppliedColumn",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "residualNorm",
+          "class": "double",
+          "size": [
+            1,
+            8
+          ],
+          "bytes": 64,
+          "fields": []
+        },
+        {
+          "name": "sourceBracket",
+          "class": "double",
+          "size": [
+            1,
+            2
+          ],
+          "bytes": 16,
+          "fields": []
+        },
+        {
+          "name": "suppliedMetrics",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 1513,
+          "fields": [
+            "initialVelocity",
+            "initialHeight",
+            "initialLegRate",
+            "period",
+            "meanVelocity",
+            "residualNorm",
+            "minimumHeight",
+            "minimumVerticalGRF",
+            "maximumHeight",
+            "sampledTrajectoryRows"
+          ]
+        },
+        {
+          "name": "suppliedParent",
+          "class": "double",
+          "size": [
+            22,
+            1
+          ],
+          "bytes": 176,
+          "fields": []
+        },
+        {
+          "name": "suppliedReport",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 45965,
+          "fields": [
+            "accepted",
+            "valid",
+            "status",
+            "rejectionReasons",
+            "periodicResidualTolerance",
+            "solution",
+            "parameters",
+            "initialSectionState",
+            "sectionExtraction",
+            "mapInfo",
+            "eventTimingSolverSucceeded",
+            "eventOrderingConsistent",
+            "completeStride",
+            "initialOnValidApexSection",
+            "returnOnValidApexSection",
+            "timingRepeatabilityChecked",
+            "timingRepeatable",
+            "timingRepeatability",
+            "fullStateReturn",
+            "sectionStateReturn",
+            "periodicResidual",
+            "reducedPeriodicResidual",
+            "periodicResidualNorm2",
+            "periodicResidualNormInf",
+            "reducedPeriodicResidualNorm2",
+            "reducedPeriodicResidualNormInf",
+            "fixedPointConverged"
+          ]
+        }
+      ],
+      "legacy_29row_arrays": {
+        "variable": ".daughterResults",
+        "size": [
+          29,
+          8
+        ],
+        "columns": 8,
+        "initial_speed_bounds": [
+          0.59061196861029075,
+          0.59628308254408391
+        ],
+        "initial_pitch_bounds": [
+          0,
+          0
+        ],
+        "source_period_bounds": [
+          2.2960731146573403,
+          2.2996031031051549
+        ]
+      },
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PIP_delayed_critical.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/09_PIP_delayed_critical.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "757b5ee63e442c01762e6bbc8d90aba41f316449ef8eadb682ff8a56c6e01e82",
+      "bytes": 912,
+      "variables": [
+        {
+          "name": "extraStanceDuration",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "ordinaryPIPPeriod",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "parentFamily",
+          "class": "char",
+          "size": [
+            1,
+            69
+          ],
+          "bytes": 138,
+          "fields": []
+        },
+        {
+          "name": "results",
+          "class": "double",
+          "size": [
+            29,
+            1
+          ],
+          "bytes": 232,
+          "fields": []
+        },
+        {
+          "name": "sourceColumn",
+          "class": "int64",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "sourceFile",
+          "class": "char",
+          "size": [
+            1,
+            16
+          ],
+          "bytes": 32,
+          "fields": []
+        }
+      ],
+      "legacy_29row_arrays": {
+        "variable": ".results",
+        "size": [
+          29,
+          1
+        ],
+        "columns": 1,
+        "initial_speed_bounds": [
+          0,
+          0
+        ],
+        "initial_pitch_bounds": [
+          0,
+          0
+        ],
+        "source_period_bounds": [
+          2.4409364464402943,
+          2.4409364464402943
+        ]
+      },
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/01_Delayed_PIP_to_Pronking/Audit/Orbits/PK_local_daughters.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/10_PK_local_daughters.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "832859b2ec5d9877799eb9dfdb9d24af7e1911162d5f72a811938fb32b247eb2",
+      "bytes": 2784,
+      "variables": [
+        {
+          "name": "a",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "b",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "criticalHeight",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "note",
+          "class": "char",
+          "size": [
+            1,
+            68
+          ],
+          "bytes": 136,
+          "fields": []
+        },
+        {
+          "name": "quadraticHeightCoefficient",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        },
+        {
+          "name": "results",
+          "class": "double",
+          "size": [
+            29,
+            8
+          ],
+          "bytes": 1856,
+          "fields": []
+        },
+        {
+          "name": "sourceZeroOrbit",
+          "class": "double",
+          "size": [
+            1,
+            29
+          ],
+          "bytes": 232,
+          "fields": []
+        }
+      ],
+      "legacy_29row_arrays": {
+        "variable": ".results",
+        "size": [
+          29,
+          8
+        ],
+        "columns": 8,
+        "initial_speed_bounds": [
+          -0.01,
+          0.01
+        ],
+        "initial_pitch_bounds": [
+          0,
+          0
+        ],
+        "source_period_bounds": [
+          2.4408667519144043,
+          2.4409357493124952
+        ]
+      },
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/B2_original_852.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/11_B2_original_852.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "92007b938dd1b6c8e39f5a37446364b6f23a49c6bd532c8b49f1be1c3153efb8",
+      "bytes": 346793,
+      "variables": [
+        {
+          "name": "continuationInfo",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 344578,
+          "fields": [
+            "low",
+            "upper",
+            "summary",
+            "results_lifted",
+            "total_points"
+          ]
+        },
+        {
+          "name": "results",
+          "class": "double",
+          "size": [
+            29,
+            852
+          ],
+          "bytes": 197664,
+          "fields": []
+        },
+        {
+          "name": "sourceInfo",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 2149,
+          "fields": [
+            "sourceFile",
+            "backupFile",
+            "createdAt",
+            "matlabVersion",
+            "allowNonpositiveVelocity",
+            "allowNegativeGRF",
+            "columnOrder",
+            "forceAndVelocityPolicy"
+          ]
+        },
+        {
+          "name": "validationInfo",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 158906,
+          "fields": [
+            "residualNorm",
+            "periodicReturnNorm",
+            "meanVelocity",
+            "minimumInstantaneousVelocity",
+            "maximumInstantaneousVelocity",
+            "minimumBodyHeight",
+            "minimumVerticalGRF",
+            "minimumAxialGRF",
+            "pairStateError",
+            "pairTimingError",
+            "flightCount",
+            "resolvedFlightCount",
+            "isOriginal",
+            "ambiguousContact",
+            "gaitLabel",
+            "residualTolerance",
+            "periodicAccepted",
+            "column",
+            "initialVelocity",
+            "period"
+          ]
+        }
+      ],
+      "legacy_29row_arrays": [
+        {
+          "variable": ".results",
+          "size": [
+            29,
+            852
+          ],
+          "columns": 852,
+          "initial_speed_bounds": [
+            -0.028931192692882933,
+            19.516016936793108
+          ],
+          "initial_pitch_bounds": [
+            -7.4128303464696874E-8,
+            6.25960997332194E-8
+          ],
+          "source_period_bounds": [
+            1.1445699038221842,
+            2.3818867914716981
+          ]
+        },
+        {
+          "variable": ".continuationInfo.results_lifted",
+          "size": [
+            29,
+            852
+          ],
+          "columns": 852,
+          "initial_speed_bounds": [
+            -0.028931192692882933,
+            19.516016936793108
+          ],
+          "initial_pitch_bounds": [
+            -7.4128303464696874E-8,
+            6.25960997332194E-8
+          ],
+          "source_period_bounds": [
+            1.1445699038221842,
+            2.3818867914716981
+          ]
+        }
+      ],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/corrected_source_for_phase.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/12_corrected_source_for_phase.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "121a21dd368254c644408c004814e67717dbb6e42f3dde57c60c9aab4a20f7dc",
+      "bytes": 358547,
+      "variables": [
+        {
+          "name": "Para",
+          "class": "double",
+          "size": [
+            7,
+            1
+          ],
+          "bytes": 56,
+          "fields": []
+        },
+        {
+          "name": "accepted1e7",
+          "class": "logical",
+          "size": [
+            1,
+            852
+          ],
+          "bytes": 852,
+          "fields": []
+        },
+        {
+          "name": "accepted1e8",
+          "class": "logical",
+          "size": [
+            1,
+            852
+          ],
+          "bytes": 852,
+          "fields": []
+        },
+        {
+          "name": "correctedSourceResults",
+          "class": "double",
+          "size": [
+            29,
+            852
+          ],
+          "bytes": 197664,
+          "fields": []
+        },
+        {
+          "name": "correctionMask",
+          "class": "logical",
+          "size": [
+            852,
+            1
+          ],
+          "bytes": 852,
+          "fields": []
+        },
+        {
+          "name": "correctionNorm",
+          "class": "double",
+          "size": [
+            1,
+            852
+          ],
+          "bytes": 6816,
+          "fields": []
+        },
+        {
+          "name": "correctionReports",
+          "class": "cell",
+          "size": [
+            1,
+            852
+          ],
+          "bytes": 421406,
+          "fields": []
+        },
+        {
+          "name": "nativeResidual",
+          "class": "double",
+          "size": [
+            1,
+            852
+          ],
+          "bytes": 6816,
+          "fields": []
+        },
+        {
+          "name": "note",
+          "class": "char",
+          "size": [
+            1,
+            236
+          ],
+          "bytes": 472,
+          "fields": []
+        },
+        {
+          "name": "rawResults",
+          "class": "double",
+          "size": [
+            29,
+            852
+          ],
+          "bytes": 197664,
+          "fields": []
+        },
+        {
+          "name": "results",
+          "class": "double",
+          "size": [
+            29,
+            852
+          ],
+          "bytes": 197664,
+          "fields": []
+        }
+      ],
+      "legacy_29row_arrays": [
+        {
+          "variable": ".rawResults",
+          "size": [
+            29,
+            852
+          ],
+          "columns": 852,
+          "initial_speed_bounds": [
+            -0.028931192692882933,
+            19.516016936793108
+          ],
+          "initial_pitch_bounds": [
+            -7.4128303464696874E-8,
+            6.25960997332194E-8
+          ],
+          "source_period_bounds": [
+            1.1445699038221842,
+            2.3818867914716981
+          ]
+        },
+        {
+          "variable": ".correctedSourceResults",
+          "size": [
+            29,
+            852
+          ],
+          "columns": 852,
+          "initial_speed_bounds": [
+            -0.028931192692882933,
+            19.516016936793108
+          ],
+          "initial_pitch_bounds": [
+            -7.4128303464696874E-8,
+            6.25960997332194E-8
+          ],
+          "source_period_bounds": [
+            1.1445699038221842,
+            2.3818867914716981
+          ]
+        },
+        {
+          "variable": ".results",
+          "size": [
+            29,
+            852
+          ],
+          "columns": 852,
+          "initial_speed_bounds": [
+            -0.075074140834866229,
+            19.516581292453111
+          ],
+          "initial_pitch_bounds": [
+            -7.390466311680237E-8,
+            6.2419995049515251E-8
+          ],
+          "source_period_bounds": [
+            1.1445699038221842,
+            2.3818867914716981
+          ]
+        }
+      ],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    },
+    {
+      "source_path": "SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits/Stages/03_B2_Family_and_Apex_Views/Audit/Apex_Equivalence/stationary_fixed_point.mat",
+      "fixture_path": "Research_v3/next_round/theory/SourceCriticalFixtures_v3/13_stationary_fixed_point.mat",
+      "source_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+      "sha256": "f9fb8a788c11a4d6abfe9a54f7698ed34a723c6a98e584535056ad81d6778937",
+      "bytes": 2308,
+      "variables": [
+        {
+          "name": "Para",
+          "class": "double",
+          "size": [
+            7,
+            1
+          ],
+          "bytes": 56,
+          "fields": []
+        },
+        {
+          "name": "certificate",
+          "class": "struct",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 2762,
+          "fields": [
+            "originalSourceColumn",
+            "period",
+            "initialVelocity",
+            "meanVelocity",
+            "fullCycleDisplacement",
+            "sourceNativeResidual",
+            "reflectedOtherApexNativeResidual",
+            "phaseTime",
+            "phaseFraction",
+            "initialStateDifference",
+            "normalizedEventDifference",
+            "periodDifference",
+            "fullTrajectory14StateDifference",
+            "symmetry",
+            "interpretation"
+          ]
+        },
+        {
+          "name": "original",
+          "class": "double",
+          "size": [
+            29,
+            1
+          ],
+          "bytes": 232,
+          "fields": []
+        },
+        {
+          "name": "other",
+          "class": "double",
+          "size": [
+            29,
+            1
+          ],
+          "bytes": 232,
+          "fields": []
+        },
+        {
+          "name": "phase",
+          "class": "cell",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 6534,
+          "fields": []
+        },
+        {
+          "name": "reflected",
+          "class": "double",
+          "size": [
+            29,
+            1
+          ],
+          "bytes": 232,
+          "fields": []
+        },
+        {
+          "name": "sourceColumn",
+          "class": "double",
+          "size": [
+            1,
+            1
+          ],
+          "bytes": 8,
+          "fields": []
+        }
+      ],
+      "legacy_29row_arrays": [
+        {
+          "variable": ".original",
+          "size": [
+            29,
+            1
+          ],
+          "columns": 1,
+          "initial_speed_bounds": [
+            0.023471941072785,
+            0.023471941072785
+          ],
+          "initial_pitch_bounds": [
+            2.428624970883746E-13,
+            2.428624970883746E-13
+          ],
+          "source_period_bounds": [
+            2.3401369962076353,
+            2.3401369962076353
+          ]
+        },
+        {
+          "variable": ".other",
+          "size": [
+            29,
+            1
+          ],
+          "columns": 1,
+          "initial_speed_bounds": [
+            -0.023471941072705959,
+            -0.023471941072705959
+          ],
+          "initial_pitch_bounds": [
+            2.4798959001766374E-13,
+            2.4798959001766374E-13
+          ],
+          "source_period_bounds": [
+            2.3401369962076353,
+            2.3401369962076353
+          ]
+        },
+        {
+          "variable": ".reflected",
+          "size": [
+            29,
+            1
+          ],
+          "columns": 1,
+          "initial_speed_bounds": [
+            0.023471941072705959,
+            0.023471941072705959
+          ],
+          "initial_pitch_bounds": [
+            -2.4798959001766374E-13,
+            -2.4798959001766374E-13
+          ],
+          "source_period_bounds": [
+            2.3401369962076353,
+            2.3401369962076353
+          ]
+        }
+      ],
+      "evidence_label": "legacy snapshot seed only; no v3 closure or ancestry asserted"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "constrained-local-PK-bridge-v3-1",
+  "candidate_id": "imported_PK_to_low_PIP_daughter_negative_0p01",
+  "state": "partial_checkpoint",
+  "next_index": 1,
+  "trial_serial": 0,
+  "trials": [],
+  "accepted_points": [],
+  "fresh_seed_records": 0,
+  "accepted_increment_count": 0,
+  "function_evaluations": 0,
+  "solver_map_evaluations": 0,
+  "elapsed_seconds": 0.959324,
+  "last_jacobian": [],
+  "partial": {},
+  "failure": {},
+  "endpoint_comparison": {},
+  "local_numerical_connection_supported": false,
+  "rigorous_ancestry_claimed": false
+}

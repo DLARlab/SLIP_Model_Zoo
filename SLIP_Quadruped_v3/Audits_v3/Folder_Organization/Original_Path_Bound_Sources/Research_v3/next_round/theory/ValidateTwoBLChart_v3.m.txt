@@ -1,0 +1,92 @@
+function audit=ValidateTwoBLChart_v3(target)
+%VALIDATETWOBLCHART_V3 Actual two-return parent and feasible flip directions.
+% The parent is deliberately a period-one cover; it is a derivative gate,
+% never an accepted primitive period-two daughter.
+    here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(fileparts(here)));
+    paths={'Schema_v3','Dynamics_v3','Simulation_v3','Orbit_v3','Numerics_v3'};
+    for k=1:numel(paths),addpath(fullfile(v3,paths{k}));end
+    if nargin<1,target='PIP';end
+    if strcmp(target,'PIP')
+        d=load(fullfile(here,'floquet_service_PIP.mat'),'report');parent=d.report;
+        frozen=load(fullfile(here,'PIP_flip_BL2_sector_candidates.mat'),'catalog');
+        outputStem='two_BL_chart_validation';
+    elseif strcmp(target,'n0_parent')
+        d=load(fullfile(here,'n0_full_physical_spectrum.mat'),'result');
+        source=load(fullfile(here,'arming_n0_parent_03.mat'),'x','q','parameters');
+        parent=struct('base_state',source.x,'base_mode',source.q, ...
+            'physical_parameters',source.parameters,'mechanical_energy',d.result.energy,'matrix',d.result.full_matrix);
+        frozen=load(fullfile(here,'n0_flip_BL2_sector_candidates.mat'),'catalog');
+        outputStem='two_BL_n0_chart_validation';
+    else,error('ValidateTwoBLChart_v3:Target','Unregistered target.');end
+    physicalChart=frozen.catalog.physical_chart;
+    settings=struct('RelTol',1e-12,'AbsTol',1e-14,'MaxStep',.005, ...
+        'EventValueTolerance',1e-10,'EventTimeTolerance',1e-12, ...
+        'SimultaneousTimeTolerance',1e-10,'ArmingTolerance',1e-11);
+    policy=BLMarkedApexReturnPolicy_v3(struct('BLTouchdownsPerReturn',2));
+    map=PoincareMap_v3(Quadrupedal_Dynamics_v3(),PoincareSection_v3.apex(4), ...
+        HybridSimulator_v3(settings),policy,struct('MaxReturnTime',10));
+    options=struct('PhysicalParameter',parent.physical_parameters, ...
+        'BLTouchdownsPerReturn',2,'RelativeCandidateSteps',1e-4, ...
+        'UseRichardson',false,'MaximumRelativeError',1e-3);
+    helper=EventOrderChartJacobian_v3(options);
+    observations=struct('scalar_coordinate',{},'sector',{},'raw_event_ids',{}, ...
+        'raw_event_times',{},'raw_cyclic_signature',{},'raw_section_signature',{}, ...
+        'BL_touchdowns_per_return',{},'selected_return_BL_occurrence',{},'physical_admissible',{});
+    audit=struct('schema_version','two-BL-common-chart-validation-v3-1', ...
+        'created_utc',char(datetime('now','TimeZone','UTC')),'matlab_version',version,'target',target, ...
+        'physical_parameters',parent.physical_parameters,'energy',parent.mechanical_energy, ...
+        'settings',settings,'relative_fd_step',1e-4,'required_marked_occurrence',3, ...
+        'required_physical_contact_count',16,'cases',struct([]),'passed',false, ...
+        'interpretation','Actual first derivative of two marked returns; base parent remains a period-one cover. No new primitive period-two orbit is claimed.');
+    direction=zeros(12,1);sector='baseline';[base,baseline]=reduced(0);
+    baselineClosure=norm(base-parent.base_state(physicalChart.independent_indices),inf);
+    single=EventOrderChartJacobian_v3(struct('PhysicalParameter',parent.physical_parameters));
+    [~,singleDiagnostic]=single.normalizeMetadata(baseline);
+    [~,doubleDiagnostic]=helper.normalizeMetadata(baseline);
+    broken=baseline;events=broken.event_history;events=events(~[events.is_stop]);broken.event_history=events(1:8);
+    [~,brokenDiagnostic]=helper.normalizeMetadata(broken);
+    audit.actual_base_full_closure=baselineClosure;
+    audit.single_return_chart_rejects_double=~singleDiagnostic.accepted;
+    audit.double_return_chart_admitted=doubleDiagnostic.accepted;
+    audit.missing_second_cohort_rejected=~brokenDiagnostic.accepted;
+    for index=[1,3]
+        item=frozen.catalog.candidates(index);direction=item.independent_direction;sector=item.sector;
+        [derivative,~,info]=helper.compute(@reduced,0);
+        prediction=parent.matrix*parent.matrix*direction;
+        entry=struct('sector',sector,'actual_derivative',derivative, ...
+            'predicted_composed_derivative',prediction, ...
+            'relative_composition_error',norm(derivative-prediction,inf)/max(1,norm(prediction,inf)), ...
+            'reliable',info.allReliable,'declared_chart_verified',info.commonC1EventOrderChart, ...
+            'map_evaluations',info.mapEvaluations,'step_errors',info.estimatedErrors, ...
+            'raw_chart_observations',info.eventOrderChartObservations);
+        if isempty(audit.cases),audit.cases=entry;else,audit.cases(end+1)=entry;end %#ok<AGROW>
+        fprintf('BL2 %s reliable%d compositionerror%.3g\n',sector,entry.reliable,entry.relative_composition_error);
+    end
+    audit.raw_physical_observations=observations;
+    audit.passed=baselineClosure<1e-8&&audit.single_return_chart_rejects_double ...
+        &&audit.double_return_chart_admitted&&audit.missing_second_cohort_rejected ...
+        &&all([audit.cases.reliable])&&all([audit.cases.declared_chart_verified]) ...
+        &&max([audit.cases.relative_composition_error])<1e-3;
+    audit.helper_path='Numerics_v3/EventOrderChartJacobian_v3.m';
+    fid=fopen(fullfile(v3,audit.helper_path),'rb');assert(fid>=0);
+    engine=java.security.MessageDigest.getInstance('SHA-256');
+    while ~feof(fid),engine.update(fread(fid,1024*1024,'*uint8'));end
+    fclose(fid);audit.helper_sha256=lower(reshape(dec2hex(typecast(engine.digest(),'uint8'),2).',1,[]));
+    save(fullfile(here,[outputStem,'.mat']),'audit','-v7');
+    fid=fopen(fullfile(here,[outputStem,'.json']),'w');assert(fid>=0);
+    cleanup=onCleanup(@()fclose(fid)); %#ok<NASGU>
+    fprintf(fid,'%s\n',jsonencode(audit,'PrettyPrint',true));assert(audit.passed);
+    function [value,metadata]=reduced(coordinate,varargin) %#ok<INUSD>
+        indices=physicalChart.independent_indices;
+        initial=parent.base_state;initial(indices)=initial(indices)+coordinate*direction;
+        [next,metadata]=map.evaluate(initial,parent.base_mode,parent.physical_parameters);
+        value=next(indices);events=metadata.event_history;events=events(~[events.is_stop]);
+        observations(end+1)=struct('scalar_coordinate',coordinate,'sector',sector, ...
+            'raw_event_ids',[events.guard_id],'raw_event_times',[events.time], ...
+            'raw_cyclic_signature',char(metadata.cyclic_event_signature), ...
+            'raw_section_signature',char(metadata.section_relative_event_signature), ...
+            'BL_touchdowns_per_return',metadata.section_chart.BL_touchdowns_per_return, ...
+            'selected_return_BL_occurrence',metadata.section_chart.selected_return_BL_occurrence, ...
+            'physical_admissible',metadata.admissible);
+    end
+end

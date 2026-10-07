@@ -1,0 +1,34 @@
+{
+  "schema_version": "event-order-chart-helper-validation-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "state_index": 5,
+  "target": "imported_PK",
+  "strict_reliable": false,
+  "strict_failures": [
+    "plus-h changed cycle topology",
+    "minus-h changed cycle topology",
+    "plus-h/2 changed cycle topology",
+    "minus-h/2 changed cycle topology"
+  ],
+  "common_reliable": true,
+  "common_classical_first_derivative": true,
+  "common_chart_verified": true,
+  "common_matrix": [
+    -1.9247490922776742,
+    -0.014120839206821494,
+    -0.81738684399267536,
+    -2.1736589343494623,
+    -0.11407558885226138,
+    -6.7566944261414843,
+    -0.11407558885226331,
+    -6.756694426141606,
+    -0.11523069086791692,
+    -6.7392535496739079,
+    -0.11523069086791721,
+    -6.7392535496739079
+  ],
+  "common_estimated_error": 9.4869336597334267E-8,
+  "baseline_chart_admitted": true,
+  "missing_actual_events_rejected": true,
+  "missing_actual_events_reason": ": The explicit actual contact count changed."
+}

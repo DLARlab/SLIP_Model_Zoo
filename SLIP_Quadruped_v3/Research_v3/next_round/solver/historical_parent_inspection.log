@@ -1,0 +1,26 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+            iterations: 5
+             funcCount: 61
+             algorithm: 'damped Levenberg-Newton trust region'
+         firstorderopt: NaN
+              stepsize: NaN
+    acceptedIterations: 0
+     invalidTrialCount: 60
+          jacobianInfo: [1×1 struct]
+               message: 'Maximum iteration count reached.'
+
+   1   1   0   0   1   1   1   1   1   1   1   1
+
+   1.0e-03 *
+
+  Columns 1 through 7
+
+    0.0030    0.4571    0.0030    0.0030    0.0300    0.0300    0.0300
+
+  Columns 8 through 12
+
+    0.0300    0.0030    0.0100    0.0030    0.0100
+

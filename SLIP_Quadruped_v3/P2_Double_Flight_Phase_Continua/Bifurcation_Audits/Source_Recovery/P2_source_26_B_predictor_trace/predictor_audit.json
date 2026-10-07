@@ -1,0 +1,66 @@
+{
+  "schema_version": "repaired-source-flow-audit-v3-1",
+  "state": "accepted",
+  "scientific_status": "repaired_predictor_flow_diagnosis_executed",
+  "source_task": "P2_source_26_B",
+  "observation_indices": 1,
+  "next_index": 2,
+  "cases": {
+    "column": 1,
+    "execution_success": false,
+    "completed_physical_samples": 209,
+    "actual_events": [
+      {
+        "type": "BL_LO",
+        "time": 0.000558627991666825
+      },
+      {
+        "type": "BR_LO",
+        "time": 0.000558627991666825
+      },
+      {
+        "type": "FL_LO",
+        "time": 0.000558627991666825
+      },
+      {
+        "type": "FR_LO",
+        "time": 0.000558627991666825
+      },
+      {
+        "type": "BL_TD",
+        "time": 0.26426128450497155
+      },
+      {
+        "type": "BR_TD",
+        "time": 0.26426128450497155
+      },
+      {
+        "type": "FL_TD",
+        "time": 0.26426128450497155
+      },
+      {
+        "type": "FR_TD",
+        "time": 0.26426128450497155
+      }
+    ],
+    "first_physical_failure": {},
+    "first_event_discrepancy": {
+      "found": true,
+      "cluster_index": 1,
+      "scheduled": {
+        "time": 0.73052718106273407,
+        "types": "BL_LO+BR_LO+FL_LO+FR_LO"
+      },
+      "actual": {
+        "time": 0.000558627991666825,
+        "types": "BL_LO+BR_LO+FL_LO+FR_LO"
+      },
+      "time_difference": -0.72996855307106723,
+      "reason": "first autonomous directed event differs in time or contact identity"
+    },
+    "artifact": "column_00001_repaired_predictor_trace.mat",
+    "accepted_periodic_solution": false
+  },
+  "new_points": 0,
+  "function_evaluations": 0
+}

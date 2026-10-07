@@ -1,0 +1,295 @@
+{
+  "schema_version": "repaired-source-flow-audit-v3-1",
+  "state": "accepted",
+  "scientific_status": "repaired_predictor_flow_diagnosis_executed",
+  "source_task": "P1_source_19_B",
+  "observation_indices": 1,
+  "next_index": 2,
+  "cases": {
+    "column": 1,
+    "execution_success": false,
+    "completed_physical_samples": 39,
+    "actual_events": [
+      {
+        "type": "BL_TD",
+        "time": 0.028623884385030929
+      },
+      {
+        "type": "BR_TD",
+        "time": 0.028623884385030929
+      },
+      {
+        "type": "FL_TD",
+        "time": 0.45895176199905524
+      },
+      {
+        "type": "FR_TD",
+        "time": 0.45895176199905524
+      }
+    ],
+    "first_physical_failure": {
+      "time": 0.028681132153800987,
+      "sample": 41,
+      "state": [
+        0.13863421641083437,
+        4.8336381952569116,
+        0.93669026847829628,
+        -0.028681183514355942,
+        -0.00066027883342960737,
+        -0.023021352915064873,
+        -0.35639336730683807,
+        -4.5113368409638914,
+        -0.35639336730681315,
+        -4.5113368409639749,
+        0.58910137532441786,
+        3.7707795171509138,
+        0.58910137733336621,
+        3.7707795114265652
+      ],
+      "mode": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "source": "rejected-raw-segment",
+      "diagnostics": {
+        "context": "accepted-state",
+        "context_policy": {
+          "strict_accepted_state_checks": true,
+          "allows_transient_event_surface_overshoot": false
+        },
+        "mode": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "absolute_leg_angles": [
+          -0.35705364614026769,
+          -0.35705364614024276,
+          0.5884410964909883,
+          0.58844109849993664
+        ],
+        "hip_heights": [
+          0.9370204078710227,
+          0.9370204078710227,
+          0.93636012908556987,
+          0.93636012908556987
+        ],
+        "hip_clearances": [
+          0.9370204078710227,
+          0.9370204078710227,
+          0.93636012908556987,
+          0.93636012908556987
+        ],
+        "hip_clearance_margins": [
+          0.9370204078710227,
+          0.9370204078710227,
+          0.93636012908556987,
+          0.93636012908556987
+        ],
+        "torso_endpoint_heights": [
+          0.9370204078710227,
+          0.93636012908556987
+        ],
+        "torso_clearance": 0.93636012908556987,
+        "torso_clearance_margin": 0.93636012908556987,
+        "swing_foot_clearances": [
+          8.9723405620523167E-5,
+          8.9723405611863427E-5,
+          0.10455314685336592,
+          0.10455314796846282
+        ],
+        "swing_foot_margins": [
+          null,
+          null,
+          0.10455315685336591,
+          0.10455315796846282
+        ],
+        "minimum_swing_foot_clearance": 0.10455314685336592,
+        "minimum_swing_foot_margin": 0.10455315685336591,
+        "leg_lengths": [
+          1.000095763120056,
+          1.0000957631200467,
+          1,
+          1
+        ],
+        "stance_leg_lengths": [
+          1.000095763120056,
+          1.0000957631200467,
+          null,
+          null
+        ],
+        "stance_compressions": [
+          -9.5763120055991635E-5,
+          -9.5763120046665762E-5,
+          null,
+          null
+        ],
+        "stance_compression_margins": [
+          -9.575312005599164E-5,
+          -9.5753120046665767E-5,
+          null,
+          null
+        ],
+        "minimum_stance_compression": -9.5763120055991635E-5,
+        "minimum_stance_compression_margin": -9.575312005599164E-5,
+        "leg_length_margins": [
+          1.0000957531200561,
+          1.0000957531200467,
+          null,
+          null
+        ],
+        "minimum_leg_length": 1.0000957631200467,
+        "minimum_leg_length_margin": 1.0000957531200467,
+        "complementarity_residuals": [
+          8.9723405620523167E-5,
+          8.9723405611863427E-5,
+          0,
+          0
+        ],
+        "complementarity_margins": [
+          -8.9713405620523172E-5,
+          -8.9713405611863432E-5,
+          1E-8,
+          1E-8
+        ],
+        "minimum_complementarity_margin": -8.9713405620523172E-5,
+        "minimum_hip_clearance": 0.93636012908556987,
+        "minimum_hip_clearance_margin": 0.93636012908556987,
+        "downward_orientation_margins": [
+          0.93693068446540217,
+          0.93693068446541083,
+          0.831806982232204,
+          0.831806981117107
+        ],
+        "finite_geometry_per_leg": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "per_leg_validity": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "per_leg_failure_reasons": [
+          [
+            "stance_tension:BL",
+            "contact_complementarity_loss:BL"
+          ],
+          [
+            "stance_tension:BR",
+            "contact_complementarity_loss:BR"
+          ],
+          [],
+          []
+        ],
+        "per_leg_minimum_physical_margin": [
+          -9.575312005599164E-5,
+          -9.5753120046665767E-5,
+          1E-8,
+          1E-8
+        ],
+        "global_validity": false,
+        "strict_global_validity": false,
+        "minimum_physical_margin": -9.575312005599164E-5,
+        "failure_reasons": [
+          "stance_tension:BL",
+          "contact_complementarity_loss:BL",
+          "stance_tension:BR",
+          "contact_complementarity_loss:BR"
+        ],
+        "post_reset_consistency_evaluated": false,
+        "post_reset_guard_residuals": [],
+        "post_reset_guard_consistent": [],
+        "post_reset_mode_consistent": [],
+        "active_tolerances": {
+          "swing_penetration": 1E-8,
+          "stance_tension": 1E-8,
+          "minimum_leg_length": 1E-8,
+          "minimum_back_hip_height": 0,
+          "minimum_front_hip_height": 0,
+          "minimum_torso_clearance": 0,
+          "complementarity": 1E-8,
+          "post_reset_guard": 1E-7,
+          "geometry": 1E-10,
+          "minimum_downward_cosine": 0,
+          "ode_stage_surface": 1E-5
+        },
+        "active_checks": {
+          "back_hip_clearance": true,
+          "front_hip_clearance": true,
+          "torso_ground_intersection": true,
+          "finite_geometry": true,
+          "post_reset_guard_consistency": true,
+          "mode_guard_complementarity": true,
+          "downward_leg_orientation": true
+        },
+        "admissible": false,
+        "admissibility_margins": [
+          -9.575312005599164E-5,
+          -9.5753120046665767E-5,
+          1E-8,
+          1E-8
+        ],
+        "minimum_stance_admissibility_margin": -9.575312005599164E-5,
+        "stance_admissibility_margins": [
+          -9.575312005599164E-5,
+          -9.5753120046665767E-5,
+          null,
+          null
+        ],
+        "invalid_stance_legs": [
+          1,
+          2
+        ],
+        "invalid_swing_legs": []
+      },
+      "guard_values": [
+        8.9723405620523167E-5,
+        8.9723405620523167E-5,
+        8.9723405611863427E-5,
+        8.9723405611863427E-5,
+        0.10455314685336592,
+        0.10455314685336592,
+        0.10455314796846282,
+        0.10455314796846282
+      ],
+      "axial_forces": [
+        -0.00095763120055991635,
+        -0.00095763120046665762,
+        0,
+        0
+      ],
+      "axial_forces_from_geometry": [
+        -0.00095763120055991635,
+        -0.00095763120046665762,
+        0,
+        0
+      ],
+      "force_evaluation_scope": "Algebraic diagnostic on rejected state; no force clamp or accepted physical flow."
+    },
+    "first_event_discrepancy": {
+      "found": true,
+      "cluster_index": 1,
+      "scheduled": {
+        "time": 0.45432060238382072,
+        "types": "FL_TD+FR_TD"
+      },
+      "actual": {
+        "time": 0.028623884385030929,
+        "types": "BL_TD+BR_TD"
+      },
+      "time_difference": -0.42569671799878978,
+      "reason": "first autonomous directed event differs in time or contact identity"
+    },
+    "artifact": "column_00001_repaired_predictor_trace.mat",
+    "accepted_periodic_solution": false
+  },
+  "new_points": 0,
+  "function_evaluations": 0
+}

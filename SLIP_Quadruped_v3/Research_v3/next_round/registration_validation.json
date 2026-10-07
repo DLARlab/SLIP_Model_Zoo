@@ -1,0 +1,221 @@
+{
+  "schema_version": "matlab-research-round-v3-1",
+  "seed": 2.0261007E+7,
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "legacy_parameter_policy": "v2-exact",
+  "baseline_legacy_parameters": [
+    10,
+    20,
+    2,
+    1,
+    0,
+    0.5,
+    1
+  ],
+  "baseline_v3_parameters": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "domain": {
+    "energy": [
+      1.000001,
+      250.66912494952322
+    ],
+    "mean_speed": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 20.740683444789454,
+    "event_count_max": 128,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately",
+    "initial_speed_diagnostic": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "energy_stages": {
+      "ordinary_parent_and_P2": [
+        1.000001,
+        3
+      ],
+      "P1_critical_neighborhood": [
+        8,
+        14
+      ],
+      "full_source_comparison": [
+        1.000001,
+        250.66912494952322
+      ]
+    },
+    "derivation": {
+      "energy": "1.2 times maximum algebraic mapped source energy; minimum12",
+      "mean_speed": "Prospective broad bound from1.5 times max initial source speed; initial and mean speed remain separate observables",
+      "period": "1.5 times max positive source period predictor; minimum12",
+      "pitch": "1.2 times maximum source absolute pitch; minimum1.2",
+      "source_initial_ranges": [
+        -20.175019627029947,
+        20.423184056395353
+      ],
+      "historical_P1_critical_initial_speed": 4.43406193516227,
+      "historical_P1_critical_kinetic_energy": 9.8304526224274884
+    }
+  },
+  "budgets": {
+    "total_wall_seconds": 1800,
+    "baseline_test_wall_seconds": 900,
+    "per_fixture_wall_seconds": 120,
+    "fixture_columns_per_family": 3,
+    "fixed_parameter_points_per_direction": 20,
+    "root_max_iterations": 35,
+    "root_max_function_evaluations": 4000,
+    "alternative_seed_count": 16,
+    "continuation_wall_seconds": 240,
+    "gui_validation_wall_seconds": 300,
+    "total_function_evaluations": 30000,
+    "per_task_wall_seconds": 90,
+    "continuation_batch_points": 3,
+    "fixture_columns_per_repair_round": [
+      2,
+      3,
+      4
+    ],
+    "minimum_repair_rounds": 3,
+    "semantics": "One total numerical wall budget across tasks and retries; task slices and point batches only checkpoint progress."
+  },
+  "integration": {
+    "relative_tolerance": 1E-10,
+    "absolute_tolerance": 1E-12,
+    "replay_relative_tolerance": 2E-12,
+    "replay_absolute_tolerance": 2E-14
+  },
+  "status": "registered_before_numerical_experiments",
+  "parent_only_pronk": {
+    "scan_points": 24,
+    "wall_seconds": 240,
+    "maximum_connections": 5,
+    "energy_bracket_tolerance": 1E-8,
+    "amplitudes": [
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "registration": "before parent-only pronk scan; no domain change",
+    "validation_version": "parent-only-pronk-validation-v3-2",
+    "relative_tolerance": 1E-11,
+    "absolute_tolerance": 1E-13,
+    "replay_relative_tolerance": 2E-12,
+    "replay_absolute_tolerance": 2E-14,
+    "derivative_step": 0.0001,
+    "derivative_relative_error": 0.001,
+    "transversality_energy_step": 0.0001,
+    "root_function_tolerance": 1E-12,
+    "root_residual_tolerance": 1E-10,
+    "full_closure_tolerance": 1E-8,
+    "replay_period_tolerance": 1E-8,
+    "kernel_gap_factor": 25,
+    "kernel_zero_factor": 10,
+    "transversality_factor": 5,
+    "minimum_signed_amplitudes": 3,
+    "minimum_critical_alignment": 0.995,
+    "energy_scaling_relative_tolerance": 0.15,
+    "trajectory_distinction_tolerance": 1E-6,
+    "synchronization_tolerance": 1E-9,
+    "signed_reflection_tolerance": 1E-7,
+    "validation_registration": "v2 validation settings frozen before rerun; larger amplitude and tighter replay improve numerical evidence; registered domain and physical parameters unchanged"
+  },
+  "profile": "validation",
+  "experiment_id": "next-round-validation-20261007",
+  "created_utc": "07-Oct-2026 11:40:19",
+  "source_inventory": "Research_v3/next_round/source_inventory.mat",
+  "starting_commit": "f53c39cca530d9782d00ba8699acb1d55484f7d8",
+  "historical_domain": {
+    "energy": [
+      1.0001,
+      3
+    ],
+    "mean_speed": [
+      -3,
+      3
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 12,
+    "event_count_max": 64,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately"
+  },
+  "acceptance": {
+    "full_closure": 1E-8,
+    "reduced_residual": 1E-10,
+    "energy": 1E-8,
+    "stance_constraint": 1E-8,
+    "parameter": 1E-12
+  },
+  "repair_rounds": [
+    {
+      "id": "A",
+      "method": "direct conversion + fixed-energy correction and quantitative trace",
+      "do_not_claim": "Raw replay failure does not reject a family."
+    },
+    {
+      "id": "B",
+      "method": "adjacent/source-minimum neighbors + physical rephase/retraction + scaled correction",
+      "do_not_claim": "Physical retraction is distinct from nonlinear correction."
+    },
+    {
+      "id": "C",
+      "method": "adaptive source density + unrestricted physical coordinates + alternate section occurrence",
+      "do_not_claim": "A successful corrected seed does not certify parent ancestry."
+    }
+  ]
+}

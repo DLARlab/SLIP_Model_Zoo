@@ -16,7 +16,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     originalPath = path;
     folders = {'Schema_v3', 'Adapters_v3', 'Dynamics_v3', 'Simulation_v3', ...
         'Orbit_v3', 'Numerics_v3', 'Stability_v3', 'Graphics_v3', 'GUI_v3'};
-    for pathIndex = 1:numel(folders), addpath(fullfile(root, folders{pathIndex})); end
+    for pathIndex = 1:numel(folders), V3LegacyAddPath_v3(fullfile(root, folders{pathIndex})); end
     try
     controller = QuadrupedGUIController_v3(root);
     schema = controller.Schema;
@@ -88,7 +88,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     ar = uigridlayout(ig, [1, 4]); ar.ColumnWidth = {52, '1x', 40, '1x'}; ar.Padding = [0 0 0 0];
     uilabel(ar, 'Text', 'Aspect'); handles.Aspect = uieditfield(ar, 'text', 'Value', '1.333 1 1');
     uilabel(ar, 'Text', 'View'); handles.View = uieditfield(ar, 'text', 'Value', '0 90');
-    handles.ExportPath = uieditfield(ig, 'text', 'Value', fullfile(root, 'GUI_v3', 'Outputs_v3', 'state-plot.png'));
+    handles.ExportPath = uieditfield(ig, 'text', 'Value', fullfile(root, '2_Graphic_ToolBox', 'GUI_v3', 'Outputs_v3', 'state-plot.png'));
     er = uigridlayout(ig, [1, 2]); er.ColumnWidth = {'1x', '1x'}; Button(er, 'Export current plot', @ExportPlot); Button(er, 'Save accepted solution', @SaveSolution);
     % Visualization keeps Animation and Trajectories within the familiar tab.
     vg = uigridlayout(visualTab, [4, 1]); vg.RowHeight = {40, 40, 32, '1x'};
@@ -102,7 +102,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     recordingSettings = uigridlayout(vg, [1, 3]); recordingSettings.ColumnWidth = {42, 54, '1x'}; recordingSettings.Padding = [0 0 0 0];
     uilabel(recordingSettings, 'Text', 'Speed');
     handles.PlaybackSpeed = uieditfield(recordingSettings, 'numeric', 'Value', 1, 'Limits', [.1 10], 'ValueChangedFcn', @(~, ~) SpeedChanged(false));
-    handles.MediaPath = uieditfield(recordingSettings, 'text', 'Value', fullfile(root, 'GUI_v3', 'Outputs_v3', 'animation'), 'Tooltip', 'Animation export path base inside v3; .gif/.mp4 is appended.');
+    handles.MediaPath = uieditfield(recordingSettings, 'text', 'Value', fullfile(root, '2_Graphic_ToolBox', 'GUI_v3', 'Outputs_v3', 'animation'), 'Tooltip', 'Animation export path base inside v3; .gif/.mp4 is appended.');
     handles.VisualTabs = uitabgroup(vg); at = uitab(handles.VisualTabs, 'Title', 'Animation'); tt = uitab(handles.VisualTabs, 'Title', 'Trajectories');
     ag = uigridlayout(at, [2, 1]); handles.AnimationAxes = uiaxes(ag); handles.OrbitAxes = uiaxes(ag);
     tg = uigridlayout(tt, [4, 1]); handles.TrajectoryAxes = gobjects(3, 1);
@@ -123,7 +123,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     Button(tools, 'Apply perturbation', @Perturb);
     handles.Prediction = NumberRow(tools, 'Predict factor', 1.1, [-Inf Inf]);
     Button(tools, 'Predict', @Predict); Button(tools, 'Correct', @Correct); Button(tools, 'Plot solved seed', @PlotCandidate); Button(tools, 'Save solved seed', @SaveSolution);
-    handles.SavePath = uieditfield(tools, 'text', 'Value', fullfile(root, 'GUI_v3', 'Outputs_v3', 'gui-solution.mat'), 'Tooltip', 'Accepted-solution save path inside v3');
+    handles.SavePath = uieditfield(tools, 'text', 'Value', fullfile(root, '2_Graphic_ToolBox', 'GUI_v3', 'Outputs_v3', 'gui-solution.mat'), 'Tooltip', 'Accepted-solution save path inside v3');
     handles.Algorithm = uidropdown(tools, 'Items', {'newton', 'fsolve', 'auto'}, 'Tooltip', 'Shared RootSolver algorithm');
     handles.MaxIterations = NumberRow(tools, 'Max iterations', 40, [1 1000]); handles.MaxIterations.RoundFractionalValues = 'on';
     handles.MaxEvaluations = NumberRow(tools, 'Max evaluations', 1200, [1 50000]); handles.MaxEvaluations.RoundFractionalValues = 'on';
@@ -140,7 +140,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     handles.Points = NumberRow(fixedGrid, 'Point budget', 5, [1 1000]); handles.Points.RoundFractionalValues = 'on';
     Button(fixedGrid, 'Run fixed-parameter continuation', @StartFixed);
     BuildRunControls(fixedGrid);
-    handles.CheckpointPath = uieditfield(fixedGrid, 'text', 'Value', fullfile(root, 'GUI_v3', 'Outputs_v3', 'gui-partial.mat'), 'Tooltip', 'Resumable run save path inside v3');
+    handles.CheckpointPath = uieditfield(fixedGrid, 'text', 'Value', fullfile(root, '2_Graphic_ToolBox', 'GUI_v3', 'Outputs_v3', 'gui-partial.mat'), 'Tooltip', 'Resumable run save path inside v3');
     handles.PreviewAxes = uiaxes(fixedGrid);
     uilabel(fixedGrid, 'Text', 'Pause/stop take effect at point boundaries; every point is checkpointed.', 'WordWrap', 'on');
     pg = uigridlayout(paraTab, [7, 1]); pg.RowHeight = {30, 30, 30, 30, 30, '1x', 50};
@@ -182,9 +182,9 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         'RecordMP4', @RecordVideo, 'RecordGIF', @RecordGIF, 'RecordOscillatorGIF', @RecordOscillatorGIF, 'Play', @Play, 'PlayTick', @PlayTick);
     fig.UserData = struct('controller', controller, 'handles', handles);
     catch startupException
-        if exist('runTimer', 'var') && ~isempty(runTimer) && isvalid(runTimer), stop(runTimer); delete(runTimer); end
-        if exist('playTimer', 'var') && ~isempty(playTimer) && isvalid(playTimer), stop(playTimer); delete(playTimer); end
-        if exist('fig', 'var') && isvalid(fig), delete(fig); end
+        if exist(V3Path_v3('runTimer'), 'var') && ~isempty(runTimer) && isvalid(runTimer), stop(runTimer); delete(V3Path_v3(runTimer)); end
+        if exist(V3Path_v3('playTimer'), 'var') && ~isempty(playTimer) && isvalid(playTimer), stop(playTimer); delete(V3Path_v3(playTimer)); end
+        if exist(V3Path_v3('fig'), 'var') && isvalid(fig), delete(V3Path_v3(fig)); end
         path(originalPath); rethrow(startupException);
     end
 
@@ -392,7 +392,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     function ExportPlot()
         file = controller.prepareOutput(handles.ExportPath.Value);
         if strcmp(handles.PlotTabs.SelectedTab.Title, 'Hildebrand Plot'), target = handles.ContactAxes; else, target = handles.StateAxes; end
-        exportgraphics(target, file, 'Resolution', 180);
+        exportgraphics(V3Path_v3(target), file, 'Resolution', 180);
     end
     function SaveSolution()
         controller.saveSolution(handles.SavePath.Value);
@@ -404,7 +404,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     function StartScan(), ConfigureSolver(); controller.startRun('scan', handles.ScanParameter1.Value, ParseValues(handles.ScanValues1.Value), handles.ScanParameter2.Value, ParseValues(handles.ScanValues2.Value), struct('Scope', handles.Scope.Value, 'Checkpoint', handles.CheckpointPath.Value)); end
     function Resume(), controller.resumeRun(); end
     function LoadPartial()
-        [name, folder] = uigetfile(fullfile(root, 'GUI_v3', 'Outputs_v3', '*.mat'), 'Load a v3 GUI checkpoint');
+        [name, folder] = uigetfile(V3Path_v3(fullfile(root, '2_Graphic_ToolBox', 'GUI_v3', 'Outputs_v3', '*.mat')), 'Load a v3 GUI checkpoint');
         if isequal(name, 0), return; end
         controller.resumeRun(fullfile(folder, name));
     end
@@ -496,8 +496,8 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     end
     function ExportKeyframe()
         if isempty(frames), PrepareVisualization(); end
-        file = controller.prepareOutput(fullfile(root, 'GUI_v3', 'Outputs_v3', 'animation-keyframe.png'));
-        exportgraphics(handles.AnimationAxes, file, 'Resolution', 180);
+        file = controller.prepareOutput(fullfile(root, '2_Graphic_ToolBox', 'GUI_v3', 'Outputs_v3', 'animation-keyframe.png'));
+        exportgraphics(V3Path_v3(handles.AnimationAxes), file, 'Resolution', 180);
     end
     function file = RecordVideo(frameLimit)
         if nargin < 1, frameLimit = Inf; end
@@ -508,7 +508,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         cleanup = onCleanup(@() close(movieFigure));
         movie = SLIP_Animation_Quad_v3(record.orbit, [], movieFigure, struct('AnimationMode', 'Simple'));
         videoFrames = controller.frames(handles.Strides.Value, false);
-        writer = VideoWriter(file, 'MPEG-4'); writer.FrameRate = 25*handles.PlaybackSpeed.Value; open(writer);
+        writer = VideoWriter(V3Path_v3(file), 'MPEG-4'); writer.FrameRate = 25*handles.PlaybackSpeed.Value; open(writer);
         writerCleanup = onCleanup(@() close(writer));
         for j = 1:min(numel(videoFrames.time), frameLimit)
             movie.update(videoFrames.time(j), videoFrames.state(j, :).', videoFrames.mode(j, :).', false); drawnow;
@@ -557,13 +557,13 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
             else, indexed = rgb2ind(rgb, palette); end
             nextIndex = min(numel(frames.time), exportIndex+1);
             delay = max(.02, (frames.time(nextIndex)-frames.time(exportIndex))/handles.PlaybackSpeed.Value);
-            if exportIndex == 1, imwrite(indexed, palette, file, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
-            else, imwrite(indexed, palette, file, 'gif', 'WriteMode', 'append', 'DelayTime', delay); end
+            if exportIndex == 1, imwrite(V3Path_v3(indexed), palette, file, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
+            else, imwrite(V3Path_v3(indexed), palette, file, 'gif', 'WriteMode', 'append', 'DelayTime', delay); end
         end
     end
     function CloseGUI()
-        if ~isempty(runTimer) && isvalid(runTimer), stop(runTimer); delete(runTimer); end
-        if ~isempty(playTimer) && isvalid(playTimer), stop(playTimer); delete(playTimer); end
-        controller.stopRun(); delete(fig); path(originalPath);
+        if ~isempty(runTimer) && isvalid(runTimer), stop(runTimer); delete(V3Path_v3(runTimer)); end
+        if ~isempty(playTimer) && isvalid(playTimer), stop(playTimer); delete(V3Path_v3(playTimer)); end
+        controller.stopRun(); delete(V3Path_v3(fig)); path(originalPath);
     end
 end

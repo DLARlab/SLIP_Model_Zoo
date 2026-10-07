@@ -1,0 +1,32 @@
+[
+  {
+    "schema_version": "prospective-task-slice-repair-v3-1",
+    "profile": "full",
+    "revision": 1,
+    "registered_utc": "07-Oct-2026 14:20:25",
+    "diagnosis": "Measured validation90s slices made no new points; prospective480s slices appended four actual PK points. The PIP negative-.0003 attempt had3.78s remaining and starved its derivative. Increase checkpoint slices while preserving the original registration and10800s total.",
+    "evidence": "Research_v3/next_round/workflow_02/workflow_audit.json; Research_v3/next_round/solver/pip_amplitude_cost_audit.json",
+    "previous_task_slice_seconds": 240,
+    "per_task_wall_seconds": 480,
+    "total_wall_seconds": 10800,
+    "acceptance_tolerances_changed": false,
+    "domain_changed": false,
+    "original_registration_preserved": true,
+    "total_budget_changed": false
+  },
+  {
+    "schema_version": "prospective-task-slice-repair-v3-1",
+    "profile": "full",
+    "revision": 2,
+    "registered_utc": "07-Oct-2026 15:54:26",
+    "diagnosis": "Measured accepted PK costs were140 to170 seconds per appended point. Prospective300-second slices distribute the remaining unchanged total budget across both directions of all six historical parent/daughter tasks and the unprocessed PIP candidates, retaining every endpoint and phase for further resume. Current active task keeps its previously loaded480-second slice.",
+    "evidence": "Research_v3/next_round/workflow_02/workflow_audit.json; Research_v3/next_round/tasks/full/PK_continuation_m1/continuation.json; Research_v3/next_round/tasks/validation/PK_continuation_m1/continuation.json",
+    "previous_task_slice_seconds": 480,
+    "per_task_wall_seconds": 300,
+    "total_wall_seconds": 10800,
+    "acceptance_tolerances_changed": false,
+    "domain_changed": false,
+    "original_registration_preserved": true,
+    "total_budget_changed": false
+  }
+]

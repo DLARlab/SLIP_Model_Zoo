@@ -1,0 +1,182 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{
+  "id": "PIP_candidate_1_attachment_accuracy_repair_plus_0.0003",
+  "accepted": false,
+  "status": "retryable_failure",
+  "primary_failure": {
+    "identifier": "",
+    "message": "First-order optimality tolerance satisfied.",
+    "exitflag": 3
+  },
+  "finalization_failure": {},
+  "replay_failure": {},
+  "initial_scaled_norm": 8.0889059312456643E-11,
+  "final_scaled_norm": 7.0763693028105118E-12,
+  "full_closure": 7.0763693028105118E-12,
+  "constraint_residual": -4.2825985813177425E-18,
+  "elapsed_seconds": 75.139668375,
+  "final_coordinates": [
+    0.0001767653182416948,
+    1.0616850135420881,
+    -3.5314455267377807E-5,
+    0.00023980598723984827,
+    1.0616850291650748
+  ],
+  "final_candidate": [
+    0,
+    0.0001767653182416948,
+    1.0616850135420881,
+    0,
+    0,
+    0,
+    -3.5314455267377807E-5,
+    0.00023980598723984827,
+    -3.5314455267377807E-5,
+    0.00023980598723984827,
+    -3.5314455267377807E-5,
+    0.00023980598723984827,
+    -3.5314455267377807E-5,
+    0.00023980598723984827
+  ],
+  "solver": {
+    "solver": "damped-newton",
+    "message": "First-order optimality tolerance satisfied.",
+    "primaryMessage": "First-order optimality tolerance satisfied.",
+    "primaryErrorIdentifier": "",
+    "primaryExitflag": 3,
+    "finalizationMessage": "",
+    "finalizationErrorIdentifier": "",
+    "residualNorm": 7.0763693028105118E-12,
+    "residual": [
+      7.0763693028105118E-12,
+      -5.3396956994911093E-18,
+      -1.01347158746809E-12,
+      2.2204460492503131E-15,
+      -4.2825985813177425E-18
+    ],
+    "acceptedNewtonIterations": 3,
+    "functionEvaluationCount": 69,
+    "mapEvaluationCount": 67,
+    "jacobianEvaluationCount": 3,
+    "invalidEvaluationCount": 0,
+    "jacobianReliable": true,
+    "derivativeEvaluated": true,
+    "perColumnReliability": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "output_fields": [
+      "iterations",
+      "funcCount",
+      "algorithm",
+      "firstorderopt",
+      "stepsize",
+      "acceptedIterations",
+      "invalidTrialCount",
+      "initialJacobianUsed",
+      "jacobianInfo",
+      "message"
+    ],
+    "initialJacobianUsed": true
+  },
+  "replay_fields": [],
+  "final_J_singular_values": [
+    4.2341754585396254,
+    1.4142137603502152,
+    1.0051253018861617,
+    0.99999999457559019,
+    0.00040317136463707636
+  ]
+}
+{
+  "id": "PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003",
+  "accepted": false,
+  "status": "retryable_failure",
+  "primary_failure": {
+    "identifier": "",
+    "message": "First-order optimality tolerance satisfied.",
+    "exitflag": 3
+  },
+  "finalization_failure": {},
+  "replay_failure": {},
+  "initial_scaled_norm": 3.021910282771656E-11,
+  "final_scaled_norm": 3.021910282771656E-11,
+  "full_closure": 3.021910282771656E-11,
+  "constraint_residual": -1.3774788601428334E-16,
+  "elapsed_seconds": 7.2163127083333336,
+  "final_coordinates": [
+    0.00016332736757262225,
+    1.1171136323244808,
+    -2.7858512641666954E-11,
+    0.00025164294347689871,
+    1.1171136456623953
+  ],
+  "final_candidate": [
+    0,
+    0.00016332736757262225,
+    1.1171136323244808,
+    0,
+    0,
+    0,
+    -2.7858512641666954E-11,
+    0.00025164294347689871,
+    -2.7858512641666954E-11,
+    0.00025164294347689871,
+    -2.7858512641666954E-11,
+    0.00025164294347689871,
+    -2.7858512641666954E-11,
+    0.00025164294347689871
+  ],
+  "solver": {
+    "solver": "damped-newton",
+    "message": "First-order optimality tolerance satisfied.",
+    "primaryMessage": "First-order optimality tolerance satisfied.",
+    "primaryErrorIdentifier": "",
+    "primaryExitflag": 3,
+    "finalizationMessage": "",
+    "finalizationErrorIdentifier": "",
+    "residualNorm": 3.021910282771656E-11,
+    "residual": [
+      -3.021910282771656E-11,
+      -1.784132904636266E-11,
+      5.9120000561740937E-12,
+      0,
+      -1.3774788601428334E-16
+    ],
+    "acceptedNewtonIterations": 0,
+    "functionEvaluationCount": 3,
+    "mapEvaluationCount": 1,
+    "jacobianEvaluationCount": 0,
+    "invalidEvaluationCount": 0,
+    "jacobianReliable": true,
+    "derivativeEvaluated": false,
+    "perColumnReliability": [],
+    "output_fields": [
+      "iterations",
+      "funcCount",
+      "algorithm",
+      "firstorderopt",
+      "stepsize",
+      "acceptedIterations",
+      "invalidTrialCount",
+      "initialJacobianUsed",
+      "jacobianInfo",
+      "message"
+    ],
+    "initialJacobianUsed": true
+  },
+  "replay_fields": [],
+  "final_J_singular_values": [
+    5.52154674035129,
+    1.4142135670476186,
+    0.99999999956074126,
+    0.71440785767355552,
+    1.3477583792160137E-5
+  ]
+}

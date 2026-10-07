@@ -1,0 +1,13 @@
+{
+  "task_id": "P1_source_07_B",
+  "started_utc": "07-Oct-2026 14:14:00",
+  "stop_utc_lower_bound": "07-Oct-2026 14:14:15",
+  "stop_utc_upper_bound": "07-Oct-2026 14:14:46",
+  "wall_seconds_lower_bound": 15,
+  "wall_seconds_upper_bound": 46,
+  "charged_wall_seconds": 46,
+  "exact_stop_timestamp_captured": false,
+  "source": "Tool SIGINT exit130, last numerical log write, and post-stop clock observation.",
+  "phase_checkpoint_preserved": false,
+  "per_column_artifacts_preserved": true
+}

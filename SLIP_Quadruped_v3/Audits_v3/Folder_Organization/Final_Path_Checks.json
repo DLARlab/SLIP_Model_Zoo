@@ -1,0 +1,12 @@
+{
+  "matlab_source_files": 198,
+  "parse_failures": [],
+  "live_mapped_directory_discovery_passed": true,
+  "temporary_probe_removed": true,
+  "retained_evidence_audit_passed": true,
+  "scientific_files_checked": 1791,
+  "numerical_core_files_checked": 68,
+  "campaign_checkpoint_writes": 0,
+  "numerical_maps_executed": 0,
+  "passed": true
+}

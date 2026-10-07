@@ -1,0 +1,31 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+L 12 (C 101-111): MSNU: A Code Analyzer message was once suppressed here, but the message is no longer generated.
+L 75 (C 13-18): NASGU: Value assigned to variable might be unused.
+L 84 (C 25-26): ALIGN: This keyword might not be aligned with its matching END on line 86.
+L 178 (C 9-13): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 182 (C 13-17): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 188 (C 13-17): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 194 (C 13-17): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 200 (C 13-17): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 205 (C 62-66): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 210 (C 82-86): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 220 (C 27-38): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 221 (C 13-17): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 227 (C 9-13): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 234 (C 9-13): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 285 (C 13-14): ALIGN: This keyword might not be aligned with its matching END on line 287.
+
+CHARGED 10322.232639083 REMAINING 477.767360917 FE 4641 STATUS partial_checkpoint
+    {'PIP_candidate_1_attachment_acc…'}    {'PIP_PK_low_energy_neighborhood…'}
+
+         initial_residual: 3.4661e-04
+           final_residual: 3.1197e-04
+             full_closure: 2.5937e-04
+    accepted_Newton_steps: 10
+    initial_jacobian_used: 1
+          primary_failure: [1×1 struct]
+           replay_failure: [1×1 struct]
+

@@ -1,0 +1,338 @@
+{
+  "schema_version": "event-arming-refinement-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "created_utc": "07-Oct-2026 11:48:19",
+  "physical_closure_acceptance": 1E-8,
+  "physical_period_refinement_tolerance": 1E-7,
+  "short_phase_cases": [
+    {
+      "duration": 0.001,
+      "arming_tolerance": 1E-9,
+      "MaxStep": 0.00025,
+      "event_time": 0.001,
+      "root_error": 0,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 0.00025,
+        "ArmingTolerance": 1E-9,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.001,
+      "arming_tolerance": 1E-9,
+      "MaxStep": 6.25E-5,
+      "event_time": 0.0010000000000000096,
+      "root_error": 9.540979117872439E-18,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 6.25E-5,
+        "ArmingTolerance": 1E-9,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.001,
+      "arming_tolerance": 1E-9,
+      "MaxStep": 1.5625E-5,
+      "event_time": 0.0010000000000000137,
+      "root_error": 1.3660947373317356E-17,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 1.5625E-5,
+        "ArmingTolerance": 1E-9,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.001,
+      "arming_tolerance": 1E-11,
+      "MaxStep": 0.00025,
+      "event_time": 0.0010000000000000002,
+      "root_error": 2.1684043449710089E-19,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 0.00025,
+        "ArmingTolerance": 1E-11,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.001,
+      "arming_tolerance": 1E-11,
+      "MaxStep": 6.25E-5,
+      "event_time": 0.001,
+      "root_error": 0,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 6.25E-5,
+        "ArmingTolerance": 1E-11,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.001,
+      "arming_tolerance": 1E-11,
+      "MaxStep": 1.5625E-5,
+      "event_time": 0.001,
+      "root_error": 0,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 1.5625E-5,
+        "ArmingTolerance": 1E-11,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.0001,
+      "arming_tolerance": 1E-9,
+      "MaxStep": 2.5E-5,
+      "event_time": 0.00010000000000000003,
+      "root_error": 2.7105054312137611E-20,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 2.5E-5,
+        "ArmingTolerance": 1E-9,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.0001,
+      "arming_tolerance": 1E-9,
+      "MaxStep": 6.25E-6,
+      "event_time": 0.00010000000000000002,
+      "root_error": 1.3552527156068805E-20,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 6.25E-6,
+        "ArmingTolerance": 1E-9,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.0001,
+      "arming_tolerance": 1E-9,
+      "MaxStep": 1.5625E-6,
+      "event_time": 0.00010000000000000087,
+      "root_error": 8.6736173798840355E-19,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 1.5625E-6,
+        "ArmingTolerance": 1E-9,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.0001,
+      "arming_tolerance": 1E-11,
+      "MaxStep": 2.5E-5,
+      "event_time": 0.00010000000000000005,
+      "root_error": 4.0657581468206416E-20,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 2.5E-5,
+        "ArmingTolerance": 1E-11,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.0001,
+      "arming_tolerance": 1E-11,
+      "MaxStep": 6.25E-6,
+      "event_time": 0.00010000000000000047,
+      "root_error": 4.6078592330633938E-19,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 6.25E-6,
+        "ArmingTolerance": 1E-11,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    },
+    {
+      "duration": 0.0001,
+      "arming_tolerance": 1E-11,
+      "MaxStep": 1.5625E-6,
+      "event_time": 0.00010000000000000086,
+      "root_error": 8.5380921083233474E-19,
+      "arming_restart_count": 1,
+      "physical_event_count": 1,
+      "effective_options": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-15,
+        "MaxStep": 1.5625E-6,
+        "ArmingTolerance": 1E-11,
+        "ArmingMethod": "located-interior-entry-between-solver-calls"
+      }
+    }
+  ],
+  "physical_cases": [
+    {
+      "target": "PIP",
+      "refinement": 1,
+      "settings": {
+        "RelTol": 1E-9,
+        "AbsTol": 1E-11,
+        "MaxStep": 0.03,
+        "ArmingTolerance": 1E-9
+      },
+      "full_closure": 8.68625171790427E-10,
+      "period": 2.6512732791711646,
+      "discrete_closed": true,
+      "signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+      "same_signature": true,
+      "physical_event_count": 8,
+      "positive_first_event_time": true,
+      "period_change_from_baseline": 0,
+      "state_change_from_baseline": 0,
+      "energy_range": 1.056828846657254E-9,
+      "max_stance_constraint": 0,
+      "chronological": true
+    },
+    {
+      "target": "PIP",
+      "refinement": 2,
+      "settings": {
+        "RelTol": 1E-11,
+        "AbsTol": 1E-13,
+        "MaxStep": 0.01,
+        "ArmingTolerance": 1E-10
+      },
+      "full_closure": 8.730793865652231E-12,
+      "period": 2.6512732800320085,
+      "discrete_closed": true,
+      "signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+      "same_signature": true,
+      "physical_event_count": 8,
+      "positive_first_event_time": true,
+      "period_change_from_baseline": 8.6084384065543418E-10,
+      "state_change_from_baseline": 8.5989437792477474E-10,
+      "energy_range": 9.8396846226478374E-12,
+      "max_stance_constraint": 0,
+      "chronological": true
+    },
+    {
+      "target": "PIP",
+      "refinement": 3,
+      "settings": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-14,
+        "MaxStep": 0.003,
+        "ArmingTolerance": 1E-11
+      },
+      "full_closure": 9.241496456979803E-13,
+      "period": 2.6512732800405883,
+      "discrete_closed": true,
+      "signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+      "same_signature": true,
+      "physical_event_count": 8,
+      "positive_first_event_time": true,
+      "period_change_from_baseline": 8.6942364418973739E-10,
+      "state_change_from_baseline": 8.67701022144729E-10,
+      "energy_range": 9.65005853004186E-13,
+      "max_stance_constraint": 0,
+      "chronological": true
+    },
+    {
+      "target": "imported_PK",
+      "refinement": 1,
+      "settings": {
+        "RelTol": 1E-9,
+        "AbsTol": 1E-11,
+        "MaxStep": 0.03,
+        "ArmingTolerance": 1E-9
+      },
+      "full_closure": 2.9610647267475088E-10,
+      "period": 1.5645202138710035,
+      "discrete_closed": true,
+      "signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+      "same_signature": true,
+      "physical_event_count": 8,
+      "positive_first_event_time": true,
+      "period_change_from_baseline": 0,
+      "state_change_from_baseline": 0,
+      "energy_range": 3.2372970970584447E-10,
+      "max_stance_constraint": 1.2393280846012544E-12,
+      "chronological": true
+    },
+    {
+      "target": "imported_PK",
+      "refinement": 2,
+      "settings": {
+        "RelTol": 1E-11,
+        "AbsTol": 1E-13,
+        "MaxStep": 0.01,
+        "ArmingTolerance": 1E-10
+      },
+      "full_closure": 3.0226932068444512E-12,
+      "period": 1.5645202144922179,
+      "discrete_closed": true,
+      "signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+      "same_signature": true,
+      "physical_event_count": 8,
+      "positive_first_event_time": true,
+      "period_change_from_baseline": 6.21214413243365E-10,
+      "state_change_from_baseline": 2.9308377946790642E-10,
+      "energy_range": 3.0846436516185349E-12,
+      "max_stance_constraint": 1.2374649915880553E-14,
+      "chronological": true
+    },
+    {
+      "target": "imported_PK",
+      "refinement": 3,
+      "settings": {
+        "RelTol": 1E-12,
+        "AbsTol": 1E-14,
+        "MaxStep": 0.003,
+        "ArmingTolerance": 1E-11
+      },
+      "full_closure": 2.5890400934258651E-13,
+      "period": 1.5645202144974419,
+      "discrete_closed": true,
+      "signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+      "same_signature": true,
+      "physical_event_count": 8,
+      "positive_first_event_time": true,
+      "period_change_from_baseline": 6.2643845666343623E-10,
+      "state_change_from_baseline": 2.9584756866540829E-10,
+      "energy_range": 2.6512125828048738E-13,
+      "max_stance_constraint": 9.4022012397942945E-16,
+      "chronological": true
+    }
+  ],
+  "passed": true,
+  "max_physical_closure": 8.68625171790427E-10,
+  "max_short_phase_root_error": 1.3660947373317356E-17
+}

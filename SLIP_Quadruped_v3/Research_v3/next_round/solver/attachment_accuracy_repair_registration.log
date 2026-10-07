@@ -1,0 +1,20 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                     id: 'PIP_candidate_1_attachment_accuracy_repair_plus_0.0003'
+         source_task_id: 'PIP_candidate_1'
+                 method: 'signed-daughter-attachment-accuracy-repair'
+    method_registration: 'Research_v3/next_round/solver/attachment_accuracy_repair/PIP_candidate_1/registration.json'
+         input_snapshot: 'Research_v3/next_round/solver/attachment_accuracy_repair/PIP_candidate_1/input_snapshot.mat'
+        snapshot_sha256: '7f27182e326a234db27a1011947877140a24bc7df7e6b58ac33d843ce0a75348'
+       signed_amplitude: 3.0000e-04
+
+                     id: 'PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003'
+         source_task_id: 'PIP_PK_low_energy_neighborhood'
+                 method: 'signed-daughter-attachment-accuracy-repair'
+    method_registration: 'Research_v3/next_round/solver/attachment_accuracy_repair/PIP_PK_low_energy_neighborhood/registration.json'
+         input_snapshot: 'Research_v3/next_round/solver/attachment_accuracy_repair/PIP_PK_low_energy_neighborhood/input_snapshot.mat'
+        snapshot_sha256: '61a1e4f8ef5ca599f59bfe6693530dd5354962db252b20177fc9ddb15c6b55ad'
+       signed_amplitude: 3.0000e-04
+

@@ -1,0 +1,31 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                      schema_version: 'front-twisted-return-pilot-result-v3-1'
+                       completed_utc: '07-Oct-2026 14:08:00'
+                            accepted: 0
+                              status: 'retryable_failure'
+                     elapsed_seconds: 246.0422
+                initial_twisted_norm: 5.2678e-08
+                  final_twisted_norm: 1.6061e-08
+                 constraint_residual: -5.7714e-13
+                           preflight: [1×1 struct]
+                       source_hashes: [1×7 struct]
+                     primary_failure: [1×1 struct]
+                finalization_failure: [1×1 struct]
+                      replay_failure: [1×1 struct]
+                    ancestry_claimed: 0
+                    new_gait_claimed: 0
+           full_twisted_closure_norm: 1.6061e-08
+       physical_two_return_evaluated: 1
+                        front_spread: 0.0014
+                    augmented_energy: 1.0617
+          accepted_Newton_iterations: 1
+                   jacobian_reliable: 0
+         correction_full_BL2_closure: 5.4931e-08
+            core_objective_map_count: 158
+    independent_BL2_replay_performed: 0
+                         diagnostics: [1×1 struct]
+              failure_interpretation: 'Second FD exhausted the correction slice before physical evaluations in columns7-13; candidate conditioning is not established by the partial matrix.'
+

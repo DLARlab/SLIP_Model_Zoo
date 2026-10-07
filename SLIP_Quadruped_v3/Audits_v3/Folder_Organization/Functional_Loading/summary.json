@@ -1,0 +1,66 @@
+{
+  "schema_version": "v3-organized-functional-loading-1",
+  "passed": true,
+  "gui_controller_loading": [
+    {
+      "file": "P1_Single_Flight_Phase_Continua/PK_continuation_m1.mat",
+      "loaded_records": 23,
+      "orbit_class": "HybridOrbit_v3"
+    },
+    {
+      "file": "P1_Single_Flight_Phase_Continua/PIP_n0_PK_Signed_Samples.mat",
+      "loaded_records": 10,
+      "orbit_class": "HybridOrbit_v3"
+    },
+    {
+      "file": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Negative_Cycle_Samples.mat",
+      "loaded_records": 5,
+      "orbit_class": "HybridOrbit_v3"
+    },
+    {
+      "file": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_n1_Theory_Cycle_Samples.mat",
+      "loaded_records": 4,
+      "orbit_class": "HybridOrbit_v3"
+    }
+  ],
+  "p1_catalog_records": 17,
+  "pip_accepted": true,
+  "pip_full_closure": 3.0610847190359891E-11,
+  "pk_accepted": true,
+  "pk_full_closure": 3.0269342587985193E-11,
+  "pip_integration": {
+    "RelTol": 1E-9,
+    "AbsTol": 1E-11,
+    "EventValueTolerance": 1E-8,
+    "EventTimeTolerance": 1E-10,
+    "SimultaneousTimeTolerance": 1E-8,
+    "MaxStep": 0.05
+  },
+  "pip_replay_integration": {
+    "RelTol": 1E-10,
+    "AbsTol": 1E-12,
+    "EventValueTolerance": 1E-9,
+    "EventTimeTolerance": 1.0000000000000001E-11,
+    "SimultaneousTimeTolerance": 1E-9,
+    "MaxStep": 0.025
+  },
+  "pk_integration": {
+    "RelTol": 1E-9,
+    "AbsTol": 1E-11,
+    "EventValueTolerance": 1E-8,
+    "EventTimeTolerance": 1E-10,
+    "SimultaneousTimeTolerance": 1E-8,
+    "MaxStep": 0.05
+  },
+  "pk_replay_integration": {
+    "RelTol": 1E-10,
+    "AbsTol": 1E-12,
+    "EventValueTolerance": 1E-9,
+    "EventTimeTolerance": 1.0000000000000001E-11,
+    "SimultaneousTimeTolerance": 1E-9,
+    "MaxStep": 0.025
+  },
+  "campaign_checkpoint_writes": 0,
+  "new_campaign_points": 0,
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5"
+}

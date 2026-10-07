@@ -1,0 +1,9 @@
+{
+  "utc": "07-Oct-2026 15:01:02",
+  "task_id": "PK_continuation_m1",
+  "started_utc": "07-Oct-2026 14:53:11",
+  "stopped_utc": "07-Oct-2026 14:58:48",
+  "charged_wall_seconds": 337,
+  "reason": "Root stopped the master at a recorded UTC second to repair the standing replay-option schema; accepted branch checkpoints are preserved.",
+  "phase_checkpoint_preserved": true
+}

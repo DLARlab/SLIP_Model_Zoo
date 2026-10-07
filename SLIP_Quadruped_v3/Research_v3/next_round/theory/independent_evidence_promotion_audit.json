@@ -1,0 +1,536 @@
+{
+  "schema_version": "independent-evidence-promotion-audit-v3-1",
+  "created_utc": "07-Oct-2026 13:18:03",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "graph_snapshot_artifact": "Research_v3/next_round/graph/index_full.json",
+  "graph_snapshot_sha256": "777fb4e6002335d237aa7cf9a382db3a80ebac781dcd36795c0999c251e53afb",
+  "graph_network_achieved": false,
+  "graph_global_completeness_claimed": false,
+  "positive_orbit_records_checked": 9,
+  "records": [
+    {
+      "id": "PIP_candidate_1_daughter_1",
+      "artifact": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+      "artifact_sha256": "bba983ec4be0305fbf5784710d5667e71b350967fdf21844d7f1aafe781cc294",
+      "graph_type": "restricted_daughter",
+      "graph_scope": "signed amplitude-0.0001; synchronized-pronk physical solution; full-space bifurcation/stability unestablished",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.3329706012048508E-9,
+          1.3329706012048507E-8,
+          1.3329706012048507E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 3.3881317890172014E-21,
+      "primitive_drift": -7.7139618613137313E-5,
+      "energy": 1.0616850235730533,
+      "period": 1.3329706012048508,
+      "recorded_full_closure": 1.0843499289128235E-12,
+      "trajectory_closure": 1.0843499289128235E-12,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_A_column_1_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_A/column_00001_revision_000_correction.mat",
+      "artifact_sha256": "b913b95d85f69e8c666cb716ff9abf4f947fc6e818ef203c65d4c7dd443a2f55",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "exact_legacy_replay_with_fresh_acceptance; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5645202144968578E-9,
+          1.5645202144968578E-8,
+          1.5645202144968577E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 4.3368086899420177E-18,
+      "primitive_drift": -0.0112915764240516,
+      "energy": 1.1171389428139562,
+      "period": 1.5645202144968577,
+      "recorded_full_closure": 6.0040861171728466E-13,
+      "trajectory_closure": 6.0040861171728466E-13,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_A_column_2_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_A/column_00002_revision_000_correction.mat",
+      "artifact_sha256": "4fdef6c7d26d900929444a32fdcc6cda6315a27e6600c26763658d448cd16648",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "exact_legacy_replay_with_fresh_acceptance; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5645190393627551E-9,
+          1.5645190393627549E-8,
+          1.5645190393627549E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 8.8470897274817162E-17,
+      "primitive_drift": 0.012462750012082051,
+      "energy": 1.1171444503937229,
+      "period": 1.564519039362755,
+      "recorded_full_closure": 5.7909232964448165E-13,
+      "trajectory_closure": 5.7909232964448165E-13,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_B_column_1_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/column_00001_revision_000_correction.mat",
+      "artifact_sha256": "f492232246ce9527fbab9dbbb2efd37e3fe25953b6b1213ac831720f6333d06a",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "nearby_corrected_v3_orbit; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5645202143891223E-9,
+          1.5645202143891221E-8,
+          1.5645202143891222E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 1.0408340855860843E-17,
+      "primitive_drift": -0.011291576422022467,
+      "energy": 1.1171389427851022,
+      "period": 1.5645202143891221,
+      "recorded_full_closure": 4.3618303413595072E-12,
+      "trajectory_closure": 4.3618303413595072E-12,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_B_column_2_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/column_00002_revision_000_correction.mat",
+      "artifact_sha256": "2f5f52ffdf67aeba6f5b35d442192287b09a780eb47e57ba9ff939aa595ab419",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "nearby_corrected_v3_orbit; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5645190393627336E-9,
+          1.5645190393627334E-8,
+          1.5645190393627334E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 7.28583859910259E-17,
+      "primitive_drift": 0.012462750012081858,
+      "energy": 1.1171444503937227,
+      "period": 1.5645190393627335,
+      "recorded_full_closure": 5.8286708792820718E-13,
+      "trajectory_closure": 5.8286708792820718E-13,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_B_column_3_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/column_00003_revision_000_correction.mat",
+      "artifact_sha256": "25514fed2800f1b50d4297bc0db8901b8dd51b0a06bb10fc885da6f2ca7eba88",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "nearby_corrected_v3_orbit; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5644702017316891E-9,
+          1.564470201731689E-8,
+          1.5644702017316889E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 8.3266726846886741E-17,
+      "primitive_drift": 0.036218485884432321,
+      "energy": 1.1173734096659738,
+      "period": 1.5644702017316889,
+      "recorded_full_closure": 1.104864116863169E-11,
+      "trajectory_closure": 1.104864116863169E-11,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_B_column_4_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/column_00004_revision_000_correction.mat",
+      "artifact_sha256": "e17c7158325ae2150619f8acb2ad96b36787d4ef9ba6ffd31cb7a4e3ae88580e",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "nearby_corrected_v3_orbit; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5643737451340521E-9,
+          1.564373745134052E-8,
+          1.5643737451340519E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 3.95516952522712E-16,
+      "primitive_drift": 0.059978316970586039,
+      "energy": 1.1178260192002831,
+      "period": 1.564373745134052,
+      "recorded_full_closure": 4.9871218266162032E-13,
+      "trajectory_closure": 4.9871218266162032E-13,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_B_column_5_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/column_00005_revision_000_correction.mat",
+      "artifact_sha256": "3e433eaedece247b4eab0dda14bd5bc616464908f0baa80480ae4835f8f22136",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "nearby_corrected_v3_orbit; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5642297547698599E-9,
+          1.5642297547698598E-8,
+          1.5642297547698597E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 2.005340338229189E-15,
+      "primitive_drift": 0.083744927051499329,
+      "energy": 1.1185026710596957,
+      "period": 1.5642297547698598,
+      "recorded_full_closure": 4.9893422726654535E-13,
+      "trajectory_closure": 4.9893422726654535E-13,
+      "label_matches": true
+    },
+    {
+      "id": "P2_source_17_B_column_6_revision_0",
+      "artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/column_00006_revision_000_correction.mat",
+      "artifact_sha256": "45870ac94f0e6d3e7b1b521a8004a441767e8b03bba633c22f1a226893449fb5",
+      "graph_type": "recovered_orbit",
+      "graph_scope": "nearby_corrected_v3_orbit; measured positive-duration primitive flights 1",
+      "reported_label": "PK",
+      "recomputed_label": "PK",
+      "classification_status": "classified",
+      "primitive_status": "primitive_within_checked_bound",
+      "checked_cover_bound": 8,
+      "global_primitivity_proved": false,
+      "physical_flight_count": 1,
+      "raw_positive_flight_count": 1,
+      "flight_count_sensitivity": {
+        "duration_thresholds": [
+          1.5640383582851765E-9,
+          1.5640383582851765E-8,
+          1.5640383582851764E-7
+        ],
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      "actual_event_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        4,
+        6,
+        8
+      ],
+      "contact_counts_TD_then_LO": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "all_legs_one_TD_and_LO": true,
+      "maximum_contact_sync_error": 0,
+      "maximum_motion_sync_error": 6.106226635438361E-16,
+      "primitive_drift": 0.10752099666650894,
+      "energy": 1.1194039508502194,
+      "period": 1.5640383582851765,
+      "recorded_full_closure": 4.9227288911879441E-13,
+      "trajectory_closure": 4.9227288911879441E-13,
+      "label_matches": true
+    }
+  ],
+  "non_unresolved_edges": [
+    {
+      "from": "historical_PIP",
+      "to": "historical_restricted_daughter_1",
+      "type": "restricted_local_attachment",
+      "status": "numerically_supported",
+      "scope": "pronk invariant subspace; no full-system stability",
+      "evidence": "Research_v3/runs/full/pip_pk_local.json"
+    },
+    {
+      "from": "historical_PIP",
+      "to": "historical_restricted_daughter_2",
+      "type": "restricted_local_attachment",
+      "status": "numerically_supported",
+      "scope": "pronk invariant subspace; no full-system stability",
+      "evidence": "Research_v3/runs/full/pip_pk_local.json"
+    }
+  ],
+  "passed": true,
+  "scope": "Saved complete hybrid trajectories were reclassified independently. This is an evidence-promotion review, not a new independent dynamics replay or a global primitive-period proof. Recovered record counts may duplicate orbit states; descriptive labels supply no genealogy or full stability."
+}

@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+SOLVER GATE known-PIP-and-PK: 1 PIP closure 3.06108472e-11; PK closure 3.02693426e-11
+SOLVER GATE meaningful-nonlinear-correction: 1 Initial 0.00694968913; final 3.16442185e-13; accepted Newton iterations 11
+SOLVER GATE fixed-energy-and-augmented-constraints: 1 Arc residual -3.0313073e-15; amplitude residual 7.54875763e-18; these are constrained family corrections, not branch-existence claims.
+SOLVER GATE failed-imported-seed-preserved: 1 Quadruped section-return is physically inadmissible: swing_foot_penetration:BL, contact_complementarity_loss:BL, swing_foot_penetration:BR, contact_complementarity_loss:BR, swing_foot_penetration:FL, contact_complementarity_loss:FL, swing_foot_penetration:FR, contact_complementarity_loss:FR.
+SOLVER GATE tolerance-gap-and-primary-finalization: 1 Historical accepted Newton iterations 0, map evaluations 290; reproduced primary: No finite hybrid Jacobian is available in the requested perturbation chart.; full closure secondary: Reduced residual candidate failed full physical closure.
+               schema_version: 'focused-periodic-solver-validation-v3-1'
+               matlab_version: '25.2.0.3177638 (R2025b) Update 5'
+                     platform: 'MACA64'
+                  started_utc: '07-Oct-2026 11:56:22'
+                        cases: [1×5 struct]
+    all_required_gates_passed: 1
+                source_hashes: [1×6 struct]
+              elapsed_seconds: 368.1599
+                 finished_utc: '07-Oct-2026 12:02:30'
+

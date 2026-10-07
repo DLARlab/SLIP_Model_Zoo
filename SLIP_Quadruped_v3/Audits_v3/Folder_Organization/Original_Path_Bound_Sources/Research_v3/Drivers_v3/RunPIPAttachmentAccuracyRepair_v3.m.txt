@@ -1,0 +1,101 @@
+function result=RunPIPAttachmentAccuracyRepair_v3(record,cfg,outputDirectory,maxWallSeconds,task)
+%RUNPIPATTACHMENTACCURACYREPAIR_V3 Correct one amplitude, recheck copied evidence.
+% The original PIP task and counters are never written by this separate task.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));clock=tic;
+    if nargin<5,task=struct('repair_revision',0);end
+    outputDirectory=V3OutputPath_v3(outputDirectory);if ~isfolder(outputDirectory),mkdir(outputDirectory);end
+    methodFile=fullfile(v3,record.method_registration);method=jsondecode(fileread(methodFile));methodHash=RoundSHA256_v3(methodFile);
+    assert(strcmp(record.method,'signed-daughter-attachment-accuracy-repair')&&record.signed_amplitude==.0003);
+    for items={method.source_hashes,method.canonical_source_hashes,method.physical_model_hashes,method.original_records}
+        hashes=items{1};
+        for k=1:numel(hashes)
+            assert(strcmp(hashes(k).sha256,RoundSHA256_v3(fullfile(v3,hashes(k).path))), ...
+                'RunPIPAttachmentAccuracyRepair_v3:SourceEpoch','Registered source/input changed: %s.',hashes(k).path);
+        end
+    end
+    assert(strcmp(method.canonical_gate_sha256,RoundSHA256_v3(fullfile(v3,method.canonical_gate))) ...
+        &&strcmp(record.snapshot_sha256,RoundSHA256_v3(fullfile(v3,record.input_snapshot))));
+    snapshot=load(fullfile(v3,record.input_snapshot));p=snapshot.seed.parameter(:);w=snapshot.coordinates(:);J=snapshot.initialJ;
+    assert(isequal(p,cfg.baseline_v3_parameters(:))&&numel(p)==10);
+    phaseFile=fullfile(outputDirectory,'accuracy_repair_checkpoint.mat');
+    if isfile(phaseFile)
+        loaded=load(phaseFile,'phase');phase=loaded.phase;
+        assert(strcmp(phase.method_sha256,methodHash)&&strcmp(phase.snapshot_sha256,record.snapshot_sha256) ...
+            &&isequal(phase.campaign_domain,cfg.domain));
+        if ~strcmp(phase.state,'partial_checkpoint'),result=phase.result;return;end
+        prior=load(fullfile(outputDirectory,phase.last_artifact),'report');w=prior.report.final_coordinates(:);
+        J=member(prior.report.solver,'finalJacobian',[]);
+    else
+        phase=struct('method_sha256',methodHash,'snapshot_sha256',record.snapshot_sha256, ...
+            'campaign_domain',cfg.domain,'attempt_count',0,'function_evaluations',0, ...
+            'solver_map_evaluations',0,'state','partial_checkpoint','last_artifact','');
+    end
+    if isempty(J)||~isequal(size(J),[5,5])||any(~isfinite(J(:))),J=[];end
+    seed=snapshot.seed;seed.state([2,3,7,8])=w(1:4);seed.state([9,11,13])=seed.state(7);seed.state([10,12,14])=seed.state(8);
+    seed.provenance.accuracy_repair_registration=record.method_registration;seed.provenance.resume_from=phase.last_artifact;
+    options=snapshot.originalReport.options;options.Energy=w(end);options.Acceptance=method.full_acceptance;
+    options.MaxWallSeconds=max(.001,min(maxWallSeconds,method.maximum_correction_wall_seconds)-toc(clock)-5);
+    options.SolverOptions.ResidualAcceptanceTolerance=method.root_residual_acceptance_tolerance;
+    options.SolverOptions.FunctionTolerance=method.root_function_tolerance;
+    options.SolverOptions.ReuseJacobian=true;options.SolverOptions.InitialJacobian=J;
+    phase.attempt_count=phase.attempt_count+1;artifact=sprintf('accuracy_repair_r%03d_attempt_%03d.mat',task.repair_revision,phase.attempt_count);
+    RoundSave_v3(fullfile(outputDirectory,['input_',artifact]),struct('seed',seed,'options',options,'phase',phase,'record',record));
+    [orbit,report]=PeriodicSolutionSolver_v3(seed,options);
+    phase.function_evaluations=phase.function_evaluations+member(report.solver,'functionEvaluationCount',0);
+    phase.solver_map_evaluations=phase.solver_map_evaluations+member(report.solver,'mapEvaluationCount',0);
+    copiedRecord=snapshot.originalRecord;entry=snapshot.originalEntry;domainAccepted=false;
+    if report.accepted
+        entry.accepted=true;entry.converged=true;entry.energy=QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,p);
+        entry.period=orbit.period;entry.mean_speed=orbit.stride_displacement(1)/orbit.period;
+        entry.reduced_coordinates=orbit.initial_state([2,7,8]);entry.full_closure=report.full_closure;
+        entry.replay_full_closure=report.full_closure;entry.constraint_error=report.constraint_residual;
+        entry.amplitude_constraint_error=abs(report.constraint_residual);entry.classification=report.classification;
+        entry.gait=report.classification.label;entry.initial_residual=report.initial_physical_norm;entry.final_residual=report.final_physical_norm;
+        entry.accepted_newton_iterations=member(report.solver,'acceptedNewtonIterations',0);
+        entry.genuine_correction=entry.accepted_newton_iterations>0 ...
+            &&norm(report.final_candidate-seed.state,inf)>10*copiedRecord.settings.root_residual_tolerance;
+        parent=zeros(14,1);parent(3)=copiedRecord.critical_energy;
+        entry.state_distance_to_critical_parent=norm(report.final_candidate-parent);
+        entry.critical_alignment=abs(copiedRecord.critical_direction.'*entry.reduced_coordinates)/max(norm(entry.reduced_coordinates),eps);
+        entry.trajectory_distinction=PronkTrajectoryEvidence_v3(orbit);first=member(report.solver,'orbit',[]);
+        entry.replay_signature_match=~isempty(first)&&isequal(first.section_relative_event_signature,orbit.section_relative_event_signature);
+        if ~isempty(first),entry.replay_period_difference=abs(first.period-orbit.period);end
+        domainAccepted=entry.energy>=cfg.domain.energy(1)&&entry.energy<=cfg.domain.energy(2) ...
+            &&entry.mean_speed>=cfg.domain.mean_speed(1)&&entry.mean_speed<=cfg.domain.mean_speed(2) ...
+            &&orbit.period<=cfg.domain.primitive_period_max&&max(abs(orbit.trajectory.state(:,5)))<=cfg.domain.pitch_abs_max ...
+            &&sum(~[orbit.event_history.is_stop])<=cfg.domain.event_count_max&&isequal(orbit.parameter(:),p);
+        entry.in_registered_domain=domainAccepted;entry.artifact=artifact;
+        entry.primary_failure=report.primary_failure;entry.replay_failure=report.replay_failure;
+        copiedRecord.amplitudes(method.target_index)=entry;
+    end
+    connection=struct('singular_values',copiedRecord.singular_values,'matrix_uncertainty_estimate',copiedRecord.matrix_uncertainty_estimate, ...
+        'critical_energy_uncertainty_estimate',copiedRecord.settings.energy_bracket_tolerance/2,'critical_energy',copiedRecord.critical_energy, ...
+        'parent_derivatives_reliable',copiedRecord.parent_derivatives_reliable,'transversality',struct( ...
+        'estimate',copiedRecord.transversality_estimate,'uncertainty_estimate',copiedRecord.transversality_uncertainty_estimate), ...
+        'amplitudes',copiedRecord.amplitudes,'reflection_symmetry_at_parameters',all(p([7,8])==0));
+    evidence=PronkAttachmentEvidence_v3(connection,copiedRecord.settings);
+    copiedRecord.attachment_evidence=evidence;
+    state='unresolved_obstruction';scientific='accuracy_repair_not_yet_supporting_attachment';
+    if report.accepted&&domainAccepted
+        state='accepted';scientific='daughter_accuracy_repaired_attachment_candidate_only';
+        if strcmp(evidence.status,'numerically_supported_restricted_attachment'),scientific=evidence.status;end
+    elseif contains(failureMessage(report.primary_failure),'wall budget','IgnoreCase',true)||toc(clock)>=maxWallSeconds-15
+        state='partial_checkpoint';
+    end
+    result=struct('schema_version','PIP-attachment-accuracy-repair-result-v3-1','state',state,'scientific_status',scientific, ...
+        'source_task_id',record.source_task_id,'method',record.method,'artifact',artifact,'signed_amplitude',.0003, ...
+        'physically_accepted',report.accepted,'domain_accepted',domainAccepted,'attachment_evidence',evidence, ...
+        'original_attachment_evidence',snapshot.originalRecord.attachment_evidence, ...
+        'function_evaluations',phase.function_evaluations,'solver_map_evaluations',phase.solver_map_evaluations, ...
+        'new_points',0,'accepted_record_count',double(report.accepted&&domainAccepted),'original_records_modified',false, ...
+        'original_task_counters_modified',false,'full_system_stability_or_C2_claimed',false);
+    phase.state=state;phase.last_artifact=artifact;phase.result=result;
+    RoundSave_v3(fullfile(outputDirectory,artifact),struct('orbit',orbit,'report',report,'copiedRecord',copiedRecord,'entry',entry,'result',result,'options',options));
+    RoundSave_v3(phaseFile,struct('phase',phase));RoundJSON_v3(fullfile(outputDirectory,'accuracy_repair_result.json'),result);
+end
+function value=member(source,name,fallback)
+    value=fallback;if isfield(source,name),value=source.(name);end
+end
+function text=failureMessage(failure)
+    text='';if isstruct(failure)&&isfield(failure,'message'),text=failure.message;end
+end

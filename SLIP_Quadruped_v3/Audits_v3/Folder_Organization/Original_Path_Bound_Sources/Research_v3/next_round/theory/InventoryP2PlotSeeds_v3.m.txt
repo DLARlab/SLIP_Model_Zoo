@@ -1,0 +1,125 @@
+function catalog=InventoryP2PlotSeeds_v3()
+%INVENTORYP2PLOTSEEDS_V3 Complete readonly legacy P2 MAT/seed inventory.
+% Useful whole snapshots are copied byte for byte inside v3. Source labels
+% and initial-coordinate patterns never establish a v3 gait or ancestry.
+    here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(fileparts(here)));repo=fileparts(v3);
+    addpath(fullfile(v3,'Schema_v3'),fullfile(v3,'Adapters_v3'),fullfile(v3,'Research_v3','Drivers_v3'));
+    legacy=fullfile(repo,'SLIP_Quadruped','P2_All_Common_Quadrupedal_Gaits');
+    destination=fullfile(here,'SourceP2PlotFixtures_v3');if ~isfolder(destination),mkdir(destination);end
+    files=dir(fullfile(legacy,'**','*.mat'));
+    known=jsondecode(fileread(fullfile(here,'critical_source_inventory.json'))).records;
+    main=jsondecode(fileread(fullfile(v3,'Research_v3','next_round','source_inventory.json'))).records;
+    inventory=struct([]);entries=struct('source',{},'variable',{},'raw',{},'family_hint',{}, ...
+        'construction',{},'source_column_indices',{},'physical_parameter_sets',{},'parameter_valid_columns',{});
+    summary=struct([]);copyCount=0;
+    for fileIndex=1:numel(files)
+        file=files(fileIndex);path=fullfile(file.folder,file.name);relative=strrep(path,[repo,filesep],'');
+        digest=RoundSHA256_v3(path);variables=whos('-file',path);copied='';arrays=struct([]);labels=struct([]);status='inspected';
+        if file.bytes>=100000000,status='not_loaded_size_limit';
+        else
+            loaded=load(path);[arrays,labels]=walk(loaded,'');
+            assert(strcmp(digest,RoundSHA256_v3(path)),'Protected source changed during read.');
+            if ~isempty(arrays)||~isempty(labels)||strcmp(file.name,'full_branch_data.mat')
+                matched=find(strcmp({known.source_path},relative),1);
+                if ~isempty(matched),copied=known(matched).fixture_path;
+                else
+                    matched=find(arrayfun(@(item)strcmp(item.source.source_path,relative),main),1);
+                    if ~isempty(matched),copied=main(matched).source.fixture_path;end
+                end
+                if isempty(copied)
+                    copied=['Research_v3/next_round/theory/SourceP2PlotFixtures_v3/',sprintf('%03d_',fileIndex),file.name];
+                    target=fullfile(v3,copied);if ~isfile(target),copyfile(path,target);copyCount=copyCount+1;end
+                end
+                assert(strcmp(digest,RoundSHA256_v3(fullfile(v3,copied))),'Copied/reused whole snapshot hash differs from its source.');
+            end
+        end
+        provenance=struct('source_path',relative,'fixture_path',copied,'sha256',digest,'bytes',file.bytes, ...
+            'policy','v2-exact','label_is_source_only',true,'protected_source_written',false);
+        rawSummary=struct([]);
+        for arrayIndex=1:numel(arrays)
+            raw=arrays(arrayIndex).raw;parameterValid=validParameters(raw(23:29,:));
+            parameterSets=unique(raw(23:29,parameterValid).','rows');physical=zeros(10,size(parameterSets,1));
+            for setIndex=1:size(parameterSets,1),physical(:,setIndex)=LegacyParameterAdapter_v3.toV3(parameterSets(setIndex,:),'v2-exact');end
+            hint=familyHint(arrays(arrayIndex).variable,relative);source=provenance;
+            entries(end+1)=struct('source',source,'variable',arrays(arrayIndex).variable,'raw',raw, ...
+                'family_hint',hint,'construction','complete saved29-row array; no physical replay performed', ...
+                'source_column_indices',1:size(raw,2),'physical_parameter_sets',physical, ...
+                'parameter_valid_columns',find(parameterValid)); %#ok<AGROW>
+            item=struct('variable',arrays(arrayIndex).variable,'columns',size(raw,2),'family_hint',hint, ...
+                'parameter_valid_column_count',sum(parameterValid),'legacy_parameter_sets',parameterSets, ...
+                'physical_parameter_sets',physical,'source_initial_speed_bounds',bounds(raw(1,:)), ...
+                'source_period_bounds',bounds(raw(22,:)), ...
+                'hind_pair_angle_difference_bounds',bounds(raw(6,:)-raw(10,:)), ...
+                'front_pair_angle_difference_bounds',bounds(raw(8,:)-raw(12,:)), ...
+                'hind_pair_rate_difference_bounds',bounds(raw(7,:)-raw(11,:)), ...
+                'front_pair_rate_difference_bounds',bounds(raw(9,:)-raw(13,:)), ...
+                'initial_pair_patterns_are_gait_classification',false);
+            if isempty(rawSummary),rawSummary=item;else,rawSummary(end+1)=item;end %#ok<AGROW>
+            item.source=source;if isempty(summary),summary=item;else,summary(end+1)=item;end %#ok<AGROW>
+        end
+        item=struct('source',provenance,'status',status,'top_level_variables',{{variables.name}}, ...
+            'raw29_arrays',rawSummary,'explicit_F2_H2_G2_or_FE_HE_GE_labels',labels);
+        if isempty(inventory),inventory=item;else,inventory(end+1)=item;end %#ok<AGROW>
+        fprintf('P2 MAT%d/%d: %s, raw29=%d explicitlabels=%d\n',fileIndex,numel(files),file.name,numel(arrays),numel(labels));
+    end
+    labelsFound=sum(arrayfun(@(item)numel(item.explicit_F2_H2_G2_or_FE_HE_GE_labels),inventory));
+    copiedFiles=dir(fullfile(destination,'*.mat'));
+    catalog=struct('schema_version','whole-P2-extra-seed-catalog-v3-1','matlab_version',version, ...
+        'created_utc',char(datetime('now','TimeZone','UTC')),'source_root','SLIP_Quadruped/P2_All_Common_Quadrupedal_Gaits', ...
+        'files_inspected',numel(files),'new_byte_exact_snapshot_copies',copyCount, ...
+        'new_fixture_area_snapshot_files_present',numel(copiedFiles),'explicit_requested_label_hits',labelsFound, ...
+        'inventory',inventory,'entries',entries,'requested_seed_labels',{{'F2','H2','G2'}}, ...
+        'interpretation',['Complete finite P2 MAT inventory. Raw arrays and original labels are seed provenance only. ', ...
+            'No v3 orbit, gait, branch attachment or full stability is accepted from import. ', ...
+            'Absence of explicit requested seed labels is not nonexistence of the physical families.']);
+    RoundSave_v3(fullfile(here,'P2_extra_seed_catalog.mat'),struct('catalog',catalog));
+    document=rmfield(catalog,'entries');document.entries=summary;
+    RoundJSON_v3(fullfile(here,'P2_extra_seed_catalog.json'),document);
+    fprintf('Complete P2 snapshot inventory: %d MAT files, %d raw arrays, %d explicit requested label hits.\n',numel(files),numel(entries),labelsFound);
+end
+function [arrays,labels]=walk(value,path)
+    arrays=struct('variable',{},'raw',{});labels=struct('variable',{},'matched_value',{});
+    expression='(?i)(?<![A-Za-z0-9])(F2|H2|G2|FE|HE|GE|HB_front|HB_hind)(?![A-Za-z0-9])';
+    if ~isempty(regexp(path,expression,'once')),labels(end+1)=struct('variable',path,'matched_value','field/variable name');end
+    if isnumeric(value)&&ismatrix(value)&&size(value,1)==29&&~isempty(value)
+        arrays(end+1)=struct('variable',path,'raw',value);return
+    elseif isstruct(value)
+        for index=1:numel(value)
+            names=fieldnames(value(index));
+            for fieldIndex=1:numel(names)
+                next=names{fieldIndex};if ~isempty(path),next=[path,'.',next];end
+                if numel(value)>1,next=sprintf('%s(%d).%s',path,index,names{fieldIndex});end
+                [childArrays,childLabels]=walk(value(index).(names{fieldIndex}),next);
+                arrays=[arrays;childArrays(:)];labels=[labels;childLabels(:)]; %#ok<AGROW>
+            end
+        end
+    elseif iscell(value)
+        for index=1:numel(value)
+            [childArrays,childLabels]=walk(value{index},sprintf('%s{%d}',path,index));
+            arrays=[arrays;childArrays(:)];labels=[labels;childLabels(:)]; %#ok<AGROW>
+        end
+    elseif ischar(value)||isstring(value)
+        texts=string(value);for index=1:numel(texts)
+            if ~isempty(regexp(char(texts(index)),expression,'once'))
+                text=char(texts(index));text=text(1:min(240,numel(text)));
+                labels(end+1)=struct('variable',path,'matched_value',text); %#ok<AGROW>
+            end
+        end
+    end
+end
+function valid=validParameters(p)
+    valid=all(isfinite(p([1,2,4,5,6,7],:)),1)&(isfinite(p(3,:))|isinf(p(3,:))) ...
+        &p(1,:)>0&p(2,:)>=0&p(3,:)>0&p(4,:)>0&p(6,:)>0&p(6,:)<1&p(7,:)>0;
+end
+function value=bounds(x)
+    x=x(isfinite(x));if isempty(x),value=[NaN,NaN];else,value=[min(x),max(x)];end
+end
+function hint=familyHint(variable,path)
+    text=lower([variable,' ',path]);hint='unclassified historical P2 snapshot';
+    if contains(lower(path),'saved_ge_phase.mat'),hint='B2_gathered_extended_phase_views';return;end
+    for label={'F2','H2','G2','FE','HE','GE'}
+        if ~isempty(regexpi(text,['(?<![A-Za-z0-9])',label{1},'(?![A-Za-z0-9])'],'once')),hint=label{1};return;end
+    end
+    if contains(text,'b2'),hint='B2';elseif contains(text,'bip'),hint='BIP';elseif contains(text,'spread'),hint='PIP_spread';
+    elseif contains(text,'pk')||contains(text,'supplied'),hint='PK';elseif contains(text,'pip')||contains(text,'delayed')||contains(text,'ordinary'),hint='PIP';end
+end

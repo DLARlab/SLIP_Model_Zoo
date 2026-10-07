@@ -1,0 +1,112 @@
+function report = RunMathematicalAudit_v3(outputDirectory)
+%RUNMATHEMATICALAUDIT_V3 Focused numerical checks of model/solver contracts.
+% The callback-order probe is synthetic and establishes callback purity only.
+% Physical mode algebra checks do not establish a periodic orbit.
+    if nargin < 1
+        outputDirectory = fileparts(mfilename('fullpath'));
+    end
+    if ~isfolder(V3Path_v3(outputDirectory)), mkdir(V3Path_v3(outputDirectory)); end
+    v3 = V3Root_v3(mfilename('fullpath'));
+    folders = {'Schema_v3','Dynamics_v3','Simulation_v3','Orbit_v3'};
+    for k = 1:numel(folders), V3LegacyAddPath_v3(fullfile(v3,folders{k})); end
+    report = struct('schema_version','next-round-mathematical-audit-v3-1', ...
+        'matlab_version',version,'platform',computer, ...
+        'created_utc',char(datetime('now','TimeZone','UTC')), ...
+        'semantics','focused audit, not branch or periodic-solution evidence');
+    probe = struct();
+    detector = EventDetector_v3(struct('ODESolver',@callbackProbe));
+    detector.integrate(ArmingAuditSystem_v3(),0,false,[],[0,1],[], ...
+        odeset('RelTol',1e-12,'AbsTol',1e-14));
+    probe.requested_nested_relative_tolerance = 1e-12;
+    probe.requested_nested_absolute_tolerance = 1e-14;
+    probe.same_point_equal = isequaln(probe.first_value,probe.revisited_value);
+    probe.same_point_value_difference = norm(probe.first_value-probe.revisited_value,inf);
+    probe.observation = ['The solver adapter deliberately queries the same ', ...
+        '(t,x) before and after an interior probe. Returned values must ', ...
+        'not depend on probe order. This is not an ode45 trajectory.'];
+    report.callback_probe = probe;
+    schema = QuadrupedSchema_v3.shared();
+    p = [10;10;20;20;1;1;0;0;2;.5];
+    cases = cell(16,1);
+    for mask = 0:15
+        q = logical(bitget(mask,1:4)).';
+        x = zeros(14,1); x(schema.State.dx)=.6;
+        x(schema.State.y)=.99; x(schema.State.phi)=.002;
+        x(schema.State.dphi)=.03;
+        x(schema.Leg.AngleIndices)=.5;
+        x(schema.Leg.AngleIndices(q))=.01;
+        x(schema.Leg.RateIndices)=.2;
+        x = QuadrupedPhysicalChart_v3.retract(x,q,p);
+        chart = QuadrupedPhysicalChart_v3.create(x,q,p);
+        [basis,basisReport] = QuadrupedPhysicalChart_v3.tangentBasis(chart);
+        [energy,energyReport] = QuadrupedEnergy_v3.evaluate(x,q,p);
+        tangency = QuadrupedPhysicalChart_v3.flowTangency(x,q,p);
+        rows = find(q); constraintJacobian = zeros(numel(rows),14);
+        for j = 1:14
+            h = 1e-6; e=zeros(14,1);e(j)=h;
+            plus=QuadrupedPhysicalChart_v3.report(x+e,q,p);
+            minus=QuadrupedPhysicalChart_v3.report(x-e,q,p);
+            constraintJacobian(:,j)=(plus.stance_constraints(rows)- ...
+                minus.stance_constraints(rows))/(2*h);
+        end
+        gauge = zeros(2,14);gauge(1,1)=1;gauge(2,4)=1;
+        gradient = basis.'*energyReport.gradient;
+        [pivotMagnitude,pivot]=max(abs(gradient));
+        fdGradient=zeros(chart.dimension,1);
+        u=x(chart.independent_indices);
+        for j=1:chart.dimension
+            h=1e-6;e=zeros(chart.dimension,1);e(j)=h;
+            fdGradient(j)=(QuadrupedEnergy_v3.evaluate( ...
+                QuadrupedPhysicalChart_v3.lift(chart,u+e),q,p)- ...
+                QuadrupedEnergy_v3.evaluate( ...
+                QuadrupedPhysicalChart_v3.lift(chart,u-e),q,p))/(2*h);
+        end
+        shifted=x;shifted(1)=x(1)+1.7;
+        anchors=QuadrupedPhysicalChart_v3.report(x,q,p);
+        shiftedAnchors=QuadrupedPhysicalChart_v3.report(shifted,q,p);
+        anchorTranslationError=0;
+        if any(q)
+            anchorTranslationError=max(abs(shiftedAnchors.stance_anchors(q)- ...
+                anchors.stance_anchors(q)-1.7));
+        end
+        cases{mask+1}=struct('mode',q,'stance_count',nnz(q), ...
+            'dimension',chart.dimension,'expected_dimension',12-nnz(q), ...
+            'constraint_rank',rank(constraintJacobian), ...
+            'section_gauge_constraint_rank',rank([constraintJacobian;gauge]), ...
+            'basis_rank',rank(basis),'basis_constraint_residual', ...
+            norm([constraintJacobian;gauge]*basis,inf), ...
+            'basis_refinement',basisReport.step_halving_error, ...
+            'energy',energy,'energy_pivot_state_index',chart.independent_indices(pivot), ...
+            'energy_pivot_derivative',gradient(pivot), ...
+            'energy_pivot_magnitude',pivotMagnitude, ...
+            'energy_gradient_fd_error',norm(gradient-fdGradient,inf), ...
+            'energy_conservation_residual',energyReport.conservation_identity_residual, ...
+            'flow_tangency',tangency,'anchor_translation_error',anchorTranslationError);
+    end
+    cases=vertcat(cases{:});
+    report.physical_mode_algebra=cases;
+    report.all_dimension_counts_correct=all([cases.dimension]==[cases.expected_dimension]);
+    report.max_energy_conservation_residual=max(abs([cases.energy_conservation_residual]));
+    report.max_energy_gradient_error=max([cases.energy_gradient_fd_error]);
+    report.max_basis_constraint_residual=max([cases.basis_constraint_residual]);
+    report.max_anchor_translation_error=max([cases.anchor_translation_error]);
+    save(V3Path_v3(fullfile(outputDirectory,'mathematical_audit.mat')),'report','-v7');
+    writeJSON(fullfile(outputDirectory,'mathematical_audit.json'),report);
+    disp(report.callback_probe);
+    fprintf('All 16 physical mode dimensions correct: %d; energy defect %.3g; gradient defect %.3g\n', ...
+        report.all_dimension_counts_correct,report.max_energy_conservation_residual,report.max_energy_gradient_error);
+    function [t,y,te,ye,ie] = callbackProbe(~,tspan,x0,options)
+        fn=odeget(options,'Events');
+        [probe.first_value,~,~]=fn(tspan(1),x0);
+        fn(tspan(1)+.1,-.01);
+        [probe.revisited_value,~,~]=fn(tspan(1),x0);
+        probe.effective_relative_tolerance=odeget(options,'RelTol');
+        probe.effective_absolute_tolerance=odeget(options,'AbsTol');
+        t=tspan(:);y=[x0(:).';x0(:).'];te=[];ye=[];ie=[];
+    end
+end
+function writeJSON(file,value)
+    fid=fopen(V3Path_v3(file),'w');assert(fid>=0,'Audit output could not be opened.');
+    closeFile=onCleanup(@()fclose(fid)); %#ok<NASGU>
+    fprintf(fid,'%s\n',jsonencode(value,'PrettyPrint',true));
+end

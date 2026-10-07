@@ -1,0 +1,116 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    {'entry'     }
+    {'orbit'     }
+    {'seed'      }
+    {'correction'}
+
+    {'schema_version'           }
+    {'status'                   }
+    {'accepted'                 }
+    {'seed'                     }
+    {'options'                  }
+    {'acceptance'               }
+    {'integration'              }
+    {'replay_integration'       }
+    {'initial_residual'         }
+    {'initial_scaled_norm'      }
+    {'initial_physical_norm'    }
+    {'final_residual'           }
+    {'final_scaled_norm'        }
+    {'final_physical_norm'      }
+    {'full_closure'             }
+    {'final_candidate'          }
+    {'solver'                   }
+    {'primary_failure'          }
+    {'finalization_failure'     }
+    {'replay_failure'           }
+    {'partial_evidence'         }
+    {'independent_replay'       }
+    {'physical_inequalities'    }
+    {'primitive'                }
+    {'classification'           }
+    {'constraint_residual'      }
+    {'provenance'               }
+    {'elapsed_seconds'          }
+    {'chart'                    }
+    {'energy_pivot'             }
+    {'active_coordinate_indices'}
+    {'initial_evaluation'       }
+    {'final_coordinates'        }
+    {'augmented_parameter'      }
+
+    identifier: ''
+       message: 'No finite hybrid Jacobian is available in the requested perturbation chart.'
+      exitflag: -3
+
+   3.1019e-05
+
+   3.1019e-05
+
+No finite hybrid Jacobian is available in the requested perturbation chart.
+            iterations: 1
+             funcCount: 1
+             algorithm: 'damped Levenberg-Newton trust region'
+         firstorderopt: Inf
+              stepsize: Inf
+    acceptedIterations: 0
+     invalidTrialCount: 0
+          jacobianInfo: [1×1 struct]
+               message: 'No finite hybrid Jacobian is available in the requested perturbation chart.'
+
+    {'state'                        }
+    {'fullState'                    }
+    {'parameter'                    }
+    {'mode'                         }
+    {'residual'                     }
+    {'residualNorm'                 }
+    {'exitflag'                     }
+    {'output'                       }
+    {'solver'                       }
+    {'message'                      }
+    {'errorIdentifier'              }
+    {'converged'                    }
+    {'evaluationInfo'               }
+    {'orbit'                        }
+    {'attempts'                     }
+    {'candidateModes'               }
+    {'selectedAttempt'              }
+    {'initialGuess'                 }
+    {'modeResolution'               }
+    {'selectedMode'                 }
+    {'rejectedModeDiagnostics'      }
+    {'stateScale'                   }
+    {'parameterScale'               }
+    {'functionEvaluationCount'      }
+    {'mapEvaluationCount'           }
+    {'cacheHitCount'                }
+    {'invalidEvaluationCount'       }
+    {'jacobianEvaluationCount'      }
+    {'finalJacobian'                }
+    {'jacobianReliable'             }
+    {'derivativeModel'              }
+    {'derivativeEvaluated'          }
+    {'acceptedNewtonIterations'     }
+    {'invalidTrialCount'            }
+    {'jacobianDiagnostics'          }
+    {'selectedFiniteDifferenceSteps'}
+    {'perColumnReliability'         }
+    {'primaryConverged'             }
+    {'primaryMessage'               }
+    {'primaryErrorIdentifier'       }
+    {'primaryExitflag'              }
+    {'finalizationMessage'          }
+    {'finalizationErrorIdentifier'  }
+    {'cyclicEventSignature'         }
+    {'sectionRelativeSignature'     }
+    {'eventClusterSignature'        }
+
+   NaN   NaN   NaN   NaN   NaN
+   NaN   NaN   NaN   NaN   NaN
+   NaN   NaN   NaN   NaN   NaN
+   NaN   NaN   NaN   NaN   NaN
+   NaN   NaN   NaN   NaN   NaN
+

@@ -1,0 +1,287 @@
+{
+  "schema_version": "organized-saved-orbit-dataset-v3-1",
+  "id": "Restricted_Daughter_1_Signed_Samples",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "dataset_type": "signed_samples",
+  "origin": "historical restricted signed daughter evidence",
+  "expected_primitive_flight_count": 1,
+  "count": 10,
+  "amplitude": [
+    -0.0001,
+    -0.0003,
+    -0.001,
+    -0.003,
+    -0.01,
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01
+  ],
+  "amplitude_coordinate": "signed projection onto the historical registered PIP critical direction",
+  "resonance_index": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "energy": [
+    1.5551652516426646,
+    1.5551652516426646,
+    1.5551654499872463,
+    1.5551670690607626,
+    1.555185486438313,
+    1.5551652516426646,
+    1.5551652516426646,
+    1.5551654499872463,
+    1.5551670690607626,
+    1.555185486438313
+  ],
+  "period": [
+    2.6512732760710871,
+    2.6512732443229576,
+    2.6512732513625523,
+    2.6512730819329824,
+    2.6512711553170747,
+    2.6512732760710871,
+    2.6512732443229576,
+    2.6512732513625523,
+    2.6512730819329824,
+    2.6512711553170747
+  ],
+  "drift": [
+    0.00017194730985565867,
+    0.00051584193432922365,
+    0.0017194731165448732,
+    0.0051584197931449343,
+    0.017194749456867796,
+    -0.00017194730985565867,
+    -0.00051584193432922365,
+    -0.0017194731165448732,
+    -0.0051584197931449343,
+    -0.017194749456867796
+  ],
+  "mean_speed": [
+    6.4854615858560912E-5,
+    0.00019456385170173269,
+    0.00064854617141450624,
+    0.0019456388058615407,
+    0.0064854737405429267,
+    -6.4854615858560912E-5,
+    -0.00019456385170173269,
+    -0.00064854617141450624,
+    -0.0019456388058615407,
+    -0.0064854737405429267
+  ],
+  "flight_count": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "gait_label": [
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK",
+    "PK"
+  ],
+  "gait_status": [
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified",
+    "classified"
+  ],
+  "full_closure": [
+    1.7930101847696278E-12,
+    8.584021487329993E-12,
+    1.7965628984484283E-12,
+    1.7965628984484283E-12,
+    1.6291412663349547E-12,
+    1.7930101847696278E-12,
+    8.584021487329993E-12,
+    1.7965628984484283E-12,
+    1.7965628984484283E-12,
+    1.6291412663349547E-12
+  ],
+  "record_kind": [
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter",
+    "historical_signed_daughter"
+  ],
+  "source_paths": [
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.0001.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.0003.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.001.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.003.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.01.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.0001.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.0003.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.001.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.003.mat",
+    "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.01.mat"
+  ],
+  "source_original_paths": [
+    "Research_v3/runs/full/pronk_daughter_v2_1_-0.0001.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_-0.0003.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_-0.001.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_-0.003.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_-0.01.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_+0.0003.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_+0.001.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_+0.003.mat",
+    "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat"
+  ],
+  "source_sha256": [
+    "0de78b9e435a01779d81f47d36211891f83fceaac392d1eadfe91903bcabbdc5",
+    "ff10ffa1f4958027ab533ff91c69f9b686d4e53e38c475a1283393a3f932c77e",
+    "fa267d50758eade589db36d71a9aeba31539bb42c2e8810a6270c2957789fc38",
+    "4d4283bbae410960cd24d48d594267c24200ba3c2b7df3ed494dd6ac95f048a2",
+    "2de0fcc178bf2fbb7388213173a87d43e4544580f179f7b168e76cac58cfc213",
+    "0c0f4676781ca668b5c128250a004cd53c19db05575219392b3ae9f90c1efc19",
+    "74a0ad1eb17a24fcb45411797de2e9cce748a258e479bb20daa2587a89a6e956",
+    "f2a2d4ab2003863027b1631ae41c6cfb94a55849a0066c7ad7945b1b998bb18a",
+    "4dd063e061c7662bc2444abea2ac8426d9770f7dfd36eb1948b0f4a52292af6e",
+    "1adebb7e5a7ba6f6b39c75fe0cf79ddc1ca0d879133eabce56965774bebc5817"
+  ],
+  "source_acceptance": [
+    {
+      "accepted_in_source": true,
+      "selection_index": 1
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 2
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 3
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 4
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 5
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 6
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 7
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 8
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 9
+    },
+    {
+      "accepted_in_source": true,
+      "selection_index": 10
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pip_pk_local_report.mat",
+      "original_path": "Research_v3/runs/full/pip_pk_local_report.mat",
+      "sha256": "48f655debf8aa431fae2cc6b6b6c4303a6b808c03e3911a5467ab649935b0f90"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.0001.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0001.mat",
+      "sha256": "0de78b9e435a01779d81f47d36211891f83fceaac392d1eadfe91903bcabbdc5"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.0003.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0003.mat",
+      "sha256": "ff10ffa1f4958027ab533ff91c69f9b686d4e53e38c475a1283393a3f932c77e"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.001.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.001.mat",
+      "sha256": "fa267d50758eade589db36d71a9aeba31539bb42c2e8810a6270c2957789fc38"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.003.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.003.mat",
+      "sha256": "4d4283bbae410960cd24d48d594267c24200ba3c2b7df3ed494dd6ac95f048a2"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.01.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.01.mat",
+      "sha256": "2de0fcc178bf2fbb7388213173a87d43e4544580f179f7b168e76cac58cfc213"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.0001.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+      "sha256": "0c0f4676781ca668b5c128250a004cd53c19db05575219392b3ae9f90c1efc19"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.0003.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0003.mat",
+      "sha256": "74a0ad1eb17a24fcb45411797de2e9cce748a258e479bb20daa2587a89a6e956"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.001.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.001.mat",
+      "sha256": "f2a2d4ab2003863027b1631ae41c6cfb94a55849a0066c7ad7945b1b998bb18a"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.003.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.003.mat",
+      "sha256": "4dd063e061c7662bc2444abea2ac8426d9770f7dfd36eb1948b0f4a52292af6e"
+    },
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.01.mat",
+      "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+      "sha256": "1adebb7e5a7ba6f6b39c75fe0cf79ddc1ca0d879133eabce56965774bebc5817"
+    }
+  ],
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "unique_cycle_count_claimed": false,
+  "certified_gait_claimed": false,
+  "bifurcation_certificate_created": false,
+  "interpretation": "A collection of previously accepted saved records. Sampling or exporting does not prove global connectivity, distinct cycles, a named gait, or a bifurcation.",
+  "critical_parent_energy": 1.5551652516426646,
+  "mat_artifact": "P1_Single_Flight_Phase_Continua/Restricted_Daughter_1_Signed_Samples.mat",
+  "mat_sha256": "551bcc934a06e01e83758e1521a0b739151f9314f9e53dd7c309140fc827e720",
+  "mat_bytes": 2.48061E+6
+}

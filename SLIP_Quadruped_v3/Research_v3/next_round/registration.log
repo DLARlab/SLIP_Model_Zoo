@@ -1,0 +1,17 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                      energy: [1.0000 250.6691]
+                  mean_speed: [-30.6348 30.6348]
+               pitch_abs_max: 1.2000
+        primitive_period_max: 20.7407
+             event_count_max: 128
+                 contact_law: 'first eligible descending TD, ascending LO, no tensile stance'
+                     targets: {13×1 cell}
+                equivalences: {3×1 cell}
+                connectivity: 'regular bifurcation network; nonsmooth connections recorded separately'
+    initial_speed_diagnostic: [-30.6348 30.6348]
+               energy_stages: [1×1 struct]
+                  derivation: [1×1 struct]
+

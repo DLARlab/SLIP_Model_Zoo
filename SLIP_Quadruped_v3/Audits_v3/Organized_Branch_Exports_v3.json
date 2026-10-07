@@ -1,0 +1,504 @@
+{
+  "schema_version": "organized-branch-exports-v3-1",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "helper_path": "Research_v3/Drivers_v3/ExportOrganizedBranches_v3.m",
+  "helper_sha256": "571689f652f38b772a06a73b2e921f0023645a38573c70397db24d0686cfdf87",
+  "exports": [
+    {
+      "id": "PIP_n0_PK_Signed_Samples",
+      "study": "P1_Single_Flight_Phase_Continua",
+      "dataset_type": "signed_samples",
+      "mat_artifact": "P1_Single_Flight_Phase_Continua/PIP_n0_PK_Signed_Samples.mat",
+      "json_artifact": "P1_Single_Flight_Phase_Continua/PIP_n0_PK_Signed_Samples.json",
+      "mat_sha256": "42b91ac836c5fe1390da028d21644b8a2c0f613ff7a2aeb29ba2459622faba7a",
+      "mat_bytes": 1.911522E+6,
+      "accepted_source_record_count": 10,
+      "flight_count": 1,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/phase_checkpoint.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/phase_checkpoint.mat",
+          "sha256": "a65c8f28913264e681b4c13b02d2d26d6b6d068dd54db769812d3a8d6052624f"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat",
+          "sha256": "bba983ec4be0305fbf5784710d5667e71b350967fdf21844d7f1aafe781cc294"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.0003_attempt_2.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0003_attempt_2.mat",
+          "sha256": "07f87b3a061a276e42430a5d20e13f4255b6c53d0560ff45f13bc94e550cbce3"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.001_attempt_1.mat",
+          "sha256": "a85963659f737187dce50edb55319ea6fd645b7ff23f2d8d7b74914761f6abc9"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.003_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.003_attempt_1.mat",
+          "sha256": "fb13aee0e6990b4a68410b8ebb6320a28d70b5ef65f103588860f0eb51627ecc"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_-0.01_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.01_attempt_1.mat",
+          "sha256": "4de22bdea9c2f7cf3b902781a8c3c3031caecc2ddca68a46de56e0aa77a7fe7a"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.0001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.0001_attempt_1.mat",
+          "sha256": "08a002f5eaef17f2b59ec83e567de0a439b147b792a5d3f3c0eec9063e156cdb"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.0003_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.0003_attempt_1.mat",
+          "sha256": "b58ac9e4db6b8335f3a4d84a8baa14c1ad05a05500e2808b34fb38ab009e1d7b"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.001_attempt_1.mat",
+          "sha256": "a179e5a9e1b8e82c9e1c639cb6bca120d96e0de151646f4f8dd01cdef1c869ec"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.003_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.003_attempt_1.mat",
+          "sha256": "3c933f2060b3414d28160d84c2ac3343cf08b94d10dd7c20273b0c2fd65332e3"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_1/daughter_+0.01_attempt_2.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_+0.01_attempt_2.mat",
+          "sha256": "cfb8efd16e9e444ffcfb40544ad8ab49698a4c8c00bd27f643dfe3cf5acb596d"
+        }
+      ]
+    },
+    {
+      "id": "PIP_Low_Energy_PK_Signed_Samples",
+      "study": "P1_Single_Flight_Phase_Continua",
+      "dataset_type": "signed_samples",
+      "mat_artifact": "P1_Single_Flight_Phase_Continua/PIP_Low_Energy_PK_Signed_Samples.mat",
+      "json_artifact": "P1_Single_Flight_Phase_Continua/PIP_Low_Energy_PK_Signed_Samples.json",
+      "mat_sha256": "8f6c6042d3d172c28e273b36a0a456ba9f064b56689148361b4398fa4911c264",
+      "mat_bytes": 2.061111E+6,
+      "accepted_source_record_count": 10,
+      "flight_count": 1,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/phase_checkpoint.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/phase_checkpoint.mat",
+          "sha256": "b986ac25825c4e51c4da24b4e23883de0e2a6a77e0953f529a8cc89d61b611de"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+          "sha256": "12d106b210194c881b400c7c73061e4785e2492d53441ef2eb3dd6475301a35a"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+          "sha256": "5f818afac387ef8e1c3ef67cfa761248605c163461c6d114633e897591b74ff9"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+          "sha256": "2de0722fdc2fa1cc50a6c9e9501010bac2986a7f715b0769d3686e08e87a16c8"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+          "sha256": "dbebc874a6cb0eeec87e687be2091df619d1de50341dc82e3ef3d146861a2db4"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+          "sha256": "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+          "sha256": "9e8e481a062d1239d2e3faac337b592b1871eec4cfc148c240568c421d5e7b38"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_2.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_2.mat",
+          "sha256": "eeb5d3f3fcf43b542aa762ff744139d619101d91a93010d6796e6bec401f7cb4"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.001_attempt_1.mat",
+          "sha256": "dc7733be278a3613f199af1e9736fb5a2f1c3a3b70a5c92414bfff064a2482b3"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.003_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.003_attempt_1.mat",
+          "sha256": "4720cc93c758d5ab46faaaaa2075b0923c8169a0695be519849b475516145281"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_PK_low_energy_neighborhood/daughter_+0.01_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.01_attempt_1.mat",
+          "sha256": "d55fa1739c895f3c20f5b499332b3d679eff1b1837def2c10a50b17508e3bfa7"
+        }
+      ]
+    },
+    {
+      "id": "Restricted_Daughter_1_Signed_Samples",
+      "study": "P1_Single_Flight_Phase_Continua",
+      "dataset_type": "signed_samples",
+      "mat_artifact": "P1_Single_Flight_Phase_Continua/Restricted_Daughter_1_Signed_Samples.mat",
+      "json_artifact": "P1_Single_Flight_Phase_Continua/Restricted_Daughter_1_Signed_Samples.json",
+      "mat_sha256": "551bcc934a06e01e83758e1521a0b739151f9314f9e53dd7c309140fc827e720",
+      "mat_bytes": 2.48061E+6,
+      "accepted_source_record_count": 10,
+      "flight_count": 1,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pip_pk_local_report.mat",
+          "original_path": "Research_v3/runs/full/pip_pk_local_report.mat",
+          "sha256": "48f655debf8aa431fae2cc6b6b6c4303a6b808c03e3911a5467ab649935b0f90"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.0001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0001.mat",
+          "sha256": "0de78b9e435a01779d81f47d36211891f83fceaac392d1eadfe91903bcabbdc5"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.0003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.0003.mat",
+          "sha256": "ff10ffa1f4958027ab533ff91c69f9b686d4e53e38c475a1283393a3f932c77e"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.001.mat",
+          "sha256": "fa267d50758eade589db36d71a9aeba31539bb42c2e8810a6270c2957789fc38"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.003.mat",
+          "sha256": "4d4283bbae410960cd24d48d594267c24200ba3c2b7df3ed494dd6ac95f048a2"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_-0.01.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_-0.01.mat",
+          "sha256": "2de0fcc178bf2fbb7388213173a87d43e4544580f179f7b168e76cac58cfc213"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.0001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat",
+          "sha256": "0c0f4676781ca668b5c128250a004cd53c19db05575219392b3ae9f90c1efc19"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.0003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.0003.mat",
+          "sha256": "74a0ad1eb17a24fcb45411797de2e9cce748a258e479bb20daa2587a89a6e956"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.001.mat",
+          "sha256": "f2a2d4ab2003863027b1631ae41c6cfb94a55849a0066c7ad7945b1b998bb18a"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.003.mat",
+          "sha256": "4dd063e061c7662bc2444abea2ac8426d9770f7dfd36eb1948b0f4a52292af6e"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_1_+0.01.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_1_+0.01.mat",
+          "sha256": "1adebb7e5a7ba6f6b39c75fe0cf79ddc1ca0d879133eabce56965774bebc5817"
+        }
+      ]
+    },
+    {
+      "id": "Restricted_Daughter_2_Signed_Samples",
+      "study": "P1_Single_Flight_Phase_Continua",
+      "dataset_type": "signed_samples",
+      "mat_artifact": "P1_Single_Flight_Phase_Continua/Restricted_Daughter_2_Signed_Samples.mat",
+      "json_artifact": "P1_Single_Flight_Phase_Continua/Restricted_Daughter_2_Signed_Samples.json",
+      "mat_sha256": "86677b28f76e526634e18f9497112486cfc7a8a47e00f0e65e8f3c46c24b24e4",
+      "mat_bytes": 2.620741E+6,
+      "accepted_source_record_count": 10,
+      "flight_count": 1,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pip_pk_local_report.mat",
+          "original_path": "Research_v3/runs/full/pip_pk_local_report.mat",
+          "sha256": "48f655debf8aa431fae2cc6b6b6c4303a6b808c03e3911a5467ab649935b0f90"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_-0.0001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0001.mat",
+          "sha256": "4b38a7cd1891d8ce2661b81bbe41039c021c85bce9b87a557cea70b694aa2d76"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_-0.0003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.0003.mat",
+          "sha256": "c0acf0cdd7b2b912cce1b3df8852d5cded1259753ce46c7c9bea40bdd49f094d"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_-0.001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.001.mat",
+          "sha256": "350fe5fb55215cce6c4ad8b68ed4ea3ce4c174f045d8f66a1081da956ed26e8c"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_-0.003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.003.mat",
+          "sha256": "3edc0d7385af4a81d33bea39b91592b1d69314e5da6d2b1a0e8984ba4deba37e"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_-0.01.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_-0.01.mat",
+          "sha256": "9fbcfeaad0cc06d4b386a3e0242db0bf2e65f8465bad889ae88f52aa8420dcfb"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_+0.0001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0001.mat",
+          "sha256": "eb928b8d4b9cb104008b3f80c20bdf54186d7c21fdce3e699f6dc4ffed65c270"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_+0.0003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.0003.mat",
+          "sha256": "3bcb3b7a1dfe0e5646c79c47eb4009db86f7a7d55fd275d9f465e6061b1accab"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_+0.001.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.001.mat",
+          "sha256": "bdac65f4e51a58fa31c96d887397812f7ee4fa7b35eb648f044b88f6e33d667b"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_+0.003.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.003.mat",
+          "sha256": "287681cfcc6bfb89e7cfa18230ef741ecdc7197f0b31894fb38d3e8699965af0"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/Historical/pronk_daughter_v2_2_+0.01.mat",
+          "original_path": "Research_v3/runs/full/pronk_daughter_v2_2_+0.01.mat",
+          "sha256": "87fc731b387df5a90ea155fc95af08e66e26b0231f8e631675249a71917bf606"
+        }
+      ]
+    },
+    {
+      "id": "PIP_candidate_2_PK_Signed_Samples",
+      "study": "P1_Single_Flight_Phase_Continua",
+      "dataset_type": "signed_samples",
+      "mat_artifact": "P1_Single_Flight_Phase_Continua/PIP_candidate_2_PK_Signed_Samples.mat",
+      "json_artifact": "P1_Single_Flight_Phase_Continua/PIP_candidate_2_PK_Signed_Samples.json",
+      "mat_sha256": "f5de4893e8f8d7805a910157f50ab5a8551275760d439fdb35180170517f1841",
+      "mat_bytes": 283672,
+      "accepted_source_record_count": 1,
+      "flight_count": 1,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_2/phase_checkpoint.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_2/phase_checkpoint.mat",
+          "sha256": "d7759e2baf8ab9b0cc46073985a9d2c4a0d25d94122f6591b044d43bb3e074b5"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_2/daughter_-0.0001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_2/daughter_-0.0001_attempt_1.mat",
+          "sha256": "8c37c90b3e06fe62f8a1104168179600d8f05f0b3934fe524be27621924b450f"
+        }
+      ]
+    },
+    {
+      "id": "PIP_candidate_3_PK_Signed_Samples",
+      "study": "P1_Single_Flight_Phase_Continua",
+      "dataset_type": "signed_samples",
+      "mat_artifact": "P1_Single_Flight_Phase_Continua/PIP_candidate_3_PK_Signed_Samples.mat",
+      "json_artifact": "P1_Single_Flight_Phase_Continua/PIP_candidate_3_PK_Signed_Samples.json",
+      "mat_sha256": "caf210938f6e552bc5dc29271e93cd25b82ecaaad1cf8226e9e2f2fc374efc7f",
+      "mat_bytes": 291855,
+      "accepted_source_record_count": 1,
+      "flight_count": 1,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_3/phase_checkpoint.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_3/phase_checkpoint.mat",
+          "sha256": "f549e2a602adfe749ecd19ecef33e91ba97cec155b2582dac8f55294433368e9"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/PIP_to_PK/PIP_candidate_3/daughter_-0.0001_attempt_1.mat",
+          "original_path": "Research_v3/next_round/tasks/full/PIP_candidate_3/daughter_-0.0001_attempt_1.mat",
+          "sha256": "9364a379527efbce64dc82d54a9e8c04752575b4ee48f79e17a5ffd66f55f4a8"
+        }
+      ]
+    },
+    {
+      "id": "Imported_PK_Low_Energy_Local_Bridge",
+      "study": "P1_Single_Flight_Phase_Continua",
+      "dataset_type": "local_bridge",
+      "mat_artifact": "P1_Single_Flight_Phase_Continua/Imported_PK_Low_Energy_Local_Bridge.mat",
+      "json_artifact": "P1_Single_Flight_Phase_Continua/Imported_PK_Low_Energy_Local_Bridge.json",
+      "mat_sha256": "7f0d73a2f0d24fa22345a5d9771d296b9e84020e2d8221eef1b2839d8b1ffb2f",
+      "mat_bytes": 1.208604E+6,
+      "accepted_source_record_count": 5,
+      "flight_count": 1,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_checkpoint.mat",
+          "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_checkpoint.mat",
+          "sha256": "2e417511d3d710fa94f8b03c73efc039fefb9f418370db2c7be9443b78e00f09"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_01_attempt_001.mat",
+          "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_01_attempt_001.mat",
+          "sha256": "bd2f65b4258681b3c1389a0f177316ed02fbb4e5b815520bad42446dce369e51"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_02_attempt_002.mat",
+          "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_02_attempt_002.mat",
+          "sha256": "1e92efc1255a49b3a2367d54b1834e89155fae89b10870dfd4624a3e4a88d0ec"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_03_attempt_003.mat",
+          "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_03_attempt_003.mat",
+          "sha256": "06b31744b2e36d32d022b28a9784b51665c65d2917a8e9e735dd7afc9b140191"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_04_attempt_004.mat",
+          "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_04_attempt_004.mat",
+          "sha256": "67704ad3fd85005f062da24e9a2fbc700279a6795bb71db94bb0ada84658044c"
+        },
+        {
+          "path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Imported_PK_Bridge/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_05_attempt_005.mat",
+          "original_path": "Research_v3/next_round/tasks/full/imported_PK_to_low_PIP_daughter_negative_0p01/bridge_point_05_attempt_005.mat",
+          "sha256": "e62abece077720696721dc3d7be35dc462aec5e1f842e2f20210c9b46981be95"
+        }
+      ]
+    },
+    {
+      "id": "Opposed_Spread_n0_Negative_Cycle_Samples",
+      "study": "P2_Double_Flight_Phase_Continua",
+      "dataset_type": "primitive_cycle_samples",
+      "mat_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Negative_Cycle_Samples.mat",
+      "json_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Negative_Cycle_Samples.json",
+      "mat_sha256": "819551f9a074b50ee18198e65838606ccc412ca7920f2dd7a7ef5cf331abe1f2",
+      "mat_bytes": 2.648454E+6,
+      "accepted_source_record_count": 5,
+      "flight_count": 2,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_period_two_checkpoint.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_period_two_checkpoint.mat",
+          "sha256": "93df2d5eb94934f2394293bbf6de0e99dd12061abfb09fcdf2bae07662eb53c2"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+          "sha256": "f1b6c6bf4efc770cb852513fd8067fda301c553b11db97e0527ad3a877128e60"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+          "sha256": "f27e69989781982c308ed145ac96caf64a7fd9811954fa7c1a412aa0fbbc22ca"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+          "sha256": "44919782b7c832708739840303ac55e33cd0f157d97d745bcc979bada2f9ced7"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+          "sha256": "1fedcf381a3516449982664ae728cbd28ca7a37beac366ba84d30cc20cbc99ad"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_negative_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat",
+          "sha256": "edb0f3aac87a6830f537edb5a811eee907d772f6dac219ae8eb991038b4fdb1b"
+        }
+      ]
+    },
+    {
+      "id": "Opposed_Spread_n0_Positive_Cycle_Samples",
+      "study": "P2_Double_Flight_Phase_Continua",
+      "dataset_type": "primitive_cycle_samples",
+      "mat_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Positive_Cycle_Samples.mat",
+      "json_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Positive_Cycle_Samples.json",
+      "mat_sha256": "9968c0868c8790c6915ad49dee014115b04f4d5d9e106142dc6e79b00325631d",
+      "mat_bytes": 2.61162E+6,
+      "accepted_source_record_count": 5,
+      "flight_count": 2,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_positive_A1e-3_campaign/restricted_period_two_checkpoint.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_positive_A1e-3_campaign/restricted_period_two_checkpoint.mat",
+          "sha256": "66a9a42bd4b3a453a9d4689f31cd5b2d9b58129d957d64d43ec5d8c4f0b74d14"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_001_exact_predictor_admission.mat",
+          "sha256": "0531824e1fbf785aba96c9fd9eed1396be683b7f7e3438d689fa81032451bd9d"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_002_meaningful_nonlinear_correction.mat",
+          "sha256": "24b3ae11b223f8ca60a1327602be9f14b56f64cb85dad780bf49cc6c55eb40ec"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_003_restricted_branch_sample.mat",
+          "sha256": "6ac41aeb4a3c36fc03ebb4b334cd61c45777fb989bf67a60edafb1d12b75fdfb"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_004_restricted_branch_sample.mat",
+          "sha256": "f1012ca82d38d1a5da09dbfdd980991663e07c00b7e594e54b1a16769ed20203"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat",
+          "original_path": "Research_v3/next_round/tasks/full/opposed_spread_n0_positive_A1e-3_campaign/restricted_trial_r001_005_restricted_branch_sample.mat",
+          "sha256": "07f634c7d22ed4ea6cabe90ed458bda689d686fb090ca43550da8e848d4a23c2"
+        }
+      ]
+    },
+    {
+      "id": "Opposed_Spread_n0_n1_Theory_Cycle_Samples",
+      "study": "P2_Double_Flight_Phase_Continua",
+      "dataset_type": "primitive_cycle_samples",
+      "mat_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_n1_Theory_Cycle_Samples.mat",
+      "json_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_n1_Theory_Cycle_Samples.json",
+      "mat_sha256": "b8244ad70bdb0bdbe7a54e04753ff5235224992bc60b546002259ff03bc351ec",
+      "mat_bytes": 1.820161E+6,
+      "accepted_source_record_count": 4,
+      "flight_count": 2,
+      "new_numerical_records": 0,
+      "source_manifest": [
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n0_negative_A1e-3_actual_trace.mat",
+          "original_path": "Research_v3/next_round/theory/opposed_spread_n0_negative_A1e-3_actual_trace.mat",
+          "sha256": "39b050c7e2e9b9ad53f43e6fed70eac573f3769d615f7017af5b42caf3fe498e"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+          "original_path": "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+          "sha256": "6ccfb056d9de1059c8dc3149db0955c41e671fa37c6c26de7e9776597b6ae41a"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n1_negative_A1e-3_actual_trace.mat",
+          "original_path": "Research_v3/next_round/theory/opposed_spread_n1_negative_A1e-3_actual_trace.mat",
+          "sha256": "18f548523357d9069845f01d2a08e2ee887259248d51bd6e78fc89935be2dd5d"
+        },
+        {
+          "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n1_positive_A1e-3_actual_trace.mat",
+          "original_path": "Research_v3/next_round/theory/opposed_spread_n1_positive_A1e-3_actual_trace.mat",
+          "sha256": "adfd9730b91b19a0be441a25faec69aa0c9137911223b107870dbc3d995c1f4b"
+        }
+      ]
+    }
+  ],
+  "source_bytes_preserved": true,
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "elapsed_saved_data_postprocessing_seconds": 40.017322708333332,
+  "scope": "These files collect previously accepted saved orbits. Record counts are not counts of distinct cycles or new amplitudes. No new closure, primitive-period, gait or bifurcation certificate is established by this export. Scientific audit files retain the acceptance, failure and attachment evidence."
+}

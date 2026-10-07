@@ -1,0 +1,56 @@
+function catalog=FreezeN0FlipSectorCandidates_v3()
+%FREEZEN0FLIPSECTORCANDIDATES_V3 Additional measured physical flip parent.
+    here=fileparts(mfilename('fullpath'));v3=fileparts(fileparts(fileparts(here)));
+    V3LegacyAddPath_v3(fullfile(v3,'Dynamics_v3'));V3LegacyAddPath_v3(fullfile(v3,'Schema_v3'));
+    V3LegacyAddPath_v3(fullfile(v3,'Research_v3/Drivers_v3'));
+    sourcePath='Research_v3/next_round/theory/n0_full_physical_spectrum.mat';
+    loaded=load(V3Path_v3(fullfile(v3,sourcePath)),'result');source=loaded.result;
+    state=load(V3Path_v3(fullfile(here,'arming_n0_parent_03.mat')),'x','q','parameters');
+    chart=QuadrupedPhysicalChart_v3.create(state.x,state.q,state.parameters);indices=chart.independent_indices;
+    catalog=struct('schema_version','measured-n0-PIP-flip-sector-candidates-v3-1', ...
+        'frozen_utc',char(datetime('now','TimeZone','UTC')),'matlab_version',version, ...
+        'source_artifact',sourcePath,'source_sha256',RoundSHA256_v3(fullfile(v3,sourcePath)), ...
+        'source_energy',source.energy,'source_full_matrix',source.full_matrix, ...
+        'source_energy_leaf_matrix',source.energy_leaf_matrix,'physical_parameters',state.parameters, ...
+        'physical_chart',chart,'signed_amplitudes',[-1e-3,1e-3], ...
+        'BL_touchdowns_per_return',2,'required_primitive_return',2, ...
+        'required_positive_duration_flights',2, ...
+        'scope','Additional prospective measured n0 flip-sector experiment; full derivative is numerical C1 evidence, full C2 is unproved.', ...
+        'ancestry_claimed',false,'candidates',struct([]));
+    [~,D,V]=svd(source.energy_leaf_matrix+eye(11));catalog.flip_singular_values=diag(D);
+    catalog.measured_four_dimensional_flip_basis=source.energy_basis*V(:,end-3:end);
+    catalog.flip_basis_residual=norm((source.full_matrix+eye(12))*catalog.measured_four_dimensional_flip_basis,inf);
+    for sector=1:2
+        physical=zeros(14,2);
+        if sector==1
+            physical([11,13],1)=[1;-1]/sqrt(2);physical([12,14],2)=[1;-1]/sqrt(2);
+            name='front_antisymmetric';label='HB_front';leadState=11;
+        else
+            physical([7,9],1)=[1;-1]/sqrt(2);physical([8,10],2)=[1;-1]/sqrt(2);
+            name='hind_antisymmetric';label='HB_hind';leadState=7;
+        end
+        basis=physical(indices,:);matrix=basis.'*source.full_matrix*basis;
+        [vectors,values]=eig(matrix);values=diag(values);[~,index]=min(abs(values+1));
+        direction=basis*real(vectors(:,index));direction=direction/norm(direction);
+        if direction(indices==leadState)<0,direction=-direction;end
+        ambient=zeros(14,1);ambient(indices)=direction;
+        leakage=norm(source.full_matrix*basis-basis*matrix,inf);
+        residual=norm(source.full_matrix*direction+direction,inf);assert(max(leakage,residual)<1e-6);
+        for signed=catalog.signed_amplitudes
+            reference=[state.x(indices);source.energy];
+            prediction=struct('sector_index',sector,'target_label',label, ...
+                'target_positive_duration_flights',2,'signed_amplitude',signed, ...
+                'independent_indices',indices,'reference',reference,'normal',[direction;0], ...
+                'seed_state',QuadrupedPhysicalChart_v3.lift(chart,reference(1:end-1)+signed*direction), ...
+                'frozen_utc',catalog.frozen_utc,'direction_origin','Measured unrestricted n0 physical energy-leaf flip vector');
+            entry=struct('sector',name,'target_label',label,'physical_direction',ambient, ...
+                'independent_direction',direction,'sector_basis',basis,'sector_matrix',matrix, ...
+                'measured_multiplier',real(values(index)),'sector_leakage',leakage, ...
+                'flip_eigenvector_residual',residual,'prediction',prediction);
+            if isempty(catalog.candidates),catalog.candidates=entry;else,catalog.candidates(end+1)=entry;end %#ok<AGROW>
+        end
+        fprintf('n0 %s flip %.12g residual%.3g leakage%.3g\n',name,real(values(index)),residual,leakage);
+    end
+    save(V3Path_v3(fullfile(here,'n0_flip_BL2_sector_candidates.mat')),'catalog','-v7');
+    RoundJSON_v3(fullfile(here,'n0_flip_BL2_sector_candidates.json'),catalog);
+end

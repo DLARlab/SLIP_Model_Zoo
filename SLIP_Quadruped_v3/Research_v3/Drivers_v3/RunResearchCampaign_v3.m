@@ -2,15 +2,15 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
 %RUNRESEARCHCAMPAIGN_V3 Dependency-ordered, checkpointed physical studies.
 % Each stage is also callable independently. Configuration is registered
 % before execution; imported-seed comparisons never establish graph edges.
-    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    v3=V3Root_v3(mfilename('fullpath'));
     originalPath=path;restore=onCleanup(@() path(originalPath)); %#ok<NASGU>
     folders={'Schema_v3','Adapters_v3','Dynamics_v3','Simulation_v3', ...
         'Orbit_v3','Numerics_v3','Stability_v3','Graphics_v3','Examples_v3'};
-    for i=1:numel(folders),addpath(fullfile(v3,folders{i}));end
+    for i=1:numel(folders),V3LegacyAddPath_v3(fullfile(v3,folders{i}));end
     configFile=canonicalWithin(v3,configFile);
     outputDirectory=canonicalWithin(v3,outputDirectory);
-    if ~isfolder(outputDirectory),mkdir(outputDirectory);end
-    cfg=jsondecode(fileread(configFile));rng(cfg.seed,'twister');
+    if ~isfolder(V3Path_v3(outputDirectory)),mkdir(V3Path_v3(outputDirectory));end
+    cfg=jsondecode(fileread(V3Path_v3(configFile)));rng(cfg.seed,'twister');
     started=tic;
     report=struct('schema_version','research-evidence-v3-1','stage',char(stage), ...
         'model_id',cfg.model_id,'config',cfg,'matlab_version',version, ...
@@ -22,12 +22,12 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
             report.release=version('-release');report.platform=computer;
             report.toolboxes=ver;report.licenses=license('inuse');
             report.cpu_cores=feature('numcores');
-            report.reference_archive_present=isfile(fullfile(fileparts(v3), ...
-                'SLIP_Quadruped','P2_Numerical_Run_Archive','P2_original_layout_20261007.tar.gz'));
+            report.reference_archive_present=isfile(V3Path_v3(fullfile(fileparts(v3), ...
+                'SLIP_Quadruped','P2_Numerical_Run_Archive','P2_original_layout_20261007.tar.gz')));
             report.status='completed';
         case 'compatibility'
-            manifest=jsondecode(fileread(fullfile(v3,'Research_v3','baseline', ...
-                'source_fixture_manifest.json')));
+            manifest=jsondecode(fileread(V3Path_v3(fullfile(v3,'Research_v3','baseline', ...
+                'source_fixture_manifest.json'))));
             observations=struct([]);
             for k=1:numel(manifest.records)
                 source=manifest.records(k);file=fullfile(v3,source.fixture_path);
@@ -53,18 +53,18 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
                         entry.status='replayed_nonperiodic';
                         if details.admissible && entry.residual_norm<=1e-8
                             orbit=f.problem.createOrbit(f.problem.packState(x),p,q,details);
-                            if exist('GaitIdentification_v3','file')
+                            if exist(V3Path_v3('GaitIdentification_v3'),'file')
                                 entry.classification=GaitIdentification_v3(orbit);
                             end
                             entry.status='accepted_autonomous_seed';
                             fixtureArtifact=fullfile(outputDirectory,sprintf('fixture_%02d_%05d.mat',k,column));
-                            save(fixtureArtifact,'orbit','details','source','column','-v7');
+                            save(V3Path_v3(fixtureArtifact),'orbit','details','source','column','-v7');
                         end
                         converted=struct('state',x,'parameter',p,'mode',q, ...
                             'source',source,'column',column,'scheduled_events_diagnostic_only',schedule);
                         convertedPath=fullfile(v3,source.study,'ConvertedSeeds_v3', ...
                             sprintf('%s_column_%05d.mat',erase(string(fileName(file)),'.mat'),column));
-                        save(convertedPath,'converted');
+                        save(V3Path_v3(convertedPath),'converted');
                     catch ex
                         entry.reason=sprintf('%s: %s',ex.identifier,ex.message);
                     end
@@ -102,9 +102,9 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
                     'period_error',abs(orbit.period-expected),'closure',d.residual_norm, ...
                     'energy_range',max(energyValues)-min(energyValues), ...
                     'delayed_first_LO_obstruction',2*pi/w,'classification',struct());
-                if exist('GaitIdentification_v3','file'),point.classification=GaitIdentification_v3(orbit);end
+                if exist(V3Path_v3('GaitIdentification_v3'),'file'),point.classification=GaitIdentification_v3(orbit);end
                 if isempty(points),points=point;else,points(end+1)=point;end %#ok<AGROW>
-                save(fullfile(outputDirectory,sprintf('vertical_%02d.mat',numel(points))),'orbit','point');
+                save(V3Path_v3(fullfile(outputDirectory,sprintf('vertical_%02d.mat',numel(points)))),'orbit','point');
             end
             report.points=points;report.max_period_error=max([points.period_error]);
             report.max_closure=max([points.closure]);report.max_energy_range=max([points.energy_range]);
@@ -122,8 +122,8 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
             for direction=[-1,1]
                 checkpoint=fullfile(outputDirectory,sprintf('family_%+d.mat',direction));
                 previous=struct('points',[]);seedOrbit=orbit;
-                if isfile(checkpoint)
-                    loaded=load(checkpoint,'branch');previous=loaded.branch;
+                if isfile(V3Path_v3(checkpoint))
+                    loaded=load(V3Path_v3(checkpoint),'branch');previous=loaded.branch;
                     if ~isempty(previous.points)
                         seedOrbit=previous.points(end).orbit;
                         [~,replay]=f.residual.evaluateWithInfo( ...
@@ -154,7 +154,7 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
                     branch.energy=arrayfun(@(point) point.p(11),branch.points);
                     classifications=cell(1,numel(branch.points));
                     for j=1:numel(branch.points)
-                        if exist('GaitIdentification_v3','file')
+                        if exist(V3Path_v3('GaitIdentification_v3'),'file')
                             classifications{j}=GaitIdentification_v3(branch.points(j).orbit);
                         end
                     end
@@ -162,8 +162,8 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
                     temporary=[checkpoint,'.partial.mat'];
                     % Compact branch variables are below the MAT v7 limit.
                     % Lossless v7 compression avoids repeated HDF5 struct overhead.
-                    save(temporary,'branch','classifications','-v7');
-                    movefile(temporary,checkpoint,'f');
+                    save(V3Path_v3(temporary),'branch','classifications','-v7');
+                    movefile(V3Path_v3(temporary),V3Path_v3(checkpoint),'f');
                     run.status='completed_bounded_branch';run.reason=branch.terminationReason;
                     run.accepted_count=numel(branch.points);run.energy=branch.energy;
                     run.max_full_closure=max(arrayfun(@(pt) norm( ...
@@ -186,7 +186,7 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
             predictions=struct('parent_state',x,'parameter',p,'directions',[front,hind,forehind], ...
                 'origin','symmetry sectors; candidates only, no critical eigenvector claim', ...
                 'frozen_utc',char(datetime('now','TimeZone','UTC')),'held_out_data_used',false);
-            save(fullfile(outputDirectory,'parent_predictions_frozen.mat'),'predictions','parent');
+            save(V3Path_v3(fullfile(outputDirectory,'parent_predictions_frozen.mat')),'predictions','parent');
             report.predictions=predictions;report.attempts=struct([]);
             solver=RootSolver_v3(struct('MaxIterations',min(5,cfg.budgets.root_max_iterations), ...
                 'MaxFunctionEvaluations',min(500,cfg.budgets.root_max_function_evaluations), ...
@@ -202,7 +202,7 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
                     trial.converged=info.converged;trial.reason=info.message;
                     trial.residual=info.residualNorm;
                     trial.distance_to_parent=norm(family.fullState(u)-x);
-                    save(fullfile(outputDirectory,sprintf('parent_attempt_%d.mat',k)),'info','u','guess');
+                    save(V3Path_v3(fullfile(outputDirectory,sprintf('parent_attempt_%d.mat',k))),'info','u','guess');
                 catch ex,trial.reason=sprintf('%s: %s',ex.identifier,ex.message);end
                 if isempty(report.attempts),report.attempts=trial;else,report.attempts(end+1)=trial;end
                 writeJSON(fullfile(outputDirectory,'parent_only.json'),report);
@@ -213,7 +213,7 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
             [orbit,~,f]=QuadrupedalExample_v3(struct('Refine',false));
             analyzer=FloquetAnalysis_v3(struct('RelativeStep',3e-4));
             full=analyzer.analyzeOrbit(f.map,orbit);
-            save(fullfile(outputDirectory,'full_floquet.mat'),'full','-v7');
+            save(V3Path_v3(fullfile(outputDirectory,'full_floquet.mat')),'full','-v7');
             report.unrestricted=struct('reliable',full.reliable,'warning',full.warning, ...
                 'multipliers_real',real(full.multipliers),'multipliers_imag',imag(full.multipliers), ...
                 'dimension',full.physicalCoordinateDimension);
@@ -226,7 +226,7 @@ function report = RunResearchCampaign_v3(stage, configFile, outputDirectory)
     report.elapsed_seconds=toc(started);
     report.finished_utc=char(datetime('now','TimeZone','UTC'));
     writeJSON(fullfile(outputDirectory,[char(stage),'.json']),report);
-    save(fullfile(outputDirectory,[char(stage),'_report.mat']),'report','-v7');
+    save(V3Path_v3(fullfile(outputDirectory,[char(stage),'_report.mat'])),'report','-v7');
 end
 
 function f=framework(cfg)
@@ -242,7 +242,7 @@ function f=framework(cfg)
 end
 
 function [array,name]=fixtureArray(file)
-    data=load(file);names=fieldnames(data);name='';
+    data=load(V3Path_v3(file));names=fieldnames(data);name='';
     for k=1:numel(names)
         value=data.(names{k});
         if isnumeric(value) && size(value,1)==29 && size(value,2)>0
@@ -303,15 +303,15 @@ function clusters=clusterEvents(events,tolerance)
 end
 
 function writeJSON(file,value)
-    fid=fopen(file,'w');if fid<0,error('RunResearchCampaign_v3:Write','Cannot open %s.',file);end
+    fid=fopen(V3Path_v3(file),'w');if fid<0,error('RunResearchCampaign_v3:Write','Cannot open %s.',file);end
     cleanup=onCleanup(@() fclose(fid)); %#ok<NASGU>
     fprintf(fid,'%s\n',jsonencode(value,'PrettyPrint',true));
 end
 function saveCheckpoint(file,branch)
     branch=CompactResearchBranch_v3(branch);
     temporary=[file,'.partial.mat'];
-    save(temporary,'branch','-v7');
-    movefile(temporary,file,'f');
+    save(V3Path_v3(temporary),'branch','-v7');
+    movefile(V3Path_v3(temporary),V3Path_v3(file),'f');
 end
 function branch=mergeBranches(previous,branch)
     if isempty(previous.points),return;end

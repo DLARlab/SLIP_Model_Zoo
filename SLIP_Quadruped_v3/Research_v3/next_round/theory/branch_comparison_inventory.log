@@ -1,0 +1,55 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+
+FILE Research_v3/runs/full/fixed_family_report.mat
+    {'report'}
+
+report fields: schema_version,stage,model_id,config,matlab_version,started_utc,status,elapsed_seconds,seed_kind,physical_parameter,runs,finished_utc
+
+FILE Research_v3/runs/full/pronk_daughter_v2_1_+0.0001.mat
+  Columns 1 through 4
+
+    {'classification'}    {'correction'}    {'entry'}    {'orbit'}
+
+  Columns 5 through 6
+
+    {'predictions'}    {'replayOrbit'}
+
+classification fields: label,alias,abbreviation,color,status,reason,descriptive_only,isotropy_proved,primitive,period_used,flight_count,raw_positive_flight_count,flight_count_over_recorded_period,flight_intervals_on_circle,flight_durations,flight_count_sensitivity,duty_factors,contact_time,contact_functions,touchdown_phases,liftoff_phases,event_occurrences,event_clusters,contact_sync_errors,motion_sync_errors,hind_pair_synchronized,front_pair_synchronized,left_right_half_phase_contact_errors,left_right_half_phase_motion_errors,left_right_lead,lead_pair_names,leg_trajectories,suspension_geometry,tolerances,borderline,schema_metadata,legacy_original_suffix_verified_flight_count,v3_abbreviation_suffix2_measured
+correction fields: state,fullState,parameter,mode,residual,residualNorm,exitflag,output,solver,message,errorIdentifier,converged,evaluationInfo,orbit,attempts,candidateModes,selectedAttempt,initialGuess,modeResolution,selectedMode,rejectedModeDiagnostics,stateScale,parameterScale,functionEvaluationCount,mapEvaluationCount,cacheHitCount,invalidEvaluationCount,jacobianEvaluationCount,finalJacobian,jacobianReliable,derivativeModel,derivativeEvaluated,acceptedNewtonIterations,invalidTrialCount,jacobianDiagnostics,selectedFiniteDifferenceSteps,perColumnReliability,cyclicEventSignature,sectionRelativeSignature,eventClusterSignature
+entry fields: signed_amplitude,converged,reduced_coordinates,energy,period,mean_speed,full_closure,replay_full_closure,replay_period_difference,replay_signature_match,distance_to_same_energy_parent,critical_alignment,amplitude_constraint_error,initial_residual,final_residual,correction_norm,genuine_correction,solver,solver_iterations,solver_counters,trajectory_distinction,in_registered_domain,reason,classification,artifact
+orbit orbit empty0
+predictions fields: schema_version,critical_energy,critical_energy_uncertainty_estimate,direction,left_kernel,transversality,amplitudes,validation_settings,source,frozen_utc
+replayOrbit orbit empty0
+
+FILE Research_v3/runs/full/pronk_daughter_v2_2_+0.0001.mat
+  Columns 1 through 4
+
+    {'classification'}    {'correction'}    {'entry'}    {'orbit'}
+
+  Columns 5 through 6
+
+    {'predictions'}    {'replayOrbit'}
+
+classification fields: label,alias,abbreviation,color,status,reason,descriptive_only,isotropy_proved,primitive,period_used,flight_count,raw_positive_flight_count,flight_count_over_recorded_period,flight_intervals_on_circle,flight_durations,flight_count_sensitivity,duty_factors,contact_time,contact_functions,touchdown_phases,liftoff_phases,event_occurrences,event_clusters,contact_sync_errors,motion_sync_errors,hind_pair_synchronized,front_pair_synchronized,left_right_half_phase_contact_errors,left_right_half_phase_motion_errors,left_right_lead,lead_pair_names,leg_trajectories,suspension_geometry,tolerances,borderline,schema_metadata,legacy_original_suffix_verified_flight_count,v3_abbreviation_suffix2_measured
+correction fields: state,fullState,parameter,mode,residual,residualNorm,exitflag,output,solver,message,errorIdentifier,converged,evaluationInfo,orbit,attempts,candidateModes,selectedAttempt,initialGuess,modeResolution,selectedMode,rejectedModeDiagnostics,stateScale,parameterScale,functionEvaluationCount,mapEvaluationCount,cacheHitCount,invalidEvaluationCount,jacobianEvaluationCount,finalJacobian,jacobianReliable,derivativeModel,derivativeEvaluated,acceptedNewtonIterations,invalidTrialCount,jacobianDiagnostics,selectedFiniteDifferenceSteps,perColumnReliability,cyclicEventSignature,sectionRelativeSignature,eventClusterSignature
+entry fields: signed_amplitude,converged,reduced_coordinates,energy,period,mean_speed,full_closure,replay_full_closure,replay_period_difference,replay_signature_match,distance_to_same_energy_parent,critical_alignment,amplitude_constraint_error,initial_residual,final_residual,correction_norm,genuine_correction,solver,solver_iterations,solver_counters,trajectory_distinction,in_registered_domain,reason,classification,artifact
+orbit orbit empty0
+predictions fields: schema_version,critical_energy,critical_energy_uncertainty_estimate,direction,left_kernel,transversality,amplitudes,validation_settings,source,frozen_utc
+replayOrbit orbit empty0
+
+FILE Research_v3/next_round/tasks/full/PIP_candidate_1/daughter_-0.0001_attempt_1.mat
+    {'correction'}    {'entry'}    {'orbit'}    {'seed'}
+
+entry fields: signed_amplitude,accepted,full_closure,constraint_error,gait,initial_residual,final_residual,accepted_newton_iterations,state_distance_to_critical_parent,primary_failure,replay_failure,artifact,converged,in_registered_domain,energy,period,mean_speed,reduced_coordinates,critical_alignment,amplitude_constraint_error,genuine_correction,replay_full_closure,replay_signature_match,replay_period_difference,trajectory_distinction,classification
+orbit orbit empty0
+seed fields: state,mode,parameter,return_policy,occurrence,provenance
+correction fields: schema_version,status,accepted,seed,options,acceptance,integration,replay_integration,initial_residual,initial_scaled_norm,initial_physical_norm,final_residual,final_scaled_norm,final_physical_norm,full_closure,final_candidate,solver,primary_failure,finalization_failure,replay_failure,partial_evidence,independent_replay,physical_inequalities,primitive,classification,constraint_residual,provenance,elapsed_seconds,chart,energy_pivot,active_coordinate_indices,initial_evaluation,final_coordinates,augmented_parameter,full_closure_residual,period,drift,chart_signature,event_signature
+
+FILE Research_v3/next_round/tasks/validation/PK_continuation_m1/branch.mat
+    {'branch'}    {'classifications'}    {'restart_gate'}
+
+branch fields: type,activeParameterIndex,activeParameter,points,failures,count,success,x,p,full_state,mode,period,event_history,mode_history,stability,orbit,solver_info,arclength,continuationCoordinate,tangent,return_policy,return_policy_name,cycle_return_policy,candidate_section_count,candidate_apex_count,accepted_crossing_index,accepted_apex_index,return_multiplicity,section_relative_signature,cyclic_signature,event_cluster_report,event_clusters,event_cluster_count,event_cluster_signature,minimum_intercluster_gap,maximum_intra_cluster_spread,cluster_relative_phase,section_cluster_coincidence,event_cluster_transition,event_cluster_split_merge_diagnostics,event_counts,guard_transversality,topology_margins,stance_force_admissibility_margin,minimum_physical_margin,minimum_physical_margins,section_coincident_events,root_statistics,schema_metadata,topology_boundary,terminationReason,family_coordinate,physical_parameter,symmetry_restriction,energy,augmented_parameter_note,resume_note,compact_checkpoint
+restart_gate fields: schema_version,status,accepted,seed,options,acceptance,integration,replay_integration,initial_residual,initial_scaled_norm,initial_physical_norm,final_residual,final_scaled_norm,final_physical_norm,full_closure,final_candidate,solver,primary_failure,finalization_failure,replay_failure,partial_evidence,independent_replay,physical_inequalities,primitive,classification,constraint_residual,provenance,elapsed_seconds,chart,energy_pivot,active_coordinate_indices,initial_evaluation,final_coordinates,augmented_parameter,full_closure_residual,period,drift,chart_signature,event_signature

@@ -1,0 +1,77 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    {'initial_physical_chart'}
+    {'failure_trace'         }
+
+               success: 0
+            admissible: 0
+    termination_reason: 'diagnostic_failure'
+               message: 'Stance compression is below the admissibility tolerance for leg(s) BL, BR.'
+               failure: [1×1 struct]
+            final_time: 1.28954881667588
+           final_state: [14×1 double]
+            final_mode: [4×1 logical]
+         event_history: [10×1 struct]
+         event_batches: [5×1 struct]
+
+            time: 1.28954883408767
+          sample: 1049
+           state: [14×1 double]
+            mode: [4×1 logical]
+          source: 'rejected-raw-segment'
+     diagnostics: [1×1 struct]
+    guard_values: [8×1 double]
+    axial_forces: [4×1 double]
+
+  Columns 1 through 3
+
+          5.70144218652093          4.44317930909153         0.945759711687143
+
+  Columns 4 through 6
+
+      -0.00250333329160218      1.55732140861275e-09      9.44428052976372e-09
+
+  Columns 7 through 9
+
+        -0.330871101058446         -4.20299324024166        -0.330871101066474
+
+  Columns 10 through 12
+
+          -4.2029932402185        -0.330871379779912          4.06292662080064
+
+  Columns 13 through 14
+
+        -0.330871379772804          4.06292662080534
+
+  Columns 1 through 3
+
+          5.70144218652093          4.44317930909153         0.945759711687143
+
+  Columns 4 through 6
+
+      -0.00250333329160218      1.55732140861275e-09      9.44428052976372e-09
+
+  Columns 7 through 9
+
+        -0.330871101058446         -4.20299324024166        -0.330871101066474
+
+  Columns 10 through 12
+
+          -4.2029932402185        -0.330871379779912          4.06292662080064
+
+  Columns 13 through 14
+
+        -0.330871379772804          4.06292662080534
+
+  Columns 1 through 3
+
+     -2.50917056021649e-08     -2.50944629520689e-08                       NaN
+
+  Column 4
+
+                       NaN
+
+{Unrecognized field name "guard_derivatives".
+} 

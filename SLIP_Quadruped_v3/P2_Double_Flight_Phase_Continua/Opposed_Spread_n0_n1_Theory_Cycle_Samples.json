@@ -1,0 +1,148 @@
+{
+  "schema_version": "organized-saved-orbit-dataset-v3-1",
+  "id": "Opposed_Spread_n0_n1_Theory_Cycle_Samples",
+  "created_utc": "2026-10-07T18:00:39.474Z",
+  "dataset_type": "primitive_cycle_samples",
+  "origin": "saved exact restricted predictor replays",
+  "expected_primitive_flight_count": 2,
+  "count": 4,
+  "amplitude": [
+    -0.001,
+    0.001,
+    -0.001,
+    0.001
+  ],
+  "amplitude_coordinate": "signed marked touchdown angle",
+  "resonance_index": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "energy": [
+    1.0616845275068503,
+    1.0616845275068503,
+    1.5551647475613182,
+    1.5551647475613182
+  ],
+  "period": [
+    2.6659420999964358,
+    2.6659420999964358,
+    5.3025473257008784,
+    5.3025473257008784
+  ],
+  "drift": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "mean_speed": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "flight_count": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "gait_label": [
+    "unclassified",
+    "unclassified",
+    "unclassified",
+    "unclassified"
+  ],
+  "gait_status": [
+    "ambiguous",
+    "ambiguous",
+    "ambiguous",
+    "ambiguous"
+  ],
+  "full_closure": [
+    4.3920422854171193E-13,
+    4.3920422854171193E-13,
+    1.8589574324323621E-12,
+    1.8589574324323621E-12
+  ],
+  "record_kind": [
+    "exact_predictor_replay",
+    "exact_predictor_replay",
+    "exact_predictor_replay",
+    "exact_predictor_replay"
+  ],
+  "source_paths": [
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n0_negative_A1e-3_actual_trace.mat",
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n1_negative_A1e-3_actual_trace.mat",
+    "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n1_positive_A1e-3_actual_trace.mat"
+  ],
+  "source_original_paths": [
+    "Research_v3/next_round/theory/opposed_spread_n0_negative_A1e-3_actual_trace.mat",
+    "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+    "Research_v3/next_round/theory/opposed_spread_n1_negative_A1e-3_actual_trace.mat",
+    "Research_v3/next_round/theory/opposed_spread_n1_positive_A1e-3_actual_trace.mat"
+  ],
+  "source_sha256": [
+    "39b050c7e2e9b9ad53f43e6fed70eac573f3769d615f7017af5b42caf3fe498e",
+    "6ccfb056d9de1059c8dc3149db0955c41e671fa37c6c26de7e9776597b6ae41a",
+    "18f548523357d9069845f01d2a08e2ee887259248d51bd6e78fc89935be2dd5d",
+    "adfd9730b91b19a0be441a25faec69aa0c9137911223b107870dbc3d995c1f4b"
+  ],
+  "source_acceptance": [
+    {
+      "accepted_in_source": true,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    },
+    {
+      "accepted_in_source": true,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    },
+    {
+      "accepted_in_source": true,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    },
+    {
+      "accepted_in_source": true,
+      "source_actual_gait_label": "unclassified",
+      "source_actual_gait_status": "ambiguous"
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n0_negative_A1e-3_actual_trace.mat",
+      "original_path": "Research_v3/next_round/theory/opposed_spread_n0_negative_A1e-3_actual_trace.mat",
+      "sha256": "39b050c7e2e9b9ad53f43e6fed70eac573f3769d615f7017af5b42caf3fe498e"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+      "original_path": "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+      "sha256": "6ccfb056d9de1059c8dc3149db0955c41e671fa37c6c26de7e9776597b6ae41a"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n1_negative_A1e-3_actual_trace.mat",
+      "original_path": "Research_v3/next_round/theory/opposed_spread_n1_negative_A1e-3_actual_trace.mat",
+      "sha256": "18f548523357d9069845f01d2a08e2ee887259248d51bd6e78fc89935be2dd5d"
+    },
+    {
+      "path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_n1_positive_A1e-3_actual_trace.mat",
+      "original_path": "Research_v3/next_round/theory/opposed_spread_n1_positive_A1e-3_actual_trace.mat",
+      "sha256": "adfd9730b91b19a0be441a25faec69aa0c9137911223b107870dbc3d995c1f4b"
+    }
+  ],
+  "new_shooting_simulations": 0,
+  "new_numerical_records": 0,
+  "unique_cycle_count_claimed": false,
+  "certified_gait_claimed": false,
+  "bifurcation_certificate_created": false,
+  "interpretation": "A collection of previously accepted saved records. Sampling or exporting does not prove global connectivity, distinct cycles, a named gait, or a bifurcation.",
+  "phase_equivalence_note": "Opposite signs at each fixed resonance index are marked half-period phases of the same labeled cycle. These four replay records do not establish four distinct cycles or four continued branches.",
+  "mat_artifact": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_n1_Theory_Cycle_Samples.mat",
+  "mat_sha256": "b8244ad70bdb0bdbe7a54e04753ff5235224992bc60b546002259ff03bc351ec",
+  "mat_bytes": 1.820161E+6
+}

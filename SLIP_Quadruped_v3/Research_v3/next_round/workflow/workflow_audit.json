@@ -1,0 +1,24 @@
+{
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "gui": {
+    "accepted": true,
+    "full_closure": 3.0269342587985193E-11,
+    "status": "corrected and independently replayed by shared periodic service",
+    "shared_service": true
+  },
+  "resume": {
+    "first_new_points": 0,
+    "second_new_points": 0,
+    "first_arclength_end": 0.13755273437499999,
+    "second_arclength_end": 0.13755273437499999,
+    "seam_deduplicated": true,
+    "tangent_reused": true,
+    "full_closure": 3.3885294570268343E-10,
+    "first_reason": "wall budget checkpoint inside recovery",
+    "second_reason": "wall budget or requested stop"
+  },
+  "all_passed": false,
+  "failure": {},
+  "elapsed_seconds": 535.076160875
+}

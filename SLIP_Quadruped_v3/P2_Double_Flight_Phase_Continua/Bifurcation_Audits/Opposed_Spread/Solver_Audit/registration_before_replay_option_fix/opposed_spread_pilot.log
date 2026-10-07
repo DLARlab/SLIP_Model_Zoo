@@ -1,0 +1,15 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Frozen opposed-spread pilot n0 A0.001: exact predictor plus delta0.0001 orthogonal correction.
+{Error using PeriodicSolutionSolver_v3>merge (line 329)
+Unknown replay integration ArmingTolerance.
+
+Error in PeriodicSolutionSolver_v3 (line 32)
+    replayIntegration=merge(replayIntegration,options.ReplayIntegration,'replay integration');
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in PilotOpposedSpread_v3 (line 65)
+    combined=tic;[exactOrbit,exactReport]=PeriodicSolutionSolver_v3(seed,options);
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

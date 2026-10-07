@@ -1,0 +1,98 @@
+{
+  "schema_version": "focused-periodic-solver-validation-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "platform": "MACA64",
+  "started_utc": "07-Oct-2026 14:37:21",
+  "cases": [
+    {
+      "name": "known-PIP-and-PK",
+      "passed": true,
+      "evidence": "PIP closure 3.06108472e-11; PK closure 3.02693426e-11"
+    },
+    {
+      "name": "meaningful-nonlinear-correction",
+      "passed": true,
+      "evidence": "Initial 0.00694968913; final 3.16442185e-13; accepted Newton iterations 11"
+    },
+    {
+      "name": "fixed-energy-and-augmented-constraints",
+      "passed": true,
+      "evidence": "Arc residual -3.0313073e-15; amplitude residual 7.54875763e-18; these are constrained family corrections, not branch-existence claims."
+    },
+    {
+      "name": "failed-imported-seed-preserved",
+      "passed": true,
+      "evidence": "Quadruped section-return is physically inadmissible: swing_foot_penetration:BL, contact_complementarity_loss:BL, swing_foot_penetration:BR, contact_complementarity_loss:BR, swing_foot_penetration:FL, contact_complementarity_loss:FL, swing_foot_penetration:FR, contact_complementarity_loss:FR."
+    },
+    {
+      "name": "tolerance-gap-and-primary-finalization",
+      "passed": true,
+      "evidence": "Historical accepted Newton iterations 0, map evaluations 290; reproduced primary: No finite hybrid Jacobian is available in the requested perturbation chart.; full closure secondary: Reduced residual candidate failed full physical closure."
+    },
+    {
+      "name": "marked-occurrence-and-repeated-cycle-rejection",
+      "passed": true,
+      "evidence": "Declared/replayed BL occurrence 2/2; full closure 6.12203621e-11; primitive multiple_cover_detected; accepted 0."
+    },
+    {
+      "name": "failed-map-diagnostic-schema-preserved",
+      "passed": true,
+      "evidence": "Diagnostic failure returns stop_occurred=false; the Poincare map preserves original TensileStance identifier/message and a simulator-report cause."
+    }
+  ],
+  "all_required_gates_passed": true,
+  "source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    }
+  ],
+  "post_occurrence_repair_source_sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da",
+  "occurrence_repair_scope": "Preserve immutable correction policy for fresh replay; audit proper event-located apex recurrences. Original five cases use occurrence one; this extra case exercises the changed occurrence-two path.",
+  "elapsed_seconds": 416.466476,
+  "finished_utc": "07-Oct-2026 14:44:18",
+  "validation_artifact_directory": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/next_round/solver/validation_06",
+  "diagnostic_failure_schema": {
+    "schema_version": "diagnostic-failure-schema-gate-v3-1",
+    "passed": true,
+    "source_predictor": "Research_v3/next_round/tasks/full/P1_source_25_B/column_00001_revision_000_predictor.mat",
+    "source_sha256": "7a00e1f2878aa7956811c1daf96ddc4f74e0b8c94bf25c9aba5b7702c052c1ec",
+    "simulator_failure_identifier": "ContinuousDynamics_v3:TensileStance",
+    "diagnostic_stop_occurred": false,
+    "map_failure": {
+      "identifier": "ContinuousDynamics_v3:TensileStance",
+      "message": "Stance compression is below the admissibility tolerance for leg(s) BL, BR.",
+      "cause_identifiers": [
+        "PoincareMap_v3:SimulatorDiagnostic"
+      ]
+    },
+    "HybridSimulator_sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c",
+    "PoincareMap_sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46",
+    "valid_return_gate": "Full six-case validation in the same fresh MATLAB process and source hashes"
+  },
+  "canonical_published_utc": "07-Oct-2026 14:46:06"
+}

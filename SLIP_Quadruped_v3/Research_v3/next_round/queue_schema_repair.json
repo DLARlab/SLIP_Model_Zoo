@@ -1,0 +1,39 @@
+{
+  "diagnosis": "jsondecode heterogeneous object array is a cell array; unwrapping was missing.",
+  "repair": "Dereference candidate cells and verify the sampled energy interval against the declared candidate.",
+  "task": "PIP_candidate_2",
+  "counter_semantics": "Retain wrong-range maps as failed-execution evidence, never target-candidate evidence.",
+  "interruption_utc_upper_bound": "2026-10-07 12:28:41 UTC",
+  "wall_seconds_lower_bound": 86,
+  "wall_seconds_upper_bound": 182,
+  "charge_basis": "Conservative upper bound after a deliberate Ctrl-C; exact interrupt timestamp was not captured.",
+  "function_evaluations": 65,
+  "previous_task": {
+    "id": "PIP_candidate_2",
+    "kind": "PIP_candidate",
+    "repair_round": "B",
+    "dependencies": [
+      "solver_validation"
+    ],
+    "fixture_index": 0,
+    "candidate_index": 2,
+    "seed_kind": "",
+    "seed_index": 1,
+    "direction": 1,
+    "state": "running",
+    "scientific_status": "not_executed",
+    "execution_completed": false,
+    "attempts": 1,
+    "wall_seconds": 0,
+    "function_evaluations": 0,
+    "new_points": 0,
+    "started_utc": "07-Oct-2026 12:25:39",
+    "finished_utc": "",
+    "artifact": "",
+    "message": "",
+    "last_failure": [],
+    "repair_revision": 0,
+    "last_attempt_repair_revision": 0,
+    "repair_log": []
+  }
+}

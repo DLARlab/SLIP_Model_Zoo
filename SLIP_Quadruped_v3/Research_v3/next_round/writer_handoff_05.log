@@ -1,0 +1,19 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                     schema_version: 'prospective-task-slice-repair-v3-1'
+                            profile: 'full'
+                           revision: 1
+                     registered_utc: '07-Oct-2026 14:20:25'
+                          diagnosis: 'Measured validation90s slices made no new points; prospective480s slices appended four actual PK points. The PIP negative-.0003 attempt had3.78s remaining and starved its derivative. Increase checkpoint slices while preserving the original registration and10800s total.'
+                           evidence: 'Research_v3/next_round/workflow_02/workflow_audit.json; Research_v3/next_round/solver/pip_amplitude_cost_audit.json'
+        previous_task_slice_seconds: 240
+              per_task_wall_seconds: 480
+                 total_wall_seconds: 10800
+      acceptance_tolerances_changed: 0
+                     domain_changed: 0
+    original_registration_preserved: 1
+               total_budget_changed: 0
+
+CHARGED 4151.434076458333 REMAINING 6648.565923541667

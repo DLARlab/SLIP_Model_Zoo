@@ -1,0 +1,259 @@
+{
+  "schema_version": "prospective-PIP-attachment-accuracy-repair-v3-2",
+  "registered_utc": "07-Oct-2026 15:53:50",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "candidate": {
+    "id": "PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003_revision02",
+    "source_task_id": "PIP_PK_low_energy_neighborhood",
+    "method": "signed-daughter-attachment-accuracy-repair",
+    "method_registration": "Research_v3/next_round/solver/attachment_accuracy_repair_02/PIP_PK_low_energy_neighborhood/registration.json",
+    "input_snapshot": "Research_v3/next_round/solver/attachment_accuracy_repair_02/PIP_PK_low_energy_neighborhood/input_snapshot.mat",
+    "snapshot_sha256": "98c48e1fd5f03ce176f5e2423192ce304ca1e6e84983fb7a01e33882cd9c6d56",
+    "signed_amplitude": 0.0003
+  },
+  "original_phase": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/phase_checkpoint.mat",
+  "original_phase_sha256": "b986ac25825c4e51c4da24b4e23883de0e2a6a77e0953f529a8cc89d61b611de",
+  "original_records": [
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0001_attempt_1.mat",
+      "sha256": "12d106b210194c881b400c7c73061e4785e2492d53441ef2eb3dd6475301a35a"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.0003_attempt_1.mat",
+      "sha256": "5f818afac387ef8e1c3ef67cfa761248605c163461c6d114633e897591b74ff9"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.001_attempt_1.mat",
+      "sha256": "2de0722fdc2fa1cc50a6c9e9501010bac2986a7f715b0769d3686e08e87a16c8"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.003_attempt_1.mat",
+      "sha256": "dbebc874a6cb0eeec87e687be2091df619d1de50341dc82e3ef3d146861a2db4"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_-0.01_attempt_1.mat",
+      "sha256": "79fd06d3fa4861e1eec34c605695985993838fe3a0f1d6bdfeeff9b56c9d887d"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0001_attempt_1.mat",
+      "sha256": "9e8e481a062d1239d2e3faac337b592b1871eec4cfc148c240568c421d5e7b38"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.0003_attempt_2.mat",
+      "sha256": "eeb5d3f3fcf43b542aa762ff744139d619101d91a93010d6796e6bec401f7cb4"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.001_attempt_1.mat",
+      "sha256": "dc7733be278a3613f199af1e9736fb5a2f1c3a3b70a5c92414bfff064a2482b3"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.003_attempt_1.mat",
+      "sha256": "4720cc93c758d5ab46faaaaa2075b0923c8169a0695be519849b475516145281"
+    },
+    {
+      "path": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood/daughter_+0.01_attempt_1.mat",
+      "sha256": "d55fa1739c895f3c20f5b499332b3d679eff1b1837def2c10a50b17508e3bfa7"
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "Research_v3/Drivers_v3/RunPIPAttachmentAccuracyRepair_v3.m",
+      "sha256": "a530c15364976824fcf4d76030281d04fea63166ca517a5524d8ab191a14552e"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair_v3.m",
+      "sha256": "a89d62e22c26d697ba2d8bf8f1832bc20722dc64c6e34e1f9d827860f7a0f18a"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/PronkAttachmentEvidence_v3.m",
+      "sha256": "b7f2c8f23669acd52358592ab18d030004d2afb21ef3013256639bf3e730639a"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/PronkTrajectoryEvidence_v3.m",
+      "sha256": "460070504f67991411d94fc49c2aa51f0dc26af5cd54306cd87f412bdc1ca075"
+    },
+    {
+      "path": "Numerics_v3/HybridFiniteDifferenceJacobian_v3.m",
+      "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RegisterPIPAttachmentAccuracyRepair02_v3.m",
+      "sha256": "660bb11d90e9106dc74aa0a70017b964d9dce3315152c3841601ddd5484f950d"
+    }
+  ],
+  "canonical_source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    }
+  ],
+  "canonical_gate": "Research_v3/next_round/solver/solver_validation_summary.json",
+  "canonical_gate_sha256": "ed8bcf30eb61ba75588bcab3f57778cab6dbac1afe57fe5394ebd154217dae07",
+  "physical_model_hashes": [
+    {
+      "path": "Dynamics_v3/ContinuousDynamics_v3.m",
+      "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+    },
+    {
+      "path": "Dynamics_v3/GuardFunctions_v3.m",
+      "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+    },
+    {
+      "path": "Dynamics_v3/ResetMap_v3.m",
+      "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+    },
+    {
+      "path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+      "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+      "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+    },
+    {
+      "path": "Orbit_v3/GaitIdentification_v3.m",
+      "sha256": "c7afe94e320f1df1a4f0b17cdcadb96c7ccad945a28a5d6609491fd221efb7e3"
+    },
+    {
+      "path": "Orbit_v3/PrimitiveCycleCheck_v3.m",
+      "sha256": "6449c29aa22f2685de9c3ebe5d3c70199cabbc775c01ebd4dfa2a3a6536fdb6e"
+    }
+  ],
+  "target_index": 7,
+  "target_amplitude": 0.0003,
+  "initial_residual": 3.021910282771656E-11,
+  "old_shortcut_residual_tolerance": 1E-10,
+  "root_residual_acceptance_tolerance": 1E-12,
+  "root_function_tolerance": 1E-13,
+  "initial_J_available": true,
+  "initial_J_source": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003/accuracy_repair_r000_attempt_001.mat",
+  "coordinate_indices": [
+    2,
+    3,
+    7,
+    8
+  ],
+  "constraint": {
+    "reference": [
+      0,
+      1.1171137022972106,
+      0,
+      0,
+      1.1171136456623953
+    ],
+    "normal": [
+      0.54442441131497765,
+      0,
+      1.9818596763698793E-10,
+      0.83880990716868642,
+      0
+    ],
+    "target": 0.0003
+  },
+  "energy_free_internal_coordinate": true,
+  "fixed_physical_parameters": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "maximum_correction_wall_seconds": 240,
+  "full_acceptance": {
+    "FullClosureTolerance": 1E-8,
+    "EnergyTolerance": 1E-8,
+    "ConstraintTolerance": 1E-8,
+    "StanceTolerance": 1E-8,
+    "PrimitiveStateTolerance": 1E-7,
+    "PrimitiveEventTolerance": 1E-7,
+    "MaxCover": 8,
+    "RequirePrimitive": true
+  },
+  "diagnosis": "Revision01 stopped at first-order optimality1e-14 while the stricter residual gate remained unsatisfied; no independent replay or finalization failure occurred.",
+  "revision_scope": "Explicit Opt1e-18 and Step1e-13 inherited from frozen runtime options by the unchanged driver; same Resid1e-12/Function1e-13, model, damping, amplitude, free E and physical acceptance.",
+  "record_policy": "Replace +.0003 only in a saved copy; original10 records, phase, counters and previous attachment remain unchanged.",
+  "return_map_evaluations": 0,
+  "correction_executed": false,
+  "active_campaign_modified": false,
+  "previous_registration": "Research_v3/next_round/solver/attachment_accuracy_repair/PIP_PK_low_energy_neighborhood/registration.json",
+  "previous_registration_sha256": "834be33a9a8f9d5d75e48206f41d46438da562817ab98c1d5627fbbae0ad276f",
+  "previous_failed_artifact": "Research_v3/next_round/tasks/full/PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003/accuracy_repair_r000_attempt_001.mat",
+  "previous_failed_artifact_sha256": "0786c9fdec28ffe70bde758d0acf05fd9c24f38c6e729eee9522799ea8e504f5",
+  "driver_function": "RunPIPAttachmentAccuracyRepair_v3",
+  "active_wrapper_changed": false,
+  "driver_source_snapshot": "Research_v3/next_round/solver/attachment_accuracy_repair_02/PIP_PK_low_energy_neighborhood/driver_source_snapshot.txt",
+  "driver_source_snapshot_sha256": "a530c15364976824fcf4d76030281d04fea63166ca517a5524d8ab191a14552e",
+  "accuracy_revision": 2,
+  "root_optimality_tolerance": 1E-18,
+  "root_step_tolerance": 1E-13,
+  "initial_J_newly_evaluated_in_previous_attempt": false,
+  "initial_J_condition_estimate": 409683.725621736,
+  "remaining_linear_step_estimate": [
+    -1.8967417888149132E-10,
+    1.8671040345041825E-6,
+    1.9097063057745386E-10,
+    1.2310702342298343E-10,
+    1.8671040241793826E-6
+  ],
+  "actual_previous_firstorderopt": 1.43623408649508E-15,
+  "previous_J_transpose_r": [
+    -5.3354813331281546E-16,
+    -6.783925362183652E-16,
+    2.5215692770580464E-16,
+    1.8214188158402949E-16,
+    -6.8501886809413483E-22
+  ],
+  "previous_J_transpose_r_inf": 6.783925362183652E-16,
+  "previous_primary_failure": {
+    "identifier": "",
+    "message": "First-order optimality tolerance satisfied.",
+    "exitflag": 3
+  },
+  "runtime_template_policy": "originalReport is an explicitly labelled options-only interface template; untouched accepted and failed measured reports are retained separately.",
+  "cost_policy": "New task ID and output checkpoint; previous measured wall/evaluation costs remain charged only to revision01."
+}

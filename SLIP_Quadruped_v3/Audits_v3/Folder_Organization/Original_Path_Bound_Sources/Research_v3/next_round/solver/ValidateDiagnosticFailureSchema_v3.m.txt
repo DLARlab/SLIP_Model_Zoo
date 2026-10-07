@@ -1,0 +1,36 @@
+function summary=ValidateDiagnosticFailureSchema_v3(outputDirectory)
+%VALIDATEDIAGNOSTICFAILURESCHEMA_V3 Preserve model failure through failed map.
+    v3=fileparts(fileparts(fileparts(fileparts(mfilename('fullpath')))));addpath(genpath(v3));
+    if nargin<1,outputDirectory=fileparts(mfilename('fullpath'));end
+    source='Research_v3/next_round/tasks/full/P1_source_25_B/column_00001_revision_000_predictor.mat';
+    loaded=load(fullfile(v3,source),'predictor');seed=loaded.predictor;
+    settings=struct('RelTol',1e-10,'AbsTol',1e-12,'MaxStep',.025,'FailurePolicy','return');
+    model=Quadrupedal_Dynamics_v3();simulator=HybridSimulator_v3(settings);
+    [trajectory,execution]=simulator.simulate(model,seed.state,seed.mode,seed.parameter,[0,2]);
+    assert(~execution.success&&isfield(execution,'stop_occurred')&&~execution.stop_occurred, ...
+        'Failed diagnostic simulation must return stop_occurred=false.');
+    assert(strcmp(execution.failure.identifier,'ContinuousDynamics_v3:TensileStance'), ...
+        'Expected the recorded model-owned tensile-stance failure.');
+    map=PoincareMap_v3(model,PoincareSection_v3.apex(4),simulator,BLMarkedApexReturnPolicy_v3());
+    caught=struct('identifier','','message','','cause_identifiers',{{}});
+    try
+        map.evaluate(seed.state,seed.mode,seed.parameter);
+        error('ValidateDiagnosticFailureSchema_v3:UnexpectedReturn','A failed diagnostic map cannot return a periodic objective.');
+    catch exception
+        caught.identifier=exception.identifier;caught.message=exception.message;
+        caught.cause_identifiers=cellfun(@(cause)cause.identifier,exception.cause,'UniformOutput',false);
+    end
+    assert(strcmp(caught.identifier,execution.failure.identifier), ...
+        'Poincare map must retain the original physical failure identifier.');
+    assert(contains(caught.message,'Stance compression')&&~isempty(caught.cause_identifiers), ...
+        'Poincare map must retain the underlying message and simulator-report cause.');
+    summary=struct('schema_version','diagnostic-failure-schema-gate-v3-1','passed',true, ...
+        'source_predictor',source,'source_sha256',RoundSHA256_v3(fullfile(v3,source)), ...
+        'simulator_failure_identifier',execution.failure.identifier, ...
+        'diagnostic_stop_occurred',execution.stop_occurred,'map_failure',caught, ...
+        'HybridSimulator_sha256',RoundSHA256_v3(fullfile(v3,'Simulation_v3','HybridSimulator_v3.m')), ...
+        'PoincareMap_sha256',RoundSHA256_v3(fullfile(v3,'Orbit_v3','PoincareMap_v3.m')), ...
+        'valid_return_gate','Full six-case validation in the same fresh MATLAB process and source hashes');
+    save(fullfile(outputDirectory,'diagnostic_failure_schema_gate.mat'),'summary','trajectory','execution','-v7');
+    RoundJSON_v3(fullfile(outputDirectory,'diagnostic_failure_schema_gate.json'),summary);disp(summary);
+end

@@ -1,0 +1,6614 @@
+{
+  "schema_version": "full-floquet-service-audit-v3-1",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "created_utc": "07-Oct-2026 12:36:04",
+  "target": "PIP",
+  "integration_settings": {
+    "RelTol": 1E-13,
+    "AbsTol": 1E-15,
+    "MaxStep": 0.0025,
+    "EventValueTolerance": 1E-11,
+    "EventTimeTolerance": 1E-13,
+    "SimultaneousTimeTolerance": 1E-11,
+    "ArmingTolerance": 1E-12
+  },
+  "relative_fd_candidate_step": 5E-5,
+  "finest_relative_fd_step": 2.5E-5,
+  "reference_finest_relative_fd_step": 5E-5,
+  "registered_relative_matrix_tolerance": 0.001,
+  "registered_energy_invariance_tolerance": 1E-6,
+  "physical_coordinate_dimension": 12,
+  "physical_parameters": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "base_state": [
+    0,
+    0,
+    1.5551652516426646,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "base_mode": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "matrix": [
+    [
+      1.9683392491996567,
+      0,
+      -3.8203545296948329,
+      -4.0255924312401943,
+      -1.6544056682706012E-8,
+      0.21356431077974208,
+      -1.6544056682706012E-8,
+      0.21356431077974208,
+      -1.6544056682706012E-8,
+      0.21356431077974317,
+      -1.6544056682706012E-8,
+      0.21356431077974325
+    ],
+    [
+      0,
+      0.99999999998366762,
+      -3.1086244689504383E-11,
+      -1.3322676295501878E-10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -8.8817841970012523E-12
+    ],
+    [
+      0,
+      0,
+      -1.8621120939560689,
+      -1.1767584062400014,
+      0,
+      1.1017535104425048E-13,
+      0,
+      1.1017535104425048E-13,
+      0,
+      1.2738252551474954E-13,
+      0,
+      8.1380773610130832E-14
+    ],
+    [
+      0,
+      0,
+      -2.0968292814047707,
+      -1.8621121087836336,
+      0,
+      8.7631082602856032E-14,
+      0,
+      8.7631082602856032E-14,
+      0,
+      1.0295333715320532E-13,
+      0,
+      6.41647348653925E-14
+    ],
+    [
+      0.26285859875983281,
+      0,
+      -0.85934352754035992,
+      -0.82783651992670182,
+      1.3700854144455933E-9,
+      -0.01768619106473614,
+      -2.711317804131336E-9,
+      0.034999923494606372,
+      -2.711317804131336E-9,
+      0.034999923494144415,
+      -2.711317804131336E-9,
+      0.034999923494128275
+    ],
+    [
+      -3.3647469051141421,
+      0,
+      7.2492239659857578,
+      5.76320720841166,
+      9.6219829243290612E-8,
+      -1.2420848109857627,
+      1.8753437257460736E-8,
+      -0.2420848150746901,
+      1.8753437257460736E-8,
+      -0.24208481507295904,
+      1.8753437257460736E-8,
+      -0.2420848150729572
+    ],
+    [
+      0.26285859875983281,
+      0,
+      -0.85934352754035992,
+      -0.82783651992670182,
+      -2.711317804131336E-9,
+      0.034999923494606372,
+      1.3700854144455933E-9,
+      -0.01768619106473614,
+      -2.711317804131336E-9,
+      0.034999923494144415,
+      -2.711317804131336E-9,
+      0.034999923494128275
+    ],
+    [
+      -3.3647469051141421,
+      0,
+      7.2492239659857578,
+      5.76320720841166,
+      1.8753437257460736E-8,
+      -0.2420848150746901,
+      9.6219829243290612E-8,
+      -1.2420848109857627,
+      1.8753437257460736E-8,
+      -0.24208481507295904,
+      1.8753437257460736E-8,
+      -0.2420848150729572
+    ],
+    [
+      0.26285859875983286,
+      0,
+      -0.85934352754036036,
+      -0.82783651992666485,
+      -2.711317804131336E-9,
+      0.034999923494142465,
+      -2.711317804131336E-9,
+      0.034999923494142465,
+      1.3700854144455933E-9,
+      -0.017686191064759965,
+      -2.711317804131336E-9,
+      0.034999923494592244
+    ],
+    [
+      -3.3647469051141452,
+      0,
+      7.2492239659857667,
+      5.763207208411659,
+      1.8753437257460736E-8,
+      -0.24208481507294882,
+      1.8753437257460736E-8,
+      -0.24208481507294882,
+      9.6219829243290612E-8,
+      -1.242084810985767,
+      1.8753437257460736E-8,
+      -0.24208481507469878
+    ],
+    [
+      0.26285859875983286,
+      0,
+      -0.85934352754036036,
+      -0.82783651992666485,
+      -2.711317804131336E-9,
+      0.034999923494142465,
+      -2.711317804131336E-9,
+      0.034999923494142465,
+      -2.711317804131336E-9,
+      0.034999923494608336,
+      1.3700854144455933E-9,
+      -0.017686191064806751
+    ],
+    [
+      -3.3647469051141452,
+      0,
+      7.2492239659857667,
+      5.7632072084116572,
+      1.8753437257460736E-8,
+      -0.24208481507294882,
+      1.8753437257460736E-8,
+      -0.24208481507294882,
+      1.8753437257460736E-8,
+      -0.24208481507470039,
+      9.6219829243290612E-8,
+      -1.2420848109857314
+    ]
+  ],
+  "multipliers": {
+    "real": [
+      0.99999999998366762,
+      0.99999999046226007,
+      -3.432927648577166,
+      -0.291296554163723,
+      -2.0029954179710159E-19,
+      2.96063708247242E-17,
+      -1.0000000042316437,
+      -0.99999999182964661,
+      -0.99999999183314081,
+      -0.99999999182966992,
+      -2.2381264236364457E-17,
+      -2.2381264236364457E-17
+    ],
+    "imag": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6.5047916351581444E-17,
+      -6.5047916351581444E-17
+    ]
+  },
+  "spectral_radius": 3.432927648577166,
+  "stability": "unstable",
+  "reliable": true,
+  "common_C1_event_order_chart": true,
+  "raw_event_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+  "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+  "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+  "raw_event_signatures_match": false,
+  "raw_section_signatures_match": false,
+  "declared_event_signature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+  "declared_section_signature": "BL-marked-common-C1-TD-LO",
+  "declared_cluster_signature": "common-C1-independent-zero-compression-leg-cohorts",
+  "declared_event_signatures_match": true,
+  "declared_section_signatures_match": true,
+  "raw_chart_observations": [
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510662830632,
+          1.5975510662830632,
+          1.5975510662830632,
+          1.5975510662830632
+        ],
+        "cohort_gap": 0.54382885275364923,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510662830632,
+          1.5975510662830632,
+          1.5975510662830632,
+          1.5975510662830632
+        ],
+        "cohort_gap": 0.54382885275364923,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510664548052,
+          1.5975510664548052,
+          1.5975510664548052,
+          1.5975510664548052
+        ],
+        "cohort_gap": 0.54382885292539118,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510664548052,
+          1.5975510664548052,
+          1.5975510664548052,
+          1.5975510664548052
+        ],
+        "cohort_gap": 0.54382885292539118,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0538434512822539,
+          1.0538434512822539,
+          1.0538434512822539,
+          1.0538434512822539,
+          1.597666965550202,
+          1.597666965550202,
+          1.597666965550202,
+          1.597666965550202
+        ],
+        "cohort_gap": 0.54382351426794817,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0536009618257587,
+          1.0536009618257587,
+          1.0536009618257587,
+          1.0536009618257587,
+          1.5974351553391757,
+          1.5974351553391757,
+          1.5974351553391757,
+          1.5974351553391757
+        ],
+        "cohort_gap": 0.543834193513417,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0537828341493849,
+          1.0537828341493849,
+          1.0537828341493849,
+          1.0537828341493849,
+          1.5976090175477169,
+          1.5976090175477169,
+          1.5976090175477169,
+          1.5976090175477169
+        ],
+        "cohort_gap": 0.543826183398332,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0536615894217394,
+          1.0536615894217394,
+          1.0536615894217394,
+          1.0536615894217394,
+          1.5974931124426777,
+          1.5974931124426777,
+          1.5974931124426777,
+          1.5974931124426777
+        ],
+        "cohort_gap": 0.54383152302093829,
+        "maximum_guard_residual": 2.2204460492503131E-16,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          6,
+          8,
+          2,
+          4
+        ],
+        "actual_event_times": [
+          1.0536984890305903,
+          1.0536984890305903,
+          1.053745939866894,
+          1.053745939866894,
+          1.5975428259993212,
+          1.5975428259993212,
+          1.5975593086871838,
+          1.5975593086871838
+        ],
+        "cohort_gap": 0.54379688613242716,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FL_LO&FR_LO>FL_TD&FR_TD>BL_TD&BR_TD",
+        "raw_section_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "raw_cluster_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "actual_event_ids": [
+          5,
+          7,
+          1,
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0536984890305903,
+          1.0536984890305903,
+          1.053745939866894,
+          1.053745939866894,
+          1.597542825999321,
+          1.597542825999321,
+          1.5975593086871838,
+          1.5975593086871838
+        ],
+        "cohort_gap": 0.54379688613242694,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          6,
+          8,
+          2,
+          4
+        ],
+        "actual_event_times": [
+          1.0537103510501977,
+          1.0537103510501977,
+          1.0537340764682557,
+          1.0537340764682557,
+          1.5975469460478982,
+          1.5975469460478982,
+          1.5975551873917908,
+          1.5975551873917908
+        ],
+        "cohort_gap": 0.54381286957964248,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FL_LO&FR_LO>FL_TD&FR_TD>BL_TD&BR_TD",
+        "raw_section_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "raw_cluster_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "actual_event_ids": [
+          5,
+          7,
+          1,
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0537103510501977,
+          1.0537103510501977,
+          1.0537340764682557,
+          1.0537340764682557,
+          1.5975469460478986,
+          1.5975469460478986,
+          1.5975551873917913,
+          1.5975551873917913
+        ],
+        "cohort_gap": 0.54381286957964292,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          6,
+          8,
+          2,
+          4
+        ],
+        "actual_event_times": [
+          1.0536972151430806,
+          1.0536972151430806,
+          1.0537472151435672,
+          1.0537472151435672,
+          1.5975324334782939,
+          1.5975324334782939,
+          1.5975697009134353,
+          1.5975697009134353
+        ],
+        "cohort_gap": 0.54378521833472671,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FL_LO&FR_LO>FL_TD&FR_TD>BL_TD&BR_TD",
+        "raw_section_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "raw_cluster_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "actual_event_ids": [
+          5,
+          7,
+          1,
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0536972151430806,
+          1.0536972151430806,
+          1.0537472151435672,
+          1.0537472151435672,
+          1.5975324334782806,
+          1.5975324334782806,
+          1.5975697009134362,
+          1.5975697009134362
+        ],
+        "cohort_gap": 0.54378521833471338,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD>FL_TD&FR_TD>FL_LO&FR_LO>BL_LO&BR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          6,
+          8,
+          2,
+          4
+        ],
+        "actual_event_times": [
+          1.0537097139328375,
+          1.0537097139328375,
+          1.0537347139329105,
+          1.0537347139329105,
+          1.5975417498242808,
+          1.5975417498242808,
+          1.597560383541732,
+          1.597560383541732
+        ],
+        "cohort_gap": 0.54380703589137025,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FL_LO&FR_LO>FL_TD&FR_TD>BL_TD&BR_TD",
+        "raw_section_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "raw_cluster_signature": "FL_TD&FR_TD>BL_TD&BR_TD>BL_LO&BR_LO>FL_LO&FR_LO",
+        "actual_event_ids": [
+          5,
+          7,
+          1,
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.0537097139328375,
+          1.0537097139328375,
+          1.0537347139329105,
+          1.0537347139329105,
+          1.5975417498242945,
+          1.5975417498242945,
+          1.5975603835417318,
+          1.5975603835417318
+        ],
+        "cohort_gap": 0.543807035891384,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO>FL_LO&FR_LO>BR_LO>BR_TD&FL_TD&FR_TD>BL_TD",
+        "raw_section_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>FL_LO&FR_LO>BR_LO",
+        "raw_cluster_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>FL_LO&FR_LO>BR_LO",
+        "actual_event_ids": [
+          3,
+          5,
+          7,
+          1,
+          2,
+          6,
+          8,
+          4
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664815895,
+          1.5975510665423152,
+          1.5975510665423152,
+          1.5975510665696206
+        ],
+        "cohort_gap": 0.54382885289284788,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO>FL_LO&FR_LO>BR_LO>BR_TD&FL_TD&FR_TD>BL_TD",
+        "raw_section_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>FL_LO&FR_LO>BR_LO",
+        "raw_cluster_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>FL_LO&FR_LO>BR_LO",
+        "actual_event_ids": [
+          3,
+          5,
+          7,
+          1,
+          2,
+          6,
+          8,
+          4
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664815893,
+          1.5975510665423149,
+          1.5975510665423149,
+          1.5975510665696204
+        ],
+        "cohort_gap": 0.54382885289284766,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO>BR_LO&FL_LO&FR_LO>BR_TD&FL_TD&FR_TD>BL_TD",
+        "raw_section_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          3,
+          5,
+          7,
+          1,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.5975510665044366,
+          1.5975510665196122,
+          1.5975510665196122,
+          1.5975510665196122
+        ],
+        "cohort_gap": 0.543828852960188,
+        "maximum_guard_residual": 7.184253192349388E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO>BR_LO&FL_LO&FR_LO>BR_TD&FL_TD&FR_TD>BL_TD",
+        "raw_section_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BR_TD&FL_TD&FR_TD>BL_TD>BL_LO>BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          3,
+          5,
+          7,
+          1,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.5975510665044366,
+          1.5975510665196122,
+          1.5975510665196122,
+          1.5975510665196122
+        ],
+        "cohort_gap": 0.543828852960188,
+        "maximum_guard_residual": 7.184253192349388E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO>BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>FL_LO&FR_LO",
+        "raw_section_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>FL_LO&FR_LO>BL_LO",
+        "raw_cluster_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>FL_LO&FR_LO>BL_LO",
+        "actual_event_ids": [
+          1,
+          5,
+          7,
+          3,
+          4,
+          6,
+          8,
+          2
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664815895,
+          1.5975510665423152,
+          1.5975510665423152,
+          1.5975510665696206
+        ],
+        "cohort_gap": 0.54382885289284788,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO>BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>FL_LO&FR_LO",
+        "raw_section_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>FL_LO&FR_LO>BL_LO",
+        "raw_cluster_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>FL_LO&FR_LO>BL_LO",
+        "actual_event_ids": [
+          1,
+          5,
+          7,
+          3,
+          4,
+          6,
+          8,
+          2
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664815893,
+          1.5975510665423149,
+          1.5975510665423149,
+          1.5975510665696204
+        ],
+        "cohort_gap": 0.54382885289284766,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&FL_LO&FR_LO>BL_TD&FL_TD&FR_TD>BR_TD>BR_LO",
+        "raw_section_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>BL_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>BL_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          5,
+          7,
+          3,
+          4,
+          2,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.5975510665044366,
+          1.5975510665196122,
+          1.5975510665196122,
+          1.5975510665196122
+        ],
+        "cohort_gap": 0.543828852960188,
+        "maximum_guard_residual": 7.184253192349388E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&FL_LO&FR_LO>BL_TD&FL_TD&FR_TD>BR_TD>BR_LO",
+        "raw_section_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>BL_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&FL_TD&FR_TD>BR_TD>BR_LO>BL_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          5,
+          7,
+          3,
+          4,
+          2,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.5975510665044366,
+          1.5975510665196122,
+          1.5975510665196122,
+          1.5975510665196122
+        ],
+        "cohort_gap": 0.543828852960188,
+        "maximum_guard_residual": 7.184253192349388E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FR_LO>BL_TD&BR_TD&FR_TD>FL_TD>FL_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO>FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO>FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          7,
+          5,
+          6,
+          2,
+          4,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664816031,
+          1.5975510665423147,
+          1.5975510665423147,
+          1.5975510665696202
+        ],
+        "cohort_gap": 0.54382885289286143,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FR_LO>BL_TD&BR_TD&FR_TD>FL_TD>FL_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO>FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO>FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          7,
+          5,
+          6,
+          2,
+          4,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664815895,
+          1.5975510665423152,
+          1.5975510665423152,
+          1.5975510665696206
+        ],
+        "cohort_gap": 0.54382885289284788,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FR_LO>BL_TD&BR_TD&FR_TD>FL_TD>FL_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          7,
+          5,
+          6,
+          2,
+          4,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.597551066504423,
+          1.5975510665196129,
+          1.5975510665196129,
+          1.5975510665196129
+        ],
+        "cohort_gap": 0.54382885296017447,
+        "maximum_guard_residual": 7.1841421700469255E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FR_LO>BL_TD&BR_TD&FR_TD>FL_TD>FL_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FR_TD>FL_TD>FL_LO>BL_LO&BR_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          7,
+          5,
+          6,
+          2,
+          4,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.597551066504423,
+          1.5975510665196129,
+          1.5975510665196129,
+          1.5975510665196129
+        ],
+        "cohort_gap": 0.54382885296017447,
+        "maximum_guard_residual": 7.1841421700469255E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO&FR_LO>BL_TD&BR_TD&FL_TD&FR_TD",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD&FR_TD>BL_LO&BR_LO&FL_LO&FR_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          6,
+          8
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336,
+          1.5975510665120336
+        ],
+        "cohort_gap": 0.54382885298261963,
+        "maximum_guard_residual": 0,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FL_LO>BL_TD&BR_TD&FL_TD>FR_TD>FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO>FL_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO>FL_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          8,
+          2,
+          4,
+          6
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664815891,
+          1.5975510665423147,
+          1.5975510665423147,
+          1.5975510665696202
+        ],
+        "cohort_gap": 0.54382885289284744,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO>FL_LO>BL_TD&BR_TD&FL_TD>FR_TD>FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO>FL_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO>FL_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          8,
+          2,
+          4,
+          6
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135887416,
+          1.5975510664815891,
+          1.5975510665423147,
+          1.5975510665423147,
+          1.5975510665696202
+        ],
+        "cohort_gap": 0.54382885289284744,
+        "maximum_guard_residual": 1.4876988529977098E-14,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO>BL_TD&BR_TD&FL_TD>FR_TD>FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO&FL_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO&FL_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          8,
+          2,
+          4,
+          6
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.5975510665044226,
+          1.5975510665196124,
+          1.5975510665196124,
+          1.5975510665196124
+        ],
+        "cohort_gap": 0.543828852960174,
+        "maximum_guard_residual": 7.1841421700469255E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    },
+    {
+      "accepted": true,
+      "reason": "verified declared model/cohort chart",
+      "chart": {
+        "id": "quadruped-independent-zero-compression-common-C1",
+        "raw_cyclic_signature": "BL_LO&BR_LO&FL_LO>BL_TD&BR_TD&FL_TD>FR_TD>FR_LO",
+        "raw_section_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO&FL_LO",
+        "raw_cluster_signature": "BL_TD&BR_TD&FL_TD>FR_TD>FR_LO>BL_LO&BR_LO&FL_LO",
+        "actual_event_ids": [
+          1,
+          3,
+          5,
+          7,
+          8,
+          2,
+          4,
+          6
+        ],
+        "actual_event_times": [
+          1.053722213529414,
+          1.053722213529414,
+          1.053722213529414,
+          1.0537222135442486,
+          1.5975510665044226,
+          1.5975510665196124,
+          1.5975510665196124,
+          1.5975510665196124
+        ],
+        "cohort_gap": 0.543828852960174,
+        "maximum_guard_residual": 7.1841421700469255E-12,
+        "physical_parameter": [
+          10,
+          10,
+          20,
+          20,
+          1,
+          1,
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "hypotheses": "regular transverse same-mode BL1 return and independent zero-compression leg factors",
+        "regularity_scope": "common first derivative; C2 unestablished"
+      }
+    }
+  ],
+  "per_column_reliability": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "finite_difference_columns": [
+    {
+      "index": 1,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        1.9683392491996567,
+        0,
+        0,
+        0,
+        0.26285859875983281,
+        -3.3647469051141421,
+        0.26285859875983281,
+        -3.3647469051141421,
+        0.26285859875983286,
+        -3.3647469051141452,
+        0.26285859875983286,
+        -3.3647469051141452
+      ],
+      "estimatedError": 4.028185332477748E-9,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          1.9683392503533113,
+          -4.8849813083506888E-11,
+          0,
+          0,
+          0.26285859188184652,
+          -3.3647469174795956,
+          0.26285859188184652,
+          -3.3647469174795956,
+          0.26285859188184663,
+          -3.3647469174796019,
+          0.26285859188184663,
+          -3.3647469174796019
+        ],
+        "estimatedError": 5.1100545072808184E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          1.9683392503533113,
+          4.8849813083506888E-11,
+          0,
+          0,
+          0.26285859188184652,
+          -3.3647469174795956,
+          0.26285859188184652,
+          -3.3647469174795956,
+          0.26285859188184663,
+          -3.3647469174796019,
+          0.26285859188184663,
+          -3.3647469174796019
+        ],
+        "estimatedError": 5.1100545072808184E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          1.9683392491996567,
+          0,
+          0,
+          0,
+          0.26285859875983281,
+          -3.3647469051141421,
+          0.26285859875983281,
+          -3.3647469051141421,
+          0.26285859875983286,
+          -3.3647469051141452,
+          0.26285859875983286,
+          -3.3647469051141452
+        ],
+        "estimatedError": 4.028185332477748E-9,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            1.9683392503533113,
+            -4.8849813083506888E-11,
+            0,
+            0,
+            0.26285859188184652,
+            -3.3647469174795956,
+            0.26285859188184652,
+            -3.3647469174795956,
+            0.26285859188184663,
+            -3.3647469174796019,
+            0.26285859188184663,
+            -3.3647469174796019
+          ],
+          "estimatedError": 5.1100545072808184E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            1.9683392503533113,
+            4.8849813083506888E-11,
+            0,
+            0,
+            0.26285859188184652,
+            -3.3647469174795956,
+            0.26285859188184652,
+            -3.3647469174795956,
+            0.26285859188184663,
+            -3.3647469174796019,
+            0.26285859188184663,
+            -3.3647469174796019
+          ],
+          "estimatedError": 5.1100545072808184E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 2,
+      "selectedStep": 0.00012775826258213323,
+      "derivativeEstimate": [
+        0,
+        0.99999999998366762,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "estimatedError": 0,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          0,
+          1.000000000145302,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "estimatedError": 6.9520167395314612E-11,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          0,
+          0.99999999982203314,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "estimatedError": 6.9520167400582977E-11,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 0.00012775826258213323,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 0.00012775826258213323,
+        "derivative": [
+          0,
+          0.99999999998366762,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "estimatedError": 0,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            0,
+            1.000000000145302,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "estimatedError": 6.9520167395314612E-11,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            0,
+            0.99999999982203314,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "estimatedError": 6.9520167400582977E-11,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 3,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        -3.8203545296948329,
+        -3.1086244689504383E-11,
+        -1.8621120939560689,
+        -2.0968292814047707,
+        -0.85934352754035992,
+        7.2492239659857578,
+        -0.85934352754035992,
+        7.2492239659857578,
+        -0.85934352754036036,
+        7.2492239659857667,
+        -0.85934352754036036,
+        7.2492239659857667
+      ],
+      "estimatedError": 4.1850786281236577E-8,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          -3.8203545374018684,
+          -5.3290705182007514E-11,
+          -1.8621121391045634,
+          -2.0968292885730619,
+          -0.85934340157831113,
+          7.2492242605603847,
+          -0.85934340157831113,
+          7.2492242605603847,
+          -0.85934340158409006,
+          7.24922426053774,
+          -0.85934340158409006,
+          7.24922426053774
+        ],
+        "estimatedError": 2.1568990155855555E-5,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          -3.8203545374018852,
+          -1.1990408665951691E-10,
+          -1.8621121391043807,
+          -2.0968292885728497,
+          -0.85934340158400335,
+          7.2492242605379218,
+          -0.85934340158400335,
+          7.2492242605379218,
+          -0.85934340157822819,
+          7.2492242605605828,
+          -0.85934340157822819,
+          7.2492242605605828
+        ],
+        "estimatedError": 2.1568996542627296E-5,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          -3.8203545296948329,
+          -3.1086244689504383E-11,
+          -1.8621120939560689,
+          -2.0968292814047707,
+          -0.85934352754035992,
+          7.2492239659857578,
+          -0.85934352754035992,
+          7.2492239659857578,
+          -0.85934352754036036,
+          7.2492239659857667,
+          -0.85934352754036036,
+          7.2492239659857667
+        ],
+        "estimatedError": 4.1850786281236577E-8,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            -3.8203545374018684,
+            -5.3290705182007514E-11,
+            -1.8621121391045634,
+            -2.0968292885730619,
+            -0.85934340157831113,
+            7.2492242605603847,
+            -0.85934340157831113,
+            7.2492242605603847,
+            -0.85934340158409006,
+            7.24922426053774,
+            -0.85934340158409006,
+            7.24922426053774
+          ],
+          "estimatedError": 2.1568990155855555E-5,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            -3.8203545374018852,
+            -1.1990408665951691E-10,
+            -1.8621121391043807,
+            -2.0968292885728497,
+            -0.85934340158400335,
+            7.2492242605379218,
+            -0.85934340158400335,
+            7.2492242605379218,
+            -0.85934340157822819,
+            7.2492242605605828,
+            -0.85934340157822819,
+            7.2492242605605828
+          ],
+          "estimatedError": 2.1568996542627296E-5,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 4,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        -4.0255924312401943,
+        -1.3322676295501878E-10,
+        -1.1767584062400014,
+        -1.8621121087836336,
+        -0.82783651992670182,
+        5.76320720841166,
+        -0.82783651992670182,
+        5.76320720841166,
+        -0.82783651992666485,
+        5.763207208411659,
+        -0.82783651992666485,
+        5.7632072084116572
+      ],
+      "estimatedError": 4.3891576369470535E-8,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          -4.0255924401317955,
+          -3.4194869158454821E-10,
+          -1.1767584353551417,
+          -1.8621121094496411,
+          -0.82783643146259955,
+          5.763207468034846,
+          -0.82783643146259955,
+          5.763207468034846,
+          -0.82783643146685681,
+          5.7632074679823146,
+          -0.82783643146685726,
+          5.7632074679823075
+        ],
+        "estimatedError": 2.4120800975795438E-5,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          -4.0255924401318222,
+          -2.708944180085382E-10,
+          -1.1767584353567393,
+          -1.8621121094505075,
+          -0.82783643146685948,
+          5.7632074679858309,
+          -0.82783643146685948,
+          5.7632074679858309,
+          -0.82783643146237618,
+          5.7632074680383569,
+          -0.82783643146237618,
+          5.7632074680383569
+        ],
+        "estimatedError": 2.4120825204152321E-5,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          -4.0255924312401943,
+          -1.3322676295501878E-10,
+          -1.1767584062400014,
+          -1.8621121087836336,
+          -0.82783651992670182,
+          5.76320720841166,
+          -0.82783651992670182,
+          5.76320720841166,
+          -0.82783651992666485,
+          5.763207208411659,
+          -0.82783651992666485,
+          5.7632072084116572
+        ],
+        "estimatedError": 4.3891576369470535E-8,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            -4.0255924401317955,
+            -3.4194869158454821E-10,
+            -1.1767584353551417,
+            -1.8621121094496411,
+            -0.82783643146259955,
+            5.763207468034846,
+            -0.82783643146259955,
+            5.763207468034846,
+            -0.82783643146685681,
+            5.7632074679823146,
+            -0.82783643146685726,
+            5.7632074679823075
+          ],
+          "estimatedError": 2.4120800975795438E-5,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            -4.0255924401318222,
+            -2.708944180085382E-10,
+            -1.1767584353567393,
+            -1.8621121094505075,
+            -0.82783643146685948,
+            5.7632074679858309,
+            -0.82783643146685948,
+            5.7632074679858309,
+            -0.82783643146237618,
+            5.7632074680383569,
+            -0.82783643146237618,
+            5.7632074680383569
+          ],
+          "estimatedError": 2.4120825204152321E-5,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 5,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        -1.6544056682706012E-8,
+        0,
+        0,
+        0,
+        1.3700854144455933E-9,
+        9.6219829243290612E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8
+      ],
+      "estimatedError": 0,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 6,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        0.21356431077974208,
+        0,
+        1.1017535104425048E-13,
+        8.7631082602856032E-14,
+        -0.01768619106473614,
+        -1.2420848109857627,
+        0.034999923494606372,
+        -0.2420848150746901,
+        0.034999923494142465,
+        -0.24208481507294882,
+        0.034999923494142465,
+        -0.24208481507294882
+      ],
+      "estimatedError": 1.7307703496826872E-10,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          0.21356431086220831,
+          -6.3060667798708891E-10,
+          -4.2140258389914797E-13,
+          -3.7199056201426346E-13,
+          -0.017686191029519151,
+          -1.2420848111048435,
+          0.034999923495758728,
+          -0.24208481517220837,
+          0.034999923501613538,
+          -0.24208481517569155,
+          0.034999923501613538,
+          -0.24208481517569155
+        ],
+        "estimatedError": 2.3744020689872846E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          0.21356431086220867,
+          6.3060667798708891E-10,
+          4.8092267896580583E-14,
+          7.2706200851942139E-14,
+          -0.017686191029455046,
+          -1.242084811104843,
+          0.034999923495851661,
+          -0.24208481517223296,
+          0.034999923501706214,
+          -0.2420848151757157,
+          0.034999923501706214,
+          -0.2420848151757157
+        ],
+        "estimatedError": 2.3746728614931007E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          0.21356431077974208,
+          0,
+          1.1017535104425048E-13,
+          8.7631082602856032E-14,
+          -0.01768619106473614,
+          -1.2420848109857627,
+          0.034999923494606372,
+          -0.2420848150746901,
+          0.034999923494142465,
+          -0.24208481507294882,
+          0.034999923494142465,
+          -0.24208481507294882
+        ],
+        "estimatedError": 1.7307703496826872E-10,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            0.21356431086220831,
+            -6.3060667798708891E-10,
+            -4.2140258389914797E-13,
+            -3.7199056201426346E-13,
+            -0.017686191029519151,
+            -1.2420848111048435,
+            0.034999923495758728,
+            -0.24208481517220837,
+            0.034999923501613538,
+            -0.24208481517569155,
+            0.034999923501613538,
+            -0.24208481517569155
+          ],
+          "estimatedError": 2.3744020689872846E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            0.21356431086220867,
+            6.3060667798708891E-10,
+            4.8092267896580583E-14,
+            7.2706200851942139E-14,
+            -0.017686191029455046,
+            -1.242084811104843,
+            0.034999923495851661,
+            -0.24208481517223296,
+            0.034999923501706214,
+            -0.2420848151757157,
+            0.034999923501706214,
+            -0.2420848151757157
+          ],
+          "estimatedError": 2.3746728614931007E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 7,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        -1.6544056682706012E-8,
+        0,
+        0,
+        0,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        1.3700854144455933E-9,
+        9.6219829243290612E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8
+      ],
+      "estimatedError": 0,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 8,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        0.21356431077974208,
+        0,
+        1.1017535104425048E-13,
+        8.7631082602856032E-14,
+        0.034999923494606372,
+        -0.2420848150746901,
+        -0.01768619106473614,
+        -1.2420848109857627,
+        0.034999923494142465,
+        -0.24208481507294882,
+        0.034999923494142465,
+        -0.24208481507294882
+      ],
+      "estimatedError": 1.7307703496826872E-10,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          0.21356431086220831,
+          -6.3060667798708891E-10,
+          -4.2140258389914797E-13,
+          -3.7199056201426346E-13,
+          0.034999923495758728,
+          -0.24208481517220837,
+          -0.017686191029519151,
+          -1.2420848111048435,
+          0.034999923501613538,
+          -0.24208481517569155,
+          0.034999923501613538,
+          -0.24208481517569155
+        ],
+        "estimatedError": 2.3744020689872846E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          0.21356431086220867,
+          6.3060667798708891E-10,
+          4.8092267896580583E-14,
+          7.2706200851942139E-14,
+          0.034999923495851661,
+          -0.24208481517223296,
+          -0.017686191029455046,
+          -1.242084811104843,
+          0.034999923501706214,
+          -0.2420848151757157,
+          0.034999923501706214,
+          -0.2420848151757157
+        ],
+        "estimatedError": 2.3746728614931007E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          0.21356431077974208,
+          0,
+          1.1017535104425048E-13,
+          8.7631082602856032E-14,
+          0.034999923494606372,
+          -0.2420848150746901,
+          -0.01768619106473614,
+          -1.2420848109857627,
+          0.034999923494142465,
+          -0.24208481507294882,
+          0.034999923494142465,
+          -0.24208481507294882
+        ],
+        "estimatedError": 1.7307703496826872E-10,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            0.21356431086220831,
+            -6.3060667798708891E-10,
+            -4.2140258389914797E-13,
+            -3.7199056201426346E-13,
+            0.034999923495758728,
+            -0.24208481517220837,
+            -0.017686191029519151,
+            -1.2420848111048435,
+            0.034999923501613538,
+            -0.24208481517569155,
+            0.034999923501613538,
+            -0.24208481517569155
+          ],
+          "estimatedError": 2.3744020689872846E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            0.21356431086220867,
+            6.3060667798708891E-10,
+            4.8092267896580583E-14,
+            7.2706200851942139E-14,
+            0.034999923495851661,
+            -0.24208481517223296,
+            -0.017686191029455046,
+            -1.242084811104843,
+            0.034999923501706214,
+            -0.2420848151757157,
+            0.034999923501706214,
+            -0.2420848151757157
+          ],
+          "estimatedError": 2.3746728614931007E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 9,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        -1.6544056682706012E-8,
+        0,
+        0,
+        0,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        1.3700854144455933E-9,
+        9.6219829243290612E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8
+      ],
+      "estimatedError": 0,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8
+        ],
+        "estimatedError": 0,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 10,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        0.21356431077974317,
+        0,
+        1.2738252551474954E-13,
+        1.0295333715320532E-13,
+        0.034999923494144415,
+        -0.24208481507295904,
+        0.034999923494144415,
+        -0.24208481507295904,
+        -0.017686191064759965,
+        -1.242084810985767,
+        0.034999923494608336,
+        -0.24208481507470039
+      ],
+      "estimatedError": 1.7319914723146309E-10,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          0.21356431086221092,
+          -1.6431300764452317E-10,
+          1.3081284611028612E-15,
+          2.9559370393289573E-14,
+          0.034999923501694286,
+          -0.24208481517571934,
+          0.034999923501694286,
+          -0.24208481517571934,
+          -0.017686191029535225,
+          -1.2420848111048357,
+          0.0349999234958398,
+          -0.24208481517223665
+        ],
+        "estimatedError": 2.3747011014191508E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          0.21356431086221034,
+          1.4654943925052066E-10,
+          -3.2803824049222174E-13,
+          -2.8453834298423106E-13,
+          0.034999923501630427,
+          -0.24208481517570668,
+          0.034999923501630427,
+          -0.24208481517570668,
+          -0.017686191029552798,
+          -1.2420848111048459,
+          0.034999923495775652,
+          -0.2420848151722238
+        ],
+        "estimatedError": 2.3744327253331276E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          0.21356431077974317,
+          0,
+          1.2738252551474954E-13,
+          1.0295333715320532E-13,
+          0.034999923494144415,
+          -0.24208481507295904,
+          0.034999923494144415,
+          -0.24208481507295904,
+          -0.017686191064759965,
+          -1.242084810985767,
+          0.034999923494608336,
+          -0.24208481507470039
+        ],
+        "estimatedError": 1.7319914723146309E-10,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            0.21356431086221092,
+            -1.6431300764452317E-10,
+            1.3081284611028612E-15,
+            2.9559370393289573E-14,
+            0.034999923501694286,
+            -0.24208481517571934,
+            0.034999923501694286,
+            -0.24208481517571934,
+            -0.017686191029535225,
+            -1.2420848111048357,
+            0.0349999234958398,
+            -0.24208481517223665
+          ],
+          "estimatedError": 2.3747011014191508E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            0.21356431086221034,
+            1.4654943925052066E-10,
+            -3.2803824049222174E-13,
+            -2.8453834298423106E-13,
+            0.034999923501630427,
+            -0.24208481517570668,
+            0.034999923501630427,
+            -0.24208481517570668,
+            -0.017686191029552798,
+            -1.2420848111048459,
+            0.034999923495775652,
+            -0.2420848151722238
+          ],
+          "estimatedError": 2.3744327253331276E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 11,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        -1.6544056682706012E-8,
+        0,
+        0,
+        0,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        -2.711317804131336E-9,
+        1.8753437257460736E-8,
+        1.3700854144455933E-9,
+        9.6219829243290612E-8
+      ],
+      "estimatedError": 0,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8
+        ],
+        "estimatedError": 0,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          -1.6544056682706012E-8,
+          0,
+          0,
+          0,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          -2.711317804131336E-9,
+          1.8753437257460736E-8,
+          1.3700854144455933E-9,
+          9.6219829243290612E-8
+        ],
+        "estimatedError": 0,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            -1.6544056682706012E-8,
+            0,
+            0,
+            0,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            -2.711317804131336E-9,
+            1.8753437257460736E-8,
+            1.3700854144455933E-9,
+            9.6219829243290612E-8
+          ],
+          "estimatedError": 0,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    },
+    {
+      "index": 12,
+      "selectedStep": 5E-5,
+      "derivativeEstimate": [
+        0.21356431077974325,
+        -8.8817841970012523E-12,
+        8.1380773610130832E-14,
+        6.41647348653925E-14,
+        0.034999923494128275,
+        -0.2420848150729572,
+        0.034999923494128275,
+        -0.2420848150729572,
+        0.034999923494592244,
+        -0.24208481507469878,
+        -0.017686191064806751,
+        -1.2420848109857314
+      ],
+      "estimatedError": 1.7318729792419797E-10,
+      "reliable": true,
+      "differenceType": "central",
+      "oneSided": false,
+      "piecewiseSmooth": false,
+      "eventSignatures": [
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+      ],
+      "sectionSignatures": [
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO",
+        "BL-marked-common-C1-TD-LO"
+      ],
+      "clusterSignatures": [
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts",
+        "common-C1-independent-zero-compression-leg-cohorts"
+      ],
+      "returnMultiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "returnMultiplicityPreserved": true,
+      "forwardOneSided": {
+        "direction": "forward",
+        "derivative": [
+          0.21356431086221084,
+          1.3322676295501878E-10,
+          -1.4529135688407338E-13,
+          -1.0735096436055103E-13,
+          0.034999923501654706,
+          -0.24208481517573366,
+          0.034999923501654706,
+          -0.24208481517573366,
+          0.034999923495800167,
+          -0.24208481517225133,
+          -0.017686191029592953,
+          -1.2420848111048046
+        ],
+        "estimatedError": 2.3747282381858463E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "backwardOneSided": {
+        "direction": "backward",
+        "derivative": [
+          0.21356431086221117,
+          -1.6875389974302379E-10,
+          -3.6608824119670116E-13,
+          -3.0727585020428726E-13,
+          0.034999923501609194,
+          -0.24208481517569,
+          0.034999923501609194,
+          -0.24208481517569,
+          0.034999923495754766,
+          -0.24208481517220734,
+          -0.01768619102963952,
+          -1.2420848111047593
+        ],
+        "estimatedError": 2.3744599353853444E-6,
+        "available": true,
+        "converged": true,
+        "compatibleWithBase": true,
+        "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+        "sectionSignature": "BL-marked-common-C1-TD-LO",
+        "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+        "returnMultiplicities": [
+          1,
+          1
+        ]
+      },
+      "failureReasons": [],
+      "mapEvaluations": 4,
+      "candidateSteps": 5E-5,
+      "selectedCandidate": 1,
+      "candidates": {
+        "step": 5E-5,
+        "derivative": [
+          0.21356431077974325,
+          -8.8817841970012523E-12,
+          8.1380773610130832E-14,
+          6.41647348653925E-14,
+          0.034999923494128275,
+          -0.2420848150729572,
+          0.034999923494128275,
+          -0.2420848150729572,
+          0.034999923494592244,
+          -0.24208481507469878,
+          -0.017686191064806751,
+          -1.2420848109857314
+        ],
+        "estimatedError": 1.7318729792419797E-10,
+        "reliable": true,
+        "differenceType": "central",
+        "oneSided": false,
+        "topologyChanged": false,
+        "eventSignatures": [
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "common-C1-TD-BLBRFLFR-LO-BLBRFLFR"
+        ],
+        "sectionSignatures": [
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO",
+          "BL-marked-common-C1-TD-LO"
+        ],
+        "clusterSignatures": [
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts",
+          "common-C1-independent-zero-compression-leg-cohorts"
+        ],
+        "returnMultiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnMultiplicityPreserved": true,
+        "forwardOneSided": {
+          "direction": "forward",
+          "derivative": [
+            0.21356431086221084,
+            1.3322676295501878E-10,
+            -1.4529135688407338E-13,
+            -1.0735096436055103E-13,
+            0.034999923501654706,
+            -0.24208481517573366,
+            0.034999923501654706,
+            -0.24208481517573366,
+            0.034999923495800167,
+            -0.24208481517225133,
+            -0.017686191029592953,
+            -1.2420848111048046
+          ],
+          "estimatedError": 2.3747282381858463E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "backwardOneSided": {
+          "direction": "backward",
+          "derivative": [
+            0.21356431086221117,
+            -1.6875389974302379E-10,
+            -3.6608824119670116E-13,
+            -3.0727585020428726E-13,
+            0.034999923501609194,
+            -0.24208481517569,
+            0.034999923501609194,
+            -0.24208481517569,
+            0.034999923495754766,
+            -0.24208481517220734,
+            -0.01768619102963952,
+            -1.2420848111047593
+          ],
+          "estimatedError": 2.3744599353853444E-6,
+          "available": true,
+          "converged": true,
+          "compatibleWithBase": true,
+          "cyclicSignature": "common-C1-TD-BLBRFLFR-LO-BLBRFLFR",
+          "sectionSignature": "BL-marked-common-C1-TD-LO",
+          "clusterSignature": "common-C1-independent-zero-compression-leg-cohorts",
+          "returnMultiplicities": [
+            1,
+            1
+          ]
+        },
+        "failureReasons": []
+      }
+    }
+  ],
+  "map_evaluations": 49,
+  "energy_neutrality": {
+    "applicable": true,
+    "coordinate_gradient": [
+      0,
+      1.0000000000003644,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "left_unit_residual": 1.3322676295506733E-10,
+    "note": "At a fixed point, DE*DP=DE is structural when energy is conserved; no multiplier is deleted."
+  },
+  "energy_leaf": {
+    "applicable": true,
+    "basis": [
+      [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "dimension": 11,
+    "matrix": [
+      [
+        1.9683392491996567,
+        3.8203545296948329,
+        4.0255924312401943,
+        1.6544056682706012E-8,
+        -0.21356431077974208,
+        1.6544056682706012E-8,
+        -0.21356431077974208,
+        1.6544056682706012E-8,
+        -0.21356431077974317,
+        1.6544056682706012E-8,
+        -0.21356431077974325
+      ],
+      [
+        0,
+        -1.8621120939560689,
+        -1.1767584062400014,
+        0,
+        1.1017535104425048E-13,
+        0,
+        1.1017535104425048E-13,
+        0,
+        1.2738252551474954E-13,
+        0,
+        8.1380773610130832E-14
+      ],
+      [
+        0,
+        -2.0968292814047707,
+        -1.8621121087836336,
+        0,
+        8.7631082602856032E-14,
+        0,
+        8.7631082602856032E-14,
+        0,
+        1.0295333715320532E-13,
+        0,
+        6.41647348653925E-14
+      ],
+      [
+        -0.26285859875983281,
+        -0.85934352754035992,
+        -0.82783651992670182,
+        1.3700854144455933E-9,
+        -0.01768619106473614,
+        -2.711317804131336E-9,
+        0.034999923494606372,
+        -2.711317804131336E-9,
+        0.034999923494144415,
+        -2.711317804131336E-9,
+        0.034999923494128275
+      ],
+      [
+        3.3647469051141421,
+        7.2492239659857578,
+        5.76320720841166,
+        9.6219829243290612E-8,
+        -1.2420848109857627,
+        1.8753437257460736E-8,
+        -0.2420848150746901,
+        1.8753437257460736E-8,
+        -0.24208481507295904,
+        1.8753437257460736E-8,
+        -0.2420848150729572
+      ],
+      [
+        -0.26285859875983281,
+        -0.85934352754035992,
+        -0.82783651992670182,
+        -2.711317804131336E-9,
+        0.034999923494606372,
+        1.3700854144455933E-9,
+        -0.01768619106473614,
+        -2.711317804131336E-9,
+        0.034999923494144415,
+        -2.711317804131336E-9,
+        0.034999923494128275
+      ],
+      [
+        3.3647469051141421,
+        7.2492239659857578,
+        5.76320720841166,
+        1.8753437257460736E-8,
+        -0.2420848150746901,
+        9.6219829243290612E-8,
+        -1.2420848109857627,
+        1.8753437257460736E-8,
+        -0.24208481507295904,
+        1.8753437257460736E-8,
+        -0.2420848150729572
+      ],
+      [
+        -0.26285859875983286,
+        -0.85934352754036036,
+        -0.82783651992666485,
+        -2.711317804131336E-9,
+        0.034999923494142465,
+        -2.711317804131336E-9,
+        0.034999923494142465,
+        1.3700854144455933E-9,
+        -0.017686191064759965,
+        -2.711317804131336E-9,
+        0.034999923494592244
+      ],
+      [
+        3.3647469051141452,
+        7.2492239659857667,
+        5.763207208411659,
+        1.8753437257460736E-8,
+        -0.24208481507294882,
+        1.8753437257460736E-8,
+        -0.24208481507294882,
+        9.6219829243290612E-8,
+        -1.242084810985767,
+        1.8753437257460736E-8,
+        -0.24208481507469878
+      ],
+      [
+        -0.26285859875983286,
+        -0.85934352754036036,
+        -0.82783651992666485,
+        -2.711317804131336E-9,
+        0.034999923494142465,
+        -2.711317804131336E-9,
+        0.034999923494142465,
+        -2.711317804131336E-9,
+        0.034999923494608336,
+        1.3700854144455933E-9,
+        -0.017686191064806751
+      ],
+      [
+        3.3647469051141452,
+        7.2492239659857667,
+        5.7632072084116572,
+        1.8753437257460736E-8,
+        -0.24208481507294882,
+        1.8753437257460736E-8,
+        -0.24208481507294882,
+        1.8753437257460736E-8,
+        -0.24208481507470039,
+        9.6219829243290612E-8,
+        -1.2420848109857314
+      ]
+    ],
+    "multipliers": {
+      "real": [
+        0.99999999046226007,
+        -3.4329276485771727,
+        -0.29129655416372208,
+        -1.1010672452775848E-19,
+        -5.0373315127462839E-17,
+        -1.0000000042316424,
+        -0.99999999182964661,
+        -0.99999999183314059,
+        -0.99999999182966981,
+        -1.6727170230828806E-16,
+        2.3683757033169384E-18
+      ],
+      "imag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "spectral_radius": 3.4329276485771727,
+    "invariance_residual": 1.7319479184152442E-10,
+    "coordinate_gradient": [
+      0,
+      1.0000000000003644,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fixed_point_closure_residual": 9.08162434143378E-14,
+    "fixed_point_closure_tolerance": 1E-8,
+    "reliable": true,
+    "note": "Numerical derivative on the fixed-energy tangent ker(DE). Full multipliers are retained; no closest-to-one eigenvalue is deleted. This is not a C2 or local-existence certificate."
+  },
+  "forward_matrix": [
+    [
+      1.9683392503533113,
+      0,
+      -3.8203545374018684,
+      -4.0255924401317955,
+      -1.6544056682706012E-8,
+      0.21356431086220831,
+      -1.6544056682706012E-8,
+      0.21356431086220831,
+      -1.6544056682706012E-8,
+      0.21356431086221092,
+      -1.6544056682706012E-8,
+      0.21356431086221084
+    ],
+    [
+      -4.8849813083506888E-11,
+      1.000000000145302,
+      -5.3290705182007514E-11,
+      -3.4194869158454821E-10,
+      0,
+      -6.3060667798708891E-10,
+      0,
+      -6.3060667798708891E-10,
+      0,
+      -1.6431300764452317E-10,
+      0,
+      1.3322676295501878E-10
+    ],
+    [
+      0,
+      0,
+      -1.8621121391045634,
+      -1.1767584353551417,
+      0,
+      -4.2140258389914797E-13,
+      0,
+      -4.2140258389914797E-13,
+      0,
+      1.3081284611028612E-15,
+      0,
+      -1.4529135688407338E-13
+    ],
+    [
+      0,
+      0,
+      -2.0968292885730619,
+      -1.8621121094496411,
+      0,
+      -3.7199056201426346E-13,
+      0,
+      -3.7199056201426346E-13,
+      0,
+      2.9559370393289573E-14,
+      0,
+      -1.0735096436055103E-13
+    ],
+    [
+      0.26285859188184652,
+      0,
+      -0.85934340157831113,
+      -0.82783643146259955,
+      1.3700854144455933E-9,
+      -0.017686191029519151,
+      -2.711317804131336E-9,
+      0.034999923495758728,
+      -2.711317804131336E-9,
+      0.034999923501694286,
+      -2.711317804131336E-9,
+      0.034999923501654706
+    ],
+    [
+      -3.3647469174795956,
+      0,
+      7.2492242605603847,
+      5.763207468034846,
+      9.6219829243290612E-8,
+      -1.2420848111048435,
+      1.8753437257460736E-8,
+      -0.24208481517220837,
+      1.8753437257460736E-8,
+      -0.24208481517571934,
+      1.8753437257460736E-8,
+      -0.24208481517573366
+    ],
+    [
+      0.26285859188184652,
+      0,
+      -0.85934340157831113,
+      -0.82783643146259955,
+      -2.711317804131336E-9,
+      0.034999923495758728,
+      1.3700854144455933E-9,
+      -0.017686191029519151,
+      -2.711317804131336E-9,
+      0.034999923501694286,
+      -2.711317804131336E-9,
+      0.034999923501654706
+    ],
+    [
+      -3.3647469174795956,
+      0,
+      7.2492242605603847,
+      5.763207468034846,
+      1.8753437257460736E-8,
+      -0.24208481517220837,
+      9.6219829243290612E-8,
+      -1.2420848111048435,
+      1.8753437257460736E-8,
+      -0.24208481517571934,
+      1.8753437257460736E-8,
+      -0.24208481517573366
+    ],
+    [
+      0.26285859188184663,
+      0,
+      -0.85934340158409006,
+      -0.82783643146685681,
+      -2.711317804131336E-9,
+      0.034999923501613538,
+      -2.711317804131336E-9,
+      0.034999923501613538,
+      1.3700854144455933E-9,
+      -0.017686191029535225,
+      -2.711317804131336E-9,
+      0.034999923495800167
+    ],
+    [
+      -3.3647469174796019,
+      0,
+      7.24922426053774,
+      5.7632074679823146,
+      1.8753437257460736E-8,
+      -0.24208481517569155,
+      1.8753437257460736E-8,
+      -0.24208481517569155,
+      9.6219829243290612E-8,
+      -1.2420848111048357,
+      1.8753437257460736E-8,
+      -0.24208481517225133
+    ],
+    [
+      0.26285859188184663,
+      0,
+      -0.85934340158409006,
+      -0.82783643146685726,
+      -2.711317804131336E-9,
+      0.034999923501613538,
+      -2.711317804131336E-9,
+      0.034999923501613538,
+      -2.711317804131336E-9,
+      0.0349999234958398,
+      1.3700854144455933E-9,
+      -0.017686191029592953
+    ],
+    [
+      -3.3647469174796019,
+      0,
+      7.24922426053774,
+      5.7632074679823075,
+      1.8753437257460736E-8,
+      -0.24208481517569155,
+      1.8753437257460736E-8,
+      -0.24208481517569155,
+      1.8753437257460736E-8,
+      -0.24208481517223665,
+      9.6219829243290612E-8,
+      -1.2420848111048046
+    ]
+  ],
+  "backward_matrix": [
+    [
+      1.9683392503533113,
+      0,
+      -3.8203545374018852,
+      -4.0255924401318222,
+      -1.6544056682706012E-8,
+      0.21356431086220867,
+      -1.6544056682706012E-8,
+      0.21356431086220867,
+      -1.6544056682706012E-8,
+      0.21356431086221034,
+      -1.6544056682706012E-8,
+      0.21356431086221117
+    ],
+    [
+      4.8849813083506888E-11,
+      0.99999999982203314,
+      -1.1990408665951691E-10,
+      -2.708944180085382E-10,
+      0,
+      6.3060667798708891E-10,
+      0,
+      6.3060667798708891E-10,
+      0,
+      1.4654943925052066E-10,
+      0,
+      -1.6875389974302379E-10
+    ],
+    [
+      0,
+      0,
+      -1.8621121391043807,
+      -1.1767584353567393,
+      0,
+      4.8092267896580583E-14,
+      0,
+      4.8092267896580583E-14,
+      0,
+      -3.2803824049222174E-13,
+      0,
+      -3.6608824119670116E-13
+    ],
+    [
+      0,
+      0,
+      -2.0968292885728497,
+      -1.8621121094505075,
+      0,
+      7.2706200851942139E-14,
+      0,
+      7.2706200851942139E-14,
+      0,
+      -2.8453834298423106E-13,
+      0,
+      -3.0727585020428726E-13
+    ],
+    [
+      0.26285859188184652,
+      0,
+      -0.85934340158400335,
+      -0.82783643146685948,
+      1.3700854144455933E-9,
+      -0.017686191029455046,
+      -2.711317804131336E-9,
+      0.034999923495851661,
+      -2.711317804131336E-9,
+      0.034999923501630427,
+      -2.711317804131336E-9,
+      0.034999923501609194
+    ],
+    [
+      -3.3647469174795956,
+      0,
+      7.2492242605379218,
+      5.7632074679858309,
+      9.6219829243290612E-8,
+      -1.242084811104843,
+      1.8753437257460736E-8,
+      -0.24208481517223296,
+      1.8753437257460736E-8,
+      -0.24208481517570668,
+      1.8753437257460736E-8,
+      -0.24208481517569
+    ],
+    [
+      0.26285859188184652,
+      0,
+      -0.85934340158400335,
+      -0.82783643146685948,
+      -2.711317804131336E-9,
+      0.034999923495851661,
+      1.3700854144455933E-9,
+      -0.017686191029455046,
+      -2.711317804131336E-9,
+      0.034999923501630427,
+      -2.711317804131336E-9,
+      0.034999923501609194
+    ],
+    [
+      -3.3647469174795956,
+      0,
+      7.2492242605379218,
+      5.7632074679858309,
+      1.8753437257460736E-8,
+      -0.24208481517223296,
+      9.6219829243290612E-8,
+      -1.242084811104843,
+      1.8753437257460736E-8,
+      -0.24208481517570668,
+      1.8753437257460736E-8,
+      -0.24208481517569
+    ],
+    [
+      0.26285859188184663,
+      0,
+      -0.85934340157822819,
+      -0.82783643146237618,
+      -2.711317804131336E-9,
+      0.034999923501706214,
+      -2.711317804131336E-9,
+      0.034999923501706214,
+      1.3700854144455933E-9,
+      -0.017686191029552798,
+      -2.711317804131336E-9,
+      0.034999923495754766
+    ],
+    [
+      -3.3647469174796019,
+      0,
+      7.2492242605605828,
+      5.7632074680383569,
+      1.8753437257460736E-8,
+      -0.2420848151757157,
+      1.8753437257460736E-8,
+      -0.2420848151757157,
+      9.6219829243290612E-8,
+      -1.2420848111048459,
+      1.8753437257460736E-8,
+      -0.24208481517220734
+    ],
+    [
+      0.26285859188184663,
+      0,
+      -0.85934340157822819,
+      -0.82783643146237618,
+      -2.711317804131336E-9,
+      0.034999923501706214,
+      -2.711317804131336E-9,
+      0.034999923501706214,
+      -2.711317804131336E-9,
+      0.034999923495775652,
+      1.3700854144455933E-9,
+      -0.01768619102963952
+    ],
+    [
+      -3.3647469174796019,
+      0,
+      7.2492242605605828,
+      5.7632074680383569,
+      1.8753437257460736E-8,
+      -0.2420848151757157,
+      1.8753437257460736E-8,
+      -0.2420848151757157,
+      1.8753437257460736E-8,
+      -0.2420848151722238,
+      9.6219829243290612E-8,
+      -1.2420848111047593
+    ]
+  ],
+  "warning": "",
+  "elapsed_seconds": 241.29147966666667,
+  "matrix_refinement_error": 3.090713268843499E-8,
+  "one_sided_agreement_error": 2.0135196302130146E-10,
+  "base_unshifted_state_difference": 9.08162434143378E-14,
+  "translation_reduced_full_closure": 9.08162434143378E-14,
+  "actual_base_events": [
+    {
+      "index": 2,
+      "type": "BL_TD",
+      "time": 1.053722213529414,
+      "guard_id": 1,
+      "guard_name": "BL_TD",
+      "state_before": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_before": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "mode_after": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "value": 0,
+      "directional_derivative": -1.0537222134332882,
+      "priority": 1,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 1,
+        "leg_name": "BL",
+        "event_kind": "touchdown",
+        "source": "contact",
+        "event_batch_index": 1,
+        "event_batch_size": 4,
+        "event_batch_position": 1,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    },
+    {
+      "index": 3,
+      "type": "BR_TD",
+      "time": 1.053722213529414,
+      "guard_id": 3,
+      "guard_name": "BR_TD",
+      "state_before": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_before": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "mode_after": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "value": 0,
+      "directional_derivative": -1.0537222134332882,
+      "priority": 3,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 2,
+        "leg_name": "BR",
+        "event_kind": "touchdown",
+        "source": "contact",
+        "event_batch_index": 1,
+        "event_batch_size": 4,
+        "event_batch_position": 2,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    },
+    {
+      "index": 4,
+      "type": "FL_TD",
+      "time": 1.053722213529414,
+      "guard_id": 5,
+      "guard_name": "FL_TD",
+      "state_before": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0
+      ],
+      "mode_before": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "mode_after": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "value": 0,
+      "directional_derivative": -1.0537222134332882,
+      "priority": 5,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 3,
+        "leg_name": "FL",
+        "event_kind": "touchdown",
+        "source": "contact",
+        "event_batch_index": 1,
+        "event_batch_size": 4,
+        "event_batch_position": 3,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    },
+    {
+      "index": 5,
+      "type": "FR_TD",
+      "time": 1.053722213529414,
+      "guard_id": 7,
+      "guard_name": "FR_TD",
+      "state_before": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        -1.0537222135294138,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0
+      ],
+      "mode_before": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "mode_after": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "value": 0,
+      "directional_derivative": -1.0537222134332882,
+      "priority": 7,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 4,
+        "leg_name": "FR",
+        "event_kind": "touchdown",
+        "source": "contact",
+        "event_batch_index": 1,
+        "event_batch_size": 4,
+        "event_batch_position": 4,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    },
+    {
+      "index": 7,
+      "type": "BL_LO",
+      "time": 1.5975510665120336,
+      "guard_id": 2,
+      "guard_name": "BL_LO",
+      "state_before": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_before": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "mode_after": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "value": 0,
+      "directional_derivative": 1.0537222134702386,
+      "priority": 2,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 1,
+        "leg_name": "BL",
+        "event_kind": "liftoff",
+        "source": "contact",
+        "event_batch_index": 2,
+        "event_batch_size": 4,
+        "event_batch_position": 1,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    },
+    {
+      "index": 8,
+      "type": "BR_LO",
+      "time": 1.5975510665120336,
+      "guard_id": 4,
+      "guard_name": "BR_LO",
+      "state_before": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_before": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "mode_after": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "value": 0,
+      "directional_derivative": 1.0537222134702386,
+      "priority": 4,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 2,
+        "leg_name": "BR",
+        "event_kind": "liftoff",
+        "source": "contact",
+        "event_batch_index": 2,
+        "event_batch_size": 4,
+        "event_batch_position": 2,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    },
+    {
+      "index": 9,
+      "type": "FL_LO",
+      "time": 1.5975510665120336,
+      "guard_id": 6,
+      "guard_name": "FL_LO",
+      "state_before": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0
+      ],
+      "mode_before": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "mode_after": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "value": 0,
+      "directional_derivative": 1.0537222134702386,
+      "priority": 6,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 3,
+        "leg_name": "FL",
+        "event_kind": "liftoff",
+        "source": "contact",
+        "event_batch_index": 2,
+        "event_batch_size": 4,
+        "event_batch_position": 3,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    },
+    {
+      "index": 10,
+      "type": "FR_LO",
+      "time": 1.5975510665120336,
+      "guard_id": 8,
+      "guard_name": "FR_LO",
+      "state_before": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        0
+      ],
+      "state_after": [
+        0,
+        0,
+        1,
+        1.0537222135293283,
+        0,
+        0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0,
+        0,
+        -0
+      ],
+      "mode_before": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "mode_after": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "value": 0,
+      "directional_derivative": 1.0537222134702386,
+      "priority": 8,
+      "is_stop": false,
+      "metadata": {
+        "leg_index": 4,
+        "leg_name": "FR",
+        "event_kind": "liftoff",
+        "source": "contact",
+        "event_batch_index": 2,
+        "event_batch_size": 4,
+        "event_batch_position": 4,
+        "event_batch_semantics": "commuting-independent-leg-resets",
+        "event_batch_atomic": true
+      }
+    }
+  ],
+  "actual_base_section_chart": {
+    "id": "apex-before-BL-TD-local",
+    "geometry": "dy=0, ddy<0",
+    "marking": "last downward apex strictly before next BL touchdown",
+    "BL_touchdowns_per_return": 1,
+    "selected_return_BL_occurrence": 2,
+    "selected_initial_BL_occurrence": 1,
+    "contact_mode": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "crossing_orientation": -1,
+    "boundary_ownership": "post-reset/right-continuous",
+    "time_translation": 2.6512732800413903,
+    "translational_gauge": "system.canonicalizeState",
+    "return_multiplicity": 1,
+    "initial_mark": {
+      "marked": true,
+      "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+      "touchdown_time": 1.053722213529414,
+      "touchdown_event_index": 2,
+      "next_apex_time": 2.6512732800413903,
+      "apex_to_touchdown_margin": 1.053722213529414,
+      "touchdown_to_next_apex_margin": 1.5975510665119763
+    },
+    "return_mark": {
+      "marked": true,
+      "reason": "fixed next BL TD occurs strictly between consecutive downward apexes",
+      "touchdown_time": 3.7049954935707188,
+      "touchdown_event_index": 2,
+      "next_apex_time": 5.3025465600825887,
+      "apex_to_touchdown_margin": 1.0537222135293285,
+      "touchdown_to_next_apex_margin": 1.59755106651187
+    },
+    "local_domain": "fixed transverse apex and BL event identities, positive separating margins"
+  },
+  "actual_base_period": 2.6512732800413903,
+  "derivative_regularity_scope": "common-first-derivative-under-recorded-regular-model-hypotheses; no C2 certificate",
+  "interpretation": "Numerical full physical section derivative and fixed-energy tangent restriction. Conserved-energy unit remains in the full spectrum. No C2, certified existence, or full asymptotic stability follows from a spectral radius near one.",
+  "passed": true,
+  "mechanical_energy": 1.5551652516426646,
+  "energy_leaf_refinement": {
+    "coarse_matrix": [
+      [
+        1.9683392480453807,
+        3.8203545219858035,
+        4.0255924223464845,
+        1.654543034881699E-8,
+        -0.21356431070904688,
+        1.654543034881699E-8,
+        -0.21356431070904688,
+        1.654543034881699E-8,
+        -0.21356431070904655,
+        1.6545430344772031E-8,
+        -0.21356431070904716
+      ],
+      [
+        0,
+        -1.8621120488064133,
+        -1.1767583771231489,
+        0,
+        4.2897244579515513E-13,
+        0,
+        4.2897244579515513E-13,
+        0,
+        4.3720497454176803E-13,
+        0,
+        4.2168520044100404E-13
+      ],
+      [
+        0,
+        -2.0968292742371357,
+        -1.8621121081176435,
+        0,
+        3.42611851026999E-13,
+        0,
+        3.42611851026999E-13,
+        0,
+        3.4945698411187092E-13,
+        0,
+        3.3660620015210545E-13
+      ],
+      [
+        -0.2628586056379002,
+        -0.85934365349755049,
+        -0.82783660838606232,
+        1.370199173657993E-9,
+        -0.017686191100160623,
+        -2.7115429269843662E-9,
+        0.034999923479342186,
+        -2.7115429269843662E-9,
+        0.034999923477495941,
+        -2.7115429263214637E-9,
+        0.034999923477488121
+      ],
+      [
+        3.3647468927217421,
+        7.2492236713600713,
+        5.7632069487627273,
+        9.6227818451187513E-8,
+        -1.242084810927085,
+        1.8754994370033175E-8,
+        -0.24208481498852774,
+        1.8754994370033175E-8,
+        -0.2420848149815433,
+        1.8754994365448093E-8,
+        -0.24208481498154941
+      ],
+      [
+        -0.2628586056379002,
+        -0.85934365349755049,
+        -0.82783660838606232,
+        -2.7115429269843662E-9,
+        0.034999923479342186,
+        1.370199173657993E-9,
+        -0.017686191100160623,
+        -2.7115429269843662E-9,
+        0.034999923477495941,
+        -2.7115429263214637E-9,
+        0.034999923477488121
+      ],
+      [
+        3.3647468927217421,
+        7.2492236713600713,
+        5.7632069487627273,
+        1.8754994370033175E-8,
+        -0.24208481498852774,
+        9.6227818451187513E-8,
+        -1.242084810927085,
+        1.8754994370033175E-8,
+        -0.2420848149815433,
+        1.8754994365448093E-8,
+        -0.24208481498154941
+      ],
+      [
+        -0.26285860563789981,
+        -0.859343653497502,
+        -0.82783660838609985,
+        -2.7115429269843662E-9,
+        0.034999923477486435,
+        -2.7115429269843662E-9,
+        0.034999923477486435,
+        1.370199173657993E-9,
+        -0.01768619110011789,
+        -2.7115429263214637E-9,
+        0.034999923479343893
+      ],
+      [
+        3.3647468927217417,
+        7.249223671360058,
+        5.7632069487627291,
+        1.8754994370033175E-8,
+        -0.2420848149815622,
+        1.8754994370033175E-8,
+        -0.2420848149815622,
+        9.6227818451187513E-8,
+        -1.2420848109271039,
+        1.8754994365448093E-8,
+        -0.24208481498851486
+      ],
+      [
+        -0.26285860563789981,
+        -0.859343653497502,
+        -0.82783660838609985,
+        -2.7115429269843662E-9,
+        0.034999923477486435,
+        -2.7115429269843662E-9,
+        0.034999923477486435,
+        -2.7115429269843662E-9,
+        0.034999923479351706,
+        1.3701991733229962E-9,
+        -0.017686191100146634
+      ],
+      [
+        3.3647468927217417,
+        7.249223671360058,
+        5.7632069487627291,
+        1.8754994370033175E-8,
+        -0.2420848149815622,
+        1.8754994370033175E-8,
+        -0.2420848149815622,
+        1.8754994370033175E-8,
+        -0.24208481498850892,
+        9.6227818427662033E-8,
+        -1.2420848109270874
+      ]
+    ],
+    "coarse_multipliers": {
+      "real": [
+        0.99999999436036058,
+        -3.4329276035557608,
+        -0.29129655337303767,
+        -2.8878161486127687E-18,
+        -1.2640981729954749E-16,
+        -1.0000000089533878,
+        -0.99999999187075916,
+        -0.99999999185684174,
+        -0.99999999185681576,
+        -2.3473620107322638E-17,
+        7.65974674488268E-17
+      ],
+      "imag": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "coarse_spectral_radius": 3.4329276035557608,
+    "fine_spectral_radius": 3.4329276485771727,
+    "absolute_matrix_change": 5.6700734324574246E-7,
+    "relative_matrix_change": 3.090713268843499E-8,
+    "spectrum_Hausdorff_change": 4.5021411931855937E-8,
+    "fine_eigenvector_condition_number": 56.433127601953565,
+    "nearest_plus_one_distance": 9.5377399311757927E-9,
+    "nearest_minus_one_distance": 4.23164236984519E-9,
+    "diagnostic_note": "Saved-step comparison is empirical; it does not bound all integration/differentiation errors or prove exact neutral multipliers. No asymptotic-stability or branching certificate is inferred."
+  },
+  "source_hashes_captured_after_execution": [
+    {
+      "relative_path": "Dynamics_v3/QuadrupedPhysicalChart_v3.m",
+      "sha256": "4cae5dc8027bb2d8fa9063273bfa3b19067612c4b622df844971ae2bcc9de701"
+    },
+    {
+      "relative_path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+      "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+    },
+    {
+      "relative_path": "Dynamics_v3/ContinuousDynamics_v3.m",
+      "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+    },
+    {
+      "relative_path": "Dynamics_v3/GuardFunctions_v3.m",
+      "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+    },
+    {
+      "relative_path": "Dynamics_v3/ResetMap_v3.m",
+      "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+    },
+    {
+      "relative_path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "relative_path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "adda0901337b44bd9472ab588b1cec1722bd8c60703633da16f81671388dc1b5"
+    },
+    {
+      "relative_path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "005c3514a737e8fe30e21ab3f9bedd1a574f7715f2074de4341dfb4ed80266ac"
+    },
+    {
+      "relative_path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+      "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+    },
+    {
+      "relative_path": "Numerics_v3/HybridFiniteDifferenceJacobian_v3.m",
+      "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+    },
+    {
+      "relative_path": "Numerics_v3/EventOrderChartJacobian_v3.m",
+      "sha256": "b3aa2de334e1f6add1783748cbde0564641bb0c8f23912f63c5d927bd446b550"
+    },
+    {
+      "relative_path": "Stability_v3/FloquetAnalysis_v3.m",
+      "sha256": "715d19ab3ec7bc22aebfcf8aec574281145dc38b082d8486378bc1abf8506923"
+    }
+  ],
+  "postprocessing_utc": "07-Oct-2026 12:38:34"
+}

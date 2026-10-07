@@ -1,0 +1,37 @@
+{
+  "schema_version": "actual-initial-J-reuse-audit-v3-1",
+  "passed": true,
+  "completed_utc": "07-Oct-2026 14:36:20",
+  "root_sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75",
+  "warm": {
+    "accepted": true,
+    "initial_residual": 0.00016844698090892098,
+    "final_residual": 2.0998619509882133E-12,
+    "fresh_full_closure": 3.028377548730532E-11,
+    "elapsed_seconds": 39.106414291666667,
+    "primary_failure": {},
+    "finalization_failure": {},
+    "replay_failure": {},
+    "initial_J_used": true,
+    "new_Jacobian_evaluations": 1,
+    "core_objective_map_count": 44,
+    "Newton_steps": 10,
+    "derivative_evaluated": true
+  },
+  "cold": {
+    "accepted": true,
+    "initial_residual": 0.00016844698090892098,
+    "final_residual": 2.1000848629548763E-12,
+    "fresh_full_closure": 3.028199913046592E-11,
+    "elapsed_seconds": 65.086015875,
+    "primary_failure": {},
+    "finalization_failure": {},
+    "replay_failure": {},
+    "initial_J_used": false,
+    "new_Jacobian_evaluations": 2,
+    "core_objective_map_count": 77,
+    "Newton_steps": 10,
+    "derivative_evaluated": true
+  },
+  "state_difference": 2.5572113870886426E-12
+}

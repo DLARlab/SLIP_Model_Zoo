@@ -1,0 +1,27 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+Critical candidate catalog: 22 arrays, 4711 columns.
+BD 1 refinementReport.Payload(1).CriticalSolution+Refinement.parameters speed=[4.83363821,4.83363821] period=[1.33941549,1.33941549]
+BD 1 refinementReport.Payload(2).CriticalSolution+Refinement.parameters speed=[6.04807026,6.04807026] period=[1.32133353,1.32133353]
+BD 1 refinementReport.Payload(1).CriticalSolution+Refinement.parameters speed=[4.50616111,4.50616111] period=[1.35225139,1.35225139]
+BD 1 refinementReport.Payload(2).CriticalSolution+Refinement.parameters speed=[5.64566295,5.64566295] period=[1.33444302,1.33444302]
+HB_front 1 refinementReport.Payload(1).CriticalSolution+Refinement.parameters speed=[5.91164915,5.91164915] period=[1.33007118,1.33007118]
+HB_hind 1 refinementReport.Payload(1).CriticalSolution+Refinement.parameters speed=[6.13622288,6.13622288] period=[1.32407961,1.32407961]
+PK 1 refinementReport.Payload.Critical.solution+refinement.parameters speed=[4.43406194,4.43406194] period=[1.36459805,1.36459805]
+PK 1 .results speed=[0.593430751,0.593430751] period=[2.29782825,2.29782825]
+B2 8 .results speed=[0.590611969,0.596283083] period=[2.29607311,2.2996031]
+B2 8 .daughterResults speed=[0.590611969,0.596283083] period=[2.29607311,2.2996031]
+PIP_delayed 1 .results speed=[0,0] period=[2.44093645,2.44093645]
+PK 8 .results speed=[-0.01,0.01] period=[2.44086675,2.44093575]
+B2 852 .results speed=[-0.0289311927,19.5160169] period=[1.1445699,2.38188679]
+B2 400 .continuationInfo.low{1}.nativeContinuationInfo.results_lifted speed=[-0.0289311927,0.918880266] period=[2.1081808,2.38188679]
+B2 15 .continuationInfo.upper.continuationInfo.results_lifted speed=[19.449103,19.5160169] period=[1.1445699,1.14828462]
+B2 852 .continuationInfo.results_lifted speed=[-0.0289311927,19.5160169] period=[1.1445699,2.38188679]
+B2 852 .rawResults speed=[-0.0289311927,19.5160169] period=[1.1445699,2.38188679]
+B2 852 .correctedSourceResults speed=[-0.0289311927,19.5160169] period=[1.1445699,2.38188679]
+B2 852 .results speed=[-0.0750741408,19.5165813] period=[1.1445699,2.38188679]
+B2 1 .original speed=[0.0234719411,0.0234719411] period=[2.340137,2.340137]
+B2 1 .other speed=[-0.0234719411,-0.0234719411] period=[2.340137,2.340137]
+B2 1 .reflected speed=[0.0234719411,0.0234719411] period=[2.340137,2.340137]

@@ -1,0 +1,12 @@
+{
+  "schema_version": "fresh-protection-v3-1",
+  "action": "verify",
+  "checked_utc": "07-Oct-2026 18:13:05",
+  "baseline_count": 534,
+  "current_count": 534,
+  "added": [],
+  "missing": [],
+  "changed": [],
+  "passed": true,
+  "baseline_origin": "Current organization working state; previously absent outside-v3 paths retained as absent and repository-root Finder cache removed under latest user cleanup instruction"
+}

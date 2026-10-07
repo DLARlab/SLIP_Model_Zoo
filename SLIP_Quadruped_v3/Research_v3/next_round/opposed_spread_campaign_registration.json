@@ -1,0 +1,138 @@
+{
+  "schema_version": "prospective-opposed-spread-campaign-v3-1",
+  "registered_utc": "07-Oct-2026 14:49:34",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "method": "exact-opposed-spread-twisted-restriction",
+  "source_registration": "Research_v3/next_round/opposed_spread_period_two_registration.json",
+  "proof_audit": "Research_v3/next_round/theory/opposed_spread_period_two_audit.json",
+  "proof_document": "Docs_v3/Restricted_PIP_Opposed_Spread_Period_Two_v3.md",
+  "source_hashes": [
+    {
+      "path": "Orbit_v3/OpposedSpreadFamilyResidual_v3.m",
+      "sha256": "e51aaf801f9a8cca0aa144f098337e956ab0972224c2133610cdd1ee11feb63e"
+    },
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Numerics_v3/HybridFiniteDifferenceJacobian_v3.m",
+      "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m",
+      "sha256": "21e032870e526394b41e9080a372305a8d221524f7211729f9921e5f7d4986f1"
+    }
+  ],
+  "physical_engine_hashes": [
+    {
+      "path": "Dynamics_v3/ContinuousDynamics_v3.m",
+      "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+    },
+    {
+      "path": "Dynamics_v3/GuardFunctions_v3.m",
+      "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+    },
+    {
+      "path": "Dynamics_v3/ResetMap_v3.m",
+      "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+    },
+    {
+      "path": "Dynamics_v3/QuadrupedEnergy_v3.m",
+      "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    },
+    {
+      "path": "Orbit_v3/BLMarkedApexReturnPolicy_v3.m",
+      "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+    },
+    {
+      "path": "Orbit_v3/GaitIdentification_v3.m",
+      "sha256": "c7afe94e320f1df1a4f0b17cdcadb96c7ccad945a28a5d6609491fd221efb7e3"
+    },
+    {
+      "path": "Orbit_v3/PrimitiveCycleCheck_v3.m",
+      "sha256": "6449c29aa22f2685de9c3ebe5d3c70199cabbc775c01ebd4dfa2a3a6536fdb6e"
+    }
+  ],
+  "integration": {
+    "RelTol": 1E-12,
+    "AbsTol": 1E-14,
+    "MaxStep": 0.005,
+    "EventValueTolerance": 1E-10,
+    "EventTimeTolerance": 1E-12,
+    "SimultaneousTimeTolerance": 1E-10,
+    "ArmingTolerance": 1E-11
+  },
+  "replay_integration": {
+    "RelTol": 1E-13,
+    "AbsTol": 1E-15,
+    "MaxStep": 0.0025,
+    "EventValueTolerance": 1.0000000000000001E-11,
+    "EventTimeTolerance": 1E-13,
+    "SimultaneousTimeTolerance": 1.0000000000000001E-11,
+    "ArmingTolerance": 1E-11
+  },
+  "meaningful_orthogonal_perturbation": 0.0001,
+  "minimum_initial_correction_residual": 1E-6,
+  "fd_relative_candidate_steps": [
+    3E-5,
+    1E-5
+  ],
+  "fd_maximum_relative_error": 0.01,
+  "fd_use_richardson": false,
+  "samples_per_checkpoint": 3,
+  "initial_signed_angle_step": 0.00025,
+  "accepted_step_growth": 1.5,
+  "maximum_signed_angle_step": 0.001,
+  "minimum_absolute_angle": 1E-5,
+  "maximum_absolute_angle": 0.009,
+  "directions": [
+    -1,
+    1
+  ],
+  "candidates": [
+    {
+      "id": "opposed_spread_n0_negative_A1e-3_campaign",
+      "candidate_artifact": "Research_v3/next_round/theory/opposed_spread_n0_negative_A1e-3_predictor.mat",
+      "candidate_variable": "predictor",
+      "candidate_sha256": "c95ebe07d1a5f010376f8a1ca961d6f5ed3e5aa72d000c3bc8c4b4146ac4005a",
+      "resonance_index": 0,
+      "touchdown_angle": -0.001,
+      "energy": 1.0616845275068503
+    },
+    {
+      "id": "opposed_spread_n0_positive_A1e-3_campaign",
+      "candidate_artifact": "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_predictor.mat",
+      "candidate_variable": "predictor",
+      "candidate_sha256": "cca1a61dfb96f5bd50085674e8916192b7b925e45460ccce44b4ed9bde759258",
+      "resonance_index": 0,
+      "touchdown_angle": 0.001,
+      "energy": 1.0616845275068503
+    }
+  ],
+  "branch_method": "Prospectively frozen signed-amplitude constraints; formula-assisted predictors, actual BL1 twisted corrector and independent full BL2 replay in both amplitude directions.",
+  "derivative_scope": "Strict three-dimensional BL1 twisted derivative, not the measured-sector BL2 event-order chart.",
+  "point_caps_are_endpoints": false,
+  "generic_fullspace_continuation": false,
+  "target_gait_claimed": false,
+  "ancestry_claimed": false,
+  "unrestricted_C2_claimed": false,
+  "acceptance_tolerances_changed": false,
+  "true_total_campaign_wall_seconds_changed": false
+}

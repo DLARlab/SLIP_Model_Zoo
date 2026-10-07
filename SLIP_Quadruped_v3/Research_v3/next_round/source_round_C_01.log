@@ -1,0 +1,16 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+{Unrecognized field name "accepted".
+
+Error in RoundAcceptedSeeds_v3 (line 21)
+                selected=find([amplitudes.accepted]&sign([amplitudes.signed_amplitude])==signValue);
+                               ^^^^^^^^^^^^^^^^^^^
+Error in RunResearchRound_v3>appendAcceptedSeedTasks (line 233)
+    seeds=RoundAcceptedSeeds_v3(tasks,cfg);
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in RunResearchRound_v3 (line 38)
+    state.tasks=appendAcceptedSeedTasks(state.tasks,v3,cfg);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

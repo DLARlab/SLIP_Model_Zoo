@@ -1,0 +1,277 @@
+{
+  "schema_version": "saved-front-twisted-retry-forensics-v3-1",
+  "completed_utc": "07-Oct-2026 16:14:27",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "actual_report": "Research_v3/next_round/tasks/full/n0_positive_front_twisted_common_C1_Broyden_retry/front_retry_report.mat",
+  "actual_report_sha256": "d159adb777ae33b9931f33df54461687852d27b8650e50240f6320c785f4c84f",
+  "actual_report_modified_utc": "07-Oct-2026 15:57:48",
+  "method_registration": "Research_v3/next_round/solver/twisted_front_retry_02/method_registration.json",
+  "method_registration_sha256": "d5646aa272af2ba10e0a334ff2c57f3e9d1eb1cad4d5d81f43842137e8f29bb5",
+  "canonical_gate": "Research_v3/next_round/solver/solver_validation_summary.json",
+  "canonical_gate_sha256": "ed8bcf30eb61ba75588bcab3f57778cab6dbac1afe57fe5394ebd154217dae07",
+  "canonical_source_hashes": [
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Orbit_v3/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+    },
+    {
+      "path": "Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+    },
+    {
+      "path": "Orbit_v3/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+    }
+  ],
+  "corrector_source_hashes": [
+    {
+      "path": "Orbit_v3/TwistedReturnFamilyResidual_v3.m",
+      "sha256": "35eb62758f789af822e429b503e2f29108ef7d0371832fa8a62146ead43875fb"
+    },
+    {
+      "path": "Orbit_v3/EnergyFamilyResidual_v3.m",
+      "sha256": "81451d7408e9535cfb7035d7dc730af4d0fb454f2f0cdf60a92fcc836afe394f"
+    },
+    {
+      "path": "Numerics_v3/PeriodicSolutionSolver_v3.m",
+      "sha256": "452436fac4b11d9449801d038780e4f228cb023dbbf48b2dd7930d704dcb73da"
+    },
+    {
+      "path": "Numerics_v3/RootSolver_v3.m",
+      "sha256": "ad3ab6c664b89fed8ef81c7944a1f2d9062756313f7e42f8119ae5ad1c9edf75"
+    },
+    {
+      "path": "Numerics_v3/EventOrderChartJacobian_v3.m",
+      "sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RunTwistedFrontRetry_v3.m",
+      "sha256": "25b67631a482fa562381795e4a4089cc7b210355cf3641d33ebf2b6fed0b7f0d"
+    },
+    {
+      "path": "Research_v3/Drivers_v3/RegisterTwistedFrontRetry_v3.m",
+      "sha256": "79905af11084cc9e1f9c3dbf9940813ec03104ec483fc73bdc55e03f7304c877"
+    }
+  ],
+  "accepted": false,
+  "wrapper_state": "partial_checkpoint",
+  "primary_failure": {
+    "identifier": "",
+    "message": "First-order optimality tolerance satisfied.",
+    "exitflag": 3
+  },
+  "finalization_failure": {
+    "identifier": "RootSolver_v3:FullClosure",
+    "message": "Reduced residual candidate failed full physical closure."
+  },
+  "replay_failure": {},
+  "initial_twisted_norm": 1.6061336494483076E-8,
+  "final_twisted_norm": 1.6061389415760744E-8,
+  "actual_BL2_closure": 5.4919983186077319E-8,
+  "full_closure_tolerance": 1E-8,
+  "independent_replay_performed": false,
+  "function_evaluations": 214,
+  "core_map_evaluations": 212,
+  "Jacobian_evaluations": 2,
+  "accepted_Newton_steps": 1,
+  "invalid_evaluations": 0,
+  "elapsed_seconds": 468.84882383333331,
+  "all_13_columns_reliable": true,
+  "common_C1_chart": true,
+  "singular_values": [
+    14.217949168280343,
+    2.1190265545944391,
+    2.0001028014572131,
+    2.0001027767751252,
+    1.414217391463638,
+    1.0001544215610212,
+    1.0000000014307491,
+    0.99994860129133945,
+    0.99994860102729977,
+    0.97201590449371167,
+    0.84523136321453651,
+    0.0014137544919184688,
+    4.4274595207831261E-9
+  ],
+  "condition_estimate": 3.2113109338525319E+9,
+  "left_residual_coordinates": [
+    3.4801511670857224E-17,
+    4.3765955315878046E-17,
+    -7.773341598620524E-24,
+    -1.7503102308161167E-18,
+    -5.1883371021000928E-17,
+    -8.3169148278172386E-16,
+    1.1152064043400264E-19,
+    -2.6146144807058242E-24,
+    1.9289734403816149E-19,
+    5.2118125887637312E-17,
+    1.2649402082795254E-16,
+    -1.3870742786787704E-12,
+    1.6986389494317528E-8
+  ],
+  "weakest_left_residual_fraction": 0.99999999333197109,
+  "two_weakest_right_vectors": [
+    [
+      5.1939902539731183E-8,
+      0.34256455760832649
+    ],
+    [
+      -0.7071045142837159,
+      2.9668913437141953E-9
+    ],
+    [
+      1.7270312440657153E-8,
+      1.2190723189076581E-10
+    ],
+    [
+      1.6602195754447633E-7,
+      7.0452748343208547E-10
+    ],
+    [
+      2.7971513368708685E-8,
+      -0.0684380955194186
+    ],
+    [
+      -3.6036968984934168E-9,
+      0.46473498722602052
+    ],
+    [
+      2.7971513202175231E-8,
+      -0.068438095519418568
+    ],
+    [
+      -3.603696954004568E-9,
+      0.46473498722602052
+    ],
+    [
+      -0.0014851830443976643,
+      -0.068438050460864278
+    ],
+    [
+      2.6079753844138292E-5,
+      0.46473499321456063
+    ],
+    [
+      0.001485238987380602,
+      -0.06843805040721497
+    ],
+    [
+      -2.6086961231781651E-5,
+      0.46473499321383072
+    ],
+    [
+      -0.70710592757758106,
+      1.8931125383441722E-9
+    ]
+  ],
+  "reported_firstorderopt": 2.9657425650749507E-15,
+  "pronk_direction_source": "Research_v3/next_round/solver/attachment_accuracy_repair/PIP_candidate_1/input_snapshot.mat",
+  "pronk_direction_source_sha256": "7f27182e326a234db27a1011947877140a24bc7df7e6b58ac33d843ce0a75348",
+  "measured_pronk_direction_alignment": 0.99999999999999845,
+  "physical_coordinate_J_transpose_r": [
+    -1.0318490880710205E-16,
+    1.4385041999502219E-15,
+    4.9310996450553947E-16,
+    2.0005075159066942E-17,
+    -4.4693050861582107E-17,
+    5.4624033460486028E-17,
+    -4.4693051068364331E-17,
+    5.4624020199746833E-17,
+    5.4584813403414269E-16,
+    4.0658743453201126E-17,
+    -6.3566121055966954E-16,
+    6.15900605014468E-17,
+    1.332267629550135E-15
+  ],
+  "physical_gradient_inf_norm": 1.4385041999502219E-15,
+  "root_coordinate_scale": [
+    1.0000000031327165,
+    2.061685023358022,
+    1.0000000135515652,
+    1.0000000027032938,
+    1.0000000011846901,
+    1.0000000069309014,
+    1.0000000011846901,
+    1.0000000069309014,
+    1.0000124151402361,
+    1.000707004692071,
+    1.000012417509607,
+    1.0007069908302675,
+    2.0616850233580264
+  ],
+  "scaled_gradient_inf_norm": 2.9657425650749507E-15,
+  "reported_column_relative_refinement_errors": [
+    1.3813312990733052E-7,
+    1.014731163625878E-6,
+    1.7254069830543683E-6,
+    5.2104360330204788E-7,
+    1.3727680403472921E-13,
+    3.4026455837111493E-9,
+    1.3727679366848635E-13,
+    3.4026455837111506E-9,
+    1.0533304022982982E-13,
+    4.8117666107855406E-9,
+    1.1381912636024388E-13,
+    4.8106016067168956E-9,
+    0
+  ],
+  "estimated_absolute_column_differences": [
+    9.3576168651261135E-7,
+    1.0147376712273245E-6,
+    2.1270421657250729E-5,
+    9.37526929243802E-7,
+    1.3727680403573032E-13,
+    7.2575401397446687E-9,
+    1.3727679366948746E-13,
+    7.2575401397446696E-9,
+    1.0534115932227681E-13,
+    8.4027353548885068E-9,
+    1.1382789956187249E-13,
+    8.3996792297534429E-9,
+    0
+  ],
+  "estimated_matrix_difference_Frobenius": 2.1335777070451437E-5,
+  "smallest_singular_value_resolved": false,
+  "formal_undamped_Newton_step": [
+    -1.3142830748370316,
+    -1.2077304012189423E-8,
+    -4.6770971874281567E-10,
+    -2.7029886826909144E-9,
+    0.26256957591652985,
+    -1.7830021069900561,
+    0.2625695759165298,
+    -1.7830021069900559,
+    0.26256940304343507,
+    -1.7830021299656611,
+    0.26256940284052294,
+    -1.7830021299629122,
+    -7.9576460882844413E-9
+  ],
+  "formal_step_norm": 3.8365996879914372,
+  "linear_backward_residual": 1.5839109537840734E-15,
+  "accepted_scaled_step_norm": 9.5146089866082128E-10,
+  "Broyden_denominator_squared_step": 9.0527784168045759E-19,
+  "Broyden_required_squared_step": 2.2204460492503131E-16,
+  "Broyden_small_step_guard_fails": true,
+  "rank_scope": "Finite reliable columns do not resolve the weakest singular value below empirical FD refinement error; no rank or inverse-error certificate.",
+  "recommendation": "Preserve unresolved near-null front result; do not presume an optimality-only warm retry is cheap or resolves the common-pronk direction.",
+  "new_front_retry_prepared": false,
+  "return_map_evaluations_in_forensics": 0,
+  "core_or_active_driver_changed": false
+}

@@ -7,17 +7,73 @@ saved data. Legacy vectors enter v3 only through explicit adapters.
 The October 2026 research campaign adds independent physical/energy charts,
 fixed-parameter family continuation, BL-marked return charts, primitive-cycle
 and state-based gait diagnostics, parent-only pronk discovery, and a v3 GUI.
-The requested single PIP-rooted P1/P2 network remains unresolved. Read
-[`Final_Research_Status_v3.md`](Docs_v3/Final_Research_Status_v3.md) for actual
-executed results, restricted attachment certificates, failures, and scope.
+The requested single PIP-rooted P1/P2 network remains unresolved. The MATLAB
+next round records new execution in
+[`Next_Round_Full_Execution_v3.md`](Docs_v3/Next_Round_Full_Execution_v3.md).
+The [scientific findings](Docs_v3/Next_Round_Research_Findings_v3.md) explain
+the supported restricted PIP–imported-PK connection, new branch coverage,
+remaining numerical obstacles and actual budget exhaustion. The
+[completion audit](Audits_v3/Next_Round_Completion_v3.md) records the exact
+unfinished queue, current solver gates and protected-file verification.
+[`Final_Research_Status_v3.md`](Docs_v3/Final_Research_Status_v3.md) preserves
+the preceding campaign's results, qualified attachments, failures, and scope.
 Historical Round4 reports describe an earlier checkout; they are not current
 network or all-tests-pass certificates.
 
-The October 7 cleanup retains numerical code, research checkpoints, figures,
-GUI examples and scientific audits. Unit tests, their CI workflow, temporary
-check scripts and caches were removed. Historical verification summaries live
-in `Research_v3/Audits_v3`; the cleanup manifest records removals and lossless
-MAT compression. The legacy `SLIP_Quadruped/` reference remains unchanged.
+The October 7 organization follows the four functional areas of the legacy
+quadruped folder. Branch datasets are directly under the single-flight or
+double-flight study folder; supporting evidence is in each study's independent
+`Bifurcation_Audits/` folder. Numerical checkpoints, failed candidates, source
+fixtures, figures and audits are retained. Caches, count-only test summaries
+and redundant static-check output were removed. The protected legacy
+`SLIP_Quadruped/` reference remains unchanged.
+
+```text
+SLIP_Quadruped_v3/
+├── 1_Dynamic_Frameworks/
+│   ├── Schema_v3/          # coordinates and physical parameters
+│   ├── Adapters_v3/        # explicit legacy conversion
+│   ├── Dynamics_v3/        # flows, guards, resets and modes
+│   └── Simulation_v3/      # autonomous hybrid integration
+├── 2_Graphic_ToolBox/
+│   ├── Graphics_v3/        # plots and animation
+│   └── GUI_v3/             # controller, examples and recording evidence
+├── 3_Numerical_Continuation/
+│   ├── 1_Root_Solving/
+│   ├── 2_Continuation_Algorithms/
+│   └── 3_Bifurcation_Analysis/
+├── 4_Solution_Management/  # sections, return policies, orbits and gait labels
+│   └── Examples_v3/
+├── P1_Single_Flight_Phase_Continua/
+│   ├── *.mat              # continuation and accepted sample datasets
+│   └── Bifurcation_Audits/
+├── P2_Double_Flight_Phase_Continua/
+│   ├── *.mat              # accepted two-flight standing cycle samples
+│   └── Bifurcation_Audits/
+├── Research_v3/            # native drivers, shared campaign ledger and graph
+├── Docs_v3/
+└── Audits_v3/              # model, preservation and organization audits
+```
+
+The [P1 catalog](P1_Single_Flight_Phase_Continua/README.md) and
+[P2 catalog](P2_Double_Flight_Phase_Continua/README.md) distinguish continuation
+points, signed samples, copied fixtures and phase-equivalent cycles. Their
+folder names do not assert recovery of the full target networks.
+
+Initialize MATLAB from the repository root:
+
+```matlab
+addpath(fullfile(pwd,'SLIP_Quadruped_v3'));
+V3AddPaths_v3();
+```
+
+`V3Path_v3(recordedPath)` resolves historical v3 paths through the
+[location map](Audits_v3/Folder_Organization/locations.json). Scientific MAT
+and JSON records retain their original bytes, paths and hashes. Path-bound
+driver edits have a separate source journal and archived original source;
+actual current hashes remain separately verifiable. The
+[organization audit](Audits_v3/Folder_Organization/README.md) describes this
+compatibility layer and its executed checks.
 
 The framework models
 
@@ -37,11 +93,11 @@ flowchart LR
     A["Adapters_v3<br/>explicit v2 conversion"]
     D["Dynamics_v3<br/>F, G, reset, transition"]
     M["Simulation_v3<br/>earliest-event integration"]
-    O["Orbit_v3<br/>section, return policy, residual"]
-    N["Numerics_v3<br/>root solve and continuation"]
-    T["Stability_v3<br/>Floquet and boundaries"]
-    G["Graphics_v3<br/>trajectory/event consumers"]
-    E["Examples_v3 and Research_v3"]
+    O["4_Solution_Management<br/>section, return policy, residual"]
+    N["3_Numerical_Continuation<br/>root solve and continuation"]
+    T["3_Bifurcation_Analysis<br/>Floquet and boundaries"]
+    G["2_Graphic_ToolBox<br/>trajectory/event consumers"]
+    E["Solution examples and Research_v3"]
 
     S --> D
     S --> A
@@ -79,7 +135,7 @@ The permanent file-by-file implementation and verification record is
 
 ## Canonical schema
 
-`Schema_v3/QuadrupedSchema_v3.m` is the sole source of coordinate, leg,
+`1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m` is the sole source of coordinate, leg,
 event, parameter, and root-chart ordering.
 
 The 14-state vector is
@@ -219,6 +275,14 @@ section-mode resolver retains the previous chart and toggles only guards near
 the section with consistent directions; exhaustive `allModes()` is available
 only as an explicit diagnostic.
 
+`PeriodicSolutionSolver_v3` is the common correction and acceptance entry
+point for fixed-energy solves, augmented energy/arclength/amplitude solves,
+fixed-parameter continuation and GUI correction. It independently replays the
+candidate with tighter integration settings and retains failed candidates,
+primary solver failures and replay failures separately. Its contract and
+focused numerical gates are documented in
+[`Periodic_Solution_Solver_v3.md`](Docs_v3/Periodic_Solution_Solver_v3.md).
+
 `RootSolver_v3` supplies state/parameter scaling, solve-local map caching,
 structured invalid-trial rejection, fsolve and damped trust-region Newton
 paths, counters, and optional Jacobian/Broyden reuse. Event times and event
@@ -265,7 +329,7 @@ are in
 
 ## Legacy migration
 
-Use the four classes under `Adapters_v3`; never insert an old vector directly
+Use the four classes under `1_Dynamic_Frameworks/Adapters_v3`; never insert an old vector directly
 into v3. `LegacyParameterAdapter_v3` requires an explicit policy:
 
 ```matlab
@@ -288,7 +352,7 @@ report and independently verified initial protected-tree manifest.
 
 ## Graphics
 
-`Graphics_v3` consumes `Trajectory_v3` or `HybridOrbit_v3`, the ten-parameter
+`2_Graphic_ToolBox/Graphics_v3` consumes `Trajectory_v3` or `HybridOrbit_v3`, the ten-parameter
 schema, recorded modes/events, and dynamics diagnostics. Contact phases are
 not reconstructed from event-time inputs. The toolbox supports classic and UI
 axes, invisible/headless construction, simple/detailed animation, optional
@@ -303,25 +367,32 @@ commit are retained. The scheduled legacy model and the autonomous first-root
 model are compared explicitly; accepting an autonomous state does not assert
 that its old scheduled period or contact cycle was reproduced.
 
-From the repository root:
+From the repository root in MATLAB:
 
-```sh
-python3 SLIP_Quadruped_v3/Research_v3/run_campaign.py --config validation --stage all --resume
-python3 SLIP_Quadruped_v3/Research_v3/run_campaign.py --config full --stage all --resume
-python3 SLIP_Quadruped_v3/Research_v3/run_campaign.py --verify-only
-python3 SLIP_Quadruped_v3/Research_v3/generate_research_index.py --config full
-python3 SLIP_Quadruped_v3/Research_v3/generate_family_reports.py
-python3 SLIP_Quadruped_v3/Research_v3/generate_research_report.py
+```matlab
+addpath(fullfile(pwd,'SLIP_Quadruped_v3'));
+validation = RunResearchRound_v3('Profile','validation','Resume',true, ...
+    'MinRepairRounds',3);
+research = RunResearchRound_v3('Profile','full','Resume',true, ...
+    'MinRepairRounds',3);
 ```
 
-Resume retains completed and terminal bounded-stop JSONs; fixed-family partial checkpoints replay
-their last accepted point before continuing. A parent-only rerun versions prior
-artifacts and recomputes frozen predictions. Stage locks, timestamped logs,
-configuration fingerprints, numerical stops, and cumulative process-wall
-charges are retained. To regenerate the independent replay index, with the v3
-root and Drivers_v3 on the MATLAB path, run `ExportResearchEvidence_v3`.
-After a parent-only stage, `AuditPronkAttachments_v3` independently reassesses
-saved trajectories and matrices against the unchanged numerical evidence gates.
+The master resolves both profiles, checks the fresh protected-tree baseline,
+verifies solver source hashes, executes P1/P2 tasks and exports reports and
+plots in MATLAB. `TaskIds` and `MaxTasks` select a checkpoint segment. A task
+slice or point cap leaves an unfinished checkpoint. Continuation resumes from
+its endpoint and tangent, appends arclength and removes the shared seam.
+PIP candidates resume their unfinished spectral or daughter phase. Retryable
+failures require a recorded diagnosis and repair before another attempt;
+`RegisterResearchRepair_v3` records that evidence. The exact unfinished queue,
+registered total budget and measured consumption live in
+`Research_v3/next_round/task_queue_full.json` and the execution ledger.
+
+Earlier Python campaign/report scripts are retained as historical artifacts;
+the next-round public workflow uses MATLAB throughout. The preceding
+campaign's independent replay index remains reproducible with
+`ExportResearchEvidence_v3`, and `AuditPronkAttachments_v3` reassesses its
+saved restricted attachments against the original numerical gates.
 
 Open `SLIP_Quadruped_GUI_v3` from MATLAB. Ten physical parameter fields, explicit
 return-policy and BL occurrence controls, shared correction/continuation,

@@ -5,11 +5,11 @@ function report=DiscoverPronkFromPIP_v3(configFile,outputDirectory)
 % Prior run files are archived by filename, never loaded as numerical seeds.
 % A sign-change scan is bounded evidence and misses tangent/even-multiplicity
 % unit multipliers. No derivative across split four-leg contacts is claimed.
-    root=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+    root=V3Root_v3(mfilename('fullpath'));
     originalPath=path;pathCleanup=onCleanup(@()path(originalPath));
-    addpath(root,fullfile(root,'Research_v3','Drivers_v3'));
+    V3LegacyAddPath_v3(root,fullfile(root,'Research_v3','Drivers_v3'));
     folders={'Schema_v3','Dynamics_v3','Simulation_v3','Orbit_v3','Numerics_v3'};
-    for k=1:numel(folders),addpath(fullfile(root,folders{k}));end
+    for k=1:numel(folders),V3LegacyAddPath_v3(fullfile(root,folders{k}));end
     if nargin<1||isempty(configFile)
         configFile=fullfile(root,'Research_v3','config','full.json');
     end
@@ -18,14 +18,14 @@ function report=DiscoverPronkFromPIP_v3(configFile,outputDirectory)
     end
     configFile=V3OutputPath_v3(configFile);
     outputDirectory=V3OutputPath_v3(outputDirectory);
-    cfg=jsondecode(fileread(configFile));p=cfg.baseline_v3_parameters(:);
+    cfg=jsondecode(fileread(V3Path_v3(configFile)));p=cfg.baseline_v3_parameters(:);
     settings=cfg.parent_only_pronk;s=QuadrupedSchema_v3.shared();
     if ~isequal(p([1,3,5,7]),p([2,4,6,8]))||p(10)~=.5
         error('DiscoverPronkFromPIP_v3:Parameters','Pronk invariant subspace requires matched parameters.');
     end
     validateattributes(settings.scan_points,{'numeric'},{'scalar','integer','>=',2});
     validateattributes(settings.amplitudes,{'numeric'},{'vector','finite','positive'});
-    if ~exist(outputDirectory,'dir'),mkdir(outputDirectory);end
+    if ~exist(V3Path_v3(outputDirectory),'dir'),mkdir(V3Path_v3(outputDirectory));end
     archiveDirectory=archivePriorRun(outputDirectory);
     system=Quadrupedal_Dynamics_v3();section=PoincareSection_v3.apex(s.State.dy);
     simulator=HybridSimulator_v3(struct('RelTol',settings.relative_tolerance, ...
@@ -127,7 +127,7 @@ function report=DiscoverPronkFromPIP_v3(configFile,outputDirectory)
             'amplitudes',settings.amplitudes,'validation_settings',settings, ...
             'source','parent derivative only','frozen_utc',char(datetime('now','TimeZone','UTC')));
         predictionFile=sprintf('pronk_predictions_v2_%d.mat',bracketIndex);
-        save(V3OutputPath_v3(fullfile(outputDirectory,predictionFile)),'predictions','M','MCoarse');
+        save(V3Path_v3(V3OutputPath_v3(fullfile(outputDirectory,predictionFile))),'predictions','M','MCoarse');
         connection.prediction_artifact=predictionFile;
         if isempty(report.connections),report.connections=connection;
         else,report.connections(end+1)=connection;end
@@ -189,7 +189,7 @@ function report=DiscoverPronkFromPIP_v3(configFile,outputDirectory)
                 entry.artifact=sprintf('pronk_daughter_v2_%d_%+.6g.mat',bracketIndex,signed);
                 compact=CompactResearchBranch_v3(struct('points',struct('orbit',orbit,'solverInfo',correction)));
                 correction=compact.points.solverInfo; % Full accepted traces are saved separately.
-                save(V3OutputPath_v3(fullfile(outputDirectory,entry.artifact)),'orbit','replayOrbit','entry', ...
+                save(V3Path_v3(V3OutputPath_v3(fullfile(outputDirectory,entry.artifact))),'orbit','replayOrbit','entry', ...
                     'classification','correction','predictions','-v7');
                 if isempty(connection.amplitudes),connection.amplitudes=entry;
                 else,connection.amplitudes(end+1)=entry;end
@@ -264,11 +264,11 @@ function report=DiscoverPronkFromPIP_v3(configFile,outputDirectory)
     end
     function checkpoint()
         report.elapsed_seconds=toc(timer);
-        fid=fopen(V3OutputPath_v3(fullfile(outputDirectory,'pip_pk_local.json')),'w');
+        fid=fopen(V3Path_v3(V3OutputPath_v3(fullfile(outputDirectory,'pip_pk_local.json'))),'w');
         if fid<0,error('DiscoverPronkFromPIP_v3:Checkpoint','Cannot open JSON checkpoint.');end
         cleanup=onCleanup(@() fclose(fid));
         fprintf(fid,'%s\n',jsonencode(report,'PrettyPrint',true));
-        save(V3OutputPath_v3(fullfile(outputDirectory,'pip_pk_local_checkpoint.mat')),'report','-v7');
+        save(V3Path_v3(V3OutputPath_v3(fullfile(outputDirectory,'pip_pk_local_checkpoint.mat'))),'report','-v7');
     end
 end
 
@@ -306,15 +306,15 @@ function value=member(source,key,fallback)
 end
 function archive=archivePriorRun(directory)
     archive='';
-    if ~exist(fullfile(directory,'pip_pk_local.json'),'file'),return;end
+    if ~exist(V3Path_v3(fullfile(directory,'pip_pk_local.json')),'file'),return;end
     stamp=char(datetime('now','TimeZone','UTC','Format','yyyyMMdd''T''HHmmssSSS'));
-    archive=V3OutputPath_v3(fullfile(directory,['prior_pronk_run_',stamp]));mkdir(archive);
-    files=[dir(fullfile(directory,'pip_pk_local*'));dir(fullfile(directory,'pronk_predictions_*.mat')); ...
-        dir(fullfile(directory,'pronk_daughter_*.mat'))];
+    archive=V3OutputPath_v3(fullfile(directory,['prior_pronk_run_',stamp]));mkdir(V3Path_v3(archive));
+    files=[V3Dir_v3(fullfile(directory,'pip_pk_local*'));V3Dir_v3(fullfile(directory,'pronk_predictions_*.mat')); ...
+        V3Dir_v3(fullfile(directory,'pronk_daughter_*.mat'))];
     for k=1:numel(files)
         if ~files(k).isdir
             source=V3OutputPath_v3(fullfile(directory,files(k).name));
-            copyfile(source,fullfile(archive,files(k).name));
+            copyfile(V3Path_v3(source),V3Path_v3(fullfile(archive,files(k).name)));
         end
     end
 end

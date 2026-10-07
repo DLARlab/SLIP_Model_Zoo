@@ -1,0 +1,31 @@
+{
+  "schema_version": "opposed-spread-scientific-figure-export-v3-1",
+  "created_utc": "07-Oct-2026 15:12:16",
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "source_manifest": [
+    {
+      "path": "Research_v3/next_round/theory/opposed_spread_n0_positive_A1e-3_actual_trace.mat",
+      "sha256": "6ccfb056d9de1059c8dc3149db0955c41e671fa37c6c26de7e9776597b6ae41a"
+    },
+    {
+      "path": "Research_v3/next_round/theory/opposed_spread_period_two_audit.mat",
+      "sha256": "82be485ed580cbe51885ef14765268a79fb376325f27fa477a81c67cda0ccf3a"
+    },
+    {
+      "path": "Research_v3/next_round/theory/opposed_spread_phase_equivalence.mat",
+      "sha256": "e316f147a3576c0173eefecf663e4eee113e978421c39bd692ef1a5f7ec6ba73"
+    }
+  ],
+  "source_hashes_unchanged": true,
+  "new_simulations": 0,
+  "new_map_evaluations": 0,
+  "postprocessing_elapsed_seconds": 5.8498345833333332,
+  "helper_path": "Research_v3/next_round/theory/opposed_spread_figures/GenerateOpposedSpreadFigures_v3.m",
+  "helper_sha256": "b42a7d6795c94531c8f2d7070199257d83d5823f63882728b8608af08336a799",
+  "PNG_artifact": "Research_v3/next_round/theory/opposed_spread_figures/opposed_spread_n0_physical_and_energy.png",
+  "PNG_sha256": "0c18a0461c1cfd17b5ffc6545f80141a5fc7fcfb07bfbc36c0d1159f108d8624",
+  "FIG_artifact": "Research_v3/next_round/theory/opposed_spread_figures/opposed_spread_n0_physical_and_energy.fig",
+  "FIG_sha256": "38fffca21a1526516f3feafd35491880ae5d5787b8e788ee8af9265ed5da3958",
+  "MAT_artifact": "Research_v3/next_round/theory/opposed_spread_figures/opposed_spread_n0_figure_data.mat",
+  "interpretation": "Four signed n0/n1 records are two sampled cycles modulo phase; actual gait remains unclassified/ambiguous. No new closure, rigorous error bound or target-family connection is established."
+}

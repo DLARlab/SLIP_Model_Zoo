@@ -1,0 +1,188 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+    {'schema_version'           }
+    {'status'                   }
+    {'accepted'                 }
+    {'seed'                     }
+    {'options'                  }
+    {'acceptance'               }
+    {'integration'              }
+    {'replay_integration'       }
+    {'initial_residual'         }
+    {'initial_scaled_norm'      }
+    {'initial_physical_norm'    }
+    {'final_residual'           }
+    {'final_scaled_norm'        }
+    {'final_physical_norm'      }
+    {'full_closure'             }
+    {'final_candidate'          }
+    {'solver'                   }
+    {'primary_failure'          }
+    {'finalization_failure'     }
+    {'replay_failure'           }
+    {'partial_evidence'         }
+    {'independent_replay'       }
+    {'physical_inequalities'    }
+    {'primitive'                }
+    {'classification'           }
+    {'constraint_residual'      }
+    {'provenance'               }
+    {'elapsed_seconds'          }
+    {'chart'                    }
+    {'energy_pivot'             }
+    {'active_coordinate_indices'}
+    {'initial_evaluation'       }
+    {'final_coordinates'        }
+    {'augmented_parameter'      }
+
+    {'state'                        }
+    {'fullState'                    }
+    {'parameter'                    }
+    {'mode'                         }
+    {'residual'                     }
+    {'residualNorm'                 }
+    {'exitflag'                     }
+    {'output'                       }
+    {'solver'                       }
+    {'message'                      }
+    {'errorIdentifier'              }
+    {'converged'                    }
+    {'evaluationInfo'               }
+    {'orbit'                        }
+    {'attempts'                     }
+    {'candidateModes'               }
+    {'selectedAttempt'              }
+    {'initialGuess'                 }
+    {'modeResolution'               }
+    {'selectedMode'                 }
+    {'rejectedModeDiagnostics'      }
+    {'stateScale'                   }
+    {'parameterScale'               }
+    {'functionEvaluationCount'      }
+    {'mapEvaluationCount'           }
+    {'cacheHitCount'                }
+    {'invalidEvaluationCount'       }
+    {'jacobianEvaluationCount'      }
+    {'finalJacobian'                }
+    {'jacobianReliable'             }
+    {'derivativeModel'              }
+    {'derivativeEvaluated'          }
+    {'acceptedNewtonIterations'     }
+    {'invalidTrialCount'            }
+    {'jacobianDiagnostics'          }
+    {'selectedFiniteDifferenceSteps'}
+    {'perColumnReliability'         }
+    {'primaryConverged'             }
+    {'primaryMessage'               }
+    {'primaryErrorIdentifier'       }
+    {'primaryExitflag'              }
+    {'finalizationMessage'          }
+    {'finalizationErrorIdentifier'  }
+    {'cyclicEventSignature'         }
+    {'sectionRelativeSignature'     }
+    {'eventClusterSignature'        }
+
+STATE accepted0 Newton2 Jac3 fe164 map157 invalid5 elapsed237.4366315 maxWall233.32479362499768 res1.624832099372895e-07->2.8376831866325118e-08 closure2.8376831866325118e-08
+             iterations: 3
+              funcCount: 3
+              algorithm: 'damped Levenberg-Newton trust region'
+          firstorderopt: 4.2148e-12
+               stepsize: 5.4079e-09
+     acceptedIterations: 2
+      invalidTrialCount: 0
+    initialJacobianUsed: 0
+           jacobianInfo: [1×1 struct]
+                message: 'No finite hybrid Jacobian is available in the requested perturbation chart.'
+
+    identifier: ''
+       message: 'No finite hybrid Jacobian is available in the requested perturbation chart.'
+      exitflag: -3
+
+    identifier: 'RootSolver_v3:FullClosure'
+       message: 'Reduced residual candidate failed full physical closure.'
+
+  struct with no fields.
+
+J size[13 13] finitecols=[1 2 3 4 5 6 7 8 9 10 11 12] reliable=[1;2;3;4;5;6;7;8;9;10;11]
+    {'method'                     }
+    {'baseMetadata'               }
+    {'baseSignature'              }
+    {'baseSectionSignature'       }
+    {'baseClusterSignature'       }
+    {'returnMultiplicity'         }
+    {'columns'                    }
+    {'selectedSteps'              }
+    {'estimatedErrors'            }
+    {'perColumnReliability'       }
+    {'allReliable'                }
+    {'classicalDerivative'        }
+    {'returnMultiplicityPreserved'}
+    {'forwardOneSidedJacobian'    }
+    {'backwardOneSidedJacobian'   }
+    {'forwardOneSidedAvailable'   }
+    {'backwardOneSidedAvailable'  }
+    {'mapEvaluations'             }
+    {'parallelRequested'          }
+    {'parallelUsed'               }
+    {'coordinateScale'            }
+    {'commonC1EventOrderChart'    }
+    {'eventOrderChartObservations'}
+    {'derivativeRegularityScope'  }
+    {'baselineResidual'           }
+
+FD maps53 columns13 allReliable0 classical0
+COL 1 reliable1 finite1 evals4 step0.00010000000058934179 err1.3139366774669922e-07 type=central-richardson
+ CAND step0.00010000000058934179 reliable1 topology0
+COL 2 reliable1 finite1 evals4 step0.00015149598544048046 err4.0485499585136795e-07 type=central-richardson
+ CAND step0.00015149598544048046 reliable1 topology0
+COL 3 reliable1 finite1 evals4 step0.00010000000171601122 err1.4210819351340534e-06 type=central-richardson
+ CAND step0.00010000000171601122 reliable1 topology0
+COL 4 reliable1 finite1 evals4 step0.00010000000112563384 err8.6730879391542008e-08 type=central-richardson
+ CAND step0.00010000000112563384 reliable1 topology0
+COL 5 reliable1 finite1 evals4 step0.00010000000014452264 err3.0139599663107507e-10 type=central-richardson
+ CAND step0.00010000000014452264 reliable1 topology0
+COL 6 reliable1 finite1 evals4 step0.00010000000014007677 err1.2328578464811054e-08 type=central-richardson
+ CAND step0.00010000000014007677 reliable1 topology0
+COL 7 reliable1 finite1 evals4 step0.00010000000014452264 err3.0289763362277072e-10 type=central-richardson
+ CAND step0.00010000000014452264 reliable1 topology0
+COL 8 reliable1 finite1 evals4 step0.00010000000014007677 err1.2328579262303094e-08 type=central-richardson
+ CAND step0.00010000000014007677 reliable1 topology0
+COL 9 reliable1 finite1 evals4 step0.00010000124176459815 err1.2997109408463149e-09 type=central-richardson
+ CAND step0.00010000124176459815 reliable1 topology0
+COL 10 reliable1 finite1 evals4 step0.00010007064987489023 err7.513541580638569e-08 type=central-richardson
+ CAND step0.00010007064987489023 reliable1 topology0
+COL 11 reliable1 finite1 evals4 step0.00010000124146894292 err1.2993776890033925e-09 type=central-richardson
+ CAND step0.00010000124146894292 reliable1 topology0
+COL 12 reliable0 finite1 evals4 step0.00010007064977852609 err1.7514707417435295e-05 type=one-sided-forward
+    {'minus-h/2 invalid: EventOrderChartJacobian_v3:OutsideDeclaredChart: Common C1 event-order derivative chart failed: : Complete physical map context is required..'}
+
+ CAND step0.00010007064977852609 reliable0 topology0
+    {'minus-h/2 invalid: EventOrderChartJacobian_v3:OutsideDeclaredChart: Common C1 event-order derivative chart failed: : Complete physical map context is required..'}
+
+COL 13 reliable0 finite0 evals4 step0.00015149598544048044 errInf type=unavailable
+  Columns 1 through 3
+
+    {'plus-h invalid: …'}    {'minus-h invalid:…'}    {'plus-h/2 invalid…'}
+
+  Column 4
+
+    {'minus-h/2 invali…'}
+
+ CAND step0.00015149598544048044 reliable0 topology0
+  Columns 1 through 3
+
+    {'plus-h invalid: …'}    {'minus-h invalid:…'}    {'plus-h/2 invalid…'}
+
+  Column 4
+
+    {'minus-h/2 invali…'}
+
+CHART observations53 accepted48 rejected5
+    {': Complete physical map context is required.'}
+
+PARTIAL fields
+    {'initial_physical_chart'}
+    {'failure_trace'         }
+

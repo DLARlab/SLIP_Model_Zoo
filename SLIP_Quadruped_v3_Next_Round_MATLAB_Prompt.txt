@@ -1,0 +1,234 @@
+# Codex research execution prompt: SLIP_Quadruped_v3, next MATLAB round
+
+## Mission and authorization
+
+Continue the research in https://github.com/DLARlab/SLIP_Model_Zoo. Inspect the actual checkout and latest available main before editing. The preparation audit for this prompt inspected commit f53c39cca530d9782d00ba8699acb1d55484f7d8, “V3 Update,” committed 2026-10-07T11:06:51Z. Treat the findings below as a starting snapshot and reconcile subsequent changes.
+
+Your assignment is to implement, execute, diagnose, repair, and rerun the next research campaign. You are authorized to run MATLAB scripts and functions. Do the numerical work yourself; supplying scripts or instructions for me to run is not task completion.
+
+The research hypothesis is that the maximally symmetric parent gait connects through symmetry-breaking bifurcations to the target quadrupedal gait families of the declared model. Recover the P1 single-flight network PK → BD → HB_front/HB_hind → GP; investigate the P2 double-flight network PIP → B2 → the two half-bound orientations → G2; and establish the PIP–PK attachment and the relationships needed to join the networks. Use the repository's actual state-based definitions and naming conventions; in P2 the two half-bound orientations may be labeled F2 and H2. Do not merge them merely because they share a descriptive name.
+
+Pursue this hypothesis without assuming it is true. Distinguish recovery of periodic orbits, numerical evidence of local attachment, mathematical local bifurcation results, connected coverage of the named targets, and global completeness. A finite computation does not prove that every possible quadrupedal gait belongs to the discovered network.
+
+All new or modified tracked files, fixtures, results, documentation, and research drivers must remain under SLIP_Quadruped_v3/. Do not modify, rename, delete, regenerate, or overwrite anything under SLIP_Quadruped/, or any other protected repository path. You may read legacy sources and COPY entire existing v2 branch datasets into v3 as starting data, then convert and correct those copies. Copying is explicitly authorized. Preserve source files and record their paths, hashes, variables, branch columns, and source commit.
+
+Use MATLAB for the entire public workflow: solving, continuation, experiment control, checkpoint/resume, analysis, plots, and report export. Do not require Python, a Python campaign wrapper, or a Python subprocess to execute or resume this research. Do not finish by asking me to run a command such as “python3 .../run_campaign.py --config full --stage all --resume.” Shell/git commands for ordinary repository management are fine. MATLAB reproduction commands may appear in your final report only after you have executed the relevant work yourself.
+
+## 1. Start from the current evidence and preserve the useful work
+
+Read the applicable repository instructions, then inspect these v3 resources and their linked evidence:
+
+- Docs_v3/Final_Research_Status_v3.md
+- Docs_v3/Model_Equivalence_Audit_v3.md
+- Docs_v3/P1_Reproduction_Report_v3.md and P2_Discovery_Report_v3.md
+- Docs_v3/Parent_Only_Pronk_Validation_v3.md
+- Docs_v3/Near_Grazing_Event_Diagnosis_v3.md
+- Docs_v3/Ancestry_Graph_v3.md and GUI_Parity_v3.md
+- Research_v3/Drivers_v3/RunResearchCampaign_v3.m and DiscoverPronkFromPIP_v3.m
+- Research_v3/runs/full/, parent_candidate_queue_v3.json, handoff_checkpoint.json
+- Research_v3/config/, graph/, and Audits_v3/Working_Tree_Cleanup_v3.md
+- Orbit_v3/EnergyFamilyResidual_v3.m, PeriodicOrbitResidual_v3.m, and the physical-chart, root-solver, continuation, Floquet, simulator, return-policy, and GUI implementations.
+
+The inspected commit already contains independent dynamics, physical section coordinates, energy-family residuals, fixed-parameter continuation, state-based gait identification, a Floquet interface, graphics, and a substantially implemented GUI. Reuse and repair these. Avoid spending the round rebuilding infrastructure that already works.
+
+The saved evidence at the inspected commit is:
+
+- Baseline model: v3-autonomous-first-directed-root-compressive-stance, with physical parameters [10,10,20,20,1,1,0,0,2,0.5].
+- 54 raw imported observations from 18 legacy fixtures: six accepted replay records, all PIP/PK, and 48 rejected records. Duplicated PK source states mean six records are not six distinct solutions. The compatibility stage evaluates converted states but never performs nonlinear correction.
+- The converted seed is currently saved after replay inside the same try block; an exception can prevent the failed seed from being retained. The rejected JSON records contain exception text but empty event histories and first-divergence objects.
+- An analytic vertical benchmark was checked at 12 energies. Short imported-PK continuations have 20 and 21 saved points, terminate at point caps, and cover only approximately E = 1.117114–1.122701.
+- Two PIP-to-traveling-pronk attachments have numerically supported evidence within the stated symmetry restriction, near E = 1.55516525164 and 1.69595083617, with ten signed amplitude trials each. These are solutions of the full model when the restriction is genuinely invariant. Preserve this qualified progress. It does not validate transverse derivatives or stability, establish excluded symmetry-breaking branches, connect these daughters to the imported PK family, or establish the target network.
+- Unrestricted physical-tangent Floquet calculations remain unreliable at the reported chart mismatch. No reliable full-system spectrum has been established there.
+- The generic parent-only search made only six shallow trials at E = 1.1, using three angle sectors and both signs of one amplitude. All reported approximately 0.001615 omitted-closure errors. The original numerical failure may be obscured by root-solver finalization; diagnose it before attributing a cause.
+- The committed graph does not establish the requested P1/P2 network. P1/P2 wrapper execution currently delegates the same common stages, rather than performing all family-specific continuation and branching tasks.
+- The old domain E in [1.0001,3] excludes the historical P1 critical neighborhood: its initial horizontal speed is approximately 4.434061935, giving a kinetic-energy contribution alone of approximately 9.830452622. Initial speed and mean speed are different observables.
+- Historical unit-test aggregates are historical evidence. Test runners and CI were intentionally removed during a documented cleanup. Use focused MATLAB numerical validation/audit scripts for this work; do not recreate the removed general testing infrastructure.
+
+Establish a fresh protection baseline at the actual starting checkout, including any pre-existing working changes. Verify changes against that baseline throughout the round and at completion. The previous cleanup must neither trigger false new violations nor authorize additional changes outside v3. Do not revert unrelated user changes.
+
+## 2. First implement and validate PeriodicSolutionSolver_v3.m
+
+This is the first numerical deliverable and the common entry point for subsequent correction. Build it around the existing residual, physical-chart, RootSolver_v3, and simulator infrastructure. Avoid creating another independent solver engine with different acceptance semantics.
+
+Provide a documented interface along these lines, adapted to existing repository conventions:
+
+    [solution, report] = PeriodicSolutionSolver_v3(seed, options);
+
+A seed must identify the 14-state v3 state, discrete leg modes, ten physical parameters, selected return policy and occurrence, physical section chart, and provenance. Period/drift estimates and legacy event timings may be predictor data, not instructions to override autonomous guards. Support conversion from existing saved v3 solution objects and converted legacy structs.
+
+Options must explicitly select the solved family, active independent coordinates, any symmetry restriction, numerical scales/tolerances, and the necessary constraints. Support ordinary fixed-energy/fixed-observable correction and augmented continuation/branch-switch correction. Preserve the distinction between the ten physical parameters and an energy or arclength coordinate; an internal appended energy value is not an eleventh physical parameter.
+
+Return both an accepted solution, when justified, and structured diagnostics. Diagnostics must include the initial and final residual vectors, scaled and physical norms, full closure, final candidate, solver iterations/evaluations, primary failure, replay failure, effective integration settings, chart and event signatures, physical inequalities, primitive period, drift, gait/symmetry evidence, and provenance. An unsuccessful solve must retain its best candidate and partial evidence without presenting an accepted orbit.
+
+### Mathematical contract
+
+Write the precise periodic-solution definition and the implemented equations in v3 documentation. Define the autonomous hybrid state, contact-mode manifolds, vector fields, directed guards, first-eligible-root rule, resets, and simultaneous-event convention. Establish the stance constraints and energy identity on the physical manifold.
+
+Use the downward apex section with an explicit BL touchdown mark and occurrence rule. Reuse the existing BL-marked policy where correct. State exactly which apex qualifies, how multiple apices/BL events are resolved, how the next marked return is chosen, and how a coincident event is owned. Select the section independently of whether an endpoint happens to close. The conditions v_y = 0 and d(v_y)/dt < 0 alone do not specify the marked return.
+
+For translation-invariant locomotion, define a relative periodic orbit by
+
+    Phi_T(z_0) = T_Delta(z_0),
+
+with the same physical discrete mode and all relevant internal state/history closed. Quotient horizontal translation and fix phase with the section. If a contact anchor is reconstructed rather than stored, show that its reconstructed closure follows; if auxiliary memory is introduced, include it in the return state and closure.
+
+Let u be independent section coordinates, P(u) the declared reduced return, H(u) mechanical energy, and d the section dimension. In the current regular mode chart the dimension is 12 minus the number of stance legs, before extra symmetry/energy restrictions. Derive and verify this count rather than perturbing constrained stance rates as independent variables.
+
+For fixed-energy correction, use a rank-consistent residual such as
+
+    F(u,E) = [ (P(u)-u) with component j omitted ; H(u)-E ],
+
+where the chosen energy pivot satisfies partial H / partial u_j != 0. Explain the local conservation/rank assumptions that justify omitting one dependent closure component. Monitor pivot conditioning and change the local pivot/chart explicitly when required. Verify ALL physical closure components independently before acceptance.
+
+For pseudo-arclength continuation, solve in (u,E) with the arclength equation inside the nonlinear system. For signed branch switching, incorporate the amplitude/orthogonality condition with the correct unknown count. A sphere constraint, when used, belongs inside the corrector with consistent dimension/rank. Never unconstrained-correct back to the parent and then call a post-hoc distance check a constrained daughter solve.
+
+### Evaluation, correction, and acceptance must remain distinct
+
+Allow finite, physically admissible NONPERIODIC trial states to return their nonzero residuals for Newton, trust-region, and derivative evaluations. Continuous periodicity is a final acceptance condition, not a prerequisite for computing the objective. Keep actual physical feasibility, guard, integration, section, and discrete-chart requirements.
+
+Audit the actual RootSolver_v3 finalization defect. At the inspected commit, it calls createOrbit even after an unconverged solve; EnergyFamilyResidual_v3.createOrbit then throws a full-closure exception that can overwrite the original solver message. Preserve the primary solver exit/message and numerical diagnostics separately from final replay/orbit-construction errors. Do not assert that current evaluateWithInfo rejects all nonperiodic trials: it does not.
+
+Load the existing parent_attempt_*.mat evidence in MATLAB. Inspect the available solver output, exit flag, accepted Newton iterations, Jacobian/per-column reliability, invalid evaluations, and map counts. Reproduce at least one failed trial with corrected diagnostic provenance. Determine the repair from this evidence.
+
+Align reduced-residual stopping and full-closure acceptance. The current default 1e-7 root acceptance versus 1e-8 full-closure threshold can accept a reduced initial residual early and then reject its full closure without further correction. A candidate that fails final acceptance must trigger a justified correction/recovery action or an explicit failure; it must not be silently labeled converged.
+
+Audit residual caching: evaluation context, parameter/family values, chart, return policy, and effective ODE tolerances must be part of cache validity, or bypass the cache when they differ. A cached final objective is not an independent replay.
+
+Every accepted solution must pass a fresh uncached autonomous simulation at independently tighter, recorded integration/event tolerances. Check all non-gauge state components, discrete closure, stance constraints, event ordering/eligibility, compression and nonpenetration, energy consistency, positive-duration flight count, and primitive-period identity. Reject fake closure from repeated cycles, phase relabeling, missed events, or invalid physics. Keep acceptance tolerances fixed within each registered experiment; do not loosen them merely to obtain success.
+
+Validate the solver in MATLAB before large searches:
+
+1. Replay at least one known valid PIP and imported PK point.
+2. Perturb a valid solution by a meaningful admissible amount; demonstrate actual nonlinear correction and fresh full closure, not zero-iteration reacceptance.
+3. Exercise fixed-energy and augmented continuation correction through the shared service; verify the family/arc/amplitude constraints.
+4. Reproduce and diagnose a failed imported seed, preserving partial execution.
+5. Exercise the reduced/full tolerance gap and failure finalization so original diagnostics survive.
+
+Use focused numerical cases that resolve these risks. Store their actual outputs and tolerances.
+
+## 3. Recover legacy branches through conversion AND correction
+
+Inventory complete legacy P1/P2 branch datasets, including available critical snapshots. Copy useful entire branches into a clearly marked v3 source-fixture area. Reuse existing copied fixtures where hashes match. Preserve original variable arrays and metadata.
+
+Map state, leg order, parameters, modes, phase, and available branch coordinates explicitly. Distinguish a source conversion from rephasing, physical-manifold retraction, and nonlinear correction; record each change and its size. Never silently overwrite the mapped source with its corrected result.
+
+SAVE every converted candidate and provenance BEFORE any replay that can throw. Then execute:
+
+    source column -> conversion -> direct replay/residual
+                  -> rephase/retract where justified -> periodic correction
+                  -> independent replay -> acceptance or diagnosis and retry
+
+A raw residual failure is not a family-level rejection and does not prove there is no nearby valid v3 orbit. For correctable neighborhoods, use adjacent source columns, local interpolation/predictors, both continuation directions, multiple physically feasible perturbations, scaling, and appropriate trust-region/damped correction. When a direct return is unavailable, use a justified intermediate formulation to obtain a valid seed; never invent a residual for a failed integration.
+
+Cover all source families adaptively, emphasizing small incompatibility, critical neighborhoods, and changes of gait/event structure. Do not limit the entire conclusion to first/middle/last columns. Process progressively denser neighborhoods when the first samples fail, and retain a coverage table of sampled, corrected, accepted, and still untested intervals.
+
+For every failure retain the partial trajectory, last valid state/mode, event log, source schedule, guard values and directions, stance forces, clearances, and earliest quantitative discrepancy. Classify initial mapping/manifold errors, wrong section occurrence, later itinerary incompatibility, numerical event failures, nonclosure, and solver/rank failures separately.
+
+The current v3 model is autonomous, takes the first eligible directed contact root, and requires compressive stance. Legacy scheduled-contact solutions can suppress earlier roots or include tensile stance. Delayed vertical PIP is incompatible with that particular law; this fact does not rule out nearby autonomous B2 solutions or another ordinary-PIP route.
+
+If needed, implement event-time or multiple-shooting correction in MATLAB. Event times may be unknowns, but the resulting trajectory must still obey the declared autonomous guards, first eligible crossings, resets, and inequalities. A scheduled-contact or augmented-history model is a different model, not an unannounced repair of v3. A model mismatch must be reported precisely and must not justify abandoning other viable correction attempts.
+
+Assign evidence labels such as exact legacy replay, nearby corrected v3 orbit, different corrected v3 orbit, or unresolved incompatibility. An imported daughter is authorized as a numerical seed; importing it does not establish parent ancestry. Restrict parent-only discovery only in experiments explicitly designed to test parent-derived predictions.
+
+## 4. Make the campaign genuinely MATLAB-native and resumable
+
+Implement one public MATLAB entry point under the v3 root, for example:
+
+    addpath(fullfile(pwd,'SLIP_Quadruped_v3'));
+    report = RunResearchRound_v3('Profile','full', ...
+        'Resume',true,'MinRepairRounds',3);
+
+This is an interface to implement and execute, not a claim that the function already exists. It should bootstrap only the necessary v3 paths, reuse the existing MATLAB stage dispatcher and numerical classes, and provide short-validation and full-research profiles. The complete workflow must run without calling Python.
+
+Provide MATLAB configuration resolution, task dependencies, source hashing/protection, logs, checkpoint/resume, budget accounting, queue processing, graph updates, and report export. Use MATLAB structs/MAT/JSON/tables and ordinary MATLAB graphics. Repair both profile schemas: the current validation JSON omits fields required by the newer pronk driver.
+
+Register a finite, substantial total wall/evaluation budget for this new round, separately from per-task time slices and continuation batch sizes. Size it for several complete diagnosis–repair–retry cycles and record actual consumption and any prospective revisions. The old campaign budget is not automatically binding on this newly authorized round. Genuine exhaustion of the new total budget must produce an incomplete research outcome and the exact unfinished MATLAB queue, never a nonexistence claim or a substitute request for me to execute the work.
+
+Use task-level states that separate execution completion from scientific success: pending, running, accepted, partial checkpoint, retryable failure, explicit unresolved obstruction, and external interruption. Do not skip pending science because a historical stage status begins with “completed.”
+
+Specifically repair the old resume semantics. At the inspected checkpoint, the Python wrapper skips all seven stages, including the budget-exhausted PIP search, despite unprocessed candidates. MATLAB resume must consume these pending tasks. Preserve historical results; start a versioned next-round experiment rather than relabeling earlier registration or failure as success.
+
+A continuation batch limit is a checkpoint, not a branch endpoint. Resume from its accepted endpoint and tangent, append new arclength/points, and deduplicate the shared seam. Catch recoverable correction, post-correction replay, chart construction, and tangent failures inside the recovery loop; a validation exception after Newton must not bypass step-size recovery.
+
+For each spectral candidate, checkpoint the phases: identify, refine, validate critical subspace, freeze signed predictors, correct daughters, independently replay, continue daughters, evaluate attachment, update graph. Resume from the unfinished phase rather than archiving a result and repeating only the first two candidates.
+
+Use distinct P1/P2 MATLAB drivers with actual family-specific tasks. A wrapper that only changes a study label or refreshes reports is insufficient. Keep outputs under the appropriate v3 P1/P2 and Research_v3 paths.
+
+Verify resume by running a short segment, checkpointing, resuming in MATLAB, and demonstrating genuinely new points or a newly processed candidate. Verify that a retryable numerical failure receives a diagnosed repair and another attempt. Execute both the validation entry point and the full campaign yourself.
+
+## 5. Execute a source-informed search for the connected gait network
+
+Register the new round's numerical domain and strategy BEFORE its experiments. Derive staged energy, mean-speed, pitch, primitive-period, and event-count bounds from the actual source data and known critical neighborhoods. Preserve the old domain and observations as historical records.
+
+Include the relevant P1 high-energy critical neighborhoods if physically admissible; E <= 3 cannot test a neighborhood whose horizontal kinetic contribution already exceeds 9.83. Do not blindly widen only energy while leaving incompatible speed or period caps. Keep the declared physical parameters and contact law fixed for the principal network claim. Parameter homotopies may be diagnostic, with intermediate points labeled separately; only solutions returned to the target parameters count.
+
+Prioritize real research tasks after the solver gates pass:
+
+1. Correct and replay representative and near-critical source seeds for each P1/P2 family. Continue every useful accepted parent/daughter sufficiently far in both directions; replace the old permanent 20-point ceiling with adaptive batches.
+2. Extend the imported PK family and the two existing restricted PIP-derived daughters. Compare actual trajectories, primitive periods, drift, contact histories, and admissible symmetry/phase transformations to determine whether branches meet. Equal gait names do not establish identity or attachment.
+3. Diagnose the imported PK segment near E approximately 1.11711423, whose current data suggest an energy turning neighborhood. Treat a fold or near-parent passage as a candidate, not an established bifurcation.
+4. Consume all current unprocessed PIP candidates: E = 1 + pi^2/160 approximately 1.06168502750681; bracket [2.466693333333333,2.60002], containing E = 1 + 25*pi^2/160 approximately 2.54212568767021; and bracket [2.733346666666667,2.866673333333333]. Revalidate their mathematical meaning at the current model and parameters.
+5. Supplement determinant sign changes with tracked eigenvalues/singular values and adaptive refinement. Same-sign endpoints can hide a singularity; folds and persistent neutral directions must be distinguished from symmetry-breaking candidates.
+6. Perform P1 PK → BD → both HB orientations → GP continuation/branch switching, using admissible imported daughter seeds as well as parent-derived directions.
+7. Perform P2 recovery/discovery of B2, both front-spread and hind-spread half-bound daughters, and G2; test ordinary-PIP attachment and how the P2 network joins PK/P1. Search beyond the synchronized-pronk invariant subspace: that restriction cannot reveal the required symmetry-breaking directions.
+8. Investigate additional relevant period-two candidates when a reliable -1 multiplier or other evidence warrants it. Do not interpret two section returns as a new primitive orbit without checking its minimal period and actual flight count.
+
+Build a typed ancestry graph with separate imported/recovered orbit nodes, continuation segments, restricted local attachments, supported regular bifurcations, nonsmooth/boundary connections, and unresolved candidates. Reconcile the two existing restricted attachments with the graph without promoting restricted derivative/bifurcation certificates into full-space certificates. State the scope under which the named network would satisfy the research objective; extra catalog labels remain unproved unless actually connected.
+
+## 6. Establish the mathematical and Floquet evidence appropriate to each connection
+
+Derive local smoothness of each return chart from the actual vector fields, transverse directed guards, resets, and section projection. Implement/check event-time sensitivities or saltation factors and the final section/translation projection. Use physical tangent coordinates. Separate restrictions to invariant symmetry/energy subspaces from the derivative on the full admissible section tangent space and account for autonomous/conservative neutral directions before interpreting +1 multipliers.
+
+Prove the local theorem actually applicable to a claimed branch point, with explicit hypotheses: regularity, nullity/cokernel, removal of phase/energy degeneracy, and the relevant transversality or reduced nondegeneracy coefficient. A +1 multiplier alone is not a branch-existence proof. Establish that the relevant fixed-parameter leg transformations are symmetries of flows, guards, resets, and the quotient/section action; compare full state/contact histories to identify isotropy loss.
+
+For numerical branch attachment, retain signed shrinking amplitudes, nontrivial daughter corrections, convergence toward the same parent critical orbit, predictor alignment, independently closed daughter trajectories, and the uncertainty/stability of the diagnostic coefficients. Numerical evidence supports a theorem's hypotheses but is not itself a computer-assisted existence proof. If claiming certified existence, supply the actual validation bounds and theorem.
+
+At simultaneous contacts, do not infer differentiability merely because reset maps commute. Conversely, event-order changes in finite-difference samples do not alone prove that no unique derivative exists. Diagnose feasible event-order charts, transport their derivatives into common section coordinates, and compare limiting derivatives with error/refinement studies. Distinguish a numerical chart-selection failure from unequal directional derivatives, grazing, or event creation/loss.
+
+If smooth hypotheses fail, use an appropriate piecewise/directional/boundary formulation and label the resulting connection accordingly. A failed full Floquet stencil is not a reason to end all physical daughter searches, nor permission to substitute a restricted spectrum for full stability.
+
+Preserve fixes already established in v3: chronological sample truncation at the selected event, event clustering based on both guard value and local root-time proximity, and synchrony tests based on physical pre/post event sides. Zero-duration intermediate simultaneous-reset rows are not positive-duration contact phases; retain the full event log while treating them correctly.
+
+Audit the remaining risk of guard-arming state mutated inside adaptive ODE callbacks. Verify deterministic event ownership and effective top-level RelTol/AbsTol; nested ODEOptions may be overridden. Require convergence of accepted results under sensible tolerance, event-step, and derivative-step changes. Repair diagnosed defects rather than weakening the model or acceptance thresholds.
+
+## 7. Mandatory iterative execution: audit, repair, retry
+
+After solver validation, execute at least three materially distinct research rounds while priority connections remain unresolved, and continue further when useful work remains feasible. Success may end the search earlier. A demonstrated mathematical obstruction may close that precisely defined target, but does not automatically close alternative routes or the entire campaign.
+
+Each round must include actual MATLAB execution and an audit containing:
+
+- The scientific target, model/domain version, seed provenance, hypothesis, and numerical method.
+- The commands/functions actually executed and the resulting saved artifacts.
+- Residual/closure changes, corrected solutions, accepted continuation length, critical candidates, and graph changes.
+- The exact primary failure or remaining ambiguity, supported by diagnostics.
+- A concrete repair or alternative chosen from that evidence, followed by another executed attempt.
+
+Use a progression such as:
+
+Round A: recover source seeds with the new shared solver and quantitative failure traces.
+Round B: repair the dominant measured obstacle, extend recovered branches and queued PIP daughters, and retry the missing attachments.
+Round C: release the needed symmetry directions or implement a justified alternative formulation such as multiple shooting, feasible event-order charts, section transport, or improved scaling; rerun the same priority target and continue successful daughters.
+
+Adapt this progression to actual findings. Repeating an unchanged failed command, changing only a report, or refreshing a completed-status file is not a new research round. Several five-iteration trials are not an exhaustive search.
+
+For a failed correction, consider chart/section validity, conditioning, independent-coordinate rank, effective tolerances, derivative reliability, constraint formulation, event arming, neighboring seeds, and alternative shooting formulations. Select remedies causally; do not indiscriminately loosen all tolerances or brute-force identical inputs.
+
+Do not stop at the first failed branch switch, failed seed, unreliable derivative, local time slice, or point cap. Checkpoint and continue another viable task, repair, or batch. Track actual external runtime/resource limits honestly. If execution is genuinely interrupted, preserve an actionable MATLAB checkpoint and report it as incomplete rather than a scientific negative. Do not use an arbitrary historical cap as a substitute for completing the authorized round.
+
+Only report nonexistence with an actual argument covering its stated model/domain. Otherwise report “not established in the executed search,” with precisely what was attempted and what remains untested. Never claim the hypothesis was proved because labels appear in files, and never claim it is false because a handful of corrected solves failed.
+
+## 8. Deliverables and completion criteria
+
+Within SLIP_Quadruped_v3/, deliver:
+
+- The working PeriodicSolutionSolver_v3.m and its documented contract, integrated into continuation correction and relevant GUI correction without changing the requested GUI layout/functionality.
+- Focused MATLAB solver, physics, correction, and resume validation scripts with actual saved results.
+- Complete copied-source provenance, converted/corrected seed catalogs, accepted solutions, and informative failed-candidate evidence.
+- A MATLAB master runner and genuine P1/P2 research drivers, complete short/full profiles, task-level checkpoints, and a functioning repair/retry queue.
+- Newly executed branch continuations, branch-switch attempts, derivative/critical-point evidence, independent replays, gait/isotropy classifications, plots, and a reconciled ancestry graph.
+- Updated mathematical notes and a next-round report explaining discoveries, changes of method/domain, limitations, and whether each requested connection is established, restricted, unresolved, or obstructed.
+- Verification that no new changes occurred outside SLIP_Quadruped_v3/, especially under SLIP_Quadruped/.
+
+The final response must lead with what MATLAB execution actually achieved. Include the exact commit/environment, solver validation outcome, actual repair rounds, newly recovered gait families, new branch coverage/attachments, and remaining obstacles with evidence paths. Clearly separate committed historical results from results generated this round.
+
+If the network remains incomplete, provide a substantive diagnosis and the exact remaining MATLAB task queue. Do not merely repeat the old bounded-search conclusion or delegate execution back to me. A final MATLAB command is for reproduction/resume of work you have already carried out, not a substitute for performing the authorized experiments.

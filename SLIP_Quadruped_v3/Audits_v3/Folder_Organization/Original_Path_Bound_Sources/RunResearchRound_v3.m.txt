@@ -1,0 +1,324 @@
+function report=RunResearchRound_v3(varargin)
+%RUNRESEARCHROUND_V3 MATLAB-native, task-level, resumable research entry point.
+% RunResearchRound_v3('Profile','full','Resume',true,'MinRepairRounds',3)
+% executes this registered experiment without invoking Python. TaskIds and
+% MaxTasks select a checkpoint segment without changing the total budget.
+% ExecuteNumerics=false registers/exports the queue only and is never a
+% claim that the numerical campaign has executed.
+    parser=inputParser;addParameter(parser,'Profile','full');addParameter(parser,'Resume',true);
+    addParameter(parser,'MinRepairRounds',3);addParameter(parser,'MaxTasks',Inf);
+    addParameter(parser,'TaskIds',{});addParameter(parser,'ExecuteNumerics',true);
+    parse(parser,varargin{:});opts=parser.Results;
+    v3=fileparts(mfilename('fullpath'));previousPath=path;restore=onCleanup(@()path(previousPath)); %#ok<NASGU>
+    folders={'','Schema_v3','Adapters_v3','Dynamics_v3','Simulation_v3','Orbit_v3', ...
+        'Numerics_v3','Stability_v3','Graphics_v3','Research_v3/Drivers_v3','Research_v3/next_round/solver'};
+    for k=1:numel(folders),folder=fullfile(v3,folders{k});if isfolder(folder),addpath(folder);end,end
+    RoundProtection_v3('verify');cfg=ResolveResearchRoundConfig_v3(opts.Profile);
+    if opts.MinRepairRounds<3,error('RunResearchRound_v3:RepairRounds','This experiment requires at least three materially distinct repair rounds.');end
+    folder=fullfile(v3,'Research_v3','next_round');checkpoint=fullfile(folder,['checkpoint_',cfg.profile,'.mat']);
+    if isfile(checkpoint)
+        if ~opts.Resume,error('RunResearchRound_v3:Preserve','An experiment already exists. Resume it; do not overwrite its registration/results.');end
+        loaded=load(checkpoint,'state');state=loaded.state;state.tasks=migrateTasks(state.tasks);
+        prospective=buildTasks(v3,cfg);
+        for k=1:numel(prospective)
+            if ~ismember(prospective(k).id,{state.tasks.id}),state.tasks(end+1)=prospective(k);end
+        end
+        for k=1:numel(state.tasks)
+            if strcmp(state.tasks(k).state,'running')
+                state.tasks(k).state='external_interruption';state.tasks(k).message='Previous process stopped before its task checkpoint finalized.';
+            end
+        end
+    else
+        state=struct('schema_version','matlab-round-checkpoint-v3-1','profile',cfg.profile, ...
+            'experiment_id',cfg.experiment_id,'starting_commit',cfg.starting_commit, ...
+            'created_utc',char(datetime('now','TimeZone','UTC')),'config',cfg, ...
+            'tasks',buildTasks(v3,cfg),'numerical_wall_seconds',0,'function_evaluations',0, ...
+            'invocations',0,'network_achieved',false,'global_completeness_claimed',false,'status','registered');
+    end
+    state.tasks=appendAcceptedSeedTasks(state.tasks,v3,cfg);
+    state.config=cfg;state.invocations=state.invocations+1;executed=0;visited={};state.status='running';checkpointNow();
+    % A saved passing gate only applies to the exact engines it exercised.
+    gateIndex=find(strcmp({state.tasks.kind},'solver_validation'),1);
+    if ~isempty(gateIndex)&&state.tasks(gateIndex).execution_completed
+        gateFile=fullfile(folder,'solver','solver_validation_summary.mat');
+        if ~isfile(gateFile)
+            state.tasks(gateIndex).execution_completed=false;state.tasks(gateIndex).state='retryable_failure';
+        else
+            saved=load(gateFile,'summary');
+            if ~gateMatches(saved.summary,v3)
+                state.tasks(gateIndex).execution_completed=false;state.tasks(gateIndex).state='retryable_failure';
+                state.tasks(gateIndex).message='Engine source changed after the validation gate; a fresh gate is required.';
+            end
+        end
+        checkpointNow();
+    end
+    if opts.ExecuteNumerics
+        while executed<opts.MaxTasks
+            remaining=cfg.budgets.total_wall_seconds-state.numerical_wall_seconds;
+            if remaining<=0||state.function_evaluations>=cfg.budgets.total_function_evaluations
+                state.status='total_budget_exhausted';break
+            end
+            index=nextTask(state.tasks,opts.TaskIds,visited);if isempty(index),break;end
+            task=state.tasks(index);visited{end+1}=task.id;taskClock=tic; %#ok<AGROW>
+            state.tasks(index).state='running';state.tasks(index).attempts=task.attempts+1;
+            state.tasks(index).last_attempt_repair_revision=task.repair_revision;
+            state.tasks(index).started_utc=char(datetime('now','TimeZone','UTC'));checkpointNow();
+            interruptionGuard=onCleanup(@()recordInterrupted(index,taskClock));
+            slice=min(remaining,cfg.budgets.per_task_wall_seconds);
+            output=fullfile(folder,'tasks',cfg.profile,task.id);if ~isfolder(output),mkdir(output);end
+            if task.attempts>0&&isfile(fullfile(output,'result.mat'))
+                history=fullfile(output,'attempt_history');if ~isfolder(history),mkdir(history);end
+                copyfile(fullfile(output,'result.mat'),fullfile(history,sprintf('attempt_%03d_result.mat',task.attempts)));
+            end
+            fprintf('MATLAB research task%s, round%s, attempt%d, remainingtotal%.1fs, slice%.1fs\n', ...
+                task.id,task.repair_round,state.tasks(index).attempts,remaining,slice);
+            result=struct();failure=[];
+            try
+                switch task.kind
+                    case 'solver_validation'
+                        gateFolder=fullfile(folder,'solver');gateFile=fullfile(gateFolder,'solver_validation_summary.mat');
+                        if isfile(gateFile),gate=load(gateFile,'summary');summary=gate.summary;
+                        else,summary=RunPeriodicSolverValidation_v3(gateFolder);end
+                        result=struct('state','retryable_failure','scientific_status','solver_gates_failed', ...
+                            'new_points',0,'function_evaluations',0,'gate_artifact','Research_v3/next_round/solver/solver_validation_summary.mat');
+                        if summary.all_required_gates_passed&&gateMatches(summary,v3)
+                            result.state='accepted';result.scientific_status='solver_gates_passed';
+                        elseif ~gateMatches(summary,v3),result.scientific_status='solver_gate_source_hash_mismatch';end
+                    case 'P1_source'
+                        result=RunP1ResearchRound_v3(task,cfg,output,slice);
+                    case 'P2_source'
+                        result=RunP2ResearchRound_v3(task,cfg,output,slice);
+                    case 'PIP_candidate'
+                        result=ProcessPIPCandidateQueue_v3(task.candidate_index,cfg,output,slice);
+                    case 'period_two_sector'
+                        result=RunPeriodTwoCandidate_v3(task.candidate_index,cfg,output,slice,task);
+                    case 'branch_identity_bridge'
+                        result=RunLowEnergyPKBridge_v3(task.candidate_index,cfg,output,slice);
+                    case 'attachment_accuracy_repair'
+                        result=RunPIPAttachmentAccuracyRepair_v3(cfg.attachment_accuracy_repair_candidates(task.candidate_index),cfg,output,slice,task);
+                    case 'source_predictor_audit'
+                        result=AuditRoundPredictor_v3(task.fixture_index,cfg,output,slice);
+                    case 'continuation'
+                        seedDescriptor=struct('artifact',task.seed_artifact,'variable',task.seed_variable, ...
+                            'node',task.seed_node,'symmetry',task.symmetry);
+                        result=ExtendRoundBranch_v3(task.seed_kind,task.seed_index,task.direction,cfg,output,slice,seedDescriptor);
+                    otherwise,error('RunResearchRound_v3:TaskKind','Unknown task kind.');
+                end
+            catch exception
+                failure=struct('identifier',exception.identifier,'message',exception.message,'stack',exception.stack);
+                result=struct('state','retryable_failure','scientific_status','numerical_or_driver_failure', ...
+                    'new_points',0,'function_evaluations',0,'failure',failure);
+            end
+            elapsed=toc(taskClock);state.numerical_wall_seconds=state.numerical_wall_seconds+elapsed;
+            current=state.tasks(index);current.state=member(result,'state','retryable_failure');
+            current.scientific_status=member(result,'scientific_status','not_established');
+            current.wall_seconds=current.wall_seconds+elapsed;
+            evaluations=number(result,'function_evaluations',0);points=number(result,'new_points',0);
+            if any(strcmp(task.kind,{'P1_source','P2_source','PIP_candidate','period_two_sector','branch_identity_bridge','attachment_accuracy_repair'}))
+                deltaEvaluations=max(0,evaluations-current.function_evaluations);
+                current.function_evaluations=max(current.function_evaluations,evaluations);
+                current.new_points=max(current.new_points,points);
+            else
+                deltaEvaluations=evaluations;current.function_evaluations=current.function_evaluations+evaluations;
+                current.new_points=current.new_points+points;
+            end
+            state.function_evaluations=state.function_evaluations+deltaEvaluations;
+            current.message=member(result,'message','');current.last_failure=failure;
+            if isempty(failure)&&isfield(result,'failure'),current.last_failure=result.failure;end
+            current.finished_utc=char(datetime('now','TimeZone','UTC'));
+            current.artifact=strrep(fullfile('Research_v3','next_round','tasks',cfg.profile,task.id,'result.mat'),filesep,'/');
+            % Numerical execution and scientific acceptance are independent.
+            current.execution_completed=any(strcmp(current.state,{'accepted','unresolved_obstruction','explicit_unresolved_obstruction'}))&&isempty(failure);
+            if strcmp(task.kind,'solver_validation')&&~strcmp(current.state,'accepted'),current.execution_completed=false;end
+            state.tasks(index)=current;
+            RoundSave_v3(fullfile(output,'result.mat'),struct('result',result,'task',current));
+            state.tasks=appendAcceptedSeedTasks(state.tasks,v3,cfg);
+            appendLedger(fullfile(folder,'execution_ledger.jsonl'),current,cfg,elapsed);
+            executed=executed+1;checkpointNow();RoundProtection_v3('verify');
+            clear interruptionGuard;
+            if strcmp(task.kind,'solver_validation')&&~strcmp(current.state,'accepted')
+                state.status='solver_validation_requires_repair';break
+            end
+        end
+    end
+    if state.numerical_wall_seconds>=cfg.budgets.total_wall_seconds ...
+            ||state.function_evaluations>=cfg.budgets.total_function_evaluations
+        state.status='total_budget_exhausted';
+    elseif strcmp(state.status,'running')
+        if all([state.tasks.execution_completed]),state.status='executed_search_network_incomplete';
+        else,state.status='partial_checkpoint';end
+    end
+    state.last_updated_utc=char(datetime('now','TimeZone','UTC'));checkpointNow();
+    report=ExportResearchRound_v3(state,cfg);report.executed_tasks_this_invocation=executed;
+    RoundJSON_v3(fullfile(folder,['report_',cfg.profile,'.json']),report);RoundProtection_v3('verify');
+    function checkpointNow()
+        RoundSave_v3(checkpoint,struct('state',state));
+        RoundJSON_v3(fullfile(folder,['task_queue_',cfg.profile,'.json']),state);
+    end
+    function recordInterrupted(taskIndex,startedClock)
+        if ~strcmp(state.tasks(taskIndex).state,'running'),return;end
+        elapsed=toc(startedClock);state.numerical_wall_seconds=state.numerical_wall_seconds+elapsed;
+        interrupted=state.tasks(taskIndex);interrupted.state='external_interruption';
+        interrupted.wall_seconds=interrupted.wall_seconds+elapsed;interrupted.execution_completed=false;
+        interrupted.finished_utc=char(datetime('now','TimeZone','UTC'));
+        interrupted.message='MATLAB invocation interrupted; onCleanup preserved actual elapsed task wall time and its last phase checkpoint.';
+        state.tasks(taskIndex)=interrupted;state.status='external_interruption';checkpointNow();
+        appendLedger(fullfile(folder,'execution_ledger.jsonl'),interrupted,cfg,elapsed);
+    end
+end
+function tasks=buildTasks(v3,cfg)
+    tasks=prototype();tasks=tasks([]);tasks(end+1)=newTask('solver_validation','solver_validation','gate',{},0);
+    if strcmp(cfg.profile,'validation')
+        tasks(end+1)=newTask('PK_continuation_m1','continuation','B',{'solver_validation'},0);
+        tasks(end).seed_kind='imported_PK';tasks(end).direction=-1;
+        tasks(end+1)=newTask('PIP_candidate_1','PIP_candidate','B',{'solver_validation'},0);tasks(end).candidate_index=1;
+        return
+    end
+    for k=1:3
+        tasks(end+1)=newTask(sprintf('PIP_candidate_%d',k),'PIP_candidate','B',{'solver_validation'},0);tasks(end).candidate_index=k;
+    end
+    if isfield(cfg,'additional_pip_candidates')
+        for k=1:numel(cfg.additional_pip_candidates)
+            tasks(end+1)=newTask(cfg.additional_pip_candidates(k).id,'PIP_candidate','B',{'solver_validation'},0);
+            tasks(end).candidate_index=3+k;
+        end
+    end
+    if isfield(cfg,'period_two_candidates')
+        for k=1:numel(cfg.period_two_candidates)
+            tasks(end+1)=newTask(cfg.period_two_candidates(k).id,'period_two_sector','C',{'solver_validation'},0);
+            tasks(end).candidate_index=k;
+        end
+    end
+    if isfield(cfg,'branch_identity_bridge_candidates')
+        for k=1:numel(cfg.branch_identity_bridge_candidates)
+            tasks(end+1)=newTask(cfg.branch_identity_bridge_candidates(k).id,'branch_identity_bridge','C',{'solver_validation'},0);
+            tasks(end).candidate_index=k;
+        end
+    end
+    if isfield(cfg,'attachment_accuracy_repair_candidates')
+        for k=1:numel(cfg.attachment_accuracy_repair_candidates)
+            tasks(end+1)=newTask(cfg.attachment_accuracy_repair_candidates(k).id,'attachment_accuracy_repair','C',{'solver_validation'},0);
+            tasks(end).candidate_index=k;
+        end
+    end
+    for direction=[-1,1]
+        id=sprintf('PK_continuation_%s',signName(direction));tasks(end+1)=newTask(id,'continuation','B',{'solver_validation'},0);
+        tasks(end).seed_kind='imported_PK';tasks(end).direction=direction;
+    end
+    for daughter=1:2
+        for direction=[-1,1]
+            id=sprintf('restricted_daughter_%d_%s',daughter,signName(direction));tasks(end+1)=newTask(id,'continuation','B',{'solver_validation'},0);
+            tasks(end).seed_kind='restricted_PIP_daughter';tasks(end).seed_index=daughter;tasks(end).direction=direction;
+        end
+    end
+    loaded=load(fullfile(v3,'Research_v3','next_round','source_inventory.mat'),'inventory');
+    for letter='ABC'
+        for k=1:numel(loaded.inventory.records)
+            source=loaded.inventory.records(k).source;
+            if startsWith(source.study,'P1'),study='P1';else,study='P2';end
+            dependencies={'solver_validation'};
+            if letter>'A',dependencies{end+1}=sprintf('%s_source_%02d_%c',study,k,letter-1);end
+            tasks(end+1)=newTask(sprintf('%s_source_%02d_%c',study,k,letter),[study,'_source'],letter,dependencies,k);
+        end
+    end
+    for k=1:numel(loaded.inventory.records)
+        study='P2';if startsWith(loaded.inventory.records(k).source.study,'P1'),study='P1';end
+        parent=sprintf('%s_source_%02d_B',study,k);
+        tasks(end+1)=newTask([parent,'_predictor_trace'],'source_predictor_audit','B',{'solver_validation',parent},k);
+    end
+    % A BL2 return is a separately saved period-two hypothesis. Primitive
+    % double-flight source cycles are always attempted with BL1 first.
+    for k=1:numel(loaded.inventory.records)
+        if ~startsWith(loaded.inventory.records(k).source.study,'P2'),continue;end
+        parent=sprintf('P2_source_%02d_C',k);
+        tasks(end+1)=newTask([parent,'_BL2_hypothesis'],'P2_source','C',{'solver_validation',parent},k);
+        tasks(end).additional_occurrence=2;
+        tasks(end).occurrence_hypothesis='Additional two-BL-return candidate after primitive BL1 correction; fresh minimal-period and flight-count gates choose primitive status.';
+    end
+end
+function task=newTask(id,kind,round,dependencies,fixture)
+    task=prototype();task.id=id;task.kind=kind;task.repair_round=round;task.dependencies=dependencies;task.fixture_index=fixture;
+end
+function t=prototype()
+    t=struct('id','','kind','','repair_round','','dependencies',{{}},'fixture_index',0, ...
+        'candidate_index',0,'seed_kind','','seed_index',1,'seed_artifact','','seed_variable','', ...
+        'seed_node','','symmetry','pronk','additional_occurrence',[],'occurrence_hypothesis','', ...
+        'direction',1,'state','pending', ...
+        'scientific_status','not_executed','execution_completed',false,'attempts',0,'wall_seconds',0, ...
+        'function_evaluations',0,'new_points',0,'started_utc','','finished_utc','','artifact','','message','','last_failure',[], ...
+        'repair_revision',0,'last_attempt_repair_revision',-1,'repair_log',{{}});
+end
+function tasks=appendAcceptedSeedTasks(tasks,v3,cfg)
+    seeds=RoundAcceptedSeeds_v3(tasks,cfg);
+    for k=1:numel(seeds)
+        seed=seeds(k);
+        for direction=[-1,1]
+            id=[seed.node,'_continuation_',signName(direction)];
+            if ismember(id,{tasks.id}),continue;end
+            task=newTask(id,'continuation',seed.repair_round,{'solver_validation',seed.task_id},0);
+            task.seed_kind='recovered_source';task.seed_index=k;task.direction=direction;
+            task.seed_artifact=seed.artifact;task.seed_variable=seed.variable;
+            task.seed_node=seed.node;task.symmetry=seed.symmetry;tasks(end+1)=task; %#ok<AGROW>
+        end
+    end
+    manifest=struct('schema_version','accepted-seed-continuation-registration-v3-1', ...
+        'profile',cfg.profile,'registered_utc',char(datetime('now','TimeZone','UTC')), ...
+        'method','Both arclength directions for every independently accepted target-model in-domain source/sector orbit; finite total budget shared with all tasks.', ...
+        'seed_count',numel(seeds),'seeds',seeds,'domain_changed',false,'acceptance_tolerances_changed',false);
+    RoundJSON_v3(fullfile(v3,'Research_v3','next_round',['accepted_seed_manifest_',cfg.profile,'.json']),manifest);
+end
+function index=nextTask(tasks,requested,visited)
+    index=[];
+    order=1:numel(tasks);
+    if ~isempty(requested)
+        [found,positions]=ismember(requested,{tasks.id});order=positions(found);
+    end
+    for k=order
+        t=tasks(k);if t.execution_completed||ismember(t.id,visited),continue;end
+        if strcmp(t.state,'retryable_failure')&&t.repair_revision<=t.last_attempt_repair_revision ...
+                &&~strcmp(t.kind,'solver_validation'),continue;end
+        if ~isempty(requested)&&~ismember(t.id,requested),continue;end
+        ready=true;
+        for j=1:numel(t.dependencies)
+            match=find(strcmp({tasks.id},t.dependencies{j}),1);
+            if isempty(match),ready=false;break;end
+            if strcmp(tasks(match).kind,'solver_validation')
+                if ~tasks(match).execution_completed||~strcmp(tasks(match).state,'accepted'),ready=false;break;end
+            elseif tasks(match).attempts==0,ready=false;break;end
+        end
+        if ready,index=k;return;end
+    end
+end
+function tasks=migrateTasks(tasks)
+    exemplar=prototype();names=fieldnames(exemplar);
+    for k=1:numel(names)
+        if ~isfield(tasks,names{k})
+            for j=1:numel(tasks),tasks(j).(names{k})=exemplar.(names{k});end
+        end
+    end
+    tasks=orderfields(tasks,exemplar);
+end
+function name=signName(signValue)
+    if signValue<0,name='m1';else,name='p1';end
+end
+function value=member(source,name,fallback)
+    value=fallback;if isfield(source,name),value=source.(name);end
+end
+function value=number(source,name,fallback)
+    value=member(source,name,fallback);if ~isnumeric(value)||~isscalar(value)||~isfinite(value),value=fallback;end
+end
+function appendLedger(file,task,cfg,elapsed)
+    record=struct('utc',char(datetime('now','TimeZone','UTC')),'experiment_id',cfg.experiment_id, ...
+        'task',task,'invocation_wall_seconds',elapsed,'numerical_method','MATLAB production engines', ...
+        'model_id',cfg.model_id,'config_registration',cfg.created_utc);
+    fid=fopen(file,'a');if fid<0,error('RunResearchRound_v3:Ledger','Cannot append ledger.');end
+    cleanup=onCleanup(@()fclose(fid));fprintf(fid,'%s\n',jsonencode(record));
+end
+function matched=gateMatches(summary,v3)
+    matched=isfield(summary,'source_hashes')&&isfield(summary,'all_required_gates_passed')&&summary.all_required_gates_passed;
+    if ~matched,return;end
+    for k=1:numel(summary.source_hashes)
+        source=summary.source_hashes(k);file=fullfile(v3,source.path);
+        if ~isfile(file)||~strcmp(RoundSHA256_v3(file),source.sha256),matched=false;return;end
+    end
+end

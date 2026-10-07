@@ -1,0 +1,309 @@
+{
+  "schema_version": "typed-next-round-ancestry-v3-1",
+  "model_id": "v3-autonomous-first-directed-root-compressive-stance",
+  "physical_parameters": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "domain": {
+    "energy": [
+      0.78061524791284342,
+      250.66912494952322
+    ],
+    "mean_speed": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "pitch_abs_max": 1.2,
+    "primitive_period_max": 20.740683444789454,
+    "event_count_max": 128,
+    "contact_law": "first eligible descending TD, ascending LO, no tensile stance",
+    "targets": [
+      "PIP",
+      "PK",
+      "BD",
+      "HB_front",
+      "HB_hind",
+      "GP",
+      "B2",
+      "F2",
+      "H2",
+      "G2",
+      "PC",
+      "TR",
+      "TL"
+    ],
+    "equivalences": [
+      "horizontal translation",
+      "time phase",
+      "proven fixed-parameter leg symmetries"
+    ],
+    "connectivity": "regular bifurcation network; nonsmooth connections recorded separately",
+    "initial_speed_diagnostic": [
+      -30.634776084593028,
+      30.634776084593028
+    ],
+    "energy_stages": {
+      "ordinary_parent_and_P2": [
+        0.78061524791284342,
+        3
+      ],
+      "P1_critical_neighborhood": [
+        8,
+        14
+      ],
+      "full_source_comparison": [
+        0.78061524791284342,
+        250.66912494952322
+      ],
+      "ordinary_vertical_PIP": [
+        1.000001,
+        3
+      ]
+    },
+    "derivation": {
+      "energy": "1.2 times maximum algebraic mapped source energy; minimum12",
+      "mean_speed": "Prospective broad bound from1.5 times max initial source speed; initial and mean speed remain separate observables",
+      "period": "1.5 times max positive source period predictor; minimum12",
+      "pitch": "1.2 times maximum source absolute pitch; minimum1.2",
+      "source_initial_ranges": [
+        -20.175019627029947,
+        20.423184056395353
+      ],
+      "historical_P1_critical_initial_speed": 4.43406193516227,
+      "historical_P1_critical_kinetic_energy": 9.8304526224274884
+    },
+    "initial_subunit_source_audit": "Research_v3/next_round/solver/domain_lower_energy_audit.json"
+  },
+  "historical_graph_read_only": "Research_v3/graph/index.json",
+  "nodes": [
+    {
+      "id": "historical_PIP",
+      "type": "parent_family",
+      "label": "PIP",
+      "status": "historically_replayed",
+      "evidence": "Research_v3/runs/full/vertical.json",
+      "scope": "ordinary vertical parent"
+    },
+    {
+      "id": "historical_imported_PK",
+      "type": "imported_family",
+      "label": "PK",
+      "status": "historically_replayed",
+      "evidence": "Research_v3/runs/full/fixed_family.json",
+      "scope": "imported PK; PIP ancestry unresolved"
+    },
+    {
+      "id": "historical_restricted_daughter_1",
+      "type": "restricted_daughter",
+      "label": "PK",
+      "status": "restricted_local_attachment",
+      "evidence": "Research_v3/runs/full/pip_pk_local.json",
+      "scope": "critical E1.5551652516426646; invariant-pronk scope only"
+    },
+    {
+      "id": "historical_restricted_daughter_2",
+      "type": "restricted_daughter",
+      "label": "PK",
+      "status": "restricted_local_attachment",
+      "evidence": "Research_v3/runs/full/pip_pk_local.json",
+      "scope": "critical E1.6959508361671367; invariant-pronk scope only"
+    },
+    {
+      "id": "analytic_restricted_PIP_local_PK_n0",
+      "type": "analytic_restricted_local_existence",
+      "label": "PK",
+      "status": "analytic_local_existence",
+      "evidence": "Docs_v3/Restricted_Odd_Quarter_PIP_Existence_v3.md",
+      "scope": "Exact baseline synchronized-pronk restriction; E_n=1.061685027506809; positive height; simple +1 crossing and opposite nonzero drift. No computed-orbit attachment or full-space C2 certificate."
+    },
+    {
+      "id": "analytic_restricted_PIP_local_PK_n1",
+      "type": "analytic_restricted_local_existence",
+      "label": "PK",
+      "status": "analytic_local_existence",
+      "evidence": "Docs_v3/Restricted_Odd_Quarter_PIP_Existence_v3.md",
+      "scope": "Exact baseline synchronized-pronk restriction; E_n=1.555165247561276; positive height; simple +1 crossing and opposite nonzero drift. No computed-orbit attachment or full-space C2 certificate."
+    },
+    {
+      "id": "analytic_restricted_PIP_local_PK_n2",
+      "type": "analytic_restricted_local_existence",
+      "label": "PK",
+      "status": "analytic_local_existence",
+      "evidence": "Docs_v3/Restricted_Odd_Quarter_PIP_Existence_v3.md",
+      "scope": "Exact baseline synchronized-pronk restriction; E_n=2.542125687670212; positive height; simple +1 crossing and opposite nonzero drift. No computed-orbit attachment or full-space C2 certificate."
+    },
+    {
+      "id": "PK_continuation_m1",
+      "type": "continuation_segment",
+      "label": "PK",
+      "status": "partial_checkpoint",
+      "evidence": "Research_v3/next_round/tasks/validation/PK_continuation_m1/result.mat",
+      "scope": "24 accepted records; 2 newly appended; attachment unresolved"
+    },
+    {
+      "id": "PIP_candidate_1",
+      "type": "spectral_candidate",
+      "label": "PIP",
+      "status": "partial_checkpoint",
+      "evidence": "Research_v3/next_round/tasks/validation/PIP_candidate_1/result.mat",
+      "scope": "unprocessed"
+    },
+    {
+      "id": "target_PK_to_BD",
+      "type": "requested_connection",
+      "label": "PK_to_BD",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_BD_to_HB_front",
+      "type": "requested_connection",
+      "label": "BD_to_HB_front",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_BD_to_HB_hind",
+      "type": "requested_connection",
+      "label": "BD_to_HB_hind",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_HB_front_to_GP",
+      "type": "requested_connection",
+      "label": "HB_front_to_GP",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_HB_hind_to_GP",
+      "type": "requested_connection",
+      "label": "HB_hind_to_GP",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_ordinary_PIP_to_B2",
+      "type": "requested_connection",
+      "label": "ordinary_PIP_to_B2",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_B2_to_F2",
+      "type": "requested_connection",
+      "label": "B2_to_F2",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_B2_to_H2",
+      "type": "requested_connection",
+      "label": "B2_to_H2",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_F2_to_G2",
+      "type": "requested_connection",
+      "label": "F2_to_G2",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_H2_to_G2",
+      "type": "requested_connection",
+      "label": "H2_to_G2",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    },
+    {
+      "id": "target_PIP_PK_imported_bridge",
+      "type": "requested_connection",
+      "label": "PIP_PK_imported_bridge",
+      "status": "not_established_in_executed_search",
+      "evidence": "Research_v3/next_round/task_queue_full.json",
+      "scope": "Named target requires accepted orbits plus attachment evidence."
+    }
+  ],
+  "edges": [
+    {
+      "from": "historical_PIP",
+      "to": "historical_restricted_daughter_1",
+      "type": "restricted_local_attachment",
+      "status": "numerically_supported",
+      "scope": "pronk invariant subspace; no full-system stability",
+      "evidence": "Research_v3/runs/full/pip_pk_local.json"
+    },
+    {
+      "from": "historical_PIP",
+      "to": "historical_restricted_daughter_2",
+      "type": "restricted_local_attachment",
+      "status": "numerically_supported",
+      "scope": "pronk invariant subspace; no full-system stability",
+      "evidence": "Research_v3/runs/full/pip_pk_local.json"
+    },
+    {
+      "from": "historical_PIP",
+      "to": "analytic_restricted_PIP_local_PK_n0",
+      "type": "analytic_restricted_local_existence",
+      "status": "proved_for_exact_baseline_restriction",
+      "scope": "Analytic invariant return and simple-branch theorem; executed algebra checks are supporting implementation evidence. Numerical daughter attachment remains a separate gate.",
+      "evidence": "Research_v3/next_round/theory/restricted_odd_quarter_proof_audit.json"
+    },
+    {
+      "from": "historical_PIP",
+      "to": "analytic_restricted_PIP_local_PK_n1",
+      "type": "analytic_restricted_local_existence",
+      "status": "proved_for_exact_baseline_restriction",
+      "scope": "Analytic invariant return and simple-branch theorem; executed algebra checks are supporting implementation evidence. Numerical daughter attachment remains a separate gate.",
+      "evidence": "Research_v3/next_round/theory/restricted_odd_quarter_proof_audit.json"
+    },
+    {
+      "from": "historical_PIP",
+      "to": "analytic_restricted_PIP_local_PK_n2",
+      "type": "analytic_restricted_local_existence",
+      "status": "proved_for_exact_baseline_restriction",
+      "scope": "Analytic invariant return and simple-branch theorem; executed algebra checks are supporting implementation evidence. Numerical daughter attachment remains a separate gate.",
+      "evidence": "Research_v3/next_round/theory/restricted_odd_quarter_proof_audit.json"
+    },
+    {
+      "from": "historical_imported_PK",
+      "to": "PK_continuation_m1",
+      "type": "continuation",
+      "status": "accepted_points",
+      "scope": "fixed target parameters; physical chart restriction pronk",
+      "evidence": "Research_v3/next_round/tasks/validation/PK_continuation_m1/result.mat"
+    },
+    {
+      "from": "historical_PIP",
+      "to": "PIP_candidate_1",
+      "type": "unresolved_candidate",
+      "status": "partial_checkpoint",
+      "scope": "Spectral phase checkpoint is not a branch-existence certificate.",
+      "evidence": "Research_v3/next_round/tasks/validation/PIP_candidate_1/result.mat"
+    }
+  ],
+  "network_achieved": false,
+  "global_completeness_claimed": false
+}

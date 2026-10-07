@@ -1,0 +1,207 @@
+function phase=RunLandingPredictorAlternatives_v3(source,cfg,outputDirectory,maxWallSeconds)
+%RUNLANDINGPREDICTORALTERNATIVES_V3 Causal alternative for extending landings.
+% A rate reversal is a distinct predictor, never an overwritten legacy seed.
+% Swing rates have no kinetic-energy contribution in the massless-leg model.
+    clock=tic;file=fullfile(outputDirectory,'landing_alternative_checkpoint.mat');
+    if isfile(V3Path_v3(file)),loaded=load(V3Path_v3(file),'phase');phase=loaded.phase;
+    else
+        phase=struct('schema_version','causal-landing-alternative-v3-1','state','partial_checkpoint', ...
+            'next_trial',1,'candidates',struct([]),'trials',struct([]), ...
+            'accepted_observations',struct([]),'accepted_count',0,'function_evaluations',0);
+    end
+    % The first eligibility rule required a wrapped solver identifier to
+    % mention tensile stance. A C predictor can fail earlier at a section
+    % admission check; the measured B landing is still a valid motivation
+    % for testing a distinct rate phase of the same near-pronk source.
+    if isempty(phase.candidates)&&~isfield(phase,'eligibility_revision')
+        phase.eligibility_revision=1;
+        phase.previous_empty_phase=phase.state;
+        for k=1:numel(source.observations)
+            observation=source.observations(k);
+            if observation.accepted||observation.source_energy<8||~observation.target_model_parameters,continue;end
+            if ~isfield(observation.symmetry_projection,'applied')||~observation.symmetry_projection.applied,continue;end
+            loaded=load(V3Path_v3(fullfile(outputDirectory,observation.artifact)),'predictor');seed=loaded.predictor;
+            if any(seed.mode)||abs(seed.state(8))<.1,continue;end
+            original=seed.state;seed.state([8,10,12,14])=-seed.state([8,10,12,14]);
+            seed.provenance.causal_landing_alternative=struct('origin',observation.artifact, ...
+                'change','Reverse all four synchronized initial swing rates; preserve body/mode/physical parameters/source E.', ...
+                'large_source_change',true,'first_directed_root_law_changed',false, ...
+                'reason','Measured TD reset changed negative pre-TD foot derivative into positive post-TD extension; new rate phase is an alternative shooting seed.');
+            seed.source_state_unmodified=false;
+            entry=struct('seed',seed,'observation',observation,'original_predictor',original, ...
+                'state_change',seed.state-original,'energy',observation.source_energy);
+            if isempty(phase.candidates),phase.candidates=entry;else,phase.candidates(end+1)=entry;end %#ok<AGROW>
+        end
+        if isempty(phase.candidates),phase.state='unresolved_obstruction';else,phase.state='partial_checkpoint';end
+        checkpoint();
+    end
+    if ~isfield(phase,'duplicate_predictor_aliases')
+        keep=[];aliases=[];
+        for k=1:numel(phase.candidates)
+            duplicate=false;
+            for j=keep
+                if isequaln(phase.candidates(k).seed.state,phase.candidates(j).seed.state) ...
+                        &&isequaln(phase.candidates(k).seed.parameter,phase.candidates(j).seed.parameter)
+                    aliases(end+1,:)=[k,j];duplicate=true;break %#ok<AGROW>
+                end
+            end
+            if ~duplicate,keep(end+1)=k;end %#ok<AGROW>
+        end
+        phase.duplicate_predictor_aliases=aliases;
+        phase.original_candidates=phase.candidates;
+        phase.candidates=phase.candidates(keep);checkpoint();
+    end
+    if ~isempty(phase.candidates)&&~isfield(phase.candidates,'variant')
+        for k=1:numel(phase.candidates),phase.candidates(k).variant='reversed_swing_rates';end
+    end
+    if ~isfield(phase,'positive_phase_offsets_registered')
+        phase.positive_phase_offsets_registered=true;
+        existing=phase.candidates;
+        for k=1:numel(existing)
+            candidate=existing(k);
+            mapped=load(V3Path_v3(fullfile(outputDirectory,candidate.observation.converted_artifact)),'converted');
+            raw=mapped.converted;body=raw.state;p=raw.parameter;
+            if any(raw.mode)||body(3)<=.01||body(3)>=p(5),continue;end
+            action=mean(body([8,10,12,14]))^2+p(3)*mean(body([7,9,11,13]))^2;
+            for clearance=[1e-3,1e-2]
+                angle=acos((body(3)-clearance)/p(5));rateSquared=action-p(3)*angle^2;
+                if rateSquared<=0,continue;end
+                seed=candidate.seed;seed.state=body;seed.state([5,6])=0;
+                seed.state([7,9,11,13])=angle;seed.state([8,10,12,14])=sqrt(rateSquared);
+                seed.provenance.causal_positive_phase_offset=struct('original_converted_artifact',candidate.observation.converted_artifact, ...
+                    'prescribed_initial_foot_clearance',clearance,'swing_oscillator_action',action, ...
+                    'body_state_restored_from_original_source',true,'source_energy_preserved',true, ...
+                    'large_source_change',true,'ancestry_claimed',false);
+                phaseCandidate=candidate;phaseCandidate.seed=seed;
+                phaseCandidate.variant=sprintf('positive_phase_clearance_%g',clearance);
+                phaseCandidate.state_change=seed.state-candidate.original_predictor;
+                phase.candidates(end+1)=phaseCandidate; %#ok<AGROW>
+            end
+        end
+        if numel(phase.candidates)>numel(existing),phase.state='partial_checkpoint';end
+        registerPositivePhase();checkpoint();
+    end
+    while phase.next_trial<=numel(phase.candidates)&&maxWallSeconds-toc(clock)>=30
+        index=phase.next_trial;candidate=phase.candidates(index);seed=candidate.seed;attempt=1;initialJacobian=[];
+        if isfield(phase,'partial_trial')&&phase.partial_trial.index==index
+            seed.state=phase.partial_trial.best_candidate;initialJacobian=phase.partial_trial.final_jacobian;
+            if any(~isfinite(initialJacobian(:))),initialJacobian=[];end
+            attempt=phase.partial_trial.attempt+1;
+        end
+        artifact=sprintf('landing_%s_%05d_attempt_%03d.mat',candidate.variant,candidate.observation.column,attempt);
+        while isfile(V3Path_v3(fullfile(outputDirectory,artifact)))
+            attempt=attempt+1;artifact=sprintf('landing_%s_%05d_attempt_%03d.mat',candidate.variant,candidate.observation.column,attempt);
+        end
+        RoundSave_v3(fullfile(outputDirectory,['predictor_',artifact]),struct('seed',seed,'candidate',candidate));
+        registerMethod();
+        trace=SourceTrialTrace_v3(seed,struct('Horizon',min(candidate.observation.source_period,cfg.domain.primitive_period_max), ...
+            'Integration',struct('RelTol',cfg.integration.relative_tolerance,'AbsTol',cfg.integration.absolute_tolerance)));
+        options=struct('Symmetry','pronk','FamilyConstraint','fixed-energy','Energy',candidate.energy, ...
+            'MaxWallSeconds',max(1,maxWallSeconds-toc(clock)), ...
+            'MaxReturnTime',cfg.domain.primitive_period_max,'MaxCycleEvents',cfg.domain.event_count_max, ...
+            'Integration',struct('RelTol',cfg.integration.relative_tolerance,'AbsTol',cfg.integration.absolute_tolerance), ...
+            'ReplayIntegration',struct('RelTol',cfg.integration.replay_relative_tolerance,'AbsTol',cfg.integration.replay_absolute_tolerance), ...
+            'SolverOptions',struct('UseBroyden',true,'JacobianRefreshInterval',5,'InitialJacobian',initialJacobian, ...
+                'Jacobian',HybridFiniteDifferenceJacobian_v3(struct('RelativeCandidateSteps',1e-4,'MaximumRelativeError',.001)), ...
+                'MaxIterations',cfg.budgets.root_max_iterations,'MaxFunctionEvaluations',cfg.budgets.root_max_function_evaluations, ...
+                'FunctionTolerance',1e-12,'ResidualAcceptanceTolerance',cfg.acceptance.reduced_residual), ...
+            'Acceptance',struct('FullClosureTolerance',cfg.acceptance.full_closure,'EnergyTolerance',cfg.acceptance.energy));
+        [solution,report]=PeriodicSolutionSolver_v3(seed,options);
+        observation=candidate.observation;observation.candidate_variant=candidate.variant;
+        mapped=load(V3Path_v3(fullfile(outputDirectory,candidate.observation.converted_artifact)),'converted');
+        observation.source_to_predictor_change=seed.state-mapped.converted.state;
+        observation.source_to_final_change=nan(14,1);
+        observation.artifact=artifact;observation.accepted=~isempty(solution);observation.symmetry='pronk';
+        observation.evidence_label='unresolved_causal_landing_alternative';
+        observation.predictor_first_physical_failure=trace.first_physical_failure;
+        observation.predictor_first_event_discrepancy=trace.first_event_discrepancy;
+        observation.primary_failure=report.primary_failure;observation.final_closure=report.full_closure;
+        if observation.accepted
+            gait=GaitIdentification_v3(solution);observation.gait=char(gait.label);observation.flight_count=gait.flight_count;
+            observation.state='accepted';observation.evidence_label='alternative_v3_landing_phase_corrected_orbit_ancestry_unresolved';
+            observation.accepted_in_registered_domain=inDomain(solution,cfg);
+            observation.correction_norm=norm(solution.initial_state-candidate.original_predictor,inf);
+            observation.source_to_final_change=solution.initial_state-mapped.converted.state;
+            phase.accepted_count=phase.accepted_count+1;
+            if isempty(phase.accepted_observations),phase.accepted_observations=observation;
+            else,phase.accepted_observations(end+1)=observation;end %#ok<AGROW>
+        end
+        predictor=seed;RoundSave_v3(fullfile(outputDirectory,artifact),struct('solution',solution,'report',report, ...
+            'predictor',predictor,'trace',trace,'observation',observation,'candidate',candidate));
+        phase.function_evaluations=phase.function_evaluations+member(report.solver,'functionEvaluationCount',0);
+        if isempty(solution)&&toc(clock)>=maxWallSeconds&&numel(report.final_candidate)==14
+            phase.partial_trial=struct('index',index,'attempt',attempt,'best_candidate',report.final_candidate, ...
+                'final_jacobian',member(report.solver,'finalJacobian',[]),'artifact',artifact);
+            checkpoint();break
+        end
+        trial=struct('column',candidate.observation.column,'candidate_variant',candidate.variant,'artifact',artifact,'accepted',observation.accepted, ...
+            'full_closure',report.full_closure,'primary_failure',report.primary_failure,'replay_failure',report.replay_failure, ...
+            'state_change',candidate.state_change,'source_to_predictor_change',observation.source_to_predictor_change, ...
+            'source_to_final_change',observation.source_to_final_change, ...
+            'contact_timeline',contactTimeline(trace,seed.parameter), ...
+            'trace_success',trace.execution.success,'first_physical_failure',trace.first_physical_failure, ...
+            'ancestry_claimed',false);
+        if isempty(phase.trials),phase.trials=trial;else,phase.trials(end+1)=trial;end %#ok<AGROW>
+        phase.next_trial=index+1;
+        if isfield(phase,'partial_trial'),phase=rmfield(phase,'partial_trial');end
+        checkpoint();
+    end
+    if phase.next_trial>numel(phase.candidates),phase.state='accepted';end
+    checkpoint();
+    function checkpoint()
+        RoundSave_v3(file,struct('phase',phase));RoundJSON_v3(fullfile(outputDirectory,'landing_alternative.json'),phase);
+    end
+    function registerMethod()
+        v3=V3Root_v3(mfilename('fullpath'));
+        registration=fullfile(v3,'Research_v3','next_round','landing_rate_alternative_registration.json');
+        if isfile(V3Path_v3(registration)),return;end
+        record=struct('schema_version','prospective-landing-rate-phase-repair-v3-1', ...
+            'registered_utc',char(datetime('now','TimeZone','UTC')), ...
+            'evidence','Research_v3/next_round/solver/high_PK_source_forensics.json', ...
+            'diagnosis','Mapped TD pre-guard derivative−1.32241428 becomes post-reset extension+1.36291047, immediately leaving compressive stance.', ...
+            'method','Distinct synchronized swing-rate reversal at same body state/source energy; first directed root and physical parameter law preserved; shared fixed-energy correction and independent replay.', ...
+            'finite_scope','One explicit alternative per eligible high-energy near-pronk source; task budget shared with all other research.', ...
+            'acceptance_tolerances_changed',false,'source_conversion_overwritten',false,'ancestry_claimed',false);
+        RoundJSON_v3(registration,record);
+    end
+    function registerPositivePhase()
+        v3=V3Root_v3(mfilename('fullpath'));
+        file=fullfile(v3,'Research_v3','next_round','landing_positive_phase_registration.json');
+        if isfile(V3Path_v3(file)),return;end
+        registration=struct('schema_version','prospective-positive-landing-phase-v3-1', ...
+            'registered_utc',char(datetime('now','TimeZone','UTC')), ...
+            'evidence','Research_v3/next_round/solver/high_PK_source_forensics.json', ...
+            'diagnosis','Original near-pronk source flight feet penetrate at the apex; body-height lift and tiny symmetry projection do not fix outgoing extension at a later touchdown.', ...
+            'method','Restore original body state and source energy; set common positive swing angle from initial foot clearance1e-3 or1e-2; choose positive common swing rate preserving beta^2+kappa*alpha^2. These are explicitly modified physical phase seeds.', ...
+            'initial_foot_clearances',[1e-3,1e-2],'maximum_additional_predictors_per_source',2, ...
+            'task_wall_slice_seconds',cfg.budgets.per_task_wall_seconds, ...
+            'source_conversion_overwritten',false,'acceptance_tolerances_changed',false, ...
+            'physical_first_root_law_changed',false,'ancestry_claimed',false);
+        RoundJSON_v3(file,registration);
+    end
+end
+function value=member(source,name,fallback)
+    value=fallback;if isfield(source,name),value=source.(name);end
+end
+function yes=inDomain(orbit,cfg)
+    energy=QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,orbit.parameter);
+    speed=orbit.stride_displacement(1)/orbit.period;
+    yes=energy>=cfg.domain.energy(1)&&energy<=cfg.domain.energy(2)&&speed>=cfg.domain.mean_speed(1) ...
+        &&speed<=cfg.domain.mean_speed(2)&&orbit.period<=cfg.domain.primitive_period_max ...
+        &&max(abs(orbit.trajectory.state(:,5)))<=cfg.domain.pitch_abs_max&&sum(~[orbit.event_history.is_stop])<=cfg.domain.event_count_max;
+end
+function rows=contactTimeline(trace,p)
+    rows=struct([]);model=Quadrupedal_Dynamics_v3();
+    for k=1:numel(trace.trajectory.event_history)
+        event=trace.trajectory.event_history(k);if event.is_stop,continue;end
+        row=struct('type',char(event.type),'time',event.time,'mode_before',event.mode_before, ...
+            'mode_after',event.mode_after,'guard_derivatives_before',[],'guard_derivatives_after',[],'diagnostic_failure','');
+        try
+            before=model.guardFunctions(event.time,event.state_before,event.mode_before,p);
+            after=model.guardFunctions(event.time,event.state_after,event.mode_after,p);
+            row.guard_derivatives_before=[before.directional_derivative].';
+            row.guard_derivatives_after=[after.directional_derivative].';
+        catch ex,row.diagnostic_failure=[ex.identifier,': ',ex.message];end
+        if isempty(rows),rows=row;else,rows(end+1)=row;end %#ok<AGROW>
+    end
+end

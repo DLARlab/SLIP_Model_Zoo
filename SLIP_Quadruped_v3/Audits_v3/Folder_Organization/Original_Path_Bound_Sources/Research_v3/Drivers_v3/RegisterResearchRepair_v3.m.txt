@@ -1,0 +1,26 @@
+function state=RegisterResearchRepair_v3(taskIds,diagnosis,action,evidence,profile)
+%REGISTERRESEARCHREPAIR_V3 Record a causal repair before retrying a failed task.
+% This never changes tolerances, claims a successful retry, or resets counts.
+    if nargin<5,profile='full';end
+    profile=validatestring(profile,{'validation','full'});
+    validateattributes(diagnosis,{'char','string'},{'nonempty'});validateattributes(action,{'char','string'},{'nonempty'});
+    if ischar(taskIds)||isstring(taskIds),taskIds=cellstr(taskIds);end
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));folder=fullfile(v3,'Research_v3','next_round');
+    file=fullfile(folder,['checkpoint_',profile,'.mat']);loaded=load(file,'state');state=loaded.state;
+    for k=1:numel(taskIds)
+        index=find(strcmp({state.tasks.id},taskIds{k}),1);
+        if isempty(index),error('RegisterResearchRepair_v3:Task','Unknown task%s.',taskIds{k});end
+        if strcmp(state.tasks(index).state,'running'),error('RegisterResearchRepair_v3:Running','Do not change a task during an active invocation.');end
+        entry=struct('utc',char(datetime('now','TimeZone','UTC')),'diagnosis',char(diagnosis), ...
+            'repair_action',char(action),'evidence',evidence,'previous_state',state.tasks(index).state);
+        if ~isfield(state.tasks,'repair_revision')
+            for j=1:numel(state.tasks)
+                state.tasks(j).repair_revision=0;state.tasks(j).last_attempt_repair_revision=-1;state.tasks(j).repair_log={};
+            end
+        end
+        state.tasks(index).repair_revision=state.tasks(index).repair_revision+1;
+        state.tasks(index).repair_log{end+1}=entry;
+        state.tasks(index).execution_completed=false;
+    end
+    RoundSave_v3(file,struct('state',state));RoundJSON_v3(fullfile(folder,['task_queue_',profile,'.json']),state);
+end

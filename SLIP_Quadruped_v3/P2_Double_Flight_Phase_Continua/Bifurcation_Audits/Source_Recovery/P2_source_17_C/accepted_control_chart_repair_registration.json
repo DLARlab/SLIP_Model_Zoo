@@ -1,0 +1,31 @@
+{
+  "registered_utc": "07-Oct-2026 13:46:59",
+  "task": "P2_source_17_C",
+  "column": 1,
+  "method": {
+    "method": "Accepted A/B source-column control as explicitly distinct C initial iterate; unrestricted common-C1 chart corrector.",
+    "source_artifact": "Research_v3/next_round/tasks/full/P2_source_17_B/column_00001_revision_000_correction.mat",
+    "current_helper_gate": "Research_v3/next_round/theory/two_BL_chart_validation.json",
+    "helper_sha256": "3edbe1bb7ec4852e0ca5a21d7d456c67a11c2a75c11e67e4010a8e6cc52a7d1d",
+    "state_change_from_C_predictor": [
+      0,
+      3.9329551681371866E-9,
+      0,
+      0,
+      -3.0770453670648755E-16,
+      -9.1783561235963339E-16,
+      -1.2536087589071386E-19,
+      3.4694469519536142E-18,
+      -1.2536087589071386E-19,
+      3.4694469519536142E-18,
+      -1.2536087589071386E-19,
+      3.4694469519536142E-18,
+      -1.2536087589071386E-19,
+      3.4694469519536142E-18
+    ],
+    "source_conversion_overwritten": false,
+    "acceptance_tolerances_changed": false,
+    "ancestry_claimed": false,
+    "scope": "Baseline physical parameters, flight-to-flight BL1, actual transverse TD-all then LO-all; every finite-difference trial independently verifies its cohorts; no C2 certificate."
+  }
+}

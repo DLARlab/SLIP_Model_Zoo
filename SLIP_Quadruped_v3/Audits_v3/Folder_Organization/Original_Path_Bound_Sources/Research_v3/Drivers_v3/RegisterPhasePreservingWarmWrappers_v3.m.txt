@@ -1,0 +1,37 @@
+function registration=RegisterPhasePreservingWarmWrappers_v3()
+%REGISTERPHASEPRESERVINGWARMWRAPPERS_V3 Record a flag repair without reset.
+% No map evaluations; C17's same constraint and finite partial J survive.
+    v3=fileparts(fileparts(fileparts(mfilename('fullpath'))));folder=fullfile(v3,'Research_v3/next_round');
+    file=fullfile(folder,'warm_wrapper_registration.json');
+    if isfile(file),registration=jsondecode(fileread(file));return;end
+    paths={'Research_v3/Drivers_v3/RunFamilySectorCorrections_v3.m', ...
+        'Research_v3/Drivers_v3/RunOpposedSpreadPeriodTwo_v3.m','Numerics_v3/RootSolver_v3.m'};
+    hashes=struct('path',{},'sha256',{});
+    for k=1:numel(paths),hashes(k)=struct('path',paths{k},'sha256',RoundSHA256_v3(fullfile(v3,paths{k})));end
+    registration=struct('registered_utc',char(datetime('now','TimeZone','UTC')), ...
+        'schema_version','prospective-phase-preserving-warm-wrapper-v3-1', ...
+        'diagnosis','Passing InitialJacobian alone did not enable RootSolver.ReuseJacobian; its public default is false.', ...
+        'repair','Explicitly enable reuse only for finite matching-size same-parameter/mode/constraint partial matrices; keep independent physical acceptance.', ...
+        'source_hashes',hashes,'physical_parameter',[10;10;20;20;1;1;0;0;2;.5], ...
+        'source_fullspace_matrix_size',[13,13],'standing_restricted_matrix_size',[3,3], ...
+        'phase_reset_required',false,'acceptance_tolerances_changed',false, ...
+        'evidence','Research_v3/next_round/tasks/full/P2_source_17_C/sector_01_signed_-0.001_revision_001_attempt_001.mat');
+    RoundSave_v3(fullfile(folder,'warm_wrapper_registration.mat'),struct('registration',registration));RoundJSON_v3(file,registration);
+    journalFile=fullfile(folder,'opposed_spread_campaign_method_revisions.json');journal=jsondecode(fileread(journalFile));
+    revision=journal.entries(end);revision.revision=revision.revision+1;revision.registered_utc=registration.registered_utc;
+    revision.diagnosis=registration.diagnosis;revision.repair=registration.repair;
+    for k=1:numel(revision.source_hashes)
+        revision.source_hashes(k).sha256=RoundSHA256_v3(fullfile(v3,revision.source_hashes(k).path));
+    end
+    revision.failure_evidence={registration.evidence};revision.known_failed_solver_evaluations=NaN;
+    journal.entries(end+1)=revision;
+    RoundSave_v3(fullfile(folder,'opposed_spread_campaign_method_revisions.mat'),struct('journal',journal));RoundJSON_v3(journalFile,journal);
+    loaded=load(fullfile(folder,'checkpoint_full.mat'),'state');state=loaded.state;
+    index=find(strcmp({state.tasks.id},'P2_source_17_C'),1);
+    assert(~strcmp(state.tasks(index).state,'running'),'The full writer must be stopped.');
+    entry=struct('utc',registration.registered_utc,'diagnosis',registration.diagnosis,'repair_action',registration.repair, ...
+        'evidence','Research_v3/next_round/warm_wrapper_registration.json','previous_state',state.tasks(index).state, ...
+        'phase_reset_required',false,'repair_revision_incremented',false);
+    state.tasks(index).repair_log{end+1}=entry;state.wrapper_warm_start_registration='Research_v3/next_round/warm_wrapper_registration.json';
+    RoundSave_v3(fullfile(folder,'checkpoint_full.mat'),struct('state',state));
+end

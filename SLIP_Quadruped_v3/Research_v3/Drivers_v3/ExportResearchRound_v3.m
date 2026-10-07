@@ -1,0 +1,376 @@
+function report=ExportResearchRound_v3(state,cfg)
+%EXPORTRESEARCHROUND_V3 MATLAB reports, typed graph and scientific figures.
+% Execution state never implies an ancestry edge or a nonexistence result.
+    v3=V3Root_v3(mfilename('fullpath'));folder=fullfile(v3,'Research_v3','next_round');
+    graphFolder=fullfile(folder,'graph');if ~isfolder(V3Path_v3(graphFolder)),mkdir(V3Path_v3(graphFolder));end
+    graph=struct('schema_version','typed-next-round-ancestry-v3-1','model_id',cfg.model_id, ...
+        'physical_parameters',cfg.baseline_v3_parameters,'domain',cfg.domain, ...
+        'historical_graph_read_only','Research_v3/graph/index.json','nodes',struct([]),'edges',struct([]), ...
+        'network_achieved',false,'global_completeness_claimed',false);
+    emptyEdges=edge('','','','','','');graph.edges=emptyEdges([]);
+    graph.nodes=node('historical_PIP','parent_family','PIP','historically_replayed','Research_v3/runs/full/vertical.json','ordinary vertical parent');
+    graph.nodes(end+1)=node('historical_imported_PK','imported_family','PK','historically_replayed','Research_v3/runs/full/fixed_family.json','imported PK; PIP ancestry unresolved');
+    graph.nodes(end+1)=node('historical_restricted_daughter_1','restricted_daughter','PK','restricted_local_attachment', ...
+        'Research_v3/runs/full/pip_pk_local.json','critical E1.5551652516426646; invariant-pronk scope only');
+    graph.nodes(end+1)=node('historical_restricted_daughter_2','restricted_daughter','PK','restricted_local_attachment', ...
+        'Research_v3/runs/full/pip_pk_local.json','critical E1.6959508361671367; invariant-pronk scope only');
+    for k=1:2
+        graph.edges(end+1)=edge('historical_PIP',sprintf('historical_restricted_daughter_%d',k), ...
+            'restricted_local_attachment','numerically_supported','pronk invariant subspace; no full-system stability','Research_v3/runs/full/pip_pk_local.json');
+    end
+    proofAudit=fullfile(folder,'theory','restricted_odd_quarter_proof_audit.json');
+    if isfile(V3Path_v3(proofAudit))
+        proof=jsondecode(fileread(V3Path_v3(proofAudit)));
+        if isfield(proof,'passed')&&proof.passed
+            for resonance=0:2
+                id=sprintf('analytic_restricted_PIP_local_PK_n%d',resonance);
+                energy=1+(2*resonance+1)^2*pi^2/160;
+                graph.nodes(end+1)=node(id,'analytic_restricted_local_existence','PK', ...
+                    'analytic_local_existence', 'Docs_v3/Restricted_Odd_Quarter_PIP_Existence_v3.md', ...
+                    sprintf('Exact baseline synchronized-pronk restriction; E_n=%.16g; positive height; simple +1 crossing and opposite nonzero drift. No computed-orbit attachment or full-space C2 certificate.',energy));
+                graph.edges(end+1)=edge('historical_PIP',id,'analytic_restricted_local_existence', ...
+                    'proved_for_exact_baseline_restriction', ...
+                    'Analytic invariant return and simple-branch theorem; executed algebra checks are supporting implementation evidence. Numerical daughter attachment remains a separate gate.', ...
+                    'Research_v3/next_round/theory/restricted_odd_quarter_proof_audit.json');
+            end
+        end
+    end
+    graph=opposedSpreadTheoryGraph(graph,folder,v3);
+    coverage=struct([]);accepted=0;pipDaughters=0;standingRecords=0;standingKeys={};newPoints=0;branches={};bridgeSupported=false;rounds=struct('id',{'A','B','C'}, ...
+        'executed_tasks',{0,0,0},'accepted_orbits',{0,0,0},'states',{{},{},{}},'methods',{cfg.repair_rounds.method});
+    for k=1:numel(state.tasks)
+        task=state.tasks(k);newPoints=newPoints+task.new_points;
+        rid=find(strcmp({rounds.id},task.repair_round),1);
+        if ~isempty(rid)&&task.attempts>0
+            rounds(rid).executed_tasks=rounds(rid).executed_tasks+1;rounds(rid).states{end+1}=task.state;
+        end
+        if isempty(task.artifact)||~isfile(V3Path_v3(fullfile(v3,task.artifact))),continue;end
+        saved=load(V3Path_v3(fullfile(v3,task.artifact)),'result');result=saved.result;
+        if startsWith(task.kind,'P1_source')||startsWith(task.kind,'P2_source')
+            if ~isfield(result,'observations'),continue;end
+            rec=struct('task_id',task.id,'study',result.study,'repair_round',task.repair_round, ...
+                'source',result.source,'total_source_columns',result.source_column_count, ...
+                'selected_columns',result.selected_columns,'executed_columns',result.completed_source_columns, ...
+                'untested_columns',setdiff(1:result.source_column_count,result.completed_source_columns), ...
+                'accepted_count',result.accepted_count,'state',task.state,'artifact',task.artifact);
+            if isempty(coverage),coverage=rec;else,coverage(end+1)=rec;end %#ok<AGROW>
+            accepted=accepted+result.accepted_count;
+            if ~isempty(rid),rounds(rid).accepted_orbits=rounds(rid).accepted_orbits+result.accepted_count;end
+            for j=1:numel(result.observations)
+                obs=result.observations(j);id=RoundObservationNode_v3(task.id,obs);
+                type='unresolved_source_candidate';status=obs.state;
+                if obs.accepted
+                    type='recovered_orbit';
+                    if ~obs.target_model_parameters||~obs.accepted_in_registered_domain,type='diagnostic_orbit';end
+                end
+                evidence=strrep(fullfile(fileparts(task.artifact),obs.artifact),filesep,'/');
+                graph.nodes(end+1)=node(id,type,flightLabel(obs.gait,obs.flight_count),status,evidence, ...
+                    sprintf('%s; measured positive-duration primitive flights %.0f',obs.evidence_label,obs.flight_count));
+                % Imported daughters remain separate nodes. A filename or
+                % equal descriptive gait label is never a branch edge.
+            end
+            if isfield(result,'family_switch')&&isfield(result.family_switch,'trials')
+                phase=result.family_switch;parentNode=[task.id,'_family_sector_parent'];
+                graph.nodes(end+1)=node(parentNode,'signed_sector_parent_predictor',phase.parent_descriptive_label, ...
+                    phase.phase,task.artifact,'Signed sector origin; parent admission and branch attachment are separate.');
+                for j=1:numel(phase.trials)
+                    trial=phase.trials(j);id=sprintf('%s_sector_%d',task.id,j);
+                    type='unresolved_signed_sector_candidate';status='correction_not_accepted';
+                    if trial.accepted_periodic_orbit
+                        type='recovered_orbit';status='independently_replayed';
+                        if isfield(trial,'target_model_parameters')&&(~trial.target_model_parameters||~trial.accepted_in_registered_domain),type='diagnostic_orbit';end
+                    end
+                    evidence=strrep(fullfile(fileparts(task.artifact),trial.artifact),filesep,'/');
+                    graph.nodes(end+1)=node(id,type,flightLabel(trial.descriptive_label,trial.physical_flight_count), ...
+                        status,evidence,sprintf('signed amplitude%+.6g; constrained correction; no critical point or attachment inferred',trial.prediction.signed_amplitude));
+                    graph.edges(end+1)=edge(parentNode,id,'unresolved_candidate',status, ...
+                        'Amplitude-constrained physical leg sector; no ancestry or regular bifurcation certificate.',evidence);
+                end
+                accepted=accepted+phase.accepted_count;
+                if ~isempty(rid),rounds(rid).accepted_orbits=rounds(rid).accepted_orbits+phase.accepted_count;end
+            end
+        elseif strcmp(task.kind,'continuation')&&isfield(result,'energy')
+            origin='historical_imported_PK';if strcmp(task.seed_kind,'restricted_PIP_daughter'),origin=sprintf('historical_restricted_daughter_%d',task.seed_index);end
+            if strcmp(task.seed_kind,'recovered_source'),origin=task.seed_node;end
+            label='PK';if isfield(result,'gait_labels')&&~isempty(result.gait_labels),label=result.gait_labels{1};end
+            graph.nodes(end+1)=node(task.id,'continuation_segment',label,task.state,task.artifact, ...
+                sprintf('%d accepted records; %d newly appended; attachment unresolved',result.accepted_count,result.new_points));
+            symmetry='pronk';if isfield(result,'symmetry'),symmetry=result.symmetry;end
+            graph.edges(end+1)=edge(origin,task.id,'continuation','accepted_points',['fixed target parameters; physical chart restriction ',symmetry],task.artifact);
+            branches{end+1}=result; %#ok<AGROW>
+        elseif strcmp(task.kind,'PIP_candidate')
+            graph.nodes(end+1)=node(task.id,'spectral_candidate','PIP',task.state,task.artifact,task.scientific_status);
+            graph.edges(end+1)=edge('historical_PIP',task.id,'unresolved_candidate',task.state, ...
+                'Spectral phase checkpoint is not a branch-existence certificate.',task.artifact);
+            if isfield(result,'attachment_evidence')&&strcmp(result.attachment_evidence.status,'numerically_supported_restricted_attachment')
+                graph.edges(end+1)=edge('historical_PIP',task.id,'restricted_local_attachment', ...
+                    result.attachment_evidence.status,'Fresh shrinking signed daughters; synchronized-pronk scope; no full-space bifurcation or stability claim.',task.artifact);
+            end
+            if isfield(result,'amplitudes')
+                for j=1:numel(result.amplitudes)
+                    trial=result.amplitudes(j);id=sprintf('%s_daughter_%d',task.id,j);
+                    evidence=strrep(fullfile(fileparts(task.artifact),trial.artifact),filesep,'/');
+                    type='unresolved_restricted_daughter';status='correction_not_accepted';
+                    if trial.accepted,type='restricted_daughter';status='independently_replayed';pipDaughters=pipDaughters+1;end
+                    graph.nodes(end+1)=node(id,type,char(trial.gait),status,evidence, ...
+                        sprintf('signed amplitude%+.6g; synchronized-pronk physical solution; full-space bifurcation/stability unestablished',trial.signed_amplitude));
+                    edgeType='unresolved_candidate';
+                    if isfield(result,'attachment_evidence')&&strcmp(result.attachment_evidence.status,'numerically_supported_restricted_attachment')&&trial.accepted
+                        edgeType='restricted_local_attachment';
+                    end
+                    graph.edges(end+1)=edge('historical_PIP',id,edgeType,status, ...
+                        'Restricted signed daughter evidence; attachment requires the separate shrinking-amplitude gate.',evidence);
+                end
+            end
+        elseif strcmp(task.kind,'period_two_sector')&&isfield(result,'restricted_branch')
+            phase=result.restricted_branch;
+            for j=1:numel(phase.trials)
+                trial=phase.trials(j);id=sprintf('%s_restricted_trial_%d',task.id,j);
+                type='unresolved_restricted_period_two_candidate';status='correction_not_accepted';
+                if trial.accepted,type='restricted_period_two_orbit';status='shared_service_independently_admitted';end
+                evidence=strrep(fullfile(fileparts(task.artifact),trial.artifact),filesep,'/');
+                t=pi/(2*sqrt(20));A=trial.touchdown_angle;exact=[t*sin(A)/sqrt(20);sqrt(20)*A;cos(A)+t^2/2];
+                formulaError=norm(trial.coordinates(:)-exact,inf);key='';
+                if trial.accepted&&formulaError<1e-7,key=sprintf('opposed_spread_n0_absA_%.12g',abs(A));standingKeys{end+1}=key;end %#ok<AGROW>
+                graph.nodes(end+1)=node(id,type,trial.actual_gait_label,status,evidence, ...
+                    sprintf('%s; signed TD angle%+.6g; actual %.0f flights; formula discrepancy%.3g. Opposite signs at fixed|A| are marked half-period phases of one orbit; no automatic target gait.',trial.kind,A,trial.actual_flight_count,formulaError),key,A);
+                graph.edges(end+1)=edge('analytic_restricted_PIP_opposed_spread_n0',id, ...
+                    'restricted_model_correspondence',status, ...
+                    'Exact baseline invariant restriction; actual shared BL2 closure/minimality. Analytic existence, numerical admission and parent attachment are separate gates.',evidence);
+                graph.edges(end+1)=edge('historical_PIP',id,'unresolved_candidate',status, ...
+                    'Finite standing two-cycle evidence; shrinking two-sign numerical attachment and requested network connections remain unestablished.',evidence);
+            end
+            standingRecords=standingRecords+phase.accepted_record_count;
+        elseif strcmp(task.kind,'attachment_accuracy_repair')
+            graph.nodes(end+1)=node(task.id,'restricted_attachment_accuracy_repair','PK',task.state,task.artifact, ...
+                'Separate +.0003 accuracy replacement; original daughter records retained; no new amplitude counted.');
+            edgeType='unresolved_candidate';edgeStatus=task.state;
+            if isfield(result,'attachment_evidence')&&strcmp(result.attachment_evidence.status,'numerically_supported_restricted_attachment')
+                edgeType='restricted_local_attachment';edgeStatus=result.attachment_evidence.status;
+            end
+            graph.edges(end+1)=edge('historical_PIP',task.id,edgeType,edgeStatus, ...
+                'Unchanged shrinking signed-daughter attachment gate; synchronized-pronk scope, no full-space bifurcation/stability claim.',task.artifact);
+        elseif strcmp(task.kind,'branch_identity_bridge')
+            supported=strcmp(task.state,'accepted')&&member(result,'local_numerical_connection_supported',false) ...
+                &&member(result,'accepted_increment_count',0)==4&&isfield(result,'bridge') ...
+                &&isfield(result.bridge,'endpoint_comparison') ...
+                &&member(result.bridge.endpoint_comparison,'same_local_numerical_orbit_supported',false);
+            type='imported_PK_low_PIP_bridge_candidate';edgeType='unresolved_candidate';qualification= ...
+                'State/energy/period/drift/contact and trajectory comparison required; accepted increments alone do not certify ancestry.';
+            if supported
+                type='local_numerical_continuation_bridge';edgeType='local_numerical_continuation';
+                qualification='Four small constrained increments, fresh shared-service BL1 replay and quantitative endpoint trajectory comparison; no rigorous identity or global ancestry claim.';
+                bridgeSupported=true;
+            end
+            graph.nodes(end+1)=node(task.id,type,'PK',task.state,task.artifact,task.scientific_status);
+            graph.edges(end+1)=edge('historical_imported_PK',task.id,edgeType,task.scientific_status,qualification,task.artifact);
+            if supported
+                registration=jsondecode(fileread(V3Path_v3(fullfile(v3,cfg.branch_identity_bridge_registration))));
+                targetNode='frozen_low_PIP_daughter_negative_0p01';
+                graph.nodes(end+1)=node(targetNode,'restricted_daughter','PK','independently_admitted_frozen_target', ...
+                    registration.target_artifact,'Frozen independently corrected negative daughter; original source epoch retained. Numerical PIP attachment remains a separate shrinking-sequence gate.');
+                comparison=strrep(fullfile(fileparts(task.artifact),'endpoint_trajectory_comparison.mat'),filesep,'/');
+                graph.edges(end+1)=edge(task.id,targetNode,'numerical_endpoint_identity','numerically_supported', ...
+                    'Same labeled apex, no reflection/time shift; state, energy, period, drift, contact phases/modes, one-sided states and finite-resolution histories agree. No rigorous identity claim.',comparison);
+                graph.edges(end+1)=edge('historical_PIP',targetNode,'unresolved_candidate','shrinking_attachment_separately_gated', ...
+                    'Endpoint identity and local PK continuation do not replace the separate restricted PIP attachment evidence.',registration.target_artifact);
+            end
+        elseif strcmp(task.kind,'period_two_sector')&&isfield(result,'front_retry')
+            graph.nodes(end+1)=node(task.id,'front_twisted_period_two_candidate','unresolved',task.state,task.artifact, ...
+                [task.scientific_status,'; finite columns do not resolve the weakest singular value; failed actual BL2 closure and saved refinement/rank forensics remain unresolved.']);
+            graph.edges(end+1)=edge('historical_PIP',task.id,'unresolved_candidate',task.state, ...
+                'Actual BL1 twisted correction and physical BL2 replay; front-only candidate is distinct from opposed-spread restriction.',task.artifact);
+        elseif strcmp(task.kind,'period_two_sector')&&isfield(result,'family_switch')
+            phase=result.family_switch;parentNode=[task.id,'_parent'];
+            graph.nodes(end+1)=node(parentNode,'period_two_spectral_parent','PIP',phase.phase,task.artifact, ...
+                'Measured -1 physical energy-leaf mode; explicit BL2 hypothesis; no primitive daughter presumed.');
+            graph.edges(end+1)=edge('historical_PIP',parentNode,'unresolved_candidate',task.state, ...
+                'Finite spectral evidence motivates correction; no period-doubling theorem asserted.',task.artifact);
+            for j=1:numel(phase.trials)
+                trial=phase.trials(j);id=sprintf('%s_sector_%d',task.id,j);
+                type='unresolved_period_two_candidate';status='correction_not_accepted';
+                if trial.accepted_periodic_orbit,type='recovered_orbit';status='independently_replayed';end
+                evidence=strrep(fullfile(fileparts(task.artifact),trial.artifact),filesep,'/');
+                graph.nodes(end+1)=node(id,type,flightLabel(trial.descriptive_label,trial.physical_flight_count), ...
+                    status,evidence,'BL2 marked return; full closure, prescribed signed amplitude, fresh primitive-period and flight-count checks.');
+                graph.edges(end+1)=edge(parentNode,id,'unresolved_candidate',status, ...
+                    'Signed measured -1 predictor; ancestry remains unresolved.',evidence);
+            end
+            accepted=accepted+phase.accepted_count;
+            if ~isempty(rid),rounds(rid).accepted_orbits=rounds(rid).accepted_orbits+phase.accepted_count;end
+        end
+    end
+    [graph,restrictedComposition]=restrictedCompositionGraph(graph,folder,v3);
+    targets={'PK_to_BD','BD_to_HB_front','BD_to_HB_hind','HB_front_to_GP','HB_hind_to_GP', ...
+        'ordinary_PIP_to_B2','B2_to_F2','B2_to_H2','F2_to_G2','H2_to_G2','PIP_PK_imported_bridge'};
+    for k=1:numel(targets)
+        targetStatus='not_established_in_executed_search';
+        if bridgeSupported&&strcmp(targets{k},'PIP_PK_imported_bridge'),targetStatus='local_PK_bridge_supported_PIP_attachment_separately_gated';end
+        if restrictedComposition&&strcmp(targets{k},'PIP_PK_imported_bridge'),targetStatus='conditional_restricted_numerical_PIP_PK_connection_supported';end
+        graph.nodes(end+1)=node(['target_',targets{k}],'requested_connection',targets{k}, ...
+            targetStatus,'Research_v3/next_round/task_queue_full.json','Named target requires accepted orbits plus attachment evidence.');
+    end
+    graph=phaseEquivalenceEdges(graph);RoundJSON_v3(fullfile(graphFolder,['index_',cfg.profile,'.json']),graph);
+    remaining=state.tasks(~[state.tasks.execution_completed]);
+    report=struct('schema_version','matlab-next-round-report-v3-1','profile',cfg.profile, ...
+        'generated_utc',char(datetime('now','TimeZone','UTC')),'starting_commit',cfg.starting_commit, ...
+        'matlab_version',version,'platform',computer,'experiment_id',cfg.experiment_id, ...
+        'status',state.status,'numerical_wall_seconds',state.numerical_wall_seconds, ...
+        'effective_domain',cfg.domain,'domain_revision',member(cfg,'domain_revision',0), ...
+        'domain_revision_history',member(cfg,'domain_revision_history',''), ...
+        'registered_total_wall_seconds',cfg.budgets.total_wall_seconds, ...
+        'function_evaluations',state.function_evaluations,'new_point_records',newPoints, ...
+        'accepted_source_records',accepted,'accepted_pip_daughter_records',pipDaughters, ...
+        'accepted_standing_restricted_records',standingRecords,'repair_rounds',rounds,'coverage',coverage, ...
+        'local_numerical_imported_PK_bridge_supported',bridgeSupported, ...
+        'conditional_restricted_imported_PK_connection_supported',restrictedComposition, ...
+        'standing_sampled_orbit_classes_modulo_time_phase',numel(unique(standingKeys)), ...
+        'unfinished_tasks',remaining,'network_achieved',false,'global_completeness_claimed',false, ...
+        'historical_results_preserved',true,'graph',['Research_v3/next_round/graph/index_',cfg.profile,'.json'], ...
+        'protection','Research_v3/next_round/baseline/protected_verification.json');
+    RoundJSON_v3(fullfile(folder,['coverage_',cfg.profile,'.json']),coverage);
+    ExportSourcePhaseAudit_v3(state,cfg);
+    if ~isempty(branches),plotBranches(branches,fullfile(graphFolder,['branch_coverage_',cfg.profile,'.png']));end
+    markdown=fullfile(v3,'Docs_v3',['Next_Round_',upperFirst(cfg.profile),'_Execution_v3.md']);
+    fid=fopen(V3Path_v3(markdown),'w');if fid<0,error('ExportResearchRound_v3:Report','Cannot write report.');end
+    cleanup=onCleanup(@()fclose(fid));
+    fprintf(fid,'# Executed MATLAB research round (%s)\n\n',cfg.profile);
+    fprintf(fid,'Starting commit `%s`; MATLAB `%s` on `%s`. Registration `%s` was saved before numerical experiments. Historical files in `Research_v3/runs/full` remain unchanged.\n\n',cfg.starting_commit,version,computer,cfg.created_utc);
+    fprintf(fid,'Current outcome: `%s`. Charged numerical task wall time %.3f s of %.0f s; %d function evaluations, %d new point records and %d accepted source records. Records can represent duplicate orbit states; these totals are not counts of distinct gait families.\n\n',state.status,state.numerical_wall_seconds,cfg.budgets.total_wall_seconds,state.function_evaluations,newPoints,accepted);
+    if strcmp(cfg.profile,'full')
+        fprintf(fid,'The campaign account includes a conservative182-second external-interruption charge with measured interval86–182 seconds because the exact stop timestamp was not captured; uncertainty is preserved in `Research_v3/next_round/queue_schema_repair.json`. Focused solver/theory/workflow audit wall times outside this master account are reported separately in their artifacts.\n\n');
+        if isfile(V3Path_v3(fullfile(folder,'interruption_P1_source_07_B.json')))
+            fprintf(fid,'A second source-handoff interruption was charged conservatively46seconds, with measured interval15–46seconds and no captured exact stop timestamp. Its per-column artifacts survived; the old source process did not finalize its phase checkpoint. The uncertainty is preserved in `Research_v3/next_round/interruption_P1_source_07_B.json`.\n\n');
+        end
+        if isfile(V3Path_v3(fullfile(folder,'continuation_interruption_reconciliation.json')))
+            fprintf(fid,'The negative PK interruption was stopped at the observed UTC second 14:58:48 and charged 337 seconds. Its saved accepted points were reconciled; 138 known completed evaluations are retained as a lower bound and in-flight evaluation counts are unknown. Consequently the campaign evaluation total is a recorded lower bound, not an exact global count. See `Research_v3/next_round/continuation_interruption_reconciliation.json`.\n\n');
+        end
+    end
+    fprintf(fid,'Fresh next-round PIP signed-daughter evidence contains %d accepted records, counted directly from executed amplitude artifacts independently of older task counters. Full-space bifurcation/stability and branch attachment retain their separate gates.\n\n',pipDaughters);
+    fprintf(fid,'Standing opposed-spread campaign evidence contains %d independently admitted restricted records. Exact predictor admission, meaningful nonlinear correction and subsequent signed-amplitude branch samples remain distinct; the actual classifier may remain unclassified. These records establish no requested B2/F2/H2/G2 connection or full-space stability.\n\n',standingRecords);
+    fprintf(fid,'These standing records are numerically consistent with %d sampled orbit classes modulo time phase. At fixed resonance and|A|, ±A are marked half-period phases of the same labeled orbit; signed records do not count as distinct gait families. The saved counterpart audit is `Research_v3/next_round/theory/opposed_spread_phase_equivalence.json`.\n\n',numel(unique(standingKeys)));
+    fprintf(fid,'The requested connected P1/P2 network is not established. This finite search makes no global completeness or nonexistence claim. The two historical restricted PIP–PK attachments are preserved with their invariant-pronk qualification, separately from imported PK ancestry and full-system stability.\n\n');
+    if bridgeSupported
+        fprintf(fid,'A new qualified local numerical PK bridge is supported: four small constrained increments from an imported PK record reach the independently corrected low-energy negative PIP daughter, with state/energy/period/drift/contact and trajectory endpoint agreement. This is separate from rigorous ancestry and the shrinking-amplitude PIP attachment gate. Evidence: `Docs_v3/Imported_PK_Low_Energy_Local_Bridge_v3.md`.\n\n');
+    end
+    if restrictedComposition
+        fprintf(fid,'The separate low-energy accuracy repair passes the unchanged signed shrinking-sequence attachment gates. Its negative daughter agrees with the frozen bridge target in a zero-map saved-trajectory comparison, supporting a composed conditional numerical PIP-to-imported-PK connection at critical E=1.1171137022972106 in the exact-baseline synchronized-pronk subspace. The anchor is `PIP_PK_low_energy_neighborhood`, with accuracy task `PIP_PK_low_energy_neighborhood_attachment_accuracy_repair_plus_0.0003_revision02`; this does not identify the older critical parent orbits at E1.555/1.695. Full-space bifurcation/stability, rigorous ancestry and the global P1/P2 network remain unestablished. Evidence: `Research_v3/next_round/restricted_imported_PK_composition_audit.json`.\n\n');
+    end
+    fprintf(fid,'Prospective domain: E `[%.9g, %.9g]`, mean speed `[%.9g, %.9g]`, absolute pitch `%.9g`, primitive period at most `%.9g`, physical events at most `%d`. Initial source speed is a different observable from mean drift/period. Domain derivation and the preserved old registration appear in `registration_%s.json`.\n\n',cfg.domain.energy,cfg.domain.mean_speed,cfg.domain.pitch_abs_max,cfg.domain.primitive_period_max,cfg.domain.event_count_max,cfg.profile);
+    if isfield(cfg,'domain_revision_history')
+        fprintf(fid,'The effective source/P2 lower energy bound follows the prospective journal `%s`; original registration and earlier observations retain their former bounds. The ordinary analytic vertical PIP comparison remains restricted to E>1.\n\n',cfg.domain_revision_history);
+        fprintf(fid,'The independent initial-state audit `Research_v3/next_round/solver/domain_lower_energy_audit.json` admitted all331 baseline subunit source columns; its minimum-energy fresh BL1/BL2 return attempts hit tensile stance and establish no periodic gait.\n\n');
+    end
+    fprintf(fid,'| Research round | Executed tasks | Accepted source records | Method |\n|---|---:|---:|---|\n');
+    for k=1:3,fprintf(fid,'| %s | %d | %d | %s |\n',rounds(k).id,rounds(k).executed_tasks,rounds(k).accepted_orbits,rounds(k).methods);end
+    fprintf(fid,'\nA row describes actual execution only when its count is positive. An unchanged retry or report refresh is not a new repair round. Per-column MAT evidence retains mapped source, explicit predictor modifications, primary solver failure and independent replay. `coverage_%s.json` distinguishes executed from untested source columns.\n\n',cfg.profile);
+    fprintf(fid,'| Task | Execution/scientific state | Attempts | New point records | Evidence |\n|---|---|---:|---:|---|\n');
+    for k=1:numel(state.tasks)
+        task=state.tasks(k);fprintf(fid,'| `%s` | %s / %s | %d | %d | `%s` |\n',task.id,task.state,task.scientific_status,task.attempts,task.new_points,task.artifact);
+    end
+    fprintf(fid,'\nThe exact unfinished MATLAB queue is `Research_v3/next_round/task_queue_%s.json`; the resumable task/phase MAT checkpoint is `checkpoint_%s.mat`. Point caps and task slices are checkpoints rather than branch endpoints.\n\n',cfg.profile,cfg.profile);
+    fprintf(fid,'Already executed work can be reproduced/resumed with MATLAB:\n\n```matlab\naddpath(fullfile(pwd,''SLIP_Quadruped_v3''));\nreport = RunResearchRound_v3(''Profile'',''%s'',''Resume'',true,''MinRepairRounds'',3);\n```\n',cfg.profile);
+end
+function [graph,supported]=restrictedCompositionGraph(graph,folder,v3)
+    supported=false;file=fullfile(folder,'restricted_imported_PK_composition_audit.json');
+    if ~isfile(V3Path_v3(file)),return;end
+    audit=jsondecode(fileread(V3Path_v3(file)));
+    if ~audit.composition_supported||~audit.bridge_four_increments_and_endpoint_identity_supported ...
+            ||~strcmp(audit.attachment_status,'numerically_supported_restricted_attachment') ...
+            ||~audit.accuracy_daughter_to_frozen_bridge_target_comparison.same_local_numerical_orbit_supported,return;end
+    for collection={audit.source_hashes,audit.input_hashes}
+        items=collection{1};
+        for k=1:numel(items)
+            path=fullfile(v3,items(k).path);
+            if ~isfile(V3Path_v3(path))||~V3HashMatches_v3(items(k).sha256, path),return;end
+        end
+    end
+    supported=true;evidence='Research_v3/next_round/restricted_imported_PK_composition_audit.json';
+    anchor='restricted_low_PIP_parent_for_imported_PK';
+    qualification=sprintf('Critical E=%.16g; source %s; accuracy %s. Conditional restricted attachment plus four-increment continuation and saved endpoint identity; no identification with older E1.555/1.695 parent orbits, full-space stability or rigorous/global ancestry.', ...
+        audit.critical_energy,audit.critical_source_task_id,audit.attachment_accuracy_task_id);
+    graph.nodes(end+1)=node(anchor,'restricted_critical_parent','PIP', ...
+        'restricted_spectral_and_numerical_attachment_gates_passed',evidence,qualification);
+    graph.edges(end+1)=edge('historical_PIP',anchor,'parent_family_point_at_critical_energy', ...
+        'low_energy_parent_explicitly_anchored',qualification,evidence);
+    graph.edges(end+1)=edge(anchor,'historical_imported_PK','conditional_restricted_numerical_connection', ...
+        'numerically_supported_restricted_connection',qualification,evidence);
+    graph.edges(end+1)=edge('historical_PIP','historical_imported_PK','conditional_restricted_numerical_family_connection', ...
+        'numerically_supported_restricted_connection',qualification,evidence);
+end
+function graph=opposedSpreadTheoryGraph(graph,folder,v3)
+    file=fullfile(folder,'theory/opposed_spread_period_two_audit.json');if ~isfile(V3Path_v3(file)),return;end
+    proof=jsondecode(fileread(V3Path_v3(file)));if ~proof.passed||~proof.completed,return;end
+    for k=1:numel(proof.registration.engine_hashes)
+        item=proof.registration.engine_hashes(k);
+        if ~V3HashMatches_v3(item.sha256, fullfile(v3,item.path)),return;end
+    end
+    for k=1:numel(proof.parent_cases)
+        item=proof.parent_cases(k);id=sprintf('analytic_restricted_PIP_opposed_spread_n%d',item.n);
+        graph.nodes(end+1)=node(id,'analytic_exact_restricted_period_two_existence', ...
+            'standing opposed-spread','proved_for_exact_baseline_restriction',proof.registration.proof_document, ...
+            sprintf('n%d parent E=%.16g; explicit0<|A|<.01 family, zero drift, primitive labeled BL2. No automatic B2/F2/H2/G2 or full-space C2/stability claim.',item.n,item.parent_energy));
+        graph.edges(end+1)=edge('historical_PIP',id,'analytic_exact_restricted_period_two_existence', ...
+            'proved_for_exact_baseline_restriction', ...
+            'Exact invariant paired opposed-spread restriction; local analytic existence is distinct from finite computed admission and numerical attachment.', ...
+            'Research_v3/next_round/theory/opposed_spread_period_two_audit.json');
+    end
+    for k=1:numel(proof.predictor_cases)
+        item=proof.predictor_cases(k);if ~item.passed,continue;end
+        id=[item.id,'_theory_actual_replay'];parent=sprintf('analytic_restricted_PIP_opposed_spread_n%d',item.n);
+        key=sprintf('opposed_spread_n%d_absA_%.12g',item.n,abs(item.touchdown_angle));
+        graph.nodes(end+1)=node(id,'restricted_period_two_predictor_replay',item.actual_gait_label, ...
+            'actual_model_predictor_replay',item.actual_trace_artifact, ...
+            'Two flights/primitive BL2; zero Newton steps. ±A at fixed|A| are half-period marked phases of one labeled physical orbit.',key,item.touchdown_angle);
+        graph.edges(end+1)=edge(parent,id,'restricted_model_correspondence','actual_model_predictor_replay', ...
+            'Exact formula predictor replay under registered physical engine hashes; no automatic requested-family assignment.',item.actual_trace_artifact);
+    end
+end
+function value=member(source,name,fallback)
+    value=fallback;if isfield(source,name),value=source.(name);end
+end
+function label=flightLabel(label,count)
+    if count~=2,return;end
+    switch label
+        case 'BD',label='B2';case 'HB_front',label='F2';case 'HB_hind',label='H2';case 'GP',label='G2';case 'PK',label='PK2';
+    end
+end
+function n=node(id,type,label,status,evidence,scope,key,angle)
+    if nargin<7,key='';end
+    if nargin<8,angle=NaN;end
+    n=struct('id',id,'type',type,'label',label,'status',status,'evidence',evidence,'scope',scope, ...
+        'orbit_equivalence_key',key,'marked_TD_angle',angle);
+end
+function graph=phaseEquivalenceEdges(graph)
+    keys={graph.nodes.orbit_equivalence_key};
+    for k=1:numel(keys)
+        if isempty(keys{k}),continue;end
+        earlier=find(strcmp(keys(1:k-1),keys{k}),1);if isempty(earlier),continue;end
+        scope='Evidence records are numerically consistent with one explicit restricted orbit; record counts are not family counts.';
+        if sign(graph.nodes(earlier).marked_TD_angle)~=sign(graph.nodes(k).marked_TD_angle)
+            scope='Opposite signs at fixed resonance and|A| differ by the proved labeled half-period time shift; formula agreement supports numerical correspondence, not a new gait family.';
+        end
+        graph.edges(end+1)=edge(graph.nodes(earlier).id,graph.nodes(k).id,'time_phase_equivalence', ...
+            'numerically_consistent_with_proved_restricted_phase_relation',scope, ...
+            'Research_v3/next_round/theory/opposed_spread_phase_equivalence.json');
+    end
+end
+function e=edge(from,to,type,status,scope,evidence)
+    e=struct('from',from,'to',to,'type',type,'status',status,'scope',scope,'evidence',evidence);
+end
+function value=upperFirst(value)
+    value=[upper(value(1)),value(2:end)];
+end
+function plotBranches(branches,file)
+    figureHandle=figure('Visible','off','Color','w','Position',[100,100,1000,680]);cleanup=onCleanup(@()close(figureHandle));
+    tiledlayout(2,1,'TileSpacing','compact');ax1=nexttile;hold(ax1,'on');ax2=nexttile;hold(ax2,'on');
+    names=cell(1,numel(branches));
+    for k=1:numel(branches)
+        r=branches{k};names{k}=sprintf('%s %d direction %+d',strrep(r.seed_kind,'_',' '),r.seed_index,r.direction);
+        plot(ax1,r.energy,r.mean_speed,'o-','MarkerSize',3);plot(ax2,r.energy,r.primitive_period,'o-','MarkerSize',3);
+    end
+    xlabel(ax1,'Mechanical energy E');ylabel(ax1,'Mean speed = drift / primitive period');grid(ax1,'on');
+    title(ax1,'Accepted physical branch coverage; branch identity/attachment remains unresolved');
+    xlabel(ax2,'Mechanical energy E');ylabel(ax2,'Recorded primitive period');grid(ax2,'on');
+    legend(ax1,names,'Interpreter','none','Location','best');exportgraphics(V3Path_v3(figureHandle),file,'Resolution',180);
+end

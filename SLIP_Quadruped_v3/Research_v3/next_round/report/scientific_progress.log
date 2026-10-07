@@ -1,0 +1,13 @@
+
+	Student License -- for use by students to meet course requirements
+	and perform academic research at degree granting institutions only.
+
+                                 created_utc: '07-Oct-2026 13:12:07'
+                              matlab_version: '25.2.0.3177638 (R2025b) Update 5'
+                   accepted_daughter_records: 1
+                        continuation_records: 0
+                      distinct_gait_families: {'PK'}
+    ancestry_or_global_completeness_inferred: 0
+                                     sources: {1×4 cell}
+                                     caption: 'MATLAB postprocessing of accepted physical returns and saved derivative audits. Branch overlaps, repeated records and near-unit spectra establish neither ancestry nor asymptotic stability. Only versioned full-profile next-round continuation artifacts are plotted; historical points within each copied trace are retained.'
+
