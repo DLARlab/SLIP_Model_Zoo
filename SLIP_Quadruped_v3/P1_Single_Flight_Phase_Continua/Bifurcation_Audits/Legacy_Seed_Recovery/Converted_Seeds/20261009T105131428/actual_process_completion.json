@@ -1,0 +1,12 @@
+{
+  "schema_version": "actual-native-process-completion-v3-1",
+  "native_session": 25909,
+  "actual_observed_OS_exit_code": 0,
+  "actual_exit_tool_chunk_id": "3aa2c9",
+  "actual_exit_recorded_UTC": "2026-10-09T10:59:35.416932+00:00",
+  "result_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Legacy_Seed_Recovery/Converted_Seeds/20261009T105131428/conversion_manifest.json",
+  "result_sha256": "e60b5b8e6a9a9b059bb75a1d3ce94d46930450c98fc2f672c3b99b5797fac24e",
+  "driver_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/legacy_seed_recovery/ConvertLegacyBranchSeeds_v3.m",
+  "driver_sha256": "3ce73f6f5330456138188f2ae32cfd26542942fcd1c32416198dbcf805e09ec9",
+  "registry_sha256": "85e0d3d7d63a311b90c06f009dabb2f2bff5ba1f4033976e9490b3d93c34793d"
+}

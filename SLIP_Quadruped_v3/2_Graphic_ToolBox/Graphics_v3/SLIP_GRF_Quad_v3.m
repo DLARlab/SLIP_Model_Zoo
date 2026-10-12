@@ -95,21 +95,27 @@ classdef SLIP_GRF_Quad_v3 < OutputCLASS_v3
             cla(obj.ax);
             hold(obj.ax, 'on');
             grid(obj.ax, 'on');
-            colors = lines(schema.Leg.Count);
+            orange = [217, 83, 25] / 256; blue = [0, 114, 189] / 256;
+            colors = repmat(orange, schema.Leg.Count, 1);
+            colors(endsWith(schema.Leg.Names, 'R'), :) = repmat(blue, 2, 1);
             styles = repmat({'-'}, 1, schema.Leg.Count);
-            styles(endsWith(schema.Leg.Names, 'R')) = {'--'};
+            styles(schema.Leg.FrontMask) = {':'};
+            widths = 2 * ones(1, schema.Leg.Count); widths(schema.Leg.FrontMask) = 2.5;
             obj.Lines = gobjects(schema.Leg.Count, 1);
             for leg = 1:schema.Leg.Count
                 obj.Lines(leg) = plot(obj.ax, obj.Time, obj.GRF(:, leg), ...
                     'LineStyle', styles{leg}, 'Color', colors(leg, :), ...
-                    'LineWidth', 1.8);
+                    'LineWidth', widths(leg));
             end
-            obj.Legend = legend(obj.ax, schema.Leg.Names, ...
-                'Location', 'best', 'AutoUpdate', 'off');
-            xlabel(obj.ax, 'Cycle time');
-            ylabel(obj.ax, 'Vertical ground-reaction force');
-            title(obj.ax, sprintf('Ground-reaction forces [%s]', ...
-                strjoin(schema.Leg.Names, ', ')));
+            % v2 legend order is LH LF RF RH. Line storage remains in the
+            % native schema order so updates cannot exchange BR and FL.
+            order = [find(strcmp(schema.Leg.Names, 'BL')), find(strcmp(schema.Leg.Names, 'FL')), ...
+                find(strcmp(schema.Leg.Names, 'FR')), find(strcmp(schema.Leg.Names, 'BR'))];
+            obj.Legend = legend(obj.ax, obj.Lines(order), {'LH', 'LF', 'RF', 'RH'}, ...
+                'Location', 'northeast', 'AutoUpdate', 'off');
+            xlabel(obj.ax, 'Stride Time  $[\sqrt{l_0/g}]$', 'Interpreter', 'latex', 'FontSize', 12);
+            ylabel(obj.ax, 'Vertical GRF  $[m_0g]$', 'Interpreter', 'latex', 'FontSize', 12);
+            title(obj.ax, 'Ground Reaction Forces');
             box(obj.ax, 'on');
             xlim(obj.ax, [0, max(obj.Time(end), eps)]);
             localForceLimits(obj.ax, obj.GRF);

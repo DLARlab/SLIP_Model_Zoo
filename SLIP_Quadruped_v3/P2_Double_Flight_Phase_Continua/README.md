@@ -1,29 +1,17 @@
 # Double-flight phase continua
 
-This folder provides saved primitive two-flight results and their independent scientific audits. The admitted standing results lie in the exact opposed-side-spread restriction at the baseline physical parameters. They have zero horizontal drift, actual two-flight labeled returns and `unclassified/ambiguous` gait status. They are not recovered B2, F2, H2 or G2 branches.
+Open `SLIP_Quadruped_GUI_v3`, click **Select Folder**, and select this folder. The dataset dropdown lists the direct MAT files automatically. Use **Plot** for the selected dataset or **Plot All** for the folder. Click a plotted point or branch line to select its stored solution; open Visualization to inspect the saved trajectory. A fresh replay/correction is required before treating an imported record as newly validated.
 
-## Branch and cycle sample files
+| Dataset | Stored records | Components | Scope |
+|---|---:|---:|---|
+| [C2_OSBL2_10_20_2.mat](C2_OSBL2_10_20_2.mat) | 29 | 8 | Opposed standing BL2 components and samples; no B2 claim. |
+| [C2_UBL2_10_20_2.mat](C2_UBL2_10_20_2.mat) | 3 | 3 | Unclassified standing BL2 samples; no B2 claim. |
+| [C2_PIP_10_20_2.mat](C2_PIP_10_20_2.mat) | 18 | 6 | Exact C1 PIP copy for the shared parent reference; it remains one-flight. |
 
-| Direct MATLAB file | Saved records | Meaning |
-|---|---:|---|
-| [Opposed_Spread_n0_Negative_Cycle_Samples.mat](Opposed_Spread_n0_Negative_Cycle_Samples.mat) | 5 | One exact predictor admission, one genuine nonlinear correction and three subsequent restricted branch samples. |
-| [Opposed_Spread_n0_Positive_Cycle_Samples.mat](Opposed_Spread_n0_Positive_Cycle_Samples.mat) | 5 | One exact predictor admission, one genuine nonlinear correction and three subsequent restricted branch samples. |
-| [Opposed_Spread_n0_n1_Theory_Cycle_Samples.mat](Opposed_Spread_n0_n1_Theory_Cycle_Samples.mat) | 4 | Saved exact-predictor replays at n0/n1 and both signs; two sampled cycle classes modulo time phase. |
+Counts come from the [current catalog](Branch_Catalog_v3.json). They count stored records, including repeated seeds/source records, rather than distinct cycles or gait families. Ordered components and source groups remain separate inside each file; sharing a file or continuum prefix establishes no attachment.
 
-Each MAT collection contains `branch` and `solutions`. Adjacent JSON files retain record kinds, amplitudes, flight counts, gait labels, closure values and source hashes. Exporting these collections performs no new shooting and creates no additional acceptance certificate.
+The required naming is `C2_<gait>_<linear stiffness>_<torsional stiffness>_<pitching inertia>.mat`. Every dataset in this study uses C2. Validated low/high F2 branches additionally use `_L`/`_H` after the parameters.
 
-At fixed resonance and nonzero magnitude `|A|`, the positive and negative states are two marked apex phases of the same primitive labeled BL2 cycle, separated by half a period without relabeling the legs. Predictor admission and correction at the same amplitude are also separate evidence operations rather than separate cycles. Consequently, the ten campaign records sample five n0 cycle classes modulo phase; the four theory records sample two classes, one at n0 and one at n1. These counts overlap at the common n0 sample and must not be added as distinct families. See the [phase-equivalence audit](Bifurcation_Audits/Opposed_Spread/Theory/opposed_spread_phase_equivalence.json) and [restricted construction](../Docs_v3/Restricted_PIP_Opposed_Spread_Period_Two_v3.md).
+The requested network is **PIP → B2 → F2_L/F2_H → G2 through F2**. **B2, F2_L, F2_H and G2 are not currently published as admitted native branches.** Their absence is a numerical research gap, rather than a folder-catalog visibility issue. Failed corrections and unclassified motions are retained under their actual status and are not renamed as these targets. See the [four-tranche scientific status](../Audits_v3/Scientific_Evidence/README.md) and the current [GUI and branch follow-up](../Docs_v3/GUI_Defaults_and_Strict_P1_Recovery_v3.md).
 
-## Bifurcation and validation evidence
-
-- [Opposed_Spread](Bifurcation_Audits/Opposed_Spread/): separate signed campaign checkpoints and accepted trials, analytic/actual-model [theory audits](Bifurcation_Audits/Opposed_Spread/Theory/), [shared-solver admission and correction](Bifurcation_Audits/Opposed_Spread/Solver_Audit/) and saved [figures](Bifurcation_Audits/Opposed_Spread/Figures/).
-- [Measured_Flip_BL2](Bifurcation_Audits/Measured_Flip_BL2/): independently registered front/hind flip vectors, actual BL2 attempts and [deadline-cutoff derivative forensics](Bifurcation_Audits/Measured_Flip_BL2/Forensics/). The final n0 trial remained unaccepted; incomplete FD columns are not a mathematical nonexistence result.
-- [Front_Twisted_Retry](Bifurcation_Audits/Front_Twisted_Retry/): the retained unconverged front-only pilot/retry and [near-null derivative forensics](Bifurcation_Audits/Front_Twisted_Retry/Forensics/). No accepted two-flight daughter or resolved weakest singular value follows from that attempt.
-- [Source_Recovery](Bifurcation_Audits/Source_Recovery/): source catalogs, converted predictors, correction/replay outcomes and physical failure traces. Original P2 provenance does not by itself determine a recovered orbit's flight count.
-- [Source_Critical_Fixtures](Bifurcation_Audits/Source_Critical_Fixtures/) and [Source_Plot_Fixtures](Bifurcation_Audits/Source_Plot_Fixtures/): preserved historical raw snapshots with provenance, not autonomous accepted branch collections. The finite archived inventory found no explicit F2/H2/G2 seeds; `saved_ge_phase` describes B2 gathered/extended apex views, not a G2 gait. [Archived seed availability](../Docs_v3/P2_Archived_Seed_Availability_v3.md).
-- [Frozen_Source_Sectors](Bifurcation_Audits/Frozen_Source_Sectors/): frozen parent/sector evidence with its original acceptance or unfinished status.
-- [Historical_Study](Bifurcation_Audits/Historical_Study/): preserved historical study indexes, configurations, source fixtures, converted seeds and validation provenance.
-
-Original P2 sources that produced single-flight PK/PIP controls belong with the measured [single-flight results](../P1_Single_Flight_Phase_Continua/) or shared source ledgers, while retaining their original source IDs and study origin. The research runner, global configuration, task/checkpoint ledgers and qualified graph remain in [Research_v3](../Research_v3/).
-
-The exact restricted standing construction and finite admitted samples establish no B2/F2/H2/G2 recovery, imported-PK ancestry of the standing family, unrestricted stability, or complete P1/P2 gait network.
+Final publication records, numerical matrices, figures and indexed historical raw results remain under [Bifurcation_Audits](Bifurcation_Audits/). The [current catalog](Branch_Catalog_v3.json) retains the original dataset hashes and source identities. Disposable acquisition attempts, launchers, caches and repeated source snapshots have been removed. Selected final mathematical and admission evidence is indexed in [Scientific_Evidence](../Audits_v3/Scientific_Evidence/README.md).

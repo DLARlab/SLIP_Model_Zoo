@@ -1,0 +1,170 @@
+{
+  "schema_version": "scientific-raw-dataset-read-index-v3-1",
+  "writer_state": "stopped",
+  "publication_complete": true,
+  "migration_epoch": "20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531",
+  "entries": [
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Historical_PK_Continuation_m1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Historical_PK_Continuation_m1.mat",
+      "sha256": "d4bac9d56c08d2388f96f3d783d42ee39f2da0009710f35356f0b7c030be0e72",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Historical_PK_Continuation_p1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Historical_PK_Continuation_p1.mat",
+      "sha256": "b641e2db635813c9c2d1c08628445fc085e4975d7942e3f70e9d8b61c7254d1a",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Imported_PK_Low_Energy_Local_Bridge.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Imported_PK_Low_Energy_Local_Bridge.mat",
+      "sha256": "7f0d73a2f0d24fa22345a5d9771d296b9e84020e2d8221eef1b2839d8b1ffb2f",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PIP_Low_Energy_PK_Local_Continuation.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PIP_Low_Energy_PK_Local_Continuation.mat",
+      "sha256": "53fff1b41ac1be9b7e042acd18878537b798767a3b71e83906e2791c114e3fd0",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PIP_Low_Energy_PK_Signed_Samples.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PIP_Low_Energy_PK_Signed_Samples.mat",
+      "sha256": "8f6c6042d3d172c28e273b36a0a456ba9f064b56689148361b4398fa4911c264",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PIP_candidate_2_PK_Signed_Samples.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PIP_candidate_2_PK_Signed_Samples.mat",
+      "sha256": "f5de4893e8f8d7805a910157f50ab5a8551275760d439fdb35180170517f1841",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PIP_candidate_3_PK_Signed_Samples.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PIP_candidate_3_PK_Signed_Samples.mat",
+      "sha256": "caf210938f6e552bc5dc29271e93cd25b82ecaaad1cf8226e9e2f2fc374efc7f",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PIP_n0_PK_Local_Continuation.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PIP_n0_PK_Local_Continuation.mat",
+      "sha256": "2f044dab8e37d71e5896c8db7284acb6b5d8b076624a56e62e55a2612d7d5641",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PIP_n0_PK_Signed_Samples.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PIP_n0_PK_Signed_Samples.mat",
+      "sha256": "42b91ac836c5fe1390da028d21644b8a2c0f613ff7a2aeb29ba2459622faba7a",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PK_continuation_m1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PK_continuation_m1.mat",
+      "sha256": "e03bc91a7a650829815512b0ff9e215f96d61b02e041e022068911950dda9d26",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/PK_continuation_p1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/PK_continuation_p1.mat",
+      "sha256": "ee1c3b8cb3f8736ec24fb766c3129a1f29366b363ec6d2f13cc770f3b6132d78",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Restricted_Daughter_1_Signed_Samples.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Restricted_Daughter_1_Signed_Samples.mat",
+      "sha256": "551bcc934a06e01e83758e1521a0b739151f9314f9e53dd7c309140fc827e720",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Restricted_Daughter_2_Signed_Samples.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Restricted_Daughter_2_Signed_Samples.mat",
+      "sha256": "86677b28f76e526634e18f9497112486cfc7a8a47e00f0e65e8f3c46c24b24e4",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Round3_Additional_Admitted_Orbit_Samples.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Round3_Additional_Admitted_Orbit_Samples.mat",
+      "sha256": "b81338d4fd06855d952711d1644a2c911c9be77863051cedc8a08a6c1a8e2365",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Round3_PK_Continuation_m1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Round3_PK_Continuation_m1.mat",
+      "sha256": "187554397227809887a69cfc224bacc7ce061d672ed2dee65268d14847ac93bf",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/Round3_PK_Continuation_p1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Round3_PK_Continuation_p1.mat",
+      "sha256": "4e638df18d5168aec01c797639d9ece6a4b3d3ff2d2e5647d952b4dc4c829c44",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/restricted_daughter_1_m1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/restricted_daughter_1_m1.mat",
+      "sha256": "85e5b29ef01665eb3a47ef398349bbc8348d9a9a443feddcfc853b45bea78990",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/restricted_daughter_1_p1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/restricted_daughter_1_p1.mat",
+      "sha256": "15edcbe918271011d2b50d6b4b0bcf0999d2138cc597c992fdec5fa9a77d391e",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/restricted_daughter_2_m1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/restricted_daughter_2_m1.mat",
+      "sha256": "7814c306c93bca37e1bd225998c5dc94eb8d1ad0622146d84a283c2c514962c7",
+      "is_current": true
+    },
+    {
+      "logical_path": "P1_Single_Flight_Phase_Continua/restricted_daughter_2_p1.mat",
+      "read_path": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/restricted_daughter_2_p1.mat",
+      "sha256": "9ac8ccf126710cc88258562eb4803f18e9649a42618f72b7937aa337a1292c80",
+      "is_current": true
+    },
+    {
+      "logical_path": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Negative_Cycle_Samples.mat",
+      "read_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Opposed_Spread_n0_Negative_Cycle_Samples.mat",
+      "sha256": "819551f9a074b50ee18198e65838606ccc412ca7920f2dd7a7ef5cf331abe1f2",
+      "is_current": true
+    },
+    {
+      "logical_path": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_Positive_Cycle_Samples.mat",
+      "read_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Opposed_Spread_n0_Positive_Cycle_Samples.mat",
+      "sha256": "9968c0868c8790c6915ad49dee014115b04f4d5d9e106142dc6e79b00325631d",
+      "is_current": true
+    },
+    {
+      "logical_path": "P2_Double_Flight_Phase_Continua/Opposed_Spread_n0_n1_Theory_Cycle_Samples.mat",
+      "read_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Opposed_Spread_n0_n1_Theory_Cycle_Samples.mat",
+      "sha256": "b8244ad70bdb0bdbe7a54e04753ff5235224992bc60b546002259ff03bc351ec",
+      "is_current": true
+    },
+    {
+      "logical_path": "P2_Double_Flight_Phase_Continua/Round3_Measured_Constraint_Known_Standing_BL2_Samples.mat",
+      "read_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Round3_Measured_Constraint_Known_Standing_BL2_Samples.mat",
+      "sha256": "5d6f16b1cfec1ef0b5dfb85ee0f5387323602161b4f37b320933fe9f5b2885a5",
+      "is_current": true
+    },
+    {
+      "logical_path": "P2_Double_Flight_Phase_Continua/Round3_Measured_Known_Standing_BL2_Continuation_m1.mat",
+      "read_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Round3_Measured_Known_Standing_BL2_Continuation_m1.mat",
+      "sha256": "22ecd8458f051df8fe0d83e1649d3e9c3170ba92826d27173dd261258115cb4f",
+      "is_current": true
+    },
+    {
+      "logical_path": "P2_Double_Flight_Phase_Continua/Round3_Measured_Known_Standing_BL2_Continuation_p1.mat",
+      "read_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Round3_Measured_Known_Standing_BL2_Continuation_p1.mat",
+      "sha256": "c2082bbd54e67fe58bdd79c7b07f6a4333c2d3f1d992f5b5077fc1b070adbc4c",
+      "is_current": true
+    },
+    {
+      "logical_path": "P2_Double_Flight_Phase_Continua/Round3_Opposed_Spread_BL2_Common_Continuation.mat",
+      "read_path": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Raw_Dataset_Archive/20261009T074910391_f9805acd-a2f4-453d-87ee-3e9523658531/Round3_Opposed_Spread_BL2_Common_Continuation.mat",
+      "sha256": "37766989fb11dbf70092b370787a58d511b0f88337ebb0cf6b52df789109f957",
+      "is_current": true
+    }
+  ]
+}

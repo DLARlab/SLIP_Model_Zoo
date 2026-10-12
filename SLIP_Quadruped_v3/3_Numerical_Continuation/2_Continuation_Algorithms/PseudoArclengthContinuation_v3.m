@@ -23,6 +23,7 @@ classdef PseudoArclengthContinuation_v3
         MaxPoints = 100
         InitialDirection = 1
         InitialTangent = []
+        InitialTangentData = []
         AutoScale = true
         Scale = []
         ParameterBounds = [-Inf, Inf]
@@ -35,6 +36,10 @@ classdef PseudoArclengthContinuation_v3
         StopFunction = []
         TangentRankTolerance = 1e-10
         UsePeriodicSolutionSolver = false
+    end
+
+    properties (Access=private)
+        RunTimer=[]
     end
 
     methods
@@ -64,8 +69,52 @@ classdef PseudoArclengthContinuation_v3
             end
         end
 
+        function data=tangentRestartData(obj,point,residual,compatibilityRevision)
+            % Bind a retained complete derivative to this exact restart.
+            % The caller retains its source artifact and epoch compatibility
+            % audit; reuse changes no residual, closure or physical gate.
+            if nargin<4,compatibilityRevision=[];end
+            info=point.tangentInfo;
+            if ~isfield(info,'extendedJacobian')||~isfield(info,'finiteDifference') ...
+                    ||~obj.member(info.finiteDifference,'allReliable',false) ...
+                    ||~obj.member(info.finiteDifference,'classicalDerivative',false) ...
+                    ||any(~isfinite(info.extendedJacobian(:)))
+                error('PseudoArclengthContinuation_v3:RestartDerivative','A complete reliable classical derivative is required.');
+            end
+            z=[point.x(:);point.p(obj.ActiveParameterIndex)];
+            context=obj.tangentContext(residual,z,point.p,point.mode);
+            if ~isequaln(context.full_state,point.fullState(:))
+                error('PseudoArclengthContinuation_v3:RestartGeometry', ...
+                    'Restart residual lifts to a different physical state.');
+            end
+            sameContext=isfield(info,'derivative_context') ...
+                &&isequaln(info.derivative_context,context);
+            if ~sameContext
+                if ~isstruct(compatibilityRevision)||~isscalar(compatibilityRevision) ...
+                        ||~all(isfield(compatibilityRevision,{'artifact','artifact_sha256','scope'})) ...
+                        ||~isfile(compatibilityRevision.artifact) ...
+                        ||~strcmp(obj.sourceDigest(compatibilityRevision.artifact),compatibilityRevision.artifact_sha256)
+                    error('PseudoArclengthContinuation_v3:RestartContext', ...
+                        ['Derivative context differs or predates context binding. ', ...
+                         'An explicit source-bound compatibility audit is required.']);
+                end
+            end
+            data=struct('context',context, ...
+                'extendedJacobian',info.extendedJacobian, ...
+                'finiteDifference',info.finiteDifference,'source_point_index',point.index, ...
+                'compatibility_revision',compatibilityRevision);
+        end
+
+        function compatible=tangentRestartCompatible(obj,data,point,residual)
+            % Zero-map check of the exact numerical and geometric context.
+            z=[point.x(:);point.p(obj.ActiveParameterIndex)];
+            compatible=isstruct(data)&&isfield(data,'context') ...
+                &&isequaln(data.context,obj.tangentContext(residual,z,point.p,point.mode));
+        end
+
         function branch = run(obj, residual, u0, p0, q0)
             runTimer = tic;
+            obj.RunTimer=runTimer;
             pReference = p0(:);
             [index, parameterName] = obj.resolveParameter( ...
                 residual, numel(pReference));
@@ -80,6 +129,21 @@ classdef PseudoArclengthContinuation_v3
                     residual, u0(:), pReference, q0);
             end
             if ~initialSolve.converged
+                if obj.UsePeriodicSolutionSolver
+                    correction=obj.emptyCorrection();
+                    correction.mode=q0;correction.rootInfo=initialSolve;
+                    correction.residual=initialSolve.residual;
+                    correction.residualNorm=initialSolve.residualNorm;
+                    correction.message=initialSolve.message;
+                    failure=obj.makeFailurePoint([u0(:);pReference(index)], ...
+                        pReference,q0,correction);
+                    branch=obj.assembleBranch(repmat(obj.emptyPoint(),1,0), ...
+                        failure,index,parameterName);
+                    branch.terminationReason='initial correction failed before an accepted branch point';
+                    branch.retryable_checkpoint=true;
+                    obj.checkpoint(branch);
+                    return
+                end
                 error('PseudoArclengthContinuation_v3:InitialPoint', ...
                     'The initial fixed-parameter solve failed: %s', ...
                     initialSolve.message);
@@ -103,9 +167,32 @@ classdef PseudoArclengthContinuation_v3
                 residual, initialPoint);
             points = initialPoint;
             failures = repmat(obj.emptyPoint(), 1, 0);
+            obj.checkpoint(obj.assembleBranch(points,failures,index,parameterName));
+            if obj.MaxPoints==1
+                branch=obj.assembleBranch(points,failures,index,parameterName);
+                branch.terminationReason='requested initial admission only';
+                obj.checkpoint(branch);
+                return
+            end
 
-            [tScaled, scale, tangentInfo] = obj.computeTangent( ...
-                residual, z, pReference, q, []);
+            try
+                [tScaled, scale, tangentInfo] = obj.computeTangent( ...
+                    residual, z, pReference, q, []);
+            catch exception
+                branch=obj.assembleBranch(points,failures,index,parameterName);
+                branch.terminationReason='initial tangent requires a compatible regular chart';
+                branch.retryable_checkpoint=true;
+                branch.tangent_failure=obj.exceptionRecord(exception);
+                obj.checkpoint(branch);
+                return
+            end
+            points(1).tangentInfo=tangentInfo;
+            if ~tangentInfo.reliable
+                branch=obj.assembleBranch(points,failures,index,parameterName);
+                branch.terminationReason='initial tangent unresolved; accepted state retained';
+                branch.retryable_checkpoint=true;branch.tangent_failure=tangentInfo.failure;
+                obj.checkpoint(branch);return
+            end
             points(1).tangent = scale .* tScaled;
             points(1).tangentInfo = tangentInfo;
             previousPhysicalTangent = scale .* tScaled;
@@ -126,12 +213,11 @@ classdef PseudoArclengthContinuation_v3
                 trialStep = ds;
                 failurePoint = obj.emptyPoint();
                 while trialStep >= obj.MinimumStepSize
-                    if toc(runTimer)>=obj.MaxWallSeconds
-                        if ~isempty(fieldnames(failurePoint.solverInfo))
-                            failures(end+1)=failurePoint; %#ok<AGROW>
-                        end
+                    if toc(runTimer)>=obj.MaxWallSeconds || ...
+                            (~isempty(obj.StopFunction)&&obj.StopFunction())
                         branch=obj.assembleBranch(points,failures,index,parameterName);
-                        branch.terminationReason='wall budget checkpoint inside recovery';
+                        branch.terminationReason='wall budget or requested stop inside recovery';
+                        branch.retryable_checkpoint=true;
                         obj.checkpoint(branch);return
                     end
                     obj.RootSolver.MaxWallSeconds=min(obj.RootSolver.MaxWallSeconds, ...
@@ -146,15 +232,21 @@ classdef PseudoArclengthContinuation_v3
                         return
                     end
                     pPredict = obj.parameterAt(pReference, muPredict);
-                    modes = obj.RootSolver.candidateModes( ...
-                        residual, zPredict(1:end-1), pPredict, q);
-                    if isempty(modes)
-                        modes = {q};
+                    try
+                        modes = obj.RootSolver.candidateModes( ...
+                            residual, zPredict(1:end-1), pPredict, q);
+                        if isempty(modes),modes={q};end
+                        [corrected, correction] = obj.correctAcrossModes( ...
+                            residual, zPredict, z, tScaled, scale, trialStep, ...
+                            pReference, modes, correctorJacobian);
+                    catch exception
+                        corrected=zPredict;
+                        correction=obj.emptyCorrection();
+                        correction.mode=q;
+                        correction.rootInfo=obj.failedRootInfo(exception,q, ...
+                            obj.fullState(residual,zPredict(1:end-1),pPredict,q));
+                        correction.message=correction.rootInfo.message;
                     end
-
-                    [corrected, correction] = obj.correctAcrossModes( ...
-                        residual, zPredict, z, tScaled, scale, trialStep, ...
-                        pReference, modes, correctorJacobian);
                     if correction.converged
                         try
                         zNew = corrected(:);
@@ -174,6 +266,12 @@ classdef PseudoArclengthContinuation_v3
                         point.topologyBoundary = point.topologyBoundary || ...
                             point.section_cluster_coincidence || ...
                             ~obj.compatibleTopology(points(end), point);
+                        % Closure/replay has accepted this point already.
+                        % Save it before starting the next derivative so a
+                        % deadline cannot discard a physically valid orbit.
+                        admittedBranch=obj.assembleBranch([points,point],failures,index,parameterName);
+                        admittedBranch.terminationReason='accepted point awaiting tangent refresh';
+                        obj.checkpoint(admittedBranch);
                         if point.topologyBoundary
                             % The accepted orbit remains on the continuous
                             % branch, but no unique smooth tangent is claimed
@@ -192,9 +290,32 @@ classdef PseudoArclengthContinuation_v3
                                 'warning', ['Floquet analysis is unresolved ', ...
                                 'at a marked hybrid topology boundary.']);
                         else
-                            [nextTScaled, nextScale, tangentInfo] = ...
-                                obj.computeTangent(residual, zNew, ...
-                                    pReference, qNew, previousPhysicalTangent);
+                            try
+                                [nextTScaled, nextScale, tangentInfo] = ...
+                                    obj.computeTangent(residual, zNew, ...
+                                        pReference, qNew, previousPhysicalTangent);
+                            catch tangentException
+                                % Even a rejected baseline sample belongs to
+                                % the NEXT derivative. The accepted orbit
+                                % above must remain the restart seam.
+                                point.tangent=NaN(size(zNew));
+                                point.tangentInfo=struct('reliable',false, ...
+                                    'failure',obj.exceptionRecord(tangentException));
+                                points(end+1)=point; %#ok<AGROW>
+                                branch=obj.assembleBranch(points,failures,index,parameterName);
+                                branch.terminationReason='accepted point retained; tangent evaluation failed';
+                                branch.retryable_checkpoint=true;
+                                branch.tangent_failure=point.tangentInfo.failure;
+                                obj.checkpoint(branch);return
+                            end
+                            if ~tangentInfo.reliable
+                                point.tangent=NaN(size(zNew));point.tangentInfo=tangentInfo;
+                                points(end+1)=point; %#ok<AGROW>
+                                branch=obj.assembleBranch(points,failures,index,parameterName);
+                                branch.terminationReason='accepted point retained; tangent refresh unresolved';
+                                branch.retryable_checkpoint=true;branch.tangent_failure=tangentInfo.failure;
+                                obj.checkpoint(branch);return
+                            end
                             point.tangent = nextScale .* nextTScaled;
                             point.tangentInfo = tangentInfo;
                             point.tangentInfo.topologyBoundary = false;
@@ -241,14 +362,24 @@ classdef PseudoArclengthContinuation_v3
                     end
                     failurePoint = obj.makeFailurePoint( ...
                         zPredict, pPredict, q, correction);
+                    failurePoint.failed_predictor=obj.fullState( ...
+                        residual,zPredict(1:end-1),pPredict,q);
+                    failurePoint.last_accepted_point=struct( ...
+                        'index',points(end).index,'x',points(end).x, ...
+                        'fullState',points(end).fullState,'p',points(end).p, ...
+                        'mode',points(end).mode,'arclength',points(end).arclength);
+                    failurePoint.retry_step=trialStep*obj.StepShrink;
+                    failures(end+1)=failurePoint; %#ok<AGROW>
+                    obj.checkpoint(obj.assembleBranch(points,failures,index,parameterName));
                     trialStep = trialStep * obj.StepShrink;
                 end
 
                 if ~accepted
-                    failures(end + 1) = failurePoint; %#ok<AGROW>
                     branch = obj.assembleBranch( ...
                         points, failures, index, parameterName);
                     branch.terminationReason = 'corrector failed at minimum step';
+                    branch.retryable_checkpoint=true;
+                    obj.checkpoint(branch);
                     return
                 end
             end
@@ -281,6 +412,7 @@ classdef PseudoArclengthContinuation_v3
                     solver.InitialJacobian = previousJacobian;
                     solver.UseBroyden = true;
                 end
+                try
                 if obj.UsePeriodicSolutionSolver
                     constraint=struct('reference',zBase,'normal',tScaled./scale,'target',ds);
                     [zCandidate,rootInfo]=obj.periodicCorrection(residual,zPredict, ...
@@ -289,11 +421,18 @@ classdef PseudoArclengthContinuation_v3
                     [zCandidate, rootInfo] = solver.solve( ...
                         augmented, zPredict, zeros(0, 1), []);
                 end
+                catch exception
+                    zCandidate=zPredict;
+                    rootInfo=obj.failedRootInfo(exception,qTrial, ...
+                        obj.fullState(residual,zPredict(1:end-1), ...
+                        obj.parameterAt(pReference,zPredict(end)),qTrial));
+                end
                 score = rootInfo.residualNorm;
                 if rootInfo.converged
                     score = score - 1;
                 end
-                if isfinite(score) && score < bestScore
+                if isempty(fieldnames(resultBest.rootInfo)) || ...
+                        (isfinite(score) && score < bestScore)
                     bestScore = score;
                     zBest = zCandidate;
                     resultBest = obj.emptyCorrection();
@@ -308,18 +447,30 @@ classdef PseudoArclengthContinuation_v3
         end
 
         function [coordinates,rootInfo]=periodicCorrection(obj,family,guess,p,q,solver,constraint)
-            if ~isa(family,'EnergyFamilyResidual_v3') || obj.ActiveParameterIndex~=11
-                error('PseudoArclengthContinuation_v3:PeriodicService', ...
-                    'Shared periodic correction requires a fixed-parameter energy family.');
-            end
-            if isempty(constraint)
-                residual=family;seedState=family.fullState(guess);
+            if isa(family,'EnergyFamilyResidual_v3') && obj.ActiveParameterIndex==11
+                if isempty(constraint)
+                    residual=family;seedState=family.fullState(guess);
+                else
+                    residual=ConstrainedEnergyResidual_v3(family,[],constraint,[]);
+                    seedState=family.fullState(guess(1:end-1));
+                end
+            elseif isobject(family)&&ismethod(family,'continuationResidual') ...
+                    &&isprop(family,'PhysicalParameter')&&isprop(family,'Map')
+                % Explicit delegated family contract: its residual owns the
+                % chart lift and unscaled family/observable equations.
+                residual=family.continuationResidual(constraint);
+                seedState=residual.fullState(guess,p,q);
             else
-                residual=ConstrainedEnergyResidual_v3(family,[],constraint,[]);
-                seedState=family.fullState(guess(1:end-1));
+                error('PseudoArclengthContinuation_v3:PeriodicService', ...
+                    ['Shared correction requires an energy family or an ', ...
+                    'explicit continuationResidual contract.']);
+            end
+            occurrence=1;
+            if isa(family.Map.ReturnPolicy,'BLMarkedApexReturnPolicy_v3')
+                occurrence=family.Map.ReturnPolicy.BLTouchdownsPerReturn;
             end
             seed=struct('state',seedState,'mode',q,'parameter',family.PhysicalParameter, ...
-                'return_policy',family.Map.ReturnPolicy,'occurrence',1, ...
+                'return_policy',family.Map.ReturnPolicy,'occurrence',occurrence, ...
                 'provenance',struct('origin','fixed-parameter energy continuation'));
             solverOptions=struct();names=properties(solver);
             for k=1:numel(names),solverOptions.(names{k})=solver.(names{k});end
@@ -330,19 +481,41 @@ classdef PseudoArclengthContinuation_v3
             [orbit,report]=PeriodicSolutionSolver_v3(seed,options);
             coordinates=guess;rootInfo=report.solver;
             if isempty(fieldnames(rootInfo))
-                error('PseudoArclengthContinuation_v3:PeriodicEvaluation', ...
-                    'The shared service could not evaluate the corrector: %s',report.primary_failure.message);
+                failure=report.primary_failure;
+                rootInfo=obj.failedRootInfo(failure,q,report.final_candidate);
             end
             if isfield(report,'final_coordinates'),coordinates=report.final_coordinates;end
             rootInfo.converged=report.accepted;rootInfo.orbit=orbit;
             rootInfo.fullState=report.final_candidate;
+            rootInfo.periodic_solution_report=report;
             rootInfo.periodicAcceptance=struct('accepted',report.accepted, ...
                 'full_closure',report.full_closure,'constraint_residual',report.constraint_residual, ...
                 'primary_failure',report.primary_failure,'replay_failure',report.replay_failure, ...
                 'effective_integration',report.integration,'replay_integration',report.replay_integration);
             if ~report.accepted
-                rootInfo.message=[rootInfo.message,'; fresh physical replay acceptance failed'];
+                rootInfo.message=[rootInfo.message,'; shared physical acceptance not established'];
             end
+        end
+
+        function record=exceptionRecord(~,exception)
+            record=struct('identifier',exception.identifier,'message',exception.message);
+            if isa(exception,'MException')
+                record.stack=exception.stack;
+                record.causes=cellfun(@(cause)struct('identifier',cause.identifier, ...
+                    'message',cause.message),exception.cause,'UniformOutput',false);
+            end
+        end
+
+        function info=failedRootInfo(obj,exception,q,state)
+            failure=obj.exceptionRecord(exception);
+            info=struct('converged',false,'primaryConverged',false, ...
+                'mode',q,'residual',[],'residualNorm',Inf,'orbit',[], ...
+                'fullState',state,'evaluationInfo',struct(), ...
+                'message',[failure.identifier,': ',failure.message], ...
+                'primaryErrorIdentifier',failure.identifier, ...
+                'primaryMessage',failure.message,'primaryExitflag',-1, ...
+                'functionEvaluationCount',0,'mapEvaluationCount',0, ...
+                'finalJacobian',[],'failure',failure);
         end
 
         function [value, metadata] = augmentedResidual(obj, residual, ...
@@ -366,13 +539,44 @@ classdef PseudoArclengthContinuation_v3
             functionValue = @(candidate, varargin) ...
                 obj.evaluateAtExtendedPoint( ...
                 residual, candidate, pReference, q, varargin{:});
-            [A, ~, fdInfo] = obj.Jacobian.compute(functionValue, z);
+            context=obj.tangentContext(residual,z,pReference,q);
+            reused=isempty(previousPhysical)&&~isempty(obj.InitialTangentData) ...
+                &&isequaln(obj.InitialTangentData.context,context);
+            if reused
+                A=obj.InitialTangentData.extendedJacobian;
+                fdInfo=obj.InitialTangentData.finiteDifference;
+            else
+                try
+                    [A, ~, fdInfo] = obj.Jacobian.compute(functionValue, z);
+                catch exception
+                    if isempty(obj.RunTimer)||toc(obj.RunTimer)<obj.MaxWallSeconds
+                        rethrow(exception)
+                    end
+                    % No accepted baseline means no derivative matrix can
+                    % be claimed. Preserve the original callback failure.
+                    tScaled=[];
+                    info=struct('extendedJacobian',[], ...
+                        'finiteDifference',struct(),'scale',scale,'reliable',false, ...
+                        'derivative_context',context,'restart_derivative_reused',false, ...
+                        'failure',struct('identifier','PseudoArclengthContinuation_v3:TangentWallBudget', ...
+                            'message','Wall budget exhausted before a complete tangent baseline.', ...
+                            'original_failure',obj.exceptionRecord(exception)));
+                    return
+                end
+            end
+            info=struct('extendedJacobian',A,'finiteDifference',fdInfo, ...
+                'scale',scale,'reliable',false,'failure',struct(), ...
+                'derivative_context',context,'restart_derivative_reused',reused);
             if isa(obj.Jacobian, 'HybridFiniteDifferenceJacobian_v3') ...
                     && (~obj.member(fdInfo, 'allReliable', false) ...
                     || ~obj.member(fdInfo, 'classicalDerivative', false))
-                error('PseudoArclengthContinuation_v3:UnreliableTangent', ...
-                    ['The extended hybrid derivative does not define a ', ...
-                     'reliable classical continuation tangent.']);
+                identifier='PseudoArclengthContinuation_v3:UnreliableTangent';
+                if ~isempty(obj.RunTimer)&&toc(obj.RunTimer)>=obj.MaxWallSeconds
+                    identifier='PseudoArclengthContinuation_v3:TangentWallBudget';
+                end
+                info.failure=struct('identifier',identifier,'message', ...
+                    'Extended hybrid derivative incomplete; retained columns do not define an accepted tangent.');
+                tScaled=[];return
             end
             if size(A, 2) ~= size(A, 1) + 1
                 error('PseudoArclengthContinuation_v3:TangentDimension', ...
@@ -407,7 +611,6 @@ classdef PseudoArclengthContinuation_v3
             values = diag(singularValues);
             rankTolerance = max(max(size(A)) * eps(max(values)), ...
                 obj.TangentRankTolerance * max(values));
-            info = struct();
             info.extendedJacobian = A;
             info.scaledJacobian = scaledJacobian;
             info.singularValues = values;
@@ -417,16 +620,95 @@ classdef PseudoArclengthContinuation_v3
             info.scale = scale;
             info.reliable = obj.member(fdInfo, 'allReliable', true);
             if info.rank ~= size(A, 1)
-                error('PseudoArclengthContinuation_v3:NonuniqueTangent', ...
-                    ['The extended residual Jacobian has rank %d for %d ', ...
-                     'rows; a unique one-dimensional family tangent is unresolved.'], ...
-                    info.rank, size(A, 1));
+                info.reliable=false;
+                info.failure=struct('identifier','PseudoArclengthContinuation_v3:NonuniqueTangent', ...
+                    'message',sprintf('Extended residual rank %d for %d rows; unique tangent unresolved.',info.rank,size(A,1)));
+                tScaled=[];
             end
+        end
+
+        function context=tangentContext(obj,residual,z,p,q)
+            % pReference may still contain the preceding active scalar when
+            % this derivative is refreshed at a newly accepted z.
+            p=obj.parameterAt(p,z(end));
+            derivative=struct();
+            if isobject(obj.Jacobian)
+                names=properties(obj.Jacobian);
+                for k=1:numel(names),derivative.(names{k})=obj.Jacobian.(names{k});end
+            end
+            map=obj.member(residual,'Map',[]);
+            policy=obj.member(map,'ReturnPolicy',[]);count=1;
+            if isa(policy,'BLMarkedApexReturnPolicy_v3'),count=policy.BLTouchdownsPerReturn;end
+            sources={class(residual),class(obj.Jacobian),'PseudoArclengthContinuation_v3', ...
+                class(map),'Quadrupedal_Dynamics_v3','ContinuousDynamics_v3', ...
+                'GuardFunctions_v3','ResetMap_v3','HybridSimulator_v3','EventDetector_v3',class(policy)};
+            fingerprints=cell(size(sources));
+            for k=1:numel(sources)
+                file=which(sources{k});
+                if isempty(file)||~isfile(file),fingerprints{k}='unavailable';continue;end
+                fingerprints{k}=obj.sourceDigest(file);
+            end
+            simulator=obj.member(map,'Simulator',[]);
+            context=struct('z',z(:),'parameter',p(:),'mode',q(:), ...
+                'active_parameter_index',obj.ActiveParameterIndex,'residual_class',class(residual), ...
+                'derivative_class',class(obj.Jacobian),'derivative_options',derivative, ...
+                'integration',obj.member(simulator,'Options',struct()), ...
+                'full_state',obj.fullState(residual,z(1:end-1),p,q), ...
+                'residual_contract',obj.numericalContract(residual,0), ...
+                'section_contract',obj.numericalContract(obj.member(map,'Section',[]),0), ...
+                'policy_contract',obj.numericalContract(policy,0), ...
+                'map_options',struct('MaxReturnTime',obj.member(map,'MaxReturnTime',[]), ...
+                    'MaxSectionCrossings',obj.member(map,'MaxSectionCrossings',[]), ...
+                    'MaxCycleEvents',obj.member(map,'MaxCycleEvents',[]), ...
+                    'ArmTolerance',obj.member(map,'ArmTolerance',[]), ...
+                    'InitialTime',obj.member(map,'InitialTime',[])), ...
+                'BL_occurrence',count,'source_classes',{sources},'source_sha256',{fingerprints});
+        end
+
+        function contract=numericalContract(obj,source,depth)
+            % Capture public geometry/equations, excluding map and caches.
+            % A custom family can expose a smaller explicit immutable contract.
+            contract=struct('type',class(source));
+            if isobject(source)&&ismethod(source,'continuationContext')
+                contract.values=source.continuationContext();return
+            end
+            if isstruct(source),names=fieldnames(source);
+            elseif isobject(source),names=properties(source);
+            else,contract.values=source;return
+            end
+            omit={'Map','System','Simulator','LastModeResolution'};
+            for k=1:numel(names)
+                name=names{k};if any(strcmp(name,omit)),continue;end
+                value=source.(name);
+                if isa(value,'function_handle')
+                    value=functions(value);
+                elseif isobject(value)
+                    if depth>=4
+                        error('PseudoArclengthContinuation_v3:ResidualContext', ...
+                            'Nested custom geometry requires continuationContext().');
+                    end
+                    value=obj.numericalContract(value,depth+1);
+                end
+                contract.(name)=value;
+            end
+        end
+
+        function value=sourceDigest(~,file)
+            stream=fopen(file,'rb');
+            if stream<0,error('PseudoArclengthContinuation_v3:SourceContext','Cannot read context source.');end
+            close=onCleanup(@()fclose(stream)); %#ok<NASGU>
+            digest=java.security.MessageDigest.getInstance('SHA-256');
+            while ~feof(stream),digest.update(fread(stream,1048576,'*uint8'));end
+            raw=typecast(digest.digest(),'uint8');value=lower(reshape(dec2hex(raw,2).',1,[]));
         end
 
         function [r, info] = evaluateAtExtendedPoint( ...
                 obj, residual, z, pReference, q, varargin)
             z = z(:);
+            if ~isempty(obj.RunTimer)&&toc(obj.RunTimer)>=obj.MaxWallSeconds
+                error('PseudoArclengthContinuation_v3:TangentWallBudget', ...
+                    'Continuation wall budget exhausted before another tangent map sample.');
+            end
             p = obj.parameterAt(pReference, z(end));
             [r, info] = obj.evaluateResidual( ...
                 residual, z(1:end-1), p, q, varargin{:});
@@ -570,6 +852,9 @@ classdef PseudoArclengthContinuation_v3
             point.mode = q;
             point.converged = correction.converged;
             point.solverInfo = correction.rootInfo;
+            point.fullState=obj.member(correction.rootInfo,'fullState',[]);
+            point.failure=obj.member(correction.rootInfo,'failure', ...
+                obj.member(correction.rootInfo,'periodicAcceptance',struct()));
             [baseResidual, evalInfo] = obj.evaluateResidual(residual, u, p, q);
             obj.assertPhysicalClosure(evalInfo);
             point.residual = baseResidual;
@@ -891,7 +1176,9 @@ classdef PseudoArclengthContinuation_v3
                 'minimum_physical_margin', Inf, ...
                 'minimum_physical_margins', struct(), ...
                 'section_coincident_events', {struct([])}, ...
-                'schema_metadata', struct(), 'topologyBoundary', false);
+                'schema_metadata', struct(), 'topologyBoundary', false, ...
+                'failed_predictor',[],'last_accepted_point',struct(), ...
+                'retry_step',NaN,'failure',struct());
         end
 
         function correction = emptyCorrection(~)

@@ -4,7 +4,7 @@ function root = V3Root_v3(startPath)
     root = char(startPath);
     if ~isfolder(root), root = fileparts(root); end
     while ~isempty(root)
-        if isfile(fullfile(root, 'RunResearchRound_v3.m')) && ...
+        if isfile(fullfile(root, 'SLIP_Quadruped_GUI_v3.m')) && ...
                 isfile(fullfile(root, 'README_v3.md'))
             return;
         end

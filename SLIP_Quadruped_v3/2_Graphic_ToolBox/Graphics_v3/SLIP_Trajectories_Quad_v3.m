@@ -52,6 +52,8 @@ classdef SLIP_Trajectories_Quad_v3 < OutputCLASS_v3
             for k = 1:3
                 xlim(obj.axes(k), [0, max(time(end), eps)]);
             end
+            if updateTorso, localPaddedLimits(obj.axes(1)); end
+            if updateLegs, localPaddedLimits(obj.axes(2:3)); end
         end
     end
 
@@ -78,29 +80,30 @@ classdef SLIP_Trajectories_Quad_v3 < OutputCLASS_v3
             obj.Lines{1} = plot(obj.axes(1), time, state(:, torsoIndices), ...
                 'LineWidth', 1.25);
             obj.Legends(1) = legend(obj.axes(1), ...
-                schema.State.Names(torsoIndices), ...
-                'Location', 'best', 'AutoUpdate', 'off');
-            title(obj.axes(1), 'Torso trajectories');
+                {'$\dot{x}$', '$y$', '$\dot{y}$', '$\phi$', '$\dot{\phi}$'}, ...
+                'Interpreter', 'latex', 'AutoUpdate', 'off');
+            title(obj.axes(1), 'Trajectories of the Torso', 'FontSize', 12);
 
             obj.Lines{2} = plot(obj.axes(2), time, state(:, backIndices), ...
                 'LineWidth', 1.25);
             obj.Legends(2) = legend(obj.axes(2), ...
                 localLegLabels(schema, backLegs), ...
-                'Location', 'best', 'AutoUpdate', 'off');
-            title(obj.axes(2), 'Back-leg trajectories');
+                'Interpreter', 'latex', 'AutoUpdate', 'off');
+            title(obj.axes(2), 'Trajectories of the Back Legs', 'FontSize', 12);
 
             obj.Lines{3} = plot(obj.axes(3), time, state(:, frontIndices), ...
                 'LineWidth', 1.25);
             obj.Legends(3) = legend(obj.axes(3), ...
                 localLegLabels(schema, frontLegs), ...
-                'Location', 'best', 'AutoUpdate', 'off');
-            title(obj.axes(3), 'Front-leg trajectories');
+                'Interpreter', 'latex', 'AutoUpdate', 'off');
+            title(obj.axes(3), 'Trajectories of the Front Legs', 'FontSize', 12);
 
             for k = 1:3
-                xlabel(obj.axes(k), 'Cycle time');
+                xlabel(obj.axes(k), 'Stride Time  $[\sqrt{l_0/g}]$', 'Interpreter', 'latex', 'FontSize', 12);
                 xlim(obj.axes(k), [0, max(time(end), eps)]);
-                localPaddedLimits(obj.axes(k));
             end
+            localPaddedLimits(obj.axes(1));
+            localPaddedLimits(obj.axes(2:3));
         end
     end
 end
@@ -118,8 +121,8 @@ function labels = localLegLabels(schema, legs)
 labels = cell(1, 2 * numel(legs));
 for k = 1:numel(legs)
     name = schema.Leg.Names{legs(k)};
-    labels{2*k-1} = ['alpha', name];
-    labels{2*k} = ['dalpha', name];
+    labels{2*k-1} = ['$\alpha_{', name, '}$'];
+    labels{2*k} = ['$\dot{\alpha}_{', name, '}$'];
 end
 end
 
@@ -143,5 +146,5 @@ end
 minimum = min(allValues);
 maximum = max(allValues);
 padding = max(0.05 * (maximum - minimum), 1e-4);
-ylim(ax, [minimum-padding, maximum+padding]);
+for k = 1:numel(ax), ylim(ax(k), [minimum-padding, maximum+padding]); end
 end

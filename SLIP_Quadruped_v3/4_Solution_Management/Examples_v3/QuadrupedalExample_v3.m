@@ -1,15 +1,16 @@
 function [orbit, report, framework] = QuadrupedalExample_v3(options)
-%QUADRUPEDALEXAMPLE_V3 Refine a converted legacy seed as a v3 full cycle.
-%   [ORBIT,REPORT,FRAMEWORK] = QuadrupedalExample_v3() explicitly converts
-%   one stored v2 branch point, discovers all contact events, closes a full
+%QUADRUPEDALEXAMPLE_V3 Refine a retained native seed as a v3 full cycle.
+%   [ORBIT,REPORT,FRAMEWORK] = QuadrupedalExample_v3() reads one native
+%   C1 PK branch point, discovers all contact events, closes a full
 %   per-leg touchdown/liftoff cycle, and refines the 13 continuous root
-%   coordinates. Legacy event times and gait labels are never inputs.
+%   coordinates. Explicit numeric legacy results files remain supported;
+%   legacy event times and gait labels are never inputs.
 
     if nargin < 1 || isempty(options)
         options = struct();
     end
     defaults = struct( ...
-        'FixtureFile', 'PK_20_2.mat', ...
+        'FixtureFile', 'C1_PK_10_20_2.mat', ...
         'FixtureColumn', 1, ...
         'LegacyParameterPolicy', 'v2-exact', ...
         'InitialUnknownPerturbation', [], ...
@@ -30,20 +31,44 @@ function [orbit, report, framework] = QuadrupedalExample_v3(options)
     restorePath = onCleanup(@() path(originalPath)); %#ok<NASGU>
     addV3Paths(v3Root);
     fixturePath = resolveFixture(v3Root, options.FixtureFile);
-    data = load(V3Path_v3(fixturePath), 'results');
-    if ~isfield(data, 'results')
-        error('QuadrupedalExample_v3:FixtureFormat', ...
-            'The fixture must contain a numeric results array.');
-    end
-    if options.FixtureColumn < 1 || ...
-            options.FixtureColumn > size(data.results, 2)
-        error('QuadrupedalExample_v3:FixtureColumn', ...
-            'FixtureColumn is outside the stored branch.');
-    end
-
-    legacy = data.results(:, options.FixtureColumn);
+    data = load(V3Path_v3(fixturePath));
     schema = QuadrupedSchema_v3.shared();
-    convertedSeed = LegacyStateAdapter_v3.toV3Unknown(legacy(1:13));
+    if ~isscalar(options.FixtureColumn) || ~isfinite(options.FixtureColumn) || ...
+            options.FixtureColumn ~= fix(options.FixtureColumn) || options.FixtureColumn < 1
+        error('QuadrupedalExample_v3:FixtureColumn', ...
+            'FixtureColumn must be a positive integer.');
+    end
+    if isfield(data, 'solutions') && iscell(data.solutions)
+        if options.FixtureColumn > numel(data.solutions)
+            error('QuadrupedalExample_v3:FixtureColumn', ...
+                'FixtureColumn is outside the stored branch.');
+        end
+        source = data.solutions{options.FixtureColumn};
+        if ~isa(source, 'HybridOrbit_v3') && ...
+                ~(isstruct(source) && isscalar(source) && ...
+                  all(isfield(source, {'initial_state','initial_mode','parameter'})))
+            error('QuadrupedalExample_v3:FixtureFormat', ...
+                'A native solutions entry must contain state, mode and parameters.');
+        end
+        state = schema.validateState(source.initial_state);
+        convertedSeed = state(schema.DefaultUnknownIndices);
+        parameter = schema.validateParameter(source.parameter);
+        initialMode = schema.validateMode(source.initial_mode);
+        conversionReport = struct('source_format', 'native_v3', 'conversion_performed', false);
+    elseif isfield(data, 'results') && isnumeric(data.results)
+        if size(data.results, 1) < 29 || options.FixtureColumn > size(data.results, 2)
+            error('QuadrupedalExample_v3:FixtureColumn', ...
+                'The legacy fixture needs at least 29 rows and the selected column.');
+        end
+        legacy = data.results(:, options.FixtureColumn);
+        convertedSeed = LegacyStateAdapter_v3.toV3Unknown(legacy(1:13));
+        [parameter, conversionReport] = LegacyParameterAdapter_v3.toV3( ...
+            legacy(23:29), options.LegacyParameterPolicy);
+        initialMode = LegacyModeAdapter_v3.toV3(false(schema.Leg.Count, 1));
+    else
+        error('QuadrupedalExample_v3:FixtureFormat', ...
+            'The fixture must contain native solutions or a numeric legacy results array.');
+    end
     perturbation = options.InitialUnknownPerturbation;
     if isempty(perturbation)
         perturbation = zeros(size(convertedSeed));
@@ -58,10 +83,6 @@ function [orbit, report, framework] = QuadrupedalExample_v3(options)
             'InitialUnknownPerturbation must be finite and have 13 entries.');
     end
     uSeed = convertedSeed + perturbation;
-    [parameter, conversionReport] = LegacyParameterAdapter_v3.toV3( ...
-        legacy(23:29), options.LegacyParameterPolicy);
-    initialMode = LegacyModeAdapter_v3.toV3( ...
-        false(schema.Leg.Count, 1));
 
     system = Quadrupedal_Dynamics_v3();
     simulator = HybridSimulator_v3();
@@ -187,12 +208,10 @@ function fixturePath = resolveFixture(v3Root, fixtureFile)
         fixturePath = fixtureFile;
         return
     end
-    fixturePath = fullfile(v3Root, ...
-        'P1_Breaking_Symmetries_Leads_to_Diverse_Qudrupedal_Gaits', ...
-        'SourceFixtures_v3', fixtureFile);
+    fixturePath = fullfile(v3Root, 'P1_Single_Flight_Phase_Continua', fixtureFile);
     if ~isfile(V3Path_v3(fixturePath))
         error('QuadrupedalExample_v3:FixtureMissing', ...
-            'Cannot find legacy fixture "%s".', fixtureFile);
+            'Cannot find solution dataset "%s". Supply its full path for a legacy file.', fixtureFile);
     end
 end
 

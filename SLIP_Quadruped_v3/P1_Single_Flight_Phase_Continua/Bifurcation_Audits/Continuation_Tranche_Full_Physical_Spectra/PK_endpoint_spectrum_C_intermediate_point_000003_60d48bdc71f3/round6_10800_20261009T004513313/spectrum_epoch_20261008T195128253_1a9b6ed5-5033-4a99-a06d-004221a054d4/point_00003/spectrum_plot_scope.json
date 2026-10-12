@@ -1,0 +1,321 @@
+{
+  "schema_version": "round3-saved-full-physical-spectrum-plot-v3-1",
+  "experiment_id": "round6_10800",
+  "task_id": "PK_endpoint_spectrum_C_intermediate_point_000003_60d48bdc71f3",
+  "attempt": "spectrum_epoch_20261008T195128253_1a9b6ed5-5033-4a99-a06d-004221a054d4",
+  "point_index": 3,
+  "source_spectrum": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/experiments/round6_10800/tasks/full/PK_endpoint_spectrum_C_intermediate_point_000003_60d48bdc71f3/spectrum_epoch_20261008T195128253_1a9b6ed5-5033-4a99-a06d-004221a054d4/spectrum_point_00003.mat",
+  "source_spectrum_sha256": "855919ecb93441802174413f6e5453f514b13075517aff9c22d63cb6f94065df",
+  "source_scan": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/experiments/round6_10800/tasks/full/PK_endpoint_spectrum_C_intermediate_point_000003_60d48bdc71f3/spectrum_epoch_20261008T195128253_1a9b6ed5-5033-4a99-a06d-004221a054d4/spectral_scan.json",
+  "source_scan_sha256": "e095dc9abd99f64c0bc642b9a39d4cd23fbed3bae1b90e616253c41a44cfe899",
+  "actual_method_registration": {
+    "registered_utc": "08-Oct-2026 19:51:29",
+    "point_indices": 3,
+    "BL_touchdowns_per_return": 1,
+    "max_wall_seconds": 1200,
+    "source_epochs": [
+      {
+        "name": "BuildPKEndpointSpectrumMethod_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/BuildPKEndpointSpectrumMethod_v3.m",
+        "sha256": "e47f2435ce8dc405c3a785215d6920f2e9b144c557111456d93efc27df4c2a5e"
+      },
+      {
+        "name": "RegisterPKEndpointSpectrumMethod_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/RegisterPKEndpointSpectrumMethod_v3.m",
+        "sha256": "ec24294720c381b62585a312942939115d8392d397e6aa6a996196f6ee3982a8"
+      },
+      {
+        "name": "RegisterPKEndpointSpectrumTask_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/RegisterPKEndpointSpectrumTask_v3.m",
+        "sha256": "239d493a4956a2c8897090761ed3e6b67176c343fdccb3e55228c9694dd4acd7"
+      },
+      {
+        "name": "RunPKEndpointSpectrumTask_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/RunPKEndpointSpectrumTask_v3.m",
+        "sha256": "6ef04f2d9bd4713b4bf49b0242a161561a1fa66573e67c412b6c2da1d6c5f8f7"
+      },
+      {
+        "name": "VerifyPKEndpointSpectrumMethod_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/VerifyPKEndpointSpectrumMethod_v3.m",
+        "sha256": "efbb580e2ca2e052798e44022a356a1b4e60c6949620e6505527a3290a1f95ee"
+      },
+      {
+        "name": "PKEndpointSpectrumIntegration_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/PKEndpointSpectrumIntegration_v3.m",
+        "sha256": "9036d575bc9cc734d7be8d7fbb0e902651021191a1a211e8387c33973413d83f"
+      },
+      {
+        "name": "PKEndpointSpectrumReceipt_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/PKEndpointSpectrumReceipt_v3.m",
+        "sha256": "3423e974f86eb16277ca89be5fe82a491de36c117f450deafa9b9c080c6e9496"
+      },
+      {
+        "name": "PKEndpointProbeRecorderJacobian_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/PKEndpointProbeRecorderJacobian_v3.m",
+        "sha256": "04fa3433c9ee01333fe06437e51f10adcbfc04367233b38cbdbdd4e0228f0333"
+      },
+      {
+        "name": "PKEndpointNumericalPolicyReference_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/PKEndpointNumericalPolicyReference_v3.m",
+        "sha256": "91f5b0dc4af15d4b54bfc2b4b79584b3480c324c350a400fdcf7bdf7e3aa20ed"
+      },
+      {
+        "name": "ResolveResearchRoundConfig_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/Drivers_v3/ResolveResearchRoundConfig_v3.m",
+        "sha256": "ad4f7ff3b614ebc1d1f033fe93d22acf72e8d433bd7f5b0646ef01008ae4766c"
+      },
+      {
+        "name": "QualifySavedAdmission_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/QualifySavedAdmission_v3.m",
+        "sha256": "d1bf2e0905f39ac4f140757ba07e564d09ac308a821086f3c3825aa89641734c"
+      },
+      {
+        "name": "FloquetAnalysis_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/3_Bifurcation_Analysis/FloquetAnalysis_v3.m",
+        "sha256": "c4ac3fa0cba68e6a6df2b8659f95298cc300c9f37bd563caa53066b0db170e75"
+      },
+      {
+        "name": "EventOrderChartJacobian_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/EventOrderChartJacobian_v3.m",
+        "sha256": "ad34e85a49c0329ac5296d26b4e88bb54dd814300735e27cf982e17b5da4402c"
+      },
+      {
+        "name": "HybridFiniteDifferenceJacobian_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/HybridFiniteDifferenceJacobian_v3.m",
+        "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+      },
+      {
+        "name": "AuditRound3CriticalSectors_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/theory/AuditRound3CriticalSectors_v3.m",
+        "sha256": "a7d52adc019999c3dd84e6bdefef478c6e2b23f8ee3f1b1c5577506b72e2658f"
+      },
+      {
+        "name": "RunRound3SpectralDaughters_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/theory/RunRound3SpectralDaughters_v3.m",
+        "sha256": "551ffe49eac313cc090ee9388414be4c95da117351196a8cc436e44a527cbb6f"
+      },
+      {
+        "name": "PeriodicOrbitResidual_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PeriodicOrbitResidual_v3.m",
+        "sha256": "0da58152164156b56654bd9e2acc1a1bd650b8192e93fde6b291ea621cc8bd3d"
+      },
+      {
+        "name": "PoincareMap_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PoincareMap_v3.m",
+        "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+      },
+      {
+        "name": "PoincareSection_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PoincareSection_v3.m",
+        "sha256": "72806bf271bad9289b9d3a75a98eceb8661d30a3d7283724e623502a13a01e2e"
+      },
+      {
+        "name": "BLMarkedApexReturnPolicy_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/BLMarkedApexReturnPolicy_v3.m",
+        "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a"
+      },
+      {
+        "name": "FirstReturnPolicy_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/FirstReturnPolicy_v3.m",
+        "sha256": "511e0f2b5e80281bd807dae6c277627797525ca9369ca0e94c323144a7065ae9"
+      },
+      {
+        "name": "ReturnPolicyBase_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/ReturnPolicyBase_v3.m",
+        "sha256": "7f8f778719362e4ddad95829aa64178e9105f447525eb40701c72a4ac8ab85b8"
+      },
+      {
+        "name": "HybridSimulator_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m",
+        "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+      },
+      {
+        "name": "HybridSystemBase_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/HybridSystemBase_v3.m",
+        "sha256": "0f99f6e7f06e375a13df411170bc075690c42abc12d5ae5ded69b39ca2ded46f"
+      },
+      {
+        "name": "EventDetector_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/EventDetector_v3.m",
+        "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+      },
+      {
+        "name": "Quadrupedal_Dynamics_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m",
+        "sha256": "dfd39a1c7ab2fa393f84adb43963c7d1448f4d5740a83828f4dfe9aaed01ee5d"
+      },
+      {
+        "name": "ContinuousDynamics_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m",
+        "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+      },
+      {
+        "name": "GuardFunctions_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m",
+        "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+      },
+      {
+        "name": "ResetMap_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m",
+        "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+      },
+      {
+        "name": "ModeTransition_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ModeTransition_v3.m",
+        "sha256": "07856a5220e842bdf6524adfd2d9a621e95fe995e310394680094b042c228832"
+      },
+      {
+        "name": "QuadrupedSchema_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m",
+        "sha256": "966bfc51791dc0096a1c04c5ec698426df8cfbc18bb6be0fae78c776f94e98b5"
+      },
+      {
+        "name": "QuadrupedAdmissibility_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m",
+        "sha256": "36890b0c3a8bd994560146b8a676375f5cf9b214c818503f47e66cd8c4072ca7"
+      },
+      {
+        "name": "QuadrupedPhysicalChart_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedPhysicalChart_v3.m",
+        "sha256": "4cae5dc8027bb2d8fa9063273bfa3b19067612c4b622df844971ae2bcc9de701"
+      },
+      {
+        "name": "QuadrupedEnergy_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedEnergy_v3.m",
+        "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+      },
+      {
+        "name": "PrimitiveCycleCheck_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PrimitiveCycleCheck_v3.m",
+        "sha256": "6449c29aa22f2685de9c3ebe5d3c70199cabbc775c01ebd4dfa2a3a6536fdb6e"
+      },
+      {
+        "name": "HybridCycleData_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/HybridCycleData_v3.m",
+        "sha256": "1c5f70eab61d3d72fed9446c6c4801b202f9700ee80f311f68fc8ea40842d947"
+      },
+      {
+        "name": "HybridOrbit_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/HybridOrbit_v3.m",
+        "sha256": "bd73f9411bea2443a6af17d78bba41f4134772333ad3cb073f32d1d02250bf87"
+      },
+      {
+        "name": "Trajectory_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/Trajectory_v3.m",
+        "sha256": "e963be3af5e49d856bd90d0b1c9d56ce9509ce5c72b4f3ebe991cd3ca7707f9c"
+      },
+      {
+        "name": "CompactResearchBranch_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/2_Continuation_Algorithms/CompactResearchBranch_v3.m",
+        "sha256": "d7cc7e1e1f04cfbc271546609ee3c68a99f5d3ce1e7d54d6ab987e703913ad07"
+      },
+      {
+        "name": "RoundSave_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/Drivers_v3/RoundSave_v3.m",
+        "sha256": "13367e5361d9e029e2af110bd81eb9791a96310a52b026b9beccc277482851a5"
+      },
+      {
+        "name": "RoundJSON_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/Drivers_v3/RoundJSON_v3.m",
+        "sha256": "735bd4a4e58aae506f7e4e426a746ba40126c95e86b5deeddccf73dd5801d43d"
+      }
+    ],
+    "full_physical_energy_leaf": true,
+    "approximate_critical_points_certified": false,
+    "method_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/experiments/round6_10800/tasks/full/PK_endpoint_spectrum_C_intermediate_point_000003_60d48bdc71f3/PK_endpoint_spectrum_method.mat",
+    "method_sha256": "cbf1c6723cf9601564ef656c7e1e3e6df0775f1e9757e82b762f6c86f30152ca",
+    "branch_artifact": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/experiments/round6_10800/tasks/full/PK_growth_round6_10800_m1_point_000007_80cbd2a0/epochs/epoch_000001/branch.mat",
+    "branch_sha256": "60d48bdc71f316c71ff424e9fbc4e369ef7b8807d7a785810917f211928dfff2"
+  },
+  "full_physical_dimension": 12,
+  "fixed_energy_leaf_dimension": 11,
+  "symmetry_restricted": false,
+  "saved_spectrum_reliable": true,
+  "saved_periodic_base_eligible": true,
+  "primitive_status": "primitive_within_checked_bound",
+  "primitive_cover_count": 1,
+  "BL_touchdowns_per_return": 1,
+  "classification_label": "PK",
+  "classification_status": "classified",
+  "physical_flights": 1,
+  "energy": 7.2285804616200053,
+  "signed_mean_speed": 3.5095418029845193,
+  "primitive_period": 1.3816463155418202,
+  "base_closure": 1.9529376923993316E-11,
+  "scan_function_evaluations_lower_bound": 49,
+  "scan_elapsed_seconds": 356.60844191666666,
+  "multipliers_real": [
+    -6.7113443259338643,
+    -0.13894377615840814,
+    0.14176804819197153,
+    0.14176804819197153,
+    0.93937062588844567,
+    0.93249953031610744,
+    0.93249953031304667,
+    -8.1157275832423378E-11,
+    4.4570410998618556E-11,
+    2.7853024623743383E-11,
+    1.9022485509395375E-11
+  ],
+  "multipliers_imaginary": [
+    0,
+    0,
+    0.98619838110626823,
+    -0.98619838110626823,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "near_plus_one_cutoff": 0.05,
+  "near_plus_one_indices": [],
+  "conservative_energy_direction": "The saved matrix restricts the full physical section derivative to ker(DH); no multiplier nearest+1 is deleted.",
+  "uncertainty_scope": {
+    "saved_critical_audit_available": true,
+    "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round6/experiments/round6_10800/tasks/full/PK_endpoint_spectrum_C_intermediate_point_000003_60d48bdc71f3/spectrum_epoch_20261008T195128253_1a9b6ed5-5033-4a99-a06d-004221a054d4/critical_sectors/critical_sectors.json",
+    "source_sha256": "42e29688f3caa58bca9afd388ddb04bf458fb60a556b98b0ed9e3ddca818294f",
+    "scaled_empirical_refinement_floor": 0.00070921438292189623,
+    "plus_one_SVD_near_kernel_dimension": 0,
+    "refinement_floor_is_rigorous_bound": false,
+    "exact_nullity_certified": false,
+    "scope": "Finite-difference reliability is not an interval stability proof. Eigenvalue proximity counts and SVD near-kernel dimensions are different diagnostics; tiny departures from the unit circle do not certify instability or a crossing."
+  },
+  "finite_difference_column_relative_refinement": [
+    4.7793853523360628E-8,
+    4.4441277812102194E-6,
+    1.5916260258688437E-7,
+    3.1828515367542539E-8,
+    2.3393675397182742E-8,
+    2.7062823939899862E-8,
+    2.3393675397182745E-8,
+    2.7062823939899862E-8,
+    2.4015271189357604E-8,
+    2.666177643236076E-8,
+    2.4260398331458492E-8,
+    2.6673973045291321E-8
+  ],
+  "critical_points_certified": false,
+  "automatic_bifurcation_claim": false,
+  "ancestry_claimed": false,
+  "stability_certified": false,
+  "outside_unit_circle_is_certified_instability": false,
+  "new_map_evaluations": 0,
+  "new_simulations": 0,
+  "scope": "Plots of actual saved unrestricted physical fixed-energy spectra. Near+1 multipliers remain empirical candidates; plotting provides no crossing, nondegeneracy or daughter-existence certificate.",
+  "exporter_sha256": "fbe1133b29fb03bf52e2bf2738d58fb1cac6150ce567a35605a470e4d6f532fe",
+  "figures": [
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Continuation_Tranche_Full_Physical_Spectra/PK_endpoint_spectrum_C_intermediate_point_000003_60d48bdc71f3/round6_10800_20261009T004513313/spectrum_epoch_20261008T195128253_1a9b6ed5-5033-4a99-a06d-004221a054d4/point_00003/full_physical_energy_leaf_spectrum.png",
+      "sha256": "da503070b8e0366b8d378a47efb40c44ffdaf7966937e75e043d044f7bb5602a",
+      "bytes": 147824
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Continuation_Tranche_Full_Physical_Spectra/PK_endpoint_spectrum_C_intermediate_point_000003_60d48bdc71f3/round6_10800_20261009T004513313/spectrum_epoch_20261008T195128253_1a9b6ed5-5033-4a99-a06d-004221a054d4/point_00003/full_physical_energy_leaf_spectrum.pdf",
+      "sha256": "c53c3698343e600b9e07ea44c74fad407618da68f5cddb86a9f7b9bbc1537005",
+      "bytes": 40717
+    }
+  ]
+}

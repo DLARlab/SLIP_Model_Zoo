@@ -1,0 +1,28 @@
+{
+  "purpose": "Protected v2 GUI source used for the layout and interaction port; non-executable byte copy, not a dependency on the protected checkout.",
+  "created_utc": "2026-10-09T09:19:04.676352+00:00",
+  "external_source": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/SLIP_Quadruped_GUI.m",
+    "bytes": 320599,
+    "sha256": "cc740a83093a7bd7580c22e113000f6510c4901fead363b8f4f3fccb84699652"
+  },
+  "protected_repository_source": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped/SLIP_Quadruped_GUI.m",
+    "bytes": 320599,
+    "sha256": "cc740a83093a7bd7580c22e113000f6510c4901fead363b8f4f3fccb84699652"
+  },
+  "saved_copy": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/2_Graphic_ToolBox/GUI_v3/V2_Source_Provenance/SLIP_Quadruped_GUI.m.txt",
+    "bytes": 320599,
+    "sha256": "cc740a83093a7bd7580c22e113000f6510c4901fead363b8f4f3fccb84699652"
+  },
+  "external_and_repository_GUI_identical": true,
+  "adaptations": [
+    "v3 native controller and physical 14-state/10-parameter schema",
+    "stored event/mode graphics and display classification without granting acceptance",
+    "cooperative close and on-demand timers",
+    "explicit v3 Analysis additions and truthful parameter-scan semantics"
+  ],
+  "source_copy_storage": "Original source copies are preserved in the selected final scientific evidence ZIPs, not loose runtime files.",
+  "archive_index": "Audits_v3/Scientific_Evidence/manifest.json"
+}

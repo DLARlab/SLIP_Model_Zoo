@@ -1,0 +1,167 @@
+{
+  "schema_version": "named-continuum-publication-v3-2",
+  "id": "C1",
+  "continuum_id": "C1",
+  "continuum_number": 1,
+  "dataset_key": "C1|USBL1|[10,10,20,20,1,1,0,0,2,0.5]",
+  "abbreviation": "USBL1",
+  "branch_designation": "",
+  "display_name": "C1 USBL1 source groups",
+  "dataset_type": "accepted_orbit_samples",
+  "dataset_role": "native_admitted_gait_dataset",
+  "created_utc": "20261009T072706154",
+  "physical_parameter": [
+    10,
+    10,
+    20,
+    20,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0.5
+  ],
+  "solution_count": 1,
+  "component_count": 1,
+  "source_group_count": 1,
+  "records": {
+    "solution_index": 1,
+    "source_path": "P1_Single_Flight_Phase_Continua/Round3_Additional_Admitted_Orbit_Samples.mat",
+    "source_sha256": "b81338d4fd06855d952711d1644a2c911c9be77863051cedc8a08a6c1a8e2365",
+    "source_record_index": 1,
+    "component_index": 1,
+    "record_kind": "independent_round3_admission_samples",
+    "original_admission_source_path": "Research_v3/round3/experiments/post_3e4d311_research/tasks/full/source17_B2/sector_01_signed_-0.001_revision_001_attempt_004.mat",
+    "original_admission_source_sha256": "b408e8dbf17c22e8a9fdee4d7705c5b5eb4b60e10cacc98d9558a0a03c375e91",
+    "original_admission_source_record_index": 1,
+    "classification_label": "unclassified",
+    "classification_status": "ambiguous",
+    "physical_flight_count": 1,
+    "energy": 1.22395752697162,
+    "period": 1.9086226798857693,
+    "signed_drift": -9.5146038384417779E-18,
+    "mean_speed": -4.9850627568835269E-18,
+    "saved_full_closure": 4.905906410279659E-14,
+    "return_policy_name": "BL-marked-apex-return",
+    "BL_touchdowns_per_return": 1,
+    "fresh_replay_performed_by_publication": false,
+    "source_group_key": "P1/source17_standing"
+  },
+  "components": {
+    "index": 1,
+    "source_path": "P1_Single_Flight_Phase_Continua/Round3_Additional_Admitted_Orbit_Samples.mat",
+    "source_sha256": "b81338d4fd06855d952711d1644a2c911c9be77863051cedc8a08a6c1a8e2365",
+    "record_indices": 1,
+    "record_kind": "independent_round3_admission_samples",
+    "ordered_source_records": 1,
+    "arclength": [],
+    "continuation_direction": "",
+    "joins_to_other_components_claimed": false,
+    "source_record_start_index": 1,
+    "source_record_end_index": 1,
+    "continuation_metadata": {},
+    "source_group_key": "P1/source17_standing"
+  },
+  "source_groups": {
+    "key": "P1/source17_standing",
+    "kind": "replicated_source_group",
+    "display_name": "Unclassified standing single-flight samples",
+    "dataset_type": "accepted_orbit_samples",
+    "note": "This source group retains its separate provenance. Source components, signed samples, and marked phases remain separate; their record counts are not distinct cycles or families. No new replay, admission, global connection, stability or bifurcation certificate is created. USBL1 means unclassified standing BL1; no B2 or BD label is assigned.",
+    "record_indices": 1,
+    "component_indices": 1,
+    "connections_to_other_groups_claimed": false,
+    "branch_designation": ""
+  },
+  "original_source_files_preserved": true,
+  "new_simulations": 0,
+  "new_map_evaluations": 0,
+  "new_admissions": 0,
+  "distinct_cycle_count_claimed": false,
+  "new_family_claimed": false,
+  "global_connectivity_claimed": false,
+  "note": "C1/P1 and C2/P2 identify the user continuum convention. Source groups, signed samples, marked phases and ordered components retain separate provenance; a common C prefix creates no connection, family, distinct-cycle or bifurcation claim.",
+  "source_manifest": [
+    {
+      "path": "P1_Single_Flight_Phase_Continua/Round3_Additional_Admitted_Orbit_Samples.mat",
+      "sha256": "b81338d4fd06855d952711d1644a2c911c9be77863051cedc8a08a6c1a8e2365"
+    },
+    {
+      "path": "Research_v3/round3/experiments/post_3e4d311_research/tasks/full/source17_B2/sector_01_signed_-0.001_revision_001_attempt_004.mat",
+      "sha256": "b408e8dbf17c22e8a9fdee4d7705c5b5eb4b60e10cacc98d9558a0a03c375e91"
+    }
+  ],
+  "audit_directory": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2",
+  "publisher_sources": [
+    {
+      "name": "PublishNamedContinua_v3",
+      "source": "4_Solution_Management/PublishNamedContinua_v3.m",
+      "sha256": "419412914bda34fdc32f666d5ea622c9358a3e6322eca74036b0af4f344e0990",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/PublishNamedContinua_v3_source.m.txt"
+    },
+    {
+      "name": "CollectNamedContinuumSources_v3",
+      "source": "4_Solution_Management/CollectNamedContinuumSources_v3.m",
+      "sha256": "ef076f1ec7b6106d5fdd9ffb83f1c1198b8fe797e2eb37f170415baa480aba9b",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/CollectNamedContinuumSources_v3_source.m.txt"
+    },
+    {
+      "name": "BuildNamedContinuumDataset_v3",
+      "source": "4_Solution_Management/BuildNamedContinuumDataset_v3.m",
+      "sha256": "e8adc58eaeab88013d9023554e83a2ad07ed2bb84b86e963d6ae50099a690509",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/BuildNamedContinuumDataset_v3_source.m.txt"
+    },
+    {
+      "name": "WriteNamedContinuumDataset_v3",
+      "source": "4_Solution_Management/WriteNamedContinuumDataset_v3.m",
+      "sha256": "dff86741cacc7893ab829526798547545a698586d058b1d44844049ec7ec9bb0",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/WriteNamedContinuumDataset_v3_source.m.txt"
+    },
+    {
+      "name": "PublishAdditionalNamedSamples_v3",
+      "source": "Research_v3/round4/PublishAdditionalNamedSamples_v3.m",
+      "sha256": "4bf25a9f506638b54cba8926470959dedbf208fb929a9bd325529f088e9e5621",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/PublishAdditionalNamedSamples_v3_source.m.txt"
+    },
+    {
+      "name": "NamedAdmissionSourceGroup_v3",
+      "source": "4_Solution_Management/NamedAdmissionSourceGroup_v3.m",
+      "sha256": "9dd5f2e26936d37ddb229756b76baf6970d2632bafb89591d27b0264fd603c22",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/NamedAdmissionSourceGroup_v3_source.m.txt"
+    },
+    {
+      "name": "QualifiedPublicationName_v3",
+      "source": "4_Solution_Management/QualifiedPublicationName_v3.m",
+      "sha256": "2cf754159da934218dee0249bb7f59987836d6288e573849b77efed225a82d8a",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/QualifiedPublicationName_v3_source.m.txt"
+    },
+    {
+      "name": "QualifySavedContinuation_v3",
+      "source": "4_Solution_Management/QualifySavedContinuation_v3.m",
+      "sha256": "c68b45bee23b2fab0378f9570eb81c1e884780195d646419cfdbd2e7f92e69b3",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/QualifySavedContinuation_v3_source.m.txt"
+    },
+    {
+      "name": "QualifySavedAdmission_v3",
+      "source": "4_Solution_Management/QualifySavedAdmission_v3.m",
+      "sha256": "d1bf2e0905f39ac4f140757ba07e564d09ac308a821086f3c3825aa89641734c",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/QualifySavedAdmission_v3_source.m.txt"
+    },
+    {
+      "name": "ReadRoadmapPublicationEvidence_v3",
+      "source": "Research_v3/round6/ReadRoadmapPublicationEvidence_v3.m",
+      "sha256": "4002de109bb793566c9d8a2444a6df8b245f9e8c31ab420346995a61261b214e",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/ReadRoadmapPublicationEvidence_v3_source.m.txt"
+    },
+    {
+      "name": "NamedRoadmapContinuationGroups_v3",
+      "source": "4_Solution_Management/NamedRoadmapContinuationGroups_v3.m",
+      "sha256": "37335514e46152e1477abe4e963dbafdf07dfc432337041fab224d61e9dbd56b",
+      "copy": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2/NamedRoadmapContinuationGroups_v3_source.m.txt"
+    }
+  ],
+  "dataset_path": "P1_Single_Flight_Phase_Continua/C1_USBL1_10_20_2.mat",
+  "dataset_sha256": "606196a9ffa3145f40a3aa2c9569eda1592cecd8c2d5f109080cfac13cd5dafd",
+  "dataset_bytes": 623118
+}

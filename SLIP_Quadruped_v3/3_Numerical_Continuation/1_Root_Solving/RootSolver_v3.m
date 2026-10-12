@@ -26,6 +26,9 @@ classdef RootSolver_v3
         ParameterScale = []
         EnableMapCache = true
         ProvideJacobianToFsolve = true
+        FsolveAlgorithm = ''          % Empty retains the native default.
+        FsolveInitialDamping = []     % Explicit LM only; optimoptions API.
+        FsolveScaleProblem = ''       % Empty, 'none', or LM 'jacobian'.
         ReuseJacobian = false
         InitialJacobian = []
         UseBroyden = false
@@ -147,6 +150,10 @@ classdef RootSolver_v3
             cacheHits = 0;
             invalidEvaluations = 0;
             jacobianEvaluations = 0;
+            invalidEvaluationDiagnostics = {};
+            fsolveFailure = struct();
+            evaluationPhase = 'initial-residual';
+            evaluatingJacobian = false;
             solveClock = tic;
 
             try
@@ -165,6 +172,7 @@ classdef RootSolver_v3
                 attempt.functionEvaluationCount = functionEvaluations;
                 attempt.mapEvaluationCount = mapEvaluations;
                 attempt.invalidEvaluationCount = invalidEvaluations;
+                attempt.invalidEvaluationDiagnostics = invalidEvaluationDiagnostics;
                 return
             end
 
@@ -190,6 +198,7 @@ classdef RootSolver_v3
                 candidates{end + 1} = initialSolution;
             elseif any(strcmp(algorithm, {'auto', 'fsolve'})) && ...
                     exist('fsolve', 'file') == 2
+                evaluationPhase = 'fsolve';
                 candidates{end + 1} = obj.runFsolve( ...
                     @fsolveObjective, scaledInitial);
             end
@@ -206,6 +215,7 @@ classdef RootSolver_v3
                         size(obj.InitialJacobian, 2) == numel(u0)
                     initialJacobian = obj.InitialJacobian * diag(stateScale);
                 end
+                evaluationPhase = 'newton';
                 candidates{end + 1} = obj.runDampedNewton( ...
                     @cachedObjective, @safeObjective, @jacobianAt, ...
                     newtonStart, initialJacobian);
@@ -229,6 +239,7 @@ classdef RootSolver_v3
             attempt.residualNorm = solved.residualNorm;
             attempt.exitflag = solved.exitflag;
             attempt.output = solved.output;
+            attempt.fsolveOptions = solved.fsolveOptions;
             attempt.solver = solved.solver;
             attempt.message = solved.message;
             attempt.errorIdentifier = solved.errorIdentifier;
@@ -266,6 +277,7 @@ classdef RootSolver_v3
                 attempt.finalJacobian = solved.jacobian ./ stateScale(:).';
             end
 
+            evaluationPhase = 'final-validation';
             try
                 [~, validReturn, evalInfo] = safeObjective( ...
                     attempt.state ./ stateScale);
@@ -316,6 +328,8 @@ classdef RootSolver_v3
             attempt.cacheHitCount = cacheHits;
             attempt.invalidEvaluationCount = invalidEvaluations;
             attempt.jacobianEvaluationCount = jacobianEvaluations;
+            attempt.invalidEvaluationDiagnostics = invalidEvaluationDiagnostics;
+            attempt.fsolveFailure = fsolveFailure;
 
             function r = cachedObjective(scaledState)
                 [r, valid, ~, errorIdentifier, message] = ...
@@ -328,19 +342,62 @@ classdef RootSolver_v3
                 end
             end
 
-            function [r, valid, info] = safeObjective(scaledState, varargin)
-                [r, valid, info] = evaluateScaled(scaledState, varargin{:});
+            function [r, valid, info, errorIdentifier, message] = safeObjective(scaledState, varargin)
+                [r, valid, info, errorIdentifier, message] = evaluateScaled(scaledState, varargin{:});
             end
 
             function [r, J] = fsolveObjective(scaledState)
-                r = cachedObjective(scaledState);
-                if nargout > 1
-                    [J, ~] = jacobianAt(scaledState, r);
+                stage = 'objective-residual';
+                r = [];
+                J = [];
+                fdInfo = struct();
+                jacobianRejectionReason = '';
+                try
+                    r = cachedObjective(scaledState);
+                    if nargout > 1
+                        stage = 'objective-jacobian';
+                        [J, fdInfo] = jacobianAt(scaledState, r);
+                        % A failed hybrid column must not enter native
+                        % fsolve as NaN and generate a nonfinite trial.
+                        % Explicit Jacobians without reliability metadata
+                        % retain the same trust convention as Newton.
+                        if ~isnumeric(J) || isempty(J) || ...
+                                ~isequal(size(J), [numel(r), numel(scaledState)])
+                            jacobianRejectionReason = 'incomplete or incorrectly sized derivative';
+                        elseif any(~isfinite(J(:)))
+                            jacobianRejectionReason = 'nonfinite derivative column';
+                        elseif ~obj.jacobianInfoReliable(fdInfo)
+                            jacobianRejectionReason = 'derivative reliability checks failed';
+                        end
+                        if ~isempty(jacobianRejectionReason)
+                            error('RootSolver_v3:InvalidJacobian', ...
+                                ['A complete finite reliable Jacobian is ' ...
+                                 'required before the fsolve step: %s.'], ...
+                                jacobianRejectionReason);
+                        end
+                    end
+                catch exception
+                    fsolveFailure = struct('stage', stage, ...
+                        'scaled_coordinates', scaledState(:), ...
+                        'coordinates', scaledState(:).*stateScale, ...
+                        'state_scale', stateScale, 'parameter', p, 'mode', q, ...
+                        'identifier', exception.identifier, ...
+                        'message', exception.message, 'stack', exception.stack, ...
+                        'invalid_evaluation_count', numel(invalidEvaluationDiagnostics), ...
+                        'base_residual', r, 'derivative_matrix', J, ...
+                        'derivative_report', fdInfo, ...
+                        'derivative_rejection_reason', jacobianRejectionReason, ...
+                        'base_residual_valid', strcmp(stage, 'objective-jacobian'), ...
+                        'scope', ['Jacobian-stage coordinates identify the derivative base, ' ...
+                        'not an offending probe; original map stacks are in invalidEvaluationDiagnostics.']);
+                    rethrow(exception)
                 end
             end
 
             function [J, fdInfo] = jacobianAt(scaledState, baseline)
                 jacobianEvaluations = jacobianEvaluations + 1;
+                evaluatingJacobian = true;
+                jacobianCleanup = onCleanup(@finishJacobian); %#ok<NASGU>
                 if isa(obj.Jacobian, 'HybridFiniteDifferenceJacobian_v3')
                     [J, ~, fdInfo] = obj.Jacobian.compute( ...
                         @hybridObjective, scaledState);
@@ -353,14 +410,22 @@ classdef RootSolver_v3
                 end
             end
 
+            function finishJacobian()
+                evaluatingJacobian = false;
+            end
+
             function [r, metadata] = hybridObjective(scaledState, varargin)
-                [r, valid, metadata] = safeObjective( ...
+                [r, valid, metadata, errorIdentifier, message] = safeObjective( ...
                     scaledState, varargin{:});
                 if isempty(metadata) || ~isstruct(metadata)
                     metadata = struct();
                 end
                 metadata.valid = valid;
                 metadata.integration_success = valid;
+                if ~valid
+                    metadata.errorIdentifier = errorIdentifier;
+                    metadata.message = message;
+                end
             end
 
             function [r, valid, info, errorIdentifier, message] = ...
@@ -372,12 +437,15 @@ classdef RootSolver_v3
                 % Context overrides (including tighter derivative ODE
                 % settings) deliberately bypass the local cache.
                 useCache = obj.EnableMapCache && isempty(varargin);
+                fromCache = false;
                 if useCache && isKey(cache, key)
                     record = cache(key);
                     cacheHits = cacheHits + 1;
+                    fromCache = true;
                 else
                     record = struct('residual', [], 'info', struct(), ...
-                        'valid', false, 'errorIdentifier', '', 'message', '');
+                        'valid', false, 'errorIdentifier', '', 'message', '', ...
+                        'originalExceptionStack', struct([]), 'mapStarted', false);
                     physicalState = scaledState .* stateScale;
                     try
                         if toc(solveClock) > obj.MaxWallSeconds
@@ -389,6 +457,7 @@ classdef RootSolver_v3
                                 'Correction map-evaluation budget exhausted, including derivative samples.');
                         end
                         mapEvaluations = mapEvaluations + 1;
+                        record.mapStarted = true;
                         [value, evaluationInfo] = obj.evaluateResidual( ...
                             residual, physicalState, p, q, varargin{:});
                         value = value(:);
@@ -408,6 +477,7 @@ classdef RootSolver_v3
                     catch exception
                         record.errorIdentifier = exception.identifier;
                         record.message = exception.message;
+                        record.originalExceptionStack = exception.stack;
                     end
                     if useCache
                         cache(key) = record;
@@ -423,6 +493,20 @@ classdef RootSolver_v3
                     if isempty(message)
                         message = 'Invalid hybrid residual evaluation.';
                     end
+                    stage = evaluationPhase;
+                    if evaluatingJacobian, stage = [stage, '-derivative-probe']; end
+                    invalidEvaluationDiagnostics{end+1} = struct( ...
+                        'stage', stage, 'scaled_coordinates', scaledState, ...
+                        'coordinates', scaledState.*stateScale, ...
+                        'state_scale', stateScale, 'parameter', p, 'mode', q, ...
+                        'identifier', errorIdentifier, 'message', message, ...
+                        'original_exception_stack', record.originalExceptionStack, ...
+                        'function_evaluation_index', functionEvaluations, ...
+                        'map_evaluation_count', mapEvaluations, ...
+                        'map_started', record.mapStarted, 'from_cache', fromCache, ...
+                        'context_override_present', ~isempty(varargin));
+                    % For cache hits, map_started describes the original
+                    % cached evaluation, not another map in this callback.
                 end
             end
         end
@@ -440,6 +524,46 @@ classdef RootSolver_v3
                 if obj.ProvideJacobianToFsolve
                     options = optimset(options, 'Jacobian', 'on');
                 end
+                if ~isempty(char(obj.FsolveAlgorithm))
+                    options = optimset(options, 'Algorithm', lower(char(obj.FsolveAlgorithm)));
+                end
+                if ~isempty(char(obj.FsolveScaleProblem))
+                    options = optimset(options, 'ScaleProblem', lower(char(obj.FsolveScaleProblem)));
+                end
+                if ~isempty(obj.FsolveInitialDamping)
+                    % optimoptions accepts solver-option objects as its
+                    % second argument, not an optimset struct. Copy only
+                    % the explicitly set legacy fields via native aliases.
+                    nativeOptions = optimoptions('fsolve');
+                    optionNames = fieldnames(options);
+                    for optionIndex = 1:numel(optionNames)
+                        optionName = optionNames{optionIndex};
+                        if ~isempty(options.(optionName))
+                            nativeOptions.(optionName) = options.(optionName);
+                        end
+                    end
+                    nativeOptions.InitDamping = obj.FsolveInitialDamping;
+                    options = nativeOptions;
+                end
+                effectiveOptions = optimoptions('fsolve');
+                if ~isempty(char(obj.FsolveAlgorithm))
+                    effectiveOptions.Algorithm = lower(char(obj.FsolveAlgorithm));
+                end
+                if ~isempty(char(obj.FsolveScaleProblem))
+                    effectiveOptions.ScaleProblem = lower(char(obj.FsolveScaleProblem));
+                end
+                if ~isempty(obj.FsolveInitialDamping)
+                    effectiveOptions.InitDamping = obj.FsolveInitialDamping;
+                end
+                solved.fsolveOptions = struct( ...
+                    'Algorithm', effectiveOptions.Algorithm, ...
+                    'InitDamping', effectiveOptions.InitDamping, ...
+                    'ScaleProblem', effectiveOptions.ScaleProblem, ...
+                    'requestedAlgorithm', char(obj.FsolveAlgorithm), ...
+                    'requestedInitialDamping', obj.FsolveInitialDamping, ...
+                    'requestedScaleProblem', char(obj.FsolveScaleProblem), ...
+                    'scope', ['Configured options before fsolve; successful ' ...
+                    'native output.algorithm records the executed algorithm.']);
                 [u, fval, exitflag, output] = fsolve(objective, u0, options);
                 solved.state = u(:);
                 solved.residual = fval(:);
@@ -1032,6 +1156,8 @@ classdef RootSolver_v3
                 'functionEvaluationCount', 0, 'mapEvaluationCount', 0, ...
                 'cacheHitCount', 0, 'invalidEvaluationCount', 0, ...
                 'jacobianEvaluationCount', 0, 'finalJacobian', [], ...
+                'fsolveOptions', struct(), 'fsolveFailure', struct(), ...
+                'invalidEvaluationDiagnostics', {{}}, ...
                 'jacobianReliable', false, ...
                 'derivativeModel', '', 'derivativeEvaluated', false, ...
                 'acceptedNewtonIterations', 0, ...
@@ -1051,7 +1177,7 @@ classdef RootSolver_v3
                 'state', [], 'residual', [], 'residualNorm', Inf, ...
                 'exitflag', -Inf, 'output', struct(), 'solver', '', ...
                 'message', '', 'errorIdentifier', '', 'converged', false, ...
-                'jacobian', [], 'jacobianReliable', false);
+                'jacobian', [], 'jacobianReliable', false, 'fsolveOptions', struct());
         end
 
         function obj = applyOptions(obj, options)
@@ -1082,6 +1208,29 @@ classdef RootSolver_v3
         end
 
         function validateOptions(obj)
+            for name = {'FsolveAlgorithm','FsolveScaleProblem'}
+                value = obj.(name{1});
+                if ~((ischar(value) && (isempty(value) || isrow(value))) ...
+                        || (isstring(value) && isscalar(value)))
+                    error('RootSolver_v3:FsolveOptions', '%s must be scalar text.', name{1});
+                end
+            end
+            fsolveAlgorithm = lower(char(obj.FsolveAlgorithm));
+            fsolveScaling = lower(char(obj.FsolveScaleProblem));
+            if ~any(strcmp(fsolveAlgorithm, {'','trust-region-dogleg','trust-region','levenberg-marquardt'})) ...
+                    || ~any(strcmp(fsolveScaling, {'','none','jacobian'}))
+                error('RootSolver_v3:FsolveOptions', 'Unknown fsolve algorithm or scaling policy.');
+            end
+            if ~isempty(obj.FsolveInitialDamping) && ...
+                    ~(isnumeric(obj.FsolveInitialDamping) && isreal(obj.FsolveInitialDamping) ...
+                    && isscalar(obj.FsolveInitialDamping) && isfinite(obj.FsolveInitialDamping) ...
+                    && obj.FsolveInitialDamping > 0)
+                error('RootSolver_v3:FsolveOptions', 'FsolveInitialDamping must be empty or a finite positive scalar.');
+            end
+            if (~isempty(obj.FsolveInitialDamping) || strcmp(fsolveScaling,'jacobian')) ...
+                    && ~strcmp(fsolveAlgorithm,'levenberg-marquardt')
+                error('RootSolver_v3:FsolveOptions', 'Damping and Jacobian scaling require explicit levenberg-marquardt.');
+            end
             if ~any(strcmpi(obj.Algorithm, {'auto', 'fsolve', 'newton'}))
                 error('RootSolver_v3:Algorithm', ...
                     'Algorithm must be auto, fsolve, or newton.');

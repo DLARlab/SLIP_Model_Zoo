@@ -1,0 +1,152 @@
+{
+  "schema_version": "named-continua-catalog-v3-2",
+  "created_utc": "20261009T072721809",
+  "folder": "P1_Single_Flight_Phase_Continua",
+  "continuum_id": "C1",
+  "continuum_number": 1,
+  "datasets": [
+    {
+      "file": "C1_PK_10_20_2.mat",
+      "id": "C1",
+      "continuum_id": "C1",
+      "continuum_number": 1,
+      "dataset_key": "C1|PK|[10,10,20,20,1,1,0,0,2,0.5]",
+      "abbreviation": "PK",
+      "branch_designation": "",
+      "display_name": "C1 PK source groups",
+      "solution_count": 177,
+      "dataset_type": "saved_continuation_components_and_samples",
+      "component_count": 39,
+      "source_group_count": 12,
+      "source_group_keys": [
+        "P1/imported_PK",
+        "P1/restricted_daughter_1",
+        "P1/restricted_daughter_2",
+        "P1/PIP_n0",
+        "P1/PIP_low_energy",
+        "P1/signed_PIP_2",
+        "P1/signed_PIP_3",
+        "roadmap/PK_growth_m1_arc015|939b0ce42038ef49efd9d4156f6cfab0d5c0033ebf9c1e93e8b46c5401ceaed5|PK|region:|epoch:1|branch:80cbd2a08f50d5cd6a02c6248f74c23672693bb03aeb9622f76b0264418bdcdc",
+        "roadmap/PK_growth_round6_10800_m1_point_000002_916bbc6b_resolution_1cd1c93a|d409cc04738add6f04debed565752fc43e7d27caecaa9237200f7b9dccdf450c|PK|region:|epoch:1|branch:11a36ae7e30819afe02071a89c30071903b183b54119a47cb6ce830b03d035d0",
+        "roadmap/PK_growth_round6_10800_m1_point_000005_60d48bdc_resolution_72bd1282|c7833713abd0d3dd8891f0abb4ff10ffbe6970b55278e071b96a8c5859948332|PK|region:|epoch:1|branch:916bbc6b2bb4b696a882e8d59399b029a546c00abf0dc1ed5e651f59392761e7",
+        "roadmap/PK_growth_round6_10800_m1_point_000007_80cbd2a0|162fa169f5d78a2f6b312d58c660a3b10a7a5d5e1febdc1dc574973b3ced9851|PK|region:|epoch:1|branch:60d48bdc71f316c71ff424e9fbc4e369ef7b8807d7a785810917f211928dfff2",
+        "roadmap/PK_growth_round7_10800_m1_point_000003_11a36ae7_inheritance_e1803696_D_stencil_revision_a2df1db1|90b776e696f19508e8839db52d67248efbfc93d99f1b71a405d1577405fc871f|PK|region:|epoch:1|branch:eab240410a6eb8f991cbea4c0b86de7dcfc73f78e62d8fd90712729686dc9a83"
+      ],
+      "dataset_sha256": "cb08770e36de5a8318620aed7f5fcaa4a3114bf8cb378d405ab3c14aaf374407",
+      "dataset_role": "native_admitted_gait_dataset",
+      "content_continuum_id": "C1",
+      "content_dataset_key": "C1|PK|[10,10,20,20,1,1,0,0,2,0.5]",
+      "copy_source_path": "",
+      "copy_source_sha256": "",
+      "physical_parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "note": "C1/P1 and C2/P2 identify the user continuum convention. Source groups, signed samples, marked phases and ordered components retain separate provenance; a common C prefix creates no connection, family, distinct-cycle or bifurcation claim.",
+      "audit_directory": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_PK_10_20_2"
+    },
+    {
+      "file": "C1_USBL1_10_20_2.mat",
+      "id": "C1",
+      "continuum_id": "C1",
+      "continuum_number": 1,
+      "dataset_key": "C1|USBL1|[10,10,20,20,1,1,0,0,2,0.5]",
+      "abbreviation": "USBL1",
+      "branch_designation": "",
+      "display_name": "C1 USBL1 source groups",
+      "solution_count": 1,
+      "dataset_type": "accepted_orbit_samples",
+      "component_count": 1,
+      "source_group_count": 1,
+      "source_group_keys": [
+        "P1/source17_standing"
+      ],
+      "dataset_sha256": "606196a9ffa3145f40a3aa2c9569eda1592cecd8c2d5f109080cfac13cd5dafd",
+      "dataset_role": "native_admitted_gait_dataset",
+      "content_continuum_id": "C1",
+      "content_dataset_key": "C1|USBL1|[10,10,20,20,1,1,0,0,2,0.5]",
+      "copy_source_path": "",
+      "copy_source_sha256": "",
+      "physical_parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "note": "C1/P1 and C2/P2 identify the user continuum convention. Source groups, signed samples, marked phases and ordered components retain separate provenance; a common C prefix creates no connection, family, distinct-cycle or bifurcation claim.",
+      "audit_directory": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C1_USBL1_10_20_2"
+    },
+    {
+      "file": "C1_PIP_10_20_2.mat",
+      "id": "C1",
+      "continuum_id": "C1",
+      "continuum_number": 1,
+      "dataset_key": "C1|PIP|[10,10,20,20,1,1,0,0,2,0.5]",
+      "abbreviation": "PIP",
+      "branch_designation": "",
+      "display_name": "C1 PIP source groups",
+      "solution_count": 18,
+      "dataset_type": "accepted_orbit_samples",
+      "component_count": 6,
+      "source_group_count": 6,
+      "source_group_keys": [
+        "P1/shared_PIP_parent",
+        "additional/analytic_PIP_parent_samples|PIP|1",
+        "additional/analytic_PIP_parent_tail_C_E1p06168502751|PIP|1",
+        "additional/analytic_PIP_parent_tail_C_E1p55516525164|PIP|1",
+        "additional/analytic_PIP_parent_tail_D_E1p075|PIP|1",
+        "additional/analytic_PIP_parent_tail_D_E1p076|PIP|1"
+      ],
+      "dataset_sha256": "50711111a30719fa1318e247ffd7d604558575c3b4433ae89a0e6beae32fd79b",
+      "dataset_role": "shared_PIP_parent_reference",
+      "content_continuum_id": "C1",
+      "content_dataset_key": "C1|PIP|[10,10,20,20,1,1,0,0,2,0.5]",
+      "copy_source_path": "",
+      "copy_source_sha256": "",
+      "physical_parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "note": "C1/P1 and C2/P2 identify the user continuum convention. Source groups, signed samples, marked phases and ordered components retain separate provenance; a common C prefix creates no connection, family, distinct-cycle or bifurcation claim.",
+      "audit_directory": "P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072721809/C1_PIP_10_20_2"
+    }
+  ],
+  "naming": "C<continuum number>_<actual/descriptive gait abbreviation>_<linear stiffness>_<torsional stiffness>_<pitching inertia>.mat",
+  "parameter_indices": {
+    "linear": [
+      1,
+      2
+    ],
+    "torsional": [
+      3,
+      4
+    ],
+    "pitching_inertia": 9
+  },
+  "continuum_number_scope": "User convention: C1/P1 and C2/P2. Source groups do not imply mathematical connectivity.",
+  "historical_files_retained": true,
+  "new_simulations": 0,
+  "new_map_evaluations": 0
+}

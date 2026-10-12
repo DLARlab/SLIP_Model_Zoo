@@ -1,0 +1,144 @@
+{
+  "schema_version": "named-continua-catalog-v3-2",
+  "created_utc": "20261009T072736112",
+  "folder": "P2_Double_Flight_Phase_Continua",
+  "continuum_id": "C2",
+  "continuum_number": 2,
+  "datasets": [
+    {
+      "file": "C2_OSBL2_10_20_2.mat",
+      "id": "C2",
+      "continuum_id": "C2",
+      "continuum_number": 2,
+      "dataset_key": "C2|OSBL2|[10,10,20,20,1,1,0,0,2,0.5]",
+      "abbreviation": "OSBL2",
+      "branch_designation": "",
+      "display_name": "C2 OSBL2 source groups",
+      "solution_count": 29,
+      "dataset_type": "saved_continuation_components_and_samples",
+      "component_count": 8,
+      "source_group_count": 2,
+      "source_group_keys": [
+        "P2/opposed_spread_n0",
+        "P2/opposed_spread_n1"
+      ],
+      "dataset_sha256": "50cbf29fe38761918898d0887c0d80fb103602ea6177a12c814bedc11a02e8da",
+      "dataset_role": "native_admitted_gait_dataset",
+      "content_continuum_id": "C2",
+      "content_dataset_key": "C2|OSBL2|[10,10,20,20,1,1,0,0,2,0.5]",
+      "copy_source_path": "",
+      "copy_source_sha256": "",
+      "physical_parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "note": "C1/P1 and C2/P2 identify the user continuum convention. Source groups, signed samples, marked phases and ordered components retain separate provenance; a common C prefix creates no connection, family, distinct-cycle or bifurcation claim.",
+      "audit_directory": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072706154/C2_OSBL2_10_20_2"
+    },
+    {
+      "file": "C2_UBL2_10_20_2.mat",
+      "id": "C2",
+      "continuum_id": "C2",
+      "continuum_number": 2,
+      "dataset_key": "C2|UBL2|[10,10,20,20,1,1,0,0,2,0.5]",
+      "abbreviation": "UBL2",
+      "branch_designation": "",
+      "display_name": "C2 UBL2 source groups",
+      "solution_count": 3,
+      "dataset_type": "accepted_orbit_samples",
+      "component_count": 3,
+      "source_group_count": 3,
+      "source_group_keys": [
+        "roadmap/general_BL2_PAL_p1|1b86bbbfc90f7b9f2c71cf0dc0465c6033c2ea2d5104331872c654b3742c2132|UBL2|region:",
+        "additional/opposed_capped_metric|unclassified|2",
+        "additional/PIP_flip_daughter_D_C_n0_bound_m1_6bf2e59ad2ca_path_r1|unclassified|2"
+      ],
+      "dataset_sha256": "d11e2d60bc0ea6172de3fea1369be41c63328515ac3fe9f1fe46121679608220",
+      "dataset_role": "native_admitted_gait_dataset",
+      "content_continuum_id": "C2",
+      "content_dataset_key": "C2|UBL2|[10,10,20,20,1,1,0,0,2,0.5]",
+      "copy_source_path": "",
+      "copy_source_sha256": "",
+      "physical_parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "note": "C1/P1 and C2/P2 identify the user continuum convention. Source groups, signed samples, marked phases and ordered components retain separate provenance; a common C prefix creates no connection, family, distinct-cycle or bifurcation claim.",
+      "audit_directory": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Named_Branch_Publication/20261009T072721809/C2_UBL2_10_20_2"
+    },
+    {
+      "file": "C2_PIP_10_20_2.mat",
+      "id": "C2",
+      "continuum_id": "C2",
+      "continuum_number": 2,
+      "dataset_key": "C2|PIP|[10,10,20,20,1,1,0,0,2,0.5]",
+      "abbreviation": "PIP",
+      "branch_designation": "",
+      "display_name": "C2 shared one-flight PIP parent reference (exact C1 bytes)",
+      "solution_count": 18,
+      "dataset_type": "accepted_orbit_samples",
+      "component_count": 6,
+      "source_group_count": 6,
+      "source_group_keys": [
+        "P1/shared_PIP_parent",
+        "additional/analytic_PIP_parent_samples|PIP|1",
+        "additional/analytic_PIP_parent_tail_C_E1p06168502751|PIP|1",
+        "additional/analytic_PIP_parent_tail_C_E1p55516525164|PIP|1",
+        "additional/analytic_PIP_parent_tail_D_E1p075|PIP|1",
+        "additional/analytic_PIP_parent_tail_D_E1p076|PIP|1"
+      ],
+      "dataset_sha256": "50711111a30719fa1318e247ffd7d604558575c3b4433ae89a0e6beae32fd79b",
+      "dataset_role": "shared_PIP_parent_reference",
+      "content_continuum_id": "C1",
+      "content_dataset_key": "C1|PIP|[10,10,20,20,1,1,0,0,2,0.5]",
+      "copy_source_path": "P1_Single_Flight_Phase_Continua/C1_PIP_10_20_2.mat",
+      "copy_source_sha256": "50711111a30719fa1318e247ffd7d604558575c3b4433ae89a0e6beae32fd79b",
+      "physical_parameter": [
+        10,
+        10,
+        20,
+        20,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0.5
+      ],
+      "note": "Exact byte copy of the latest all-nine-gate primitive one-flight C1 PIP dataset. C2 is its logical shared-parent catalog location; native content keeps C1 identity. This is no two-flight admission, continuation increment, new family or ancestry edge.",
+      "audit_directory": "P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Shared_PIP_Parent_Reference/20261009T072736112/C2_PIP_10_20_2"
+    }
+  ],
+  "naming": "C<continuum number>_<actual/descriptive gait abbreviation>_<linear stiffness>_<torsional stiffness>_<pitching inertia>.mat",
+  "parameter_indices": {
+    "linear": [
+      1,
+      2
+    ],
+    "torsional": [
+      3,
+      4
+    ],
+    "pitching_inertia": 9
+  },
+  "continuum_number_scope": "User convention: C1/P1 and C2/P2. Source groups do not imply mathematical connectivity.",
+  "historical_files_retained": true,
+  "new_simulations": 0,
+  "new_map_evaluations": 0
+}

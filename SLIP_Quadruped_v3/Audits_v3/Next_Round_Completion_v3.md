@@ -1,6 +1,9 @@
 # Executed MATLAB round: completion and remaining-work audit
 
-This native MATLAB snapshot was exported before temporary runtime-cache removal. The [post-cleanup repository audit](Next_Round_Post_Cleanup_v3.md) verifies the final path/hash and file-size checks after that removal. Numerical checkpoints, source epochs and research outcomes are unchanged.
+> Cleanup note (2026-10-11): this report preserves its historical scientific scope. Selected final evidence is indexed in [Scientific_Evidence](Scientific_Evidence/README.md). Per-probe intermediates and campaign scripts were removed; historical claims do not imply a retained complete rerun workspace. The unchanged original report is also in the evidence bundles.
+
+
+This native MATLAB snapshot was exported before temporary runtime-cache removal. The post-cleanup repository audit (historical intermediate removed) verifies the final path/hash and file-size checks after that removal. Numerical checkpoints, source epochs and research outcomes are unchanged.
 
 Saved status: `total_budget_exhausted`. Requested network achieved: `0`; global completeness claimed: `0`.
 

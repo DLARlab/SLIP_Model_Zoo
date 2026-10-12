@@ -17,25 +17,24 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         'Residual',[],'Coordinates',[],'AugmentedParameter',[]);
     options=merge(defaults,options,'option');solution=[];clock=tic;
     acceptance=merge(struct('FullClosureTolerance',1e-8,'EnergyTolerance',1e-8, ...
-        'ConstraintTolerance',1e-8,'StanceTolerance',1e-8, ...
+        'ConstraintTolerance',1e-8,'FamilyTolerance',1e-8,'StanceTolerance',1e-8, ...
         'PrimitiveStateTolerance',1e-7,'PrimitiveEventTolerance',1e-7, ...
         'MaxCover',8,'RequirePrimitive',true),options.Acceptance,'acceptance');
     integration=merge(struct('RelTol',1e-9,'AbsTol',1e-11, ...
         'EventValueTolerance',1e-8,'EventTimeTolerance',1e-10, ...
-        'SimultaneousTimeTolerance',1e-8,'MaxStep',.05),options.Integration,'integration');
+        'SimultaneousTimeTolerance',1e-8,'MaxStep',.05,'ArmingTolerance',1e-9),options.Integration,'integration');
     replayIntegration=integration;
     replayIntegration.RelTol=integration.RelTol/10;replayIntegration.AbsTol=integration.AbsTol/10;
     replayIntegration.EventValueTolerance=integration.EventValueTolerance/10;
     replayIntegration.EventTimeTolerance=integration.EventTimeTolerance/10;
     replayIntegration.SimultaneousTimeTolerance=integration.SimultaneousTimeTolerance/10;
+    replayIntegration.ArmingTolerance=integration.ArmingTolerance/10;
     replayIntegration.MaxStep=integration.MaxStep/2;
     replayIntegration=merge(replayIntegration,options.ReplayIntegration,'replay integration');
-    if replayIntegration.RelTol>=integration.RelTol || replayIntegration.AbsTol>=integration.AbsTol
-        error('PeriodicSolutionSolver_v3:ReplayTolerances','Independent replay must use tighter top-level ODE tolerances.');
-    end
     report=struct('schema_version','periodic-solution-solver-v3-1','status','running', ...
         'accepted',false,'seed',[],'options',options,'acceptance',acceptance, ...
         'integration',integration,'replay_integration',replayIntegration, ...
+        'effective_correction_ode',struct(),'effective_replay_ode',struct(), ...
         'initial_residual',[],'initial_scaled_norm',Inf,'initial_physical_norm',Inf, ...
         'final_residual',[],'final_scaled_norm',Inf,'final_physical_norm',Inf, ...
         'full_closure',Inf,'final_candidate',[],'solver',struct(), ...
@@ -43,6 +42,7 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         'replay_failure',struct(),'partial_evidence',struct(), ...
         'independent_replay',struct(),'physical_inequalities',struct(), ...
         'primitive',struct(),'classification',struct(),'constraint_residual',NaN, ...
+        'family_conditions',struct(),'acceptance_gates',struct(), ...
         'provenance',struct(),'elapsed_seconds',0);
     try
         seed=normalize(seed);report.seed=seed;report.provenance=seed.provenance;
@@ -81,15 +81,22 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
             integration=map.Simulator.Options;
             report.integration=integration;
             replayIntegration=integration;
-            replayIntegration.RelTol=integration.RelTol/10;replayIntegration.AbsTol=integration.AbsTol/10;
+            effective=effectiveODE(integration);
+            replayIntegration.RelTol=effective.RelTol/10;replayIntegration.AbsTol=effective.AbsTol/10;
             replayIntegration.EventValueTolerance=integration.EventValueTolerance/10;
             replayIntegration.EventTimeTolerance=integration.EventTimeTolerance/10;
             replayIntegration.SimultaneousTimeTolerance=integration.SimultaneousTimeTolerance/10;
+            replayIntegration.ArmingTolerance=integration.ArmingTolerance/10;
             if isempty(integration.MaxStep),replayIntegration.MaxStep=.025;
             else,replayIntegration.MaxStep=integration.MaxStep/2;end
             replayIntegration=merge(replayIntegration,options.ReplayIntegration,'replay integration');
             report.replay_integration=replayIntegration;
         end
+        integration=map.Simulator.Options;
+        report.integration=integration;report.replay_integration=replayIntegration;
+        report.effective_correction_ode=effectiveODE(integration);
+        report.effective_replay_ode=effectiveODE(replayIntegration);
+        validateReplaySettings(report.effective_correction_ode,report.effective_replay_ode);
         [initial,initialInfo]=residual.evaluateWithInfo(coordinates,p,seed.mode);
         report.initial_residual=initial;report.initial_scaled_norm=norm(initial,inf);
         report.initial_physical_norm=norm(member(initialInfo,'physical_residual',initial),inf);
@@ -142,6 +149,8 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         % New map and simulator: no RootSolver objective cache or residual
         % evaluation is reused for acceptance.
         replayMap=makeMap(replaySeed,replayIntegration,options);
+        report.replay_integration=replayMap.Simulator.Options;
+        report.effective_replay_ode=effectiveODE(report.replay_integration);
         [next,replay]=replayMap.evaluate(candidateOrbit.initial_state, ...
             candidateOrbit.initial_mode,candidateOrbit.parameter);
         delta=next-candidateOrbit.initial_state;delta(1)=0;
@@ -169,20 +178,25 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         report.period=acceptedOrbit.period;report.drift=acceptedOrbit.stride_displacement;
         report.chart_signature=member(replay,'section_chart',struct());
         report.event_signature=replay.section_relative_event_signature;
-        valid=report.full_closure<=acceptance.FullClosureTolerance && replay.discrete_closed ...
-            && replay.admissible && report.physical_inequalities.maximum_stance_constraint<=acceptance.StanceTolerance ...
-            && report.physical_inequalities.maximum_energy_error<=acceptance.EnergyTolerance ...
-            && abs(report.constraint_residual)<=acceptance.ConstraintTolerance ...
-            && report.independent_replay.repeated_replay_difference<=acceptance.FullClosureTolerance;
-        if acceptance.RequirePrimitive
-            valid=valid && report.primitive.status=="primitive_within_checked_bound";
-        end
+        report.family_conditions=familyConditions(residual,candidate,p,finalInfo,root.residual, ...
+            acceptedOrbit,options,acceptance);
+        report.acceptance_gates=struct( ...
+            'full_closure',finiteWithin(report.full_closure,acceptance.FullClosureTolerance), ...
+            'mode_closure',logical(replay.discrete_closed), ...
+            'target_energy',report.family_conditions.target_energy_passed, ...
+            'trajectory_energy_variation',finiteWithin(report.physical_inequalities.maximum_energy_error,acceptance.EnergyTolerance), ...
+            'unscaled_family_equations',report.family_conditions.unscaled_equations_passed, ...
+            'family_constraint',report.family_conditions.constraint_passed, ...
+            'physical_inequalities',logical(replay.admissible)&&finiteWithin(report.physical_inequalities.maximum_stance_constraint,acceptance.StanceTolerance), ...
+            'primitive_identity',~acceptance.RequirePrimitive||report.primitive.status=="primitive_within_checked_bound", ...
+            'replay_determinism',finiteWithin(report.independent_replay.repeated_replay_difference,acceptance.FullClosureTolerance));
+        valid=all(structfun(@(value)logical(value),report.acceptance_gates));
         if valid
             solution=acceptedOrbit;report.accepted=true;report.status='accepted';
         else
             report.status='retryable_failure';
             report.replay_failure=struct('identifier','PeriodicSolutionSolver_v3:Acceptance', ...
-                'message','Fresh full closure, energy, stance, constraint, determinism or primitive-period gate failed.');
+                'message','Fresh closure, unscaled family equations, requested energy, energy variation, stance, constraint, determinism or primitive-period gate failed.');
         end
     catch exception
         failure=struct('identifier',exception.identifier,'message',exception.message);
@@ -194,6 +208,89 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         end
     end
     report.elapsed_seconds=toc(clock);
+end
+
+function validateReplaySettings(correction,replay)
+    % The delegated map, not an unused service default, defines correction.
+    incompatible=~isscalar(correction.AbsTol)&&~isscalar(replay.AbsTol) ...
+        &&numel(correction.AbsTol)~=numel(replay.AbsTol);
+    if incompatible||replay.RelTol>=correction.RelTol||any(replay.AbsTol(:)>=correction.AbsTol(:))
+        error('PeriodicSolutionSolver_v3:ReplayTolerances', ...
+            'Independent replay must use tighter ODE tolerances than the effective correction map.');
+    end
+end
+
+function effective=effectiveODE(settings)
+    % Match EventDetector.configureOdeOptions: nested/top-level minima.
+    nested=member(settings,'ODEOptions',odeset());
+    rel=odeget(nested,'RelTol');absolute=odeget(nested,'AbsTol');step=odeget(nested,'MaxStep');
+    if isfield(settings,'RelTol')&&~isempty(settings.RelTol)
+        if isempty(rel),rel=settings.RelTol;else,rel=min(rel,settings.RelTol);end
+    end
+    if isfield(settings,'AbsTol')&&~isempty(settings.AbsTol)
+        if ~isempty(absolute)&&~isscalar(absolute)&&~isscalar(settings.AbsTol)&&numel(absolute)~=numel(settings.AbsTol)
+            error('PeriodicSolutionSolver_v3:IntegrationTolerance','Absolute tolerance vectors must agree in length.');
+        end
+        if isempty(absolute),absolute=settings.AbsTol(:);else,absolute=min(absolute(:),settings.AbsTol(:));end
+    end
+    if isempty(rel),rel=1e-3;end
+    if isempty(absolute),absolute=1e-6;end
+    if ~isscalar(rel)||~isfinite(rel)||rel<=0||any(~isfinite(absolute(:))|absolute(:)<=0)
+        error('PeriodicSolutionSolver_v3:IntegrationTolerance','ODE tolerances must be finite and positive.');
+    end
+    if isfield(settings,'MaxStep')&&~isempty(settings.MaxStep)&&isfinite(settings.MaxStep)
+        if isempty(step),step=settings.MaxStep;else,step=min(step,settings.MaxStep);end
+    end
+    solver=member(settings,'ODESolver',@ode45);
+    if isa(solver,'function_handle'),name=func2str(solver);else,name=char(solver);end
+    floor=0;if strcmp(name,'ode45'),floor=100*eps;end
+    effective=struct('RelTol',max(rel,floor),'AbsTol',absolute,'MaxStep',step, ...
+        'ODESolver',name,'configured_minimum_RelTol',rel,'RelTol_lower_bound',floor);
+end
+
+function conditions=familyConditions(residual,w,p,info,raw,orbit,options,acceptance)
+    % This is the actual residual contract, before numerical root scaling.
+    if isfield(info,'physical_residual')
+        equations=info.physical_residual;
+    elseif isa(residual,'EnergyFamilyResidual_v3')||isa(residual,'PeriodicOrbitResidual_v3')
+        equations=raw;
+    else
+        error('PeriodicSolutionSolver_v3:PhysicalFamilyContract', ...
+            'A delegated residual must expose finite unscaled physical_residual equations.');
+    end
+    requested=[];origins={};
+    if isfield(info,'requested_energy')
+        requested=info.requested_energy(:);origins={'residual.requested_energy'};
+    elseif isfield(info,'augmented_energy')
+        requested=info.augmented_energy(:);origins={'residual.augmented_energy'};
+    elseif isa(residual,'EnergyFamilyResidual_v3')
+        requested=p(11);origins={'energy-family parameter'};
+    end
+    % In the native augmented formulation Energy initializes the free E
+    % unknown. Its corrected value is the residual's actual target, rather
+    % than an additional fixed-energy equation outside that square system.
+    energyIsInitialGuess=isa(residual,'ConstrainedEnergyResidual_v3')&&residual.Augmented;
+    if ~isempty(options.Energy)&&~energyIsInitialGuess
+        requested=[requested;options.Energy(:)];origins{end+1}='service Energy option';
+    end
+    actual=QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,orbit.parameter);
+    errorAtTarget=actual-requested;
+    constraint=member(info,'constraint_residual',0);
+    conditions=struct('residual_class',class(residual),'coordinates',w(:), ...
+        'unscaled_family_equations',equations(:),'unscaled_family_norm',physicalNorm(equations), ...
+        'unscaled_family_tolerance',acceptance.FamilyTolerance, ...
+        'unscaled_equations_passed',~isempty(equations)&&finiteWithin(equations,acceptance.FamilyTolerance), ...
+        'requested_energy',requested,'requested_energy_origin',{origins}, ...
+        'target_energy_applicable',~isempty(requested),'actual_energy',actual, ...
+        'target_energy_error',errorAtTarget,'target_energy_tolerance',acceptance.EnergyTolerance, ...
+        'target_energy_passed',isfinite(actual)&&(isempty(requested)||finiteWithin(errorAtTarget,acceptance.EnergyTolerance)), ...
+        'constraint_residual',constraint,'constraint_tolerance',acceptance.ConstraintTolerance, ...
+        'constraint_passed',finiteWithin(constraint,acceptance.ConstraintTolerance));
+end
+
+function passed=finiteWithin(value,tolerance)
+    passed=~isempty(value)&&all(isfinite(value(:)))&&isscalar(tolerance)&& ...
+        isfinite(tolerance)&&tolerance>0&&max(abs(value(:)))<=tolerance;
 end
 
 function evidence=traceFailure(seed,integration,options,evidence)

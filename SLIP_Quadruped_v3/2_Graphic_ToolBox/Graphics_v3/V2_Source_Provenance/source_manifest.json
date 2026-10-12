@@ -1,0 +1,61 @@
+{
+  "schema": "v2-graphic-functions-source-provenance-v3-1",
+  "sources": [
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/ComputeBodyGraphics.m",
+      "source_sha256": "5cbff7b54043ccc64ef482bf1af18c81e6a14d37fc6c2e43d7f88a25bfde5259",
+      "preserved_copy": "ComputeBodyGraphics.m.txt",
+      "v3_counterpart": "ComputeBodyGraphics_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/ComputeJoint_LegLA.m",
+      "source_sha256": "e99b0f882a42d03db8abdd6831721e02409f78a037a7ae39a8188d451ebf13f9",
+      "preserved_copy": "ComputeJoint_LegLA.m.txt",
+      "v3_counterpart": "ComputeJointLegGeometry_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/ComputeLegGraphics.m",
+      "source_sha256": "5bfcf3bc1abdef2ae329d2e660a206fcea31ac21e5bee9bc2f29bf20bbf0d1ce",
+      "preserved_copy": "ComputeLegGraphics.m.txt",
+      "v3_counterpart": "ComputeLegGraphics_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/ComputePhaseDiagram.m",
+      "source_sha256": "474deac22e394aaf12a21ce781630fe983a256e93defebff1a5170b04a6cf899",
+      "preserved_copy": "ComputePhaseDiagram.m.txt",
+      "v3_counterpart": "ComputePhaseDiagram_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/OutputCLASS.m",
+      "source_sha256": "ef780018b4cedcf6811de1d1abadb5f56d632849b55c666e1b03e27fd7c3c23a",
+      "preserved_copy": "OutputCLASS.m.txt",
+      "v3_counterpart": "OutputCLASS_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/SLIP_Animation_Quad.m",
+      "source_sha256": "5ed240ba140a6e6a7ca7183262e1982e0e8fceb2815b09eeb6770d21679066dc",
+      "preserved_copy": "SLIP_Animation_Quad.m.txt",
+      "v3_counterpart": "SLIP_Animation_Quad_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/SLIP_GRF_Quad.m",
+      "source_sha256": "85647c4ca70bef7160686ac7f4c866bba6cad160ea59486e6223b30cd3d9badd",
+      "preserved_copy": "SLIP_GRF_Quad.m.txt",
+      "v3_counterpart": "SLIP_GRF_Quad_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/SLIP_PeriodicOrbit_Quad.m",
+      "source_sha256": "d1b9b120dc1c27695c85ae5d9b99519fd4ebb752dfac897bad0fa7e5efc3c596",
+      "preserved_copy": "SLIP_PeriodicOrbit_Quad.m.txt",
+      "v3_counterpart": "SLIP_PeriodicOrbit_Quad_v3.m"
+    },
+    {
+      "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Quadruped/2_Graphic_ToolBox/SLIP_Quadrupedal_Graphics/GraphicFunctions/SLIP_Trajectories_Quad.m",
+      "source_sha256": "5bb34b67ab9ecc4e797cd5a9da6fc623b37ce84a95a67829dc6202fe557e570f",
+      "preserved_copy": "SLIP_Trajectories_Quad.m.txt",
+      "v3_counterpart": "SLIP_Trajectories_Quad_v3.m"
+    }
+  ],
+  "source_copy_storage": "Original source copies are preserved in the selected final scientific evidence ZIPs, not loose runtime files.",
+  "archive_index": "Audits_v3/Scientific_Evidence/manifest.json"
+}

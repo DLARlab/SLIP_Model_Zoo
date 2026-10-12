@@ -49,26 +49,30 @@ classdef SLIP_PeriodicOrbit_Quad_v3 < OutputCLASS_v3
             dy = state(:, schema.State.dy);
             dphi = state(:, schema.State.dphi);
             [dxLimits, dyLimits, dphiLimits] = deal( ...
-                localLimits(dx), localLimits(dy), localLimits(dphi));
+                localLimits(dx, 0.01), localLimits(dy, 0.01), localLimits(dphi, 0.02));
 
             cla(obj.axes);
             hold(obj.axes, 'on');
             obj.Orbit = plot3(obj.axes, dx, dy, dphi, ...
-                'LineWidth', 1.8, 'Color', [0, 0, 0]);
+                'LineWidth', 2, 'Color', [0, 0, 0]);
             obj.Poincare_Section = patch(obj.axes, ...
                 'XData', dxLimits([1, 2, 2, 1]), ...
                 'YData', [0, 0, 0, 0], ...
                 'ZData', dphiLimits([1, 1, 2, 2]), ...
                 'FaceColor', [0.7, 0.7, 0.7], ...
-                'FaceAlpha', 0.25, 'EdgeColor', 'none');
+                'FaceAlpha', 0.3);
             obj.Current_Position = scatter3(obj.axes, dx(1), dy(1), ...
-                dphi(1), 80, markerColor, 'filled');
-            obj.Text = text(obj.axes, dxLimits(1), 0, dphiLimits(2), ...
-                'Poincare section: dy=0', 'VerticalAlignment', 'top');
-            xlabel(obj.axes, 'dx');
-            ylabel(obj.axes, 'dy');
-            zlabel(obj.axes, 'dphi');
-            title(obj.axes, 'Hybrid periodic orbit');
+                dphi(1), 120, markerColor, 'filled');
+            obj.Text = struct();
+            obj.Text.textPS = text(obj.axes, dxLimits(1)+0.1*diff(dxLimits), 0, ...
+                dphiLimits(2)-0.1*diff(dphiLimits), {'Poincare Section', '$\dot{q}_z = 0$'}, ...
+                'Interpreter', 'latex', 'HorizontalAlignment', 'left', 'VerticalAlignment', 'top');
+            obj.Text.textPO = text(obj.axes, mean(dxLimits), -0.25*diff(dyLimits), ...
+                dphiLimits(1)+0.25*diff(dphiLimits), 'Periodic Orbit', 'HorizontalAlignment', 'center');
+            xlabel(obj.axes, '$\dot{q}_x  [\sqrt{gl_0}]$', 'Interpreter', 'latex', 'FontSize', 15);
+            ylabel(obj.axes, '$\dot{q}_z  [\sqrt{gl_0}]$', 'Interpreter', 'latex', 'FontSize', 15);
+            zlabel(obj.axes, '$\dot{q}_{pitch}  [rad/s]$', 'Interpreter', 'latex', 'FontSize', 15);
+            title(obj.axes, 'Periodic Orbit of The Solution');
             xlim(obj.axes, dxLimits);
             ylim(obj.axes, dyLimits);
             zlim(obj.axes, dphiLimits);
@@ -79,9 +83,9 @@ classdef SLIP_PeriodicOrbit_Quad_v3 < OutputCLASS_v3
     end
 end
 
-function limits = localLimits(values)
+function limits = localLimits(values, minimumPadding)
 minimum = min(values);
 maximum = max(values);
-padding = max(0.1 * (maximum - minimum), 1e-3);
+padding = max(0.1 * (maximum - minimum), minimumPadding);
 limits = [minimum-padding, maximum+padding];
 end

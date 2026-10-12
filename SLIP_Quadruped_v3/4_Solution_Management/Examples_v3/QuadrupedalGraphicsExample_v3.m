@@ -25,7 +25,7 @@ options = parser.Results;
 
 graphicsRoot = V3Root_v3(mfilename('fullpath'));
 originalPath=path;restorePath=onCleanup(@() path(originalPath)); %#ok<NASGU>
-V3LegacyAddPath_v3(genpath(V3Path_v3(graphicsRoot)));
+V3AddPaths_v3(graphicsRoot);
 [~, parameter] = GraphicsDataAdapter_v3.unpack(source, options.Parameter);
 if isempty(parameter)
     error('QuadrupedalGraphicsExample_v3:MissingParameter', ...

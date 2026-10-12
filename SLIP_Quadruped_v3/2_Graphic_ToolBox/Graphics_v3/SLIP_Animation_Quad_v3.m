@@ -68,11 +68,12 @@ classdef SLIP_Animation_Quad_v3 < OutputCLASS_v3
             if nargin < 5
                 doDraw = true;
             end
+            if ~isgraphics(obj.fig) || ~isgraphics(obj.axes), return; end
             schema = QuadrupedSchema_v3();
             expanded = schema.expandParameters(obj.parameter);
             geometry = ComputeJointLegGeometry_v3(t, x, q, obj.parameter);
             localSetBody(obj.Body, geometry.body_pose, expanded.l_com);
-            localSetCOM(obj.COM, geometry.body_position);
+            if ~isempty(obj.COM), localSetCOM(obj.COM, geometry.body_pose); end
             for leg = 1:schema.Leg.Count
                 localSetLeg(obj.LegHandles{leg}, ...
                     geometry.hip_positions(:, leg), ...
@@ -117,21 +118,32 @@ classdef SLIP_Animation_Quad_v3 < OutputCLASS_v3
             end
             wallStart = tic;
             simulationStart = frames.time(1);
+            report.played_frame_count = 0;
+            report.cancelled = false;
             for k = 1:numel(frames.time)
+                if ~isgraphics(obj.fig) || ~isgraphics(obj.axes)
+                    report.cancelled = true; break
+                end
                 obj.update(frames.time(k), frames.state(k, :).', ...
                     frames.mode(k, :).', false);
                 drawnow;
+                if ~isgraphics(obj.fig) || ~isgraphics(obj.axes)
+                    report.cancelled = true; break
+                end
+                report.played_frame_count = k;
                 if ~isempty(writer)
                     writeVideo(writer, getframe(obj.fig));
                 end
                 if obj.slowDown > 0 && isempty(writer)
                     desired = (frames.time(k)-simulationStart) * obj.slowDown;
                     remaining = desired - toc(wallStart);
-                    if remaining > 0
-                        pause(remaining);
+                    while remaining > 0 && isgraphics(obj.fig) && isgraphics(obj.axes)
+                        pause(min(remaining, 0.05));
+                        remaining = desired - toc(wallStart);
                     end
                 end
             end
+            if ~isgraphics(obj.fig) || ~isgraphics(obj.axes), report.cancelled = true; end
         end
     end
 
@@ -148,16 +160,31 @@ classdef SLIP_Animation_Quad_v3 < OutputCLASS_v3
             hold(obj.axes, 'on');
             axis(obj.axes, 'equal');
             axis(obj.axes, 'off');
-            obj.Ground = line(obj.axes, [-100, 100], [0, 0], ...
-                'Color', [0.15, 0.15, 0.15], 'LineWidth', 2);
-            colors = lines(schema.Leg.Count);
             obj.LegHandles = cell(schema.Leg.Count, 1);
-            for leg = 1:schema.Leg.Count
+            % Preserve v2 depth: left legs behind the torso, right legs in
+            % front. The numerical state and mode order remains BL BR FL FR.
+            leftLegs = find(endsWith(schema.Leg.Names, 'L'));
+            rightLegs = find(endsWith(schema.Leg.Names, 'R'));
+            for leg = leftLegs
                 obj.LegHandles{leg} = localDrawLeg(obj.axes, ...
                     geometry.hip_positions(:, leg), ...
                     geometry.leg_lengths(leg), ...
                     geometry.rest_lengths(leg), ...
-                    geometry.absolute_leg_angles(leg), colors(leg, :));
+                    geometry.absolute_leg_angles(leg));
+            end
+            obj.Ground = localDrawGround(obj.axes);
+            obj.Body = localDrawBody(obj.axes, geometry.body_pose, expanded.l_com);
+            if expanded.l_com ~= 0.5
+                obj.COM = localDrawCOM(obj.axes, geometry.body_pose);
+            else
+                obj.COM = [];
+            end
+            for leg = rightLegs
+                obj.LegHandles{leg} = localDrawLeg(obj.axes, ...
+                    geometry.hip_positions(:, leg), ...
+                    geometry.leg_lengths(leg), ...
+                    geometry.rest_lengths(leg), ...
+                    geometry.absolute_leg_angles(leg));
             end
             obj.Leg_BL = obj.LegHandles{find( ...
                 strcmp('BL', schema.Leg.Names), 1)};
@@ -167,9 +194,6 @@ classdef SLIP_Animation_Quad_v3 < OutputCLASS_v3
                 strcmp('FL', schema.Leg.Names), 1)};
             obj.Leg_FR = obj.LegHandles{find( ...
                 strcmp('FR', schema.Leg.Names), 1)};
-            obj.Body = localDrawBody(obj.axes, geometry.body_pose, ...
-                expanded.l_com);
-            obj.COM = localDrawCOM(obj.axes, geometry.body_position);
             if strcmpi(obj.options.AnimationMode, 'Detailed')
                 obj.Title = text(obj.axes, geometry.body_position(1), ...
                     geometry.body_position(2)+0.75, 'SLIP quadruped', ...
@@ -231,49 +255,94 @@ end
 
 function body = localDrawBody(ax, pose, lCom)
 [xData, yData, faces, vertices] = ComputeBodyGraphics_v3(pose, lCom);
-body.background = patch(ax, xData, yData, [1, 1, 1], ...
-    'LineWidth', 2.2, 'EdgeColor', [0.1, 0.1, 0.1]);
-body.stripes = patch(ax, 'Faces', faces, 'Vertices', vertices, ...
-    'FaceColor', 'none', 'EdgeColor', [0.75, 0.75, 0.75], ...
-    'LineWidth', 1.2);
+body.B_bg = patch(ax, 'XData', xData, 'YData', yData, ...
+    'LineStyle', 'none', 'FaceColor', [1, 1, 1]);
+body.B_sha = patch(ax, 'Faces', faces, 'Vertices', vertices, ...
+    'FaceColor', [1, 1, 1], 'EdgeColor', [0.8, 0.8, 0.8], 'LineWidth', 3);
+body.B_out = patch(ax, 'XData', xData, 'YData', yData, ...
+    'LineWidth', 4, 'FaceColor', 'none', 'EdgeColor', [0, 0, 0]);
+body.background = body.B_bg;
+body.stripes = body.B_sha;
+body.outline = body.B_out;
 end
 
 function localSetBody(body, pose, lCom)
 [xData, yData, faces, vertices] = ComputeBodyGraphics_v3(pose, lCom);
-set(body.background, 'XData', xData, 'YData', yData);
-set(body.stripes, 'Faces', faces, 'Vertices', vertices);
+set(body.B_bg, 'XData', xData, 'YData', yData);
+set(body.B_sha, 'Faces', faces, 'Vertices', vertices);
+set(body.B_out, 'XData', xData, 'YData', yData);
 end
 
-function leg = localDrawLeg(ax, hip, length, restLength, angle, color)
+function leg = localDrawLeg(ax, hip, length, restLength, angle)
 [vertices, faces] = ComputeLegGraphics_v3(hip, length, restLength, angle);
-leg.spring = patch(ax, 'Faces', faces.Spring, 'Vertices', vertices.Spring, ...
-    'FaceColor', 'none', 'EdgeColor', color, 'LineWidth', 2.2);
-leg.shaft = patch(ax, 'Faces', faces.Shaft, 'Vertices', vertices.Shaft, ...
-    'FaceColor', [1, 1, 1], 'EdgeColor', color, 'LineWidth', 1.5);
-leg.foot = line(ax, vertices.Foot(:, 1), vertices.Foot(:, 2), ...
-    'Color', color, 'LineWidth', 3);
+springColor = [245, 131, 58] / 256;
+leg.L_Sp1 = patch(ax, 'Faces', faces.L_Sp1, 'Vertices', vertices.L_Sp1, ...
+    'EdgeColor', springColor, 'LineWidth', 5);
+leg.L_UpB = patch(ax, 'Faces', faces.L_UpBO, 'Vertices', vertices.L_UpBO, ...
+    'LineStyle', 'none', 'FaceColor', [1, 1, 1]);
+leg.L_Ups = patch(ax, 'Faces', faces.L_Ups, 'Vertices', vertices.L_Ups, ...
+    'LineWidth', 3, 'FaceColor', 'none', 'EdgeColor', [0.8, 0.8, 0.8]);
+leg.L_Upo = patch(ax, 'Faces', faces.L_UpBO, 'Vertices', vertices.L_UpBO, ...
+    'LineWidth', 3, 'FaceColor', 'none', 'EdgeColor', [0, 0, 0]);
+leg.L_low = patch(ax, 'Faces', faces.L_low, 'Vertices', vertices.L_low, ...
+    'LineWidth', 3, 'FaceColor', [1, 1, 1], 'EdgeColor', [0, 0, 0]);
+leg.L_Sp2 = patch(ax, 'Faces', faces.L_Sp2, 'Vertices', vertices.L_Sp1, ...
+    'EdgeColor', springColor, 'LineWidth', 5);
+leg.spring = leg.L_Sp1;
+leg.shaft = leg.L_low;
+leg.foot = leg.L_low;
 end
 
 function localSetLeg(leg, hip, length, restLength, angle)
 [vertices, faces] = ComputeLegGraphics_v3(hip, length, restLength, angle);
-set(leg.spring, 'Faces', faces.Spring, 'Vertices', vertices.Spring);
-set(leg.shaft, 'Faces', faces.Shaft, 'Vertices', vertices.Shaft);
-set(leg.foot, 'XData', vertices.Foot(:, 1), 'YData', vertices.Foot(:, 2));
+set(leg.L_Sp1, 'Faces', faces.L_Sp1, 'Vertices', vertices.L_Sp1);
+set(leg.L_UpB, 'Faces', faces.L_UpBO, 'Vertices', vertices.L_UpBO);
+set(leg.L_Ups, 'Faces', faces.L_Ups, 'Vertices', vertices.L_Ups);
+set(leg.L_Upo, 'Faces', faces.L_UpBO, 'Vertices', vertices.L_UpBO);
+set(leg.L_low, 'Faces', faces.L_low, 'Vertices', vertices.L_low);
+set(leg.L_Sp2, 'Faces', faces.L_Sp2, 'Vertices', vertices.L_Sp1);
 end
 
-function com = localDrawCOM(ax, position)
-angle = linspace(0, 2*pi, 30);
-radius = 0.045;
-com = patch(ax, position(1)+radius*cos(angle), ...
-    position(2)+radius*sin(angle), [0.1, 0.1, 0.1], ...
-    'EdgeColor', 'none');
+function com = localDrawCOM(ax, pose)
+[outer, innerX, innerY] = localCOMGeometry(pose);
+com.B_COMOuter = patch(ax, outer(1, :), outer(2, :), 'white', 'LineWidth', 5);
+colors = cat(3, [1, 0, 1, 0], [1, 0, 1, 0], [1, 0, 1, 0]);
+com.B_COMInner = patch(ax, innerX, innerY, colors, 'LineWidth', 3);
 end
 
-function localSetCOM(com, position)
-angle = linspace(0, 2*pi, 30);
-radius = 0.045;
-set(com, 'XData', position(1)+radius*cos(angle), ...
-    'YData', position(2)+radius*sin(angle));
+function localSetCOM(com, pose)
+[outer, innerX, innerY] = localCOMGeometry(pose);
+set(com.B_COMOuter, 'XData', outer(1, :), 'YData', outer(2, :));
+set(com.B_COMInner, 'XData', innerX, 'YData', innerY);
+end
+
+function [outer, innerX, innerY] = localCOMGeometry(pose)
+radius = 0.15;
+rotation = [cos(pose(3)), -sin(pose(3)); sin(pose(3)), cos(pose(3))];
+alpha = linspace(0, 2*pi, 40);
+outer = rotation * [sin(alpha); cos(alpha)] * (radius*0.5) + pose(1:2);
+alpha = linspace(0, pi/2, 10);
+quarter = [0, sin(alpha)*radius*0.75, 0; 0, cos(alpha)*radius*0.75, 0];
+signs = [1, 1; 1, -1; -1, -1; -1, 1];
+innerX = zeros(size(quarter, 2), 4); innerY = innerX;
+for k = 1:4
+    vertices = rotation * (quarter .* signs(k, :).') + pose(1:2);
+    innerX(:, k) = vertices(1, :).'; innerY(:, k) = vertices(2, :).';
+end
+end
+
+function ground = localDrawGround(ax)
+% Retain the v2 hatched ground as two reusable patches.
+h = 0.01; n = 5000; s = 0.05; w = 0.01; ext = 0.1;
+offset = [-50+linspace(0, s*n, n).', zeros(n, 1)];
+vertices = [-50, 0; repmat([0, -h], n, 1)+offset; ...
+    repmat([-ext, -ext-h], n, 1)+offset; ...
+    repmat([-ext+w, -ext-h], n, 1)+offset; ...
+    repmat([w, -h], n, 1)+offset; -50+s*n+w, 0];
+faces = [1, 2, 4*n+1, 4*n+2; ...
+    repmat([0, n, 2*n, 3*n], n, 1)+repmat((1:n).', 1, 4)+1];
+ground.ground = patch(ax, [-15, 100, 100, -15], [0, 0, -20, -20], 'white');
+ground.lines = patch(ax, 'Faces', faces, 'Vertices', vertices);
 end
 
 function handles = localDrawPhase(ax, phase, bodyX)

@@ -32,7 +32,10 @@ function output = V3Path_v3(input)
     target = relative;
     found = false;
     for k = 1:numel(locations.files)
-        record = locations.files(k);
+        % jsondecode returns cells when JSON object fields differ in order
+        % or optional fields. Neither changes the meaning of a path alias.
+        if iscell(locations.files), record = locations.files{k};
+        else, record = locations.files(k); end
         if strcmp(relative, record.old_path) || ...
                 (isfield(record, 'aliases') && any(strcmp(relative, record.aliases)))
             target = record.new_path; found = true; break;
@@ -41,7 +44,8 @@ function output = V3Path_v3(input)
     if ~found
         % Directory entries are ordered longest first; specific tasks win.
         for k = 1:numel(locations.directories)
-            record = locations.directories(k);
+            if iscell(locations.directories), record = locations.directories{k};
+            else, record = locations.directories(k); end
             if strcmp(relative, record.old_path) || startsWith(relative, [record.old_path, '/'])
                 target = [record.new_path, relative(numel(record.old_path)+1:end)];
                 found = true; break;

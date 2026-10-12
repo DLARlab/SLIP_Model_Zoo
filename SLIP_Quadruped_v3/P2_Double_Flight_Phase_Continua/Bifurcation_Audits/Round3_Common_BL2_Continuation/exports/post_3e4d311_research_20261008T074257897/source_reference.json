@@ -1,0 +1,154 @@
+{
+  "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/P2_Double_Flight_Phase_Continua/Round3_Opposed_Spread_BL2_Common_Continuation.mat",
+  "source_sha256": "37766989fb11dbf70092b370787a58d511b0f88337ebb0cf6b52df789109f957",
+  "source_summary": {
+    "schema_version": "round3-current-PAL-qualification-1",
+    "passed": true,
+    "current_PAL_sha256": "988324a5e971c6fad1d691315696e6ab752b630c526085364f650c1902d60b45",
+    "current_solver_sha256": "4449577009cbab50f6dcf754b762744f3bcfdbb160c20101499e86631be031a1",
+    "current_epoch_new_points": 1,
+    "current_epoch_gate_references": [
+      {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/gates/boundary_canonical_source/boundary_gate.json",
+        "sha256": "8af5e47bd50d3575c64d1e4dca8cf378bc8ee4413a0ab5ae9192253d1ef5e5c9",
+        "passed": true
+      },
+      {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/gates/initial_tangent_deadline/initial_deadline_gate.json",
+        "sha256": "eb64cfc3e1234c7d4d900de0d23740c21969a2213bef07b38b77979ccb3f937e",
+        "passed": true
+      },
+      {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/gates/restart_context_final/restart_context_gate.json",
+        "sha256": "38bea35ad71a8de235513d71dd2ba60c2607ddb17bd241f067aaa2c823ea9009",
+        "passed": true
+      },
+      {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/gates/current_epoch_resume/current_epoch_gate.json",
+        "sha256": "deae5d3556ddbb3545168817783399780b87307d18be5f132afa86551497e81c",
+        "passed": true
+      }
+    ],
+    "historical_new_points_initial": 1,
+    "historical_new_points_resume": 1,
+    "historical_epoch_relabelled_as_current": false,
+    "historical_original_cap_verdict": false,
+    "historical_original_PAL_sha256": "1dc7d7da7875e8af0ad30a9be28ec4285ab2146f6a2c2dd0827b5ff3047b6a12",
+    "historical_original_solver_sha256": "977ccdd698c500db5d383ab4bbc837905be44c37afc448767656841bb46a6537",
+    "intermediate_new_points": 1,
+    "intermediate_PAL_sha256": "9a36c1080dc3f72ead6bc62c4e5c5a55f739665f161b1a62de09eb19b8c28d09",
+    "byte_exact_qualified_before_after_sources": true,
+    "limited_source_change_qualification": {
+      "reconstruction": "Reversed only the recorded final two PAL patches; the reconstructed bytes match the SHA256 frozen before the executed110s trial.",
+      "before_sha256": "23013bd1fb94f52332ba815b8efcbcf02283dd8fe5fabde028deb21fa5f2754b",
+      "after_sha256": "988324a5e971c6fad1d691315696e6ab752b630c526085364f650c1902d60b45",
+      "historical_1dc7_source_bytes_available": false,
+      "before_artifact": "PAL_23013bd1_executed_reconstructed.m.txt",
+      "after_artifact": "PAL_988324a5_final.m.txt",
+      "changed_methods": [
+        "computeTangent: preserve the original baseline failure at actual deadline",
+        "tangentContext: normalize the active parameter to z(end)"
+      ],
+      "unchanged_physical_corrector_methods": [
+        {
+          "name": "run",
+          "sha256": "3883675ec6ef40b10ed290eb5ad1395cd4555a8b284efb6a82462d74c75ab3eb"
+        },
+        {
+          "name": "periodicCorrection",
+          "sha256": "2a6c40ca2ef78e5027d2bf97c4a54c026015c356e0307f136aa39f8147087c0d"
+        },
+        {
+          "name": "correctAcrossModes",
+          "sha256": "fe4c495f4a8426b4ed62284cbe86cf8a2b7474eba5081d102288be879101cd91"
+        },
+        {
+          "name": "augmentedResidual",
+          "sha256": "e2a061ecabfe9f872e0c3ff2f91500e36703999a4ee0729d161276dddec73037"
+        },
+        {
+          "name": "evaluateAtExtendedPoint",
+          "sha256": "8e02974e788bd1f5d5b6a3ce8bf06cc847a6ec0d0d795598f1e2ccb367a09fec"
+        },
+        {
+          "name": "evaluateResidual",
+          "sha256": "aeb5f93fb33a48dc96c65a8a3130b0a14b092794646355e2b398ae6a43cb39ed"
+        },
+        {
+          "name": "callResidualFunction",
+          "sha256": "5678a839a311a1b1b809657218159526828a50854e18e65d7127238721b200a4"
+        },
+        {
+          "name": "scaling",
+          "sha256": "34a20a5356f6753ed8a2db95b024eeef3a1c15fd4d9dce8f4d004c852612c459"
+        },
+        {
+          "name": "parameterAt",
+          "sha256": "87cb1ab1ecfb2f0d651c465c2d1b094141afb210d0b96450b222e8639a9aee01"
+        },
+        {
+          "name": "makeInitialPoint",
+          "sha256": "bf277c6e1008e01fbf61f18f0993f4d0273040c6c7d94c115deec4ba55f9bf1f"
+        },
+        {
+          "name": "makeCorrectedPoint",
+          "sha256": "7817dc7d881dd94dc7924842d9aa0dba353f4ec34c32522038e3194657464eb4"
+        },
+        {
+          "name": "fullState",
+          "sha256": "6ccfe39dd2a2d137b6e6d8d8d56f77f5c7562f5b8c5ddf678e2b1762a5a5bd62"
+        },
+        {
+          "name": "assertPhysicalClosure",
+          "sha256": "b35a41edab6690b16cae62c7332bf399e6e609ebb4d746a712318a49f2fcd636"
+        }
+      ]
+    },
+    "ordinary_PIP_twofold_rejected_current_epoch": true,
+    "ordinary_PIP_negative_elapsed_seconds": 7.452661125,
+    "total_unique_saved_points": 5,
+    "total_unique_new_arcs": 4,
+    "amplitude": [
+      0.001,
+      0.0014363716808307031,
+      0.0018727433487208821,
+      0.0023091149997395725,
+      0.00274548662995438
+    ],
+    "arclength": [
+      0,
+      0.002,
+      0.004,
+      0.006,
+      0.008
+    ],
+    "maximum_full_closure": 1.6753265441593612E-12,
+    "source_epochs": [
+      {
+        "point_indices": [
+          1,
+          2,
+          3
+        ],
+        "PAL_sha256": "1dc7d7da7875e8af0ad30a9be28ec4285ab2146f6a2c2dd0827b5ff3047b6a12",
+        "solver_sha256": "977ccdd698c500db5d383ab4bbc837905be44c37afc448767656841bb46a6537"
+      },
+      {
+        "point_indices": 4,
+        "PAL_sha256": "9a36c1080dc3f72ead6bc62c4e5c5a55f739665f161b1a62de09eb19b8c28d09",
+        "solver_sha256": "4449577009cbab50f6dcf754b762744f3bcfdbb160c20101499e86631be031a1"
+      },
+      {
+        "point_indices": 5,
+        "PAL_sha256": "988324a5e971c6fad1d691315696e6ab752b630c526085364f650c1902d60b45",
+        "solver_sha256": "4449577009cbab50f6dcf754b762744f3bcfdbb160c20101499e86631be031a1"
+      }
+    ],
+    "join_new_map_evaluations": 0,
+    "elapsed_seconds": 15.344496791666666,
+    "scientific_scope": "Primitive two-flight opposed-spread restriction, n0 positive marked phase; unclassified standing. No B2/F2/H2/G2 or unrestricted-family recovery is claimed."
+  },
+  "existing_dataset_preserved": true,
+  "scientific_scope": "Unclassified standing primitive BL2 in the proved opposed-spread restriction. Signed phases at the same absolute amplitude are one cycle class. No B2/F2/H2/G2 recovery.",
+  "new_map_evaluations": 0
+}

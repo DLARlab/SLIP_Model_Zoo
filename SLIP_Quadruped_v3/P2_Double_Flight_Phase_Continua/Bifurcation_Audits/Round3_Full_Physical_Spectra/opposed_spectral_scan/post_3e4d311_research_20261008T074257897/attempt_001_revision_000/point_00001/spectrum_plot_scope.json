@@ -1,0 +1,154 @@
+{
+  "schema_version": "round3-saved-full-physical-spectrum-plot-v3-1",
+  "experiment_id": "post_3e4d311_research",
+  "task_id": "opposed_spectral_scan",
+  "attempt": "attempt_001_revision_000",
+  "point_index": 1,
+  "source_spectrum": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/experiments/post_3e4d311_research/tasks/full/opposed_spectral_scan/attempt_001_revision_000/spectrum_point_00001.mat",
+  "source_spectrum_sha256": "3d47fd9c09bc46fbf5f5c955025066720aba2652837450651a6fcd2cf5f07f25",
+  "source_scan": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/experiments/post_3e4d311_research/tasks/full/opposed_spectral_scan/attempt_001_revision_000/spectral_scan.json",
+  "source_scan_sha256": "863cff35c4c01345a3ed8bd02236496addacce8723416977218bdc31877486fa",
+  "actual_method_registration": {
+    "registered_utc": "08-Oct-2026 06:40:52",
+    "point_indices": 1,
+    "BL_touchdowns_per_return": 2,
+    "max_wall_seconds": 800,
+    "source_epochs": [
+      {
+        "path": "Research_v3/Drivers_v3/ExecuteRound3Target_v3.m",
+        "sha256": "fbc7420e8a3e2ba85aa3993c038c0317e7f334dae48ff4ba64e3c5a33131e841"
+      },
+      {
+        "path": "3_Numerical_Continuation/3_Bifurcation_Analysis/FloquetAnalysis_v3.m",
+        "sha256": "c4ac3fa0cba68e6a6df2b8659f95298cc300c9f37bd563caa53066b0db170e75"
+      },
+      {
+        "path": "3_Numerical_Continuation/1_Root_Solving/EventOrderChartJacobian_v3.m",
+        "sha256": "ad34e85a49c0329ac5296d26b4e88bb54dd814300735e27cf982e17b5da4402c"
+      },
+      {
+        "path": "3_Numerical_Continuation/1_Root_Solving/HybridFiniteDifferenceJacobian_v3.m",
+        "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+      },
+      {
+        "path": "4_Solution_Management/PoincareMap_v3.m",
+        "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+      },
+      {
+        "path": "1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m",
+        "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+      },
+      {
+        "path": "1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m",
+        "sha256": "dfd39a1c7ab2fa393f84adb43963c7d1448f4d5740a83828f4dfe9aaed01ee5d"
+      },
+      {
+        "path": "1_Dynamic_Frameworks/Dynamics_v3/QuadrupedPhysicalChart_v3.m",
+        "sha256": "4cae5dc8027bb2d8fa9063273bfa3b19067612c4b622df844971ae2bcc9de701"
+      },
+      {
+        "path": "1_Dynamic_Frameworks/Dynamics_v3/QuadrupedEnergy_v3.m",
+        "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+      }
+    ],
+    "full_physical_energy_leaf": true,
+    "approximate_critical_points_certified": false
+  },
+  "full_physical_dimension": 12,
+  "fixed_energy_leaf_dimension": 11,
+  "symmetry_restricted": false,
+  "saved_spectrum_reliable": true,
+  "saved_periodic_base_eligible": true,
+  "primitive_status": "primitive_within_checked_bound",
+  "primitive_cover_count": 1,
+  "BL_touchdowns_per_return": 2,
+  "classification_label": "unclassified",
+  "classification_status": "ambiguous",
+  "physical_flights": 2,
+  "energy": 1.0616845275068503,
+  "signed_mean_speed": 0,
+  "primitive_period": 2.6659420999964163,
+  "base_closure": 4.2188474935755949E-15,
+  "scan_function_evaluations_lower_bound": 49,
+  "scan_elapsed_seconds": 211.09118595833334,
+  "multipliers_real": [
+    -0.24365314071714789,
+    -0.24365314071714789,
+    1.0000044101339891,
+    0.99999564154126253,
+    0.99999587442952131,
+    0.99999585946868885,
+    0.99999495318611986,
+    -1.5207240443863002E-11,
+    7.8237436328713639E-16,
+    2.4266878000936547E-15,
+    4.1146370734109256E-16
+  ],
+  "multipliers_imaginary": [
+    0.96986012291337287,
+    -0.96986012291337287,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "near_plus_one_cutoff": 0.05,
+  "near_plus_one_indices": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "conservative_energy_direction": "The saved matrix restricts the full physical section derivative to ker(DH); no multiplier nearest+1 is deleted.",
+  "uncertainty_scope": {
+    "saved_critical_audit_available": true,
+    "source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/experiments/post_3e4d311_research/tasks/full/opposed_spectral_scan/attempt_001_revision_000/critical_sectors/critical_sectors.json",
+    "source_sha256": "74b8b0e7efc093bf8a683020e23982279084a8ce50c5a107d6e8186f52df2a69",
+    "scaled_empirical_refinement_floor": 5.6259204708759521E-6,
+    "plus_one_SVD_near_kernel_dimension": 4,
+    "refinement_floor_is_rigorous_bound": false,
+    "exact_nullity_certified": false,
+    "scope": "Finite-difference reliability is not an interval stability proof. Eigenvalue proximity counts and SVD near-kernel dimensions are different diagnostics; tiny departures from the unit circle do not certify instability or a crossing."
+  },
+  "finite_difference_column_relative_refinement": [
+    4.9969606328171755E-8,
+    3.9413401842748907E-7,
+    3.5650860642620928E-7,
+    2.0479713057898826E-7,
+    4.7161550905891854E-11,
+    4.8124157330927722E-7,
+    4.71615509191311E-11,
+    4.8047120432500531E-7,
+    4.9358742608734836E-11,
+    4.8047107017176778E-7,
+    4.9358761657252311E-11,
+    4.8124116468904963E-7
+  ],
+  "critical_points_certified": false,
+  "automatic_bifurcation_claim": false,
+  "ancestry_claimed": false,
+  "stability_certified": false,
+  "outside_unit_circle_is_certified_instability": false,
+  "new_map_evaluations": 0,
+  "new_simulations": 0,
+  "scope": "Plots of actual saved unrestricted physical fixed-energy spectra. Near+1 multipliers remain empirical candidates; plotting provides no crossing, nondegeneracy or daughter-existence certificate.",
+  "exporter_sha256": "c92432f7c6f2e6d5b2177bd77644b028c4bf969406b6fa53088b67431779d65d",
+  "figures": [
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Round3_Full_Physical_Spectra/opposed_spectral_scan/post_3e4d311_research_20261008T074257897/attempt_001_revision_000/point_00001/full_physical_energy_leaf_spectrum.png",
+      "sha256": "7d89284507c4bb93c94de96a9db85b1b5b01f32dc49d149ce5dedacd39bcc7bb",
+      "bytes": 154792
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Round3_Full_Physical_Spectra/opposed_spectral_scan/post_3e4d311_research_20261008T074257897/attempt_001_revision_000/point_00001/full_physical_energy_leaf_spectrum.pdf",
+      "sha256": "eb44d94226160b2232d832e212a782e439aacb31498f3fb919f328741662b42e",
+      "bytes": 42676
+    }
+  ]
+}

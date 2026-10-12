@@ -9,11 +9,12 @@ classdef EventOrderChartJacobian_v3 < HybridFiniteDifferenceJacobian_v3
         MinimumCohortGap=1e-4
         MaximumGuardValue=2e-8
         BLTouchdownsPerReturn=1
+        MaxWallSeconds=Inf
     end
     methods
         function obj=EventOrderChartJacobian_v3(options)
             if nargin<1,options=struct();end
-            own={'PhysicalParameter','MinimumCohortGap','MaximumGuardValue','BLTouchdownsPerReturn'};
+            own={'PhysicalParameter','MinimumCohortGap','MaximumGuardValue','BLTouchdownsPerReturn','MaxWallSeconds'};
             base=options;
             for k=1:numel(own)
                 if isfield(base,own{k}),base=rmfield(base,own{k});end
@@ -29,20 +30,36 @@ classdef EventOrderChartJacobian_v3 < HybridFiniteDifferenceJacobian_v3
             validateattributes(obj.MinimumCohortGap,{'numeric'},{'scalar','real','finite','positive'});
             validateattributes(obj.MaximumGuardValue,{'numeric'},{'scalar','real','finite','positive'});
             validateattributes(obj.BLTouchdownsPerReturn,{'numeric'},{'scalar','integer','>=',1,'<=',2});
+            validateattributes(obj.MaxWallSeconds,{'numeric'},{'scalar','real','positive'});
         end
         function [matrix,baseValue,report]=compute(obj,callback,point,varargin)
             observations=struct('accepted',{},'reason',{},'chart',{});
+            derivativeClock=tic;
             [matrix,baseValue,report]=compute@HybridFiniteDifferenceJacobian_v3( ...
                 obj,@chartedCallback,point,varargin{:});
             report.commonC1EventOrderChart=all([observations.accepted]);
             report.eventOrderChartObservations=observations;
             report.derivativeRegularityScope='common-first-derivative-under-recorded-regular-model-hypotheses; no C2 certificate';
             function [value,metadata]=chartedCallback(trial,context,varargin)
+                if toc(derivativeClock)>=obj.MaxWallSeconds
+                    error('EventOrderChartJacobian_v3:WallBudget','Derivative wall budget exhausted before another physical map.');
+                end
                 count=nargin(callback);
                 if count<0||count>=2+numel(varargin)
                     [value,metadata]=callback(trial,context,varargin{:});
                 else
                     [value,metadata]=callback(trial,varargin{:});
+                end
+                % A failed integration/budget sample has no physical chart
+                % context. Preserve its original causal exception before
+                % attempting regularity qualification of a successful map.
+                if isstruct(metadata)&&isfield(metadata,'errorIdentifier')&&~isempty(metadata.errorIdentifier) ...
+                        &&((isfield(metadata,'valid')&&~metadata.valid)|| ...
+                        (isfield(metadata,'integration_success')&&~metadata.integration_success))
+                    reason=metadata.errorIdentifier;message=reason;
+                    if isfield(metadata,'message')&&~isempty(metadata.message),message=metadata.message;end
+                    observations(end+1)=struct('accepted',false,'reason',reason,'chart',struct());
+                    error(reason,'%s',message);
                 end
                 [metadata,diagnostic]=obj.normalizeMetadata(metadata);
                 observations(end+1)=diagnostic;

@@ -1,15 +1,10 @@
-# Machine-local runtime state; retained evidence lives in Audits_v3.
+# Machine-local runtime state and editor caches.
 /t/
-/Research_v3/runtime/
-/Research_v3/next_round/runtime/
-
-# Temporary files from atomic checkpoint compression.
-*.compressed.mat
-
-# Python bytecode is not research evidence.
-__pycache__/
-*.pyc
-
-# Finder and MATLAB editor caches are not scientific evidence.
 .DS_Store
 *.asv
+*.compressed.mat
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

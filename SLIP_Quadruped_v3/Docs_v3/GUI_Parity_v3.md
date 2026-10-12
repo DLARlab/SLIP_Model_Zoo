@@ -1,5 +1,8 @@
 # Quadruped GUI parity audit
 
+> Cleanup note (2026-10-11): this report preserves its historical scientific scope. Selected final evidence is indexed in [Scientific_Evidence](../Audits_v3/Scientific_Evidence/README.md). Per-probe intermediates and campaign scripts were removed; historical claims do not imply a retained complete rerun workspace. The unchanged original report is also in the evidence bundles.
+
+
 The source inspected is `SLIP_Quadruped/SLIP_Quadruped_GUI.m` in the starting checkout, including its nested numerical, visualization, seed and continuation callbacks. Its left column contains Data Info, State/Hildebrand tabs, and Status. The right sidebar has Info, Visualization, Solve, Continuation (1D/Para/2D), and Oscillator Plot. The legacy code is a reference; no legacy callback or numerical function is called by v3.
 
 This matrix was written before implementation. "Working legacy" describes connected callbacks in the inspected source, not a claim that every legacy numerical workflow was rerun.
@@ -48,10 +51,10 @@ Matched native screenshots have **1120×740 pixels**, verified using `imfinfo`, 
 
 | View | Legacy reference | v3 |
 |---|---|---|
-| Info | [Legacy Info](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_Legacy_Info_1120x740.png) | [v3 Info](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_v3_Info_1120x740.png) |
-| Visualization | [Legacy Visualization](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_Legacy_Visualization_1120x740.png) | [v3 Visualization](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_v3_Visualization_1120x740.png) |
-| Solve | [Legacy Solve](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_Legacy_Solve_1120x740.png) | [v3 Solve](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_v3_Solve_1120x740.png) |
-| Continuation | [Legacy Continuation](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_Legacy_Continuation_1120x740.png) | [v3 Continuation](../2_Graphic_ToolBox/GUI_v3/Outputs_v3/GUI_v3_Continuation_1120x740.png) |
+| Info | Legacy Info (historical intermediate removed) | v3 Info (historical intermediate removed) |
+| Visualization | Legacy Visualization (historical intermediate removed) | v3 Visualization (historical intermediate removed) |
+| Solve | Legacy Solve (historical intermediate removed) | v3 Solve (historical intermediate removed) |
+| Continuation | Legacy Continuation (historical intermediate removed) | v3 Continuation (historical intermediate removed) |
 
 The screenshots were visually inspected for panel positions, tab hierarchy, editable schema data and graphics. They verify layout parity, not orbit equivalence with the legacy numerical model. `capture_gui_parity_v3` regenerates v3 screenshots from the saved accepted workflow solution. The protected legacy was only read and launched for native UI screenshots; all exports and MATLAB preferences/logs stayed within v3.
 

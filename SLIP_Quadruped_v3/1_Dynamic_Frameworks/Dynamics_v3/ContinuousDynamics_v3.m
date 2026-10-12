@@ -158,6 +158,11 @@ classdef ContinuousDynamics_v3
                     'Quadruped flow became nonfinite.');
             end
 
+            % ODE stages request only the vector field. Accepted-state
+            % admissibility remains the simulator's explicit responsibility;
+            % construct the diagnostic report only when a caller requests it.
+            if nargout < 2, return; end
+
             physicalAdmissibility = obj.AdmissibilityComponent.evaluate( ...
                 x, q, p, 'ode-stage');
             admissibilityMargins = compression ...

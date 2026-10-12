@@ -1,0 +1,167 @@
+{
+  "schema_version": "round3-measured-known-standing-BL2-continuation-v3-1",
+  "experiment_id": "post_3e4d311_research",
+  "source_checkpoint": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/experiments/post_3e4d311_research/tasks/full/measured_BL2/known_family_continuations/m1/branch.mat",
+  "source_checkpoint_sha256": "39984b1f9bec3a42c6ffde84a9468a6c284e643acf376f794ecc48b42ea3b344",
+  "admitted_seed_source": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/experiments/post_3e4d311_research/tasks/full/measured_BL2/sector_01_signed_+0.001_revision_001_attempt_001.mat",
+  "admitted_seed_source_sha256": "d267bf09ae120a5d2c5429d24ee133cdbc4bc90dc2f1d8be0301892e3e31d0d4",
+  "source_registration": {
+    "registered_utc": "08-Oct-2026 05:58:22",
+    "wall_allocation_seconds": 381.86022287500003,
+    "master_total_budget_seconds": 10800,
+    "allocation_is_total_budget": false,
+    "source_seed_artifact": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/experiments/post_3e4d311_research/tasks/full/measured_BL2/sector_01_signed_+0.001_revision_001_attempt_001.mat",
+    "source_seed_sha256": "d267bf09ae120a5d2c5429d24ee133cdbc4bc90dc2f1d8be0301892e3e31d0d4",
+    "direction": -1,
+    "starting_amplitude": 0.00015808950549939807,
+    "arc_step": 0.00028799210793344754,
+    "positive_amplitude_bounds": [
+      1E-6,
+      0.0099
+    ],
+    "maximum_new_arcs_in_direction": 2,
+    "new_arcs_already_retained": 0,
+    "first_tangent_fresh": true,
+    "exact_own_tangent_reused": false,
+    "source_hashes": [
+      {
+        "name": "RunMeasuredKnownFamilyContinuations_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/theory/RunMeasuredKnownFamilyContinuations_v3.m",
+        "sha256": "84944feae57a62befed07742e47f30213fe8ca5df4a7f035543e830b7d67e24f"
+      },
+      {
+        "name": "BL2OpposedSpreadContinuationFamily_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/round3/gates/BL2OpposedSpreadContinuationFamily_v3.m",
+        "sha256": "b19b92986cf7e14d5b864f549d3f89f48ae4dc9b1457aeece97c56ccf19561b2"
+      },
+      {
+        "name": "OpposedSpreadFamilyResidual_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/OpposedSpreadFamilyResidual_v3.m",
+        "sha256": "e51aaf801f9a8cca0aa144f098337e956ab0972224c2133610cdd1ee11feb63e"
+      },
+      {
+        "name": "PseudoArclengthContinuation_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/2_Continuation_Algorithms/PseudoArclengthContinuation_v3.m",
+        "sha256": "988324a5e971c6fad1d691315696e6ab752b630c526085364f650c1902d60b45"
+      },
+      {
+        "name": "PeriodicSolutionSolver_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/PeriodicSolutionSolver_v3.m",
+        "sha256": "4449577009cbab50f6dcf754b762744f3bcfdbb160c20101499e86631be031a1"
+      },
+      {
+        "name": "RootSolver_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/RootSolver_v3.m",
+        "sha256": "42ac0456dde8c64b88ac5301f30061bbcfde0e0cb2c22bb1373f743c77a3b785"
+      },
+      {
+        "name": "HybridFiniteDifferenceJacobian_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/HybridFiniteDifferenceJacobian_v3.m",
+        "sha256": "a31860edc813473f3f0a992d6cad842511d40f13cbaa000217516c1aaa026cb9"
+      },
+      {
+        "name": "HybridSimulator_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m",
+        "sha256": "896ff896e266d1792b8d186153f3bb01b4acbb8b43300aa38ac2265bf92d146c"
+      },
+      {
+        "name": "PoincareMap_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PoincareMap_v3.m",
+        "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46"
+      },
+      {
+        "name": "EventDetector_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/EventDetector_v3.m",
+        "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99"
+      },
+      {
+        "name": "Quadrupedal_Dynamics_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m",
+        "sha256": "dfd39a1c7ab2fa393f84adb43963c7d1448f4d5740a83828f4dfe9aaed01ee5d"
+      },
+      {
+        "name": "ContinuousDynamics_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m",
+        "sha256": "bbbee731f7befb8ef6d1ff477b06f3744cead539163abc0fcf42a3f0ec7b2f89"
+      },
+      {
+        "name": "GuardFunctions_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m",
+        "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80"
+      },
+      {
+        "name": "ResetMap_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m",
+        "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715"
+      },
+      {
+        "name": "ModeTransition_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ModeTransition_v3.m",
+        "sha256": "07856a5220e842bdf6524adfd2d9a621e95fe995e310394680094b042c228832"
+      },
+      {
+        "name": "QuadrupedEnergy_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedEnergy_v3.m",
+        "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169"
+      },
+      {
+        "name": "QuadrupedPhysicalChart_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedPhysicalChart_v3.m",
+        "sha256": "4cae5dc8027bb2d8fa9063273bfa3b19067612c4b622df844971ae2bcc9de701"
+      },
+      {
+        "name": "QuadrupedSchema_v3",
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m",
+        "sha256": "966bfc51791dc0096a1c04c5ec698426df8cfbc18bb6be0fae78c776f94e98b5"
+      }
+    ],
+    "restriction": "Proved opposed-spread BL2 family; physical finalization and tighter independent replay remain actual unrestricted BL2 maps.",
+    "new_family_or_attachment_claimed": false
+  },
+  "historical_prefix_points": 1,
+  "new_continuation_points": 2,
+  "amplitude": [
+    0.00015808950549939807,
+    9.5253703299828441E-5,
+    3.241790108339331E-5
+  ],
+  "energy": [
+    1.0616850150106627,
+    1.061685024956603,
+    1.0616850322676916
+  ],
+  "primitive_period": [
+    2.6659412771077986,
+    2.6659412824825637,
+    2.6659413069597888
+  ],
+  "signed_drift": [
+    0,
+    0,
+    0
+  ],
+  "full_closure": [
+    4.4408920985006262E-13,
+    3.3992042579138182E-12,
+    3.0796041715006051E-12
+  ],
+  "arclength": [
+    0,
+    0.00028799210793344754,
+    0.00057598421586689509
+  ],
+  "physical_flights": [
+    2,
+    2,
+    2
+  ],
+  "all_saved_physical_gates_passed": true,
+  "restriction": "Proved positive-amplitude opposed-spread standing BL2; energy alone is singular at A=0.",
+  "continuation_direction": "m1",
+  "new_family_claimed": false,
+  "ancestry_claimed": false,
+  "named_gait_recovery": false,
+  "local_point_cap_is_family_endpoint": false,
+  "new_map_evaluations": 0,
+  "audit_directory": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/P2_Double_Flight_Phase_Continua/Bifurcation_Audits/Round3_Measured_Known_Standing_BL2_Continuation_m1/post_3e4d311_research_20261008T075647047"
+}

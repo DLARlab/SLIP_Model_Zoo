@@ -23,6 +23,9 @@ classdef FloquetAnalysis_v3
         MinimumSectionTransversality = 1e-8
         MaximumSubspaceLeakage = 1e-6
         EnergyLeafClosureTolerance = 1e-8
+        FixedPointClosureTolerance = 1e-8
+        PhysicalEnergyTolerance = 1e-8
+        RequirePrimitive = true
     end
 
     methods
@@ -95,6 +98,11 @@ classdef FloquetAnalysis_v3
             else
                 eta0 = zeros(size(tangentBasis, 2), 1);
             end
+            periodicBase = local.periodicBaseAudit(map,xTemplate,q,p);
+            periodicBase.input_projection_error = norm(x-xTemplate,inf);
+            periodicBase.section_consistent = periodicBase.section_consistent ...
+                && periodicBase.input_projection_error<=local.FixedPointClosureTolerance;
+            periodicBase.passed = periodicBase.passed && periodicBase.section_consistent;
 
             evaluations = repmat(struct( ...
                 'coordinates', [], 'state', [], 'nextState', [], ...
@@ -321,13 +329,14 @@ classdef FloquetAnalysis_v3
                 evaluations, eta0, fdInfo, tangentBasis);
             subspaceInvariant = selectedSubspaceLeakage <= ...
                 local.MaximumSubspaceLeakage;
-            reliable = matchingClosure && matchingSignatures && ...
+            derivativeReliable = matchingClosure && matchingSignatures && ...
                 (~local.RequireCompatibleSectionSignature || ...
                     matchingSectionSignatures) && ...
                 matchingMultiplicity && matchingCycleCompletion && ...
                 fdReliable && classicalDerivative && transverse && ...
-                ~hasSectionEventCoincidence && subspaceInvariant && ...
+                ~hasSectionEventCoincidence && ...
                 all(isfinite(DP(:)));
+            reliable = derivativeReliable && subspaceInvariant && periodicBase.passed;
             if local.ThrowOnTopologyChange && ...
                     ((local.RequireMatchingEventSignature && ...
                         ~matchingSignatures) || ...
@@ -367,6 +376,20 @@ classdef FloquetAnalysis_v3
             result.stability = stability;
             result.stable = strcmp(stability, 'stable');
             result.reliable = reliable;
+            result.derivativeReliable = derivativeReliable;
+            result.derivativeSpectralClassification = stability;
+            result.periodicOrbitEligible = periodicBase.passed;
+            result.periodicBaseAudit = periodicBase;
+            if ~periodicBase.passed
+                result.analysisStatus = 'return_map_derivative_only';
+            elseif ~reliable
+                result.analysisStatus = 'periodic_orbit_derivative_unresolved';
+            else
+                result.analysisStatus = 'periodic_orbit_floquet';
+            end
+            if ~reliable
+                result.stability = 'unresolved';result.stable = false;
+            end
             result.eventSignaturesMatch = matchingSignatures;
             result.sectionSignaturesMatch = matchingSectionSignatures;
             result.rawEventSignature = rawBaseSignature;
@@ -416,8 +439,9 @@ classdef FloquetAnalysis_v3
             result.physicalCoordinateDimension = chartDimension;
             result.physicalTangentBasis = [];
             if ~isempty(physicalChart)
-                result.symmetryRestricted = ~isempty(tangentBasis) ...
-                    && size(tangentBasis,2) < physicalChart.dimension;
+                result.symmetryRestricted = (~isempty(tangentBasis) ...
+                    && size(tangentBasis,2) < physicalChart.dimension) ...
+                    || (isempty(tangentBasis) && numel(indices)<physicalChart.dimension);
                 if isempty(tangentBasis)
                     [~,columns] = ismember(indices,physicalChart.independent_indices);
                     result.physicalTangentBasis = physicalBasis(:,columns);
@@ -458,7 +482,8 @@ classdef FloquetAnalysis_v3
                 end
                 regularGradient = all(isfinite(coordinateEnergyGradient)) ...
                     && norm(coordinateEnergyGradient,2)>sqrt(eps);
-                if energyReport.conservation_applicable && regularGradient ...
+                if periodicBase.passed && subspaceInvariant ...
+                        && energyReport.conservation_applicable && regularGradient ...
                         && closureResidual<=local.EnergyLeafClosureTolerance ...
                         && all(isfinite(DP(:)))
                     % Restrict to ker(DE), rather than deleting a numerically
@@ -496,7 +521,10 @@ classdef FloquetAnalysis_v3
                 fdInfo, 'perColumnReliability', true(size(DP, 2), 1));
             result.selectedSubspaceLeakage = selectedSubspaceLeakage;
             result.subspaceInvariant = subspaceInvariant;
-            if hasSectionEventCoincidence
+            if ~periodicBase.passed
+                result.warning = ['The base state has no independently admitted physical primitive periodic return. ', ...
+                    'This matrix is a return-map derivative diagnostic; orbit stability is unresolved.'];
+            elseif hasSectionEventCoincidence
                 result.warning = ['The base return has a section/event ', ...
                     'coincidence; a unique smooth Floquet matrix is ', ...
                     'unresolved at this hybrid boundary.'];
@@ -561,7 +589,16 @@ classdef FloquetAnalysis_v3
                 end
                 if isempty(tangentBasis)
                     coordinatesNext = nextState(indices);
-                    subspaceLeakage = 0;
+                    if isempty(baseReturnedState)
+                        baseReturnedState=nextState;subspaceLeakage=0;
+                    else
+                        returnedPerturbation=nextState-baseReturnedState;
+                        if isempty(physicalChart),physicalIndices=1:numel(nextState);
+                        else,physicalIndices=physicalChart.independent_indices;end
+                        complementaryIndices=setdiff(physicalIndices,indices,'stable');
+                        subspaceLeakage=norm(returnedPerturbation(complementaryIndices),2) ...
+                            /max(norm(returnedPerturbation(physicalIndices),2),sqrt(eps));
+                    end
                 else
                     coordinatesNext = basisLeftInverse * ...
                         (nextState - xTemplate);
@@ -695,10 +732,6 @@ classdef FloquetAnalysis_v3
     methods (Access = private)
         function leakage = selectedStencilLeakage(obj, evaluations, ...
                 baseCoordinates, fdInfo, tangentBasis)
-            if isempty(tangentBasis)
-                leakage = 0;
-                return
-            end
             if isempty(evaluations)
                 leakage = Inf;
                 return
@@ -737,6 +770,109 @@ classdef FloquetAnalysis_v3
                         evaluations(match).subspaceLeakage);
                 end
             end
+        end
+
+        function audit=periodicBaseAudit(obj,map,x,q,p)
+            % A fresh tighter return establishes eligibility independently of
+            % the finite-difference base value. No correction can move x.
+            audit=struct('applicable',false,'passed',false,'closure_residual',Inf, ...
+                'closure_tolerance',obj.FixedPointClosureTolerance, ...
+                'section_consistent',false,'mode_closed',false,'occurrence_consistent',false, ...
+                'physical_admissible',false,'energy_variation',Inf, ...
+                'primitive',struct(),'correction_settings',struct(),'replay_settings',struct(), ...
+                'effective_correction_ode',struct(),'effective_replay_ode',struct(), ...
+                'fresh_map_info',struct(),'failure',struct());
+            if ~isa(map,'PoincareMap_v3')||~isa(map.System,'Quadrupedal_Dynamics_v3')
+                audit.failure=struct('identifier','FloquetAnalysis_v3:PhysicalPeriodicAdmission', ...
+                    'message','A physical production return is required for orbit stability; derivative diagnostics remain available.');
+                return;
+            end
+            audit.applicable=true;correction=map.Simulator.Options;replay=correction;
+            effectiveCorrection=obj.effectiveODE(correction);
+            replay.RelTol=max(effectiveCorrection.RelTol/10,effectiveCorrection.RelTol_lower_bound);
+            replay.AbsTol=effectiveCorrection.AbsTol/10;
+            for field={'EventValueTolerance','EventTimeTolerance','SimultaneousTimeTolerance','ArmingTolerance'}
+                replay.(field{1})=correction.(field{1})/10;
+            end
+            if isempty(correction.MaxStep),replay.MaxStep=.025;else,replay.MaxStep=correction.MaxStep/2;end
+            audit.correction_settings=correction;audit.replay_settings=replay;
+            audit.effective_correction_ode=effectiveCorrection;
+            audit.effective_replay_ode=obj.effectiveODE(replay);
+            if audit.effective_replay_ode.RelTol>=effectiveCorrection.RelTol ...
+                    ||any(audit.effective_replay_ode.AbsTol(:)>=effectiveCorrection.AbsTol(:))
+                audit.failure=struct('identifier','FloquetAnalysis_v3:ReplayTolerances', ...
+                    'message','Finite-precision ODE tolerances do not permit the required tighter independent base replay.');
+                return;
+            end
+            settings=struct('MaxReturnTime',map.MaxReturnTime,'MaxSectionCrossings',map.MaxSectionCrossings, ...
+                'MaxCycleEvents',map.MaxCycleEvents,'ArmTolerance',map.ArmTolerance,'InitialTime',map.InitialTime);
+            try
+                fresh=PoincareMap_v3(map.System,map.Section,HybridSimulator_v3(replay),map.ReturnPolicy,settings);
+                problem=PeriodicOrbitResidual_v3(fresh,x);
+                [~,details]=problem.evaluateWithInfo(problem.packState(x),p,q);
+                info=details.map_info;audit.fresh_map_info=info;
+                delta=details.next_state-x;delta(map.System.Schema.TranslationIndex)=0;
+                audit.closure_residual=norm(delta,inf);
+                audit.section_consistent=abs(map.Section.value(x,p))<=obj.FixedPointClosureTolerance;
+                audit.mode_closed=info.discrete_closed;
+                audit.physical_admissible=info.admissible&&info.cycle_complete&&info.return_policy_accepted;
+                audit.occurrence_consistent=true;
+                if isa(map.ReturnPolicy,'BLMarkedApexReturnPolicy_v3')
+                    events=info.event_history;events=events(~[events.is_stop]);
+                    schema=map.System.Schema;blId=schema.Event.IDs(find(schema.Event.IsTouchdown,1));
+                    audit.occurrence_consistent=sum([events.guard_id]==blId)==map.ReturnPolicy.BLTouchdownsPerReturn;
+                end
+                if audit.closure_residual>obj.FixedPointClosureTolerance||~audit.mode_closed||~audit.physical_admissible
+                    return;
+                end
+                orbit=problem.createOrbit(problem.packState(x),p,q,details);
+                data=HybridCycleData_v3.unpack(orbit);energy=nan(size(data.time));
+                for k=1:numel(data.time)
+                    state=data.state(k,:).';mode=data.mode(k,:).';
+                    [energy(k),physical]=QuadrupedEnergy_v3.evaluate(state,mode,p);
+                    map.System.assertAdmissible(state,mode,p);
+                    audit.physical_admissible=audit.physical_admissible ...
+                        &&physical.physical_mode_report.maximum_constraint_residual<=obj.FixedPointClosureTolerance;
+                end
+                audit.energy_variation=max(abs(energy-energy(1)));
+                audit.primitive=PrimitiveCycleCheck_v3(orbit);
+                primitivePassed=~obj.RequirePrimitive||audit.primitive.status=="primitive_within_checked_bound";
+                audit.passed=audit.section_consistent&&audit.mode_closed&&audit.occurrence_consistent ...
+                    &&audit.physical_admissible&&all(isfinite(energy)) ...
+                    &&audit.energy_variation<=obj.PhysicalEnergyTolerance&&primitivePassed;
+            catch exception
+                audit.failure=struct('identifier',exception.identifier,'message',exception.message);
+            end
+        end
+
+        function effective=effectiveODE(~,settings)
+            % Match EventDetector's nested/top-level minimum, including the
+            % documented runtime ode45 relative-tolerance precision floor.
+            nested=settings.ODEOptions;
+            rel=odeget(nested,'RelTol');absolute=odeget(nested,'AbsTol');step=odeget(nested,'MaxStep');
+            if ~isempty(settings.RelTol)
+                if isempty(rel),rel=settings.RelTol;else,rel=min(rel,settings.RelTol);end
+            end
+            if ~isempty(settings.AbsTol)
+                if ~isscalar(absolute)&&~isscalar(settings.AbsTol)&&~isempty(absolute) ...
+                        &&numel(absolute)~=numel(settings.AbsTol)
+                    error('FloquetAnalysis_v3:IntegrationTolerance','Absolute tolerance vectors must agree in length.');
+                end
+                if isempty(absolute),absolute=settings.AbsTol(:);else,absolute=min(absolute(:),settings.AbsTol(:));end
+            end
+            if isempty(rel),rel=1e-3;end
+            if isempty(absolute),absolute=1e-6;end
+            if ~isscalar(rel)||~isfinite(rel)||rel<=0||any(~isfinite(absolute(:))|absolute(:)<=0)
+                error('FloquetAnalysis_v3:IntegrationTolerance','ODE tolerances must be finite and positive.');
+            end
+            if ~isempty(settings.MaxStep)&&isfinite(settings.MaxStep)
+                if isempty(step),step=settings.MaxStep;else,step=min(step,settings.MaxStep);end
+            end
+            solver=settings.ODESolver;
+            if isa(solver,'function_handle'),name=func2str(solver);else,name=char(solver);end
+            floor=0;if strcmp(name,'ode45'),floor=100*eps;end
+            effective=struct('RelTol',max(rel,floor),'AbsTol',absolute,'MaxStep',step, ...
+                'ODESolver',name,'configured_minimum_RelTol',rel,'RelTol_lower_bound',floor);
         end
 
         function state = projectState(obj, map, state, p)
