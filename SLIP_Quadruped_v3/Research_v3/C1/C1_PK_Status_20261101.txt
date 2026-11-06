@@ -1,0 +1,601 @@
+CURRENT VERIFIED FINALIZATION — 2026-11-02 22:00 UTC
+All13 registered frontier directions have explicit finite dispositions in Resolution02; no current dispatch candidate remains. This is finite declared-scope resolution, not global PK/P1 completeness, global uniqueness or exhaustion of other event topologies. The accepted current-run numerical work earned61 P edges and9 new numerical overlaps after the event-restart repair, with four fine profiles for each overlap and all9 independently cold-qualified/retained. The prior6 M proofs remain labelled by their historical admission epochs. Active final Graph04 has1118 occurrences in TWO components,610 and508; one demonstrated-invalid original0072/6 record is excluded only from the active view, with historical records/flags preserved.
+Both final whole-component working files are complete and usable: component0001 has610 records/1,289,983 bytes; component0002 has508 records/1,065,892 bytes (total2,355,875 bytes). All required29-value matrices,p/q,NativeIDs,heads,typedP/E/A/M and source projections were retained. Two independent original-source passes/read2 passed; a later genuinely fresh native process cold-read10 selected records across both files and exercised the610-record/555-P GUI callback view, saved PNG and closed its owned figure. Human pointer/hover was untested. The original whole-v2 baseline remains110,861 bytes and strict5x554,305-byte cap is explicitly NOT met; these files use the necessary-data working-size exception, with no fake baseline, split or required-head omission.
+Current saved-data utilities now support the final working-Core view. The native utility smoke passed for both610/508 files (1118 points,1035 P,15 M) and range/recent views agreed exactly. Resume returned NOOP_FINITE_SCOPE_RESOLVED, all13closed, no dispatch/controller/new points/new edges/new grant and the original91,817,279-byte journal byte-for-byte unchanged. Mixed specification was correctly refused. The default selection Audits/PK_Current_Frontier_Resolution.json is published with exactly the tested candidate bytes,SHAfb9c48190ad0e471fd76c0df94b07504688c910e39c4d30fa209c96d0d03294c/7567B; the native smoke used the explicit SHA-bound candidate before publication. No further native work is active.
+Root completed guarded cleanup at2026-11-02T21:57:35.119852+00:00:157 exact paths,322,181,029 LOGICAL bytes, comprising38 proven whole-JSON mirrors,78 closed logs and41 construction artifacts. The six Run_*.json files and PK36h_20261031_Round.json remain because runtime readers still need them; canonicalSuite01,all24 source beforeimages,two essential patches,allJSONL,all45 native JSON authorities and all287 MAT candidates remain. Catalog qualified45 mirrors but Root's runtime-consumer checks narrowed actual JSON deletion to38; no MAT candidate qualified for deletion. Protected165 postguards and all native authority/explicit KEEP hashes passed. No physical-space reclamation is claimed, and cleanup changed no scientific files/flags or model/runtime11/GUI bytes.
+Original accepted30h grant labels remain2026-11-01T16:29:07Z start,2026-11-02T20:29:07Z science cutoff and2026-11-02T22:29:07Z hard deadline; older36h-run administrative files/clocks remain historical. No scientific Root/ODE/replay/admission/classifier work was added after the science cutoff. The proof/UI/utility/cleanup steps used only the existing hard-deadline reserve. Strict H<.5*L0 stop and signed velocities were preserved; local chart boundaries, current inward controls and continuous-clearance/global limits remain distinguished below. Historical177-record/39-group data remain separate.
+Final cleanup authority: Audits/PK30h_20261102_Final_Cleanup_Receipt.json SHA12cfb8ce52cbbaa0f06939597bb863df3ffe7076e40c01357298483167c50e18/204267B. Native cleanup catalog4e1f749ef8783b73259343eda8694ea779f14f533cd780f0b4aeb987071f22e9/107716B; utility smoke logb19a6a7cea31c3f9a20636358090b9d9fb6213d5399eaa8b12e941001f93aa45/7511B. Resolution02 and final-Core/fresh-GUI evidence remain exact as detailed below.
+
+CURRENT VERIFIED FINALIZATION — 2026-11-02 20:41 UTC
+The final separate native process87329 (different from writer83812) exited0 after public cold-reader checks of10 selected records across BOTH whole working files (610 and508 occurrences), including every required current-P terminal head. Fresh_process_after_writer_verified, fresh_process_cold_reader_verified, completed and source_posthash are true in the NEW audit. The earlier export manifest's fresh_process_cold_start_verified=false remains literal historical output; it is not silently rewritten.
+The same new process exercised actual visible-GUI callbacks on the610-record file, rendered555 typed physical P edges, checked actual-cwd startup, folder/dropdown order and state-axes bounds, lazily hydrated selected records, saved the native PNG and closed ONLY its owned figure. No Root/ODE/map/replay/classifier/admission was called. Human display visibility and mouse/hover were not tested by this callback operation. Audit Audits/PK30h_20261102_FinalEligibleCoreSet01_FreshReaderGUI01.mat SHA8a1ee3ee421021b9d9d239d787f3386aebcfa1aeac09a77284bcd14014627b6b/12837B; PNG SHA2e75da5a02ce2f159fe26b3ca23ee6a7dcf9451bf78799d5f17577460ed68a2b/92550B. Actual tool138.68s and verified native87329/wrapper87328 absence are recorded externally. This used the original hard-deadline finalization reserve; no science cutoff was extended.
+All13 finite frontier dispositions and two complete working files remain as detailed below. No further native work is active. Global PK/P1 completeness, unrestricted topology exhaustion and full historical-epoch requalification remain unclaimed.
+
+CURRENT VERIFIED FINALIZATION — 2026-11-02 20:31 UTC
+The actual corrected native Finite13 audit02 completed/sourceposttrue, all13 registered frontier directions resolved within their declared finite scope, no unresolved rows and no scheduled/runnable continuation. The dispositions are: four covered finite stored traces (rows1,4,7,10); three local-chart grazing boundaries (2,6,11); two local-chart initial-clearance boundaries (8,9); one finite complementary reference (3); one inadmissible historical head with valid-predecessor handoff (5); one qualified finite direction (12); and one finite forward reference (13). The first audit retained its literal row13 array-shape failure; audit02 changed only cell orientation and finalization scheduling, with all scientific predicates unchanged. No new Root/ODE/replay/admission/classifier was used for this proof audit. The original91,817,279-byte journal remains unchanged. Finite resolution is not global PK/P1 completeness, uniqueness or exhaustion of other topologies.
+Final eligible Graph04 contains1118 source occurrences in TWO connected components,610 and508. Typed rows are component1 P555/E55/A0/M10 and component2 P480/E25/A0/M5. Current-run work earned61 physical P edges and9 numerical overlaps with four fine profiles each, all9 cold-qualified/retained. The original6 M proofs retain their recorded historical epoch. Exactly one demonstrated-invalid old0072/6 leaf is excluded from the active view; its historical record/flags and the full historical snapshot remain preserved. No source data are deleted by this status update.
+Both final whole-component working files are complete: Compact_Exports_20261030/PK30h_20261102_FinalEligibleCoreSet01/C1_PK_Component_0001_WorkingCore29.mat,610 records,1,289,983 bytes,SHA1f4097d827057be3a5cf1acbd5983082d3fb8f07bd7df510b64744b281fbb635; component0002,508 records,1,065,892 bytes,SHA c0e2bffed1cfff46ed8ec96b3213145b625af0263f26afa4648e5232f7ad521d. All required heads,29-value seed matrices,p/q,NativeIDs,source projections and P/E/A/M rows were preserved and checked by two independent original-source passes, read2 and selected same-process public readers. Total working size2,355,875 bytes; strict554,305-byte target relative to the whole originalv2 reference110,861 bytes remains unmet and explicitly false. Necessary working-size exceptions are declared, not a new strict baseline or dropped data. A separate fresh-process final-file reader/visible-GUI check remains pending at this timestamp.
+The new long-family signed first-flight grazing boundaries and original short-family initial-clearance boundaries have actual inward current-engine all9 PK controls. This is local declared-chart boundary evidence; unresolved continuous final-flight/global-topology assertions are not promoted. Literal signed speeds and raw states are preserved. User's strict apexH<.5L0 stop remains unchanged; it was not met on these retained families.
+Original scientific cutoff2026-11-02 20:29:07 UTC and hard deadline22:29:07 UTC remain unchanged. New numerical science ended before cutoff; saved proof/UI/data finalization uses only the original hard-deadline reserve. Root solving was used for science; no optimization algorithm. Historical177-record/39-group user collection remains separate.
+Audit authority: Audits/PK30h_20261102_Current_Finite13_Resolution02.mat SHA1f2679c7c88ce39efd0ef30fe84ec30729df2238cfd04c69951274f616e95721/124898B; exact native TSV8dde0b3ffe64c905c6060cd59dbc14e7da483030e15de96f508a95863216c65a/1555B. Export manifest1273a8e431865d614e79b4d1ce773b4cc1c1d13969e052a89b1b6ef2571d8bb4/2169535B; Root closurecb53e22a5fbb67a969703eb84dab998612afdee55f2e4b416c87496251324201/103456B.
+
+CURRENT VERIFIED UPDATE — 2026-11-02 16:55 UTC
+A new cold native process loaded the first and last solutions from each of the two whole working MAT files (4public reader calls) and verified literal29-state/stride/period matrices,p/q,NativeIDs and local/global contexts. FinalStoredEvidence01.mat retains both numerical grazing FD summaries and these reader checks; no new physics/admission was run. Positive/negativeF9inf are7.99e-15/1.33e-14; both independent FD radii giveJ7rank7,J9rank9,gtt28.1062,gz.v approximately−.01072804 and actual admitted inward interiorclearance+5.37e-7>unchanged1e-8 tolerance.
+The separate literal old0072 audit established a current physical counterexample for exactly one of the four tested historical points: source0072 index6 (NativeIDe05b77d6ae892069a3e20ffe83a475ccce7ac96dc7f5027695ada928e86101f6). Its unchanged raw-state allflight solution gives all four footguards−4.43730245e-8 at a stationary time.726908738897, before its saved firstTD1.193031935389. This exceeds the unchanged penetration tolerance1e-8 in the wrong direction; native Flow/Guard/Lie agree with the exact analytic flight. The historical accepted/classification/P/M flags are retained literally, with an additive current_guard_failure mask [false,true,false,false] for tested indices[5,6,13,130]. Absence of a negative witness for the other three is a finite check, not fresh admission. Storage connectivity through historical points remains historical evidence, and current admissible frontier claims must exclude the flagged point.
+
+CURRENT VERIFIED UPDATE — 2026-11-02 16:43 UTC
+Both complete saved connected components are now stored in individual working MAT files under Compact_Exports_20261030/PK30h_20261102_RefreshedCoreSet01: component1 has602 occurrences and1,222,254 bytes; component2 has505 occurrences and1,043,663 bytes. Every retained occurrence, required classification/primitive head, native state29/p/q/NativeID, typed P/E/A/M graph, full source projection and two independent original-source passes was checked. The original whole-v2 reference remains110,861 bytes and strict5x target554,305 bytes; these necessary-data working files explicitly exceed that target, with unchanged strict loader and no data split/drop. The whole export actually exited0 and its manifest completed/sourceposttrue. Scientific completion is not implied by storage completion.
+Positive and negative local nine-equation first-flight grazing roots both solved near signed apexdx±7.72944994404,E31.12746938808,H1.25527116936,t*=.726908740295. Each has independently estimated J7 rank7/J9 rank9 at two FD radii, positive first-flight gtt, signed nearby inward/outward clearance roots, and one actual fresh inward native all9 qualifiedPK return with a strictly interior positive guard gap. Both retain disposition finite_local_stationary_crossing_observed_continuous_final_clearance_UNRESOLVED; no boundary admission, new physical edge, continuous whole-flight certificate or global endpoint is claimed.
+Saved two-component diagnostic confirms the same literal p10 and allflight q for both. Long-period component1 has T2.6132–2.8984,H1.2553–1.6959,meanU approximately−7.7000 to+7.7000. Short-period component2 has T1.3726–1.5645,H1–1.1171,meanU approximately−3.9527 to+3.9527. Tiny raw synchrony/chart differences in the historical second component are observations, not a proof that the two components cannot connect. All13 original ordered frontier selectors and their typed incident P/E/A/M paths are preserved for explicit disposition review.
+The supported-GraphPlan default strict writer smoke02 passed3raw0060 occurrences,2variables,13,322 bytes,cap/read2/firstlast native checks. Raw format smoke01 remains its literal schema refusal. The narrow LOW-to-grown0072 planning attempt expired its360/30 local clock after acquiring source/target reports twice and54 full target headers, before a usable screen result; its failed packet is retained and does not imply no overlap or endpoint. No identical retry is authorized. Native LOW continuation still has no scientific terminal disposition.
+
+CURRENT VERIFIED UPDATE — 2026-11-02 15:55 UTC
+The five current-engine numerical overlaps have all been cold-qualified and retained with their earned physical P edge and full three-record M evidence. The saved graph refresh completed with 1107 occurrences in TWO connected components: component1 602 occurrences,553 P,48 E,7 M; component2 505 occurrences,479 P,22 E,4 M. The source graph therefore does not establish one complete PK continuum. All original1036 occurrences and old edge/proof epochs remain literal; the71 added occurrences are the current LOW/HIGH fragments and five retained carriers.
+Actual refresh tool exit0 was recovered at15:48:57 UTC; native log mtime was15:39:01.991810 UTC, so the delayed observation is recorded rather than hidden. The refreshed graph MAT is 9e587c814f2de74984ebbb7ee6c8b9fe0391942a90033036e0796add7d51d35b,11191164B.
+The working component3 GUI callback check now passed:472 thin records,445 typed physical line edges, only first/last native hydration, visible axes within bounds, actual cwd startup and Select Folder/dropdown order. Its native PNG and audit are retained; actual pointer/hover is untested in this new working-reader check. The raw0060 default strict-writer smoke was refused by the existing graph-schema contract before payload construction; a supported original-GraphPlan component1 smoke is under review. Final refreshed component exports remain in preparation.
+The high0061 endpoint is not certified. Analytic first-flight stationary-clearance roots show the accepted head6 has g*=+9.5858943e-10, while later rejected phase candidates have negative interior minima, including -1.1284093e-7 and -5.5941072e-8 that saved row minima missed. This is finite root evidence of an interior-grazing approach, not an augmented boundary solution, current-all9 endpoint certificate, or proof of exhaustion. LOW remains a clean budget-stopped frontier, not an endpoint.
+Science cutoff2026-11-02 20:29:07 UTC; hard deadline22:29:07 UTC unchanged. Root solving only. No complete-PK/P1-range or global-bifurcation claim is made.
+
+LATEST VERIFIED SCIENCE — cold queue actual exit observed2026-11-02 15:06:49UTC
+All FIVE planned numerical connections succeeded in the resident root-only batch: currentHIGH[4,5]→original0072/130; currentLOW[31,30]→original0072/152; original0062[2,4]→zero-P0060/1; original0061[2,42]→zero-P0064/1; Raw03[315,314]→zero-P0159/1. Each earned one native all9/captured P and all four fixed-state fine controls qualified. The batch actually exited0,5/5 returned, immutable input postchecks passed. These bring current-run new physical links to57; no optimization algorithm was used.
+The separate cold saved-data queue then freshly qualified and transported ALL FIVE relations as native three-record P+M carriers, with full native record/report/metadata/complete-policy readback twice,5/5 positive retained and no Root/ODE/Map/replay/classifier calls. Its actual process exited0 and Root post72 passed. Audit0af6e8d0.../140931B and immutable closure083eae21.../25502B are retained. Original six historical M proofs were not requalified or rewritten.
+The combined updated graph still needs its native refresh/composition verification; five successful pairwise relations alone are not yet a verified one-component or full-branch completion claim. Dynamic graph-refresh source and exact actual input bindings are prepared for independent review. Original thirteen frontier dispositions, P1 correspondence limits and the high interior-grazing boundary evidence remain separate obligations.
+Storage remains3of6 usable original-component cores(two strict+one complete472-point working core); original2of6 strict failure manifest is unchanged. Science cutoff20:29:07UTC/hard22:29:07UTC remain fixed.
+
+STORAGE UPDATE — 2026-11-02 13:59 UTC
+Three of the six original graph components now have USABLE core results: two strict cores plus component3 WorkingCore29 (all472 points/required payload,912992B, SHA370203dd8d13d8b55e433917b11daf112534e6a7c8058785b94b73a5fafc3464). Actual promotion/runtime checks exited0 and postchecks passed; original strict554305B-cap failure flags and2of6 manifest remain literal historical facts. Root retired the superseded912287B stage only after verifying complete payload equivalence to the working result. This is a storage result under the explicit necessary-working-size exception, not new admission or completed PK search. Components4–6 packaging is pending. High saved-geometry inspection also completed; numerical connection experiments remain next.
+
+CURRENT SNAPSHOT — 2026-11-02 13:06 UTC (prior snapshots retained below)
+PK search is IN PROGRESS. Current repaired-engine runs have earned52 new physical continuation links:2 pilots +29 Extension01 +21 Extension02; every accepted link passed native all9/wrapper capture and was committed. Both extension queues actually exited0 with source postchecks and no pending admissions.
+Low0061 direction reached E1.70594805935/meanU0.143134029304; its latest21/21 accepted points ended only because a whole next child would not fit the local1800/60 window. Its saved controller remains eligible, with signed velocity preserved. High0061 direction earned4 current links cumulatively, latest E31.1274692995/meanU7.70000145338, then its saved radius reached5.295355720331e-8 after native physical-admissibility failures. High is HELD for geometry/method review; this is not an established physical endpoint. Its latest apexH1.25527117 exceeds the requested strictH<.5L0 stop. Existing failures include swing-foot penetration/contact complementarity and later downward-leg orientation during BL-policy autonomous lookahead; no new physical-boundary or engine-bug conclusion is made.
+One SAVED-DATA graph audit now runs on original22sources/1036occurrences plus the two separately closed current branch generations as target-screen donors. Both current branches remain frozen until its two independent source passes close. The graph audit performs no root, flow, replay, classification or admission. Original six-component/retainedM evidence remains tied to its recorded epoch; storage or point admission does not itself requalify old P/PAL/M.
+Canonical repaired engine53-case suite and four current source-point all9/qualifiedPK gates passed earlier. CoreSet still has2/6 strict committed cores and a measured912287B required-data stage; new working-size reader/writer adoption is separate and runtime packaging checks are pending. No required evidence was discarded for the old554305B cap. Fixed science20:29:07UTC/hard22:29:07UTC cutoffs remain unchanged.
+
+CURRENT SNAPSHOT — 2026-11-02 12:15 UTC (earlier entries below are chronological history)
+PK search remains in progress; no full-branch completion or exhaustion is claimed.
+Canonical repaired event engine passed53 regressions/default commands. Four0061 source points54–57 passed fresh root-free all9/current-qualifiedPK with original NativeID/T/stride bit parity. The two actual current-engine pilots each earned1new physical P, committed/all9, no pending, true tool exit0.
+Persistent Extension01 now runs on nativePID40273/session82068, same source/output/CP/owner and actual saved controller/radius/method. Low direction has23/23 accepted/committed current-engine P in this window (plus its pilot); latest E2.96479820934/meanU1.60794136336. High direction retains its pilot and awaits its turn in the same queue. No failure/pending signal is observed. Signed velocity and strict requested apex H<.5L0 remain unchanged; equality does not stop.
+Stored graph plan completed22 original sources/1036 occurrences/six components/six retained historical M adjacencies. Raw lossless consolidation remains incomplete. Direct CoreSet has2of6 committed cores; component3 required-data stage912287B exceeds original5x cap554305B and is retained as working data. No required evidence was removed; size work is deferred while science runs, consistent with user permission for necessary larger working solutions.
+Fixed science cutoff remains2026-11-02 20:29:07UTC; hard deadline22:29:07UTC. No time grant or expired local storage budget has been renewed. Original thirteen frontier obligations and remaining component connections still need explicit evidence/dispositions.
+
+Active 30-hour campaign update — 2 November 2026, 02:31 UTC
+--------------------------------------------------------
+This campaign is ACTIVE. Authorization began 2026-11-01 16:29:07 UTC;
+science cutoff is 2026-11-02 20:29:07 UTC and hard final is
+2026-11-02 22:29:07 UTC. The report below is preserved previous history.
+
+Latest committed continuation: the same0170 pilot output resumed its actual
+owned pair[9,10] and compatible radius.08, preserving its original birth source,
+checkpoint history and all-nine/capture policy. Session23165/PID97868 exited0
+after397.62s; Extension01 audit8b11d578 binds six additional native points and
+physical edges, zero pending results and current pair[15,16]. Current output
+21611b1a and checkpointf275b8cc supersede the pilot generations at the same paths.
+An accepted-point cap still does not establish an endpoint.
+
+The saved source-owned connection to grown0072 terminal54 subsequently passed.
+The native planner39721fd9 selected source[15,16], positive PAL step
+.01606972808241899 and predictor distance9.92679145242207e-6. This was a finite
+screen of16 combinations with two public bulk reads and no scientific solve.
+Session34329/PID2499 then exited0 after362.16s: one ordinary all-nine/captured
+physical edge and all four fixed literal-state fine comparisons passed.
+Acquire auditbd5f3172 and branch3fef9733 retain the result. This earns a finite
+NUMERICAL association to0072 occurrence54, not a physical edge between files.
+Cold session94725/PID5173 exited0 after138.46s with one successful independent
+qualification and full native/report/metadata/ID/policy read2 transport.
+Audit872141c9 and retained three-record file67cb6cd8 preserve P1-to2/M2-to3.
+No new root, replay, classifier or admission was performed in the cold stage.
+Both low fronts remain awaiting their explicit typed route and complementary
+incoming-neighborhood check before any covered/transfer disposition is claimed.
+
+The reviewed accepted-state method-capability hoist is installed as simulator
+sourcee43429ed. Eight saved-row cases and one actual complete map-output parity
+check passed; the sole old5010b8b7 source is retained. Its one map took5.377s;
+cross-epoch/warm-up differences prevent an isolated causal speedup claim.
+The original whole-v2 size reference remains110861B and its5x target554305B.
+Final consolidation, whole-store coverage accounting and compact export are
+still pending. The user has unlocked the Mac; real GUI pointer checks are next.
+
+The primary negative exact-synchronous-family clearance boundary is now
+numerically located at dx=-3.9687924231318346, H=1, E=8.875656648954296.
+Periodic Jacobian rank7 and nonzero clearance/tangent derivative, positive
+initial clearance curvature, and a two-sided original-PAL stencil support a
+LOCAL regular crossing of that declared family. This does not prove global
+PK maximality, exclude another limb/chart/cohort, or establish full P1 coverage.
+
+The nearby inward candidate passed unchanged native acceptance/all-nine and
+qualified one-flight PK classification. Native/phase initial full13 match;
+period/stride differences are below7e-14. It is retained in Boundary01 audit
+f12b3979. NO physical edge or global endpoint is committed by that study.
+The prior formal phase root/native refusal remains preserved separately.
+The earlier regular component0062 all-nine candidate was recovered without
+another solve or replay. Native read2 and strict recomputed capture passed;
+Regular_Reconciliation audit3172e34d binds the stored recovered edge2→3 in
+C1_PK_0062_RegularRecovered.mat. Original failed-run/save flags remain literal.
+
+The resident native pilot subsequently committed 12 new points and 12 physical
+continuation edges: four each in 0062_Low, 0072_Low and 0170_LowAbs under
+Connected_PK_PK30h_20261101. All passed unchanged all-nine admission and tighter
+correction/step, tangent, policy and phase/native-event capture checks. Each
+batch passed two independent installed reads; there is no pending pilot result.
+Imported anchor pairs remain nonedges. These are secondary long-flight contexts;
+they do not add a primary physical edge or prove a connection between files.
+The complete pilot audit is c7550cc4; original source branches are unchanged.
+
+Measured classifier improvement: exact old/new sampler regressions and full
+saved classifier-output parity passed. One optimized classifier took 1.35 s,
+versus a historical unprofiled 38.65 s (different warm-up contexts). Full native
+inward admission still took 22.95 s, including independent fresh replays;
+the five-second admitted-and-stored target is not achieved. The full profiler
+was recovered without further simulation. The three pilot jobs took about
+237--239 seconds each, approximately 59.4 seconds per admitted-and-stored point.
+Native service time dominates; a four-point publication/read2 batch took about
+4.59 seconds. Sustained tracing, native context matching and the positive-primary
+boundary study are next. The positive-primary boundary study has now also
+completed: three phase roots and one inward native service, all-nine/current
+PK/phase consistency passed, with inward initial clearance about9.58e-8.
+Its audit is9ef0da5c; the actual process exited0 and all12 frozen inputs
+passed independent posthash. Both primary directions now have local declared
+family-boundary evidence and inward native controls. Neither study commits a
+physical edge or proves a global endpoint, absence of another limb or P1 coverage.
+
+An off-MATLAB analytic flight scout was quarantined. Its numerical values are
+not scientific evidence. The secondary grazing study subsequently evaluated
+first- and final-flight evidence independently in native MATLAB. Its process
+exited0 after106.05s; three acquisition roots, one native admission and two
+final-flow diagnostics returned. The inward control passed all-nine/current-PK/
+phase consistency, and finite first-flight local regularity and final diagnostic
+flags passed. Auditb2f97bc1 retains the result. Continuous final-flight clearance
+remains UNRESOLVED; no physical edge, global endpoint or continuous-coverage
+claim is made. Existing native pilot flags remain literal and unaffected.
+The substantial resident tranche resumed the
+three committed outputs with reviewed phase-effort radius adaptation. It began
+20:21:46UTC (PID62235). At21:16UTC its0062 job returned at the declared
+accepted-point cap with48 new all-nine/captured admissions,48 committed edges,
+zero pending results and confirmed persistence. Its actual job duration was
+3197.670334875s; output0eef63e2 and checkpoint27a36218 bind that generation.
+At22:10UTC the0072 job also returned at its accepted-point cap:48 new points,
+48 committed edges, zero pending results, confirmed persistence and actual
+duration3218.0652080416667s. Output95fcae1a and checkpointb2359de2 bind it.
+Consecutive accepted PK points straddle mean forward speed zero; native selected
+inventory verified actual committed edge51→52 and stride/period means
++0.015403574122181832 and−0.0084154475929363766, with original PK labels.
+This does not establish an exact PIP orbit or bifurcation. The0170 job then
+returned with48 new all-nine/captured points and48 physical edges, zero pending
+results, confirmed persistence and actual duration3211.1111825416665s. Its output
+d41b420c and checkpoint281c1534 bind that generation. The sustained worker exited0
+at23:02:57UTC after9669.51s wall. All17 frozen input generations passed independent
+posthash at23:03:32UTC. The tranche therefore committed144 new physical edges,
+additional to the12-point pilot, with no pending batch. Each job stopped at its
+declared accepted-point cap; these are extended fragments, not endpoint decisions
+or a completion percentage. All three output/checkpoint generations are frozen
+through the selected quiet studies, cold connection qualification and graph
+transport before further same-output continuation.
+
+The negative-primary association worker has now exited0 after341.05s. It earned
+one ordinary captured physical edge from Raw03 pair482/483 and qualified the
+finite numerical comparison to the historical negative inward control with all
+four fixed literal-state fine profiles. Auditf054271c retains the result.
+This is a numerical association, not a physical edge between files or an exact
+identity. The positive-primary worker then exited0 after342.47s with its ordinary
+captured edge and all four passing fine comparisons (audit1d41ac65). The selected
+grown0072-to-grown0062 association also exited0 after403.10s with an earned edge
+and all four passing fine profiles (audit5f9ae7f1). These remain numerical
+relations. All three independent cold qualifications and full native record/
+policy read2 transports have now passed. The negative case also passed fresh,
+old/new inherited and mixed public Consolidate dispatch tests. These tests earn
+no new root or admission. Budget-yield secondary frontiers and full P1 correspondence
+remain separate unfinished obligations.
+
+The native finite inventory retained all13 historical obligations unchanged,
+three current committed pairs and one sign-crossing observation, for17 rows
+and zero executed continuation jobs. Survey audit0f051fd3 also found a saved
+P+E path between the actual negative Raw03 occurrence483 and positive occurrence
+281 source bases. This selected endpoint route does not require the old numerical
+overlap, even though the whole graph retains two P+E components. Its exact link
+headers, orientations and source-fork attachment subsequently passed the native
+saved-data check in audit5df32682:290 P steps and1 E step, complete literal E
+state/stride/T/p/q/energy/policy/section/event-token/ID comparisons and both
+actual source-fork2→3 attachments. Traversal orientation and owners are retained;
+this is not one newly owned directed trace. No old-M link is required by this
+selected endpoint route. An additional primary retrace is not required.
+The observed endpoint-path physical chord sum is6.755727457095401; this is a
+planning secant sum, not a true arc length or a bound on future solve cost.
+All six saved flights (both primary controls' first/final flights and the
+secondary grazing boundary/inward final flights) passed conditional numerical
+nonpenetration bounds at their actual saved physical tolerances with an explicit
+1e-11 total arithmetic-cushion assumption. Eight known/refusal cases passed;
+no ODE/root/map/replay/classifier ran. This is not a validated-rounding formal
+certificate or proof of no earlier touchdown. The primary finite packet is now
+closed as finite connected primary coverage with local declared-chart boundary
+dispositions; both control associations remain numerical. Global all-PK/P1
+maximality remains unproved. Finite secondary frontier closure is active.
+
+The original negative long-flight0170 pair55/59 now has its own native grazing
+study (df417937), without a reflected or snapped source. Three acquisition
+roots, one unchanged native admission and two raw final-flight diagnostics
+returned; all-nine/current-PK/phase consistency and local first-flight
+regularity passed. Its process exited0 after74.45s. Continuous final-flight
+clearance remains UNRESOLVED pending the separate conditional bound check.
+The study creates no physical edge or global endpoint.
+
+A new ordinary source-owned correction from grown0062 pair53/54 qualified a
+finite numerical association to grown0072 occurrence25. Audit5d77e3c4 retains
+the actual captured edge and all four fixed original-state fine profiles;
+the process exited0 after382.10s. Its independent cold proof/retained transport
+is pending. Any transfer of the remaining outward obligation must explicitly
+follow the actual target chain; an interior numerical link alone does not
+retire both frontiers.
+
+The fresh0170 radius pilot then exited0 after505.06s. It committed eight new
+all-nine/captured points and eight physical edges, with no pending result.
+The step grew from.04 to.0598139512 and then.08. Queue audit2bdfbb7f,
+branchd474fc91 and checkpointa5fb3497 bind its new current pair9/10; the actual
+job duration was491.63551433333333s. It stopped at the declared accepted-point
+cap. This extends the negative long-flight front and does not establish its
+endpoint or its connection to the0072 current front.
+
+The finite retained-store census also includes0060/0064/0159 beyond the old
+13 frontier obligations. Selected native records passed their saved all-nine,
+current-PK and complete-policy/context checks. Whole-store exact-record
+coverage is still unassessed, including unselected0060 occurrence2. PK file
+names and duplicate selected endpoint IDs do not dispose of whole stores.
+
+Historical ledger frontiers remain runnable in 0061/0062/0072/0170. Budget
+exhaustion/accepted-point caps are not endpoints. Production will retain the
+finite mode/section/policy/cohort/multiplicity/raw-angle distinctions rather
+than infer connections from file names or overlapping scalar ranges.
+
+GUI startup-pwd, folder/dropdown order, physical-only lines/picking and Core29
+loading passed real hidden callback tests with no root/ODE. Physical pointer
+hover remains pending because the Mac was locked during the visible attempt.
+Numerical 0073/0193 overlap remains separately typed; the selected primary
+endpoint P+E route and full native/P1 range equivalence are distinct questions.
+
+Previous campaign report (preserved)
+===================================
+C1 / PK continuation and storage status, 1 November 2026 UTC
+
+Scientific status
+-----------------
+An owned continuation from PK component 0073 matched original PK component 0193, occurrence 52, with
+scaled raw full13 infinity discrepancy 1.8040966144652869e-11 and period difference
+-3.141931159689193e-13. All nine gates and two fresh original-state fine
+replays passed. This establishes a finite numerical overlap, now stored
+together. It is a numerical overlap rather than an exact identity or an
+analytic bifurcation proof. The latest additive snapshot contains 494 stored occurrences,
+476 physical continuation edges, 16 exact-record links, no qualified aliases
+and one separately qualified numerical overlap. Occurrences include repeated
+seed representatives; these are not 494 distinct roots.
+
+The complete graph has one numerical component. Physical edges plus exact
+links alone retain two components (physical-only accounting gives 18).
+The checked unit-height pair 481/485 connects through physical/exact links.
+Routes from 485 to the three newly owned P1 controls require the numerical
+overlap layer. This is a valid numerical connection; its edge kinds must not
+be silently promoted to a physical edge or exact identity.
+
+Three newly root-solved owned anchors pass the declared finite comparison
+with the qualified native NEW controls derived from P1 columns 1, 152 and
+179. Each has two passing fresh original-state fine profiles. All comparisons
+check full13 state, period, full14 stride, p/q, complete return policy,
+marked section and retained event token. The three forks add three earned
+points/physical edges and six imported seed representatives to the 485-point
+primary snapshot. The imported seeds retain their original identities.
+
+These controls are native rephased/root-corrected targets. Matching them does
+not establish equality to unchanged scheduled-return v2 trajectories, all
+179 geometry-eligible P1 records, or full P1 curve coverage. Full PK coverage,
+a single physical/exact continuum, global endpoints and the requested complete
+C1 bifurcation chain remain incomplete or unproved. C2 is outside scope.
+
+Why a full PK search has not finished
+------------------------------------
+P1/v2 and the strict native solver do not define identical hybrid return
+problems. P1 uses prescribed event/return times; native v3 enforces directed
+BL-marked autonomous return and contact admissibility. Identical continuous
+equations do not prove identical hybrid executions. Invalid-initial-return
+failures can occur before any Newton correction.
+
+The exact upright, synchronous, forward regular one-positive-stance/one-flight class
+has a conditional necessary speed estimate around 15.115 at the all-flight
+section and the stated conservative E<202 bound. P1 has separately measured maxima initial dx=20.423184056395353 and
+E=208.89093745793602; this statement does not pair them as one orbit. These class-specific results do
+not bound grounded-section dx, prove membership of every tolerance-qualified
+saved orbit or exclude other PK classes. They explain why simply continuing
+the present class cannot be promised to reproduce the whole P1 range.
+
+The latest positive and negative unit-close owned records have marked heights
+near one resting leg length. The positive frontier is held for endpoint review;
+the negative frontier exhausted its registered derivative/step strategies at
+the unchanged step floor. Neither outcome proves a physical endpoint or
+grazing event. The user's strict marked local COM-apex stop, H<0.5 L0, did not
+trigger during these continuations; equality continues. No new unchanged root trial is supported by
+the present evidence.
+
+Workflow failures also consumed time independently of the mathematics:
+incorrect historical-control selectors, literal-line custody parsers, an
+oversized output projection, late export return, an unresolved MATLAB
+interpreter/compiler crash, and malformed identifier-only caller assertions. Their failed flags are retained. Focused successors
+corrected the selectors/parsers/output and completed the three anchor checks.
+These were avoidable workflow defects in addition to the numerical difficulty;
+several attempts stopped before any root or fine replay. A successful storage
+or audit write never substitutes for a root, fine replay, complete branch or
+actual process exit.
+
+Current reusable storage and continuation authority
+---------------------------------------------------
+Raw03 and the persistent frontier journal remain the continuation authority:
+  Connected_PK_PKConnected03_20261029/C1_PK_Component_0001.mat
+  Audits/PK_Persistent_Frontiers_20261026.mat
+Raw03 has 485 occurrences, 473 physical edges, 10 exact links and one numerical
+overlap. Its closed snapshot SHA is 2ca5aa4a2e64ac80f2d2bb95d17379857bc38661a5f13a0bd0d63d34c0b06962.
+The journal SHA is 508053c3d00982b12062f268ec73c10a5f709283061975e4c43200008006f688.
+
+The four-source Raw04 was an additive saved-data aggregation, not a journal
+migration; its redundant large path was retired after final qualification. Its three fork checkpoints preserve birth selectors; they are not
+turnkey in-place resumes from Raw04. Rebinding any expired grant requires a
+deliberate new continuation boundary.
+
+Root solving only
+-----------------
+All new corrections use the shared coupled free-energy root-newton service.
+No optimizer, tolerance relaxation, projected admission, changed contact law,
+cross-point Jacobian reuse or scheduled legacy return was used to manufacture
+a solution. H means hind spread / fore synchronized. F means fore spread /
+hind synchronized.
+
+Artifacts, readers and final size
+--------------------------------
+Qualified compatibility export:
+  Compact_Exports_20261030/C1_PK_Connected04_Thin_20261101.mat
+  SHA 1251fec8a2b18bd0bf611d15e9911eec5abab3d9d1376fa296162a7a0ab3657f
+  1,845,070 bytes, 16.6431 times original v2: final size target FAILED.
+Its fresh reader (0079) checked one index, two independent full public loads,
+both independent projections, identities, owners, contexts, all four graph
+types and statistics. All 494 occurrences pass the saved current-PK/BL1/
+all-nine eligibility checks; none was excluded. These checks do not replay
+every trajectory or freshly admit every point.
+
+Retained-state ranges from that reader:
+  signed initial dx  [-3.9687924229941389, 3.9687924231291372]
+  mechanical energy  [1.1171137105112812, 8.8756566489436253]
+  period             [1.3726025662784, 1.5645255985996347]
+  signed mean U      [-3.9526759439295565, 3.95267594406458]
+No whole-component height range was acquired. Initial dx and mean stride
+velocity are separate observables.
+
+Reference: original P1/v2
+  SLIP_Quadruped/P1_Breaking_Symmetries_Leads_to_Diverse_Qudrupedal_Gaits/
+  1_Roadmap/PK_20_2.mat
+  SHA 45835bb5024b1dc9b875c7b8f7b205769f537a4ff4144c763058537f44dbf401
+  110,861 bytes; whole-original-file 5x target = 554,305 bytes.
+P1 has 891 columns. The 179 initial-geometry-compatible columns and 712
+initial-geometry failures are a geometry census, not native admission or
+completed branch coverage. A same-count v2 subset is only a diagnostic.
+The large similarly named v3 publication file is not this original baseline.
+
+Comparison plot (0082):
+  Compact_Exports_20261030/C1_PK_Connected04_P1_Comparison_20261101_PhaseDiagnostic01.png
+  SHA 32ef6d5502b5f9cabc3b855ecfcdc5d264b450a188a1432b4bf9a601c45fc915
+  Audits/PK36h_20261101_Connected04_P1_Plot_Audit_PhaseDiagnostic01.mat
+  SHA d0dede8f0bca4a477d8f277393f0587e0182634c5de36a1e6ae2ed8d94108c8b
+The full-P1 and native-range panels passed visual review. It draws 476
+physical edges and a separately styled numerical overlap; all 16 exact
+links remain distinct in the data. Scalar range overlap is not branch proof.
+
+Standalone compact loading product (0088):
+  Compact_Exports_20261030/C1_PK_Connected04_Core29_Loading_20261101.mat
+  SHA 75dbd2012853aadbbec2fcee5b10560abad335b8c6bc383d4e4e43405479d6a9
+  392,490 bytes; ratio to original v2 PK = 3.54037939401593.
+  This passes the unchanged 554,305-byte final target.
+  Audits/PK36h_20261101_Connected04_Core29_Loading_Projection_Audit.mat
+  SHA ac8fe09bc97a9af1b90e3077064651be6669eb6d3e1bee17db93017740a2a053
+  6,036 bytes.
+
+The Core is one ordinary MAT file holding 494 stored occurrences and the
+complete typed graph. The 29 rows are native initial state (14), full stride
+(14) and period (1), not legacy v2 row semantics. Parameters/modes, native
+identities, energy, signed mean velocity, complete policies, section charts,
+event tokens and all nine saved gates/status/accepted/closure residuals remain.
+
+Only saved_reports.classification and saved_reports.primitive are omitted
+from the final retained projection: 494 occurrences of each, 988 total.
+They are not established byte-equal duplicates of orbit fields. The actual
+orbit classification/primitive heads are empty, so there is no alternate
+in-Core retention of these decisions. Full historical authorities remain in
+the qualified K60 file, its qualification audit and the protected earlier
+stages. The full projection audit records omitted indices/paths/digests.
+Whole-source projection digests bind historical provenance, not equality of
+omitted fields to empty heads. This is an explicit core-versus-audit projection,
+not lossless preservation of every historical report or fresh admission.
+
+Use LoadC1SolutionCore29_v3(file,index) for an individual trajectory-free seed.
+Its optional third argument supplies the expected file SHA for strict external
+binding. The two-argument form checks internal consistency and explicitly
+returns external_binding_checked=false. Current model code and the location
+map are required. See Methodology_20261030/README.md for complete usage.
+Dense trajectory viewing needs a fresh replay; no GUI cold-runtime qualification
+was attempted in this round.
+
+Verification and measured runtime
+---------------------------------
+Four-source consolidation (0077) exited 0 after 3648.59 s, reporting child peak RSS
+19,638,943,744 bytes (18.29 GiB). Thin writing (0078) exited 0 after 2019.44 s,
+reporting child peak RSS 5,183,946,752 bytes (4.83 GiB). These are per-process
+peaks; they are not additive simultaneous resident memory or physical disk
+reclaim estimates. Fresh compatibility-reader qualification (0079) exited 0 in 1099.21 s with
+peak RSS 1,584,676,864 bytes. Plot run 0080 exited 1 in 25.60 s because a
+nested file/SHA reference contained an extra bytes key. Its reviewed
+successor manifest removes only those 15 metadata bytes; science and size
+failure remain unchanged. Run 0081 crashed without a helper return or final
+MAT/PNG output, actual child -9, wrapper 247, elapsed 231.47 s. The dump
+contains interpreter/compiler frames without an M-code function/line.
+Neither the failed phase nor a deterministic cause/fix was established.
+
+One sparse diagnostic/delivery successor (0082) returned from index, ALL
+load, eligibility, figure creation and printing, then published the audit
+and image with both pending stages absent. It exited 0 in 426.40 s with peak
+RSS 1,885,585,408 bytes. A successful successor does not establish why the
+preceding process crashed.
+
+Core writer attempt 0083 exited 1 in 6.48 s before its helper marker: the caller
+used two-argument MATLAB assert calls with colon-form error identifiers but
+no required message text. No Core or pending file existed. The focused
+successor adds literal message text to every affected assertion, preserving
+the predicates, identifiers, helper source, API, clocks and gates. The same
+defect is corrected before the independent cold-loader attempt.
+
+The corrected caller 0084 exited 1 in 6.47 s at its pre-helper
+LocationMapPin check. The location map was present in outer filesystem guards
+but absent from the native protected-reference union. No Core or pending file
+existed and the writer was still unattempted. The next caller explicitly adds
+the unchanged current map reference instead of weakening the check.
+
+Core writer 0085 actually entered the helper and returned from both complete
+ALL loads. Source-projection read2, cross-pass handle independence and all
+per-occurrence native identity/policy checks passed, then stage save returned.
+The stage measured 1,545,810 bytes against the unchanged 554,305-byte target.
+The writer refused publication with FiveTimes, exiting 1 in 687.29 s with
+peak RSS 1,635,745,792 bytes. Stage read2, installed read2, public-loader smoke,
+source posthash and completion remained false/unattempted; the final Core
+file was absent. The oversized stage was retained as a protected input for a
+separately reviewed reduced projection. Its later use does not rewrite any
+failed-run flag.
+
+Reduced-header attempt 0086 read the protected oversized stage twice. Both source typed digests, the independent retained-leaf projection checks and all 494 native identity/policy reconstructions passed. The new stage save returned, measuring 704,514 bytes against the unchanged 554,305-byte cap. It exited 1 with C1CoreReduce:FiveTimes after 209.87 seconds, with peak RSS 1,455,652,864 bytes. New-stage read2, loader smoke, exclusive publication, source posthash and completion remained false/unattempted; the full receipt audit was not created because the helper never returned. The retained failed stage has SHA d205554f4ea659b09882f8b0020d018ff1007ebcb1d9922b0860e2ac50cf2baf. No cold-loader qualification or Raw04 retirement follows from this failure. A bounded field-size census was selected before deciding any further core-versus-audit projection; no silent pruning or cap relaxation is authorized.
+
+Storage census 0087 exited 0 after 11.83 seconds (5.77 seconds in its native census body), with peak RSS 1,513,537,536 bytes. It loaded the exact failed reduced stage once, verified the whole typed digest and source pre/post hashes, and completed 56 save/unlink cycles for 57 requests; native_status was absent from all 494 reports and stayed UNASSESSED. Both temporary names were removed. The complete metadata output was emitted without fallback or truncation. Isolated v7 diagnostics measured saved_reports at 379,770 bytes, versus graph 73,537, matrix 49,179 and orbit evidence 42,921. Report classification and primitive fields measured 90,580 and 79,477 bytes respectively. These separately saved sizes are nonadditive and do not predict the final whole-file size. The next reviewed projection removes only these two optional historical report sections; they are not established byte-equal duplicates of orbit fields, whose actual heads are empty. No alternate in-Core classification or primitive retention is claimed.
+
+Final projection 0088 read the exact failed reduced stage twice and passed
+both whole typed digests, the independent retained-leaf field-order/class/
+shape/raw checks and all 494 native identity/policy reconstructions. Both new
+stage reads, public-loader smoke, exclusive publication, installed read2,
+source posthash, original-clock return and completion passed. It published
+the Core and full omission-receipt audit, with both pending paths absent.
+The actual process exited 0 after 258.7873637499288 seconds, reporting peak RSS
+1,467,940,864 bytes. The two earlier failed size attempts remain failed; their
+completion and unattempted readback flags are not promoted by this successor.
+Independent actual tool/process custody and ROOT opaque postguards passed
+(340 references, 144 required absences).
+
+Independent review caught an undefined maintenance-guard placeholder in the
+first frozen cold launcher before dispatch. The one expression was corrected
+to the actual SHA/byte guard and the launcher/spec rebound before execution.
+This was a pre-execution workflow defect, without a native trial or result.
+
+Fresh-process cold loading 0089 passed all three attempted calls under the
+original clocks: ordinary two-argument first occurrence 1 and last occurrence
+494, then SHA-bound three-argument occurrence 1. The respective external-binding
+flags are false, false and true. Matrix columns, native identities, independent
+same-point handles, the owned column-152 last identity and the full typed
+476/16/0/1 graph passed. All three reports lack classification/primitive;
+their actual orbit heads remain empty. Core, full receipt audit, runtime
+methods and location-map hashes remain exact. The actual process exited 0
+after 14.549509833101183 seconds, peak RSS 1,357,922,304 bytes. This is whole-
+process MATLAB memory, not an incremental per-solution measurement.
+The caller included Research_v3/C1 for its budget provider. Qualification
+covers the public loading API and saved data representation. No root,
+integration, replay, classifier, fresh admission or scientific output write
+occurred. ROOT postguards passed 350 references and 144 required absences;
+Core and audit pending paths were absent.
+
+Cleanup and stopping
+---------------------
+The final closed cleanup removed 18 consumed census/export/cold caller,
+launcher, draft and patch names (388,531 named bytes), after FIRST/SECOND
+last-consumer releases, exact hash/size/nlink1 checks and no-open-handle checks.
+All 342 protected references remained unchanged. The cleanup journal records
+intent, each actual returned unlink and completion.
+
+The redundant additive Raw04 path was then retired: exactly one returned
+unlink, 856,634,347 named bytes and 344 protected references unchanged.
+Current Raw03, its persistent journal, all three original forks/checkpoints,
+K60/QA/oracle, Core29/full audit, methods, maps and both failed Core stages
+remain. The current target had nlink1; the cause of its earlier observed
+nlink2-to-1 change is unknown. No alias search/deletion or physical disk-reclaim
+claim is made. Old Raw04 byte recovery, direct export/requalification/resume
+from that path is unavailable. Rebuilding it from retained authorities can
+change metadata, storage occurrence/owner identity and SHA and requires fresh
+qualification. Original source native identities are preserved.
+
+The final cleanup journal SHA is
+e6be66b691ed18f9d08ccc5b9cae15622d9c1044e5e555545b1571d4f9eec2e9
+(297,795 bytes). Earlier failed stages remain small essential audit inputs,
+despite their historical pending suffixes. Actual 0088/0089 administrative
+closure witnesses and an opaque copy receipt are durably retained under
+Methodology_20261030/Current_PK_Export_20261031/PK04_Core29_Loading/
+Actual_Closure_20261101. No new exhaustive archive was created.
+
+Metadata-only filesystem census, 2026-11-01 10:41 UTC:
+  changed repository paths: 748 (20 modified, 728 untracked), including
+    pre-existing work; these are not 748 newly generated solution files.
+  repository archives: 19 names / 19 unique inodes, 2,278,650,406 bytes
+    (2.28 GB; 2.12 GiB), excluding Git.
+  C1 Archive subset: 13 files, 1,828,581,031 bytes.
+  methodology: 71 files, 1,960,568 apparent bytes.
+  compact exports: 11 files, 8,245,981 apparent bytes.
+  Audits: 467 regular files, 2,670,285,320 apparent bytes.
+  Components: 43 MAT stores, 2,915,925,828 apparent bytes.
+  Results: 23 files, 53,287,851 apparent bytes.
+  active Raw03: one file, 841,502,012 bytes; retired Raw04 folder: zero files.
+  private method/proof/immutable execution-evidence area: 510 files,
+    21,464,491 apparent bytes; this is outside the changed-path count above.
+  available filesystem bytes observed: 380,416,081,920 (354.29 GiB).
+Directory byte counts deduplicate inode identities within each named root;
+they are not an attributed physical-reclamation total. HEAD, main and
+origin/main remain 1ad4e1825fcd3bea467b87eaf6810c95b4b29831.
+No Git pruning, commit or new exhaustive archive occurred.
+
+The run stops early under the user's instruction, before the fixed
+2026-11-01 14:09:21 UTC final cutoff. The finite objectives of acquiring three
+owned NEW-control anchors with fresh fines, consolidating the typed numerical
+component and delivering a size-qualified loadable Core are closed. FIRST and
+SECOND found no justified untried registered root step in the current evidence.
+Another chart/step/branch strategy would be a new experiment requiring an
+admissible owned-pair and method justification, not another unchanged retry.
+This is not global numerical exhaustion, an endpoint/grazing proof or completed
+PK/P1/C1 coverage. No further native run or background continuation is active.
+
+
+Recovery01 storage and real event baseline: 2026-11-02 07:00 UTC
+The single reviewed recovery (session 23396, PID 16797) exited 1, observed 06:50:33 UTC, after 4409.89 s real / 4359.27 s user / 92.26 s system. Maximum RSS was 20,148,273,152 B; peak memory footprint was 22,300,723,080 B. The exact failed Essential is Audits/PK30h_20261101_Union01_Recovery01_Essential.mat, SHA256 6afa79cd473e4a5cd5458ae8e9b4f0b24e5d691b9a66d16a07f42b850cfc0cbb (40,393,739 B). The current incomplete receipt is SHA256 3ef39606e2af79e97776355e281b4e94b60285d639295353133110922692e2c0 (1,221,608 B); its immutable prior-receipt preimage preserves original SHA256 89f1dfd6ce20c1b8b356cc68eb4f298a1cc85734f22f395c86d0d096714a2798.
+
+A separate native header extraction (session 55140, PID 23505; actual exit 0) confirmed C1Consolidate:Budget after 3050.596007 s in the Conso service. The stack points to line 545, the time check at the beginning of a chunk in the THIRD public-loader verification pass. Both complete raw target/source parity passes had finished; the public pass did not complete or publish the sixth component. The uncommitted payload was cleaned by the existing failure handler; no preservation hardlink was created. Only the five previously committed components (536 occurrences) remain. There were zero new Core exports and zero new resume Queue entries. All original sources and six full proof triples remain retained. The actual source intake/receipt count is 1036 occurrences, leaving 500 in the unpublished component; the earlier manual 1136/600 estimate was incorrect and was never used by numerical code.
+
+No further full-trajectory Conso retry is planned. A direct Core29 projection from the frozen source selectors and deterministic typed graph is under method review. It must retain exact state/stride/period/parameters/modes/NativeIDs/policies/sections, required 15/16 heads and all P/E/A/M evidence, with independent source/projection readbacks and the original whole-v2 byte cap. It must preserve both failed raw-copy attempts literally and make no full-trajectory-copy completion claim.
+
+Separately, the real HybridSimulator event-restart baseline (session 14753, PID 22852) exited 0 and reproduced the expected defect: distinct_slow_TD and distinct_slow_LO each silently lost event B while returning simulation_success=true/final_time. Simultaneous, batched-close and distinct-fast controls passed. The default regression assertion also failed as expected. Audit SHA256 8f01345e98deb53938da835a0647694fb91d93dda8fac7973f83eac62cb1fcf4 is retained. This is an observed engine defect, not a new PK root result. New 0061 numerical pilots are held until the detector repair and fresh applicable PK/source replay are reviewed; source-only planning continues.
+
+
+Engine repair and direct projection preparation: 2026-11-02 08:43 UTC
+The metadata-only old-engine control reproduced exactly the original two silent missed-event failures with three controls passing (MetadataBaseline02, actual tool exit 0); the earlier MetadataBaseline01 fixture-structure failure is retained as a failed fixture attempt, not engine evidence. The private basic candidate passed five cases. PrivateBroad01 then failed four of 28 cases; its actual failed audit 9bf8e1de5233e7c314b8bac6ae3a8b691a83b846a137da11b0894defef0d7e1d is preserved. Source review distinguished actual handle identity from structural equality, resolved the nonmonotone test's accepted-step resolution, and separated native-default versus explicitly adapted auxiliary-row diagnostics rather than changing physical event tolerances.
+
+PrivateBroad02 (session 30826, PID 28686) exited 0, observed 08:42:54 UTC; PID absence was independently observed 08:43:03. All 29 cases and the default command passed; no canonical sources changed. The audit is 443daeb52d4ab6bfdfcec453103b5ca03ef5b60e09463048e972b28cb7545a70 (7552 B), log 88355c0694b9b795740562aef2b9bb6aa4f1e47b8280defc03190051ba874e60 (27366 B). Actual resource observation: 8.94 s real, 18.01 s user, 1.82 s system, RSS 1424670720 B. This is a bounded private regression pass, not canonical adoption or complete lifecycle proof. The real PoincareMap three-phase/rejected-candidate handoff and captured-handle wrapper binding remain pre-adoption obligations. Actual 0061 endpoints 54--57 must be freshly replayed after the applicable engine fix before earning new continuation P edges; saved reports and identities remain historical.
+
+The saved-only replay-input inspection completed/source_posthash=true in 52.9593587 s, preserving exact four PK and generic-G policy/settings headers in audit 62abba89f4980049f9e8a2a223c40def2ffc456c80df54f6aebb5489d6e90c0e (293945 B). PID27922 was independently absent at 08:42:54. Its tool completion output was consumed by a context-truncated poll and the handle then closed; the actual tool exit code and /usr/bin/time resources are UNOBSERVED, not inferred from the native success log. No rerun was performed.
+
+The replacement storage method has now passed independent whole-source review: deterministic graph-only planning over the 22 original sources/1036 occurrences, one shared immutable original-selector acquisition view, and the existing Core29 writer with two independent original-source passes. Virtual indices explicitly carry false whole-trajectory-readback flags; five existing committed prefixes must match in every semantic/index/provenance/typed-edge value with that single recorded storage-claim exception. Direct Core projection will keep the existing Core schema, loader/runtime11, required heads, all occurrence multiplicity, typed P/E/A/M and whole-v2 554305-byte cap. No new graph plan or Core export has executed as of this entry. Both failed raw materializations and all 13 HOLD frontier dispositions remain literal. New root continuation is still held by the engine/source replay checks, not declared complete.
+
+
+Graph-only publication: 2026-11-02 08:58 UTC
+StoredGraph01 (session96258/PID29159) exited0, observed08:58:21; engine/wrapper absence was independently observed08:58:33 and Root's41-input postguard passed08:59:11. All22 original sources/1036 occurrences and six typed connected components were reconciled. Five existing raw prefixes matched in their complete indices/owners/provenance/typed relations, with only the explicitly recorded historical TRUE versus virtual FALSE whole-public-readback flag distinction. Component (occurrences,P,E,A,M) counts are (3,0,2,0,0),(57,52,4,0,0),(472,445,25,0,3),(2,0,1,0,0),(2,0,1,0,0),(500,478,18,0,3). Plan86beef51cc7d0ec9cb23ffb1b63b3a0b61596c7ea15ebb8511d5b4e319b51e83 is10,370,104B. Actual time615.91s real and maximumRSS11,264,507,904B. Its completed/source_posthash flags certify graph planning and native plan readback only; they do not promote either failed full-trajectory receipt or any frontier completion.
+
+The six-Core exporter is prepared under the separately reviewed source-view/writer seam; no Core has executed as of09:08. All1036 admission reports and six M proofs remain historical evidence under their recorded engine epochs. Core transport must not claim fresh fixed-engine qualification for all points. New0061 root work requires its own applicable fresh four-endpoint replay. A currently validated connected route would additionally need appropriate fixed-epoch checks at the actual M endpoints used, or must explicitly retain those relations as historical qualified adjacencies. No replay of every old point is a prerequisite for separately verified new source-pair work.
+
+The real PoincareMap lifecycle RED baseline now reproduced five intended failures and two passing controls with normal map periods: lost near-zero distinct guard across leave-section and rejected-section handoffs, missing explicit simulator handoff, and structural comparison of distinct wrapped stop handles. The expected-RED audit is2dcd14d3c1b23d40bf7a5579d102d38283b5c3ca402398eb121bd983d7027ff0; actual tool exit0, no canonical adoption. The generic-G archived service separately supplied a complete known BL policy with all nine historical gates true (metadata-only auditea1ae1f3184791c9e4bd1c8bd52c7edec0759e9c239045a8aa65ac1746b2e8b2). No fallback policy or new root/replay/admission was introduced by that header extraction.
+
+
+Working compact result and engine boundary checks: 2026-11-02 10:28 UTC
+The direct CoreSet attempt exited1 after686.02s real, maximumRSS4,780,113,920B. Components1/2 are actual published Core files:3points/13,388B and57points/112,607B. Component3 transported all472 source occurrences in TWO independent original-source passes, then retained its912,287B stage after the unchanged554,305B file cap refused it. It was not published/readback-qualified by the public loader. Components4--6 were not attempted. Failed manifest0f03b9dc60fa32a7134f36139c8cd45a7cf723db444f43f5c6a07c0cd197884f and exact stage6f57fec69e3a0368f75dab2a0661156fc0a5671eb536840f97340008e67228c3 remain; no split, head removal, original-v2 baseline adjustment or repeated full-copy attempt occurred. User-authorized larger necessary working data is retained; size recovery does not gate numerical science.
+
+A native size census (actual exit0) confirmed912,287/110,861=8.229106719 times the original whole v2 file. All57 descriptor rows remain in audit15e6c0588e40243e16f173f5a537fe79a1c36ba8ecaa890eba646415a0dffc34;56 isolated temporary saves/unlinks succeeded, the one absent field is explicitUNASSESSED, and the ownedOS-temp directory was removed. Isolated v7 sizes are not additive predictions: saved_reports364,534B, section_charts195,114B, graph124,792B, versus solution_matrix43,986B. No codec/schema/cap change was made.
+
+The final v4 private event candidate passed47 lifecycle/configuration cases. MatchedOLD/NEW fixed-state observations then completed with all five nominal cases (four0061 PK points and one nonsynchronous G control) passing map/physics metrics, bitwise identical OLD-to-v4 nominal physics, and declared comparison tolerances. Audits2c6a44ed6ce4936cbf85de05fc3b5938bd833bf56ff752322890f53e8f6bba3e and0f5bd9383264c6b16b2e7cb0a5b1ea01a3886fedff1213b3cdb6c96aa01af931 are observations only, not fresh nine-gate admission. A subsequent concrete earliest-event RED exposed four additional boundary failures: an auxiliary-only arming root could anchor near-future physical/section B early, later raw-root state could be assigned to the earliest time, and a future auxiliary entry could be credited prematurely. Exact expectedRED audit884f4213d2c76fbc95df3ac6e7410bd7bfc16f1cceabca27f34cae41ac3ea6da is retained. Canonical adoption and new PK roots remain held pending this narrow fix/runtime checks.
+
+The root-free source-point admission service and four-point caller have passed independent source review. They preserve full raw14-state/p/q, complete recorded BL policy, exact old acceptance thresholds and a NEW fixed-energy/Symmetry none contract with no old PAL-plane/edge claim. Crucially, original augmented_parameter(11) is an INITIAL free-energy guess, not the solved energy: e.g.PK54p11=17.99996704151838 while retained final_coordinates(end)=family_conditions.requested_energy=17.9132173721953. The gate binds the two retained solved-energy fields, keeps the initial tuple unchanged, performs zeroRootSolver calls and reuses the exact donor PSS post-candidate nine-gate block/helpers. No fresh four-point admission experiment or new continuation P edge has run as of this entry; the caller is held for the final corrected engine tuple. Two saved0061 contexts are READY only as execute=false plans, with original step/history retained.
+
+
+2026-11-02 11:44 UTC — Current-engine numerical continuation resumed successfully.
+The event-restart implementation was repaired under unchanged physics/reset laws and tolerances, adopted with exact tested source custody (Event_Restart_Source_Adoption62615990...), and the canonical public-path suite returned all53 lifecycle regressions/default commands PASS. OLD/v5 matched replay retained five nominal bit-identical physics outputs; this is separate from point admission. Four original0061 points54–57 subsequently passed the fresh root-free fixed-energy/full-state nine-gate contract and current qualifiedPK, with original/fresh NativeID, period and stride bitwise unchanged. The solved-energy authority is saved requested_energy==final_coordinates(end); historical augmented_parameter(11) is the old initial free-energy guess, not the solved target.
+The saved-data FixedBasis01 packet transports the two original ascending P rows only as historical evidence and supplies current all9 point reports; it does not newly qualify historical P/PAL. The actual current-engine Run pilots then each earned ONE new physical P using root-newton, phase predictor and adaptive controller: low direction E17.6562785147/meanU5.67466886141; high direction E31.1272788564/meanU7.69997659145. Both pilot jobs returned all9=1, wrapper=1, committed=1, pending0 and persistence_completion_confirmed=true. Actual tool session53974 exited0;115.44real/145.45user/10.61sys,maxRSS1763557376B; independently verified nativePID39093/wrapper39092 absent. Queue audit2a62fdd4.../21417B and log304dabdd.../4977B are retained, as are both grown branches and actual controller checkpoints. These are two finite new continuation links, not completion/exhaustion of either branch. Next action is same-source/same-output/same-CP continuation from the saved committed pair, controller context, next_step and next_derivative_index; no failed-rung reset.
+Storage remains separate: the graph-only plan completed22sources/1036occurrences/6components/6retainedM, while raw lossless consolidation failed and the six-Core projection stopped at the measured component3 size cap after two committed cores. The912287-byte required-data working stage is retained; the user permits necessary larger working data. No scientific completion flag is inferred from storage, and no point/classification/primitive evidence has been dropped to meet the size cap.

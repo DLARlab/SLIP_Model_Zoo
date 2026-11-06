@@ -1,0 +1,850 @@
+{
+  "schema": "PK15h-authorized-failed-acquisition-debug-cleanup-v1",
+  "status": "COMPLETED",
+  "created_utc": "2026-11-04 15:50:15 UTC",
+  "authorization": "User repeatedly directed removal of temporary/testing files after runs while retaining core results, reproducible methods and essential audits. FIRST confirmed no further use and no active inputs.",
+  "lossless_archive_claimed": false,
+  "destruction_scope": "Twelve closed unadmitted failed grounded-phase debug MAT carriers only. Full iteration diagnostics are not preserved for these cases. No admitted solution, partial admitted branch, source method, unknown checkpoint, original result or active worker input is removed.",
+  "retained_references": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+      "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+      "bytes": 6713
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+      "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+      "bytes": 28229
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhase01.mat",
+      "sha256": "8baf7287ff3e4f4caaed0e34b5131f10b17a738b353ad38be4703ae710344dc4",
+      "bytes": 205832
+    }
+  ],
+  "mapping": [
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case01.mat",
+        "sha256": "e2bec9b56d7ae101613e5d250e4c5e6f442c5619deef756e31ac2e4b8e329da5",
+        "bytes": 265767
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 1,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 1,
+        "v": 0.75,
+        "alpha": -0.25,
+        "times_guess": [
+          0.03,
+          0.2,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 9,
+        "phase_evaluations": 68,
+        "phase_invalid_trials": 59,
+        "phase_residual_norm": 0.2313469027832364,
+        "phase_final_coordinates": [
+          0.75,
+          0.9410540345697341,
+          -0.34254274550093905,
+          1.2240394600107192,
+          0.035610621709199285,
+          0.16034254497790223,
+          0.03941677224482777
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case01.mat",
+          "sha256": "e2bec9b56d7ae101613e5d250e4c5e6f442c5619deef756e31ac2e4b8e329da5",
+          "bytes": 265767
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case02.mat",
+        "sha256": "198344be3011fb823a0bfd1b94d8edf7b849354978cd697f9d9a278a79b93371",
+        "bytes": 180709
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 2,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 2,
+        "v": 0.75,
+        "alpha": -0.25,
+        "times_guess": [
+          0.03,
+          1.1,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 4,
+        "phase_evaluations": 43,
+        "phase_invalid_trials": 39,
+        "phase_residual_norm": 0.6565394136896292,
+        "phase_final_coordinates": [
+          0.75,
+          0.9580712768435451,
+          -0.26402021432290657,
+          1.2401007027173467,
+          0.0010098744897292207,
+          1.1116185379206363,
+          0.030167397279500886
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case02.mat",
+          "sha256": "198344be3011fb823a0bfd1b94d8edf7b849354978cd697f9d9a278a79b93371",
+          "bytes": 180709
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case03.mat",
+        "sha256": "3f2fca120f8309ab7671851edd6cdb8df6a0185f9e372a542faf301a1e4c4a74",
+        "bytes": 181621
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 3,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 3,
+        "v": 0.75,
+        "alpha": 0.25,
+        "times_guess": [
+          0.03,
+          0.2,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 5,
+        "phase_evaluations": 44,
+        "phase_invalid_trials": 39,
+        "phase_residual_norm": 0.24874658995427354,
+        "phase_final_coordinates": [
+          0.75,
+          0.9579052896892865,
+          0.22332292088978659,
+          1.2452676772440205,
+          7.690920008469047e-05,
+          0.20737762891851624,
+          0.03245195177082905
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case03.mat",
+          "sha256": "3f2fca120f8309ab7671851edd6cdb8df6a0185f9e372a542faf301a1e4c4a74",
+          "bytes": 181621
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case04.mat",
+        "sha256": "180199afbb24d0767e8c2b91be5e710f7b7c4044a6134b4f6df6a4306ecbdf36",
+        "bytes": 177807
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 4,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 4,
+        "v": 0.75,
+        "alpha": 0.25,
+        "times_guess": [
+          0.03,
+          1.1,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 5,
+        "phase_evaluations": 42,
+        "phase_invalid_trials": 37,
+        "phase_residual_norm": 0.5741694829944067,
+        "phase_final_coordinates": [
+          0.75,
+          0.965096635573406,
+          0.19588578872883083,
+          1.251865627358695,
+          0.00014777013967002563,
+          1.0505483101376365,
+          0.032414570166294385
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case04.mat",
+          "sha256": "180199afbb24d0767e8c2b91be5e710f7b7c4044a6134b4f6df6a4306ecbdf36",
+          "bytes": 177807
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case05.mat",
+        "sha256": "025b1a3ad6503114e53e723492bd0d13f806d9a2963a42aae056f3c32dbc1111",
+        "bytes": 146252
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 5,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 5,
+        "v": 1.5,
+        "alpha": -0.25,
+        "times_guess": [
+          0.03,
+          0.2,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 4,
+        "phase_evaluations": 31,
+        "phase_invalid_trials": 27,
+        "phase_residual_norm": 0.22936759755794128,
+        "phase_final_coordinates": [
+          1.5,
+          0.9088439760649835,
+          -0.3657976910216599,
+          2.047498738893016,
+          0.06363205945229915,
+          0.18472376711136024,
+          0.0006129700666711369
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case05.mat",
+          "sha256": "025b1a3ad6503114e53e723492bd0d13f806d9a2963a42aae056f3c32dbc1111",
+          "bytes": 146252
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case06.mat",
+        "sha256": "937d54ad2c7927588db04f3a9b9915db461d9910ae55d4aa83114b2c744d84f2",
+        "bytes": 224941
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 6,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 6,
+        "v": 1.5,
+        "alpha": -0.25,
+        "times_guess": [
+          0.03,
+          1.1,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 5,
+        "phase_evaluations": 56,
+        "phase_invalid_trials": 51,
+        "phase_residual_norm": 0.6410769125886489,
+        "phase_final_coordinates": [
+          1.5,
+          0.950404094873262,
+          -0.22251627362619256,
+          2.0862676621521627,
+          0.06359604741874525,
+          1.0825159461671356,
+          0.03005985222227053
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case06.mat",
+          "sha256": "937d54ad2c7927588db04f3a9b9915db461d9910ae55d4aa83114b2c744d84f2",
+          "bytes": 224941
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case07.mat",
+        "sha256": "1f76ace7e853bc83343d16734998682f1f9e8916a8da869fecd0bd54470c54fe",
+        "bytes": 185802
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 7,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 7,
+        "v": 1.5,
+        "alpha": 0.25,
+        "times_guess": [
+          0.03,
+          0.2,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 5,
+        "phase_evaluations": 45,
+        "phase_invalid_trials": 40,
+        "phase_residual_norm": 0.39370058406274944,
+        "phase_final_coordinates": [
+          1.5,
+          0.9582483342694018,
+          0.2045419124683544,
+          2.0916681751102026,
+          2.065017364640868e-05,
+          0.1986496243807462,
+          0.03609586194021464
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case07.mat",
+          "sha256": "1f76ace7e853bc83343d16734998682f1f9e8916a8da869fecd0bd54470c54fe",
+          "bytes": 185802
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case08.mat",
+        "sha256": "0674f5da130d2d2d6683c8a36a9d54b3daed087fb922506b8bbf49d25871271d",
+        "bytes": 301926
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 8,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 8,
+        "v": 1.5,
+        "alpha": 0.25,
+        "times_guess": [
+          0.03,
+          1.1,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 11,
+        "phase_evaluations": 76,
+        "phase_invalid_trials": 65,
+        "phase_residual_norm": 0.30564802719362616,
+        "phase_final_coordinates": [
+          1.5,
+          0.9996492970621351,
+          -0.017829819090480137,
+          2.128340786938877,
+          1.1704328855087626e-05,
+          0.7503957400963043,
+          0.049271360052453465
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case08.mat",
+          "sha256": "0674f5da130d2d2d6683c8a36a9d54b3daed087fb922506b8bbf49d25871271d",
+          "bytes": 301926
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case09.mat",
+        "sha256": "ba1d4aa3baa6e6b518e8dd4c13f9834adeb6b520e295904ba49951ada1f163d8",
+        "bytes": 175199
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 9,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 9,
+        "v": 3,
+        "alpha": -0.25,
+        "times_guess": [
+          0.03,
+          0.2,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 4,
+        "phase_evaluations": 40,
+        "phase_invalid_trials": 36,
+        "phase_residual_norm": 0.49697150505121046,
+        "phase_final_coordinates": [
+          3,
+          0.9345152479398742,
+          -0.2860742352446247,
+          5.445497328731163,
+          0.04016553675672004,
+          0.1968680144346717,
+          0.029564773319554094
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case09.mat",
+          "sha256": "ba1d4aa3baa6e6b518e8dd4c13f9834adeb6b520e295904ba49951ada1f163d8",
+          "bytes": 175199
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case10.mat",
+        "sha256": "487d0cc59932d45f1bf6a040fc8e948cdbaf86a4e967991a46ce309ffce29a52",
+        "bytes": 118136
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 10,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 10,
+        "v": 3,
+        "alpha": -0.25,
+        "times_guess": [
+          0.03,
+          1.1,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 2,
+        "phase_evaluations": 21,
+        "phase_invalid_trials": 19,
+        "phase_residual_norm": 0.652158749635185,
+        "phase_final_coordinates": [
+          3,
+          0.9485402483788126,
+          -0.23069501906235054,
+          5.458572659606525,
+          0.04491085595363696,
+          1.0890609870569337,
+          0.03013312724052064
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case10.mat",
+          "sha256": "487d0cc59932d45f1bf6a040fc8e948cdbaf86a4e967991a46ce309ffce29a52",
+          "bytes": 118136
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case11.mat",
+        "sha256": "b63985bddb517722b862713e8ddb3af1ed6e1bdf64a743650a8d5eec043cbadd",
+        "bytes": 220375
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 11,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 11,
+        "v": 3,
+        "alpha": 0.25,
+        "times_guess": [
+          0.03,
+          0.2,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 6,
+        "phase_evaluations": 53,
+        "phase_invalid_trials": 47,
+        "phase_residual_norm": 0.6825475612517079,
+        "phase_final_coordinates": [
+          3,
+          0.955683703008353,
+          0.19689122715155796,
+          5.467142558415355,
+          0.004618590887141111,
+          0.20409278924107546,
+          0.02261233382803784
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case11.mat",
+          "sha256": "b63985bddb517722b862713e8ddb3af1ed6e1bdf64a743650a8d5eec043cbadd",
+          "bytes": 220375
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    },
+    {
+      "removed_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case12.mat",
+        "sha256": "f89dbab039c0cadcab462780b7b373b8d0670e9563a4c24cc7fd847de969682b",
+        "bytes": 289424
+      },
+      "retained_summary_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.mat",
+        "sha256": "aa5e657fc9db8a09c54bd95e0faf4aa0adf5ad26aa7bdb45d3c88b72eaeb5e4d",
+        "bytes": 6713
+      },
+      "native_summary_row": 12,
+      "retained_stdout_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01.log",
+        "sha256": "e12b441cdbb4ba3ae1c5738f6cffe9ccca8555d54c84dd8e90eabd7ababf5805",
+        "bytes": 28229
+      },
+      "native_stdout_marker": "PK15_GROUNDED_BATCH_CASE",
+      "native_header_copied_verbatim": {
+        "case_index": 12,
+        "v": 3,
+        "alpha": 0.25,
+        "times_guess": [
+          0.03,
+          1.1,
+          0.03
+        ],
+        "actual_worker_returned": true,
+        "status": "RETAINED_PHASE_OR_NATIVE_FAILURE",
+        "phase_calls": 1,
+        "phase_returns": 1,
+        "phase_exitflag": -1,
+        "phase_iterations": 11,
+        "phase_evaluations": 72,
+        "phase_invalid_trials": 61,
+        "phase_residual_norm": 0.5618676513382262,
+        "phase_final_coordinates": [
+          3,
+          0.9786613202112461,
+          0.038702312672387974,
+          5.4929046943986375,
+          0.06795079175908368,
+          0.45457556951338096,
+          9.391130797592055e-05
+        ],
+        "phase_error_identifier": "RootSolver_v3:RootNewtonDomainSafeguard",
+        "phase_message": "All12 registered Newton fractions failed the native/domain contract.",
+        "native_calls": 0,
+        "native_all_nine": false,
+        "native_timely": false,
+        "grounded_oneflight_PK": false,
+        "native_phase_consistent": false,
+        "strict_half_height_stop_observed": false,
+        "continuous_supplement_pending": true,
+        "audit_reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case12.mat",
+          "sha256": "f89dbab039c0cadcab462780b7b373b8d0670e9563a4c24cc7fd847de969682b",
+          "bytes": 289424
+        },
+        "failure": {}
+      },
+      "scope": "Unconverged NEW forced-phase diagnostic only; no native handoff/admission/P/M. Summary preserves inputs/selected coordinates/residual and counters; per-iteration diagnostic payload is intentionally discarded."
+    }
+  ],
+  "deleted_files": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case01.mat",
+      "sha256": "e2bec9b56d7ae101613e5d250e4c5e6f442c5619deef756e31ac2e4b8e329da5",
+      "bytes": 265767
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case02.mat",
+      "sha256": "198344be3011fb823a0bfd1b94d8edf7b849354978cd697f9d9a278a79b93371",
+      "bytes": 180709
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case03.mat",
+      "sha256": "3f2fca120f8309ab7671851edd6cdb8df6a0185f9e372a542faf301a1e4c4a74",
+      "bytes": 181621
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case04.mat",
+      "sha256": "180199afbb24d0767e8c2b91be5e710f7b7c4044a6134b4f6df6a4306ecbdf36",
+      "bytes": 177807
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case05.mat",
+      "sha256": "025b1a3ad6503114e53e723492bd0d13f806d9a2963a42aae056f3c32dbc1111",
+      "bytes": 146252
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case06.mat",
+      "sha256": "937d54ad2c7927588db04f3a9b9915db461d9910ae55d4aa83114b2c744d84f2",
+      "bytes": 224941
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case07.mat",
+      "sha256": "1f76ace7e853bc83343d16734998682f1f9e8916a8da869fecd0bd54470c54fe",
+      "bytes": 185802
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case08.mat",
+      "sha256": "0674f5da130d2d2d6683c8a36a9d54b3daed087fb922506b8bbf49d25871271d",
+      "bytes": 301926
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case09.mat",
+      "sha256": "ba1d4aa3baa6e6b518e8dd4c13f9834adeb6b520e295904ba49951ada1f163d8",
+      "bytes": 175199
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case10.mat",
+      "sha256": "487d0cc59932d45f1bf6a040fc8e948cdbaf86a4e967991a46ce309ffce29a52",
+      "bytes": 118136
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case11.mat",
+      "sha256": "b63985bddb517722b862713e8ddb3af1ed6e1bdf64a743650a8d5eec043cbadd",
+      "bytes": 220375
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_GroundedPhaseBatch01_Case12.mat",
+      "sha256": "f89dbab039c0cadcab462780b7b373b8d0670e9563a4c24cc7fd847de969682b",
+      "bytes": 289424
+    }
+  ],
+  "logical_bytes_removed": 2467959,
+  "physical_space_reclaimed_claimed": false,
+  "retained_posthash_passed": true,
+  "removed_paths_absent": true,
+  "completed_utc": "2026-11-04 15:50:15 UTC"
+}

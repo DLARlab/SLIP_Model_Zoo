@@ -1,0 +1,45 @@
+PK search, fixed 15-hour round — final finite delivery
+Updated: 2026-11-05 00:13:01 UTC
+
+The original grant started 2026-11-04 12:06:50 UTC. Science cutoff remains
+2026-11-05 02:06:50 UTC; hard deadline remains 03:06:50 UTC. No renewal.
+All owned native workers are closed; no further physical Root work is queued.
+
+Delivered current view: 1,145 retained occurrences in two components:
+  component 1 LONG 621; component 2 SHORT 524.
+Typed relation counts verified by the separate public Snapshot process:
+  P1042 / E96 / A0 / current finite M13.
+The current 0073/0193 seam and critical old-M gaps have current finite evidence.
+Record702 remains HELD outside the regular working cores; its literal incoming
+capture and finite numerical boundary correspondence are preserved.
+
+P1: all179 initially eligible literal returns matched the scoped raw13/T/eight
+physical-event-time tuple, passed whole-flight/default sampled PK/exactp10.
+All179 fresh all-nine/membership were NOTRUN/NOTTESTED. The other712 literal
+initial states remain geometry-invalid, without nearby-counterpart absence.
+Three NEW coupled pronk counterparts (columns2/90/178) passed current all-nine,
+whole-flight, both strict fine maps and the joint correspondence tuple.
+
+Two restricted +1 origins, two current native PIP parents and16 signed shrinking
+daughters support a finite restricted-origin numerical association; four finite
+M links attach daughter neighborhoods to the known traces. No full14 theorem.
+
+Complete working cores: 621records /1,275,419bytes and524 /1,070,142bytes.
+Both exceed the unchanged strict554,305byte target; the explicit32MiB working
+allowance is recorded. State/policy/context/typedgraph/29-row data were retained.
+The separate fresh process verified old1+new2 core loading and all3 expected
+bad-reference refusals. No new maps/roots/replays/classifiers/admissions.
+
+Final report: PK15h_20261104_Final_Report.md
+Final manifest: PK15h_20261104_FinalCurrentWorkingCoreSet01_Manifest.mat
+Exporter closure: PK15h_20261104_FinalCurrentWorkingCoreSet01_External_Closure_FIRST.json
+Reader/render closure: PK15h_20261104_FinalReaderAndPlot01_External_Closure_FIRST.json
+Overview: PK15h_20261104_CurrentComponents_Overview01.png and .pdf
+
+Cleanup: nine unreferenced construction files (103,716B) removed with CAS and
+24 protected posthashes; earlier12failed debug carriers (2,467,959B) had a
+separate disclosed lossy-cleanup receipt. All scientific/raw source authorities,
+relevant epochs/proofs, essential logs/partials, old journal/pointer are retained.
+
+This completes the declared finite delivery, not a continuous-branch/global-PK
+exhaustion or uniqueness proof. The report states remaining scientific limits.

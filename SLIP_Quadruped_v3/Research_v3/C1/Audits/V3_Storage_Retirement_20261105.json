@@ -1,0 +1,202 @@
+{
+  "schema": "v3-authorized-historical-retirement-v1",
+  "created_utc": "2026-11-05T11:04:36.030769+00:00",
+  "reason": "User requested v3 cleanup and a total repository size of a few hundred MB. Retire obsolete recovery and historical experiment payloads; current numerical results and unresolved current branches are retained separately.",
+  "scope": "Thirteen enumerated obsolete Archive files only; no Git objects, current Components, current compact results or legacy v2 files.",
+  "loss_disclosure": "Detailed archived old working states, recovery copies, superseded FE/PK traces, zero-earned trials and old source preimages are permanently retired. Their historical headers remain provenance; exact old byte-for-byte reruns are unavailable. This is not a lossless backup.",
+  "inventory_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/V3_Storage_Retirement_Inventory_20261105.json",
+    "sha256": "4ca64f939afef87a2c3966b70eb68745cd5f8cf74977626350da5b3ab72f97aa"
+  },
+  "removed": [
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Completed_Private_Source_Proofs_20261026.zip",
+      "relative_path": "Research_v3/C1/Archive/C1_Completed_Private_Source_Proofs_20261026.zip",
+      "bytes": 1473663,
+      "device": 16777229,
+      "inode": 31824283,
+      "nlink": 1,
+      "sha256": "d400413ee99badc6310399c40cafb9dec4c348016217962656bbc9dd75bcc309",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Exact_Working_Set_20261026.zip",
+      "relative_path": "Research_v3/C1/Archive/C1_Exact_Working_Set_20261026.zip",
+      "bytes": 322046424,
+      "device": 16777229,
+      "inode": 31793469,
+      "nlink": 1,
+      "sha256": "bb2c7ecc4d90103f645692ad1fea0513c38998d0884a397f276009ef20339355",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Final_Duplicate_Control_And_Recovery_Source_20261026.zip",
+      "relative_path": "Research_v3/C1/Archive/C1_Final_Duplicate_Control_And_Recovery_Source_20261026.zip",
+      "bytes": 2542372,
+      "device": 16777229,
+      "inode": 31852896,
+      "nlink": 1,
+      "sha256": "a4519d476c98580b854d39e2a3ab2f29e230a440605dd916b7eaf39635a0b733",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Five_Publication_Preimages_20261026.zip",
+      "relative_path": "Research_v3/C1/Archive/C1_Five_Publication_Preimages_20261026.zip",
+      "bytes": 3739808,
+      "device": 16777229,
+      "inode": 31789720,
+      "nlink": 2,
+      "sha256": "adfada16622b25fa9f917aded11dc8fea713d0c1cd2ced0c54cb69fa3ba846cb",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FE_Superseded_Components_20261026.zip",
+      "relative_path": "Research_v3/C1/Archive/FE_Superseded_Components_20261026.zip",
+      "bytes": 115498735,
+      "device": 16777229,
+      "inode": 31818012,
+      "nlink": 1,
+      "sha256": "aca33b5b69e22a12113f734b2d10037f311a79d0d2332b48961e2541e26e0171",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FinalManifest26_01_Refused_Stage_Preimage_20261026.json",
+      "relative_path": "Research_v3/C1/Archive/FinalManifest26_01_Refused_Stage_Preimage_20261026.json",
+      "bytes": 39669,
+      "device": 16777229,
+      "inode": 31790323,
+      "nlink": 1,
+      "sha256": "df4198eb64dc8140671c11e6dbc67c31bcdefe95bdda665bc27beeecab7fb1a0",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic01_20261027.zip",
+      "relative_path": "Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic01_20261027.zip",
+      "bytes": 163970274,
+      "device": 16777229,
+      "inode": 31948519,
+      "nlink": 1,
+      "sha256": "d477d790e3e8f6b65753028ad38c1010188b12abb8d1d2286e7de0581e5c986c",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic02_20261027.zip",
+      "relative_path": "Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic02_20261027.zip",
+      "bytes": 581390035,
+      "device": 16777229,
+      "inode": 31961429,
+      "nlink": 2,
+      "sha256": "f4e40556fc10efe56791b7ec801d728f268e2e6bd6d701fd74f0a760dcd2adc8",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Storage_Migration_PKConnected03_20261029_Sources.zip",
+      "relative_path": "Research_v3/C1/Archive/PK_Storage_Migration_PKConnected03_20261029_Sources.zip",
+      "bytes": 596940856,
+      "device": 16777229,
+      "inode": 32152179,
+      "nlink": 1,
+      "sha256": "b6fdbf25df52dcd0245faecf29cffa558bd5e1bec0f2dc0e749504d1c02fa61b",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Zero_Earned_Unit_Trials_20261029.zip",
+      "relative_path": "Research_v3/C1/Archive/PK_Zero_Earned_Unit_Trials_20261029.zip",
+      "bytes": 40806655,
+      "device": 16777229,
+      "inode": 32140191,
+      "nlink": 1,
+      "sha256": "862642dac27c8f69ad32a7005f1ca62a810c69157ded03fcafa16c01bbc2d1cd",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/README.md",
+      "relative_path": "Research_v3/C1/Archive/README.md",
+      "bytes": 9954,
+      "device": 16777229,
+      "inode": 31793948,
+      "nlink": 1,
+      "sha256": "74b50d2faecce60370cea51c079c157c0a6e023f4db7256ee70ac731d8d094ac",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RootSolver_v3_20261024.txt",
+      "relative_path": "Research_v3/C1/Archive/RootOnly_Preimage_RootSolver_v3_20261024.txt",
+      "bytes": 77110,
+      "device": 16777229,
+      "inode": 31654513,
+      "nlink": 1,
+      "sha256": "3e28e796022ff61e92159c6a22602f94952277b928604d0d853bf5aa941838b7",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RunC1Continuation_v3_20261024.txt",
+      "relative_path": "Research_v3/C1/Archive/RootOnly_Preimage_RunC1Continuation_v3_20261024.txt",
+      "bytes": 45476,
+      "device": 16777229,
+      "inode": 31654514,
+      "nlink": 1,
+      "sha256": "647ebb4f229596c4af46e0187fb90666c99db37c09992f74528ecd1b147fd451",
+      "classification": "historical_payload_retirement_candidate",
+      "loss_disclosure": "Retires prior detailed run/recovery/archive bytes, not current compact results. Historical headers remain literal and become unavailable for exact old byte reruns."
+    }
+  ],
+  "protected": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0001_WorkingCore29.mat",
+      "sha256": "f76a21ac424bab9d60bdda484c5ac217dcc4769ba7c3659acf33df5f785728db",
+      "bytes": 1275419
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0002_WorkingCore29.mat",
+      "sha256": "2d26534db60084774e4e1f72086d3a895cef0a53aeb015f6ef3e383e99f00a1f",
+      "bytes": 1070142
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_Final_Report.md",
+      "sha256": "35e3e4725d772f3a3db234019980a569885eaa2d975ea3447dff1c7ed916ae86",
+      "bytes": 19636
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponentView02.mat",
+      "sha256": "000ed4e9731fe479c65e60e3e1f2e706e9fc582ae1331e7262d14f4f42b44226",
+      "bytes": 10763240
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_Manifest.mat",
+      "sha256": "525ab42b73e7f7eacc88657a8cf2e4d60436cdd40aef549d3a969c23d7462bc8",
+      "bytes": 2041338
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_External_Closure_FIRST.json",
+      "sha256": "90f18f2559db67c7558f43ba68f2d9a65320386dccda86a75ee14292c2c7cc67",
+      "bytes": 5019
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Methodology_20261030/c1_final_methods_20261030.tar.gz",
+      "sha256": "ac9a431ede708adf650f5b19dca40d1cb92d16ad46b3d6aa8927f6389e4a8779",
+      "bytes": 118238
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Folder_Organization/locations.json",
+      "sha256": "33058007c05de3cb5e32719581c48e0e1b026b8088c511dcef780f3845877866",
+      "bytes": 44104
+    }
+  ],
+  "completed": true,
+  "logical_bytes_removed": 1828581031,
+  "physical_reclaim_not_measured": true,
+  "protected_posthash_verified": true
+}

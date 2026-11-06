@@ -1,0 +1,30 @@
+{
+  "schema": "C1-PK-explicit-36h-20261027-v1",
+  "grant_id": "20261027_PK_36h",
+  "result_suffix": "_20261027",
+  "start_utc": "2026-10-27T02:39:29.000Z",
+  "deadline_utc": "2026-10-28T14:39:29.000Z",
+  "research_deadline_utc": "2026-10-28T13:54:29.000Z",
+  "deadline_unix_seconds": 1.793198369E+9,
+  "research_deadline_unix_seconds": 1.793195669E+9,
+  "deadline_monotonic_ns": 2.6125556409143155E+15,
+  "research_deadline_monotonic_ns": 2.6098556409143155E+15,
+  "native_capture_utc": "2026-10-27T02:52:12.642Z",
+  "native_capture_unix_seconds": 1.793069532642534E+9,
+  "native_capture_monotonic_ns": 2.483719283448333E+15,
+  "native_capture_pid": 1829,
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "wall_budget_seconds": 129600,
+  "final_reserve_seconds": 2700,
+  "max_owned_matlab_workers": 1,
+  "continua_2_in_scope": false,
+  "H": "hind spread / fore synchronized",
+  "F": "fore spread / hind synchronized",
+  "cleanup_after_each_run": true,
+  "targets": [
+    "PK"
+  ],
+  "root_method": "root-newton only; shared PeriodicSolutionSolver_v3",
+  "objective": "Trace admitted native PK components using root solving only; verify against P1/v2 without assuming connectivity.",
+  "budget_basis": "Explicit new user request for 36 hours; fixed start is the first Root tool at 2026-10-27T02:39:29Z. Retries and resumes do not renew this grant."
+}

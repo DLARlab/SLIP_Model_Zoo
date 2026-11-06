@@ -15,7 +15,8 @@ function qualification=QualifySavedAdmission_v3(data,cfg)
     baseline=false;domain=false;
     if ~isempty(orbit)
         energy=QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,orbit.parameter);
-        period=orbit.period;drift=orbit.stride_displacement(1);speed=drift/period;
+        observable=OrbitSpeed_v3(orbit);period=orbit.period;
+        drift=observable.horizontal_displacement;speed=observable.mean_signed_velocity;
         pitch=max(abs(orbit.trajectory.state(:,5)));events=sum(~[orbit.event_history.is_stop]);
         closure=norm(orbit.poincare_state(2:end)-orbit.initial_state(2:end),inf);
         baseline=isequal(orbit.parameter(:),cfg.baseline_v3_parameters(:));

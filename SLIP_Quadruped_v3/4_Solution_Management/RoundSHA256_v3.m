@@ -3,7 +3,8 @@ function hash=RoundSHA256_v3(file)
     fid=fopen(V3Path_v3(file),'rb');if fid<0,error('RoundSHA256_v3:Read','Cannot read %s.',file);end
     close=onCleanup(@()fclose(fid));digest=java.security.MessageDigest.getInstance('SHA-256');
     while ~feof(fid)
-        bytes=fread(fid,1048576,'*uint8');digest.update(bytes);
+        bytes=fread(fid,1048576,'*uint8');
+        if ~isempty(bytes),digest.update(bytes);end
     end
     raw=typecast(digest.digest(),'uint8');hash=lower(reshape(dec2hex(raw,2).',1,[]));
 end

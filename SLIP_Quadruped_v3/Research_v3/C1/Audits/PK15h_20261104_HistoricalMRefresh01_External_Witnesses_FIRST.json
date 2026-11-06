@@ -1,0 +1,78 @@
+{
+  "schema": "PK15h-three-current-historical-refresh-external-witnesses-FIRST-v1",
+  "original_old_M_rows": [
+    2,
+    3,
+    6
+  ],
+  "witnesses": [
+    {
+      "schema": "C1-external-native-process-exit-witness-v1",
+      "actual_process_exit_observed": true,
+      "exit_code": 0,
+      "source_posthash_verified": true,
+      "process_session_id": 66278,
+      "child_pid": 23085,
+      "audit_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_HistoricalMRefresh01_Row02.mat",
+        "sha256": "0b0bbf5a5cc53bdb188f30a8d394485a5caa3ee7d327795b0eee71d3cd76e06f",
+        "bytes": 15785907
+      },
+      "direct_tool_exit_observer": "FIRST /root/pk_executor",
+      "direct_tool_exit_recorded_utc": "2026-11-04T22:42:52Z",
+      "independent_source_and_output_post_observer": "SECOND /root/pk_reviewer",
+      "independent_post_completed_utc": "2026-11-04T22:43:55Z",
+      "independent_PID_absence_verified": true,
+      "observed_wrapper_pid": 23084,
+      "scope": "FIRST directly observed the actual unified acquisition process exit0. SECOND independently verified immutable source/output headers, pending absence and native/wrapper PID absence; SECOND did not observe the tool exit."
+    },
+    {
+      "schema": "C1-external-native-process-exit-witness-v1",
+      "actual_process_exit_observed": true,
+      "exit_code": 0,
+      "source_posthash_verified": true,
+      "process_session_id": 66278,
+      "child_pid": 23085,
+      "audit_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_HistoricalMRefresh01_Row03.mat",
+        "sha256": "ed11fc07566c41e530fcd5fc4198695cdfe1c56db58c9e857c9cb8c55fafa8fe",
+        "bytes": 15741041
+      },
+      "direct_tool_exit_observer": "FIRST /root/pk_executor",
+      "direct_tool_exit_recorded_utc": "2026-11-04T22:42:52Z",
+      "independent_source_and_output_post_observer": "SECOND /root/pk_reviewer",
+      "independent_post_completed_utc": "2026-11-04T22:43:55Z",
+      "independent_PID_absence_verified": true,
+      "observed_wrapper_pid": 23084,
+      "scope": "FIRST directly observed the actual unified acquisition process exit0. SECOND independently verified immutable source/output headers, pending absence and native/wrapper PID absence; SECOND did not observe the tool exit."
+    },
+    {
+      "schema": "C1-external-native-process-exit-witness-v1",
+      "actual_process_exit_observed": true,
+      "exit_code": 0,
+      "source_posthash_verified": true,
+      "process_session_id": 66278,
+      "child_pid": 23085,
+      "audit_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_HistoricalMRefresh01_Row06.mat",
+        "sha256": "9a76321f7bca98336e566850734f6eec9ccf6423aaa869d545936763af332bbc",
+        "bytes": 29184126
+      },
+      "direct_tool_exit_observer": "FIRST /root/pk_executor",
+      "direct_tool_exit_recorded_utc": "2026-11-04T22:42:52Z",
+      "independent_source_and_output_post_observer": "SECOND /root/pk_reviewer",
+      "independent_post_completed_utc": "2026-11-04T22:43:55Z",
+      "independent_PID_absence_verified": true,
+      "observed_wrapper_pid": 23084,
+      "scope": "FIRST directly observed the actual unified acquisition process exit0. SECOND independently verified immutable source/output headers, pending absence and native/wrapper PID absence; SECOND did not observe the tool exit."
+    }
+  ],
+  "actual_native_process_tool_exit_code": 0,
+  "stats": {
+    "real_seconds": 1420.97,
+    "user_seconds": 1463.7,
+    "system_seconds": 47.44,
+    "maximum_resident_set_bytes": 5120573440
+  },
+  "original_grant_renewed": false
+}

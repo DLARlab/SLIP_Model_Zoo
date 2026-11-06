@@ -1,0 +1,3 @@
+# Immutable historical archive parts must retain their exact bytes on every OS.
+Research_v3/C1/Audits/V3_Historical_Essential_Audit_Facts_20261105.mat.parts/*.bin -text -diff -merge
+Research_v3/C1/Audits/V3_Historical_Essential_Audit_Facts_20261105.mat.parts/manifest.json text eol=lf

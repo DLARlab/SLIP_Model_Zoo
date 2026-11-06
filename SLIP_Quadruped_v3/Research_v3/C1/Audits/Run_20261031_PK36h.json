@@ -1,0 +1,69 @@
+{
+  "schema": "C1-PK-explicit-new36h-20261031-v1",
+  "grant_id": "20261031_PK_36h",
+  "result_suffix": "_20261031",
+  "start_utc": "2026-10-31T02:09:21.000Z",
+  "deadline_utc": "2026-11-01T14:09:21.000Z",
+  "research_deadline_utc": "2026-11-01T11:09:21.000Z",
+  "deadline_unix_seconds": 1.793542161E+9,
+  "research_deadline_unix_seconds": 1.793531361E+9,
+  "deadline_monotonic_ns": 2.956347543730318E+15,
+  "research_deadline_monotonic_ns": 2.945547543730318E+15,
+  "native_capture_utc": "2026-10-31T02:34:12.732Z",
+  "native_capture_unix_seconds": 1.793414052732775E+9,
+  "native_capture_monotonic_ns": 2.828239276505291E+15,
+  "native_capture_pid": 24778,
+  "matlab_version": "25.2.0.3177638 (R2025b) Update 5",
+  "wall_budget_seconds": 129600,
+  "final_reserve_seconds": 10800,
+  "max_owned_matlab_workers": 1,
+  "continua_2_in_scope": false,
+  "H": "hind spread / fore synchronized",
+  "F": "fore spread / hind synchronized",
+  "cleanup_after_each_run": true,
+  "targets": [
+    "PK"
+  ],
+  "root_method": "root-newton only; shared PeriodicSolutionSolver_v3",
+  "objective": "Trace admitted native PK components using root solving only; verify against P1/v2 without assuming connectivity.",
+  "budget_basis": "Explicit NEW36h fixed start 2026-10-31T02:09:21Z; fresh native calibration maps to fixed UTC epochs. Reading this provider never renews either clock.",
+  "authorization_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK36h_20261031_User_Authorization.json",
+    "sha256": "61b2852023e9bd7fe1cd451a6cf9c641d54f89d3da3f8e683b4ec474a479b209"
+  },
+  "authorized_source_epoch": {
+    "schema": "C1-PK-height-source-epoch-20261031-v1",
+    "minimum_apex_height_ratio": 0.5,
+    "stop_on_legacy_range_coverage": false,
+    "prior_ledger_reference": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Persistent_Frontiers_20261026.mat",
+      "sha256": "b8b254006f2dee68666d8fd237b767f696ad0fa5d86f723fdfe11c83861f82e1"
+    },
+    "changes": [
+      {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/RunC1Continuation_v3.m",
+        "previous_sha256": "dee1b6c60f8a85f60addb059c5dcd7c46d04d7479bc50a0c08c746f15b4af6b5",
+        "sha256": "7b7e5ef14a0371154caebc5f23a3b7b489ec86b14f7d5c305d98533a4cfdb6c8"
+      },
+      {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/RunC1PersistentFrontiers_v3.m",
+        "previous_sha256": "d43f489567a4a5974f14556cdbb8c473c0c31f1c6eb465fab54d65d20b1303c7",
+        "sha256": "1721ee1b49aa6747f787ebcf8d5bf7c9ed08cd8aa610198b4de5e1b1e222e299"
+      }
+    ]
+  },
+  "previous_grant_native_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h.mat",
+    "sha256": "ad1e1366f7ef7439b37eb8aa0de6f412acfb5b74ba82075c127b44785d2b1b33"
+  },
+  "grant_capture_source_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/InitializeC1PKNew36h20261031_v3.m",
+    "sha256": "17e7dc2eeb5e44718318c249610321ccba06155d9a25a02b7d3b39a3bc7f7898"
+  },
+  "provider_source_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/C1RunBudget_v3.m",
+    "sha256": "70072f93ed1db8d004a8d94d38a749d1e7a342307092e36aae3a06196345b562"
+  },
+  "stop_early_when_completion_and_cleanup_are_finished": true,
+  "height_boundary_scope": "Strict validated marked LOCAL COM apex y < 0.5*common positive p5=p6 resting length; equality continues; per pursued frontier, no physical endpoint claim."
+}

@@ -1,5 +1,9 @@
 # Named continua and GUI datasets
 
+**Current user specification (2026-10-13):** [Branch speed sampling and naming](Branch_Speed_Sampling_and_Naming_v3.md) and the current classifier contract from `GaitSemanticTable_v3` supersede the historical naming rules below. C0 is one canonical PIP parent per full parameter/branch identity; C1/C2 place one/two physical flights. Ordinary compact names include reference posture **and** flight count, for example `HE1` and `FG2`. H means hind spread with the fore pair synchronized; F means fore spread with the hind pair synchronized. This explicit user convention supersedes the reversed H/F wording in the original campaign prompt and earlier classifier contracts. Canonical ordinary branch names require the completed twenty-level modal audit; point admission or a filename is insufficient. C1/C2 expose C0 by reference after coherent migration. Existing MAT/catalog copies and old region names below describe retained historical publication bytes and do not establish new labels or additional canonical parents. No active MAT/catalog migration is implied by this documentation edit.
+
+## Historical publication through 2026-10-09
+
 **C1 identifies P1; C2 identifies P2.** A C number is the user's continuum number. Source groups, numerical samples and separately continued components never receive another C number merely because they came from different calculations.
 
 Names follow `C<continuum number>_<gait>_<linear stiffness>_<torsional stiffness>_<pitching inertia>.mat`. The baseline physical parameter vector is `[10;10;20;20;1;1;0;0;2;.5]`: the tokens `10_20_2` are `p(1)=p(2)`, `p(3)=p(4)`, and `p(9)`. A single stiffness token requires equal front/hind stiffnesses. Decimal tokens use `p`. A registered F2 source region adds `_L` or `_H` **after** the parameters, for example `C2_F2_10_20_2_L.mat`.

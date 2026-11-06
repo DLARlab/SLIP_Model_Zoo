@@ -1,0 +1,579 @@
+{
+  "schema": "SLIP-exact-git-garbage20-unlink-only-receipt-v1",
+  "source_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/retire_exact_git_garbage20_20261030_v2.py.candidate",
+  "source_sha256": "9596f17c5c237b7f62f35a734b98cc6c3f0336779533e139841d3e7013ce2e15",
+  "manifest_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage20_Opaque_Manifest_20261030.json",
+  "manifest_sha256": "b6d4aedf633ea2e7879a77a61f2e73d5b73e355b25dc261335d2a8e3511c4274",
+  "started_utc": "2026-10-30T06:37:47.645942+00:00",
+  "completed": true,
+  "root_reviewed_closed_writers": true,
+  "deferred_inodes": [
+    {
+      "git_garbage": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU",
+        "device": 16777229,
+        "inode": 31883722,
+        "nlink": 2,
+        "logical_bytes": 6062084015,
+        "allocated_bytes": 6062084096,
+        "mode": 292,
+        "mtime_ns": 1793087204568442186,
+        "ctime_ns": 1793332270184331998
+      },
+      "drive_hardlinks": [
+        {
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908608",
+          "device": 16777229,
+          "inode": 31883722,
+          "nlink": 2,
+          "logical_bytes": 6062084015,
+          "allocated_bytes": 6062084096,
+          "mode": 292,
+          "mtime_ns": 1793087204568442186,
+          "ctime_ns": 1793332270184331998
+        }
+      ],
+      "matching_temporary_sidecars_absent": [
+        "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU.idx",
+        "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU.rev",
+        "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU.keep",
+        "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU.bitmap",
+        "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU.promisor"
+      ],
+      "open_handles": [
+        {
+          "pid": 18267,
+          "process_name": "Google Drive",
+          "fd": "42",
+          "access": "r",
+          "type": "REG",
+          "device_lsof": "0x100000d",
+          "inode": 31883722,
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908608"
+        }
+      ],
+      "disposition": "DEFER_OPEN_HANDLE"
+    }
+  ],
+  "aliases_in_repository_checked": true,
+  "protected_git_file_metadata": {
+    "count": 5856,
+    "before_sha256": "8e1b44798736d0ecf51718f229f545f7d4cc3d112746aa70801285259536a26c",
+    "after_sha256": "8e1b44798736d0ecf51718f229f545f7d4cc3d112746aa70801285259536a26c"
+  },
+  "protected_metadata_hashes": {
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/HEAD": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/index": "da5c4a5c08f2e98d0e663c404b081b8c2b46e9f60e4bf2c51953452ef1e756d0",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/config": "b8e42c2444a37d7cd53a0680cc276203a80e1c948db0a0f77172be8ffcf2f3c9",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/ORIG_HEAD": "aae0ef99611d09e1a88de05147293bb3822513689f35cf5de3e7ce0adc97ab40",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/FETCH_HEAD": "9e6642b52a7d107426fb9d965830187209edc857d6575ecbf5742ebb5e1a877a",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/heads/main": "2ed26d5d7a0ac5bcb79485920e0bd2801c59e70a9c1466aa24926fde706b72b6",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/remotes/origin/HEAD": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/remotes/origin/main": "2ed26d5d7a0ac5bcb79485920e0bd2801c59e70a9c1466aa24926fde706b72b6"
+  },
+  "unlink_rows": [
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_oWlTgg",
+      "inode": 29881777,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_oWlTgg",
+        "device": 16777229,
+        "inode": 29881777,
+        "nlink": 1,
+        "logical_bytes": 82051084,
+        "allocated_bytes": 82055168,
+        "mode": 292,
+        "mtime_ns": 1791880493069869533,
+        "ctime_ns": 1791923775601857214
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/912236",
+      "inode": 31859832,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/912236",
+        "device": 16777229,
+        "inode": 31859832,
+        "nlink": 2,
+        "logical_bytes": 29157017606,
+        "allocated_bytes": 29157019648,
+        "mode": 292,
+        "mtime_ns": 1793068890740610663,
+        "ctime_ns": 1793332074226750981
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_eQSTB9",
+      "inode": 31859832,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_eQSTB9",
+        "device": 16777229,
+        "inode": 31859832,
+        "nlink": 1,
+        "logical_bytes": 29157017606,
+        "allocated_bytes": 29157019648,
+        "mode": 292,
+        "mtime_ns": 1793068890740610663,
+        "ctime_ns": 1793342268628365491
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908492",
+      "inode": 31803574,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908492",
+        "device": 16777229,
+        "inode": 31803574,
+        "nlink": 2,
+        "logical_bytes": 5167779759,
+        "allocated_bytes": 5167779840,
+        "mode": 292,
+        "mtime_ns": 1793032462452750331,
+        "ctime_ns": 1793332085136178860
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_3B34eX",
+      "inode": 31803574,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_3B34eX",
+        "device": 16777229,
+        "inode": 31803574,
+        "nlink": 1,
+        "logical_bytes": 5167779759,
+        "allocated_bytes": 5167779840,
+        "mode": 292,
+        "mtime_ns": 1793032462452750331,
+        "ctime_ns": 1793342269491058694
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/912408",
+      "inode": 31749817,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/912408",
+        "device": 16777229,
+        "inode": 31749817,
+        "nlink": 2,
+        "logical_bytes": 12290494383,
+        "allocated_bytes": 12290494464,
+        "mode": 292,
+        "mtime_ns": 1792996735625102458,
+        "ctime_ns": 1793332356471373670
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_LMBb81",
+      "inode": 31749817,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_LMBb81",
+        "device": 16777229,
+        "inode": 31749817,
+        "nlink": 1,
+        "logical_bytes": 12290494383,
+        "allocated_bytes": 12290494464,
+        "mode": 292,
+        "mtime_ns": 1792996735625102458,
+        "ctime_ns": 1793342270271318691
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911966",
+      "inode": 32129239,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911966",
+        "device": 16777229,
+        "inode": 32129239,
+        "nlink": 2,
+        "logical_bytes": 52822028,
+        "allocated_bytes": 52826112,
+        "mode": 292,
+        "mtime_ns": 1793260158432081125,
+        "ctime_ns": 1793332306685007120
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_iUiujC",
+      "inode": 32129239,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_iUiujC",
+        "device": 16777229,
+        "inode": 32129239,
+        "nlink": 1,
+        "logical_bytes": 52822028,
+        "allocated_bytes": 52826112,
+        "mode": 292,
+        "mtime_ns": 1793260158432081125,
+        "ctime_ns": 1793342271034594183
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/912140",
+      "inode": 31809354,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/912140",
+        "device": 16777229,
+        "inode": 31809354,
+        "nlink": 2,
+        "logical_bytes": 14235471791,
+        "allocated_bytes": 14235471872,
+        "mode": 292,
+        "mtime_ns": 1793034510399238446,
+        "ctime_ns": 1793332037357646781
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_cAr7Wb",
+      "inode": 31809354,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_cAr7Wb",
+        "device": 16777229,
+        "inode": 31809354,
+        "nlink": 1,
+        "logical_bytes": 14235471791,
+        "allocated_bytes": 14235471872,
+        "mode": 292,
+        "mtime_ns": 1793034510399238446,
+        "ctime_ns": 1793342271767855463
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/898462",
+      "inode": 31416282,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/898462",
+        "device": 16777229,
+        "inode": 31416282,
+        "nlink": 2,
+        "logical_bytes": 4598136844,
+        "allocated_bytes": 4598140928,
+        "mode": 292,
+        "mtime_ns": 1792741142998466196,
+        "ctime_ns": 1793332162580518172
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Gyizay",
+      "inode": 31416282,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Gyizay",
+        "device": 16777229,
+        "inode": 31416282,
+        "nlink": 1,
+        "logical_bytes": 4598136844,
+        "allocated_bytes": 4598140928,
+        "mode": 292,
+        "mtime_ns": 1792741142998466196,
+        "ctime_ns": 1793342272562196554
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908716",
+      "inode": 31814144,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908716",
+        "device": 16777229,
+        "inode": 31814144,
+        "nlink": 2,
+        "logical_bytes": 16134311855,
+        "allocated_bytes": 16134311936,
+        "mode": 292,
+        "mtime_ns": 1793038464838012586,
+        "ctime_ns": 1793332222867347018
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_sxl4Dq",
+      "inode": 31814144,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_sxl4Dq",
+        "device": 16777229,
+        "inode": 31814144,
+        "nlink": 1,
+        "logical_bytes": 16134311855,
+        "allocated_bytes": 16134311936,
+        "mode": 292,
+        "mtime_ns": 1793038464838012586,
+        "ctime_ns": 1793342273328648002
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/894735",
+      "inode": 31215540,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/894735",
+        "device": 16777229,
+        "inode": 31215540,
+        "nlink": 2,
+        "logical_bytes": 1612578828,
+        "allocated_bytes": 1612582912,
+        "mode": 292,
+        "mtime_ns": 1792595838823797819,
+        "ctime_ns": 1793332165423352572
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Pbn6Ot",
+      "inode": 31215540,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Pbn6Ot",
+        "device": 16777229,
+        "inode": 31215540,
+        "nlink": 1,
+        "logical_bytes": 1612578828,
+        "allocated_bytes": 1612582912,
+        "mode": 292,
+        "mtime_ns": 1792595838823797819,
+        "ctime_ns": 1793342274151097489
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911534",
+      "inode": 32104086,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911534",
+        "device": 16777229,
+        "inode": 32104086,
+        "nlink": 2,
+        "logical_bytes": 1114243084,
+        "allocated_bytes": 1114247168,
+        "mode": 292,
+        "mtime_ns": 1793244878738339807,
+        "ctime_ns": 1793332078596065267
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_PdhX4K",
+      "inode": 32104086,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_PdhX4K",
+        "device": 16777229,
+        "inode": 32104086,
+        "nlink": 1,
+        "logical_bytes": 1114243084,
+        "allocated_bytes": 1114247168,
+        "mode": 292,
+        "mtime_ns": 1793244878738339807,
+        "ctime_ns": 1793342274912266746
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_M00UEH",
+      "inode": 29891786,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_M00UEH",
+        "device": 16777229,
+        "inode": 29891786,
+        "nlink": 1,
+        "logical_bytes": 127341340,
+        "allocated_bytes": 127344640,
+        "mode": 292,
+        "mtime_ns": 1791882088152697456,
+        "ctime_ns": 1791938411677484295
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_dNSoy0",
+      "inode": 31601226,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_dNSoy0",
+        "device": 16777229,
+        "inode": 31601226,
+        "nlink": 1,
+        "logical_bytes": 12,
+        "allocated_bytes": 4096,
+        "mode": 292,
+        "mtime_ns": 1792893272266020970,
+        "ctime_ns": 1793032442644274339
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_mOtyTN",
+      "inode": 31176848,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_mOtyTN",
+        "device": 16777229,
+        "inode": 31176848,
+        "nlink": 1,
+        "logical_bytes": 3049259020,
+        "allocated_bytes": 3049263104,
+        "mode": 292,
+        "mtime_ns": 1792569406559142471,
+        "ctime_ns": 1792615051991113924
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_U4RlTn",
+      "inode": 31754855,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_U4RlTn",
+        "device": 16777229,
+        "inode": 31754855,
+        "nlink": 1,
+        "logical_bytes": 3697934348,
+        "allocated_bytes": 3697938432,
+        "mode": 292,
+        "mtime_ns": 1792997693008370892,
+        "ctime_ns": 1793056758261187987
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/15/tmp_obj_UZ18kv",
+      "inode": 31746737,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/15/tmp_obj_UZ18kv",
+        "device": 16777229,
+        "inode": 31746737,
+        "nlink": 1,
+        "logical_bytes": 28635136,
+        "allocated_bytes": 28635136,
+        "mode": 292,
+        "mtime_ns": 1792994638634291461,
+        "ctime_ns": 1792999150317213867
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/2a/tmp_obj_V0UKpb",
+      "inode": 30391635,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/2a/tmp_obj_V0UKpb",
+        "device": 16777229,
+        "inode": 30391635,
+        "nlink": 1,
+        "logical_bytes": 1179648,
+        "allocated_bytes": 1179648,
+        "mode": 292,
+        "mtime_ns": 1792188095879529501,
+        "ctime_ns": 1792339460331293154
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/67/tmp_obj_Ih5ocz",
+      "inode": 30677700,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/67/tmp_obj_Ih5ocz",
+        "device": 16777229,
+        "inode": 30677700,
+        "nlink": 1,
+        "logical_bytes": 3190784,
+        "allocated_bytes": 3190784,
+        "mode": 292,
+        "mtime_ns": 1792360075443059197,
+        "ctime_ns": 1792365844309377432
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/896141",
+      "inode": 31290878,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/896141",
+        "device": 16777229,
+        "inode": 31290878,
+        "nlink": 2,
+        "logical_bytes": 129537727,
+        "allocated_bytes": 129540096,
+        "mode": 320,
+        "mtime_ns": 1792666538465000000,
+        "ctime_ns": 1793332018445623215
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/ba/tmp_obj_7KmedM",
+      "inode": 31290878,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/ba/tmp_obj_7KmedM",
+        "device": 16777229,
+        "inode": 31290878,
+        "nlink": 1,
+        "logical_bytes": 129537727,
+        "allocated_bytes": 129540096,
+        "mode": 320,
+        "mtime_ns": 1792666538465000000,
+        "ctime_ns": 1793342279246815024
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/f2/tmp_obj_IZoMNb",
+      "inode": 31635496,
+      "exact_pre_stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/f2/tmp_obj_IZoMNb",
+        "device": 16777229,
+        "inode": 31635496,
+        "nlink": 1,
+        "logical_bytes": 150351872,
+        "allocated_bytes": 150351872,
+        "mode": 292,
+        "mtime_ns": 1792893279422736301,
+        "ctime_ns": 1792893873724487571
+      },
+      "intent_durable": true,
+      "unlink_observed": true
+    }
+  ],
+  "failure": null,
+  "statvfs_available_bytes_before": 198470148096,
+  "scope": "Only listed Git-reported temporary garbage and exact same-inode Drive names; no history/object/science/cache sweep.",
+  "completed_utc": "2026-10-30T06:38:00.112686+00:00",
+  "git_count_objects_after_stdout": "count: 5777\nsize: 13343744\nin-pack: 94773\npacks: 17\nsize-pack: 72402102\nprune-packable: 0\ngarbage: 1\nsize-garbage: 5920003\n",
+  "git_count_objects_after_stderr": "warning: garbage found: .git/objects/pack/tmp_pack_Ts7jbU\n",
+  "protected_git_metadata_unchanged": true,
+  "protected_metadata_hashes_unchanged": true,
+  "statvfs_available_bytes_after": 290106601472,
+  "expected_unique_allocated_bytes_retired": 91632377856
+}

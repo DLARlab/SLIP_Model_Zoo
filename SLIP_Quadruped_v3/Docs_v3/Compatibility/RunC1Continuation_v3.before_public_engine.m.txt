@@ -1,0 +1,1104 @@
+function summary=RunC1Continuation_v3(outputFile,sourceFile,pointIndices,symmetry,options)
+%RUNC1CONTINUATION_V3 Native free-energy state PAL in one compact branch file.
+% Reverse pointIndices to reverse the initial direction. Imported points are
+% initializer data; only a new all-nine, captured correction earns an edge.
+% Both derivative methods acquire corrections, not classical derivatives.
+% Default predictor retains the existing output/resume ownership schema.
+% Base mode binds its initializer in output ownership and requires a fresh output.
+    if nargin<5,options=struct();end
+    entryUTC=nowUnix();entryMono=nano();
+    o=defaults(options);
+    if isempty(o.Budget)
+        budget=C1RunBudget_v3();
+    elseif isfield(o.Budget,'schema')&&strcmp(o.Budget.schema,'absolute-UTC-native-budget-v1')
+        budget=o.Budget;
+        assert(isfield(budget,'capture')&&budget.capture.pid==feature('getpid') ...
+            &&budget.research_deadline_unix_seconds<=budget.deadline_unix_seconds ...
+            &&budget.research_deadline_monotonic_ns<=budget.deadline_monotonic_ns, ...
+            'C1Continuation:Budget','Explicit absolute clocks must be calibrated in this native process.');
+    else
+        budget=C1RunBudget_v3();
+        keys={'research_deadline_unix_seconds','research_deadline_monotonic_ns', ...
+            'deadline_unix_seconds','deadline_monotonic_ns'};
+        for k=1:numel(keys)
+            assert(isequal(o.Budget.(keys{k}),budget.(keys{k})), ...
+                'C1Continuation:Budget','Historical callers retain the original C1RunBudget clocks.');
+        end
+    end
+    integrationProfile=struct('RelTol',1e-12,'AbsTol',1e-14,'MaxStep',o.IntegrationMaxStep);
+    outputFile=canonical(outputFile);sourceFile=canonical(sourceFile);
+    assert(~o.InPlace||~strcmp(member(budget,'schema',''),'absolute-UTC-native-budget-v1'), ...
+        'C1Continuation:AbsoluteOwner','An explicit absolute grant uses a separate small output branch.');
+    checkpointFile=o.CheckpointFile;
+    if isempty(checkpointFile),checkpointFile=[outputFile(1:end-4),'_run_checkpoint.mat'];else,checkpointFile=canonical(checkpointFile);end
+    protected={outputFile,sourceFile,[outputFile,'.pending.mat'],[sourceFile,'.pending.mat']};
+    for protectedFile=protected
+        assert(~sameFile(checkpointFile,protectedFile{1})&&~sameFile([checkpointFile,'.pending.mat'],protectedFile{1}), ...
+            'C1Continuation:CheckpointPath','The checkpoint and its stage must be distinct from source/output branch files and their reserved stages.');
+    end
+    assert(~isfile([checkpointFile,'.pending.mat']),'C1Continuation:PendingCheckpointStage', ...
+        'Retain and reconcile an existing owned checkpoint stage before another run.');
+    assert(o.InPlace==strcmp(outputFile,sourceFile),'C1Continuation:Output', ...
+        'Use a separate output branch by default; InPlace explicitly requires the source and output to be identical.');
+    assert(isnumeric(pointIndices)&&numel(pointIndices)==2&& ...
+        all(isfinite(pointIndices))&&all(pointIndices==fix(pointIndices))&& ...
+        all(pointIndices>0)&&pointIndices(1)~=pointIndices(2), ...
+        'C1Continuation:Pair','Two distinct positive source indices are required.');
+    symmetry=char(symmetry);
+    assert(ismember(symmetry,{'none','fore-pair','hind-pair','left-right','pronk'}), ...
+        'C1Continuation:Symmetry','Use an existing native symmetry chart.');
+    assert(~o.UsePhasePredictor||strcmp(symmetry,'pronk'), ...
+        'C1Continuation:PhaseChart','The declared phase acquisition option applies only to synchronous PK.');
+    finish=struct('deadline_unix_seconds',min(budget.research_deadline_unix_seconds,entryUTC+o.MaxWallSeconds), ...
+        'deadline_monotonic_ns',min(budget.research_deadline_monotonic_ns,entryMono+o.MaxWallSeconds*1e9));
+    work=finish;work.deadline_unix_seconds=work.deadline_unix_seconds-o.SaveMarginSeconds;
+    work.deadline_monotonic_ns=work.deadline_monotonic_ns-o.SaveMarginSeconds*1e9;
+    check(work);
+    adoptedReference=[];
+    if isempty(o.SourceContext)
+        [initial,reports,metadata]=BranchSolutionFile_v3.loadSolutions(sourceFile,pointIndices);
+    else
+        context=o.SourceContext;adoptedReference=sourceReference(sourceFile);
+        assert(strcmp(member(context,'schema',''),'public-selected-native-context-v1') ...
+            &&isequaln(context.source_reference,adoptedReference) ...
+            &&isequal(context.point_indices(:),pointIndices(:)) ...
+            &&strcmp(context.branch_provider.file,which('BranchSolutionFile_v3')) ...
+            &&strcmp(context.branch_provider.sha256,RoundSHA256_v3(context.branch_provider.file)), ...
+            'C1Continuation:SourceContext','Resident adoption must match this immutable file generation, pair and public provider epoch.');
+        initial=context.orbits;reports=context.reports;metadata=context.metadata;
+        assert(iscell(initial)&&iscell(reports)&&iscell(metadata)&&numel(initial)==2 ...
+            &&numel(reports)==2&&numel(metadata)==2 ...
+            &&strcmp(OrbitContentIdentity_v3(initial{1}),context.native_ids{1}) ...
+            &&strcmp(OrbitContentIdentity_v3(initial{2}),context.native_ids{2}), ...
+            'C1Continuation:SourceContext','Resident selected native views must retain their adopted identities.');
+    end
+    a=initial{1};b=initial{2};ra=reports{1};rb=reports{2};ma=metadata{1};mb=metadata{2};
+    [~,ea]=admitted(a,ra,o.AllowedClasses);[~,eb]=admitted(b,rb,o.AllowedClasses);
+    assert(isequaln(ea.configuration,eb.configuration)&& ...
+        strcmp(ma.component_identity,mb.component_identity), ...
+        'C1Continuation:Pair','The source pair needs one component and identical actual policy.');
+    pair=MatchingReturnSection_v3(a,b,{ra,rb});
+    assert(pair.compatible&&isequal(a.parameter(:),b.parameter(:)), ...
+        'C1Continuation:Section','Source modes, parameters and complete marked section must match.');
+    if isempty(o.ComponentIdentity),o.ComponentIdentity=char(ma.component_identity);end
+    assert(~o.InPlace||strcmp(char(ma.component_identity),o.ComponentIdentity), ...
+        'C1Continuation:Pair','The requested continuation owner must match the selected pair.');
+    config=struct('protocol','C1-compact-native-state-PAL-v1','source_file',sourceFile, ...
+        'source_indices',pointIndices(:).','symmetry',symmetry, ...
+        'component_identity',o.ComponentIdentity,'physical_parameter',b.parameter(:), ...
+        'policy_configuration',eb.configuration,'allowed_classes',{o.AllowedClasses}, ...
+        'scope','Finite native corrected links only; no canonical label, endpoint or formal bifurcation is assumed.');
+    if strcmp(member(budget,'schema',''),'absolute-UTC-native-budget-v1')
+        assert((isfield(mb,'edge_enabled')&&mb.edge_enabled&&isequal(mb.edge_from,pointIndices(1))) ...
+            ||(isfield(ma,'edge_enabled')&&ma.edge_enabled&&isequal(ma.edge_from,pointIndices(2))), ...
+            'C1Continuation:OwnedPair','Explicit-budget adoption requires an actual physical source edge.');
+        if isempty(adoptedReference),adoptedReference=sourceReference(sourceFile);end
+        config.source_reference=adoptedReference;
+        config.source_native_ids={OrbitContentIdentity_v3(a),OrbitContentIdentity_v3(b)};
+        config.budget_adoption=struct('grant_id',budget.grant_id,'start_utc',budget.start_utc, ...
+            'research_deadline_utc',budget.research_deadline_utc,'deadline_utc',budget.deadline_utc);
+        config.acquisition=struct('batch_size',o.BatchSize,'adaptive_step',o.AdaptiveStep, ...
+            'maximum_correction_step_ratio',o.MaximumCorrectionStepRatio,'maximum_turn_degrees',o.MaximumTurnDegrees);
+    end
+    if ~strcmp(o.CorrectorInitializer,'predictor'),config.corrector_initializer=o.CorrectorInitializer;end
+    if o.InPlace
+        ix=BranchSolutionFile_v3.index(outputFile);
+        owned=false;
+        for k=1:numel(ix.edges)
+            edge=ix.edges{k};owned=owned||isequal(sort([edge.from,edge.to]),sort(pointIndices(:).'));
+        end
+        assert(owned,'C1Continuation:InPlacePair','In-place continuation requires a stored explicit physical edge, not an equality link.');
+        config.in_place=true;
+    elseif isfile(outputFile)
+        ix=BranchSolutionFile_v3.index(outputFile);
+        assert(isequaln(ix.metadata,config),'C1Continuation:Resume','Output belongs to another source/component/chart.');
+    else
+        ix=BranchSolutionFile_v3.initialize(outputFile,config);
+    end
+    initial={a,b};reports={ra,rb};metadata={ma,mb};
+    for k=numel(ix.points)+1:2
+        assert(~o.InPlace,'C1Continuation:InPlacePair','In-place seeds must already exist.');
+        check(work);p=metadata{k};p.component_identity=o.ComponentIdentity;
+        p.edge_enabled=false;if isfield(p,'edge_from'),p=rmfield(p,'edge_from');end
+        if isfield(p,'order'),p=rmfield(p,'order');end
+        p.provenance=struct('kind','imported nonedge initial pair', ...
+            'source_file',sourceFile,'source_index',pointIndices(k), ...
+            'original_provenance',p.provenance);
+        [ix,~]=BranchSolutionFile_v3.append(outputFile,initial{k},compactReport(reports{k}),p);
+    end
+    assert(numel(ix.points)>=2,'C1Continuation:Resume','Two accepted initializers are required.');
+    if o.InPlace,currentPair=pointIndices(:).';else,currentPair=[numel(ix.points)-1,numel(ix.points)];end
+    if isfile(checkpointFile)
+        saved=load(checkpointFile,'summary');prior=saved.summary;
+        assert(isstruct(prior)&&isscalar(prior)&&isequaln(prior.configuration,config), ...
+            'C1Continuation:Checkpoint','Existing run evidence belongs to another configuration.');
+        assert(~hasNativePending(prior)&&isempty(member(prior,'pending_batch',{})) ...
+            &&~member(prior,'batch_flush_attempted',false),'C1Continuation:Pending', ...
+            'A pending or unknown batch must be reconciled before adopting any resume pair.');
+        if o.InPlace||strcmp(member(budget,'schema',''),'absolute-UTC-native-budget-v1')
+            currentPair=prior.current_pair;
+            validateattributes(currentPair,{'numeric'},{'vector','numel',2,'integer','positive','finite','<=',numel(ix.points)});
+            assert(currentPair(1)~=currentPair(2) ...
+                &&strcmp(ix.points{currentPair(1)}.component_identity,o.ComponentIdentity) ...
+                &&strcmp(ix.points{currentPair(2)}.component_identity,o.ComponentIdentity), ...
+                'C1Continuation:ResumePair','Resume pair must contain two committed points of this owner.');
+            owned=any(cellfun(@(edge)edge.from==currentPair(1)&&edge.to==currentPair(2),ix.edges));
+            initializer=(o.InPlace&&isequal(currentPair,pointIndices(:).')) ...
+                ||(~o.InPlace&&isequal(currentPair,[1,2]));
+            assert(owned||initializer, ...
+                'C1Continuation:ResumePair','A grown resume pair requires an actual directed committed physical edge.');
+        end
+    end
+    [resident,residentReports]=BranchSolutionFile_v3.loadSolutions(outputFile,currentPair);
+    a=resident{1};b=resident{2};ra=residentReports{1};rb=residentReports{2};
+    [~,ea]=admitted(a,ra,o.AllowedClasses);[pb,eb]=admitted(b,rb,o.AllowedClasses);
+    pair=MatchingReturnSection_v3(a,b,{ra,rb});
+    assert(pair.compatible&&isequaln(ea.configuration,config.policy_configuration)&& ...
+        isequaln(eb.configuration,config.policy_configuration), ...
+        'C1Continuation:Resume','Actual last-two policy/section changed.');
+    previous=cell(0,1);ledger=cell(0,1);phaseWarm=[];reuseAllowed=true;
+    if isfile(checkpointFile)
+        if isfield(prior,'previous_runs'),previous=prior.previous_runs;end
+        if isfield(prior,'all_runs_ledger'),ledger=prior.all_runs_ledger;end
+        assert(iscell(previous)&&iscell(ledger),'C1Continuation:Checkpoint','Run history must remain flat cell lists.');
+        if isempty(ledger)
+            for k=1:numel(previous),ledger{end+1,1}=runLedgerEntry(previous{k});end
+        end
+        oldFields=intersect(fieldnames(prior),{'previous_runs';'all_runs_ledger'});
+        if ~isempty(oldFields),prior=rmfield(prior,oldFields);end
+        previous{end+1,1}=prior;ledger{end+1,1}=runLedgerEntry(prior);
+        if numel(previous)>5,previous=previous(end-4:end);end
+    end
+    summary=struct('protocol',config.protocol,'output_file',outputFile,'configuration',config, ...
+        'started_utc',stamp(),'completed_utc','','attempts',{{}},'failures',{{}},'failed_root_journals',{{}}, ...
+        'new_points',0,'new_edges',0,'initial_output_count',numel(ix.points), ...
+        'final_output_count',numel(ix.points),'status','running','failure',struct(), ...
+        'classical_derivative_claimed',false,'formal_bifurcation_claimed',false, ...
+        'persistence_completion_confirmed',false,'derivative_method',o.DerivativeMethod,'integration_profile',integrationProfile, ...
+        'corrector_initializer',o.CorrectorInitializer,'controller_context',controllerContext(o,integrationProfile), ...
+        'pending_admission',struct(),'pending_batch',{{}},'batch_publications',{{}},'batch_flush_attempted',false, ...
+        'qualified_points',0,'isolated_native_admissions',{{}}, ...
+        'previous_runs',{previous},'all_runs_ledger',{ledger}, ...
+        'original_budget',budget,'run_limit',finish,'work_limit',work,'current_pair',currentPair, ...
+        'next_step',o.InitialStep,'next_derivative_index',o.InitialDerivativeIndex);
+    summary.apex_height_policy=apexHeightPolicy(b,rb,o.MinimumApexHeightRatio);
+    ds=o.InitialStep;method=o.InitialDerivativeIndex;
+    controllerResume=struct('restored',false,'reason','new run uses its declared controller settings');
+    if (o.InPlace||strcmp(member(budget,'schema',''),'absolute-UTC-native-budget-v1'))&&exist('prior','var')
+        restoreController=true;
+        if strcmp(member(budget,'schema',''),'absolute-UTC-native-budget-v1')
+            expected=controllerContext(o,integrationProfile);
+            if isfield(prior,'controller_context')
+                assert(isequaln(prior.controller_context,expected), ...
+                    'C1Continuation:ControllerResume','Restore a radius only in its declared compatible controller context.');
+            else
+                assert(strcmp(prior.status,'accepted_point_cap'), ...
+                    'C1Continuation:ControllerResume','An unbound old controller may not silently restart a failed radius ladder.');
+                restoreController=false;
+                controllerResume.reason='Committed pair/history adopted; old accepted-cap epoch lacks controller context, so radius/method reset explicitly to this new epoch; no Jacobian reused.';
+            end
+        end
+        if restoreController
+            if isfield(prior,'next_step'),ds=prior.next_step;end
+            if isfield(prior,'next_derivative_index'),method=prior.next_derivative_index;end
+            controllerResume.restored=true;controllerResume.reason='Actual committed pair and exact compatible controller state restored';
+        end
+        assert(isfinite(ds)&&ds>0&&method>=1&&method<=numel(o.FiniteDifferenceSteps) ...
+            &&method==fix(method),'C1Continuation:Checkpoint','Invalid in-place saved step or derivative index.');
+    end
+    controllerResume.selected_step=ds;controllerResume.selected_derivative_index=method;
+    if exist('prior','var')
+        controllerResume.previous_saved_step=member(prior,'next_step',[]);
+        controllerResume.previous_saved_derivative_index=member(prior,'next_derivative_index',[]);
+    end
+    summary.controller_resume=controllerResume;
+    if summary.apex_height_policy.stop
+        summary.status=summary.apex_height_policy.disposition;
+        summary.completed_utc=stamp();saveCheckpoint(checkpointFile,summary,finish);
+        summary.persistence_completion_confirmed=left(finish)>0;return
+    end
+    try
+        for attempt=1:o.MaxAttempts
+            attemptClock=tic;
+            currentAdmission=false;orbit=[];rawReport=struct();row=struct();point=struct();accepted=false;
+            check(work);assert(~hasNativePending(summary),'C1Continuation:Pending','A pending native result must be resolved before another trial.');
+            if summary.qualified_points>=o.MaxAccepted,summary.status='accepted_point_cap';break;end
+            if left(work)<=o.TrialSeconds+10,summary.status='whole_child_does_not_fit';break;end
+            if ds<o.MinimumStep,summary.status='state_step_resolution';break;end
+            child=struct('deadline_unix_seconds',nowUnix()+o.TrialSeconds, ...
+                'deadline_monotonic_ns',nano()+o.TrialSeconds*1e9);
+            check(child);seed=struct('state',b.initial_state(:),'mode',b.initial_mode(:), ...
+                'parameter',b.parameter(:),'return_policy',pb,'occurrence',1, ...
+                'provenance',struct('kind','unadmitted native state PAL predictor', ...
+                'branch_file',outputFile,'previous_point',currentPair(1), ...
+                'source_point',currentPair(2),'attempt',attempt));
+            schema=QuadrupedSchema_v3.shared();
+            map=PoincareMap_v3(Quadrupedal_Dynamics_v3(), ...
+                PoincareSection_v3.apex(schema.PhaseIndex), ...
+                HybridSimulator_v3(integration(child,o.IntegrationMaxStep)),pb, ...
+                struct('MaxReturnTime',30,'MaxCycleEvents',1000,'MaxSectionCrossings',64));
+            family=EnergyFamilyResidual_v3(PeriodicOrbitResidual_v3(map,seed.state), ...
+                seed.state,seed.mode,seed.parameter,struct('Symmetry',symmetry));
+            ua=family.packState(a.initial_state);ub=family.packState(b.initial_state);
+            scale=max([ones(numel(ub),1),abs(ua),abs(ub)],[],2);
+            delta=(ub-ua)./scale;distance=norm(delta);
+            assert(isfinite(distance)&&distance>1e-10,'C1Continuation:Chord','Last-two states have no resolved direction.');
+            tangent=delta/distance;predictor=ub+scale.*(ds*tangent);
+            capturePredictor=family.fullState(predictor);seed.state=capturePredictor;
+            E=QuadrupedEnergy_v3.evaluate(b.initial_state,b.initial_mode,b.parameter);Einitial=E;initialCoordinates=[predictor;E];baseRoundtripExact=[];
+            if strcmp(o.CorrectorInitializer,'predictor-energy')
+                % Change only the initial free-energy guess. The PAL base
+                % reference below remains the admitted base energy E.
+                Einitial=QuadrupedEnergy_v3.evaluate(capturePredictor,b.initial_mode,b.parameter);
+                initialCoordinates=[predictor;Einitial];
+            end
+            if strcmp(o.CorrectorInitializer,'base')
+                baseRoundtrip=family.fullState(ub);baseRoundtripExact=isequal(baseRoundtrip,b.initial_state(:));
+                assert(baseRoundtripExact,'C1Continuation:BaseRoundtrip', ...
+                    'The exact admitted base must roundtrip through the unchanged family chart without projection.');
+                seed.state=b.initial_state(:);initialCoordinates=[ub;E];
+                seed.provenance.kind='admitted base state for native PAL correction';
+            end
+            initialization=struct('method',o.CorrectorInitializer,'start_state',seed.state,'start_mode',seed.mode, ...
+                'start_coordinates',initialCoordinates,'capture_predictor_state',capturePredictor,'base_roundtrip_exact',baseRoundtripExact);
+            if strcmp(o.CorrectorInitializer,'predictor-energy')
+                initialization.Ebase=E;initialization.Einitial=Einitial;
+            end
+            seed.provenance.corrector_initialization=initialization;
+            constraint=struct('reference',[ub;E],'normal',[tangent./scale;0],'target',ds);
+            native=ConstrainedEnergyResidual_v3(family,1:numel(ub),constraint,ones(numel(ub)+1,1));
+            if strcmp(o.DerivativeMethod,'valid-sided')
+                jacobian=ValidSidedFiniteDifferenceJacobian_v3(struct( ...
+                    'RelativeStep',o.FiniteDifferenceSteps(method), ...
+                    'DeadlineUnixSeconds',child.deadline_unix_seconds, ...
+                    'DeadlineMonotonicNs',child.deadline_monotonic_ns));
+                derivativeName='valid-sided-finite-difference';
+            else
+                jacobian=FiniteDifferenceJacobian_v3(struct('Method','forward', ...
+                    'RelativeStep',o.FiniteDifferenceSteps(method)));
+                derivativeName='ordinary-forward';
+            end
+            solver=struct('Algorithm',o.Algorithm,'MaxIterations',40, ...
+                'MaxFunctionEvaluations',3000,'FunctionTolerance',1e-11, ...
+                'ResidualAcceptanceTolerance',1e-10,'StepTolerance',1e-13, ...
+                'OptimalityTolerance',1e-18,'InitialDamping',1e-12, ...
+                'ReuseJacobian',true,'InitialJacobian',[],'UseBroyden',true, ...
+                'JacobianRefreshInterval',5,'Jacobian',jacobian);
+            settings=struct('Residual',native,'Coordinates',initialCoordinates, ...
+                'AugmentedParameter',[seed.parameter;Einitial],'SolverOptions',solver, ...
+                'MaxWallSeconds',max(.001,left(child)),'TraceFailure',o.TraceFailure);
+            row=struct('attempt',attempt,'source_point',currentPair(2),'step',ds, ...
+                'derivative_method',o.DerivativeMethod,'relative_step',o.FiniteDifferenceSteps(method), ...
+                'algorithm',o.Algorithm,'predictor_state',capturePredictor,'integration_profile',integrationProfile, ...
+                'corrector_initialization',initialization, ...
+                'constraint',constraint,'status','not_returned','all_nine',false, ...
+                'timely',false,'capture',struct(),'edge_committed',false, ...
+                'storage_attempted',false,'storage_timely',[], ...
+                'isolated_committed',false,'isolated_storage_timely',[]);
+            definition=struct('symmetry',symmetry,'coordinate_indices',family.CoordinateIndices, ...
+                'closure_indices',family.ClosureIndices,'energy_pivot',family.EnergyPivot, ...
+                'constraint',constraint,'residual_scale',ones(numel(ub)+1,1), ...
+                'physical_parameter',seed.parameter,'jacobian_class',class(jacobian),'integration_profile',integrationProfile, ...
+                'corrector_initialization',initialization, ...
+                'derivative_settings',jacobianDescriptor(jacobian), ...
+                'classical_derivative_claimed',false);
+            reuse=struct('requested',o.ReusePreviousJacobian,'provided_to_solver',false,'actual_initial_jacobian_used',[],'status','not_requested', ...
+                'scope','Approximate acquisition seed only; no derivative certification.');
+            if o.ReusePreviousJacobian&&reuseAllowed&&~o.UsePhasePredictor
+                residentPoint=struct('index',currentPair(2),'classification',storageLabel(rb.classification));
+                [initialJ,reuse]=previousNativeJacobian(b,rb,residentPoint,family,definition, ...
+                    config.policy_configuration,o.AllowedClasses);
+                settings.SolverOptions.InitialJacobian=initialJ;
+            end
+            row.previous_jacobian_reuse=reuse;
+            check(child);check(work);
+            phaseEvidence=struct();phaseMatrix=[];
+            if o.UsePhasePredictor
+                [candidate,phaseEvidence,phaseMatrix]=phasePredictor(b,predictor,constraint,scale,E,child,o,phaseWarm);
+                row.phase_acquisition=phaseEvidence;
+                if phaseEvidence.completed
+                    nativeFamily=EnergyFamilyResidual_v3(PeriodicOrbitResidual_v3(map,candidate), ...
+                        candidate,b.initial_mode,b.parameter,struct('Symmetry',symmetry));
+                    assert(isequal(nativeFamily.CoordinateIndices,family.CoordinateIndices) ...
+                        &&isequal(nativeFamily.fullState(nativeFamily.packState(candidate)),candidate), ...
+                        'C1Continuation:PhaseBinding','Native handoff must preserve the SAME phase candidate and original basis.');
+                    native=ConstrainedEnergyResidual_v3(nativeFamily,1:numel(ub),constraint,ones(numel(ub)+1,1));
+                    seed.state=candidate;seed.provenance.kind='NEW exact-symmetry phase candidate';
+                    seed.provenance.literal_source_state=b.initial_state;
+                    seed.provenance.full_source_difference=candidate-b.initial_state;
+                    settings.Residual=native;settings.Coordinates=[nativeFamily.packState(candidate);phaseEvidence.energy];
+                    settings.AugmentedParameter=[b.parameter;phaseEvidence.energy];
+                    settings.SolverOptions.InitialJacobian=[]; % NEVER transfer a phase Jacobian.
+                end
+            end
+            nativeCall=tic;
+            if ~o.UsePhasePredictor||phaseEvidence.completed
+                check(child);check(work);settings.MaxWallSeconds=max(.001,left(child));
+                [orbit,report]=PeriodicSolutionSolver_v3(seed,settings);
+            else
+                orbit=[];report=struct('status','phase_acquisition_refused','accepted',false, ...
+                    'failure_stage','phase_acquisition','primary_failure',phaseEvidence.failure, ...
+                    'final_candidate',seed.state,'native_service_called',false);
+            end
+            row.native_service_seconds=toc(nativeCall);
+            rawReport=report;
+            nativeOutput=member(member(report,'solver',struct()),'output',struct());
+            reuse.actual_initial_jacobian_used=member(nativeOutput,'initialJacobianUsed',[]);
+            row.previous_jacobian_reuse=reuse;
+            row.status=report.status;row.timely=left(child)>0&&left(work)>0;
+            row.all_nine=nine(report);currentAdmission=isa(orbit,'HybridOrbit_v3')&&isscalar(orbit)&&row.all_nine;
+            if currentAdmission
+                summary.pending_admission=struct('orbit',orbit,'raw_report',rawReport, ...
+                    'row',row,'point',struct(),'wrapper_accepted',[],'committed',false, ...
+                    'stage','native_return_before_wrapper_or_compaction','failure',struct());
+                custody=tic;saveCheckpoint(checkpointFile,summary,finish);row.pending_custody_seconds=toc(custody);
+            end
+            if o.UsePhasePredictor,report.phase_acquisition=phaseEvidence;end
+            report.continuation_acquisition=struct( ...
+                'derivative',derivativeName,'relative_step',o.FiniteDifferenceSteps(method), ...
+                'algorithm',o.Algorithm,'classical_derivative_claimed',false,'previous_jacobian_reuse',reuse);
+            report.delegated_residual_definition=definition;
+            report.options.Residual=[];report.options_residual_runtime_object_omitted=true;
+            report.options.SolverOptions.Jacobian=jacobianDescriptor(solver.Jacobian);
+            accepted=false;failure=struct();
+            if ~isempty(orbit)&&row.all_nine&&row.timely
+                try
+                    [nextPolicy,nextEvidence]=admitted(orbit,report,o.AllowedClasses);
+                    match=MatchingReturnSection_v3(b,orbit,{rb,report});
+                    uc=family.packState(orbit.initial_state);
+                    progress=dot(tangent,(uc-ub)./scale);
+                    stateScale=max(ones(13,1),abs(capturePredictor(2:14)));
+                    captureError=norm((orbit.initial_state(2:14)-capturePredictor(2:14))./stateScale,Inf);
+                    separation=norm((uc-ub)./scale,Inf);
+                    correctionRatio=norm((uc-predictor)./scale)/ds;
+                    nextDirection=(uc-ub)./scale;
+                    turn=acosd(max(-1,min(1,dot(tangent,nextDirection)/norm(nextDirection))));
+                    row.capture=struct('full13_scaled_inf',captureError,'radius',o.CaptureRadius, ...
+                        'achieved_state_progress',progress,'requested_progress',ds, ...
+                        'PAL_error',progress-ds,'distinct_state_distance',separation, ...
+                        'section_compatible',match.compatible,'correction_step_ratio',correctionRatio, ...
+                        'turn_degrees',turn);
+                    phaseConsistent=true;
+                    if o.UsePhasePredictor
+                        tau=phaseDurations(orbit,nextEvidence.configuration.settings.TimeTolerance);
+                        initialDelta=norm((orbit.initial_state(2:14)-phaseEvidence.candidate_state(2:14)) ...
+                            ./max(ones(13,1),abs(phaseEvidence.candidate_state(2:14))),Inf);
+                        row.capture.phase_native_full13_scaled_inf=initialDelta;
+                        row.capture.phase_native_duration_inf=norm(tau-phaseEvidence.durations,Inf);
+                        row.capture.phase_native_period=orbit.period-phaseEvidence.period;
+                        row.capture.phase_native_stride=orbit.stride_displacement(schema.TranslationIndex)-phaseEvidence.stride;
+                        phaseConsistent=initialDelta<=1e-8&&row.capture.phase_native_duration_inf<=1e-7 ...
+                            &&abs(row.capture.phase_native_period)<=1e-7&&abs(row.capture.phase_native_stride)<=1e-7;
+                    end
+                    accepted=match.compatible&&isequal(orbit.parameter(:),config.physical_parameter) ...
+                        &&isequaln(nextEvidence.configuration,config.policy_configuration) ...
+                        &&isequal(logical(orbit.initial_mode(:)),logical(b.initial_mode(:))) ...
+                        &&captureError<o.CaptureRadius&&separation>1e-8&&progress>1e-8&&abs(progress-ds)<=1e-8 ...
+                        &&correctionRatio<=o.MaximumCorrectionStepRatio&&turn<=o.MaximumTurnDegrees&&phaseConsistent;
+                catch problem
+                    failure=exceptionData(problem);
+                end
+            end
+            if currentAdmission
+                summary.pending_admission.wrapper_accepted=accepted;summary.pending_admission.row=row;
+                summary.pending_admission.failure=failure;summary.pending_admission.stage='wrapper_evaluated_before_storage';
+            end
+            if accepted
+                check(child);check(work);g=report.classification;
+                point=struct('component_identity',o.ComponentIdentity, ...
+                    'classification',storageLabel(g), ...
+                    'nativeE',QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,orbit.parameter), ...
+                    'signedmeanU',orbit.stride_displacement(1)/orbit.period, ...
+                    'provenance',struct('kind','new native captured state PAL correction', ...
+                    'source_point',currentPair(2),'attempt',attempt,'capture',row.capture, ...
+                    'corrector_initialization',initialization), ...
+                    'edge_enabled',true,'edge_from',currentPair(2));
+                row.storage_attempted=true;
+                stored=compactReport(report);check(child);check(work);
+                summary.pending_admission=struct('orbit',orbit,'raw_report',rawReport, ...
+                    'compacted_report',stored,'row',row,'point',point,'wrapper_accepted',true,'committed',false, ...
+                    'stage','compacted_report_before_append','failure',struct());
+                saveCheckpoint(checkpointFile,summary,finish);
+                check(child);check(work);
+                newIndex=numel(ix.points)+numel(summary.pending_batch)+1;
+                currentPair=[currentPair(2),newIndex];summary.current_pair=currentPair;
+                row.edge_qualified=true;row.edge_committed=false;
+                summary.pending_batch{end+1,1}=summary.pending_admission;
+                summary.pending_admission=struct();
+                % Every accepted object remains recoverable before RAM moves
+                % to the next point; the queue is bounded by BatchSize.
+                saveCheckpoint(checkpointFile,summary,finish);currentAdmission=false;
+                summary.qualified_points=summary.qualified_points+1;
+                row.pending_custody_timely=left(work)>0&&left(child)>0;
+                row.storage_timely=[]; % Public batch storage has not returned.
+                if numel(summary.pending_batch)>=o.BatchSize
+                    summary.batch_flush_attempted=true;
+                    [summary,ix]=flushBatch(outputFile,summary,ix,checkpointFile,finish);
+                    row.edge_committed=true;row.storage_timely=summary.batch_publications{end}.timely;
+                end
+                a=b;b=orbit;rb=stored;pb=nextPolicy;
+                phaseWarm=phaseMatrix;reuseAllowed=true;
+                summary.apex_height_policy=apexHeightPolicy(b,rb,o.MinimumApexHeightRatio);
+                row.apex_height_policy=summary.apex_height_policy;
+                if o.AdaptiveStep
+                    effort=report.solver;effortScope='native root iterations';
+                    if o.UsePhasePredictor,effort=phaseEvidence.root;effortScope='phase acquisition root iterations';end
+                    [ds,row.step_controller]=adaptiveStep(ds,row.capture.turn_degrees,effort,o);
+                    row.step_controller.effort_scope=effortScope;
+                    row.step_controller.native_root_iterations=member(member(report.solver,'output',struct()),'iterations',NaN);
+                else
+                    ds=min(o.MaximumStep,ds*o.StepGrowth);
+                end
+                method=1;
+            else
+                phaseWarm=[];reuseAllowed=false;
+                row.wrapper_failure=failure;
+                if currentAdmission&&(~row.timely||left(child)<=0||left(work)<=0)
+                    summary.pending_admission.row=row;summary.pending_admission.wrapper_accepted=false;
+                    summary.pending_admission.stage='native_all_nine_held_after_clock';summary.pending_admission.failure=failure;
+                    summary.attempts{end+1,1}=row;summary.status='native_all_nine_pending_after_clock';
+                    saveCheckpoint(checkpointFile,summary,finish);break
+                end
+                stored=compactReport(report);
+                if currentAdmission
+                    [row,isolation]=appendIsolatedNative(orbit,stored,row,sourceFile,outputFile,pointIndices,config,summary.started_utc,failure,child,work,budget);
+                    summary.isolated_native_admissions{end+1,1}=isolation;
+                    summary.pending_admission.row=row;summary.pending_admission.isolated_reference=isolation;
+                    summary.pending_admission.stage='isolated_append_and_readback_confirmed';
+                    saveCheckpoint(checkpointFile,summary,finish);
+                    row.isolated_storage_timely=row.isolated_storage_timely&&left(child)>0&&left(work)>0;
+                    isolation.storage_timely=row.isolated_storage_timely;summary.isolated_native_admissions{end}=isolation;
+                    summary.pending_admission.row=row;summary.pending_admission.isolated_reference=isolation;
+                    if ~row.isolated_storage_timely
+                        summary.pending_admission.stage='isolated_native_storage_late_held';
+                        summary.attempts{end+1,1}=row;summary.status='isolated_native_storage_late';
+                        saveCheckpoint(checkpointFile,summary,finish);break
+                    end
+                    summary.pending_admission=struct();
+                end
+                entry=struct('attempt',attempt,'seed_state',seed.state, ...
+                    'final_candidate',report.final_candidate,'report',stored,'wrapper_failure',failure);
+                journal=struct('attempt',attempt,'seed_state',seed.state,'final_candidate',report.final_candidate, ...
+                    'wrapper_failure',failure,'native_report',struct());
+                for key={'status','accepted','failure_stage','primary_failure','replay_failure','finalization_failure', ...
+                        'full_closure','acceptance_gates','elapsed_seconds','solver','final_candidate','root_diagnostics', ...
+                        'last_finite_state','last_accepted_state','continuation_acquisition','delegated_residual_definition'}
+                    if isfield(stored,key{1}),journal.native_report.(key{1})=stored.(key{1});end
+                end
+                summary.failed_root_journals{end+1,1}=journal;
+                summary.failures{end+1,1}=entry;
+                if numel(summary.failures)>o.MaxSavedFailures,summary.failures(2)=[];end
+                if ~o.UsePhasePredictor&&method<numel(o.FiniteDifferenceSteps),method=method+1;
+                else,method=1;ds=ds*o.StepShrink;end
+            end
+            summary.attempts{end+1,1}=row;
+            summary.attempts{end}.attempt_seconds_before_final_checkpoint=toc(attemptClock);
+            if accepted&&isequal(row.storage_timely,false),summary.status='committed_data_but_storage_late';end
+            if row.isolated_committed&&~row.isolated_storage_timely,summary.status='isolated_native_storage_late';end
+            summary.next_step=ds;summary.next_derivative_index=method;
+            saveCheckpoint(checkpointFile,summary,finish);
+            fprintf('C1 continuation attempt=%d status=%s all9=%d wrapper=%d committed=%d ds=%.9g', ...
+                row.attempt,char(row.status),row.all_nine,accepted,summary.new_points,row.step);
+            if accepted
+                fprintf(' label=%s E=%.12g meanU=%.12g',point.classification,point.nativeE,point.signedmeanU);
+            end
+            fprintf('\n');
+            if accepted&&isequal(row.storage_timely,false),break;end
+            if row.isolated_committed&&~row.isolated_storage_timely,break;end
+            if ~row.timely,summary.status='child_or_work_budget_exhausted';break;end
+            if accepted&&summary.apex_height_policy.stop
+                check(child);check(work);
+                summary.status=summary.apex_height_policy.disposition;break
+            end
+        end
+        if strcmp(summary.status,'running'),summary.status='attempt_cap';end
+    catch problem
+        summary.status='stopped_with_exception';summary.failure=exceptionData(problem);
+        if exist('currentAdmission','var')&&currentAdmission&&~row.edge_committed&&~row.isolated_committed
+            if ~hasNativePending(summary)
+                summary.pending_admission=struct('orbit',orbit,'raw_report',rawReport, ...
+                    'row',row,'point',point,'wrapper_accepted',accepted,'committed',false, ...
+                    'stage','stopped_with_current_native_admission','failure',summary.failure);
+            else
+                summary.pending_admission.row=row;summary.pending_admission.failure=summary.failure;
+            end
+            if isempty(summary.attempts)||summary.attempts{end}.attempt~=row.attempt
+                summary.attempts{end+1,1}=row;
+            end
+        end
+    end
+    if ~isempty(summary.pending_batch)&&~summary.batch_flush_attempted&&left(finish)>10
+        try
+            summary.batch_flush_attempted=true;
+            [summary,ix]=flushBatch(outputFile,summary,ix,checkpointFile,finish);
+        catch problem
+            summary.status='batch_pending_reconciliation';summary.failure=exceptionData(problem);
+        end
+    end
+    if isfield(config,'source_reference')&&~o.InPlace
+        summary.source_posthash=strcmp(RoundSHA256_v3(sourceFile),config.source_reference.sha256);
+        assert(summary.source_posthash,'C1Continuation:SourceChanged','The adopted immutable source changed.');
+    end
+    summary.current_pair=currentPair;summary.next_step=ds;summary.next_derivative_index=method;
+    summary.completed_utc=stamp();saveCheckpoint(checkpointFile,summary,finish);
+    % The stored checkpoint stays provisional; this fact exists only after
+    % its readback, publication and original-clock postguard have returned.
+    summary.persistence_completion_confirmed=left(finish)>0; % Expired raw-pending durability is not timely completion.
+end
+
+function evidence=apexHeightPolicy(orbit,report,fraction)
+    evidence=struct('schema','C1-marked-local-COM-apex-height-stop-v1', ...
+        'enabled',fraction>0,'fraction',fraction,'supported',true,'stop',false, ...
+        'triggered',false,'disposition','continue','height',NaN,'rest_length',NaN, ...
+        'threshold',NaN,'ratio',NaN,'vertical_velocity',NaN,'vertical_acceleration',NaN, ...
+        'failure',struct(),'scope','Existing admitted BL-marked LOCAL COM apex, not the maximum over the whole cycle; strict inequality only.');
+    if fraction==0,return;end
+    try
+        [~,policyEvidence]=admitted(orbit,report,{'PK'}); %#ok<ASGLU>
+        schema=QuadrupedSchema_v3.shared();x=schema.validateState(orbit.initial_state);p=schema.validateParameter(orbit.parameter);
+        chart=orbit.section_chart;
+        assert(isstruct(chart)&&isscalar(chart)&&isfield(chart,'id') ...
+            &&strcmp(char(chart.id),'apex-before-BL-TD-local') ...
+            &&isfield(chart,'geometry')&&strcmp(char(chart.geometry),'dy=0, ddy<0') ...
+            &&isfield(chart,'crossing_orientation')&&isequal(chart.crossing_orientation,-1), ...
+            'C1Continuation:ApexHeightChart','The actual complete marked downward-apex chart is required.');
+        Lb=p(schema.Parameter.l_l_b);Lf=p(schema.Parameter.l_l_f);
+        assert(Lb>0&&Lf>0&&isequal(Lb,Lf), ...
+            'C1Continuation:ApexHeightRestLength','Unequal resting leg lengths have no authorized normalization.');
+        section=PoincareSection_v3.apex(schema.PhaseIndex);system=Quadrupedal_Dynamics_v3();
+        assert(section.isOnSection(x,p),'C1Continuation:ApexHeightSection','The admitted state must lie on its actual apex section.');
+        ddy=section.derivative(0,x,orbit.initial_mode,p,system);
+        assert(isfinite(ddy)&&ddy<0,'C1Continuation:ApexHeightOrientation','A finite strict downward crossing is required.');
+        evidence.height=x(schema.State.y);evidence.rest_length=Lb;evidence.threshold=fraction*Lb;
+        evidence.ratio=evidence.height/Lb;evidence.vertical_velocity=x(schema.State.dy);evidence.vertical_acceleration=ddy;
+        evidence.triggered=evidence.height<evidence.threshold;evidence.stop=evidence.triggered;
+        if evidence.triggered,evidence.disposition='user_apex_height_boundary';end
+    catch problem
+        evidence.supported=false;evidence.stop=true;evidence.disposition='apex_height_policy_measurement_invalid';
+        evidence.failure=exceptionData(problem);
+    end
+end
+
+function facts=runLedgerEntry(prior)
+    % Every attempt row and original run flag remains literal. Older full
+    % FD reports are bounded by previous_runs; this ledger never nests runs.
+    assert(isstruct(prior)&&isscalar(prior),'C1Continuation:Checkpoint','Malformed prior run.');
+    fields=intersect(fieldnames(prior),{'previous_runs';'all_runs_ledger';'failures'});
+    facts=prior;if ~isempty(fields),facts=rmfield(facts,fields);end
+    facts.failure_summaries=cell(0,1);
+    if ~isfield(prior,'failures'),return;end
+    for k=1:numel(prior.failures)
+        row=prior.failures{k};report=member(row,'report',struct());
+        if isfield(row,'report'),row=rmfield(row,'report');end
+        selected=struct();
+        keys={'status','accepted','failure_stage','primary_failure','replay_failure', ...
+            'finalization_failure','full_closure','acceptance_gates','elapsed_seconds', ...
+            'continuation_acquisition','delegated_residual_definition'};
+        for j=1:numel(keys)
+            if isfield(report,keys{j}),selected.(keys{j})=report.(keys{j});end
+        end
+        row.report_summary=selected;facts.failure_summaries{end+1,1}=row;
+    end
+end
+
+function o=defaults(value)
+    o=struct('Budget',[],'MaxWallSeconds',3600,'TrialSeconds',240,'MaxAccepted',100, ...
+        'MaxAttempts',300,'InitialStep',.005,'MinimumStep',1e-7,'MaximumStep',.02, ...
+        'StepGrowth',1.3,'StepShrink',.5,'CaptureRadius',.02,'SaveMarginSeconds',30, ...
+        'MaxSavedFailures',5,'DerivativeMethod','ordinary','FiniteDifferenceSteps',[1e-5,1e-7], ...
+        'ReusePreviousJacobian',false,'Algorithm','root-newton','AllowedClasses',{{'PK','B','H','F','G'}},'ComponentIdentity','', ...
+        'IntegrationMaxStep',.001,'CorrectorInitializer','predictor','InPlace',false,'CheckpointFile','', ...
+        'InitialDerivativeIndex',1,'MinimumApexHeightRatio',0,'BatchSize',1,'TraceFailure',true, ...
+        'AdaptiveStep',false,'MaximumCorrectionStepRatio',Inf,'MaximumTurnDegrees',180, ...
+        'UsePhasePredictor',false,'PhaseSeconds',30,'SourceContext',[]);
+    assert(isstruct(value)&&isscalar(value),'C1Continuation:Options','Options must be scalar struct.');
+    for key=fieldnames(value).'
+        assert(isfield(o,key{1}),'C1Continuation:Options','Unknown option %s.',key{1});o.(key{1})=value.(key{1});
+    end
+    assert(islogical(o.InPlace)&&isscalar(o.InPlace),'C1Continuation:Options','InPlace must be one logical.');
+    assert(islogical(o.TraceFailure)&&isscalar(o.TraceFailure)&&islogical(o.AdaptiveStep)&&isscalar(o.AdaptiveStep) ...
+        &&islogical(o.UsePhasePredictor)&&isscalar(o.UsePhasePredictor), ...
+        'C1Continuation:Options','TraceFailure and AdaptiveStep must be logical scalars.');
+    validateattributes(o.BatchSize,{'numeric'},{'scalar','real','finite','integer','positive','<=',16});
+    validateattributes(o.MaximumCorrectionStepRatio,{'numeric'},{'scalar','real','positive'});
+    validateattributes(o.MaximumTurnDegrees,{'numeric'},{'scalar','real','finite','positive','<=',180});
+    validateattributes(o.PhaseSeconds,{'numeric'},{'scalar','real','finite','positive','<=',120});
+    assert(~o.UsePhasePredictor||o.PhaseSeconds<o.TrialSeconds/2, ...
+        'C1Continuation:PhaseBudget','Phase allocation must leave the majority of the same child clock for native admission.');
+    assert(~o.InPlace||o.BatchSize==1,'C1Continuation:BatchOwner','Batching requires a separate small output branch.');
+    assert(ischar(o.CheckpointFile)&&(isempty(o.CheckpointFile)||isrow(o.CheckpointFile)), ...
+        'C1Continuation:Options','CheckpointFile must be a char path or empty.');
+    assert((ischar(o.DerivativeMethod)&&isrow(o.DerivativeMethod)) ...
+        ||(isstring(o.DerivativeMethod)&&isscalar(o.DerivativeMethod)), ...
+        'C1Continuation:Derivative','Use ordinary or valid-sided.');
+    o.DerivativeMethod=char(o.DerivativeMethod);
+    assert(ismember(o.DerivativeMethod,{'ordinary','valid-sided'}), ...
+        'C1Continuation:Derivative','Use ordinary or valid-sided.');
+    assert((ischar(o.CorrectorInitializer)&&isrow(o.CorrectorInitializer)) ...
+        ||(isstring(o.CorrectorInitializer)&&isscalar(o.CorrectorInitializer)), ...
+        'C1Continuation:Initializer','Use predictor, base or predictor-energy.');
+    o.CorrectorInitializer=char(o.CorrectorInitializer);
+    assert(ismember(o.CorrectorInitializer,{'predictor','base','predictor-energy'}), ...
+        'C1Continuation:Initializer','Use predictor, base or predictor-energy.');
+    assert(islogical(o.ReusePreviousJacobian)&&isscalar(o.ReusePreviousJacobian) ...
+        &&(~o.ReusePreviousJacobian||ismember(char(o.Algorithm),{'newton','root-newton'})), ...
+        'C1Continuation:JacobianReuse','Previous native acquisition matrices require explicit logical opt-in and Newton.');
+    if strcmp(o.DerivativeMethod,'valid-sided')&&~isfield(value,'FiniteDifferenceSteps')
+        o.FiniteDifferenceSteps=1e-8;
+    end
+    validateattributes(o.IntegrationMaxStep,{'double','single'},{'real','scalar','finite','positive','<=',.005},mfilename,'IntegrationMaxStep');
+    o.IntegrationMaxStep=double(o.IntegrationMaxStep);
+    validateattributes(o.MinimumApexHeightRatio,{'double'},{'scalar','real','finite','>=',0,'<=',1});
+    for key={'MaxWallSeconds','TrialSeconds','InitialStep','MinimumStep','MaximumStep','SaveMarginSeconds'}
+        v=o.(key{1});assert(isnumeric(v)&&isscalar(v)&&isfinite(v)&&v>0,'C1Continuation:Options','Positive finite %s required.',key{1});
+    end
+    for key={'MaxAccepted','MaxAttempts','MaxSavedFailures'}
+        v=o.(key{1});assert(isnumeric(v)&&isscalar(v)&&isfinite(v)&&v>=1&&v==fix(v),'C1Continuation:Options','Positive integer %s required.',key{1});
+    end
+    assert(o.TrialSeconds<=600&&o.MinimumStep<=o.InitialStep&&o.InitialStep<=o.MaximumStep ...
+        &&o.MaximumStep<=.1&&o.StepGrowth>1&&o.StepShrink>0&&o.StepShrink<1 ...
+        &&o.CaptureRadius>0&&o.CaptureRadius<=.02&&o.MaxSavedFailures>=2, ...
+        'C1Continuation:Options','Child cap, capture and state-step bounds must remain conservative.');
+    assert(isnumeric(o.FiniteDifferenceSteps)&&isvector(o.FiniteDifferenceSteps) ...
+        &&~isempty(o.FiniteDifferenceSteps)&&all(isfinite(o.FiniteDifferenceSteps)) ...
+        &&all(o.FiniteDifferenceSteps>0)&&numel(unique(o.FiniteDifferenceSteps))==numel(o.FiniteDifferenceSteps), ...
+        'C1Continuation:Options','Each registered FD method must be positive and distinct.');
+    assert(isnumeric(o.InitialDerivativeIndex)&&isscalar(o.InitialDerivativeIndex)&&isfinite(o.InitialDerivativeIndex) ...
+        &&o.InitialDerivativeIndex==fix(o.InitialDerivativeIndex)&&o.InitialDerivativeIndex>=1 ...
+        &&o.InitialDerivativeIndex<=numel(o.FiniteDifferenceSteps),'C1Continuation:Options','InitialDerivativeIndex must select a registered FD step.');
+    assert(strcmp(char(o.Algorithm),'root-newton')&&iscell(o.AllowedClasses) ...
+        &&~isempty(o.AllowedClasses)&&all(ismember(o.AllowedClasses,{'PK','B','H','F','G'})), ...
+        'C1Continuation:Options','C1 continuation requires literal root-newton and explicit physical C1 families; legacy damped-newton/fsolve routes are refused.');
+    assert(~strcmp(o.DerivativeMethod,'valid-sided')||ismember(char(o.Algorithm),{'newton','root-newton'}), ...
+        'C1Continuation:Derivative','Valid-sided acquisition requires Newton; fsolve requires classical reliability.');
+end
+
+function [policy,evidence]=admitted(orbit,report,allowed)
+    assert(isa(orbit,'HybridOrbit_v3')&&isscalar(orbit)&&nine(report), ...
+        'C1Continuation:Admission','Only native all-nine admitted objects can initialize or continue.');
+    status=member(report,'status',member(report,'native_status',''));
+    if isfield(report,'accepted'),accepted=isequal(report.accepted,true);
+    else,accepted=strcmp(status,'accepted');end
+    assert(accepted, ...
+        'C1Continuation:Admission','Literal successful native admission status is required.');
+    g=member(report,'classification',struct());
+    assert(strcmp(member(g,'contract_version',''),'quadruped-gait-v3.5') ...
+        &&ismember(member(g,'validated_gait_type',''),allowed) ...
+        &&isequal(member(g,'flight_count_certain',false),true)&&member(g,'flight_count',NaN)==1, ...
+        'C1Continuation:Family','Require an allowed actual physical C1 family with certain one flight.');
+    [policy,evidence]=RecordedReturnPolicy_v3(report);
+    assert(evidence.complete&&isa(policy,'BLMarkedApexReturnPolicy_v3') ...
+        &&policy.BLTouchdownsPerReturn==1&&policy.RequireModeClosure, ...
+        'C1Continuation:Policy','Preserve the actual complete marked BL1 policy.');
+end
+
+function yes=nine(report)
+    names={'full_closure','mode_closure','target_energy','trajectory_energy_variation', ...
+        'unscaled_family_equations','family_constraint','physical_inequalities', ...
+        'primitive_identity','replay_determinism'};
+    gates=member(report,'acceptance_gates',struct());
+    yes=isstruct(gates)&&isscalar(gates)&&all(isfield(gates,names));
+    for k=1:numel(names),yes=yes&&isequal(member(gates,names{k},false),true);end
+end
+
+function [J,evidence]=previousNativeJacobian(orbit,report,point,family,definition,policy,allowed)
+    J=[];evidence=struct('requested',true,'provided_to_solver',false,'actual_initial_jacobian_used',[],'status','unavailable', ...
+        'source_field','report.solver.finalJacobian','source_point',point.index, ...
+        'scope','Approximate acquisition seed only; no derivative certification.', ...
+        'coordinate_scope','Physical native [u;E] columns, unit residual scale; next Root solve applies its own StateScale.', ...
+        'failure',struct());
+    try
+        [~,recorded]=admitted(orbit,report,allowed);
+        assert(isequaln(recorded.configuration,policy) ...
+            &&strcmp(report.classification.canonical_point_label,point.classification) ...
+            &&isequal(report.classification.canonical_label_qualified,true), ...
+            'C1Continuation:JacobianReuse','Previous native class/policy must match its committed point.');
+        previous=report.delegated_residual_definition;
+        for key={'symmetry','coordinate_indices','closure_indices','energy_pivot','residual_scale','physical_parameter'}
+            assert(isfield(previous,key{1})&&isequaln(previous.(key{1}),definition.(key{1})), ...
+                'C1Continuation:JacobianReuse','Previous native residual chart/equation ordering differs.');
+        end
+        assert(isequal(orbit.parameter(:),definition.physical_parameter(:)) ...
+            &&isequal(orbit.initial_mode(:),family.Chart.mode(:)) ...
+            &&isequal(report.seed.state(family.Chart.fixed_indices),family.Chart.reference_state(family.Chart.fixed_indices)), ...
+            'C1Continuation:JacobianReuse','Physical parameters, mode or fixed chart coordinates differ.');
+        root=report.solver;u=family.packState(orbit.initial_state);n=numel(u)+1;
+        assert(isequal(root.converged,true)&&isequal(root.mode(:),orbit.initial_mode(:)) ...
+            &&numel(root.state)==n&&all(isfinite(root.state(:))) ...
+            &&norm(root.state(1:end-1)-u,Inf)<=1e-10, ...
+            'C1Continuation:JacobianReuse','Chosen native Root result does not match the committed orbit.');
+        matrix=root.finalJacobian;
+        assert(isfloat(matrix)&&ismatrix(matrix)&&isequal(size(matrix),[n,n])&&all(isfinite(matrix(:))) ...
+            &&all(definition.residual_scale==1), ...
+            'C1Continuation:JacobianReuse','A finite complete chosen physical-coordinate matrix is required.');
+        evidence.previous_selector_row=matrix(end,:);
+        matrix(end,:)=definition.constraint.normal(:).';
+        evidence.new_selector_row=matrix(end,:);evidence.source_root_state=root.state;
+        evidence.selected_attempt=member(root,'selectedAttempt',[]);evidence.matrix_size=size(matrix);
+        evidence.provided_to_solver=true;evidence.status='chosen_native_matrix_with_exact_new_PAL_row';J=matrix;
+    catch problem
+        evidence.failure=exceptionData(problem);evidence.status='refused_and_fresh_derivative_required';
+    end
+end
+
+function value=compactReport(value)
+    % Preserve correction facts while omitting only runtime reconstruction.
+    [~,policyEvidence]=RecordedReturnPolicy_v3(value);
+    if policyEvidence.complete
+        c=policyEvidence.configuration;
+        value.correction_return_policy=struct('diagnostic_kind','runtime-object-descriptor', ...
+            'source_class',c.source_class,'settings',c.settings);
+    end
+    if isfield(value,'options')&&isstruct(value.options)
+        if isfield(value.options,'Residual')&&~isempty(value.options.Residual)
+            value.options.Residual=[];value.options_residual_runtime_object_omitted=true;
+        end
+        if isfield(value.options,'SolverOptions')&&isstruct(value.options.SolverOptions) ...
+                &&isfield(value.options.SolverOptions,'Jacobian')&&isobject(value.options.SolverOptions.Jacobian)
+            j=value.options.SolverOptions.Jacobian;
+            assert(isa(j,'FiniteDifferenceJacobian_v3'),'C1Continuation:Report','Unexpected Jacobian runtime object.');
+            value.options.SolverOptions.Jacobian=jacobianDescriptor(j);
+        end
+    end
+    holder=CompactResearchBranch_v3(struct('report',value));value=holder.report;
+end
+
+function out=jacobianDescriptor(j)
+    keys={'Method','RelativeStep','MinimumStep','MaximumStep','CheckFinite','FailurePolicy'};
+    if strcmp(class(j),'ValidSidedFiniteDifferenceJacobian_v3')
+        keys=[keys,{'DeadlineUnixSeconds','DeadlineMonotonicNs','MaximumHalvings'}];
+    else
+        assert(strcmp(class(j),'FiniteDifferenceJacobian_v3'), ...
+            'C1Continuation:Report','Unknown Jacobian runtime class.');
+    end
+    assert(isscalar(j) ...
+        &&isequal(sort(properties(j)),sort(keys(:))), ...
+        'C1Continuation:Report','The complete exact known FD settings schema is required.');
+    settings=struct();for k=1:numel(keys),settings.(keys{k})=j.(keys{k});end
+    out=struct('diagnostic_kind','runtime-object-descriptor', ...
+        'source_class',class(j),'settings',settings);
+end
+
+function value=integration(limit,maxStep)
+    value=struct('RelTol',1e-12,'AbsTol',1e-14,'MaxStep',maxStep, ...
+        'ODEOptions',odeset('OutputFcn',@(~,~,~)double(left(limit)<=0)));
+end
+function [candidate,evidence,matrix]=phasePredictor(base,predictor,constraint,scale,E,child,o,warm)
+    candidate=[];matrix=[];call=tic;
+    evidence=struct('completed',false,'failure',struct(),'seconds',NaN, ...
+        'native_admission_claimed',false,'phase_to_native_jacobian_reused',false);
+    try
+        assert(strcmp(o.Algorithm,'root-newton')&&numel(predictor)==4, ...
+            'C1Continuation:PhaseChart','Use the declared four-coordinate synchronous PK chart.');
+        [tau,history]=phaseDurations(base,1e-9);
+        phaseFinish=struct('deadline_unix_seconds',min(child.deadline_unix_seconds,nowUnix()+o.PhaseSeconds), ...
+            'deadline_monotonic_ns',min(child.deadline_monotonic_ns,nano()+o.PhaseSeconds*1e9));
+        phase=SynchronousPKPhaseResidual_v3(base.initial_state,base.initial_mode,base.parameter,constraint, ...
+            struct('ODEOptions',odeset('RelTol',1e-12,'AbsTol',1e-14,'MaxStep',o.IntegrationMaxStep), ...
+            'DeadlineUnixSeconds',phaseFinish.deadline_unix_seconds, ...
+            'DeadlineMonotonicNs',phaseFinish.deadline_monotonic_ns,'AllowNewCandidateChart',true));
+        jac=FiniteDifferenceJacobian_v3(struct('Method','central','RelativeStep',1e-7));
+        if ~isempty(warm),warm(end,:)=[constraint.normal(:).',zeros(1,3)];end
+        solver=RootSolver_v3(struct('Algorithm','root-newton','MaxIterations',40, ...
+            'MaxFunctionEvaluations',1000,'FunctionTolerance',1e-11,'ResidualAcceptanceTolerance',1e-10, ...
+            'StepTolerance',1e-13,'ReuseJacobian',true,'InitialJacobian',warm,'UseBroyden',true, ...
+            'JacobianRefreshInterval',5,'Jacobian',jac,'MaxWallSeconds',o.PhaseSeconds, ...
+            'StateScale',[scale;max(1,abs(E));ones(3,1)]));
+        initial=[predictor;.5*predictor(1)^2+predictor(2);tau];
+        [z,result]=solver.solve(phase,initial,base.parameter,false(4,1));
+        evidence.root=result;check(phaseFinish);
+        assert(result.converged,'C1Continuation:PhaseRoot','Phase acquisition did not converge.');
+        info=result.evaluationInfo;candidate=phase.fullState(z);
+        assert(isequal(info.initial_state,candidate)&&norm(result.residual,Inf)<=1e-10 ...
+            &&norm(info.acquisition_full13_delta,Inf)<=1e-8&&info.direction_inequalities_hold ...
+            &&max(abs([info.all_td_guard_values;info.all_lo_guard_values]))<=1e-8 ...
+            &&info.period_guess<30, ...
+            'C1Continuation:PhaseHandoff','Require state-bound phase closure, all guards, directions and original horizon.');
+        evidence.candidate_state=candidate;evidence.full_source_difference=candidate-base.initial_state;
+        evidence.source_is_exact_chart=phase.SourceIsExactChart;
+        evidence.source_duration_guess=history;evidence.coordinates=z;evidence.energy=z(5);
+        evidence.durations=z(6:8);evidence.period=info.period_guess;evidence.stride=info.stride_guess;
+        evidence.full13_delta=info.acquisition_full13_delta;evidence.initial_clearance=info.initial_guard_values;
+        evidence.completed=true;matrix=member(result,'finalJacobian',[]);
+        % Keep the complete root outcome in native raw custody. The branch's
+        % plain report retains the observed mathematical acquisition fields.
+    catch problem
+        evidence.failure=exceptionData(problem);candidate=[];matrix=[];
+    end
+    evidence.seconds=toc(call);
+end
+function [tau,evidence]=phaseDurations(orbit,tolerance)
+    h=orbit.event_history;
+    assert(isstruct(h)&&all(isfield(h,{'is_stop','guard_id','time'})), ...
+        'C1Continuation:PhaseHistory','Require literal native event history.');
+    h=h(~[h.is_stop]);assert(numel(h)==8, ...
+        'C1Continuation:PhaseHistory','Synchronous acquisition requires exactly four TD and four LO events.');
+    s=QuadrupedSchema_v3.shared();ids=zeros(8,1);times=zeros(8,1);
+    for k=1:8,ids(k)=s.eventId(h(k).guard_id);times(k)=h(k).time;end
+    td=ismember(ids,s.Event.IDs(s.Event.IsTouchdown));lo=~td;
+    assert(isequal(sort(ids),(1:8).')&&all(td(1:4))&&all(lo(5:8)) ...
+        &&max(times(td))-min(times(td))<=tolerance&&max(times(lo))-min(times(lo))<=tolerance, ...
+        'C1Continuation:PhaseHistory','Require one native synchronous TD cohort then one LO cohort.');
+    t0=orbit.trajectory.time(1);d=times(ids==1);l=times(ids==2);
+    tau=[d-t0;l-d;orbit.period-(l-t0)];
+    assert(all(isfinite(tau)&tau>0),'C1Continuation:PhaseHistory','Every native acquisition duration must be positive.');
+    evidence=struct('guard_ids',ids,'event_times',times,'initial_time',t0,'period',orbit.period, ...
+        'scope','Native times are initial guesses; the phase root solves all three durations.');
+end
+function [summary,ix]=flushBatch(file,summary,ix,checkpoint,finish)
+    queue=summary.pending_batch;count=numel(queue);assert(count>0, ...
+        'C1Continuation:Batch','Only a nonempty earned queue may be published.');
+    check(finish);before=numel(ix.points);expected=(before+(1:count)).';
+    publication=struct('before_count',before,'indices',expected,'attempts',zeros(count,1), ...
+        'append_returned',false,'installed_read2_verified',false,'seconds',NaN,'timely',[], ...
+        'clock_scope','Batch publication uses the original parent work/finish clocks, separately from each numerical child.');
+    orbits=cell(count,1);reports=cell(count,1);points=cell(count,1);
+    for k=1:count
+        orbits{k}=queue{k}.orbit;reports{k}=queue{k}.compacted_report;points{k}=queue{k}.point;
+        publication.attempts(k)=queue{k}.row.attempt;
+    end
+    summary.batch_publications{end+1,1}=publication;
+    saveCheckpoint(checkpoint,summary,finish);
+    call=tic;[ix,indices]=BranchSolutionFile_v3.appendBatch(file,orbits,reports,points);
+    summary.batch_publications{end}.append_returned=true;
+    assert(isequal(indices,expected),'C1Continuation:BatchIndices','Published batch indices differ.');
+    for pass=1:2
+        [back,backReports,backPoints]=BranchSolutionFile_v3.loadSolutions(file,indices);
+        for k=1:count
+            assertPendingPublicEqual(orbits{k},back{k},0);
+            assert(isequaln(reports{k},backReports{k})&&isequaln(points{k},backPoints{k}), ...
+                'C1Continuation:BatchReadback','Installed report/metadata differs.');
+            [~,p]=RecordedReturnPolicy_v3(reports{k});[~,q]=RecordedReturnPolicy_v3(backReports{k});
+            assert(p.complete&&q.complete&&isequaln(p.configuration,q.configuration) ...
+                &&strcmp(OrbitContentIdentity_v3(orbits{k}),OrbitContentIdentity_v3(back{k})), ...
+                'C1Continuation:BatchReadback','Installed NativeID or complete policy differs.');
+        end
+    end
+    summary.batch_publications{end}.installed_read2_verified=true;
+    summary.batch_publications{end}.seconds=toc(call);
+    summary.batch_publications{end}.timely=left(summary.work_limit)>0&&left(finish)>0;
+    for k=1:numel(summary.attempts)
+        if ismember(summary.attempts{k}.attempt,publication.attempts)
+            summary.attempts{k}.edge_committed=true;
+            summary.attempts{k}.storage_timely=summary.batch_publications{end}.timely;
+        end
+    end
+    summary.new_points=summary.new_points+count;summary.new_edges=summary.new_edges+count;
+    summary.final_output_count=numel(ix.points);
+    summary.current_pair=[queue{end}.point.edge_from,indices(end)];
+    summary.pending_batch={};summary.batch_flush_attempted=false;
+    % Clear only after two independent installed reads have returned. If this
+    % checkpoint fails, its prior queue/transaction remains recoverable.
+    saveCheckpoint(checkpoint,summary,finish);
+end
+function [step,evidence]=adaptiveStep(previous,turn,root,o)
+    iterations=member(member(root,'output',struct()),'iterations',NaN);
+    numerical=previous;
+    if isfinite(iterations)&&iterations>0
+        ratio=25/iterations;
+        if ratio>=1,numerical=previous*ratio^.25;else,numerical=previous*sqrt(ratio);end
+    end
+    numerical=min(o.MaximumStep,max(o.MinimumStep,numerical));
+    fraction=min(1,max(0,(turn-5)/55));
+    geometric=o.MaximumStep-(o.MaximumStep-o.MinimumStep)*fraction;
+    step=min(numerical,geometric);
+    evidence=struct('target_iterations',25,'iterations',iterations,'turn_degrees',turn, ...
+        'numerical_radius',numerical,'turn_radius',geometric,'selected_radius',step, ...
+        'hard_floor',o.MinimumStep,'ceiling',o.MaximumStep);
+end
+function c=controllerContext(o,integration)
+    c=struct('policy_version','phase-or-native-effort-radius-v1','target_iterations',25, ...
+        'flat_turn_degrees',5,'sharp_turn_degrees',60, ...
+        'derivative_method',o.DerivativeMethod,'finite_difference_steps',o.FiniteDifferenceSteps, ...
+        'integration_profile',integration,'phase_predictor',o.UsePhasePredictor,'phase_seconds',o.PhaseSeconds, ...
+        'adaptive_step',o.AdaptiveStep,'minimum_step',o.MinimumStep,'maximum_step',o.MaximumStep, ...
+        'maximum_correction_step_ratio',o.MaximumCorrectionStepRatio,'maximum_turn_degrees',o.MaximumTurnDegrees, ...
+        'corrector_initializer',o.CorrectorInitializer,'algorithm',o.Algorithm);
+end
+function ref=sourceReference(file)
+    assert(strcmp(file,char(java.io.File(V3Path_v3(file)).getCanonicalPath())), ...
+        'C1Continuation:SourceAlias','Adopt the literal source, not a remapped alias.');
+    ref=struct('file',file,'sha256',RoundSHA256_v3(file));
+end
+function saveCheckpoint(file,summary,limit)
+    durablePending=hasNativePending(summary)||~isempty(member(summary,'pending_batch',{}));
+    if ~durablePending,check(limit);end
+    stage=[file,'.pending.mat'];
+    assert(~isfile(stage),'C1Continuation:PendingCheckpointStage', ...
+        'A previous failed checkpoint publication left an owned stage; retain it for reconciliation.');
+    % Raw pending persistence is custody only, even after a clock expires.
+    % Keep its written stage if native/public readback or publication refuses.
+    save(stage,'summary','-v7');if ~durablePending,check(limit);end
+    saved=load(stage,'summary');[expected,actual]=checkpointComparison(summary,saved.summary,0);
+    assert(isequaln(actual,expected),'C1Continuation:Checkpoint','Checkpoint readback differs.');
+    if ~durablePending,check(limit);end
+    [ok,message]=movefile(stage,file,'f');assert(ok,'C1Continuation:Checkpoint','%s',message);
+    if ~durablePending,check(limit);end
+end
+function [expected,actual]=checkpointComparison(expected,actual,depth)
+    assert(depth<=16&&isstruct(expected)&&isscalar(expected)&&isstruct(actual)&&isscalar(actual) ...
+        &&isequal(fieldnames(expected),fieldnames(actual)), ...
+        'C1Continuation:Checkpoint','Checkpoint summary/history structure differs.');
+    if isfield(expected,'pending_admission')
+        pending=expected.pending_admission;restored=actual.pending_admission;
+        assert(isstruct(pending)&&isscalar(pending)&&isstruct(restored)&&isscalar(restored) ...
+            &&isequal(fieldnames(pending),fieldnames(restored)), ...
+            'C1Continuation:Checkpoint','Pending admission structure differs.');
+        if ~isempty(fieldnames(pending))
+            assert(strcmp(class(pending.orbit),'HybridOrbit_v3')&&isscalar(pending.orbit) ...
+                &&strcmp(class(restored.orbit),'HybridOrbit_v3')&&isscalar(restored.orbit) ...
+                &&isstruct(pending.raw_report)&&isscalar(pending.raw_report) ...
+                &&isstruct(restored.raw_report)&&isscalar(restored.raw_report) ...
+                &&isequal(fieldnames(restored.raw_report),fieldnames(pending.raw_report)) ...
+                &&nine(pending.raw_report)&&nine(restored.raw_report) ...
+                &&isequaln(restored.raw_report.acceptance_gates,pending.raw_report.acceptance_gates), ...
+                'C1Continuation:Checkpoint','Native pending admission payload did not read back.');
+            for key={'status','accepted','native_status'}
+                if isfield(pending.raw_report,key{1})
+                    assert(isequaln(pending.raw_report.(key{1}),restored.raw_report.(key{1})), ...
+                        'C1Continuation:Checkpoint','Pending native status differs.');
+                end
+            end
+            assertPendingPublicEqual(pending.orbit,restored.orbit,0);
+            [~,p]=RecordedReturnPolicy_v3(pending.raw_report);[~,q]=RecordedReturnPolicy_v3(restored.raw_report);
+            assert(p.complete&&q.complete&&isequaln(p.configuration,q.configuration), ...
+                'C1Continuation:Checkpoint','Current pending complete policy differs.');
+            % Only comparison copies omit raw runtime handles/functions.
+            % The current and historical payloads remain in the saved file.
+            expected.pending_admission=rmfield(pending,{'orbit','raw_report'});
+            actual.pending_admission=rmfield(restored,{'orbit','raw_report'});
+        end
+    end
+    if isfield(expected,'pending_batch')
+        a=expected.pending_batch;b=actual.pending_batch;
+        assert(iscell(a)&&iscell(b)&&isequal(size(a),size(b)), ...
+            'C1Continuation:Checkpoint','Pending batch shape differs.');
+        for k=1:numel(a)
+            assertPendingPublicEqual(a{k}.orbit,b{k}.orbit,0);
+            assert(nine(a{k}.raw_report)&&nine(b{k}.raw_report) ...
+                &&isequaln(a{k}.raw_report.acceptance_gates,b{k}.raw_report.acceptance_gates), ...
+                'C1Continuation:Checkpoint','Queued all-nine decisions differ.');
+            [~,p]=RecordedReturnPolicy_v3(a{k}.raw_report);[~,q]=RecordedReturnPolicy_v3(b{k}.raw_report);
+            assert(p.complete&&q.complete&&isequaln(p.configuration,q.configuration), ...
+                'C1Continuation:Checkpoint','Queued complete policy differs.');
+            a{k}=rmfield(a{k},{'orbit','raw_report'});b{k}=rmfield(b{k},{'orbit','raw_report'});
+        end
+        expected.pending_batch=a;actual.pending_batch=b;
+    end
+    for key={'previous_runs','all_runs_ledger'}
+        if ~isfield(expected,key{1}),continue;end
+        a=expected.(key{1});b=actual.(key{1});
+        assert(iscell(a)&&iscell(b)&&isequal(size(a),size(b)), ...
+            'C1Continuation:Checkpoint','Flat run-history shape differs.');
+        for k=1:numel(a),[a{k},b{k}]=checkpointComparison(a{k},b{k},depth+1);end
+        expected.(key{1})=a;actual.(key{1})=b;
+    end
+end
+function assertPendingPublicEqual(a,b,depth)
+    assert(depth<=128&&strcmp(class(a),class(b))&&isequal(size(a),size(b)), ...
+        'C1Continuation:Checkpoint','Pending native class, shape or nesting differs.');
+    if isnumeric(a)||islogical(a)
+        assert(issparse(a)==issparse(b)&&isreal(a)==isreal(b)&&isequaln(a,b), ...
+            'C1Continuation:Checkpoint','Pending public numeric values/storage type differ.');
+    elseif ischar(a)||isstring(a)
+        assert(isequaln(a,b),'C1Continuation:Checkpoint','Pending public values differ.');
+    elseif iscell(a)
+        for k=1:numel(a),assertPendingPublicEqual(a{k},b{k},depth+1);end
+    elseif isstruct(a)
+        keys=fieldnames(a);assert(isequal(keys,fieldnames(b)),'C1Continuation:Checkpoint','Pending public fields differ.');
+        for k=1:numel(a),for j=1:numel(keys),assertPendingPublicEqual(a(k).(keys{j}),b(k).(keys{j}),depth+1);end,end
+    else
+        assert(any(strcmp(class(a),{'HybridOrbit_v3','Trajectory_v3'})), ...
+            'C1Continuation:Checkpoint','Unsupported pending native public class.');
+        keys=sort(properties(a));assert(isequal(keys,sort(properties(b))),'C1Continuation:Checkpoint','Pending public properties differ.');
+        for k=1:numel(a),for j=1:numel(keys),assertPendingPublicEqual(a(k).(keys{j}),b(k).(keys{j}),depth+1);end,end
+    end
+end
+function value=member(s,key,fallback)
+    value=fallback;if isstruct(s)&&isscalar(s)&&isfield(s,key),value=s.(key);end
+end
+function value=exceptionData(problem)
+    value=struct('identifier',problem.identifier,'message',problem.message,'stack',problem.stack);
+end
+function file=canonical(file)
+    assert((ischar(file)&&isrow(file))||(isstring(file)&&isscalar(file)), ...
+        'C1Continuation:Path','Use one MAT file path.');
+    file=char(java.io.File(char(file)).getCanonicalPath());[~,~,ext]=fileparts(file);
+    assert(strcmpi(ext,'.mat'),'C1Continuation:Path','Use a MAT file.');
+end
+function yes=sameFile(a,b)
+    yes=strcmp(canonical(a),canonical(b));
+    if ~yes&&isfile(a)&&isfile(b)
+        yes=java.nio.file.Files.isSameFile(java.io.File(a).toPath(),java.io.File(b).toPath());
+    end
+end
+function value=left(limit)
+    value=min(limit.deadline_unix_seconds-nowUnix(),(limit.deadline_monotonic_ns-nano())/1e9);
+end
+function check(limit)
+    assert(left(limit)>0,'C1Continuation:Budget','Original run/child budget expired.');
+end
+function value=nowUnix(),value=posixtime(datetime('now','TimeZone','UTC'));end
+function value=nano(),value=double(java.lang.System.nanoTime);end
+function value=stamp()
+    t=datetime('now','TimeZone','UTC');t.Format="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";value=char(t);
+end
+
+function yes=hasNativePending(summary)
+    yes=false;if ~isfield(summary,'pending_admission'),return;end
+    p=summary.pending_admission;
+    assert(isstruct(p)&&isscalar(p),'C1Continuation:Pending','Pending admission metadata must remain a scalar structure.');
+    yes=~isempty(fieldnames(p));
+end
+function out=storageLabel(g)
+    out='unclassified';for key={'canonical_point_label','validated_gait_type'}
+        value=member(g,key{1},[]);if ischar(value)&&isrow(value)&&~isempty(strtrim(value)),out=strtrim(value);return;end
+        if isstring(value)&&isscalar(value)&&~ismissing(value)&&strlength(strtrim(value))>0,out=char(strtrim(value));return;end
+    end
+end
+function [row,record]=appendIsolatedNative(orbit,stored,row,sourceFile,outputFile,indices,config,runStarted,failure,child,work,activeBudget)
+    check(child);check(work);root=fileparts(which('C1RunBudget_v3'));
+    suffix='';if isfield(activeBudget,'result_suffix'),suffix=activeBudget.result_suffix;end
+    if strcmp(member(activeBudget,'schema',''),'absolute-UTC-native-budget-v1')
+        file=[outputFile(1:end-4),'_isolated.mat'];
+    else
+        file=fullfile(root,'Results',['C1_Isolated_Native_Admissions' suffix '.mat']);
+    end
+    assert(~strcmp(canonical(file),canonical(outputFile))&&~strcmp(canonical(file),canonical(sourceFile)), ...
+        'C1Continuation:IsolatedOwner','The isolated store must be distinct from the continuation and its source.');
+    owner=struct('schema','C1-isolated-native-admissions-v1','owner','RunC1Continuation_v3', ...
+        'edges_claimed',false,'independent_cycle_count_claimed',false, ...
+        'scope','Native all-nine returns outside a continuation wrapper; no continuation edge, attachment or range is asserted.');
+    if isfile(file)
+        ix=BranchSolutionFile_v3.index(file);assert(isequaln(ix.metadata,owner), ...
+            'C1Continuation:IsolatedOwner','The global isolated store has different immutable ownership metadata.');
+    else
+        assert(~isfolder(file),'C1Continuation:IsolatedOwner','The isolated store path is a directory.');
+        BranchSolutionFile_v3.initialize(file,owner);
+    end
+    sourceReference=member(config,'source_reference',[]);
+    if isempty(sourceReference),sourceReference=struct('file',sourceFile,'sha256',RoundSHA256_v3(sourceFile));end
+    g=member(stored,'classification',struct());label=storageLabel(g);
+    metadata=struct('component_identity',['isolated_' char(java.util.UUID.randomUUID)], ...
+        'classification',char(label),'nativeE',QuadrupedEnergy_v3.evaluate(orbit.initial_state,orbit.initial_mode,orbit.parameter), ...
+        'signedmeanU',orbit.stride_displacement(1)/orbit.period,'edge_enabled',false, ...
+        'provenance',struct('kind','native all-nine return rejected by continuation wrapper','source_reference',sourceReference, ...
+        'source_indices',indices(:).','continuation_output',outputFile,'main_component_identity',config.component_identity, ...
+        'main_source_point',row.source_point,'attempt',row.attempt,'run_started_utc',runStarted, ...
+        'physical_parameter',orbit.parameter(:),'initial_mode',orbit.initial_mode(:),'capture',row.capture, ...
+        'corrector_initialization',row.corrector_initialization, ...
+        'wrapper_accepted',false,'wrapper_failure',failure,'timely_at_return',row.timely, ...
+        'native_accepted_literal',member(stored,'accepted',[]),'native_all_nine_literal',row.all_nine, ...
+        'trial_limit',child,'work_limit',work,'edge_claimed',false,'attachment_claimed',false));
+    check(child);check(work);[~,point]=BranchSolutionFile_v3.append(file,orbit,stored,metadata);
+    [backOrbit,backReport,backMetadata]=BranchSolutionFile_v3.loadSolution(file,point);
+    assertPendingPublicEqual(orbit,backOrbit,0);
+    assert(isequaln(stored,backReport)&&isequaln(metadata,backMetadata), ...
+        'C1Continuation:IsolatedReadback','The isolated compact report or metadata differs.');
+    row.isolated_committed=true;row.isolated_storage_timely=left(child)>0&&left(work)>0;
+    row.isolated_file=file;row.isolated_point=point;
+    record=struct('file',file,'point',point,'component_identity',metadata.component_identity, ...
+        'source_point',row.source_point,'attempt',row.attempt,'run_started_utc',runStarted, ...
+        'wrapper_accepted',false,'edge_claimed',false,'storage_timely',row.isolated_storage_timely, ...
+        'whole_public_data_readback_verified',true);
+end

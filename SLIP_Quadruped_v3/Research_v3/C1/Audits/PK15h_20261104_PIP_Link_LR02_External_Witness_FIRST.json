@@ -1,0 +1,23 @@
+{
+  "schema": "C1-external-native-process-exit-witness-v1",
+  "actual_process_exit_observed": true,
+  "exit_code": 0,
+  "source_posthash_verified": true,
+  "process_session_id": 20587,
+  "child_pid": 59741,
+  "audit_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_PIP_Link_LR02_Case01.mat",
+    "sha256": "9feca7a70d0ab6841cc440745921d4fa5306d031abf90f3b5315c7efaef9aa28",
+    "bytes": 17593532
+  },
+  "observed_by": "FIRST /root/pk_executor",
+  "actual_tool_exit_observed_utc": "2026-11-04T19:28:34Z",
+  "independent_post": {
+    "by": "SECOND /root/pk_reviewer",
+    "completed_utc": "2026-11-04T19:29:29Z",
+    "all62_headers_passed": true,
+    "all5_products_passed": true,
+    "owned_worker_and_wrapper_absent": true,
+    "direct_tool_exit_observed_by_SECOND": false
+  }
+}

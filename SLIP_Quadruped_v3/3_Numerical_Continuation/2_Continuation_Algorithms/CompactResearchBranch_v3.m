@@ -88,10 +88,23 @@ function [compact, report] = CompactResearchBranch_v3(branch)
     end
 
     function output = diagnostics(value, key)
+        if isstruct(value) && isscalar(value) && isfield(value,'diagnostic_kind') ...
+                && any(strcmp(value.diagnostic_kind, ...
+                    {'duplicate-orbit-summary','duplicate-trajectory-summary'}))
+            assert(all(isfield(value,{'source_class','full_trace_preserved'})) ...
+                && isequal(value.full_trace_preserved,false), ...
+                'CompactResearchBranch_v3:Summary','A retained summary requires its literal source class and omission flag.');
+            requirePlainSummary(value,0);
+            output=value;
+            return
+        end
         if isa(value,'function_handle')
             output=struct('diagnostic_kind','runtime-function-descriptor', ...
                 'signature',func2str(value),'requires_runtime_reconstruction',true);
-        elseif isa(value,'PoincareSection_v3') || isa(value,'HybridSystemBase_v3') || ...
+        elseif (isscalar(value) && any(strcmp(class(value), ...
+                {'QuadrupedSchema_v3','ContinuousDynamics_v3','GuardFunctions_v3', ...
+                'ResetMap_v3','ModeTransition_v3','QuadrupedAdmissibility_v3'}))) || ...
+                isa(value,'PoincareSection_v3') || isa(value,'HybridSystemBase_v3') || ...
                 isa(value,'HybridSimulator_v3') || isa(value,'ReturnPolicyBase_v3')
             output=struct('diagnostic_kind','runtime-object-descriptor', ...
                 'source_class',class(value),'requires_runtime_reconstruction',true);
@@ -123,6 +136,24 @@ function [compact, report] = CompactResearchBranch_v3(branch)
             end
         else
             output = value;
+        end
+    end
+
+    function requirePlainSummary(value, depth)
+        assert(depth<=64,'CompactResearchBranch_v3:SummaryDepth', ...
+            'A retained plain summary exceeds the supported structural depth.');
+        if isstruct(value)
+            plainNames=fieldnames(value);
+            for plainIndex=1:numel(value)
+                for plainField=1:numel(plainNames)
+                    requirePlainSummary(value(plainIndex).(plainNames{plainField}),depth+1);
+                end
+            end
+        elseif iscell(value)
+            for plainIndex=1:numel(value),requirePlainSummary(value{plainIndex},depth+1);end
+        else
+            assert(isnumeric(value)||islogical(value)||ischar(value)||isstring(value), ...
+                'CompactResearchBranch_v3:SummaryPlain','An existing summary must contain only plain data, without runtime captures.');
         end
     end
 

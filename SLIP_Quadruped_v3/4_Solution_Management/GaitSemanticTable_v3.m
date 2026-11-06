@@ -1,15 +1,23 @@
-function mapping = GaitSemanticTable_v3()
-%GAITSEMANTICTABLE_V3 Legacy display semantics, separate from flight count.
-% F/F2 means front spread, H/H2 means hind spread. The historical suffix 2
-% was a timing heuristic; v3 appends it only when physical flight_count=2.
-labels=["PIP","PK","BD","HB_front","HB_hind","GP","PC","TR","TL","unclassified"];
+function [mapping,contractVersion] = GaitSemanticTable_v3()
+%GAITSEMANTICTABLE_V3 GUI-compatible identities and current classifier version.
+% Authoritative user clarification: H is hind spread/fore synchronized;
+% F is fore spread/hind synchronized. Historical HB_hind/H and HB_front/F
+% identities/colors agree with these current names.
+% Historical abbreviations are provenance; canonical point codes add the
+% individual-angle reference posture and measured primitive flight count.
+labels=["PIP","PK","BD","HB_front","HB_hind","GP","PC","TR","TL","unclassified", ...
+    "B","H","F","G"];
 aliases=["pronking_in_place","traveling_pronking","bounding", ...
     "front_spread_half_bounding","hind_spread_half_bounding","galloping", ...
-    "pacing","trotting","tolting","unclassified"];
-legacy=["PF","PF","B","F","H","G","PC","TR","TL","?"];
+    "pacing","trotting","tolting","unclassified", ...
+    "bounding","hind_spread_fore_synchronized","fore_spread_hind_synchronized","galloping"];
+historical=["PF","PF","B","F","H","G","PC","TR","TL","?","B","H","F","G"];
+canonical=["PIP","PK","B","F","H","G","PC","TR","TL","?","B","H","F","G"];
 colors=[0 .4470 .7410;0 .4470 .7410;.8500 .3270 .0980; ...
     .4660 .6740 .1880;.9290 .6940 .1270;.4940 .1840 .5560; ...
-    .7960 .5170 .3640;0 .6390 .6390;.6350 .0780 .1840;.5 .5 .5];
-mapping=table(labels.',aliases.',legacy.',colors, ...
-    'VariableNames',{'label','alias','legacy_base_abbreviation','color'});
+    .7960 .5170 .3640;0 .6390 .6390;.6350 .0780 .1840;.5 .5 .5; ...
+    .8500 .3270 .0980;.9290 .6940 .1270;.4660 .6740 .1880;.4940 .1840 .5560];
+    contractVersion="quadruped-gait-v3.5";
+mapping=table(labels.',aliases.',historical.',canonical.',colors, ...
+    'VariableNames',{'label','alias','legacy_base_abbreviation','canonical_base_abbreviation','color'});
 end

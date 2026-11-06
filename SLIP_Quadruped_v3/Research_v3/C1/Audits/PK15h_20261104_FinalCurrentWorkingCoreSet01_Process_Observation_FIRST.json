@@ -1,0 +1,36 @@
+{
+  "schema": "PK15h-external-process-observation-v1",
+  "observer": "FIRST",
+  "process": {
+    "tool_session_id": 90535,
+    "native_pid": 30624,
+    "wrapper_pid": 30623,
+    "actual_tool_exit_observed_by": "FIRST",
+    "exit_code": 0,
+    "observed_utc": "2026-11-05 00:02:11 UTC",
+    "resource_statistics": {
+      "real_seconds": 1498.56,
+      "user_seconds": 1509.92,
+      "system_seconds": 20.17,
+      "maximum_resident_set_bytes": 10200449024,
+      "peak_memory_footprint_bytes": 8994513512
+    }
+  },
+  "native_projection_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_FromNativeLog.json",
+    "sha256": "6727a5c29736d0337bba36cf815bb1ccf02288eeaa86769f9c8ce4d08d3d2d23",
+    "bytes": 4867
+  },
+  "FIRST_postprocess_ps": {
+    "observed_absent": [
+      30623,
+      30624
+    ],
+    "ps_exit_code": 1,
+    "output": "PID PPID COMMAND header only; no process entries",
+    "observed_after_actual_tool_exit": true
+  },
+  "independent_postguard_status": "PENDING_SECOND",
+  "scientific_completion_claimed": false,
+  "source_retirement_authorized": false
+}

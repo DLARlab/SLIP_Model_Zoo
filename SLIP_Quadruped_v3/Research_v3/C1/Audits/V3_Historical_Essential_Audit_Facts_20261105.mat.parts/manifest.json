@@ -1,0 +1,46 @@
+{
+  "schema": "opaque-byte-archive-v1",
+  "original": {
+    "name": "V3_Historical_Essential_Audit_Facts_20261105.mat",
+    "bytes": 303225245,
+    "sha256": "3a9f422614bf074b89bda5b03012f49abcbd4d1aa91ceaa55ba8f980813a5b44"
+  },
+  "part_bytes": 50331648,
+  "parts": [
+    {
+      "name": "part-000001.bin",
+      "bytes": 50331648,
+      "sha256": "61eaf0dc086a9ba1384ec062a8b33b4a13f821e49c755bc5b2deeba420dbc49c"
+    },
+    {
+      "name": "part-000002.bin",
+      "bytes": 50331648,
+      "sha256": "458a1756a80bf89fc56f5ad71e56f07c88b50279f3476d7e6c646d4fc7872bcf"
+    },
+    {
+      "name": "part-000003.bin",
+      "bytes": 50331648,
+      "sha256": "6813f4351f93d95427d74c7bbb27156edda04f216468057cb0f6ef2a7efc84bb"
+    },
+    {
+      "name": "part-000004.bin",
+      "bytes": 50331648,
+      "sha256": "c8329585cb30c1b9e9073f76da69c447976212076af14b778eb4b2bd929b9f2b"
+    },
+    {
+      "name": "part-000005.bin",
+      "bytes": 50331648,
+      "sha256": "4b5c1fd75e0508eafafb1ed767de14bce6483f956205d73aa8ed4280539fdf61"
+    },
+    {
+      "name": "part-000006.bin",
+      "bytes": 50331648,
+      "sha256": "a9799278b289e58b666e34756c41b874b1fafa74bca1f383b2d38c2ed4476f4a"
+    },
+    {
+      "name": "part-000007.bin",
+      "bytes": 1235357,
+      "sha256": "3cf20a797306c123c9a2b77b00806b182eb0db4e05bc350df865a9af04b51c3e"
+    }
+  ]
+}

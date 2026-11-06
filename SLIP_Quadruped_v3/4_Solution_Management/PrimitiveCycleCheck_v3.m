@@ -13,6 +13,8 @@ if numel(scale)~=schema.StateDimension || any(~isfinite(scale)) || any(scale<=0)
 end
 validateattributes(options.MaxCover,{'numeric'},{'scalar','integer','>=',1});
 validateattributes(options.SampleCount,{'numeric'},{'scalar','integer','>=',3});
+validateattributes(options.StateTolerance,{'numeric'},{'scalar','real','finite','positive'});
+validateattributes(options.EventPhaseTolerance,{'numeric'},{'scalar','real','finite','positive'});
 t0=data.start_time; period=data.period;
 [x0,q0]=HybridCycleData_v3.sample(data,t0);
 [xT,qT]=HybridCycleData_v3.sample(data,t0+period);
@@ -26,23 +28,27 @@ result=struct('status',"unknown",'reason',"recorded trajectory is not closed", .
     'state_tolerance',options.StateTolerance,'event_phase_tolerance',options.EventPhaseTolerance, ...
     'candidates',struct([]),'evidence_level',"sampled full hybrid trajectory", ...
     'global_primitivity_proved',false);
-result.event_history_complete=localEventCompleteness(data);
+contactAudit=HybridCycleData_v3.reconstructContact(data,period,data.time_tolerance);
+result.event_history_complete=contactAudit.complete;
+result.contact_history_audit=rmfield(contactAudit,{'events','cohorts'});
 if ~result.event_history_complete
-    result.reason="contact-mode changes are missing from the physical event log";
+    result.reason=contactAudit.reason;
+    if strlength(result.reason)==0,result.reason="physical contact-event history is incomplete";end
     return
 end
 if closureError>options.StateTolerance || ~result.mode_closed, return; end
 candidates=repmat(struct('cover',0,'period',NaN,'state_error',Inf, ...
     'mode_match',false,'event_match',false,'accepted',false, ...
     'initial_state_return_error',Inf,'witness_is_recorded_sample',false, ...
-    'cover_candidate_requires_replay',false),options.MaxCover-1,1);
+    'recorded_pair_state_error',Inf,'recorded_pair_mode_match',false,'recorded_pair_count',0, ...
+    'event_state_evidence',struct(),'cover_candidate_requires_replay',false),options.MaxCover-1,1);
 acceptedCover=1;
 for cover=2:options.MaxCover
     tau=period/cover;
     sample=linspace(t0,t0+period-tau,options.SampleCount).';
     % Add both one-sided event states to the continuous samples.
-    events=data.history;
-    eventTimes=[events.time].';
+    events=HybridCycleData_v3.physicalEvents(data,period,data.time_tolerance);
+    eventTimes=data.start_time+[events.cycle_time].';
     eventTimes=eventTimes(eventTimes>=t0 & eventTimes<=t0+period-tau);
     sample=unique([sample;eventTimes]);
     worst=0; modeMatch=true;
@@ -54,7 +60,9 @@ for cover=2:options.MaxCover
         worst=max(worst,max(abs(delta)./scale,[],'all'));
         modeMatch=modeMatch && isequal(qa,qb);
     end
-    eventMatch=localEventRepeat(events,t0,period,cover,schema,options.EventPhaseTolerance);
+    repeat=HybridCycleData_v3.eventPermutationMatch(events,period,1:4,1/cover, ...
+        options.EventPhaseTolerance*period);
+    eventMatch=repeat.matched;
     accepted=worst<=options.StateTolerance && modeMatch && eventMatch;
     [witness,witnessMode]=HybridCycleData_v3.sample(data,t0+tau);
     witnessDifference=witness-x0;
@@ -62,18 +70,30 @@ for cover=2:options.MaxCover
         witnessDifference(schema.TranslationIndex)-drift/cover;
     witnessError=max(abs(witnessDifference)./scale);
     witnessRecorded=any(abs(data.time-(t0+tau))<=data.time_tolerance);
-    uncertain=witnessRecorded && witnessError<=options.StateTolerance ...
-        && isequal(q0,witnessMode) && eventMatch && ~accepted;
+    % Unequal output meshes can make interpolated samples disagree on a
+    % literal multiple cover. Exact event limits and exact saved-knot pairs
+    % distinguish that uncertainty from a genuine state-level disagreement.
+    [recordedError,recordedModes,recordedCount]=localRecordedPairs(data,tau,drift/cover,scale);
+    eventStates=localEventStates(data,contactAudit,repeat,tau,drift,cover,scale);
+    exactReturn=witnessRecorded && witnessError<=options.StateTolerance && isequal(q0,witnessMode);
+    recordedDisagreement=recordedCount>0 && (recordedError>options.StateTolerance || ~recordedModes);
+    eventDisagreement=eventStates.complete && ...
+        (eventStates.state_error>options.StateTolerance || ~eventStates.mode_match);
+    accepted=accepted && ~recordedDisagreement && ~eventDisagreement;
+    interpolationUnresolved=~witnessRecorded && ~recordedDisagreement && ~eventDisagreement;
+    uncertain=eventMatch && ~accepted && (exactReturn || interpolationUnresolved);
     candidates(cover-1)=struct('cover',cover,'period',tau,'state_error',worst, ...
         'mode_match',modeMatch,'event_match',eventMatch,'accepted',accepted, ...
         'initial_state_return_error',witnessError,'witness_is_recorded_sample',witnessRecorded, ...
+        'recorded_pair_state_error',recordedError,'recorded_pair_mode_match',recordedModes, ...
+        'recorded_pair_count',recordedCount,'event_state_evidence',eventStates, ...
         'cover_candidate_requires_replay',uncertain);
     if accepted, acceptedCover=cover; end
 end
 result.candidates=candidates;
 if any([candidates.cover_candidate_requires_replay] & [candidates.cover]>acceptedCover)
     result.status="unknown";
-    result.reason="an exact intermediate full-state return conflicts with sampled history; cover candidate requires independent replay";
+    result.reason="sampled cycle evidence conflicts or leaves a repeating-event cover unresolved; independent replay required";
     return
 end
 result.cover_count=acceptedCover;
@@ -86,53 +106,54 @@ else
     result.reason="no integer multiple cover detected within stated bound and sampling tolerance";
 end
 end
-function complete=localEventCompleteness(data)
-complete=true;
-for k=2:numel(data.time)
-    changed=find(data.mode(k,:)~=data.mode(k-1,:));
-    if isempty(changed) || data.time(k)<=data.start_time+data.time_tolerance,continue;end
-    at=find(abs([data.history.time]-data.time(k))<=data.time_tolerance);
-    for leg=changed
-        expected="liftoff";
-        if data.mode(k,leg),expected="touchdown";end
-        found=false;
-        for j=at
-            [eventLeg,kind]=HybridCycleData_v3.eventIdentity(data.history(j),data.schema);
-            found=found || (isequal(eventLeg,leg) && kind==expected);
-        end
-        if ~found,complete=false;return;end
+function [worst,modes,count]=localRecordedPairs(data,tau,expectedDrift,scale)
+% Compare both external limits only where both shifted times are recorded.
+[knots,first]=unique(data.time,'stable');[~,last]=unique(data.time,'last');
+worst=0;modes=true;count=0;right=1;
+for left=1:numel(knots)
+    target=knots(left)+tau;
+    if target>data.start_time+data.period+data.time_tolerance,break;end
+    while right<numel(knots) && knots(right)<target-data.time_tolerance,right=right+1;end
+    if abs(knots(right)-target)>data.time_tolerance,continue;end
+    count=count+1;
+    for indices={[first(left),first(right)],[last(left),last(right)]}
+        rows=indices{1};delta=data.state(rows(2),:)-data.state(rows(1),:);
+        delta(data.schema.TranslationIndex)=delta(data.schema.TranslationIndex)-expectedDrift;
+        worst=max(worst,max(abs(delta)./scale));
+        modes=modes && isequal(data.mode(rows(1),:),data.mode(rows(2),:));
     end
 end
 end
-function match=localEventRepeat(history,t0,T,k,schema,tolerance)
-% Use half-open periods, retaining simultaneous event multiplicity.
-phase=mod(([history.time].'-t0)/T,1);
-names=strings(numel(history),1);
-keep=([history.time].'>t0+128*eps(max(1,abs(t0)))) & ([history.time].'<=t0+T+128*eps(max(1,abs(t0+T))));
-phase=phase(keep); history=history(keep);
-for j=1:numel(history)
-    [leg,kind]=HybridCycleData_v3.eventIdentity(history(j),schema);
-    if isempty(leg), match=false; return; end
-    names(j)=string(leg)+"_"+kind;
-end
-names=names(1:numel(history));
-match=true;
-for j=1:numel(phase)
-    target=mod(phase(j)+1/k,1);
-    peers=names==names(j);
-    if ~any(abs(CircularPhase_v3.difference(phase(peers),target))<=tolerance)
-        match=false; return;
+function report=localEventStates(data,audit,repeat,tau,drift,cover,scale)
+% Match exact external cohort states; serial reset intermediates are not
+% physical one-sided limits. No leg permutation is used for a shorter cycle.
+report=struct('complete',false,'state_error',Inf,'mode_match',false,'cohort_count',0, ...
+    'scope',"exact external physical-event cohort limits, without interpolation or leg permutation");
+if ~repeat.matched,return;end
+events=audit.events;cohorts=audit.cohorts;ids=zeros(numel(events),1);
+for k=1:numel(cohorts),ids(cohorts{k})=k;end
+worst=0;modes=true;
+for k=1:numel(cohorts)
+    members=cohorts{k};mapped=repeat.event_bijection(members);target=unique(ids(mapped));
+    if numel(target)~=1 || numel(cohorts{target})~=numel(members),return;end
+    peers=cohorts{target};
+    wrap=round((mean([events(members).cycle_time])+tau-mean([events(peers).cycle_time]))/data.period);
+    expected=drift/cover-wrap*drift;
+    sourceRows=[events(members(1)).history_index,events(members(end)).history_index];
+    targetRows=[events(peers(1)).history_index,events(peers(end)).history_index];
+    for side=1:2
+        stateName='state_before';modeName='mode_before';
+        if side==2,stateName='state_after';modeName='mode_after';end
+        a=data.history(sourceRows(side));b=data.history(targetRows(side));
+        xa=a.(stateName);xb=b.(stateName);qa=a.(modeName);qb=b.(modeName);
+        if numel(xa)~=data.schema.StateDimension || numel(xb)~=data.schema.StateDimension ...
+                || any(~isfinite([xa(:);xb(:)])) || numel(qa)~=4 || numel(qb)~=4 ...
+                || ~all(ismember([qa(:);qb(:)],[0 1])),return;end
+        delta=xb(:).'-xa(:).';delta(data.schema.TranslationIndex)=delta(data.schema.TranslationIndex)-expected;
+        worst=max(worst,max(abs(delta)./scale));modes=modes && isequal(logical(qa(:)),logical(qb(:)));
     end
 end
-% Presence alone is insufficient if copies have unequal multiplicities.
-for name=unique(names).'
-    counts=zeros(k,1);
-    p=phase(names==name);
-    for j=1:k
-        counts(j)=sum(p>=(j-1)/k-tolerance & p<j/k-tolerance);
-    end
-    if any(counts~=counts(1)), match=false; return; end
-end
+report.complete=true;report.state_error=worst;report.mode_match=modes;report.cohort_count=numel(cohorts);
 end
 function result=localOptions(options,defaults)
 result=defaults;

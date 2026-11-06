@@ -1,0 +1,263 @@
+Act as a researcher in hybrid legged dynamics, periodic-orbit computation, symmetry, and bifurcation, and as the MATLAB engineer responsible for finishing this round of work.
+
+REPOSITORY AND AUTHORIZED SCOPE
+
+Repository: https://github.com/DLARlab/SLIP_Model_Zoo
+The preceding audit used main commit 1ad4e1825fcd3bea467b87eaf6810c95b4b29831. Inspect the actual checkout and current main; record differences before relying on historical claims. Preserve uncommitted user work.
+
+Execute this task, including MATLAB experiments, under one nine-hour wall-clock budget. Do not stop at a plan, implementation-only response, first failed experiment, or instructions for the user to run later. All scientific simulation, correction, continuation, classification, sampling, validation, and campaign orchestration must be MATLAB-native. No Python scientific runner or Python handoff.
+
+Write or modify files only under SLIP_Quadruped_v3. Treat SLIP_Quadruped and all other repository paths as read-only. Legacy MAT files may be copied into v3 and losslessly adapted as predictors. Do not change the physical contact law to make an experiment pass.
+
+Preserve the current dynamics, solver, continuation, Floquet, graphics, and GUI functionality and layout. Improve the existing services rather than introducing another parallel framework. In particular, keep PeriodicSolutionSolver_v3 as the shared correction/admission path used by continuation.
+
+Record start UTC, a monotonic elapsed timer, and one shared deadline nine hours later. Subprocesses, workers, retries, and resumed work share that deadline. Reserve the last 45 minutes for final validation and reporting. Keep owned jobs within resource/license limits; do not terminate unrelated MATLAB sessions.
+
+1. ESTABLISH THE SCIENTIFIC BASELINE
+
+Read the relevant current code and the retained audit evidence, especially:
+- Docs_v3/Legacy_P1_Seed_Recovery_and_Model_Compatibility_v3.md
+- Docs_v3/V2_and_V3_Contact_Policies_v3.md
+- Docs_v3/Strict_P1_30h_Search_Audit_20261010_v3.md
+- Docs_v3/Periodic_Solution_Solver_v3.md
+- Audits_v3/Scientific_Evidence/manifest.json
+- Current gait classifier, schema, publication/catalog helpers, solver, and GUI consumers.
+
+Verify rather than blindly repeat these previous findings:
+- Of 2,552 copied legacy columns, all 814 initially eligible exact seeds failed the initial autonomous return with TensileStance; no Newton corrections occurred in that census.
+- Scheduled legacy stance segments were found compressive in the audited examples. Earlier autonomous swing-foot crossings, followed by outward post-reset stance flow, explain the observed initial failures. Continuous equation/reset equivalence does not imply identical hybrid executions.
+- Principal-parameter B/F/H/G periodic points already have saved admissions. The previous gathered/extended test used aggregate spread at three flight samples; failure of that label test is not failure to solve a periodic orbit.
+- Core admission defaults are 1e-8 for full closure, energy, family, selector, and stance errors, while shared reduced root acceptance is at most 1e-10. Do not confuse a stricter acquisition capture rule with those defaults.
+- P2 names, standing/opposed-spread records, or a BL occurrence of two do not establish a B2 gait, two physical flights, or a primitive daughter.
+- Some historical drivers and detailed traces were removed. Restore the minimal necessary MATLAB workflows; retain this round's runnable drivers and decisive evidence.
+
+Inventory actual accepted orbits, ordered components, parameter vectors, return policies, and unresolved connections. Do not count renamed records or duplicate stored representatives as new cycles.
+
+2. IMPLEMENT ONE VERSIONED CLASSIFICATION CONTRACT
+
+Use native leg order [BL, BR, FL, FR]. Store separate fields for initial-state pattern, validated gait type, PIP subtype, event-half-shift exclusion, suspension reference posture, all per-flight postures, primitive flight count, tolerances, ambiguity, and historical labels.
+
+A. Period and half-period event filter
+
+First establish the leg-labeled primitive period T within the declared numerical verification scope. Do not classify a convenient stored multiple as the primitive cycle.
+
+Let sigma swap BL with BR and FL with FR. Test whether every physical event (leg, TD/LO kind, time modulo T) has a bijective counterpart (sigma(leg), same kind, time + T/2 modulo T), within a registered circular-time tolerance.
+
+Match full event multisets and simultaneous cohorts, including repeated events per leg. Never match TD to LO. Exclude arming roots, section stops, diagnostic events, and duplicate storage of a boundary event. Empty/incomplete histories or uncertain matching give UNDETERMINED.
+
+A matched pattern is outside this asymmetric classifier. Preserve the existing PC/TR/TL or other symmetric-gait classification route. Event timing alone does not prove full state-level spatiotemporal symmetry; make any stronger symmetry claim a separate trajectory audit.
+
+B. Gait type from leg states
+
+At the declared canonical initial section, compare leg states (contact mode, raw body-relative angle alpha, physically consistent angular rate alphadot), with separately declared angle/rate tolerances. Validate dependent stance rates through the existing physical chart without silently modifying a source orbit.
+
+Do not wrap raw alpha differences modulo 2*pi to declare dynamic equality: the torsional dynamics need not be invariant under that change. Check maximum pairwise spread for all-four synchrony; tolerance-based pair equality is not automatically transitive.
+
+For orbits not excluded by the half-period filter, use this exact new hierarchy:
+1. All four leg states synchronized: PK candidate.
+2. Hind pair AND fore pair synchronized, but not all four: B.
+3. Only the hind pair synchronized: H.
+4. Only the fore pair synchronized: F.
+5. Neither bilateral pair synchronized: G.
+Uncertain comparisons remain borderline/undetermined, not automatically G.
+
+THIS H/F CONVENTION IS AUTHORITATIVE AND REVERSES THE CURRENT LEGACY USAGE:
+new H = hind synchronized / fore spread = old HB_front / old F;
+new F = fore synchronized / hind spread = old HB_hind / old H.
+
+Audit state synchronization over the complete saved cycle. Initial equality is a candidate classifier, not automatically an invariant gait: all-four equality also needs compatible body state, parameters, and hybrid evolution. Prove the relevant invariant-subspace conditions where used; otherwise verify the trajectory numerically and retain inconsistency flags. Only validated gait types qualify canonical research labels.
+
+Use explicit numerical quantities named hind_pair_asymmetry and fore_pair_asymmetry. Do not blindly swap old internal H/F variable names whose meanings may be spread amplitudes.
+
+Preserve PIP as the existing verified vertical in-place subclass of synchronized PK: zero average drift alone is insufficient. Keep PIP as a distinct parent identity and display name.
+
+C. Gathered/extended posture from individual relative leg angles
+
+The user means gathered hind angles positive and fore angles negative. Use body-relative alpha, not absolute phi+alpha, body pitch, pitch rate, touchdown order, pair averages, or aggregate front-minus-hind foot spread.
+
+Use the raw principal relative-angle chart -pi < alpha < pi, or a documented stricter native chart, so the sign of alpha agrees with the sign of sin(alpha). Out-of-chart classification is unresolved; do not wrap the dynamical state. Within that chart:
+G requires both hind alpha > epsilon_G and both fore alpha < -epsilon_G.
+E requires both hind alpha < -epsilon_G and both fore alpha > epsilon_G.
+
+Document the geometry: the foot-minus-hip vector projected onto the torso forward axis equals leg_length*sin(alpha). State where the literal angle-sign interpretation is valid. Do not silently wrap an out-of-chart state to manufacture a sign.
+
+Define the observation phase in advance:
+- Reconstruct all positive-duration flight intervals on the primitive time circle.
+- The reference flight is the flight containing the canonical marked apex. If the section is not in flight, use the first subsequent flight in that fixed cyclic ordering and record this choice.
+- For each flight interval, evaluate posture at its maximum COM height on the closure of that interval. In ballistic flight this is the unique interior apex when one exists; otherwise it is the higher endpoint, using the flight-side state limit. Explicitly record interior_apex versus boundary_maximum. Do not claim that a boundary maximum is an apex.
+- For an interval starting at a with duration D, ballistic flight gives t_ref = a + clip(vy(a+)/g, 0, D). Use the model's actual gravity and native trajectory evaluation; handle intervals crossing the section boundary.
+- The canonical G/E character describes the reference flight only. Store the full cyclic vector of per-flight postures and phase identities.
+- A two-flight cycle can have postures [G,E] and still have suffix G2 if its reference posture is G. Do not require every flight or every instant of a flight to have identical geometry.
+
+Use M for a resolved mixed individual-leg sign pattern and U for near-zero angle-sign boundaries, missing data, or unresolved uncertainty. A boundary_maximum reference can still receive G or E when all four individual-angle inequalities hold. M/U are diagnostic codes and must not be promoted as requested G/E results. PK/PIP normally cannot satisfy opposite hind/fore signs under full synchrony; use a not-applicable posture rather than forcing G/E.
+
+D. Count flights from physical events
+
+Reconstruct right-continuous contact modes from physical TD/LO events. Count connected positive-duration all-swing intervals on R/(T Z), merging a flight that crosses 0/T.
+
+Resolve simultaneous resets as atomic cohorts. Zero-duration intermediate modes are not flight phases. Do not infer flight count from filenames, BL touchdown occurrence, the number of apexes, or a legacy suffix.
+
+Register event/flight-duration resolution and sensitivity checks. If the count changes near the resolution threshold, report an uncertain flight count and leave the ordinary canonical label provisional.
+
+For ordinary B/H/F/G types, the compact code is:
+<base><reference posture><primitive flight count>
+Examples: BG1, HE1, FG2, GE2.
+Use GM1 or GU1 only as transparent diagnostics. Support multi-digit counts without truncating. PK and PIP are explicit naming exceptions.
+
+3. BRANCH SAMPLING, C0/C1/C2, AND MIGRATION
+
+Separate stable orbit/component identity from point labels and modal branch display names. A shared filename, source group, C prefix, or label never proves connectivity.
+
+Extract the scalar horizontal displacement Delta_x = orbit.stride_displacement(schema.TranslationIndex), resolving the actual native schema/API. The stored stride_displacement is a full-state displacement vector: do not divide that full vector and call it speed. Use mean signed horizontal velocity vbar = Delta_x / primitive_period and speed U = abs(vbar) for the naming sample. Preserve vbar, direction, and apex dx separately.
+
+For each verified ordered connected component with fixed physical parameters, partition at travel-direction reversals and resolved flight-count changes while preserving the parent component identity.
+
+Take 20 uniformly spaced speed levels including endpoints:
+U_j = U_min + j*(U_max-U_min)/19, j=0,...,19.
+
+For a monotone speed portion this normally means 20 distinct admitted cycles. Reuse stored admitted points when they satisfy a predeclared, appropriately small target-speed tolerance. Otherwise interpolate only a predictor, correct with a properly dimensioned speed-constrained periodic system, and independently admit the result. Report target and achieved speed errors. Do not duplicate points or classify interpolated state vectors as periodic solutions.
+
+Folded components are an explicit extension of the 20-point rule:
+- Enumerate all resolved intersections with each of the 20 speed levels.
+- If all qualified intersections at a level have the same compact label, that label receives the level's one vote.
+- If their labels differ, give the level a MULTIVALUED vote.
+- Missing/unresolved intersections make that level incomplete, not evidence of label agreement.
+- This still gives 20 equally weighted speed locations, but can require more than 20 physical orbits; report the actual number.
+Do not silently choose one fold limb or merge unrelated components.
+
+A constant-speed family cannot provide 20 distinct speed locations. Mark the method inapplicable; PIP has its explicit C0 exception. A single diagnostic orbit is not a sampled branch.
+
+Use the unique most frequent category, not an unstated strict-majority rule. Report all 20 votes, mode count/fraction, whether a majority exists, ties, M/U/MULTIVALUED votes, and sampling completeness. Missing roots are missing samples. A tie, diagnostic winner, or incomplete sampling leaves the canonical branch name provisional. A modal name never overwrites individual point classifications or asserts that every point has that gait.
+
+Canonical convention:
+- C0: one canonical PIP parent dataset per distinct full-parameter/branch identity.
+- C1: P1 one-flight data, including PK.
+- C2: P2 two-flight data.
+Examples:
+C0_PIP_10_20_2.mat
+C1_PK_10_20_2.mat
+C1_BG1_10_20_2.mat
+C1_HE1_10_20_2.mat
+C2_FG2_10_20_2.mat
+
+PK/PIP retain their special names and explicit flight-count metadata. C2_B2 is a family alias omitting G/E, not a unique full name; resolve all matching branches transparently.
+
+Expose the same C0 PIP parent by reference in C1/C2 catalogs. Preserve historical copies as provenance rather than independent canonical parents. Preserve stable IDs, original bytes/hashes where needed, original classification/admission evidence, and old-to-new aliases. Recompute all new labels; do not mechanically exchange letters.
+
+Plan and validate catalog/MAT/GUI/evidence-link updates before publishing them coherently. Keep distinct components separate in plots. Parameters that do not fit the common-stiffness filename must use an unambiguous full-parameter identity. Metadata rewrites change file hashes; record that honestly.
+
+Implement the full sampling/naming service, but do not consume the research budget manufacturing 20 samples for every isolated historical record. Prioritize scientifically useful components; incomplete audits remain explicitly provisional.
+
+4. TARGETED MATLAB CONTROLS AND CONTACT/SOLVER REPAIRS
+
+Reuse current PeriodicSolutionSolver_v3, RootSolver_v3, physical charts, and continuation correctors.
+
+Make the root-solving process explicit. For independent physical section coordinates u of dimension d, the declared autonomous return P, and a regular energy pivot j, solve the current square fixed-energy system F(u,E) = [(P(u)-u)_{i != j}; H(u)-E] = 0. At fixed E this has d unknowns and d equations. A family correction frees E and adds exactly one independent selector equation, giving d+1 unknowns and equations. Mean-speed targeting requires its actual nonlinear observable, not a mislabeled linear coordinate constraint. Use the existing residual delegation when needed. Document chart, units/scales, pivot regularity, and any symmetry reduction before solving.
+
+For each trial: lift independent coordinates to the physical state, run the declared directed hybrid return, compute the unscaled objective, then apply registered residual scaling. Physically valid nonperiodic trials must return their finite nonzero residual. Invalid guard/chart/mode/section/integration trials must remain invalid rather than receiving fabricated zero or constant residuals. Compute topology-qualified derivatives, take a damped/trust-region correction, and record actual evaluated and accepted iterates. An unreliable but finite derivative used for acquisition is not a derivative certificate. Correctors must not choose a return occurrence by minimizing closure or freeze legacy event times. Explain the local energy argument for omitting one closure equation, then independently verify all 13 nongauge components after correction.
+
+Run meaningful classifier controls covering:
+- Exact new H/F mapping and deliberate fore/hind swaps.
+- Equal angles but unequal rates or modes.
+- All-four equal initial legs with incompatible body pitch.
+- Raw alpha values differing by 2*pi.
+- A true half-period event pairing, incomplete histories, repeated events, and a stored multiple period.
+- Torso-relative versus world-relative orientation and aggregate-spread false positives.
+- Mixed and near-zero individual angle signs.
+- A [G,E] two-flight orbit and reference-flight selection.
+- Circular boundary merging and zero-duration simultaneous events.
+- Branch ties, sparse samples, folds, direction reversal, and PIP's zero-speed exception.
+
+Reclassify existing admitted native assets from saved trajectories first. Expected checks from the previous saved states, subject to the complete new contract:
+- B amplitude .6505: BG1.
+- Old native F/front-spread principal point: new HE1.
+- Old native H/hind-spread principal points: new FG1.
+- The saved generic gallop has mixed signs within the pairs; do not force GG1/GE1.
+
+Then replay a valid PK/PIP control and a nonsymmetric control. Correct a meaningful perturbed accepted orbit, and exercise a continuation correction through the same shared service. Confirm deliberate open and physically invalid trials fail at the correct stage. Check GUI loading, labels/colors, plotting, selection, animation, correction, continuation, save, and resume while preserving layout and functionality.
+
+Improve contact diagnostics without altering admissible trajectories. At touchdown record incoming guard slope, post-reset radial length rate, post-reset guard slope, reset consistency, and the earliest failure.
+At TD:
+rdot_plus = hip_vy*cos(theta) - hip_vx*sin(theta)
+gdot_plus = cos(theta)*rdot_plus.
+Incoming gdot_minus < 0 does not imply rdot_plus <= 0.
+A strictly outward post-reset stance should be identified at the contact. Do not change grazing/equality cases without a proper higher-order analysis.
+
+Retain separate statuses for invalid initial return, derivative failure, nonconverged finite residual, budget refusal, failed full closure, failed replay, and accepted orbit failing a requested label.
+
+Journal actual root iterations: coordinates, native/free energy, scaled/unscaled residuals, full13 closure, selector errors, steps, damping/trust radius, Jacobian reliability, event signatures, and physical margins. Distinguish last accepted iterate, last finite evaluated base, and original-seed fallback after fsolve exceptions.
+
+5. ACTUALLY EXECUTE THE RESEARCH CAMPAIGN
+
+Use this adaptable wall-clock allocation:
+00:00-00:15: baseline, environment, deadline, evidence inventory.
+00:15-01:30: classifier/naming implementation, focused core and GUI controls.
+01:30-03:30: Round A, continue the strongest admitted principal families.
+03:30-05:30: Round B, local bifurcation refinement and signed branch switching.
+05:30-07:30: Round C, an obstruction-driven alternative acquisition route.
+07:30-08:15: follow the most informative frontier and complete useful sampling.
+08:15-09:00: final independent validation, saved-state consolidation, GUI checks, report.
+
+Transfer unused time to research. Execute at least three scientifically distinct numerical rounds when the core is functional. A critical blocker must be diagnosed and repaired honestly rather than concealed by invented round completions. Do not pad time with identical retries or waiting.
+
+Round A:
+Freshly qualify and continue existing principal PK and newly classified B/H/F/G roots. Use fixed principal physical parameters and an explicit energy/amplitude/arclength formulation. Adapt continuation steps and retain actual adjacent accepted points.
+Perform real work on the P2 track as well. Reclassify its standing/opposed-spread assets rather than assuming they are B2. Select BL occurrence independently from measured flight count; N_flight=2 does not automatically mean BL occurrence=2.
+
+Round B:
+Refine promising critical points and symmetry sectors. Test both signed daughter directions at multiple amplitudes with selectors that prevent immediate collapse onto the parent. Continue admitted daughters for neighboring points and reduce their amplitudes toward the parent.
+A multiplier near +1 is only a clue. Separate neutral energy directions, parent tangents, symmetry-breaking kernels, and event-order/grazing boundaries. Check period relationships and possible multiple covers; +1 of an iterated return is not automatically a same-period pitchfork.
+Record derivative scope and reliability. Do not call a finite one-sided derivative a classical Floquet or C2 certificate.
+
+Round C:
+Choose a genuinely different method based on the observed obstruction: another valid parent basin, a changed selector/scaling, qualified section rephasing, parameter homotopy from admitted nearby-parameter gaits, or properly dimensioned multiple shooting/feasibility restoration where justified.
+Do not repeat the 814 exact invalid seeds as a substitute for a new experiment. Rephasing the same forbidden path cannot remove its path violations.
+Changed parameters, timed schedules, auxiliary first returns, or relaxed acquisitions remain predictors until independently corrected/admitted under the required final physical model and section.
+
+Research targets remain hypotheses:
+P1: PK -> B -> {H,F} -> G.
+P2: PIP -> B2 -> {H2,F2} -> G2.
+Also retain the PIP-PK parent connection as a separate claim.
+Use the new H/F definitions, actual G/E reference postures, and measured primitive flight counts. Preserve excluded symmetric gaits and qualify any "all quadrupedal gaits" claim accordingly.
+
+After each failed experiment:
+1. Identify the actual failing stage and first physical or numerical cause.
+2. Audit residual components, chart dimension, energy/selector constraints, failed derivative columns, event signatures, and budget status.
+3. Make one justified change or choose a different useful predictor/formulation.
+4. Run the relevant control, then execute the successor.
+5. Record what changed, what improved, and what remains unresolved.
+
+Do not stop after a first failure. Conversely, a finite nine-hour search cannot prove global nonexistence.
+
+6. ACCEPTANCE AND EVIDENCE
+
+Keep the current nine service gates: full nongauge closure, mode closure, target energy, trajectory energy variation, unscaled family equations, family selector, physical admissibility/stance constraints, primitive identity, and replay determinism.
+
+Do not loosen thresholds. Default full/energy/family/selector/stance tolerances remain 1e-8; shared scaled root acceptance is at most 1e-10. Record the actual effective options for each run and keep stricter registered settings when applicable.
+
+Use independent fresh service replays and both plain fine replays at MaxStep .0005 and .00025 for final paper-level candidate admissions. Report full residual vectors and actual errors, not only booleans or MATLAB exit flags.
+
+Maintain a graph separating accepted orbit samples, ordered continuation components, candidate critical points, and established attachments. Every asserted edge must reference its actual numerical or analytical evidence. Names and proximity are not edges.
+
+State assumptions for mathematical claims. Distinguish numerically supported existence, locally justified bifurcation, conditional analytical propositions, and unresolved global conjectures.
+
+Update the mathematical assumption/proposition ledger: relative periodicity modulo horizontal translation without leg permutation; the strict BL-marked apex; regular energy-chart reduction; invariant synchronization subspaces; event transversality and saltation/return derivatives; and the hypotheses actually needed for a local symmetry-breaking theorem. For simultaneous contacts, establish compatibility across admissible event splittings or use a qualified directional/nonsmooth description. A numerical near-singularity is not an analytical bifurcation proof.
+
+7. REQUIRED FINISH
+
+Preserve atomically updated MATLAB checkpoints, a human-readable experiment ledger, classification/sampling audits, and runnable MATLAB drivers/residuals. Preserve decisive rejected states and first-failure traces without duplicating every large intermediate trajectory.
+
+Provide and actually exercise one MATLAB-native campaign/resume entry point, for example RunNineHourGaitCampaign_v3. Resume must respect the original deadline and checkpoint identity. This is a deliverable you execute, not a request for the user to finish the research.
+
+End with:
+- The precise implemented classification/naming specification and tests.
+- Old/new label crosswalk for retained admitted assets.
+- Actual corrected and independently admitted roots, continuation components, and branch connections.
+- Twenty-level naming audits with physical sample counts, speed errors, votes, and provisional cases.
+- The actual experiment rounds and diagnose/repair/retry outcomes.
+- Core/GUI regression results and preservation verification.
+- One nine-hour timing ledger, worker accounting, and interruption/timeout details.
+- A research report stating established results, disconnected accepted roots, missing edges, specific obstructions, and the best justified next experiments.
+
+If the full hypothesized graph remains unresolved, report the strongest established subgraph and why the remaining claims are unresolved. Do not claim success from relabeling, reduced residuals alone, changed-parameter cycles, or a failure report that merely records a timeout.
+

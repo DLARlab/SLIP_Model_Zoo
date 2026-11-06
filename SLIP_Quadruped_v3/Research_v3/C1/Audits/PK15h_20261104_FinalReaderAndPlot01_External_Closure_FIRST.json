@@ -1,0 +1,124 @@
+{
+  "schema": "PK15h-final-public-core-reader-render-external-closure-v1",
+  "created_utc": "2026-11-05 00:13:01 UTC",
+  "native_projection_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalReaderAndPlot01_FromNativeLog.json",
+    "sha256": "dd3422d42b955dc3937ef6b4daa5409e7dafc7890e115ea893e3b0adfae4135b",
+    "bytes": 6530
+  },
+  "manifest_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_Manifest.mat",
+    "sha256": "525ab42b73e7f7eacc88657a8cf2e4d60436cdd40aef549d3a969c23d7462bc8",
+    "bytes": 2041338.0
+  },
+  "export_external_closure_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_External_Closure_FIRST.json",
+    "sha256": "90f18f2559db67c7558f43ba68f2d9a65320386dccda86a75ee14292c2c7cc67",
+    "bytes": 5019
+  },
+  "core_references": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0001_WorkingCore29.mat",
+      "sha256": "f76a21ac424bab9d60bdda484c5ac217dcc4769ba7c3659acf33df5f785728db",
+      "bytes": 1275419.0
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0002_WorkingCore29.mat",
+      "sha256": "2d26534db60084774e4e1f72086d3a895cef0a53aeb015f6ef3e383e99f00a1f",
+      "bytes": 1070142.0
+    }
+  ],
+  "log_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalReaderAndPlot01.log",
+    "sha256": "d1419f66d6c8de2e1fcd780015ffccefc260679d0a53c6cc025c3d587c218cd9",
+    "bytes": 4487
+  },
+  "plot_receipt_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponents_Overview01.json",
+    "sha256": "6656f2b8bb38960b2734503f2d336c56dd81b1847fec18ffa9cdce1fb0082619",
+    "bytes": 2358
+  },
+  "PNG": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponents_Overview01.png",
+    "sha256": "953e15fe75b151e04c2ea3b0333bd988cdfea0150b63a909fccb41962fd0d105",
+    "bytes": 129320
+  },
+  "PDF": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponents_Overview01.pdf",
+    "sha256": "49691c867898876fe5c4dd168188500b58f5b79fa422225414cf2d36ff705891",
+    "bytes": 123672
+  },
+  "scripts": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_pk15h_20261104/SmokePK15hWorkingCoreSnapshot01.body.actual.txt",
+      "sha256": "2ddeb07925f2a6cee4712e970f006379c940ffe1064cbd1ce39411b0699c74dd",
+      "bytes": 14571
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_pk15h_20261104/PlotPK15hCurrentComponentsOverview01.body.ready.txt",
+      "sha256": "cf6f2e27874ce7e5dd3b2b22adde17a7fe2d14c6c76d056c94046c3220d2dbe3",
+      "bytes": 7018
+    }
+  ],
+  "process": {
+    "actual_tool_exit_observed": true,
+    "exit_code": 0,
+    "session_id": 9492,
+    "native_pid": 32833,
+    "wrapper_pid": 32832,
+    "direct_tool_observer": "FIRST",
+    "observed_utc": "2026-11-05 00:08:23 UTC",
+    "resource_statistics": {
+      "real_seconds": 87.96,
+      "user_seconds": 89.91,
+      "system_seconds": 2.85,
+      "maximum_resident_set_bytes": 1819394048,
+      "peak_memory_footprint_bytes": 1294405448
+    },
+    "independent_PID_absence_verified": true,
+    "independent_process_observer": "SECOND"
+  },
+  "independent_post_guard": {
+    "all_passed": true,
+    "observer": "SECOND",
+    "completed_utc": "2026-11-05 00:10:16 UTC",
+    "consumed_and_output_reference_checks": 39,
+    "unique_files": 34,
+    "export_pending_stages_remain_absent": 5,
+    "process_ids_verified_absent": [
+      32832,
+      32833
+    ],
+    "scope": "Opaque file SHA/bytes and stage/process checks; no independent MAT decoding or native launch."
+  },
+  "all_owned_native_workers_closed": true,
+  "fresh_public_core_reader_process_verified": true,
+  "fresh_physical_replay_or_admission_claimed": false,
+  "old_export_manifest_fresh_process_flag_mutated": false,
+  "whole_occurrences_verified": 1145,
+  "complete_components_verified": 2,
+  "typed_relation_counts": {
+    "P": 1042,
+    "E": 96,
+    "A": 0,
+    "M": 13
+  },
+  "refusal_identifiers": [
+    "C1WorkingSnapshot:ExportClosure",
+    "C1WorkingSnapshot:ExportClosure",
+    "C1WorkingSnapshot:MixedSpecs"
+  ],
+  "Root_calls": 0,
+  "map_calls": 0,
+  "ODE_calls": 0,
+  "new_classification_calls": 0,
+  "new_admissions": 0,
+  "scientific_completion_claimed": false,
+  "source_retirement_authorized": false,
+  "PNG_visual_QA": {
+    "performed_by": "FIRST",
+    "passed": true,
+    "scope": "Readable labels/legend/allgroups/finite-scope subtitle and scatter-only presentation. No scientific inference from image similarity."
+  },
+  "scope": "Separate structural public-reader/cold-start and render evidence. Export manifest and all saved scientific flags/epochs stay literal. No full trajectory, current-all9-for-every-record, branch continuity, physical-endpoint maximality or global PK proof."
+}

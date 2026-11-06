@@ -10,9 +10,10 @@ function h = BuildQuadrupedGUILayout_v3(fig,schema,root,cb)
     main.RowSpacing=10;main.ColumnSpacing=12;
     data=uipanel(main,'Title','Data Info');data.Layout.Row=1;data.Layout.Column=1;
     dg=grid(data,[2 1],{'fit','fit'},{'1x'});
-    top=grid(dg,[1 5],{'fit'},{'1.45x','fit',82,82,82});
-    h.File=uidropdown(top,'Items',{'<none>'});
+    top=grid(dg,[1 5],{'fit'},{'fit','1.45x',82,82,82});
     h.SelectFolder=button(top,'Select Folder',cb.SelectFolder);
+    h.SelectFolder.Layout.Column=1;
+    h.File=uidropdown(top,'Items',{'<none>'});h.File.Layout.Column=2;
     button(top,'Plot',cb.LoadSelected);button(top,'Plot All',cb.LoadAll);button(top,'Delete All',cb.RemoveAll);
     params=grid(dg,[1 2],{'fit'},{'1x','1x'});
     fixed=grid(params,[1 3],{'fit'},{'fit','1x','1x'});

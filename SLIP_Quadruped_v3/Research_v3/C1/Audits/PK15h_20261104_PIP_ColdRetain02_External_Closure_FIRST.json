@@ -1,0 +1,76 @@
+{
+  "schema": "PK15h-FIRST-observed-closed-native-operation-v1",
+  "recorded_utc": "2026-11-04T19:23:19.170942+00:00",
+  "scope": "Two cold qualifications plus four exact retained P/M transports; previously saved case2 cold and seam cold were reused, no roots or maps.",
+  "caller_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_pk15h_20261104/RunPK15hPIPColdRetain02.body.actual.txt",
+    "sha256": "b6d52b4579455d4b17c3c1de21ab6146d8a997df783920331aea570b6f84f8c4",
+    "bytes": 21694
+  },
+  "process": {
+    "session_id": 99478,
+    "native_pid": 59195,
+    "observed_wrapper_pid": 59194,
+    "actual_tool_exit_observed_by": "FIRST",
+    "exit_code": 0,
+    "real_seconds": 292.29,
+    "user_seconds": 297.25,
+    "system_seconds": 5.41,
+    "maximum_resident_set_size_bytes": 4888854528
+  },
+  "independent_post": {
+    "agent": "SECOND /root/pk_reviewer",
+    "completed_by_utc": "2026-11-04T19:22:06Z",
+    "all67_input_headers_SHA_bytes_passed": true,
+    "all6_product_headers_and_log_passed": true,
+    "owned_native_and_wrapper_absent": true,
+    "pending_paths_absent": 12,
+    "direct_tool_exit_observed_by_SECOND": false
+  },
+  "products": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/PK15h_20261104_PIP_Link01_Case02_CurrentCarrier.mat",
+      "sha256": "0f8e9492fc54d6c2df75ddde8f007eda22473372cc90ab8f36883af007d4e39d",
+      "bytes": 5786114
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/PK15h_20261104_PIP_Link01_Case03_CurrentCarrier.mat",
+      "sha256": "aba6194a3a5cd8b7eeea1b6ca322a6682bc5fa67e5d9ef7c86b5a998ad067711",
+      "bytes": 8247868
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/PK15h_20261104_PIP_Link01_Case04_CurrentCarrier.mat",
+      "sha256": "81896d71e47182ea21515e299c2afa84d3279badb94120209bed3951a6efcf9c",
+      "bytes": 8252231
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/PK15h_20261104_CurrentSeam_CurrentCarrier01.mat",
+      "sha256": "2ced2acec5142344b3c1788a1369e835c2f57ce873b5e5ba240e9cca1fc16cd5",
+      "bytes": 4874184
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_PIP_Link01_Case03_Cold.mat",
+      "sha256": "718581e40abb73a42d9ab67d91e8737dc05e368f648f6693faa5be2435df01da",
+      "bytes": 14771
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_PIP_Link01_Case04_Cold.mat",
+      "sha256": "a2de14ad9749b87c7676d8d1b9fdce8445ded8e5b58e7c3b2fd2b34c8c28be00",
+      "bytes": 14780
+    }
+  ],
+  "log_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_PIP_ColdRetain02.log",
+    "sha256": "00fdea8a7936a4e8183832004e933b6b82f162250bd5b28fe23567d3dac297f2",
+    "bytes": 12079
+  },
+  "log_final_mtime_utc": "2026-11-04T19:18:05.991468+00:00",
+  "old_cold01_administrative_failure": {
+    "identifier": "PKRetainCurrent:Donor",
+    "numeric_tool_exit_observed": false,
+    "saved_positive_case2_cold_preserved": true
+  },
+  "original_grant_id": "20261104_PK_15h",
+  "original_science_deadline_utc": "2026-11-05T02:06:50Z",
+  "original_hard_deadline_utc": "2026-11-05T03:06:50Z"
+}

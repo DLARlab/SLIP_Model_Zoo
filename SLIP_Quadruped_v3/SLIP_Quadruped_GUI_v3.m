@@ -1,9 +1,9 @@
 function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
 %SLIP_QUADRUPED_GUI_V3 Familiar quadruped workflow on independent v3 services.
 %   [FIG,CONTROLLER,HANDLES] permits callback-level checks. Options: Visible
-%   ('on'/'off'), Position ([x y width height]), DatasetFile (in-v3 MAT),
-%   StartTimers (true/false). Numerical data, checkpoints and exports are
-%   confined to v3. Paths are restored when the window closes.
+%   ('on'/'off'), Position ([x y width height]), DatasetFile (readable MAT),
+%   StartTimers (true/false). Browsing starts at the entry working directory;
+%   checkpoints and exports remain confined to v3. Paths are restored on close.
     if nargin < 1, options = struct(); end
     screen=get(groot,'ScreenSize');width=min(max(1120,.78*screen(3)),.95*screen(3));height=min(max(740,.82*screen(4)),.92*screen(4));
     defaultPosition=[max(1,(screen(3)-width)/2),max(1,(screen(4)-height)/2),width,height];
@@ -14,6 +14,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         if ~isfield(settings, names{optionIndex}), error('SLIP_Quadruped_GUI_v3:Option', 'Unknown option %s.', names{optionIndex}); end
         settings.(names{optionIndex}) = options.(names{optionIndex});
     end
+    entryFolder = pwd;
     root = fileparts(mfilename('fullpath'));
     originalPath = path;
     folders = {'Schema_v3', 'Adapters_v3', 'Dynamics_v3', 'Simulation_v3', ...
@@ -21,10 +22,11 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     for pathIndex = 1:numel(folders), V3LegacyAddPath_v3(fullfile(root, folders{pathIndex})); end
     V3LegacyAddPath_v3(fullfile(root,'4_Solution_Management'));
     try
-    controller = QuadrupedGUIController_v3(root);
+    controller = QuadrupedGUIController_v3(root,entryFolder);
     schema = controller.Schema;
+    % Build the complete layout before exposing the web figure to rendering.
     fig = uifigure('Name', 'SLIP Quadruped GUI v3', 'Position', settings.Position, ...
-        'Visible', settings.Visible, 'Scrollable', 'on');
+        'Visible', 'off', 'Scrollable', 'on');
     runTimer = []; playTimer = []; closing = false; cleaning = false;
     visualization = struct(); frames = []; frameIndex = 1; selectionVisible = false;
     playRequested = false; lastSelection = ''; busy = false; playbackWallTimer = []; playbackStartTime = 0;
@@ -119,7 +121,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         'RecordMP4', @RecordVideo, 'RecordGIF', @RecordGIF, 'RecordOscillatorGIF', @RecordOscillatorGIF, 'Play', @Play, 'PlayTick', @PlayTick, ...
         'OpenDataset', @OpenDataset, 'LoadDataset', @OpenFile, 'SelectFolder', @SelectFolder, 'RefreshFiles', @RefreshFiles, ...
         'LoadSelected', @LoadSelected, 'LoadAll', @LoadAll, 'SelectIndex', @SelectIndex, ...
-        'SelectPoint', @SelectNearest, 'ApplyLimits', @ApplyLimits, 'ApplyView', @ApplyView, ...
+        'SelectPoint', @SelectNearest, 'HoverPoint', @HoverAtPoint, 'ApplyLimits', @ApplyLimits, 'ApplyView', @ApplyView, ...
         'ApplyAspect', @ApplyAspect, 'FilterChanged', @FilterChanged, 'VaryingChanged', @VaryingChanged, ...
         'PlotCandidate', @PlotCandidate, 'RemoveCandidate', @RemoveCandidate, ...
         'PlotPredicted', @() PlotCandidate('predicted'), 'RemovePredicted', @() RemoveCandidate('predicted'), ...
@@ -127,6 +129,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         'StartFixed', @StartFixed, 'StartParameter', @StartParameter, 'StartScan', @StartScan, ...
         'PauseRun', @PauseRun, 'StopRun', @StopRun, 'ResumeRun', @Resume, 'SetFrame', @Scrub);
     fig.UserData = struct('controller', controller, 'handles', handles);
+    fig.Visible = settings.Visible;
     catch startupException
         if exist(V3Path_v3('runTimer'), 'var') && ~isempty(runTimer) && isvalid(runTimer), stop(runTimer); delete(V3Path_v3(runTimer)); end
         if exist(V3Path_v3('playTimer'), 'var') && ~isempty(playTimer) && isvalid(playTimer), stop(playTimer); delete(V3Path_v3(playTimer)); end
@@ -159,12 +162,12 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
     end
     function OpenDataset()
         [name, folder] = uigetfile({'*.mat', 'Solution datasets (*.mat)'}, ...
-            'Open a solution dataset inside SLIP_Quadruped_v3', fullfile(controller.Folder, '*.mat'));
+            'Open a solution dataset', fullfile(controller.Folder, '*.mat'));
         if isequal(name, 0), return; end
         OpenFile(fullfile(folder, name));
     end
     function OpenFile(file)
-        file = controller.confinedPath(file, true);
+        file = controller.readPath(file, true);
         controller.setFolder(fileparts(file)); RefreshFiles();
         controller.loadDataset(file);
         [~, name, extension] = fileparts(file);
@@ -175,7 +178,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         % Native macOS folder dialogs can leave MATLAB's desktop in front.
         % Restore this window immediately, including when the user cancels.
         if nargin < 1
-            folder = uigetdir(controller.Folder, 'Select a data folder inside SLIP_Quadruped_v3');
+            folder = uigetdir(controller.Folder, 'Select a data folder');
         end
         BringGUIToFront();
         if isequal(folder, 0), return; end
@@ -245,7 +248,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         count = numel(controller.Datasets(controller.SelectedDataset).solutions);
         handles.OscillatorIndexSlider.Limits = [1 max(2,count)]; handles.OscillatorIndexSlider.Value = controller.SelectedIndex;
         handles.OscillatorIndex.Value = controller.SelectedIndex; handles.OscillatorCount.Text = sprintf('/ %d',count);
-        if ~isempty(record.orbit), ComputePhaseDiagram_v3(record.orbit,handles.ContactAxes); end
+        RefreshContactDiagram(record);
     end
     function RefreshSelection()
         record=controller.selected();seedBaseline=record;PopulateSeed(record);ShowInfo(record);
@@ -254,8 +257,15 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         handles.OscillatorIndex.Value=controller.SelectedIndex;
         if ~isempty(frames)&&~strcmp(lastSelection,VisualizationIdentity()),frames=[];lastSelection='';end
         delete(findall(handles.StateAxes,'Tag','SelectedSolution'));DrawSelection();
-        if ~isempty(record.orbit),ComputePhaseDiagram_v3(record.orbit,handles.ContactAxes);end
+        RefreshContactDiagram(record);
         UpdateStatus();
+    end
+    function RefreshContactDiagram(record)
+        if ~isempty(record.orbit) && isa(record.orbit.trajectory,'Trajectory_v3') && ~isempty(record.orbit.trajectory.time)
+            ComputePhaseDiagram_v3(record.orbit,handles.ContactAxes);
+        else
+            cla(handles.ContactAxes);title(handles.ContactAxes,'No stored trajectory; fresh replay is required');
+        end
     end
     function PopulateSeed(record,preserveTune)
         if nargin<2,preserveTune=false;end
@@ -273,7 +283,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
             handles.PredictionStateDistance.Text=sprintf('State: %.3e',norm(cell2mat(stateTune)-baseline.initial_state));
             handles.PredictionParameterDistance.Text=sprintf('Para: %.3e',norm(cell2mat(parameterTune)-baseline.parameter));
         end
-        if ~isempty(record.orbit)
+        if ~isempty(record.orbit) && isa(record.orbit.trajectory,'Trajectory_v3') && ~isempty(record.orbit.trajectory.time)
             phase = ComputePhaseDiagram_v3(record.orbit);
             handles.TimingTable.Data = [cellstr(phase.event_names), num2cell(phase.event_times), num2cell(phase.event_times)];
         else, handles.TimingTable.Data = cell(0, 3); end
@@ -284,6 +294,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         delete(findall(handles.StateAxes, 'Type', 'line', 'Tag', 'OrderedContinuationComponent'));
         delete(findall(handles.StateAxes, 'Type', 'line', 'Tag', 'SelectedSolution'));
         delete(findall(handles.StateAxes, 'Type', 'line', 'Tag', 'SeedPair'));
+        delete(findall(handles.StateAxes,'Tag','StoredSolutionPoint'));
         delete(findall(handles.StateAxes,'Tag','SeedCandidateLabel'));
         cla(handles.StateAxes);
     end
@@ -339,30 +350,42 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
                     pointColors(finite,:)=pointColors(finite,:).*brightness(:);
                 end
             end
+            covered=false(1,numel(records));legendShown=false;
             for component = controller.lineSegments(d, mask)
                 componentStates = cell2mat(cellfun(@(r) r.initial_state, records(component.record_indices), 'UniformOutput', false));
+                colorIndex=find(selected==component.record_indices(1),1);
                 lineHandle = plot3(ax, componentStates(indices(1), :), componentStates(indices(2), :), componentStates(indices(3), :), '-', ...
-                    'Color', colors(component.record_indices(1),:), 'HandleVisibility', 'off', 'HitTest', 'on', 'PickableParts', 'visible', ...
-                    'Tag', 'OrderedContinuationComponent');
+                    'Color', pointColors(colorIndex,:), 'LineWidth',2, 'HandleVisibility', 'off', 'HitTest', 'on', 'PickableParts', 'visible', ...
+                    'Tag', 'OrderedContinuationComponent','DisplayName',controller.Datasets(d).name);
+                if ~legendShown,lineHandle.HandleVisibility='on';legendShown=true;end
                 lineHandle.UserData = struct('dataset', d, 'component', component.component_index, 'indices', component.record_indices);
                 available=component.record_indices;
                 lineHandle.ButtonDownFcn=@(~,event)Guard(@()SelectNearest(d,available,indices,event.IntersectionPoint));
+                covered(available)=true;
             end
-            h=scatter3(ax,x(indices(1),:),x(indices(2),:),x(indices(3),:),35,pointColors,'filled','DisplayName',controller.Datasets(d).name);
-            if numel(records)==1&&isfield(records{1}.provenance,'gui_candidate_kind')
-                kind=records{1}.provenance.gui_candidate_kind;
-                if any(strcmp(kind,{'predicted','solved'}))
-                    h.CData=[.55 .55 .55];h.MarkerEdgeColor=[.55 .55 .55];h.SizeData=81;h.LineWidth=1.2;
-                    if strcmp(kind,'predicted'),h.MarkerFaceColor='none';else,h.MarkerFaceColor=[.55 .55 .55];end
-                    offset=.02*[diff(ax.XLim),diff(ax.YLim),diff(ax.ZLim)];
-                    position=x(indices,1).'+offset;
-                    text(ax,position(1),position(2),position(3),[' ',controller.Datasets(d).name], ...
-                        'Interpreter','none','Color',[.55 .55 .55],'BackgroundColor',[1 1 1], ...
-                        'Margin',1,'HitTest','off','Tag','SeedCandidateLabel','HandleVisibility','off');
+            % Isolated imports and points exposed by a filter stay visible;
+            % only declared physical/ordered segments receive branch lines.
+            isolated=find(mask & ~covered);
+            if ~isempty(isolated)
+                local=ismember(selected,isolated);
+                h=scatter3(ax,x(indices(1),local),x(indices(2),local),x(indices(3),local),35,pointColors(local,:),'filled', ...
+                    'DisplayName',controller.Datasets(d).name,'Tag','StoredSolutionPoint');
+                if legendShown,h.HandleVisibility='off';end
+                if numel(records)==1&&isfield(records{1}.provenance,'gui_candidate_kind')
+                    kind=records{1}.provenance.gui_candidate_kind;
+                    if any(strcmp(kind,{'predicted','solved'}))
+                        h.CData=[.55 .55 .55];h.MarkerEdgeColor=[.55 .55 .55];h.SizeData=81;h.LineWidth=1.2;
+                        if strcmp(kind,'predicted'),h.MarkerFaceColor='none';else,h.MarkerFaceColor=[.55 .55 .55];end
+                        offset=.02*[diff(ax.XLim),diff(ax.YLim),diff(ax.ZLim)];
+                        position=x(indices,1).'+offset;
+                        text(ax,position(1),position(2),position(3),[' ',controller.Datasets(d).name], ...
+                            'Interpreter','none','Color',[.55 .55 .55],'BackgroundColor',[1 1 1], ...
+                            'Margin',1,'HitTest','off','Tag','SeedCandidateLabel','HandleVisibility','off');
+                    end
                 end
+                h.ButtonDownFcn = @(~, event) Guard(@() SelectNearest(d, isolated, indices, event.IntersectionPoint));
+                h.UserData = struct('dataset', d, 'indices', isolated, 'parameter_values', value(local),'gait_colors',colors(isolated,:));
             end
-            h.ButtonDownFcn = @(~, event) Guard(@() SelectNearest(d, selected, indices, event.IntersectionPoint));
-            h.UserData = struct('dataset', d, 'indices', selected, 'parameter_values', value,'gait_colors',colors(selected,:));
         end
         xlabel(ax, handles.XState.Value); ylabel(ax, handles.YState.Value); zlabel(ax, handles.ZState.Value);
         title(ax,'Plottings of Periodic Solutions');view(ax,direction);
@@ -396,15 +419,7 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         if ~PointerOnStateAxes()||isempty(controller.Datasets),return;end
         target=hittest(fig);
         if isgraphics(target)&&isstruct(target.UserData)&&isfield(target.UserData,'dataset'),return;end
-        point=handles.StateAxes.CurrentPoint;best=Inf;chosen=[];dimensions=VisibleDimensions();
-        for scatterHandle=findall(handles.StateAxes,'Type','scatter').'
-            data=scatterHandle.UserData;if ~isstruct(data)||~isfield(data,'dataset'),continue;end
-            states=[scatterHandle.XData(:),scatterHandle.YData(:),scatterHandle.ZData(:)];
-            limits=[diff(handles.StateAxes.XLim),diff(handles.StateAxes.YLim),diff(handles.StateAxes.ZLim)];
-            distance=sum(((states(:,dimensions)-point(1,dimensions))./max(limits(dimensions),eps)).^2,2);
-            [value,index]=min(distance);
-            if value<best,best=value;chosen=[data.dataset,data.indices(index)];end
-        end
+        point=handles.StateAxes.CurrentPoint;[chosen,best]=NearestVisiblePoint(point(1,:));
         if best<.0016&&~isempty(chosen)
             StopPlayback();controller.select(chosen(1),chosen(2));selectionVisible=true;RefreshAll();
         end
@@ -415,25 +430,31 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         inside=pointer(1)>=bounds(1)&&pointer(1)<=bounds(1)+bounds(3)&&pointer(2)>=bounds(2)&&pointer(2)<=bounds(2)+bounds(4);
     end
     function HoverSelection()
-        if ~isvalid(fig) || isempty(controller.Datasets) || ~strcmp(handles.PlotTabs.SelectedTab.Title, 'State Plot'), return; end
-        pointer = fig.CurrentPoint; bounds = getpixelposition(handles.StateAxes, true);
-        if pointer(1) < bounds(1) || pointer(1) > bounds(1)+bounds(3) || pointer(2) < bounds(2) || pointer(2) > bounds(2)+bounds(4), return; end
-        point = handles.StateAxes.CurrentPoint; nearest = Inf; description = '';
-        lines = findall(handles.StateAxes, 'Type', 'scatter');
-        for plotIndex = 1:numel(lines)
-            h = lines(plotIndex); data = h.UserData;
-            if ~isstruct(data) || ~isfield(data, 'dataset'), continue; end
-            coordinates = [h.XData(:), h.YData(:), h.ZData(:)];
-            if abs(handles.StateAxes.View(2)) == 90, dimensions = 1:2; else, dimensions = 1:3; end
-            spread = max(max(coordinates(:, dimensions), [], 1)-min(coordinates(:, dimensions), [], 1), 1e-6);
-            [distance, pointIndex] = min(sum(((coordinates(:, dimensions)-point(1, dimensions))./spread).^2, 2));
-            if distance < nearest
-                nearest = distance; index = data.indices(pointIndex); record = controller.Datasets(data.dataset).solutions{index};
-                description = sprintf('%s, point %d; mode %s; y %.6g; dx %.6g', controller.Datasets(data.dataset).name, index, ...
-                    mat2str(double(record.initial_mode(:).')), record.initial_state(schema.State.y), record.initial_state(schema.State.dx));
-            end
+        if ~PointerOnStateAxes() || isempty(controller.Datasets),return;end
+        point=handles.StateAxes.CurrentPoint;HoverAtPoint(point(1,:));
+    end
+    function HoverAtPoint(point)
+        [chosen,~]=NearestVisiblePoint(point);
+        if ~isempty(chosen)
+            record=controller.Datasets(chosen(1)).solutions{chosen(2)};
+            handles.CursorInfo.Text=sprintf('%s, point %d; mode %s; y %.6g; dx %.6g', ...
+                controller.Datasets(chosen(1)).name,chosen(2),mat2str(double(record.initial_mode(:).')), ...
+                record.initial_state(schema.State.y),record.initial_state(schema.State.dx));
         end
-        if ~isempty(description), handles.CursorInfo.Text = description; end
+    end
+    function [chosen,best]=NearestVisiblePoint(point)
+        chosen=[];best=Inf;dimensions=VisibleDimensions();
+        limits=[diff(handles.StateAxes.XLim),diff(handles.StateAxes.YLim),diff(handles.StateAxes.ZLim)];
+        objects=findall(handles.StateAxes,'-property','UserData');
+        for k=1:numel(objects)
+            h=objects(k);data=h.UserData;
+            if ~isstruct(data)||~all(isfield(data,{'dataset','indices'}))||~isprop(h,'XData')||~isprop(h,'YData')||~isprop(h,'ZData'),continue;end
+            coordinates=[h.XData(:),h.YData(:),h.ZData(:)];
+            if size(coordinates,1)~=numel(data.indices)||isempty(data.indices),continue;end
+            distances=sum(((coordinates(:,dimensions)-reshape(point(dimensions),1,[]))./max(limits(dimensions),eps)).^2,2);
+            [distance,index]=min(distances);
+            if distance<best,best=distance;chosen=[data.dataset,data.indices(index)];end
+        end
     end
     function InspectSelection()
         record = controller.inspect(); PopulateSeed(record); ShowInfo(record); ComputePhaseDiagram_v3(record.orbit, handles.ContactAxes);
@@ -442,6 +463,21 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
         summary = {sprintf('Dataset %d, solution %d', controller.SelectedDataset, controller.SelectedIndex), ...
             ['Mode [BL BR FL FR]: ', mat2str(double(record.initial_mode(:).'))], record.status, ...
             sprintf('Scaled closure residual: %.3e; accepted=%d', record.residual_norm, record.accepted)};
+        if isfield(record.provenance,'core29')
+            summary{end+1}='Core29 saved decisions are historical; accepted above is fresh GUI replay/correction only.';
+            if isfield(record,'historical_accepted')
+                saved=record.historical_accepted;
+                if (isnumeric(saved)||islogical(saved))&&numel(saved)<=4,value=mat2str(saved);
+                else,value=sprintf('%s %s',class(saved),mat2str(size(saved)));end
+                summary{end+1}=['Saved accepted (historical): ',value];
+            end
+        end
+        graph=controller.Datasets(controller.SelectedDataset).typed_graph;
+        kinds={'physical_edges','record_equalities','qualified_aliases','numerical_seams'};
+        if isstruct(graph)&&isscalar(graph)&&all(isfield(graph,kinds))
+            summary{end+1}=sprintf('Stored graph: %d physical; %d exact; %d aliases; %d numerical seams (distinct relations).', ...
+                numel(graph.physical_edges),numel(graph.record_equalities),numel(graph.qualified_aliases),numel(graph.numerical_seams));
+        end
         if ~isempty(record.orbit)
             orbit = record.orbit;
             summary = [summary, {sprintf('Period %.8g; mean speed %.8g', orbit.period, orbit.stride_displacement(schema.TranslationIndex)/orbit.period), ...
@@ -449,7 +485,13 @@ function [fig, controller, handles] = SLIP_Quadruped_GUI_v3(options)
                 ['Contact word: ', char(orbit.cyclic_event_signature)], sprintf('Minimum physical margin: %.3e', orbit.minimum_physical_margin)}];
         end
         if isstruct(record.classification) && isfield(record.classification, 'label')
-            summary{end + 1} = ['State/event classification: ', char(string(record.classification.label))];
+            if isfield(record.classification,'canonical_point_label')
+                code=char(string(record.classification.canonical_point_label));
+                if isempty(code),code=char(string(record.classification.validated_gait_type));end
+                summary{end + 1} = sprintf('Gait v3.2: %s; qualified=%d',code,record.classification.canonical_label_qualified);
+            else
+                summary{end + 1} = ['Historical classification: ', char(string(record.classification.label))];
+            end
         end
         if isstruct(record.stability) && isfield(record.stability, 'reliable')
             summary{end + 1} = sprintf('Floquet reliable=%d; %s', record.stability.reliable, char(string(record.stability.stability)));

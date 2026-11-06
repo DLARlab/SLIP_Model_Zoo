@@ -12,7 +12,7 @@ V3AddPaths_v3();
 SLIP_Quadruped_GUI_v3();
 ```
 
-Click **Select Folder**, choose [P1](P1_Single_Flight_Phase_Continua/README.md) or [P2](P2_Double_Flight_Phase_Continua/README.md), then **Plot** or **Plot All**. The folder dropdown lists its available datasets. Select a plotted point to inspect its stored solution, edit axis limits in the separate input boxes, or open Visualization. Stored trajectories support viewing without a fresh numerical solve. Imported records require fresh validation before a new acceptance claim.
+The GUI starts in MATLAB's current working folder. **Select Folder** is on the left of Data Info and the dataset dropdown is on the right. Choose [P1](P1_Single_Flight_Phase_Continua/README.md), [P2](P2_Double_Flight_Phase_Continua/README.md), or a compact export folder, then **Plot** or **Plot All**. Discovery lists candidate datasets; plotting validates the selected file. Physical continuation edges appear as lines, with markers for isolated records. Select a plotted point to inspect its stored solution, edit axis limits in the separate input boxes, or open Visualization. Stored trajectories support viewing without a fresh numerical solve. Imported records require fresh validation before a new acceptance claim.
 
 A native solver example uses the retained PK dataset directly:
 
@@ -21,7 +21,7 @@ A native solver example uses the retained PK dataset directly:
 QuadrupedalGraphicsExample_v3(orbit);
 ```
 
-`QuadrupedalContinuationStudy_v3` and `QuadrupedalProductionStudy_v3` provide reusable numerical workflows. Examples can create new outputs; the historical campaign launchers and test-only scripts have been removed.
+Use `ContinuePeriodicBranch_v3` for the reusable adaptive root-solving branch workflow. It accepts an output file, a source file and an ordered admitted pair, and manages correction, admission, saving and resume. See the [continuation guide](Docs_v3/Reusable_Branch_Continuation_v3.md). `QuadrupedalContinuationStudy_v3` remains a lower-level study example.
 
 ## Implementation and results
 
@@ -45,7 +45,7 @@ The [30-hour strict-contact search audit](Docs_v3/Strict_P1_30h_Search_Audit_202
 
 BG/BE/FG/FE/HG/HE/GG/GE at `[10;10;20;20;1;1;0;0;2;.5]`, and the requested P2 B2/F2/G2 network, remain unresolved. The [closed experiment casebook](Docs_v3/Closed_Experiment_Casebook_v3.md) records the attempted methods and failures. [Legacy seed collections](P1_Single_Flight_Phase_Continua/Bifurcation_Audits/Legacy_Seed_Recovery/README.md) remain available as explicitly unaccepted initial guesses.
 
-The disposable `Research_v3` run trees have been removed. Final proof files, matrices and historical reports are preserved in [selected scientific evidence](Audits_v3/Scientific_Evidence/README.md), with original paths and SHA256 identities. The [cleanup audit](Audits_v3/Working_Path_Cleanup_v3.md) records what was removed and verified. No bulk archive of the discarded run workspace is retained.
+The current [C1 results](Research_v3/C1/README.md) include the two retained PK components and compact partial results. Historical experiment payloads are subject to the documented storage-retirement policy; an old path or SHA does not imply that its original dense run workspace survives. Earlier selected evidence is described in [scientific evidence](Audits_v3/Scientific_Evidence/README.md).
 
 ## Model and numerical conventions
 

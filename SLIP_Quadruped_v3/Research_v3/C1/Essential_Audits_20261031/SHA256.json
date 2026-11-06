@@ -1,0 +1,186 @@
+{
+  "schema": "C1-essential-audit-capsule-v1",
+  "scope": "Opaque exact essential native audits, concise custody/FS receipts and three small rollback preimages only. No raw branch store, full transport/log, test script, fixture reconstruction file or exhaustive workflow archive. Historical references inside audits can be retired; this capsule preserves only its listed members.",
+  "members": [
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Postqualification_20261031.events.jsonl",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Postqualification_20261031.events.jsonl",
+      "sha256": "a54face14b80b948733d2d9b44e4336a3bfb43dc47c93211a2879382266f82d7",
+      "bytes": 2947
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Postqualification_20261031.receipt.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Postqualification_20261031.receipt.json",
+      "sha256": "b889e381624e2d90caedfe3a475dd0dff2314ad10a3f8c8d7d308e72e3fda6ec",
+      "bytes": 8442
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Postqualification_20261031.tool-records.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Postqualification_20261031.tool-records.json",
+      "sha256": "89e222fc6415f1501c3c737704e6032119ff3278043f5ce1b79ecd97476f23eb",
+      "bytes": 932
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Publication_20261030.events.jsonl",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Publication_20261030.events.jsonl",
+      "sha256": "04d0d0e41f02ae68070e5e9476304acf87f9c4349b5bffcc9f129ebdbfcac5f5",
+      "bytes": 5374
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Publication_20261030.receipt.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Publication_20261030.receipt.json",
+      "sha256": "09cb80d5edaacc4857b09131d8d133dddd9e205c0bc9af519e3d80d59a549f15",
+      "bytes": 5787
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Publication_20261030.tool-records.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Compact_Exports_Publication_20261030.tool-records.json",
+      "sha256": "ece196b0dcf6382813f6afb827b9d9bb526e4961b269a4c11c410e7c4f017fe3",
+      "bytes": 1060
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.events.jsonl",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.events.jsonl",
+      "sha256": "c50149ce2366b2e8dfe23104b9514dd2c12a21617849ca7e29a550f2fd6d76de",
+      "bytes": 1693922
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.json",
+      "sha256": "8fee50c1ce2f9381b6e49a8dcdd9911d748f298e1d5c7eaf1aa0744d468c995e",
+      "bytes": 1324597
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.manifest.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.manifest.json",
+      "sha256": "a60be22f0d8d691b59b749c60a98ae5155dc9bada23ca34bd775a6120bb2a89e",
+      "bytes": 1347693
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.tool-records.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/C1_Final_Released_Artifact_Retirement_20261030.tool-records.json",
+      "sha256": "0b1ecbc57bc24cae42ef22d5a2bb3d8d68d581c051a2062e65c2a1175f27e93b",
+      "bytes": 544
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Codec_Final_20261030/Codec_Final_20261030.audit.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Codec_Final_20261030/Codec_Final_20261030.audit.json",
+      "sha256": "b947f543651052c27e41e3d5ae147a5a67b3941f3ae9ecde35e02bc7288260e0",
+      "bytes": 35247
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Codec_Final_20261030/Codec_Final_20261030.audit.mat",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Codec_Final_20261030/Codec_Final_20261030.audit.mat",
+      "sha256": "148093647d2d48a3e5f480055a188bc85cc08647457e32d193a1137b8775d980",
+      "bytes": 10391
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Codec_Final_20261030.custody-summary.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Codec_Final_20261030.custody-summary.json",
+      "sha256": "dd25741651f52dc77cf40893b300d3e6733ad28c3eccc3887f7f409953f41046",
+      "bytes": 49041
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Complete_Exports_Final03_20261030.audit.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Complete_Exports_Final03_20261030.audit.json",
+      "sha256": "778d774f925366c06be62f1ae0511b984ba275d5498cfcc81ea475367bbb1019",
+      "bytes": 208623
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Complete_Exports_Final03_20261030.audit.mat",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Complete_Exports_Final03_20261030.audit.mat",
+      "sha256": "4f6c59f508489c0af46564f7bb55de58bcb0bfe5856c5c50e6949ac8d38b9ab7",
+      "bytes": 69963
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Complete_Exports_Final03_20261030.custody-summary.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Complete_Exports_Final03_20261030.custody-summary.json",
+      "sha256": "c35ba6417f3f6d8f67b710ad6f2ef30166d9d1383d2a8212e2d4fd550b160b3f",
+      "bytes": 122622
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.audit.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.audit.json",
+      "sha256": "bb4060214b1fdda27ac40bc274c11670c7a9a0130549130803c54660ef6ba218",
+      "bytes": 262108
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.audit.mat",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.audit.mat",
+      "sha256": "63efd4bec49a1d02587bb62a9eb691094729ad22bf31287a0495100a22abc4fb",
+      "bytes": 94556
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.custody-summary.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.custody-summary.json",
+      "sha256": "5a33bd995b5027ff069d4e79ad7d783b91b19a1741fbbef90c4f4edda18ba8fa",
+      "bytes": 131746
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.returns.mat",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Essential_Existing_Exports_Qualified_Final_20261030.returns.mat",
+      "sha256": "8e37a4dcd290d765d005134d56cc3ff5beb890cda1202faf92ea68c98ecc465e",
+      "bytes": 665
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Bounded_Endpoint_TerminalTwoEndpointShort01_20261030.custody-summary.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Bounded_Endpoint_TerminalTwoEndpointShort01_20261030.custody-summary.json",
+      "sha256": "9d0dd2ee6f174934fb35d1193b8e4f9de1e58df4db45d13b6ae60963862b0759",
+      "bytes": 8179
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Terminal_Two_PAL_MergedBExtended01_Batch24_20261030.custody-summary.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Terminal_Two_PAL_MergedBExtended01_Batch24_20261030.custody-summary.json",
+      "sha256": "581e0d04971887ba4deb55bc41c833594bd67cbd1b03b8631b6c175f5813fa9e",
+      "bytes": 3192
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.events.jsonl",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.events.jsonl",
+      "sha256": "72d10d5add8ff488778523d1d0d67b1f73731699451407d1ce75b3035b1a7256",
+      "bytes": 6323
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.public01.before.m",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.public01.before.m",
+      "sha256": "ec2c172d924870697f526f38c45791c042f5616e32f2b7b5565065c004a2d70a",
+      "bytes": 90765
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.public02.before.m",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.public02.before.m",
+      "sha256": "8c926fa30f2b14e9a4f558b451bf4f69c39df75ec4b76cdc6998d56b2c895cbd",
+      "bytes": 17944
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.public03.before.m",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.public03.before.m",
+      "sha256": "d1eb71334db9e2168a516db52118785c196a24fd1992120289ccc41fb4305fa7",
+      "bytes": 14547
+    },
+    {
+      "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.receipt.json",
+      "archive_member": "SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Public_Compact_Readers_Install_20261031.receipt.json",
+      "sha256": "75c81798c3d8c3840396b8ff305d4f845e38167956a2cf6e3323dfca1919c791",
+      "bytes": 6255
+    },
+    {
+      "original_file": "/private/tmp/c1_final_native_last_use_release.json",
+      "archive_member": "retained-approvals/c1_final_native_last_use_release.json",
+      "sha256": "730985457ec05bef68c8e6cdb909a7d59ce01e5fd5e4cf338cd1e64c5492207a",
+      "bytes": 5457
+    },
+    {
+      "original_file": "/private/tmp/c1_codec_three_test_callables_last_use.json",
+      "archive_member": "retained-approvals/c1_codec_three_test_callables_last_use.json",
+      "sha256": "77e3f31cc56a4862b1d0c5bf446a08db0318494969270fbab80a01623711ecfb",
+      "bytes": 3963
+    },
+    {
+      "original_file": "/private/tmp/c1_paired_audit_json_source_classification_20261030.json",
+      "archive_member": "retained-approvals/c1_paired_audit_json_source_classification_20261030.json",
+      "sha256": "61137926622b56c49834f917e6fc7c7d09f5a091f1fe47daff7ea6e2c79ae148",
+      "bytes": 8424
+    }
+  ]
+}

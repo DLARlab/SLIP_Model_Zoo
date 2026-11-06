@@ -104,6 +104,7 @@ classdef PoincareMap_v3 < handle
             currentState = sectionState;
             currentMode = q0;
             currentTime = t0;
+            armingContext=[]; % Ephemeral to this evaluate call, including rejected candidates.
             combinedTrajectory = [];
             crossings = repmat(PoincareMap_v3.crossingPrototype(), 0, 1);
             phaseResultBuffer = cell(3 * obj.MaxSectionCrossings, 1);
@@ -121,9 +122,9 @@ classdef PoincareMap_v3 < handle
                          'MaxCycleEvents=%d.'], obj.MaxCycleEvents);
                 end
 
-                [part, crossing] = obj.nextSectionCrossing( ...
+                [part, crossing, armingContext] = obj.nextSectionCrossing( ...
                     currentState, currentMode, currentTime, p, deadline, ...
-                    remainingEvents, crossingIndex, simulationOverrides);
+                    remainingEvents, crossingIndex, simulationOverrides, armingContext);
                 if isempty(combinedTrajectory)
                     combinedTrajectory = part;
                 else
@@ -446,9 +447,9 @@ classdef PoincareMap_v3 < handle
             end
         end
 
-        function [trajectory, crossing] = nextSectionCrossing( ...
+        function [trajectory, crossing, armingContext] = nextSectionCrossing( ...
                 obj, startState, startMode, startTime, p, deadline, ...
-                remainingEvents, crossingIndex, simulationOverrides)
+                remainingEvents, crossingIndex, simulationOverrides, armingContext)
             %NEXTSECTIONCROSSING Leave, rearm, and return to the section.
             if startTime >= deadline
                 error('PoincareMap_v3:MaxReturnTime', ...
@@ -480,9 +481,18 @@ classdef PoincareMap_v3 < handle
                 simulationOptions.StopCondition = stop;
                 simulationOptions.ProcessGuardsAtStop = true;
                 simulationOptions.MaxEvents = localLimit;
-                [part, result] = obj.Simulator.simulate( ...
-                    obj.System, currentState, currentMode, p, ...
-                    [currentTime, deadline], simulationOptions);
+                try
+                    [part, result, armingContext] = obj.Simulator.simulate( ...
+                        obj.System, currentState, currentMode, p, ...
+                        [currentTime, deadline], simulationOptions, armingContext);
+                catch exception
+                    context=MException('PoincareMap_v3:SimulationPhase', ...
+                        ['Original autonomous map failure: crossing=%d phase=%d ', ...
+                         'stop=%s interval=[%.17g,%.17g].'], ...
+                        crossingIndex,phase,char(stop.name),currentTime,deadline);
+                    exception=addCause(exception,context);
+                    rethrow(exception)
+                end
                 if isempty(trajectory)
                     trajectory = part;
                 else

@@ -21,8 +21,8 @@ classdef EventDetector_v3
                 EventDetector_v3.defaultOptions(), options);
         end
 
-        function [segment, event] = integrate(obj, system, x0, q, p, ...
-                tspan, stopCondition, odeOptions)
+        function [segment, event, armingContext] = integrate(obj, system, x0, q, p, ...
+                tspan, stopCondition, odeOptions, restartContext)
             %INTEGRATE Propagate one continuous-mode segment.
             if nargin < 7 || isempty(stopCondition)
                 stopCondition = [];
@@ -30,6 +30,7 @@ classdef EventDetector_v3
             if nargin < 8 || isempty(odeOptions)
                 odeOptions = odeset();
             end
+            if nargin < 9, restartContext = []; end
             validateattributes(tspan, {'numeric'}, ...
                 {'vector', 'numel', 2, 'real', 'finite'});
             tspan = tspan(:).';
@@ -48,6 +49,10 @@ classdef EventDetector_v3
 
             guardArmed = obj.initialArming(guardTemplate);
             stopArmed = obj.initialArming(stopTemplate);
+            if ~isempty(restartContext)
+                [guardArmed,stopArmed]=obj.restoreRestart(restartContext, ...
+                    system,stopCondition,tspan(1),x0,q,p,guardTemplate,stopTemplate);
+            end
             guardInterior = obj.interiorSigns(guardTemplate);
             stopInterior = obj.interiorSigns(stopTemplate);
 
@@ -92,11 +97,17 @@ classdef EventDetector_v3
                         accumulatedTime,accumulatedState,time(:),state);
                     segment=struct('time',accumulatedTime,'state',accumulatedState, ...
                         'integration_settings',settings,'arming_restart_count',armingRestarts);
-                    event=obj.noEvent(time(end),state(end,:).');return;
+                    event=obj.noEvent(time(end),state(end,:).');
+                    armingContext=obj.returnContext(system,stopCondition,event,q,p, ...
+                        guardTemplate,stopTemplate,frozenArmed);return;
                 end
-                firstTime=min(eventTime);
-                firstRows=find(abs(eventTime-firstTime)<=obj.timeTolerance(firstTime));
-                eventStateVector=eventState(firstRows(1),:).';
+                [firstTime,firstRow]=min(eventTime);
+                % Only solver roots at the actual earliest instant own this
+                % accepted boundary. EventTimeTolerance cannot select its
+                % state or credit future physical/auxiliary root reports.
+                rootRoundoff=64*eps(max(realmin,abs(firstTime)));
+                earliestRows=find(abs(eventTime-firstTime)<=rootRoundoff);
+                eventStateVector=eventState(firstRow,:).';
                 % Keep chronological truncation even for MATLAB's first-step
                 % terminal-event behavior, which can return later samples.
                 if firstTime<currentTime
@@ -107,12 +118,16 @@ classdef EventDetector_v3
                 [accumulatedTime,accumulatedState]=appendSmooth( ...
                     accumulatedTime,accumulatedState,[time(before);firstTime], ...
                     [state(before,:);eventStateVector.']);
-                reportedChannels=unique(eventIndex(firstRows));
+                reportedChannels=unique(eventIndex(earliestRows));
                 triggeredChannels=reportedChannels(reportedChannels<=channelCount);
-                [guardBatch,stopBatch]=obj.clusterAtEvent( ...
-                    system,stopCondition,firstTime,eventStateVector,q,p, ...
-                    guardTemplate,stopTemplate,triggeredChannels,frozenArmed);
-                if ~isempty(triggeredChannels)||~isempty(guardBatch)||~isempty(stopBatch)
+                entry=reportedChannels(reportedChannels>channelCount)-channelCount;
+                % Legitimate simultaneous physical clustering needs an
+                % actual physical/stop root anchor. An interior-entry root
+                % alone must never manufacture a nearby physical event.
+                if ~isempty(triggeredChannels)
+                    [guardBatch,stopBatch]=obj.clusterAtEvent( ...
+                        system,stopCondition,firstTime,eventStateVector,q,p, ...
+                        guardTemplate,stopTemplate,triggeredChannels,frozenArmed);
                     segment=struct('time',accumulatedTime,'state',accumulatedState, ...
                         'integration_settings',settings,'arming_restart_count',armingRestarts);
                     event=struct('occurred',true,'time',firstTime, ...
@@ -120,9 +135,14 @@ classdef EventDetector_v3
                         'stop_batch',stopBatch,'stop_occurred',~isempty(stopBatch), ...
                         'triggered_channels',triggeredChannels(:), ...
                         'raw_event_times',eventTime(:),'raw_event_indices',eventIndex(:));
+                    % The same accepted exact-entry set is used both here
+                    % and in the auxiliary-only continuation branch below.
+                    returnedArmed=frozenArmed;returnedArmed(entry)=true;
+                    armingContext=obj.returnContext(system,stopCondition,event,q,p, ...
+                        guardTemplate,stopTemplate,returnedArmed,entry);
                     return;
                 end
-                newlyArmed=reportedChannels(reportedChannels>channelCount)-channelCount;
+                newlyArmed=entry;
                 if isempty(newlyArmed)||firstTime<=currentTime
                     error('EventDetector_v3:UnresolvedArming', ...
                         'Interior-entry arming did not produce a positive-time restart.');
@@ -138,7 +158,9 @@ classdef EventDetector_v3
                 if currentTime>=tspan(2)
                     segment=struct('time',accumulatedTime,'state',accumulatedState, ...
                         'integration_settings',settings,'arming_restart_count',armingRestarts);
-                    event=obj.noEvent(currentTime,currentState);return;
+                    event=obj.noEvent(currentTime,currentState);
+                    armingContext=obj.returnContext(system,stopCondition,event,q,p, ...
+                        guardTemplate,stopTemplate,armed);return;
                 end
             end
 
@@ -176,9 +198,204 @@ classdef EventDetector_v3
                 joinedTime=[oldTime;newTime];joinedState=[oldState;newState];
             end
         end
+
+        function [ready,diagnostics]=prepareRestart(obj,context,stateAfter,modeAfter, ...
+                processedGuardIds,processedStopIds)
+            %PREPARERESTART Commit arming ownership after model-owned resets.
+            % Context is ephemeral: it contains runtime collaborators and must
+            % not be embedded in trajectories, solver reports or checkpoints.
+            % The caller supplies ONLY physical/stop channels actually consumed.
+            if nargin<6,processedStopIds={};end
+            obj.requireContext(context,'returned');
+            stateAfter=stateAfter(:);
+            assert(isequal(size(stateAfter),size(context.state))&&all(isfinite(stateAfter)), ...
+                'EventDetector_v3:RestartState','A restart preserves the finite state dimension.');
+            guardIds=EventDetector_v3.idList(processedGuardIds);
+            stopIds=EventDetector_v3.idList(processedStopIds);
+            EventDetector_v3.requireOffered(guardIds,context.offered_guard_ids,'guard');
+            EventDetector_v3.requireOffered(stopIds,context.offered_stop_ids,'stop');
+            guards=obj.guardDescriptors(context.system_reference,context.time, ...
+                stateAfter,modeAfter,context.parameter);
+            stops=obj.stopDescriptors(context.stop_condition_reference,context.time, ...
+                stateAfter,modeAfter,context.parameter);
+            [guardRows,guardReports]=obj.restartRows(context.guard_rows,guards,guardIds, ...
+                context.state,stateAfter,context.time,'guard',context.accepted_auxiliary_guard_ids);
+            [stopRows,stopReports]=obj.restartRows(context.stop_rows,stops,stopIds, ...
+                context.state,stateAfter,context.time,'stop',context.accepted_auxiliary_stop_ids);
+            ready=context;ready.phase='ready';ready.state=stateAfter;ready.mode=modeAfter;
+            ready.guard_rows=guardRows;ready.stop_rows=stopRows;
+            ready.offered_guard_ids={};ready.offered_stop_ids={};
+            ready.accepted_auxiliary_guard_ids={};ready.accepted_auxiliary_stop_ids={};
+            diagnostics=[guardReports;stopReports];
+        end
+
+        function [ready,diagnostics]=prepareContinuousRestart(obj,context,state,mode)
+            %PREPARECONTINUOUSRESTART No physical reset or transition occurred.
+            % Exact continuous endpoints preserve guard geometry, even without
+            % a model reset-geometry declaration. A caller that processed ANY
+            % physical guard must instead call prepareRestart, even if that
+            % reset left the numerical state/mode unchanged.
+            obj.requireContext(context,'returned');
+            assert(isequaln(context.state,state(:))&&isequaln(context.mode,mode), ...
+                'EventDetector_v3:RestartBinding','A no-reset handoff preserves the exact accepted state and mode.');
+            ready=context;ready.phase='ready';diagnostics=cell(numel(context.guard_rows),1);
+            for k=1:numel(context.guard_rows)
+                row=context.guard_rows{k};d=row.descriptor;
+                diagnostics{k}=struct('time',context.time,'channel_kind','guard','id',d.id, ...
+                    'action','continuous-handoff-no-physical-reset','prior_armed',row.armed,'armed',row.armed, ...
+                    'geometry_declared',~isempty(EventDetector_v3.geometry(d,numel(state))), ...
+                    'geometry_continuous',true,'accepted_auxiliary_entry', ...
+                    EventDetector_v3.hasId(context.accepted_auxiliary_guard_ids,d.id));
+            end
+            % A stop actually reported at this endpoint is consumed. The
+            % explicit simulation rebind will replace the entire stop set,
+            % but a direct ready-context user must not repeat that stop at 0.
+            for k=1:numel(ready.stop_rows)
+                d=ready.stop_rows{k}.descriptor;
+                if EventDetector_v3.hasId(context.offered_stop_ids,d.id)
+                    ready.stop_rows{k}.armed=EventDetector_v3.interiorSign(d)*d.value>obj.Options.ArmingTolerance;
+                end
+            end
+            ready.offered_guard_ids={};ready.offered_stop_ids={};
+            ready.accepted_auxiliary_guard_ids={};ready.accepted_auxiliary_stop_ids={};
+        end
+
+        function ready=prepareSimulationRestart(obj,context,system,condition,time,state,mode,p)
+            %PREPARESIMULATIONRESTART Explicit physical-only cross-call handoff.
+            % Binds an exact endpoint, retains only physical arming ownership,
+            % and initializes the newly declared stop namespace independently.
+            % Arbitrary stop mismatch remains forbidden by integrate itself.
+            obj.requireContext(context,'ready');state=state(:);
+            assert(EventDetector_v3.sameCollaborator(context.system_reference,system) ...
+                &&isequaln(context.time,time)&&isequaln(context.state,state) ...
+                &&isequaln(context.mode,mode)&&isequaln(context.parameter,p), ...
+                'EventDetector_v3:RestartBinding','A simulation handoff requires the exact system/time/state/mode/parameter endpoint.');
+            guards=obj.guardDescriptors(system,time,state,mode,p);
+            obj.restoreRows(context.guard_rows,guards,numel(state));
+            stops=obj.stopDescriptors(condition,time,state,mode,p);
+            ready=context;ready.stop_condition_reference=condition;
+            ready.stop_rows=obj.contextRows(stops,stops,obj.initialArming(stops));
+            ready.offered_guard_ids={};ready.offered_stop_ids={};
+            ready.accepted_auxiliary_guard_ids={};ready.accepted_auxiliary_stop_ids={};
+        end
     end
 
     methods (Access = private)
+        function context=returnContext(obj,system,condition,event,q,p,guardTemplate,stopTemplate,armed,acceptedEntries)
+            if nargin<10,acceptedEntries=[];end
+            guards=obj.guardDescriptors(system,event.time,event.state,q,p);
+            stops=obj.stopDescriptors(condition,event.time,event.state,q,p);
+            guardEntries=acceptedEntries(acceptedEntries<=numel(guardTemplate));
+            stopEntries=acceptedEntries(acceptedEntries>numel(guardTemplate))-numel(guardTemplate);
+            context=struct('schema','event-detector-arming-context-v1','phase','returned', ...
+                'system_reference',system,'stop_condition_reference',condition, ...
+                'detector_options_snapshot',obj.Options, ...
+                'time',event.time,'state',event.state(:),'mode',q,'parameter',p, ...
+                'guard_rows',{obj.contextRows(guardTemplate,guards,armed(1:numel(guardTemplate)))}, ...
+                'stop_rows',{obj.contextRows(stopTemplate,stops,armed(numel(guardTemplate)+1:end))}, ...
+                'offered_guard_ids',{EventDetector_v3.descriptorIds(event.guard_batch)}, ...
+                'offered_stop_ids',{EventDetector_v3.descriptorIds(event.stop_batch)}, ...
+                'accepted_auxiliary_guard_ids',{EventDetector_v3.descriptorIds(guardTemplate(guardEntries))}, ...
+                'accepted_auxiliary_stop_ids',{EventDetector_v3.descriptorIds(stopTemplate(stopEntries))});
+        end
+
+        function rows=contextRows(~,template,current,armed)
+            assert(numel(template)==numel(current),'EventDetector_v3:ChangingGuardSet', ...
+                'Enabled channel identities must stay fixed within one continuous mode.');
+            rows=cell(numel(current),1);
+            for k=1:numel(current)
+                at=EventDetector_v3.findDescriptor(template,current(k).id);
+                assert(isscalar(at),'EventDetector_v3:ChangingGuardSet', ...
+                    'An enabled channel changed identity within a continuous mode.');
+                rows{k}=struct('descriptor',current(k),'armed',logical(armed(at)));
+            end
+        end
+
+        function [guards,stops]=restoreRestart(obj,context,system,condition,time,state,q,p,guardTemplate,stopTemplate)
+            obj.requireContext(context,'ready');
+            assert(EventDetector_v3.sameCollaborator(context.system_reference,system) ...
+                &&EventDetector_v3.sameStopCondition(context.stop_condition_reference,condition) ...
+                &&isequaln(context.time,time)&&isequaln(context.state,state)&&isequaln(context.mode,q)&&isequaln(context.parameter,p), ...
+                'EventDetector_v3:RestartBinding','Reuse context only at its exact model/state/mode/parameter/time and stopping condition.');
+            guards=obj.restoreRows(context.guard_rows,guardTemplate,numel(state));
+            stops=obj.restoreRows(context.stop_rows,stopTemplate,numel(state));
+        end
+
+        function armed=restoreRows(~,rows,descriptors,stateCount)
+            assert(numel(rows)==numel(descriptors),'EventDetector_v3:RestartActivation', ...
+                'The enabled channel set changed after restart preparation.');
+            armed=false(numel(descriptors),1);
+            for k=1:numel(descriptors)
+                at=EventDetector_v3.findRow(rows,descriptors(k).id);
+                assert(isscalar(at)&&EventDetector_v3.sameChannel(rows{at}.descriptor,descriptors(k)) ...
+                    &&isequaln(rows{at}.descriptor.value,descriptors(k).value) ...
+                    &&isequaln(EventDetector_v3.geometry(rows{at}.descriptor,stateCount), ...
+                        EventDetector_v3.geometry(descriptors(k),stateCount)), ...
+                    'EventDetector_v3:RestartActivation','Channel geometry/activation changed after restart preparation.');
+                armed(k)=rows{at}.armed;
+            end
+        end
+
+        function [rows,reports]=restartRows(obj,previous,current,consumed,before,after,time,channelKind,acceptedEntries)
+            rows=cell(numel(current),1);reports=cell(numel(current),1);
+            for k=1:numel(current)
+                d=current(k);at=EventDetector_v3.findRow(previous,d.id);
+                armed=abs(d.value)>obj.Options.ArmingTolerance;action='new-channel-initial-protection';
+                priorArmed=false;continuous=false;declared=false;
+                if EventDetector_v3.hasId(consumed,d.id)
+                    armed=EventDetector_v3.interiorSign(d)*d.value>obj.Options.ArmingTolerance;
+                    action='consumed-channel-reentry-protection';
+                elseif ~isempty(at)
+                    old=previous{at};priorArmed=old.armed;
+                    oldGeometry=EventDetector_v3.geometry(old.descriptor,numel(before));
+                    newGeometry=EventDetector_v3.geometry(d,numel(after));
+                    declared=~isempty(oldGeometry)&&~isempty(newGeometry);
+                    sameGeometry=declared&&isequaln(oldGeometry,newGeometry) ...
+                        &&EventDetector_v3.sameChannel(old.descriptor,d);
+                    if sameGeometry
+                        dependencies=newGeometry.state_dependencies;
+                        continuous=isequaln(before(dependencies),after(dependencies)) ...
+                            &&isfinite(old.descriptor.value)&&isfinite(d.value) ...
+                            &&isequaln(old.descriptor.value,d.value);
+                    end
+                    if continuous
+                        armed=priorArmed||EventDetector_v3.interiorSign(d)*d.value>obj.Options.ArmingTolerance;
+                        if priorArmed,action='carried-armed';else,action='carried-reentry-protection';end
+                    else
+                        jump=priorArmed&&EventDetector_v3.directedJump(old.descriptor.value,d.value,d.direction);
+                        near=priorArmed&&isfinite(d.value)&&abs(d.value)<=obj.Options.ArmingTolerance;
+                        if jump||near
+                            error('EventDetector_v3:UnsupportedRestartGeometry', ...
+                                ['Unconsumed %s %s has undeclared/reset-affected geometry near or across its surface ', ...
+                                 'at t=%.17g (g_before=%.17g,g_after=%.17g). ', ...
+                                 'The model must resolve reset-induced/atomic contacts or declare unchanged geometry.'], ...
+                                channelKind,char(string(d.id)),time,old.descriptor.value,d.value);
+                        end
+                        action='reset-affected-channel-reinitialized';
+                    end
+                end
+                rows{k}=struct('descriptor',d,'armed',logical(armed));
+                reports{k}=struct('time',time,'channel_kind',channelKind,'id',d.id, ...
+                    'action',action,'prior_armed',priorArmed,'armed',logical(armed), ...
+                    'geometry_declared',declared,'geometry_continuous',continuous, ...
+                    'accepted_auxiliary_entry',EventDetector_v3.hasId(acceptedEntries,d.id));
+            end
+        end
+
+        function requireContext(obj,context,phase)
+            required={'schema','phase','detector_options_snapshot','system_reference','stop_condition_reference','time','state','mode','parameter', ...
+                'guard_rows','stop_rows','offered_guard_ids','offered_stop_ids', ...
+                'accepted_auxiliary_guard_ids','accepted_auxiliary_stop_ids'};
+            assert(isstruct(context)&&isscalar(context)&&all(isfield(context,required)) ...
+                &&strcmp(context.schema,'event-detector-arming-context-v1')&&strcmp(context.phase,phase), ...
+                'EventDetector_v3:RestartContext','Use the detector-produced context through prepareRestart.');
+            % This binds the normalized detector configuration, not separate
+            % per-call nested ODEOptions. Those remain explicit integration
+            % inputs and are reported by segment.integration_settings.
+            assert(isequaln(context.detector_options_snapshot,obj.Options), ...
+                'EventDetector_v3:RestartBinding','Opaque arming ownership requires the exact producing detector configuration.');
+        end
+
         function options = configureOdeOptions(obj, options)
             if ~isempty(obj.Options.RelTol)
                 nested=odeget(options,'RelTol');value=obj.Options.RelTol;
@@ -626,6 +843,108 @@ classdef EventDetector_v3
                 end
             end
             descriptors = descriptors([descriptors.enabled]);
+            for k=1:numel(descriptors)
+                for j=1:k-1
+                    assert(~isequaln(descriptors(k).id,descriptors(j).id), ...
+                        'EventDetector_v3:DuplicateIdentity','Enabled channels require distinct stable IDs within their guard/stop namespace.');
+                end
+            end
+        end
+
+        function ids=descriptorIds(descriptors)
+            ids=cell(numel(descriptors),1);
+            for k=1:numel(descriptors),ids{k}=descriptors(k).id;end
+        end
+
+        function ids=idList(value)
+            if isempty(value),ids=cell(0,1);
+            elseif iscell(value),ids=value(:);
+            elseif ischar(value)||(isstring(value)&&isscalar(value)),ids={value};
+            elseif isnumeric(value)||islogical(value)||isstring(value),ids=num2cell(value(:));
+            else,ids={value};end
+            for k=1:numel(ids)
+                for j=1:k-1
+                    assert(~isequaln(ids{k},ids{j}),'EventDetector_v3:DuplicateConsumedIdentity','A channel can be consumed only once in a restart.');
+                end
+            end
+        end
+
+        function requireOffered(ids,offered,kind)
+            for k=1:numel(ids)
+                assert(EventDetector_v3.hasId(offered,ids{k}), ...
+                    'EventDetector_v3:UnreportedConsumedIdentity', ...
+                    'Only actually reported %s channels may be marked consumed.',kind);
+            end
+        end
+
+        function yes=hasId(ids,id)
+            yes=false;
+            for k=1:numel(ids),if isequaln(ids{k},id),yes=true;return;end,end
+        end
+
+        function at=findRow(rows,id)
+            at=[];
+            for k=1:numel(rows),if isequaln(rows{k}.descriptor.id,id),at=k;return;end,end
+        end
+
+        function same=sameStopCondition(left,right)
+            % The supported scalar Function wrapper can hold an evaluate
+            % object. Its handle must bind by identity, while the remaining
+            % wrapper fields retain their existing exact structural contract.
+            wrappedLeft=isstruct(left)&&isscalar(left)&&isfield(left,'Function');
+            wrappedRight=isstruct(right)&&isscalar(right)&&isfield(right,'Function');
+            if wrappedLeft&&wrappedRight
+                same=EventDetector_v3.sameCollaborator(left.Function,right.Function) ...
+                    &&isequaln(rmfield(left,'Function'),rmfield(right,'Function'));
+            else
+                same=EventDetector_v3.sameCollaborator(left,right);
+            end
+        end
+
+        function same=sameCollaborator(left,right)
+            % ISEQUALN compares handle property values, not object identity.
+            % Direct struct/value-system users retain structural bindings.
+            if isa(left,'handle')||isa(right,'handle')
+                same=isa(left,'handle')&&isa(right,'handle') ...
+                    &&isscalar(left)&&isscalar(right)&&strcmp(class(left),class(right));
+                if same
+                    same=left==right;
+                    same=islogical(same)&&isscalar(same)&&same;
+                end
+            else
+                same=isequaln(left,right);
+            end
+        end
+
+        function same=sameChannel(left,right)
+            same=isequaln(left.id,right.id)&&isequaln(left.direction,right.direction) ...
+                &&isequaln(EventDetector_v3.interiorSign(left),EventDetector_v3.interiorSign(right)) ...
+                &&isequaln(left.kind,right.kind)&&isequaln(left.isterminal,right.isterminal);
+        end
+
+        function declaration=geometry(descriptor,stateCount)
+            declaration=[];
+            if ~isstruct(descriptor.metadata)||~isscalar(descriptor.metadata) ...
+                    ||~isfield(descriptor.metadata,'restart_arming'),return;end
+            declaration=descriptor.metadata.restart_arming;
+            fields={'schema';'definition';'state_dependencies';'mode_independent'};
+            assert(isstruct(declaration)&&isscalar(declaration)&&isequal(sort(fieldnames(declaration)),sort(fields)) ...
+                &&strcmp(declaration.schema,'state-parameter-guard-geometry-v1') ...
+                &&ischar(declaration.definition)&&isrow(declaration.definition)&&~isempty(declaration.definition) ...
+                &&isequal(declaration.mode_independent,true), ...
+                'EventDetector_v3:GeometryDeclaration','A restart geometry declaration must identify a mode-independent state/parameter guard.');
+            indices=declaration.state_dependencies;
+            assert(isnumeric(indices)&&isreal(indices)&&~issparse(indices)&&(isvector(indices)||isempty(indices)) ...
+                &&all(isfinite(indices))&&all(indices==fix(indices))&&all(indices>=1&indices<=stateCount) ...
+                &&numel(unique(indices))==numel(indices), ...
+                'EventDetector_v3:GeometryDependencies','Declare the complete finite state dependency index set.');
+        end
+
+        function yes=directedJump(before,after,direction)
+            yes=false;if ~isfinite(before)||~isfinite(after),return;end
+            if direction<0,yes=before>0&&after<=0;
+            elseif direction>0,yes=before<0&&after>=0;
+            else,yes=(before<0&&after>=0)||(before>0&&after<=0);end
         end
 
         function prototype = descriptorPrototype()

@@ -1,38 +1,34 @@
 function name=QualifiedPublicationName_v3(data)
-%QUALIFIEDPUBLICATIONNAME_V3 Name original admitted classification evidence.
-% Geometry G/E is native measured gathered/extended suspension geometry.
-% F2 L/H is a separately registered source region, never inferred from energy.
-    gait=data.report.classification;trial=data.trial;label=char(gait.label);flights=gait.flight_count;
-    name=struct('qualified',true,'abbreviation',char(gait.abbreviation),'branch_designation','', ...
-        'reason','Original native classification retained.','native_classification',gait,'registered_naming_provenance',struct());
-    if ismember(label,{'PK','PIP'}),name.abbreviation=label;return;end
-    if strcmp(label,'unclassified'),name.abbreviation=sprintf('UBL%d',flights);return;end
-    if flights==1&&ismember(label,{'BD','HB_front','HB_hind','GP'})
-        geometry='';if isfield(gait,'suspension_geometry'),geometry=char(gait.suspension_geometry.description);end
-        if ~strcmp(char(gait.status),'classified')||~ismember(geometry,{'gathered','extended'})
-            name.qualified=false;name.reason='Original one-flight geometry/classification is mixed or borderline; G/E is not assigned.';return
-        end
-        base={'B','F','H','G'};labels={'BD','HB_front','HB_hind','GP'};suffix='G';if strcmp(geometry,'extended'),suffix='E';end
-        name.abbreviation=[base{strcmp(labels,label)},suffix];name.reason='Actual native one-flight base class and gathered/extended geometry.';return
+%QUALIFIEDPUBLICATIONNAME_V3 Point name from the versioned native contract.
+% This is a point qualification, not a modal branch naming or admission.
+% Legacy letters and aggregate spread are preserved as historical evidence.
+    gait=data.report.classification;
+    original='';if isfield(gait,'abbreviation'),original=char(gait.abbreviation);end
+    name=struct('qualified',false,'abbreviation',original,'branch_designation','', ...
+        'reason','Recompute the current classification from the admitted native cycle.', ...
+        'native_classification',gait,'registered_naming_provenance',struct(), ...
+        'contract_version','','canonical_continuum_id','','family_alias','', ...
+        'is_point_label',true,'is_sampled_branch_name',false);
+    fields={'contract_version','validated_gait_type','canonical_point_label', ...
+        'canonical_label_qualified','primitive_flight_count','flight_count_certain'};
+    [~,currentContract]=GaitSemanticTable_v3();
+    if ~all(isfield(gait,fields))||~strcmp(gait.contract_version,currentContract),return;end
+    name.contract_version=gait.contract_version;
+    name.abbreviation=char(gait.canonical_point_label);
+    name.qualified=isequal(gait.canonical_label_qualified,true);
+    base=char(gait.validated_gait_type);count=gait.primitive_flight_count;
+    if strcmp(base,'PIP')
+        name.canonical_continuum_id='C0';
+    elseif gait.flight_count_certain&&ismember(count,[1,2])
+        name.canonical_continuum_id=sprintf('C%d',count);
     end
-    if flights==2&&strcmp(name.abbreviation,'F2')
-        region='';if isfield(trial,'publication_branch_suffix'),region=char(trial.publication_branch_suffix);end
-        provenance=struct();if isfield(trial,'publication_naming_provenance'),provenance=trial.publication_naming_provenance;end
-        required={'registered_before_maps','method_registration','method_sha256','branch_region'};
-        if ~strcmp(char(gait.status),'classified')||~ismember(region,{'L','H'})||~isstruct(provenance)||~isscalar(provenance)||~all(isfield(provenance,required))
-            name.qualified=false;name.reason='F2 region L/H lacks its explicit original registered naming provenance.';return
-        end
-        path=V3Path_v3(provenance.method_registration);
-        root=V3Root_v3(mfilename('fullpath'));path=char(java.io.File(path).getCanonicalPath());
-        if ~isequal(provenance.registered_before_maps,true)||~strcmp(char(provenance.branch_region),region)||~isfile(path) ...
-                ||~startsWith(path,[root,filesep])||~strcmp(RoundSHA256_v3(path),provenance.method_sha256)
-            name.qualified=false;name.reason='F2 region registration identity or pre-map binding does not match.';return
-        end
-        saved=load(path,'method');
-        if ~isfield(saved,'method')||~isfield(saved.method,'branch_region')||~strcmp(char(saved.method.branch_region),region)
-            name.qualified=false;name.reason='Actual saved method does not declare the same F2 branch region.';return
-        end
-        name.branch_designation=region;name.registered_naming_provenance=provenance;
-        name.reason='Actual native two-flight F2 with separately registered source-region designation.';
+    if strcmp(base,'B')&&gait.flight_count_certain&&count==2,name.family_alias='C2_B2';end
+    if name.qualified
+        name.reason='Validated versioned point type, primitive physical flight count and reference-flight posture; branch sampling remains separate.';
+    else
+        name.reason='Point classification is unresolved, excluded, mixed, near an angle boundary, or has an uncertain primitive flight count; retained as a diagnostic.';
+    end
+    if isfield(data,'trial')&&isfield(data.trial,'publication_naming_provenance')
+        name.registered_naming_provenance=data.trial.publication_naming_provenance;
     end
 end

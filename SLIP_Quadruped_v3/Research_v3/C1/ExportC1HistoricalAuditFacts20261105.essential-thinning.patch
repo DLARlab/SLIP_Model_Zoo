@@ -1,0 +1,348 @@
+--- before_1b73
++++ after_7d98
+@@ -25,7 +25,7 @@
+         'methods',{methods},'small_numeric_elements',4096,'primary_table_elements',1000000, ...
+         'maximum_source_bytes',256*1024^2,'maximum_visits',500000,'maximum_primary_records',10000, ...
+         'maximum_bytes',o.MaximumBytes,'checkpoint_files',8);
+-    digest=C1ScientificDigest_v3(configuration);priorSHA='';
++    digest=C1ScientificDigest_v3(configuration);priorSHA='';adoptedStage=struct();
+     if isempty(fieldnames(o.ResumeReference))
+         assert(~isfile(outputFile)&&~isfile([outputFile,'.pending.mat'])&&~isfile([outputFile,'.json']), ...
+             'AuditFacts:Fresh','Use fresh output paths or an exact explicit resume reference.');
+@@ -46,6 +46,33 @@
+         assert(strcmp(catalog.schema,'C1-historical-essential-audit-facts-v1') ...
+             &&strcmp(C1ScientificDigest_v3(catalog.configuration),catalog.configuration_digest), ...
+             'AuditFacts:Epoch','Require the intact exact aggregate.');
++        if ~isempty(fieldnames(o.KnownCompletedStageReference))
++            assert(o.AdoptReviewedCodec,'AuditFacts:StageAdoption','Declare this reviewed exact completed-stage adoption.');
++            adoptedStage=checked(o.KnownCompletedStageReference);
++            assert(strcmp(adoptedStage.file,[outputFile,'.pending.mat']),'AuditFacts:StageAdoption','Use only this owned aggregate stage.');
++            z=load(adoptedStage.file,'catalog');staged=z.catalog;clear z
++            assert(strcmp(staged.schema,catalog.schema)&&isequaln(staged.configuration,catalog.configuration) ...
++                &&strcmp(staged.configuration_digest,catalog.configuration_digest) ...
++                &&strcmp(C1ScientificDigest_v3(staged.configuration),staged.configuration_digest), ...
++                'AuditFacts:StageAdoption','The closed stage must have the exact original codec and roster.');
++            assert(numel(staged.rows)==N&&staged.cursor>=catalog.cursor&&staged.cursor<=N+1, ...
++                'AuditFacts:StageAdoption','Invalid completed source range.');
++            first=catalog.cursor;last=staged.cursor-1;
++            assert(isequaln(staged.rows(1:first-1),catalog.rows(1:first-1)) ...
++                &&isequaln(staged.rows(last+1:end),catalog.rows(last+1:end)), ...
++                'AuditFacts:StageAdoption','The stage must preserve every row outside the new completed range exactly.');
++            for si=first:last
++                r=staged.rows{si};assert(~startsWith(r.status,'NOT_ASSESSED') ...
++                    &&isequaln(r.inventory_reference,sources{si}), ...
++                    'AuditFacts:StageAdoption','Only fully returned pure-data source observations may be adopted.');
++                if r.retirement_eligible,assert(r.source_posthash&&~isempty(fieldnames(r.source_reference)), ...
++                        'AuditFacts:StageAdoption','A successful staged row must have its own completed source posthash.');end
++            end
++            catalog=staged;clear staged
++            catalog.completed_stage_adoption=struct('prefix_reference',resume,'closed_stage_reference',adoptedStage, ...
++                'first_new_source',first,'last_new_source',last,'source_files_reread',0, ...
++                'scope','Known returned plain source observations only; no process completion or new admission inferred.');
++        end
+         if ~isequaln(catalog.configuration,configuration)
+             assert(o.AdoptReviewedCodec&&isequaln(rmfield(catalog.configuration,'methods'),rmfield(configuration,'methods')), ...
+                 'AuditFacts:Epoch','A reviewed codec successor may not change the roster or retention bounds.');
+@@ -74,6 +101,18 @@
+             catalog.explicit_held_retries{end+1,1}=struct('previous_reference',resume,'rows',{previous},'prepared_utc',stamp());
+             catalog.cursor=min(catalog.cursor,min(o.RetryHeldIndices));catalog.completed=false;
+         end
++        % Apply the same declared thin projection to assessed prior rows.
++        % This uses saved plain facts, never reloads their original sources.
++        assessed=0;
++        for pi=1:N
++            if ~startsWith(catalog.rows{pi}.status,'NOT_ASSESSED')
++                catalog.rows{pi}=essentialRow(catalog.rows{pi});assessed=assessed+1;
++            end
++        end
++        if ~isfield(catalog,'essential_retention_history'),catalog.essential_retention_history={};end
++        catalog.essential_retention_history{end+1,1}=struct('schema','C1-audit-essential-row-pack-v2', ...
++            'prefix_reference',resume,'known_completed_stage_reference',adoptedStage, ...
++            'assessed_rows_packed',assessed,'successful_sources_reread',0);
+         priorSHA=resume.sha256;
+     end
+     catalog.source_posthash=false;catalog.invocations{end+1,1}=struct('started_utc',stamp(), ...
+@@ -114,9 +153,6 @@
+                         [facts.(name),state]=project(value,name,state,0);clear value
+                     end
+                     clear context
+-                    if ~isempty(state.ambiguous_trajectories)
+-                        state=unknown(state,'source',['trajectory without a complete primary context: ',strjoin(state.ambiguous_trajectories(1:min(8,end)),'; ')]);
+-                    end
+                     row.primary_records=state.primary;row.selected_final_facts=state.selected;
+                     row.omissions=state.omissions;row.unknowns=state.unknowns;
+                     if isempty(state.unknowns)
+@@ -136,13 +172,14 @@
+             row.facts=struct();row.primary_records={};row.selected_final_facts={};
+             row.failure=struct('identifier',problem.identifier,'message',problem.message,'stack',problem.stack);
+         end
+-        row.elapsed_seconds=toc(clock);catalog.rows{at}=row;catalog.cursor=at+1;
++        row.elapsed_seconds=toc(clock);row=essentialRow(row);catalog.rows{at}=row;catalog.cursor=at+1;
+         processed=processed+1;sinceSave=sinceSave+1;
+         if sinceSave>=8,persist();sinceSave=0;end
+         fprintf('HISTORICAL_AUDIT_FACT source=%d/%d status=%s primary=%d seconds=%.3f\n', ...
+             at,N,row.status,numel(row.primary_records),row.elapsed_seconds);
+     end
+     for k=1:numel(methods),checked(methods{k});end;checked(rosterReference);
++    if ~isempty(fieldnames(adoptedStage)),checked(adoptedStage);end
+     catalog.completed=catalog.cursor==N+1;catalog.source_posthash=true;
+     catalog.invocations{end}.finished_utc=stamp();catalog.invocations{end}.processed=processed;
+     catalog.retirement_eligible_count=sum(cellfun(@(r)r.retirement_eligible,catalog.rows));
+@@ -155,7 +192,13 @@
+         check(limit,true);
+         if isempty(priorSHA),assert(~isfile(outputFile),'AuditFacts:CAS','A concurrent aggregate appeared.');
+         else,assert(strcmp(RoundSHA256_v3(outputFile),priorSHA),'AuditFacts:CAS','The owned aggregate changed.');end
+-        stage=[outputFile,'.pending.mat'];assert(~isfile(stage),'AuditFacts:Stage','An unknown owned stage is held.');
++        % The exact original oversize stage remains untouched as adoption authority.
++        stage=[outputFile,'.thin.pending.mat'];assert(~isfile(stage),'AuditFacts:Stage','An unknown thin stage is held.');
++        if isfile([outputFile,'.pending.mat'])
++            assert(~isempty(fieldnames(adoptedStage))||isfield(catalog,'completed_stage_adoption'), ...
++                'AuditFacts:Stage','An undeclared old owned stage is held.');
++            if ~isempty(fieldnames(adoptedStage)),checked(adoptedStage);end
++        end
+         save(stage,'catalog','-v7');a=load(stage,'catalog');b=load(stage,'catalog');
+         assert(isequaln(a.catalog,catalog)&&isequaln(b.catalog,catalog),'AuditFacts:Read2','The plain aggregate changed in native read2.');check(limit,true);
+         d=dir(stage);assert(d.bytes<=o.MaximumBytes,'AuditFacts:Size','Keep originals and unqualified stage: aggregate exceeds its explicit cap.');
+@@ -172,6 +215,16 @@
+ end
+ 
+ function state=scout(v,path,context,state,depth)
++    % Primitive leaves cannot conceal native objects. Container-only visits
++    % bound the primary scout without charging every scalar diagnostic leaf.
++    if isnumeric(v)||islogical(v)
++        if primaryTable(path,v)&&numel(v)<=state.rules.primary_table_elements&&~diagnosticPath(path)
++            state.selected{end+1,1}=struct('path',[path,'.literal_plain_primary_table'], ...
++                'value',struct('literal_value',v,'parameter_or_identity_association','Only its recorded source path; no new binding, identity or admission inferred.'));
++        end
++        return
++    end
++    if ischar(v)||isstring(v),return;end
+     state=visit(state,depth,path);cls=class(v);
+     if isa(v,'HybridOrbit_v3')
+         for k=1:numel(v)
+@@ -185,7 +238,9 @@
+             % All public properties are inspected. This catches an unknown
+             % object hidden in metadata rather than silently pruning it.
+             state=scout(values,[path,'.public_properties'],context,state,depth+1);
+-            [kept,state]=project(values,[path,'.public_properties'],state,depth+1);
++            % The native public-property scout above is complete. Retain only
++            % nonduplicated scientific properties; dense trajectory data is omitted.
++            [kept,state]=project(orbitFacts(values),[path,'.orbit_facts'],state,depth+1);
+             [core,state]=project(core,[path,'.literal_primary'],state,depth+1);
+             completeCore=numel(o.initial_state)==14&&numel(o.initial_mode)==4&&numel(o.parameter)==10 ...
+                 &&isscalar(o.period)&&numel(o.stride_displacement)==14;
+@@ -197,7 +252,7 @@
+             record=struct('source_paths',{{path}},'native_id',nativeID,'native_id_failure',identityFailure, ...
+                 'source_array_index',k,'source_container_size',size(v), ...
+                 'complete_core29_available',completeCore,'core29',raw29, ...
+-                'core',core,'saved_report_status',reportHead(context),'diagnostics',extra,'public_properties',kept);
++                'core',core,'saved_report_status',reportHead(context),'diagnostics',extra,'orbit_facts',kept);
+             key=C1ScientificDigest_v3(rmfield(record,'source_paths'));hit=find(strcmp(state.primary_digests,key),1);
+             if isempty(hit)
+                 assert(numel(state.primary)<state.rules.maximum_primary_records,'AuditFacts:PrimaryCap','Too many primary records; keep raw.');
+@@ -209,7 +264,12 @@
+     elseif isa(v,'Trajectory_v3')
+         state.trajectories=state.trajectories+1;
+         if ~knownFailedContext(context)&&~any(strcmp(state.owned_trajectories,path))
+-            state.ambiguous_trajectories{end+1,1}=path;
++            % A known Trajectory object is a diagnostic tape, not a hidden
++            % orbit. Preserve literal endpoints/termination, explicitly leave
++            % p/owner/admission unknown, and still scout EVERY public property.
++            state.selected{end+1,1}=struct('path',[path,'.unbound_diagnostic_trajectory_endpoints'], ...
++                'value',trajectoryEnds(v));
++            state=omit(state,path,'known unbound diagnostic Trajectory: literal endpoints/termination retained; p/owner/admission UNKNOWN, interior tape unavailable');
+         elseif knownFailedContext(context)
+             state=omit(state,path,'trajectory of an explicitly nonaccepted known PSS/Root result; native/recorded cores and final facts scouted separately');
+         else
+@@ -312,7 +372,7 @@
+         out=v;names=fieldnames(v);
+         for k=1:numel(v),for j=1:numel(names)
+             n=names{j};p=sprintf('%s(%d).%s',path,k,n);q=v(k).(n);
+-            if tape(n)
++            if tape(n)||(constructionCollection(n)&&~(isnumeric(q)||islogical(q)))
+                 out(k).(n)=struct('retained',false,'source_class',class(q),'source_size',size(q),'reason','known dense execution history; primary scout and final-fact selections retained separately');
+                 state=omit(state,p,'dense trajectory/Root/FD/evaluation/previous-run execution tape');
+             else,[out(k).(n),state]=project(q,p,state,depth+1);end
+@@ -329,7 +389,7 @@
+         elseif numel(v)<=state.rules.small_numeric_elements,out=v;
+         elseif primaryTable(path,v)&&numel(v)<=state.rules.primary_table_elements,out=v;
+         elseif diagnosticPath(path)
+-            out=struct('retained',false,'source_class',cls,'source_size',size(v));state=omit(state,path,'dense sampled/trajectory/probe array');
++            out=sampleArraySummary(v);state=omit(state,path,'dense sampled/trajectory/probe array; literal endpoint rows and finite numeric extrema retained');
+         else,out=struct('retained',false,'source_class',cls,'source_size',size(v));state=unknown(state,path,'ambiguous large numeric array');end
+     elseif ischar(v)||isstring(v)
+         if numel(v)<=65536,out=v;
+@@ -337,6 +397,148 @@
+     else
+         out=struct('retained',false,'source_class',cls,'source_size',size(v));state=unknown(state,path,['unknown object ',cls]);
+     end
++end
++
++function row=essentialRow(row)
++% Preserve literal primary science once; old construction catalogues are not
++% an independent result. This same plain-data pack handles saved stage rows
++% and each new fully scouted native source. No source/model is reopened here.
++    if isfield(row,'retention_schema')&&strcmp(row.retention_schema,'C1-audit-essential-row-pack-v2'),return;end
++    if startsWith(row.status,'KEEP_ORIGINAL_COMPACT_FINITE13'),return;end
++    originalPrimary=row.primary_records;
++    for k=1:numel(originalPrimary)
++        r=originalPrimary{k};
++        if isfield(r,'public_properties')
++            r.orbit_facts=orbitFacts(r.public_properties);r=rmfield(r,'public_properties');
++        end
++        row.primary_records{k}=r;
++        original=originalPrimary{k};if isfield(original,'public_properties'),original=rmfield(original,'public_properties');end
++        retained=r;if isfield(retained,'orbit_facts')&&~isfield(original,'orbit_facts'),retained=rmfield(retained,'orbit_facts');end
++        assert(isequaln(original,retained),'AuditFacts:ThinPrimary','Literal primary core, policy, status or diagnostics changed.');
++    end
++    selected={};dropped=0;
++    for k=1:numel(row.selected_final_facts)
++        f=row.selected_final_facts{k};
++        if discardedFactPath(f.path),dropped=dropped+1;continue;end
++        % The original final-fact selector already imposed a native plain
++        % 64KiB bound. Keep each selected noninventory value EXACTLY; the
++        % explicitly labelled plain-primary tables have their original1M cap.
++        selected{end+1,1}=f; %#ok<AGROW>
++    end
++    row.selected_final_facts=selected;
++    row.facts=essentialPlain(row.facts,'facts',0);
++    oldOmissions=row.omissions;row.omissions=omissionSummary(oldOmissions);
++    row.omissions{end+1,1}=struct('path','source construction and execution collections', ...
++        'reason',['After the complete primary-object scout: repeated file/point/source catalogues, graph construction tables, ', ...
++        'provenance copies, dense samples and iteration/evaluation receipts are unavailable. Literal primary cores, ', ...
++        'nonduplicated orbit properties, selected final matrices, current/pending headers and bounded configuration data remain.'], ...
++        'dropped_inventory_or_execution_selected_facts',dropped,'original_omission_entries',numel(oldOmissions));
++    row.retention_schema='C1-audit-essential-row-pack-v2';
++    row.retention_scope=['Historical essential observations only. Retained saved gates and transaction flags are literal, ', ...
++        'not fresh qualification, cleared pending work, physical closure, source-currentness or reproducible old solver tapes.'];
++end
++function out=orbitFacts(values)
++    out=values;if ~isstruct(out),return;end
++    duplicate={'initial_state','initial_mode','parameter','period','stride_displacement','poincare_state', ...
++        'return_policy','return_policy_name','return_multiplicity','section_chart','event_history', ...
++        'event_clusters','floquet_multiplier','stability','primitive_cycle','gait_identification','trajectory'};
++    remove=intersect(fieldnames(out),duplicate);if ~isempty(remove),out=rmfield(out,remove);end
++end
++function out=essentialPlain(v,path,depth)
++% A bounded plain-data header projection. Large arrays of old executions or
++% inventory rows become an explicit shape/count marker, not a new result.
++    assert(depth<=64,'AuditFacts:ThinDepth','Unexpected plain fact depth.');
++    if isstruct(v)
++        if isempty(v),out=v;return;end
++        if ~isscalar(v)&&numel(v)>32&&~transactionPath(path)
++            out=omittedValue(v,'old multi-record execution/inventory collection; primary objects were scouted');return
++        end
++        out=v;
++        for k=1:numel(v)
++            for key=fieldnames(v).'
++                n=key{1};q=v(k).(n);p=sprintf('%s(%d).%s',path,k,n);
++                if (constructionCollection(n)&&~(isnumeric(q)||islogical(q)))||tape(n)||ismember(lower(n),{'public_properties','trajectory','metadata','provenance','full_report','full_receipt'})
++                    out(k).(n)=omittedValue(q,'duplicate construction, trajectory or execution detail after primary scout');
++                else
++                    out(k).(n)=essentialPlain(q,p,depth+1);
++                end
++            end
++        end
++    elseif iscell(v)
++        if numel(v)>32&&~transactionPath(path)
++            out=omittedValue(v,'old cell collection after primary scout');return
++        end
++        out=v;for k=1:numel(v),out{k}=essentialPlain(v{k},sprintf('%s{%d}',path,k),depth+1);end
++    elseif isnumeric(v)||islogical(v)
++        if numel(v)<=4096||(primaryTable(path,v)&&numel(v)<=1000000),out=v;
++        else,out=omittedValue(v,'dense numeric detail; selected final small matrices and primary cores retained separately');end
++    elseif ischar(v)||isstring(v)
++        if numel(v)<=4096,out=v;else,out=omittedValue(v,'long source/console/debug text');end
++    else
++        error('AuditFacts:ThinPlain','Only native-validated plain facts may enter the thin stage: %s.',class(v));
++    end
++end
++function out=omittedValue(v,reason)
++    out=struct('retained',false,'source_class',class(v),'source_size',size(v),'source_record_count',numel(v),'reason',reason);
++end
++function yes=transactionPath(path)
++    yes=~isempty(regexpi(path,'(pending_[A-Za-z_0-9]*|service_transaction|current_pair|returned_native|prepared_unknown|wrapper_accepted|committed|edge_claimed|native_returned|native_exception_known|batch_flush_attempted|persistence_completion_confirmed|publication_timely|within_original_clock|run_dispatch_prepared|run_invoked|run_returned|run_threw)','once'));
++    if ~yes,yes=~isempty(regexpi(path,'[.](status|stage|phase|accepted|failure_stage)$','once'));end
++end
++function yes=discardedFactPath(path)
++    if transactionPath(path)||contains(path,'.literal_plain_primary_table'),yes=false;return;end
++    names=regexp(path,'[A-Za-z][A-Za-z_0-9]*','match');
++    yes=any(cellfun(@constructionCollection,names));
++    if ~yes&&~transactionPath(path)
++        yes=~isempty(regexpi(path,'(iterationJournal|invalidEvaluationDiagnostics|jacobianDiagnostics|phase_results|previous_runs|failed_root_journals|candidate_section_crossings|incremental_trajectory|sampled_states|source_catalog|occurrence_map)','once'));
++    end
++end
++function yes=constructionCollection(n)
++    yes=ismember(lower(n),{'files','points','source_catalog','occurrence_map','component_files', ...
++        'point_report_receipts','file_receipts','point_receipts','source_point_receipts','source_file_receipts', ...
++        'previous_receipts','previous_catalogs','prior_catalogs','prior_receipts','raw_failed_results', ...
++        'connections','nodes','node_records','graph_nodes','physical_edges','equality_edges', ...
++        'alias_edges','meeting_edges','alias_relations','connection_records','source_catalogs'});
++end
++function out=omissionSummary(entries)
++    out={};if isempty(entries),return;end
++    reasons=cellfun(@(r)r.reason,entries,'UniformOutput',false);uniqueReasons=unique(reasons,'stable');
++    for k=1:numel(uniqueReasons)
++        at=find(strcmp(reasons,uniqueReasons{k}));take=unique([at(1:min(4,end));at(max(1,end-3):end)]);
++        out{end+1,1}=struct('reason',uniqueReasons{k},'omitted_path_count',numel(at), ...
++            'example_paths',{cellfun(@(r)r.path,entries(take),'UniformOutput',false)},'all_individual_paths_retained',numel(take)==numel(at)); %#ok<AGROW>
++    end
++end
++
++function out=trajectoryEnds(v)
++    out=struct('schema','C1-unbound-diagnostic-trajectory-endpoints-v1','source_class',class(v), ...
++        'sample_count',numel(v.time),'time_shape',size(v.time),'state_shape',size(v.state), ...
++        'mode_shape',size(v.mode),'time_interval',[],'initial_state',[],'final_state',[], ...
++        'initial_mode',[],'final_mode',[],'event_count',numel(v.event_history), ...
++        'event_batch_count',numel(v.event_batches),'termination_reason',v.termination_reason, ...
++        'termination_time',v.termination_time,'termination_state',v.termination_state, ...
++        'termination_mode',v.termination_mode,'parameter_owner_binding','UNKNOWN_NOT_INFERRED', ...
++        'admission_or_periodicity_claimed',false,'full_trace_retained',false);
++    % Preserve available small source context as DATA; its presence does not
++    % independently certify a parameter/owner binding or accepted return.
++    for key={'metadata','termination_metadata','termination'}
++        q=v.(key{1});
++        if plainSmall(q),out.(key{1})=q;
++        else,out.([key{1},'_omission'])=omittedValue(q,'non-small/nonplain diagnostic metadata; native objects and scalar outcome flags scouted separately');end
++    end
++    if ~isempty(v.time),out.time_interval=[v.time(1),v.time(end)];end
++    if ~isempty(v.state),out.initial_state=v.state(1,:);out.final_state=v.state(end,:);end
++    if ~isempty(v.mode)
++        if iscell(v.mode),out.initial_mode=v.mode{1};out.final_mode=v.mode{end};
++        else,out.initial_mode=v.mode(1,:);out.final_mode=v.mode(end,:);end
++    end
++end
++function out=sampleArraySummary(v)
++    out=struct('retained',false,'source_class',class(v),'source_size',size(v), ...
++        'sample_count',numel(v),'first_row',[],'last_row',[], ...
++        'minimum_finite',[],'maximum_finite',[],'nonfinite_count',sum(~isfinite(v(:))));
++    if ismatrix(v)&&size(v,2)<=64&&~isempty(v),out.first_row=v(1,:);out.last_row=v(end,:);end
++    finite=v(isfinite(v));if ~isempty(finite),out.minimum_finite=min(finite);out.maximum_finite=max(finite);end
+ end
+ 
+ function out=reportHead(r)
+@@ -417,7 +619,7 @@
+         &&~isempty(regexpi(p,'(core29|solution_matrix|initial_states?|raw_states?|physical_parameter|literal_raw)','once'));
+ end
+ function yes=diagnosticPath(p)
+-    yes=~isempty(regexpi(p,'(trajectory|phase_results|map_info|iteration|evaluation|probe|sample|time_grid|state_history|failed_root)','once'));
++    yes=~isempty(regexpi(p,'(trajectory|phase_results|map_info|iteration|evaluation|probe|sample|time_grid|state_history|failed_root|fine_evidence.*(energies|stance_residuals)|baseline|raw_segment|[.]segment\()','once'));
+ end
+ function s=visit(s,depth,path)
+     assert(depth<=64,'AuditFacts:Depth','Unsupported structural depth at %s; retain raw.',path);s.visits=s.visits+1;
+@@ -428,13 +630,14 @@
+ function s=omit(s,p,why),if numel(s.omissions)<20000,s.omissions{end+1,1}=struct('path',p,'reason',why);end;end
+ function o=defaults(v)
+     o=struct('MaxWallSeconds',1800,'SaveMarginSeconds',60,'MaximumBytes',32*1024^2,'ResumeReference',struct(),'MaxNewFiles',1024, ...
+-        'AdoptReviewedCodec',false,'RetryHeldIndices',[]);
++        'AdoptReviewedCodec',false,'RetryHeldIndices',[],'KnownCompletedStageReference',struct());
+     assert(isstruct(v)&&isscalar(v),'AuditFacts:Options','Use a scalar bounded options struct.');
+     for key=fieldnames(v).',assert(isfield(o,key{1}),'AuditFacts:Options','Unknown option.');o.(key{1})=v.(key{1});end
+     validateattributes(o.MaxWallSeconds,{'double'},{'scalar','real','finite','>',120,'<=',3600});
+     validateattributes(o.SaveMarginSeconds,{'double'},{'scalar','real','finite','>=',60,'<',o.MaxWallSeconds});
+     validateattributes(o.MaximumBytes,{'double'},{'scalar','real','finite','positive','<=',64*1024^2});
+     validateattributes(o.MaxNewFiles,{'double'},{'scalar','real','finite','integer','positive','<=',1024});
++    assert(isstruct(o.KnownCompletedStageReference)&&isscalar(o.KnownCompletedStageReference),'AuditFacts:Options','Use an exact stage reference or empty scalar struct.');
+     assert(islogical(o.AdoptReviewedCodec)&&isscalar(o.AdoptReviewedCodec),'AuditFacts:Options','Use an explicit logical codec-adoption flag.');
+     assert(isnumeric(o.RetryHeldIndices)&&(isvector(o.RetryHeldIndices)||isempty(o.RetryHeldIndices)) ...
+         &&all(isfinite(o.RetryHeldIndices(:)))&&all(o.RetryHeldIndices(:)==fix(o.RetryHeldIndices(:))) ...

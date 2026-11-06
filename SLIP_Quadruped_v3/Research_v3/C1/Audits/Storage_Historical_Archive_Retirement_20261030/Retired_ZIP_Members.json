@@ -1,0 +1,4738 @@
+{
+  "schema": "OPAQUE_FIVE_ARCHIVE_RETIREMENT_PROPOSAL_1",
+  "created_utc": "2026-10-30T09:32:52.295662+00:00",
+  "scientific_payload_decoded": false,
+  "execution_authorized": false,
+  "selected": [
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Recoverable_Previous_Archives_20261026.zip",
+      "device": 16777229,
+      "inode": 31742595,
+      "nlink": 2,
+      "bytes": 22024408328,
+      "allocated_bytes": 22024409088,
+      "mtime_ns": 1792991938287338895,
+      "ctime_ns": 1793331999464581521,
+      "upload_partners": [
+        "/Users/nanyoujiayu/Documents/.tmp.driveupload/906353"
+      ],
+      "sha256": "dc8d6ed6abd4cb9c9c1a85e3337439e3e26362a2cfbbfcf5b5e8549f82372486",
+      "members": [
+        {
+          "name": "Archive/Active_Audit_Versions_20261021.zip",
+          "bytes": 694347,
+          "compressed_bytes": 694347,
+          "crc32": 1052062195,
+          "directory": false
+        },
+        {
+          "name": "Archive/Active_Branch_Versions_20261021.zip",
+          "bytes": 322702002,
+          "compressed_bytes": 322702002,
+          "crc32": 2808404195,
+          "directory": false
+        },
+        {
+          "name": "Archive/B_Owned_Branch_Preimages_20261024.json",
+          "bytes": 2221,
+          "compressed_bytes": 2221,
+          "crc32": 857236702,
+          "directory": false
+        },
+        {
+          "name": "Archive/B_Owned_Branch_Preimages_20261024.zip",
+          "bytes": 305636944,
+          "compressed_bytes": 305636944,
+          "crc32": 1947686572,
+          "directory": false
+        },
+        {
+          "name": "Archive/Before_20261023_Continuation_And_Core.zip",
+          "bytes": 58561333,
+          "compressed_bytes": 58561333,
+          "crc32": 2168668294,
+          "directory": false
+        },
+        {
+          "name": "Archive/Before_Final_Publication_20261022.zip",
+          "bytes": 1100396,
+          "compressed_bytes": 1100396,
+          "crc32": 1367080952,
+          "directory": false
+        },
+        {
+          "name": "Archive/Before_Primary_B_Continuation_20261023.zip",
+          "bytes": 118544926,
+          "compressed_bytes": 118544926,
+          "crc32": 747916056,
+          "directory": false
+        },
+        {
+          "name": "Archive/C1RunBudget_Before_20261024.txt",
+          "bytes": 9561,
+          "compressed_bytes": 9561,
+          "crc32": 2231900746,
+          "directory": false
+        },
+        {
+          "name": "Archive/C1_Historical_Payloads_20261019.zip",
+          "bytes": 7207227213,
+          "compressed_bytes": 7207227213,
+          "crc32": 1787194153,
+          "directory": false
+        },
+        {
+          "name": "Archive/C1_Historical_Source_And_Temporary_20261019.zip",
+          "bytes": 24829781,
+          "compressed_bytes": 24829781,
+          "crc32": 505739636,
+          "directory": false
+        },
+        {
+          "name": "Archive/Comparison_Pre_Explicit_C1_Filter_20261022.zip",
+          "bytes": 555273,
+          "compressed_bytes": 555273,
+          "crc32": 303772648,
+          "directory": false
+        },
+        {
+          "name": "Archive/Contrast_Product_Experiment_Source_20261022.zip",
+          "bytes": 55909,
+          "compressed_bytes": 55909,
+          "crc32": 2710655806,
+          "directory": false
+        },
+        {
+          "name": "Archive/Core_Reviewed_Source_Promotion_20261022.zip",
+          "bytes": 76895,
+          "compressed_bytes": 76895,
+          "crc32": 1797604189,
+          "directory": false
+        },
+        {
+          "name": "Archive/Current_Grant_Support_Diagnostics_Final_20261023.zip",
+          "bytes": 202967700,
+          "compressed_bytes": 202967700,
+          "crc32": 778222110,
+          "directory": false
+        },
+        {
+          "name": "Archive/Current_Grant_Support_Diagnostics_Final_20261023_RecoveryIndex.json",
+          "bytes": 124249,
+          "compressed_bytes": 124249,
+          "crc32": 205934705,
+          "directory": false
+        },
+        {
+          "name": "Archive/Documentation_Before_Final_20261023.zip",
+          "bytes": 19421,
+          "compressed_bytes": 19421,
+          "crc32": 1347855112,
+          "directory": false
+        },
+        {
+          "name": "Archive/Documentation_Before_Final_20261023_RecoveryIndex.json",
+          "bytes": 1174,
+          "compressed_bytes": 1174,
+          "crc32": 1660260701,
+          "directory": false
+        },
+        {
+          "name": "Archive/Empty_Results_Final_20261023.zip",
+          "bytes": 24401,
+          "compressed_bytes": 24401,
+          "crc32": 1766716424,
+          "directory": false
+        },
+        {
+          "name": "Archive/Empty_Results_Final_20261023_RecoveryIndex.json",
+          "bytes": 253182,
+          "compressed_bytes": 253182,
+          "crc32": 2267005737,
+          "directory": false
+        },
+        {
+          "name": "Archive/Engineering_Test_Receipts_20261023.zip",
+          "bytes": 19859519,
+          "compressed_bytes": 19859519,
+          "crc32": 1414170113,
+          "directory": false
+        },
+        {
+          "name": "Archive/Historical_Remaining_Support_Diagnostics_Final_20261023.zip",
+          "bytes": 446759321,
+          "compressed_bytes": 446759321,
+          "crc32": 1161909094,
+          "directory": false
+        },
+        {
+          "name": "Archive/Historical_Remaining_Support_Diagnostics_Final_20261023_RecoveryIndex.json",
+          "bytes": 598651,
+          "compressed_bytes": 598651,
+          "crc32": 2863403786,
+          "directory": false
+        },
+        {
+          "name": "Archive/Historical_Scientific_Diagnostics_Final_20261023.zip",
+          "bytes": 771532963,
+          "compressed_bytes": 771532963,
+          "crc32": 4199772755,
+          "directory": false
+        },
+        {
+          "name": "Archive/Historical_Scientific_Diagnostics_Final_20261023_RecoveryIndex.json",
+          "bytes": 418040,
+          "compressed_bytes": 418040,
+          "crc32": 1766483016,
+          "directory": false
+        },
+        {
+          "name": "Archive/IPS_Carrier_PAL_Before_Same_File_Resume_20261023.zip",
+          "bytes": 10446284,
+          "compressed_bytes": 10446284,
+          "crc32": 1884603736,
+          "directory": false
+        },
+        {
+          "name": "Archive/Implementation_Changes_20261023_Pre_Deduplication.zip",
+          "bytes": 26597829,
+          "compressed_bytes": 26597829,
+          "crc32": 2823154644,
+          "directory": false
+        },
+        {
+          "name": "Archive/Interrupted_PK_Publication_Recovery_20261024.json",
+          "bytes": 2366,
+          "compressed_bytes": 2366,
+          "crc32": 2588298999,
+          "directory": false
+        },
+        {
+          "name": "Archive/Interrupted_PK_Publication_Recovery_20261024.zip",
+          "bytes": 98529499,
+          "compressed_bytes": 98529499,
+          "crc32": 2180754830,
+          "directory": false
+        },
+        {
+          "name": "Archive/Legacy_G_Unpublished_Stage_Recovery_20261025.json",
+          "bytes": 2150,
+          "compressed_bytes": 2150,
+          "crc32": 293536317,
+          "directory": false
+        },
+        {
+          "name": "Archive/Legacy_G_Unpublished_Stage_Recovery_20261025.zip",
+          "bytes": 1308018,
+          "compressed_bytes": 1308018,
+          "crc32": 3328856026,
+          "directory": false
+        },
+        {
+          "name": "Archive/Live_Range_Comparison_Before_Final_20261023.zip",
+          "bytes": 3204013,
+          "compressed_bytes": 3204013,
+          "crc32": 565272517,
+          "directory": false
+        },
+        {
+          "name": "Archive/Live_Range_Comparison_Before_Final_20261023_Recovery_Index.json",
+          "bytes": 2297,
+          "compressed_bytes": 2297,
+          "crc32": 2598714600,
+          "directory": false
+        },
+        {
+          "name": "Archive/Mixed_Bnegative33_Before_Long_Trial_20261023.zip",
+          "bytes": 59549688,
+          "compressed_bytes": 59549688,
+          "crc32": 2408249233,
+          "directory": false
+        },
+        {
+          "name": "Archive/Mixed_F_Before_Refined_Step010_20261022.zip",
+          "bytes": 62010542,
+          "compressed_bytes": 62010542,
+          "crc32": 3172192544,
+          "directory": false
+        },
+        {
+          "name": "Archive/Mixed_H_Before_Refined_Short_20261022.zip",
+          "bytes": 58078467,
+          "compressed_bytes": 58078467,
+          "crc32": 2317026273,
+          "directory": false
+        },
+        {
+          "name": "Archive/Mixed_H_Cleared_First_PAL_Prefix_20261022.zip",
+          "bytes": 5703915,
+          "compressed_bytes": 5703915,
+          "crc32": 3452088646,
+          "directory": false
+        },
+        {
+          "name": "Archive/Mixed_H_Closed29_Before_Repeat_20261023.zip",
+          "bytes": 157343209,
+          "compressed_bytes": 157343209,
+          "crc32": 2679453856,
+          "directory": false
+        },
+        {
+          "name": "Archive/Mixed_H_Closed_Repeat_Before_Base_20261023.zip",
+          "bytes": 250806041,
+          "compressed_bytes": 250806041,
+          "crc32": 2645975943,
+          "directory": false
+        },
+        {
+          "name": "Archive/Mixed_H_First_PAL_Pending_Version_20261022.zip",
+          "bytes": 10638344,
+          "compressed_bytes": 10638344,
+          "crc32": 1722926529,
+          "directory": false
+        },
+        {
+          "name": "Archive/Native_Preflight_Failures_20261021.zip",
+          "bytes": 125791,
+          "compressed_bytes": 125791,
+          "crc32": 4000828368,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_Batch01_20261025.json",
+          "bytes": 1779,
+          "compressed_bytes": 1779,
+          "crc32": 4098653981,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_Batch01_20261025.zip",
+          "bytes": 7749946,
+          "compressed_bytes": 7749946,
+          "crc32": 62906500,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_NegativeResume01_20261025.json",
+          "bytes": 1777,
+          "compressed_bytes": 1777,
+          "crc32": 3803635163,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_NegativeResume01_20261025.zip",
+          "bytes": 7857525,
+          "compressed_bytes": 7857525,
+          "crc32": 2872891039,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_PositiveResume02_20261025.json",
+          "bytes": 1803,
+          "compressed_bytes": 1803,
+          "crc32": 2948236599,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_PositiveResume02_20261025.zip",
+          "bytes": 71797101,
+          "compressed_bytes": 71797101,
+          "crc32": 3080089973,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_PositiveResume03_20261025.json",
+          "bytes": 1812,
+          "compressed_bytes": 1812,
+          "crc32": 3650189942,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_PositiveResume03_20261025.zip",
+          "bytes": 208250926,
+          "compressed_bytes": 208250926,
+          "crc32": 1281177544,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_Resume01_20261025.json",
+          "bytes": 1800,
+          "compressed_bytes": 1800,
+          "crc32": 3064906383,
+          "directory": false
+        },
+        {
+          "name": "Archive/PK_Owned_Range_Preimages_Resume01_20261025.zip",
+          "bytes": 20500752,
+          "compressed_bytes": 20500752,
+          "crc32": 3115744563,
+          "directory": false
+        },
+        {
+          "name": "Archive/Parent_Unit_First_Saved_Facts_Stage_Preimage_20261026.mat",
+          "bytes": 4630106,
+          "compressed_bytes": 4630106,
+          "crc32": 254260265,
+          "directory": false
+        },
+        {
+          "name": "Archive/Previous_Runs_20261021.zip",
+          "bytes": 9610405685,
+          "compressed_bytes": 9610405685,
+          "crc32": 4278024052,
+          "directory": false
+        },
+        {
+          "name": "Archive/Previous_Runs_Index.json",
+          "bytes": 8516491,
+          "compressed_bytes": 8516491,
+          "crc32": 2131646631,
+          "directory": false
+        },
+        {
+          "name": "Archive/Primary_B_Negative_First_PAL_Prefix_20261022.zip",
+          "bytes": 55957409,
+          "compressed_bytes": 55957409,
+          "crc32": 1561010215,
+          "directory": false
+        },
+        {
+          "name": "Archive/Primary_B_Positive_First_PAL_Prefix_20261022.zip",
+          "bytes": 55712171,
+          "compressed_bytes": 55712171,
+          "crc32": 4054073911,
+          "directory": false
+        },
+        {
+          "name": "Archive/Primary_PK_Prefix_Versions_20261022.zip",
+          "bytes": 4681170,
+          "compressed_bytes": 4681170,
+          "crc32": 3062852052,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_20261023_Before_Append_Q01.zip",
+          "bytes": 13617090,
+          "compressed_bytes": 13617090,
+          "crc32": 3946947896,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_20261023_Before_Next_Append_Q02.zip",
+          "bytes": 27260556,
+          "compressed_bytes": 27260556,
+          "crc32": 343607963,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_20261023_Before_Next_Append_Q03.zip",
+          "bytes": 54756717,
+          "compressed_bytes": 54756717,
+          "crc32": 2629410837,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_20261023_Before_Next_Append_Q04.zip",
+          "bytes": 107233453,
+          "compressed_bytes": 107233453,
+          "crc32": 2801917827,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_20261023_Before_Next_Append_Q12.zip",
+          "bytes": 159503127,
+          "compressed_bytes": 159503127,
+          "crc32": 762560833,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_20261023_Before_Next_Append_Q13.zip",
+          "bytes": 167075587,
+          "compressed_bytes": 167075587,
+          "crc32": 2222580706,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_20261023_Before_Next_Append_Q15.zip",
+          "bytes": 194391115,
+          "compressed_bytes": 194391115,
+          "crc32": 52475412,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Before_BG_Tip_20261022.zip",
+          "bytes": 76935415,
+          "compressed_bytes": 76935415,
+          "crc32": 2070126996,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Before_HG_PK_20261022.zip",
+          "bytes": 90477852,
+          "compressed_bytes": 90477852,
+          "crc32": 3278801540,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Before_Mixed_HE_FG_20261022.zip",
+          "bytes": 116325638,
+          "compressed_bytes": 116325638,
+          "crc32": 895953100,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Before_Primary_20261022.zip",
+          "bytes": 25202141,
+          "compressed_bytes": 25202141,
+          "crc32": 1449940944,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Versions_20261021.zip",
+          "bytes": 87032567,
+          "compressed_bytes": 87032567,
+          "crc32": 591337611,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Versions_20261021_02.zip",
+          "bytes": 94166290,
+          "compressed_bytes": 94166290,
+          "crc32": 994767879,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Versions_20261021_03.zip",
+          "bytes": 138783477,
+          "compressed_bytes": 138783477,
+          "crc32": 3038740510,
+          "directory": false
+        },
+        {
+          "name": "Archive/Qualification_Versions_20261021_04.zip",
+          "bytes": 141981142,
+          "compressed_bytes": 141981142,
+          "crc32": 1407348795,
+          "directory": false
+        },
+        {
+          "name": "Archive/RootOnly_Validation_Preimage_RootSolver_7988_20261024.txt",
+          "bytes": 90290,
+          "compressed_bytes": 90290,
+          "crc32": 198918758,
+          "directory": false
+        },
+        {
+          "name": "Archive/Short_PK_Closed62_Version_20261021.zip",
+          "bytes": 75838361,
+          "compressed_bytes": 75838361,
+          "crc32": 1038647476,
+          "directory": false
+        },
+        {
+          "name": "Archive/Unattributed_H_Duplicate_Pending_20261023.zip",
+          "bytes": 168912069,
+          "compressed_bytes": 168912069,
+          "crc32": 3937174327,
+          "directory": false
+        },
+        {
+          "name": "Archive/User_Core_Baseline_20261021.zip",
+          "bytes": 105758,
+          "compressed_bytes": 105758,
+          "crc32": 518531262,
+          "directory": false
+        },
+        {
+          "name": "Archive/V2_Template_Preflight_Scope_Failures_20261021.zip",
+          "bytes": 1731149,
+          "compressed_bytes": 1731149,
+          "crc32": 2459601396,
+          "directory": false
+        }
+      ],
+      "member_count": 76,
+      "member_name_census_only": true,
+      "nested_archives_not_expanded": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Previous_Audit_Artifacts_20261026.zip",
+      "device": 16777229,
+      "inode": 31747727,
+      "nlink": 1,
+      "bytes": 4453137806,
+      "allocated_bytes": 4453138432,
+      "mtime_ns": 1792994934129419962,
+      "ctime_ns": 1793034366505721554,
+      "upload_partners": [],
+      "sha256": "31cc81399b12ca07b1a120ac29e197e49146e86ec2f0f1e5ebafd628750c1df2",
+      "members": [
+        {
+          "name": "Audits/BE_Finite_Outward_Selection.mat",
+          "bytes": 9058,
+          "compressed_bytes": 9058,
+          "crc32": 1595336527,
+          "directory": false
+        },
+        {
+          "name": "Audits/BG_Base_Initializer_Control_20261022.json",
+          "bytes": 20260,
+          "compressed_bytes": 20260,
+          "crc32": 3580348477,
+          "directory": false
+        },
+        {
+          "name": "Audits/BG_Base_Initializer_Control_20261022.mat",
+          "bytes": 16177,
+          "compressed_bytes": 16177,
+          "crc32": 1644957240,
+          "directory": false
+        },
+        {
+          "name": "Audits/BG_Outward_20261022_Selection.mat",
+          "bytes": 4955,
+          "compressed_bytes": 4955,
+          "crc32": 3248782008,
+          "directory": false
+        },
+        {
+          "name": "Audits/BG_Tip_Qualification_bg22_tip6_fine01_Selection.mat",
+          "bytes": 40127,
+          "compressed_bytes": 40127,
+          "crc32": 1353428119,
+          "directory": false
+        },
+        {
+          "name": "Audits/B_Fine_First_Contact_BFineFirstContact24_01_20261024.json",
+          "bytes": 125196,
+          "compressed_bytes": 125196,
+          "crc32": 269623118,
+          "directory": false
+        },
+        {
+          "name": "Audits/B_Fine_First_Contact_BFineFirstContact24_01_20261024.mat",
+          "bytes": 146684067,
+          "compressed_bytes": 146684067,
+          "crc32": 2969250690,
+          "directory": false
+        },
+        {
+          "name": "Audits/B_Fine_First_Obstruction_BFineFirstObstruction24_01_20261024.json",
+          "bytes": 85530,
+          "compressed_bytes": 85530,
+          "crc32": 1068015655,
+          "directory": false
+        },
+        {
+          "name": "Audits/B_Fine_First_Obstruction_BFineFirstObstruction24_01_20261024.mat",
+          "bytes": 35224135,
+          "compressed_bytes": 35224135,
+          "crc32": 296690934,
+          "directory": false
+        },
+        {
+          "name": "Audits/B_Fine_First_Obstruction_BFineFirstObstruction24_02_20261024.json",
+          "bytes": 454839,
+          "compressed_bytes": 454839,
+          "crc32": 3402796900,
+          "directory": false
+        },
+        {
+          "name": "Audits/B_Fine_First_Obstruction_BFineFirstObstruction24_02_20261024.mat",
+          "bytes": 26643581,
+          "compressed_bytes": 26643581,
+          "crc32": 317885393,
+          "directory": false
+        },
+        {
+          "name": "Audits/B_Fine_Memory_Saved_Inspection_BFineSavedInspection24_01_20261024.json",
+          "bytes": 210500,
+          "compressed_bytes": 210500,
+          "crc32": 1238843569,
+          "directory": false
+        },
+        {
+          "name": "Audits/Bifurcation_Assumptions.md",
+          "bytes": 69606,
+          "compressed_bytes": 69606,
+          "crc32": 1000935279,
+          "directory": false
+        },
+        {
+          "name": "Audits/Calibrated_Mean_Contrast_CalibratedMeanContrast24_01_20261024.json",
+          "bytes": 166410,
+          "compressed_bytes": 166410,
+          "crc32": 2080966937,
+          "directory": false
+        },
+        {
+          "name": "Audits/Calibrated_Mean_Contrast_CalibratedMeanContrast24_01_20261024.mat",
+          "bytes": 22786250,
+          "compressed_bytes": 22786250,
+          "crc32": 4167344423,
+          "directory": false
+        },
+        {
+          "name": "Audits/CampaignCheckpoint.mat",
+          "bytes": 4303,
+          "compressed_bytes": 4303,
+          "crc32": 1448033983,
+          "directory": false
+        },
+        {
+          "name": "Audits/Cleanup_20261021.json",
+          "bytes": 7538,
+          "compressed_bytes": 7538,
+          "crc32": 2983317890,
+          "directory": false
+        },
+        {
+          "name": "Audits/Cleanup_20261022.json",
+          "bytes": 17374,
+          "compressed_bytes": 17374,
+          "crc32": 2727841405,
+          "directory": false
+        },
+        {
+          "name": "Audits/Cleanup_20261023.json",
+          "bytes": 1301957,
+          "compressed_bytes": 1301957,
+          "crc32": 1415068186,
+          "directory": false
+        },
+        {
+          "name": "Audits/Closed_Component_Naming_closed_paths_02.json",
+          "bytes": 8568,
+          "compressed_bytes": 8568,
+          "crc32": 2679311875,
+          "directory": false
+        },
+        {
+          "name": "Audits/Closed_Component_Naming_closed_paths_02.mat",
+          "bytes": 10652,
+          "compressed_bytes": 10652,
+          "crc32": 2953541088,
+          "directory": false
+        },
+        {
+          "name": "Audits/Closed_F_CP_Inspection_MixedFClosure23_01_20261023.json",
+          "bytes": 3424024,
+          "compressed_bytes": 3424024,
+          "crc32": 3987026122,
+          "directory": false
+        },
+        {
+          "name": "Audits/Compact_Pending_Storage_Validation.json",
+          "bytes": 549,
+          "compressed_bytes": 549,
+          "crc32": 3283911187,
+          "directory": false
+        },
+        {
+          "name": "Audits/Cross_Grant_F_Resume_MixedFResume23_01_20261023.json",
+          "bytes": 7680439,
+          "compressed_bytes": 7680439,
+          "crc32": 2703530895,
+          "directory": false
+        },
+        {
+          "name": "Audits/Cross_Grant_F_Resume_MixedFResume23_01_20261023.mat",
+          "bytes": 108417,
+          "compressed_bytes": 108417,
+          "crc32": 1718187786,
+          "directory": false
+        },
+        {
+          "name": "Audits/Cross_Grant_H_Resume_MixedHResume23_01_20261023.json",
+          "bytes": 7702307,
+          "compressed_bytes": 7702307,
+          "crc32": 1015872424,
+          "directory": false
+        },
+        {
+          "name": "Audits/Cross_Grant_H_Resume_MixedHResume23_01_20261023.mat",
+          "bytes": 111737,
+          "compressed_bytes": 111737,
+          "crc32": 4069519104,
+          "directory": false
+        },
+        {
+          "name": "Audits/Current_FGHE_Parent_Catalog_CurrentFGHECatalog26_02_20261026.json",
+          "bytes": 38617698,
+          "compressed_bytes": 38617698,
+          "crc32": 2568214190,
+          "directory": false
+        },
+        {
+          "name": "Audits/Current_FGHE_Parent_Catalog_CurrentFGHECatalog26_02_20261026.mat",
+          "bytes": 12595190,
+          "compressed_bytes": 12595190,
+          "crc32": 3078323014,
+          "directory": false
+        },
+        {
+          "name": "Audits/Empty_Results_Final_Inventory_FinalEmptyInventory23_01_20261023.json",
+          "bytes": 156832,
+          "compressed_bytes": 156832,
+          "crc32": 3599790,
+          "directory": false
+        },
+        {
+          "name": "Audits/Empty_Results_Final_Inventory_FinalEmptyInventory23_01_20261023.mat",
+          "bytes": 47524,
+          "compressed_bytes": 47524,
+          "crc32": 3375989397,
+          "directory": false
+        },
+        {
+          "name": "Audits/FG_Further_Outward_Selection.mat",
+          "bytes": 7777,
+          "compressed_bytes": 7777,
+          "crc32": 2521067455,
+          "directory": false
+        },
+        {
+          "name": "Audits/Far_FE_Qualified_Pair_FarFEQualifiedPAL23_01_Initializers_20261023.mat",
+          "bytes": 14633491,
+          "compressed_bytes": 14633491,
+          "crc32": 1250022406,
+          "directory": false
+        },
+        {
+          "name": "Audits/Far_FE_Qualified_Pair_PAL_FarFEQualifiedPAL23_01_20261023.json",
+          "bytes": 37890,
+          "compressed_bytes": 37890,
+          "crc32": 3095826304,
+          "directory": false
+        },
+        {
+          "name": "Audits/Far_FE_Qualified_Pair_PAL_FarFEQualifiedPAL23_01_20261023.mat",
+          "bytes": 49711,
+          "compressed_bytes": 49711,
+          "crc32": 2210970639,
+          "directory": false
+        },
+        {
+          "name": "Audits/Final_Range_Comparison_Publication_FinalRangeComparison23_01_20261023.json",
+          "bytes": 40859,
+          "compressed_bytes": 40859,
+          "crc32": 2378712552,
+          "directory": false
+        },
+        {
+          "name": "Audits/Final_Range_Comparison_Publication_FinalRangeComparison23_01_20261023.mat",
+          "bytes": 14099,
+          "compressed_bytes": 14099,
+          "crc32": 2201543790,
+          "directory": false
+        },
+        {
+          "name": "Audits/Finite_Amplitude_Product_FiniteAmplitudeProduct25_01_20261024.json",
+          "bytes": 485494,
+          "compressed_bytes": 485494,
+          "crc32": 2828444820,
+          "directory": false
+        },
+        {
+          "name": "Audits/Finite_Amplitude_Product_FiniteAmplitudeProduct25_01_20261024.mat",
+          "bytes": 15358160,
+          "compressed_bytes": 15358160,
+          "crc32": 4168930667,
+          "directory": false
+        },
+        {
+          "name": "Audits/Finite_Amplitude_Product_Saved_Inspection_FiniteAmpSaved25_01_20261025.json",
+          "bytes": 1459015,
+          "compressed_bytes": 1459015,
+          "crc32": 1639878627,
+          "directory": false
+        },
+        {
+          "name": "Audits/GM_IPS_Projector_GMProjectorPAL23_01_Initializers_20261023.mat",
+          "bytes": 5562383,
+          "compressed_bytes": 5562383,
+          "crc32": 920795111,
+          "directory": false
+        },
+        {
+          "name": "Audits/GM_IPS_Projector_PAL_GMProjectorPAL23_01_20261023.json",
+          "bytes": 2471077,
+          "compressed_bytes": 2471077,
+          "crc32": 26561069,
+          "directory": false
+        },
+        {
+          "name": "Audits/GM_IPS_Projector_PAL_GMProjectorPAL23_01_20261023.mat",
+          "bytes": 156941,
+          "compressed_bytes": 156941,
+          "crc32": 1563700838,
+          "directory": false
+        },
+        {
+          "name": "Audits/G_Log_Angle_Size_GLogAngleSize25_01_20261024.json",
+          "bytes": 563635,
+          "compressed_bytes": 563635,
+          "crc32": 3574855542,
+          "directory": false
+        },
+        {
+          "name": "Audits/G_Log_Angle_Size_GLogAngleSize25_01_20261024.mat",
+          "bytes": 167508934,
+          "compressed_bytes": 167508934,
+          "crc32": 3879311300,
+          "directory": false
+        },
+        {
+          "name": "Audits/Generic_G_Owned_Outward_20261022_Selection.mat",
+          "bytes": 5058,
+          "compressed_bytes": 5058,
+          "crc32": 3919287460,
+          "directory": false
+        },
+        {
+          "name": "Audits/HE_PAL_Pending_Recovery_20261022.json",
+          "bytes": 31147,
+          "compressed_bytes": 31147,
+          "crc32": 3813569384,
+          "directory": false
+        },
+        {
+          "name": "Audits/HE_PAL_Pending_Recovery_20261022.mat",
+          "bytes": 12469,
+          "compressed_bytes": 12469,
+          "crc32": 732956388,
+          "directory": false
+        },
+        {
+          "name": "Audits/HE_PAL_Pending_Resolution_20261022.json",
+          "bytes": 40988,
+          "compressed_bytes": 40988,
+          "crc32": 1193849413,
+          "directory": false
+        },
+        {
+          "name": "Audits/HE_PAL_Pending_Resolution_20261022.mat",
+          "bytes": 18809,
+          "compressed_bytes": 18809,
+          "crc32": 4275491947,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Admitted_Base_Initializer_Control_HAdmittedBaseInit23_01_20261023.json",
+          "bytes": 244768354,
+          "compressed_bytes": 244768354,
+          "crc32": 1833055759,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Admitted_Base_Initializer_Control_HAdmittedBaseInit23_01_20261023.mat",
+          "bytes": 78103441,
+          "compressed_bytes": 78103441,
+          "crc32": 1443411208,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Admitted_Base_Smaller_FD_Control_HBaseSmallerFD23_01_20261023.json",
+          "bytes": 245136155,
+          "compressed_bytes": 245136155,
+          "crc32": 3137327421,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Admitted_Base_Smaller_FD_Control_HBaseSmallerFD23_01_20261023.mat",
+          "bytes": 118623614,
+          "compressed_bytes": 118623614,
+          "crc32": 830570016,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Admitted_Base_Smaller_FD_Saved_Inspection_HSmallerFDSavedInspect23_01_20261023.json",
+          "bytes": 1070960,
+          "compressed_bytes": 1070960,
+          "crc32": 3570693959,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Admitted_Base_Smaller_FD_Saved_Inspection_HSmallerFDSavedInspect23_01_20261023.mat",
+          "bytes": 298889,
+          "compressed_bytes": 298889,
+          "crc32": 3008694517,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_All_Channel_Arming_Tape_HAllChannelArmingTape23_01_20261023.json",
+          "bytes": 1446454,
+          "compressed_bytes": 1446454,
+          "crc32": 161895884,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_All_Channel_Arming_Tape_HAllChannelArmingTape23_01_20261023.mat",
+          "bytes": 16743244,
+          "compressed_bytes": 16743244,
+          "crc32": 3583077129,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Competing_Events_HCompetingEvents24_01_20261024.json",
+          "bytes": 44927608,
+          "compressed_bytes": 44927608,
+          "crc32": 2664748812,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Competing_Events_HCompetingEvents24_01_20261024.mat",
+          "bytes": 8775026,
+          "compressed_bytes": 8775026,
+          "crc32": 2380597752,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Competing_Events_HCompetingEvents24_02_20261024.json",
+          "bytes": 90564079,
+          "compressed_bytes": 90564079,
+          "crc32": 1717915615,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Competing_Events_HCompetingEvents24_02_20261024.mat",
+          "bytes": 17702983,
+          "compressed_bytes": 17702983,
+          "crc32": 432245782,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_First_Contact_Fine_HFirstContactFine24_01_20261024.json",
+          "bytes": 111222955,
+          "compressed_bytes": 111222955,
+          "crc32": 51800899,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_First_Contact_Fine_HFirstContactFine24_01_20261024.mat",
+          "bytes": 17136619,
+          "compressed_bytes": 17136619,
+          "crc32": 2094345911,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Fixed_Flight_BR_Reference_HFixedFlightBR23_01_20261023.json",
+          "bytes": 67416,
+          "compressed_bytes": 67416,
+          "crc32": 2011832186,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Fixed_Flight_BR_Reference_HFixedFlightBR23_01_20261023.mat",
+          "bytes": 711587,
+          "compressed_bytes": 711587,
+          "crc32": 3167050018,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Interior_Grazing_HInteriorGrazing24_01_20261024.json",
+          "bytes": 1074872,
+          "compressed_bytes": 1074872,
+          "crc32": 1842607446,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Interior_Grazing_HInteriorGrazing24_01_20261024.mat",
+          "bytes": 933186,
+          "compressed_bytes": 933186,
+          "crc32": 2749527943,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Interior_Grazing_HInteriorGrazing25_02_20261024.json",
+          "bytes": 1232805,
+          "compressed_bytes": 1232805,
+          "crc32": 374677836,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Interior_Grazing_HInteriorGrazing25_02_20261024.mat",
+          "bytes": 965625,
+          "compressed_bytes": 965625,
+          "crc32": 3491453570,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Missed_Contact_Reproducer_HMissedContactRepro24_01_20261024.json",
+          "bytes": 2084504,
+          "compressed_bytes": 2084504,
+          "crc32": 4262947033,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Missed_Contact_Reproducer_HMissedContactRepro24_01_20261024.mat",
+          "bytes": 436332,
+          "compressed_bytes": 436332,
+          "crc32": 3821339013,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Predictor_Energy_Fresh_PAL_HPredictorEnergyPAL23_02_20261023.json",
+          "bytes": 1044616,
+          "compressed_bytes": 1044616,
+          "crc32": 1343363627,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Predictor_Energy_Fresh_PAL_HPredictorEnergyPAL23_02_20261023.mat",
+          "bytes": 114755,
+          "compressed_bytes": 114755,
+          "crc32": 3506857523,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Predictor_Energy_Pending_Recovery_HEnergyRecover23_01.json",
+          "bytes": 1159123,
+          "compressed_bytes": 1159123,
+          "crc32": 3296882861,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Predictor_Energy_Pending_Recovery_HEnergyRecover23_01.mat",
+          "bytes": 80842,
+          "compressed_bytes": 80842,
+          "crc32": 1451491825,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Rejected_Segment_Capture_HRejectedSegmentCapture23_01_20261023.json",
+          "bytes": 1379577,
+          "compressed_bytes": 1379577,
+          "crc32": 759374625,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Rejected_Segment_Capture_HRejectedSegmentCapture23_01_20261023.mat",
+          "bytes": 16711702,
+          "compressed_bytes": 16711702,
+          "crc32": 891406516,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Smaller_FD_Two_Map_Reproduction_HSmallerFDMapRepro23_01_20261023.json",
+          "bytes": 684956,
+          "compressed_bytes": 684956,
+          "crc32": 2816321727,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Smaller_FD_Two_Map_Reproduction_HSmallerFDMapRepro23_01_20261023.mat",
+          "bytes": 1430849,
+          "compressed_bytes": 1430849,
+          "crc32": 3526559179,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Step_Resolution_HStepResolution23_01_20261023.json",
+          "bytes": 2301285,
+          "compressed_bytes": 2301285,
+          "crc32": 3498993679,
+          "directory": false
+        },
+        {
+          "name": "Audits/H_Step_Resolution_HStepResolution23_01_20261023.mat",
+          "bytes": 83022819,
+          "compressed_bytes": 83022819,
+          "crc32": 1862391518,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Branch_Geometry_IpsBranchGeometry23_01_20261023.json",
+          "bytes": 20437,
+          "compressed_bytes": 20437,
+          "crc32": 4262252363,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Branch_Geometry_IpsBranchGeometry23_01_20261023.mat",
+          "bytes": 8178,
+          "compressed_bytes": 8178,
+          "crc32": 1164372165,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Branch_Geometry_IpsBranchGeometry23_02_20261023.json",
+          "bytes": 141622,
+          "compressed_bytes": 141622,
+          "crc32": 2967425812,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Branch_Geometry_IpsBranchGeometry23_02_20261023.mat",
+          "bytes": 51755,
+          "compressed_bytes": 51755,
+          "crc32": 3878846950,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Carrier_PAL_Resume_IpsCarrierPALResume23_02_20261023.json",
+          "bytes": 284354,
+          "compressed_bytes": 284354,
+          "crc32": 98790046,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Carrier_PAL_Resume_IpsCarrierPALResume23_02_20261023.mat",
+          "bytes": 135424,
+          "compressed_bytes": 135424,
+          "crc32": 2244937794,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Carrier_Trial_IpsCarrierTrial23_01_20261023.json",
+          "bytes": 16277647,
+          "compressed_bytes": 16277647,
+          "crc32": 3904936641,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Carrier_Trial_IpsCarrierTrial23_01_20261023.mat",
+          "bytes": 1708962,
+          "compressed_bytes": 1708962,
+          "crc32": 4055290453,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Acquisition_Failed_Saved_IpsInteriorAcquisitionSaved23_01_20261023.json",
+          "bytes": 5876972,
+          "compressed_bytes": 5876972,
+          "crc32": 4198396353,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Acquisition_Failed_Saved_IpsInteriorAcquisitionSaved23_01_20261023.mat",
+          "bytes": 1156140,
+          "compressed_bytes": 1156140,
+          "crc32": 280381354,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Geometry_Minimum_Normal_IpsInteriorMinimumNormal23_01_20261023.json",
+          "bytes": 2461229,
+          "compressed_bytes": 2461229,
+          "crc32": 3279103713,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Geometry_Minimum_Normal_IpsInteriorMinimumNormal23_01_20261023.mat",
+          "bytes": 110233575,
+          "compressed_bytes": 110233575,
+          "crc32": 777053151,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Negative_Accepted_Last_Calibration_IpsInteriorNegativeCalibration24_03_20261024.json",
+          "bytes": 157740,
+          "compressed_bytes": 157740,
+          "crc32": 3914121627,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Negative_Accepted_Last_Calibration_IpsInteriorNegativeCalibration24_03_20261024.mat",
+          "bytes": 69093,
+          "compressed_bytes": 69093,
+          "crc32": 994738267,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Negative_Normal_G_IpsInteriorNegativeNormalG23_01_20261023.json",
+          "bytes": 396703,
+          "compressed_bytes": 396703,
+          "crc32": 2708286118,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Negative_Normal_G_IpsInteriorNegativeNormalG23_01_20261023.mat",
+          "bytes": 7929256,
+          "compressed_bytes": 7929256,
+          "crc32": 1914602375,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Physical_Phi_IpsInteriorPhysicalPhi23_01_20261023.json",
+          "bytes": 52904,
+          "compressed_bytes": 52904,
+          "crc32": 1443963000,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Interior_Physical_Phi_IpsInteriorPhysicalPhi23_01_20261023.mat",
+          "bytes": 7676152,
+          "compressed_bytes": 7676152,
+          "crc32": 1951766234,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Normal_Request2_Accepted_Last_IpsNormalRequest2Restart23_01_20261023.json",
+          "bytes": 189897,
+          "compressed_bytes": 189897,
+          "crc32": 3060377094,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Normal_Request2_Accepted_Last_IpsNormalRequest2Restart23_01_20261023.mat",
+          "bytes": 5661806,
+          "compressed_bytes": 5661806,
+          "crc32": 1248728581,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Saved_Report_Comparison_IpsSavedReportCompare23_01_20261023.json",
+          "bytes": 30931,
+          "compressed_bytes": 30931,
+          "crc32": 4084734730,
+          "directory": false
+        },
+        {
+          "name": "Audits/IPS_Saved_Report_Comparison_IpsSavedReportCompare23_01_20261023.mat",
+          "bytes": 7345,
+          "compressed_bytes": 7345,
+          "crc32": 1937245434,
+          "directory": false
+        },
+        {
+          "name": "Audits/Implementation_Changes_20261021.json",
+          "bytes": 43395847,
+          "compressed_bytes": 43395847,
+          "crc32": 2044419911,
+          "directory": false
+        },
+        {
+          "name": "Audits/Implementation_Changes_20261022.json",
+          "bytes": 26681874,
+          "compressed_bytes": 26681874,
+          "crc32": 1785143443,
+          "directory": false
+        },
+        {
+          "name": "Audits/Implementation_Changes_20261023.json",
+          "bytes": 50065557,
+          "compressed_bytes": 50065557,
+          "crc32": 1220984157,
+          "directory": false
+        },
+        {
+          "name": "Audits/Implementation_Changes_20261023_Deduplication_RecoveryIndex.json",
+          "bytes": 1884,
+          "compressed_bytes": 1884,
+          "crc32": 4169342874,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_ClassSimple_Derivative_Facts_LegacyGDerivFacts25_01_20261024.json",
+          "bytes": 2351875,
+          "compressed_bytes": 2351875,
+          "crc32": 2283130978,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_ClassSimple_Derivative_Facts_LegacyGDerivFacts25_01_20261024.mat",
+          "bytes": 734479,
+          "compressed_bytes": 734479,
+          "crc32": 176976225,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Intake_Probe_LegacyGIntakeProbe25_01_20261024.json",
+          "bytes": 52352,
+          "compressed_bytes": 52352,
+          "crc32": 3892278383,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_New_BL1_RootOnly_LegacyGClassSimple25_01_20261024.json",
+          "bytes": 693578,
+          "compressed_bytes": 693578,
+          "crc32": 1324582782,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_New_BL1_RootOnly_LegacyGClassSimple25_01_20261024.mat",
+          "bytes": 7139572,
+          "compressed_bytes": 7139572,
+          "crc32": 3120074612,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_New_BL1_RootOnly_LegacyGNewBL1RootOnly25_01_20261024.json",
+          "bytes": 50594,
+          "compressed_bytes": 50594,
+          "crc32": 1997163640,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_New_BL1_RootOnly_LegacyGNewBL1RootOnly25_01_20261024.mat",
+          "bytes": 44040,
+          "compressed_bytes": 44040,
+          "crc32": 1770280331,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Raw_MeanContrast_LegacyGRawMean25_01_20261024.json",
+          "bytes": 1358580,
+          "compressed_bytes": 1358580,
+          "crc32": 3717169610,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Raw_MeanContrast_LegacyGRawMean25_01_20261024.mat",
+          "bytes": 12938691,
+          "compressed_bytes": 12938691,
+          "crc32": 21516936,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Spread_Log_LegacyGSpreadLog25_01_20261024.json",
+          "bytes": 2246265,
+          "compressed_bytes": 2246265,
+          "crc32": 1735836619,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Spread_Log_LegacyGSpreadLog25_01_20261024.mat",
+          "bytes": 89811914,
+          "compressed_bytes": 89811914,
+          "crc32": 1346027036,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Stage_Recovery_LegacyStageCompact25_01_20261024.json",
+          "bytes": 15604105,
+          "compressed_bytes": 15604105,
+          "crc32": 2262413738,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Stage_Recovery_LegacyStageRecover25_01_20261024.json",
+          "bytes": 15604049,
+          "compressed_bytes": 15604049,
+          "crc32": 4090793891,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Tight_Profile_RootOnly_LegacyGTight25_01_20261024.json",
+          "bytes": 3085773,
+          "compressed_bytes": 3085773,
+          "crc32": 355783453,
+          "directory": false
+        },
+        {
+          "name": "Audits/Legacy_G_Tight_Profile_RootOnly_LegacyGTight25_01_20261024.mat",
+          "bytes": 14755860,
+          "compressed_bytes": 14755860,
+          "crc32": 1983884906,
+          "directory": false
+        },
+        {
+          "name": "Audits/Long_PK_B_Unit_Mode_Comparison.json",
+          "bytes": 1146983,
+          "compressed_bytes": 1146983,
+          "crc32": 3367586345,
+          "directory": false
+        },
+        {
+          "name": "Audits/Long_PK_B_Unit_Mode_Comparison.mat",
+          "bytes": 36209,
+          "compressed_bytes": 36209,
+          "crc32": 3102309996,
+          "directory": false
+        },
+        {
+          "name": "Audits/Mean_Contrast_Ladder_MeanContrastLadder25_01_20261024.json",
+          "bytes": 149959077,
+          "compressed_bytes": 149959077,
+          "crc32": 3731067208,
+          "directory": false
+        },
+        {
+          "name": "Audits/Mean_Contrast_Ladder_MeanContrastLadder25_01_20261024.mat",
+          "bytes": 39359745,
+          "compressed_bytes": 39359745,
+          "crc32": 4167703984,
+          "directory": false
+        },
+        {
+          "name": "Audits/Mixed_F_Pair_PAL_MixedFPairPAL22_01_Initializers.mat",
+          "bytes": 3904103,
+          "compressed_bytes": 3904103,
+          "crc32": 3542195732,
+          "directory": false
+        },
+        {
+          "name": "Audits/Mixed_HE_FG_Reference_Metadata_Initializers_20261022.mat",
+          "bytes": 3936831,
+          "compressed_bytes": 3936831,
+          "crc32": 1272922182,
+          "directory": false
+        },
+        {
+          "name": "Audits/Mixed_H_Pair_PAL_MixedHPairPAL22_01_Initializers.mat",
+          "bytes": 3893429,
+          "compressed_bytes": 3893429,
+          "crc32": 1585084432,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_BG_New_Edges_Odd_20261022_Selection.mat",
+          "bytes": 17333,
+          "compressed_bytes": 17333,
+          "crc32": 3345783338,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Empirical_Critical_PK_Other_criticalPK22_other01_Selection.mat",
+          "bytes": 9204,
+          "compressed_bytes": 9204,
+          "crc32": 959459083,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_FE_HG_Endpoint_Fine_Selection.mat",
+          "bytes": 58909,
+          "compressed_bytes": 58909,
+          "crc32": 2013936433,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_FG_Further_Tip_Fine_Selection.mat",
+          "bytes": 37017,
+          "compressed_bytes": 37017,
+          "crc32": 3670549494,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_FG_Tip11_Fine_Selection_20261023.mat",
+          "bytes": 87161,
+          "compressed_bytes": 87161,
+          "crc32": 3204438967,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_FG_Tip23_Fine_FGtip23Fine23_01_Selection_20261023.mat",
+          "bytes": 101069,
+          "compressed_bytes": 101069,
+          "crc32": 3547145279,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_F_Contraction_Fine_FcontractFine23_01_20261023.mat",
+          "bytes": 286411,
+          "compressed_bytes": 286411,
+          "crc32": 2226108625,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_F_Refined_Step010_Resume_Selection_MixedFResume22_refined_step010.mat",
+          "bytes": 126007,
+          "compressed_bytes": 126007,
+          "crc32": 2507901485,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Far_FE_Pair_Fine_FarFEfine23_01_20261023.mat",
+          "bytes": 218687,
+          "compressed_bytes": 218687,
+          "crc32": 3779376749,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Final_Endpoint_Fine_Selection.mat",
+          "bytes": 49973,
+          "compressed_bytes": 49973,
+          "crc32": 3121755137,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Fresh_Source_Selection.mat",
+          "bytes": 46888,
+          "compressed_bytes": 46888,
+          "crc32": 2348717003,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_HE_Refined_Short_Resume_Selection_MixedHResume22_refined_short01.mat",
+          "bytes": 131585,
+          "compressed_bytes": 131585,
+          "crc32": 2750266141,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_HE_Same_File_Resume_Selection_MixedHResume22_step002_01.mat",
+          "bytes": 79324,
+          "compressed_bytes": 79324,
+          "crc32": 150732364,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_H_Contraction_Four_Fine_HcontractFourFine23_01_20261023.mat",
+          "bytes": 271229,
+          "compressed_bytes": 271229,
+          "crc32": 1053811444,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_H_Tail_Pair_Fine_HtailFine23_01_20261023.mat",
+          "bytes": 172323,
+          "compressed_bytes": 172323,
+          "crc32": 2220748004,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Mixed_HE_FG_Reference_Metadata_Fine_Selection_20261022.mat",
+          "bytes": 114941,
+          "compressed_bytes": 114941,
+          "crc32": 1252815499,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Positive_BG_Terminal_Odd_Selection.mat",
+          "bytes": 8898,
+          "compressed_bytes": 8898,
+          "crc32": 116772240,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Post_F_Hind_Odd_F23HindOdd23_01_20261023_Selection.json",
+          "bytes": 24265836,
+          "compressed_bytes": 24265836,
+          "crc32": 2024559781,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Post_F_Hind_Odd_F23HindOdd23_01_20261023_Selection.mat",
+          "bytes": 770960,
+          "compressed_bytes": 770960,
+          "crc32": 3504689526,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Post_H_Fore_Odd_Hclosed23_01_20261023_Selection.json",
+          "bytes": 17435423,
+          "compressed_bytes": 17435423,
+          "crc32": 1907867397,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Post_H_Fore_Odd_Hclosed23_01_20261023_Selection.mat",
+          "bytes": 530574,
+          "compressed_bytes": 530574,
+          "crc32": 4160717659,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Primary_HG_PK_Fine_Selection_20261022.mat",
+          "bytes": 89734,
+          "compressed_bytes": 89734,
+          "crc32": 3559105128,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Primary_Odd_Step_Refinement_pkB22_oddsmall01_Selection.mat",
+          "bytes": 9298,
+          "compressed_bytes": 9298,
+          "crc32": 2362899050,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Primary_Other_Sectors_pkB22_other01_Selection.mat",
+          "bytes": 9241,
+          "compressed_bytes": 9241,
+          "crc32": 2013393212,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Primary_Resume_Fine_Selection.mat",
+          "bytes": 32603,
+          "compressed_bytes": 32603,
+          "crc32": 2268246893,
+          "directory": false
+        },
+        {
+          "name": "Audits/Native_Short_PK_Baseline_Fine_ShortPKBaselineFine23_01_20261023.mat",
+          "bytes": 135955,
+          "compressed_bytes": 135955,
+          "crc32": 188388622,
+          "directory": false
+        },
+        {
+          "name": "Audits/Negative_Calibrated_Candidate_Admission_NegativeCalibratedAdmission24_01_20261024.json",
+          "bytes": 135997,
+          "compressed_bytes": 135997,
+          "crc32": 2218440967,
+          "directory": false
+        },
+        {
+          "name": "Audits/Negative_Calibrated_Candidate_Admission_NegativeCalibratedAdmission24_01_20261024.mat",
+          "bytes": 4540432,
+          "compressed_bytes": 4540432,
+          "crc32": 3906015059,
+          "directory": false
+        },
+        {
+          "name": "Audits/Owned_B_Range_Extension_BPositiveRange24_01_20261024.json",
+          "bytes": 854173,
+          "compressed_bytes": 854173,
+          "crc32": 3682411537,
+          "directory": false
+        },
+        {
+          "name": "Audits/Owned_PK_Current_Failure_Facts_PKCurrentFacts25_01_20261025.json",
+          "bytes": 12747117,
+          "compressed_bytes": 12747117,
+          "crc32": 1879702160,
+          "directory": false
+        },
+        {
+          "name": "Audits/Owned_PK_Current_Failure_Facts_PKCurrentFacts25_01_20261025.mat",
+          "bytes": 120912478,
+          "compressed_bytes": 120912478,
+          "crc32": 1958614744,
+          "directory": false
+        },
+        {
+          "name": "Audits/Owned_PK_Fresh_Step_Fine_RootOnly_Resume_OwnedPKFreshFine25_02_20261025.json",
+          "bytes": 276216,
+          "compressed_bytes": 276216,
+          "crc32": 1366145520,
+          "directory": false
+        },
+        {
+          "name": "Audits/Owned_PK_General_RootOnly_Resume_OwnedPKGeneralPos25_02_20261025.json",
+          "bytes": 295579,
+          "compressed_bytes": 295579,
+          "crc32": 3752006708,
+          "directory": false
+        },
+        {
+          "name": "Audits/Owned_PK_RootOnly_Range_OwnedPKRangeAsCells25_01_20261025.json",
+          "bytes": 221237,
+          "compressed_bytes": 221237,
+          "crc32": 382593374,
+          "directory": false
+        },
+        {
+          "name": "Audits/Owned_PK_RootOnly_Resume_OwnedPKReuse25_01_20261025.json",
+          "bytes": 253082,
+          "compressed_bytes": 253082,
+          "crc32": 8504155,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Half_Bound_Template_Semantics_P1HFTemplate25_01_20261024.json",
+          "bytes": 7720562,
+          "compressed_bytes": 7720562,
+          "crc32": 4049968017,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Half_Bound_Template_Semantics_P1HFTemplate25_01_20261024.mat",
+          "bytes": 3706549,
+          "compressed_bytes": 3706549,
+          "crc32": 2608281286,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Initial_Domains_allP1_domain23_01_20261023.json",
+          "bytes": 25862800,
+          "compressed_bytes": 25862800,
+          "crc32": 2589700845,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Initial_Domains_allP1_domain23_01_20261023.mat",
+          "bytes": 4806467,
+          "compressed_bytes": 4806467,
+          "crc32": 1937862232,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Middle_Critical_Domain_P1MiddleDomain25_01_20261025.json",
+          "bytes": 91034,
+          "compressed_bytes": 91034,
+          "crc32": 2311761955,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Middle_Critical_Domain_P1MiddleDomain25_01_20261025.mat",
+          "bytes": 37878,
+          "compressed_bytes": 37878,
+          "crc32": 197616971,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Middle_First_Flight_P1MiddleFirstFlight25_01_20261025.json",
+          "bytes": 18451422,
+          "compressed_bytes": 18451422,
+          "crc32": 2339401008,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Middle_First_Flight_P1MiddleFirstFlight25_01_20261025.mat",
+          "bytes": 4653625,
+          "compressed_bytes": 4653625,
+          "crc32": 600892868,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_PK_Critical_Domain_P1PKDomain25_01_20261024.json",
+          "bytes": 74405,
+          "compressed_bytes": 74405,
+          "crc32": 138888760,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_PK_Critical_Domain_P1PKDomain25_01_20261024.mat",
+          "bytes": 34057,
+          "compressed_bytes": 34057,
+          "crc32": 285967483,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Raw_Pair_Patterns_ClosedP1Pairs23_01_20261023.json",
+          "bytes": 83390,
+          "compressed_bytes": 83390,
+          "crc32": 4206091402,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Raw_Pair_Patterns_allP1_domain23_01_20261023.json",
+          "bytes": 41289,
+          "compressed_bytes": 41289,
+          "crc32": 1764313033,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Secondary_Critical_Domain_P1SecondaryScoped25_01_20261024.json",
+          "bytes": 61513,
+          "compressed_bytes": 61513,
+          "crc32": 852508910,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_Secondary_Critical_Domain_P1SecondaryScoped25_01_20261024.mat",
+          "bytes": 26444,
+          "compressed_bytes": 26444,
+          "crc32": 2671161767,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_v2_Native_Reference_Audit.json",
+          "bytes": 2665456,
+          "compressed_bytes": 2665456,
+          "crc32": 1492690303,
+          "directory": false
+        },
+        {
+          "name": "Audits/P1_v2_Native_Reference_Audit.mat",
+          "bytes": 2414886,
+          "compressed_bytes": 2414886,
+          "crc32": 1856788935,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Domain_Grazing_pkDomain23_01.json",
+          "bytes": 129898,
+          "compressed_bytes": 129898,
+          "crc32": 1236903203,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Domain_Grazing_pkDomain23_01.mat",
+          "bytes": 47737,
+          "compressed_bytes": 47737,
+          "crc32": 4020628662,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Import2_Transverse_Custody_PKImport2Transverse25_01_20261024.json",
+          "bytes": 338846,
+          "compressed_bytes": 338846,
+          "crc32": 184390319,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Import2_Transverse_Custody_PKImport2Transverse25_01_20261024.mat",
+          "bytes": 68201,
+          "compressed_bytes": 68201,
+          "crc32": 84279782,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Local_Energy_Neighbors_PKLocalEnergyNeighbors24_01_20261024.json",
+          "bytes": 4575381,
+          "compressed_bytes": 4575381,
+          "crc32": 3627860581,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Local_Energy_Neighbors_PKLocalEnergyNeighbors24_01_20261024.mat",
+          "bytes": 47295856,
+          "compressed_bytes": 47295856,
+          "crc32": 3054031099,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Midstance_Compact_Candidate_Table_20261024.json",
+          "bytes": 9472,
+          "compressed_bytes": 9472,
+          "crc32": 723326128,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Midstance_Scalar_PKMidstanceScalar24_01_20261024.mat",
+          "bytes": 117494823,
+          "compressed_bytes": 117494823,
+          "crc32": 4182604115,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Midstance_Scalar_PKMidstanceScalar24_01_Interrupted_Snapshot_20261024.json",
+          "bytes": 162071,
+          "compressed_bytes": 162071,
+          "crc32": 3589409521,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_PAL_Probe_PKPALNegative25_01_20261024.json",
+          "bytes": 135952,
+          "compressed_bytes": 135952,
+          "crc32": 55692098,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_PAL_Probe_PKPALProbePolicyRole25_01_20261024.json",
+          "bytes": 135969,
+          "compressed_bytes": 135969,
+          "crc32": 1256025244,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Saved_Candidates_Inspection_PKSavedExpanded25_01_20261024.json",
+          "bytes": 1575939,
+          "compressed_bytes": 1575939,
+          "crc32": 3863152635,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Saved_Candidates_PKSavedCandidates24_01_20261024.json",
+          "bytes": 5843080,
+          "compressed_bytes": 5843080,
+          "crc32": 444871103,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Saved_Candidates_PKSavedCandidates24_01_20261024.mat",
+          "bytes": 58105160,
+          "compressed_bytes": 58105160,
+          "crc32": 3492606689,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Short_Inward_Resume_Selection.mat",
+          "bytes": 30190,
+          "compressed_bytes": 30190,
+          "crc32": 3669750082,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Short_Inward_Selection.mat",
+          "bytes": 8013,
+          "compressed_bytes": 8013,
+          "crc32": 820326551,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Short_Inward_Tail_Resume_Selection.mat",
+          "bytes": 32987,
+          "compressed_bytes": 32987,
+          "crc32": 1638720026,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Two_Sided_Energy_Controls_Long_PKTwoSidedLong25_01_20261024.json",
+          "bytes": 570927,
+          "compressed_bytes": 570927,
+          "crc32": 2227226781,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Two_Sided_Energy_Controls_Long_PKTwoSidedLong25_01_20261024.mat",
+          "bytes": 97266,
+          "compressed_bytes": 97266,
+          "crc32": 3856372908,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Two_Sided_Energy_Controls_PKTwoSidedControls25_01_20261024.json",
+          "bytes": 156423,
+          "compressed_bytes": 156423,
+          "crc32": 2649060312,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Two_Sided_Energy_Controls_PKTwoSidedControls25_01_20261024.mat",
+          "bytes": 60917,
+          "compressed_bytes": 60917,
+          "crc32": 890797091,
+          "directory": false
+        },
+        {
+          "name": "Audits/Pair_Odd_Variational_Fhind23_F23HindOdd23_01.json",
+          "bytes": 69632,
+          "compressed_bytes": 69632,
+          "crc32": 1822335778,
+          "directory": false
+        },
+        {
+          "name": "Audits/Pair_Odd_Variational_Fhind23_F23HindOdd23_01.mat",
+          "bytes": 42087874,
+          "compressed_bytes": 42087874,
+          "crc32": 3359830416,
+          "directory": false
+        },
+        {
+          "name": "Audits/Pair_Odd_Variational_Hfore23_Hclosed23_01.json",
+          "bytes": 48842,
+          "compressed_bytes": 48842,
+          "crc32": 3143417597,
+          "directory": false
+        },
+        {
+          "name": "Audits/Pair_Odd_Variational_Hfore23_Hclosed23_01.mat",
+          "bytes": 37213593,
+          "compressed_bytes": 37213593,
+          "crc32": 1819287125,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_All_Eligible_Scan_ParentAllUnitScan25_01_20261025.json",
+          "bytes": 1306624,
+          "compressed_bytes": 1306624,
+          "crc32": 699203376,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_All_Eligible_Scan_ParentAllUnitScan25_01_20261025.mat",
+          "bytes": 120149742,
+          "compressed_bytes": 120149742,
+          "crc32": 1680425714,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_First_Eligible_ParentUnitFirst25_01_20261024.json",
+          "bytes": 57853943,
+          "compressed_bytes": 57853943,
+          "crc32": 2104900464,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_First_Eligible_ParentUnitFirst25_01_20261024.mat",
+          "bytes": 89894067,
+          "compressed_bytes": 89894067,
+          "crc32": 3769512807,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_First_Saved_Facts_Recovery_ParentFirstFactsRec25_01_20261024.json",
+          "bytes": 19296121,
+          "compressed_bytes": 19296121,
+          "crc32": 2649357465,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_First_Saved_Facts_Recovery_ParentFirstFactsRec25_01_20261024.mat",
+          "bytes": 4636651,
+          "compressed_bytes": 4636651,
+          "crc32": 2634438412,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_LogGap_Endpoints_ParentLogGap25_01_20261024.json",
+          "bytes": 4549792,
+          "compressed_bytes": 4549792,
+          "crc32": 2392728359,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_LogGap_Endpoints_ParentLogGap25_01_20261024.mat",
+          "bytes": 203018959,
+          "compressed_bytes": 203018959,
+          "crc32": 678031805,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_LogGap_Saved_Facts_ParentLogFacts25_01_20261024.json",
+          "bytes": 5108688,
+          "compressed_bytes": 5108688,
+          "crc32": 2396807494,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_LogGap_Saved_Facts_ParentLogFacts25_01_20261024.mat",
+          "bytes": 1455512,
+          "compressed_bytes": 1455512,
+          "crc32": 1588951368,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Root_ParentUnitRoot25_01_20261024.json",
+          "bytes": 3342486,
+          "compressed_bytes": 3342486,
+          "crc32": 3071909773,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Root_ParentUnitRoot25_01_20261024.mat",
+          "bytes": 109863539,
+          "compressed_bytes": 109863539,
+          "crc32": 3205923837,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Saved_Facts_ParentUnitFacts25_01_20261024.json",
+          "bytes": 4014748,
+          "compressed_bytes": 4014748,
+          "crc32": 1070028943,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Saved_Facts_ParentUnitFacts25_01_20261024.mat",
+          "bytes": 917481,
+          "compressed_bytes": 917481,
+          "crc32": 2198129967,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Saved_Facts_ParentUnitFacts25_02_20261024.json",
+          "bytes": 4014759,
+          "compressed_bytes": 4014759,
+          "crc32": 577389891,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Saved_Facts_ParentUnitFacts25_02_20261024.mat",
+          "bytes": 917529,
+          "compressed_bytes": 917529,
+          "crc32": 2717093466,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Stance_First_Eligible_ParentStanceFirst25_01_20261024.json",
+          "bytes": 51210119,
+          "compressed_bytes": 51210119,
+          "crc32": 1148572780,
+          "directory": false
+        },
+        {
+          "name": "Audits/Parent_Unit_Stance_First_Eligible_ParentStanceFirst25_01_20261024.mat",
+          "bytes": 1940603,
+          "compressed_bytes": 1940603,
+          "crc32": 113985732,
+          "directory": false
+        },
+        {
+          "name": "Audits/Pending_FG_Report_Classes.json",
+          "bytes": 3300,
+          "compressed_bytes": 3300,
+          "crc32": 3508137336,
+          "directory": false
+        },
+        {
+          "name": "Audits/Positive_BG_Outward_Selection.mat",
+          "bytes": 21573,
+          "compressed_bytes": 21573,
+          "crc32": 2382927663,
+          "directory": false
+        },
+        {
+          "name": "Audits/Positive_Mean_Contrast_RootOnly_PositiveMeanContrastRootOnly24_01_20261024.json",
+          "bytes": 50081290,
+          "compressed_bytes": 50081290,
+          "crc32": 769495792,
+          "directory": false
+        },
+        {
+          "name": "Audits/Positive_Mean_Contrast_RootOnly_PositiveMeanContrastRootOnly24_01_20261024.mat",
+          "bytes": 12592788,
+          "compressed_bytes": 12592788,
+          "crc32": 264916046,
+          "directory": false
+        },
+        {
+          "name": "Audits/Positive_Mean_Contrast_RootOnly_Saved_WarmRootOnlySavedInspection24_02_20261024.json",
+          "bytes": 776338,
+          "compressed_bytes": 776338,
+          "crc32": 1017543961,
+          "directory": false
+        },
+        {
+          "name": "Audits/Previous_Archives_Consolidation_20261026.json",
+          "bytes": 57135,
+          "compressed_bytes": 57135,
+          "crc32": 1973196822,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Approach_PrimaryBApproach25_01_20261025.json",
+          "bytes": 18471584,
+          "compressed_bytes": 18471584,
+          "crc32": 3390020242,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Approach_PrimaryBApproach25_01_20261025.mat",
+          "bytes": 100956640,
+          "compressed_bytes": 100956640,
+          "crc32": 565730786,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Cross_Grant_Resume_BnegResume23_02_20261023.json",
+          "bytes": 261048,
+          "compressed_bytes": 261048,
+          "crc32": 2337276722,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Cross_Grant_Resume_BnegResume23_02_20261023.mat",
+          "bytes": 97750,
+          "compressed_bytes": 97750,
+          "crc32": 4187575570,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Cross_Grant_Resume_BposResume23_01_20261023.json",
+          "bytes": 258344,
+          "compressed_bytes": 258344,
+          "crc32": 4234774517,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Cross_Grant_Resume_BposResume23_01_20261023.mat",
+          "bytes": 96202,
+          "compressed_bytes": 96202,
+          "crc32": 3256888470,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Cross_Grant_Resume_BposResume23_02_20261023.json",
+          "bytes": 261097,
+          "compressed_bytes": 261097,
+          "crc32": 4099266290,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Cross_Grant_Resume_BposResume23_02_20261023.mat",
+          "bytes": 97840,
+          "compressed_bytes": 97840,
+          "crc32": 1820633378,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Negative_Long_Trial_BnegLongTrial23_01_20261023.json",
+          "bytes": 237926,
+          "compressed_bytes": 237926,
+          "crc32": 754684413,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_Negative_Long_Trial_BnegLongTrial23_01_20261023.mat",
+          "bytes": 81962,
+          "compressed_bytes": 81962,
+          "crc32": 4062109454,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_PAL_Bneg_qhalf_20261022_01_Initializers.mat",
+          "bytes": 3505246,
+          "compressed_bytes": 3505246,
+          "crc32": 3922655990,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_PAL_Bneg_qhalf_20261022_01_Selection.mat",
+          "bytes": 28052,
+          "compressed_bytes": 28052,
+          "crc32": 960011544,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_PAL_Bpos_qhalf_20261022_01_Initializers.mat",
+          "bytes": 3502017,
+          "compressed_bytes": 3502017,
+          "crc32": 3885756749,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_PAL_Bpos_qhalf_20261022_01_Selection.mat",
+          "bytes": 27891,
+          "compressed_bytes": 27891,
+          "crc32": 126891256,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_PK_Source_Facts_PrimaryBPKFacts25_03_20261025.json",
+          "bytes": 1300959,
+          "compressed_bytes": 1300959,
+          "crc32": 211514602,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_B_PK_Source_Facts_PrimaryBPKFacts25_03_20261025.mat",
+          "bytes": 186207,
+          "compressed_bytes": 186207,
+          "crc32": 3560338865,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_F_Contraction_Fcontract23_01_20261023.json",
+          "bytes": 26685774,
+          "compressed_bytes": 26685774,
+          "crc32": 2929277634,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_F_Contraction_Fcontract23_01_20261023.mat",
+          "bytes": 4327801,
+          "compressed_bytes": 4327801,
+          "crc32": 57075949,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_H_Contraction_Hcontract23_01_20261023.json",
+          "bytes": 2547144,
+          "compressed_bytes": 2547144,
+          "crc32": 107207083,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_H_Contraction_Hcontract23_01_20261023.mat",
+          "bytes": 3553338,
+          "compressed_bytes": 3553338,
+          "crc32": 3700160381,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_Qualification_primary22_fine01_Initializers.mat",
+          "bytes": 3510886,
+          "compressed_bytes": 3510886,
+          "crc32": 1075775812,
+          "directory": false
+        },
+        {
+          "name": "Audits/Primary_Qualification_primary22_fine01_Selection.mat",
+          "bytes": 35677,
+          "compressed_bytes": 35677,
+          "crc32": 3732935389,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification.json",
+          "bytes": 10107463,
+          "compressed_bytes": 10107463,
+          "crc32": 1269703400,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification_20261022.json",
+          "bytes": 8333694,
+          "compressed_bytes": 8333694,
+          "crc32": 1942725598,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification_20261022_checkpoint.mat",
+          "bytes": 69675166,
+          "compressed_bytes": 69675166,
+          "crc32": 1484037799,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification_20261022_predicate.json",
+          "bytes": 619962,
+          "compressed_bytes": 619962,
+          "crc32": 4021294716,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification_20261022_predicate_checkpoint.mat",
+          "bytes": 6649244,
+          "compressed_bytes": 6649244,
+          "crc32": 193353805,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification_20261023.json",
+          "bytes": 16333276,
+          "compressed_bytes": 16333276,
+          "crc32": 3256748652,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification_20261023_checkpoint.mat",
+          "bytes": 93990871,
+          "compressed_bytes": 93990871,
+          "crc32": 71739008,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualification_checkpoint.mat",
+          "bytes": 79425586,
+          "compressed_bytes": 79425586,
+          "crc32": 2462145246,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualified_GM_Small_Beta_QualifiedGMBeta25_01_20261024.json",
+          "bytes": 2268412,
+          "compressed_bytes": 2268412,
+          "crc32": 575435972,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualified_GM_Small_Beta_QualifiedGMBeta25_01_20261024.mat",
+          "bytes": 17147051,
+          "compressed_bytes": 17147051,
+          "crc32": 3329723352,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualified_HE_Source_State_Comparison.json",
+          "bytes": 2869283,
+          "compressed_bytes": 2869283,
+          "crc32": 1232856486,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualified_HE_Source_State_Comparison.mat",
+          "bytes": 142200,
+          "compressed_bytes": 142200,
+          "crc32": 589371592,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualified_H_Contraction_Comparison_HcontractFreshCompare23_01_20261023.json",
+          "bytes": 136087,
+          "compressed_bytes": 136087,
+          "crc32": 2525571530,
+          "directory": false
+        },
+        {
+          "name": "Audits/Qualified_H_Contraction_Comparison_HcontractFreshCompare23_01_20261023.mat",
+          "bytes": 109133,
+          "compressed_bytes": 109133,
+          "crc32": 419147957,
+          "directory": false
+        },
+        {
+          "name": "Audits/Raw_P1_GG_GE_Current_Maps_RawP1GGGE23_01_20261023.json",
+          "bytes": 530883,
+          "compressed_bytes": 530883,
+          "crc32": 2388439215,
+          "directory": false
+        },
+        {
+          "name": "Audits/Raw_P1_GG_GE_Current_Maps_RawP1GGGE23_01_20261023.mat",
+          "bytes": 819963,
+          "compressed_bytes": 819963,
+          "crc32": 3740785911,
+          "directory": false
+        },
+        {
+          "name": "Audits/Raw_P1_GG_GE_Full_Return_Census_RawP1GGGEFull23_01_20261023.json",
+          "bytes": 7972117,
+          "compressed_bytes": 7972117,
+          "crc32": 2763247801,
+          "directory": false
+        },
+        {
+          "name": "Audits/Raw_P1_GG_GE_Full_Return_Census_RawP1GGGEFull23_01_20261023.mat",
+          "bytes": 2130982,
+          "compressed_bytes": 2130982,
+          "crc32": 2786422946,
+          "directory": false
+        },
+        {
+          "name": "Audits/Recovered_H_Synchrony_Predicate_Comparison_20261022.json",
+          "bytes": 16824,
+          "compressed_bytes": 16824,
+          "crc32": 2999328611,
+          "directory": false
+        },
+        {
+          "name": "Audits/Recovered_H_Synchrony_Predicate_Comparison_20261022.mat",
+          "bytes": 67990,
+          "compressed_bytes": 67990,
+          "crc32": 254374371,
+          "directory": false
+        },
+        {
+          "name": "Audits/Recovered_H_Synchrony_Predicate_Comparison_20261022_retry01.json",
+          "bytes": 28009,
+          "compressed_bytes": 28009,
+          "crc32": 3911093785,
+          "directory": false
+        },
+        {
+          "name": "Audits/Recovered_H_Synchrony_Predicate_Comparison_20261022_retry01.mat",
+          "bytes": 130157,
+          "compressed_bytes": 130157,
+          "crc32": 3314599473,
+          "directory": false
+        },
+        {
+          "name": "Audits/Repeat_H_Resume_MixedHRepeat23_01_20261023.json",
+          "bytes": 7776576,
+          "compressed_bytes": 7776576,
+          "crc32": 3546246560,
+          "directory": false
+        },
+        {
+          "name": "Audits/Repeat_H_Resume_MixedHRepeat23_01_20261023.mat",
+          "bytes": 122805,
+          "compressed_bytes": 122805,
+          "crc32": 3597660083,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_Legacy_G_Tight_Profile_20261025.json",
+          "bytes": 373549,
+          "compressed_bytes": 373549,
+          "crc32": 2857911316,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_Owned_PK_Fresh_Fine_OwnedPKFreshFine25_02_References_20261026.json",
+          "bytes": 5635,
+          "compressed_bytes": 5635,
+          "crc32": 2489285619,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_P1_Half_Bound_Template_Semantics_20261025.json",
+          "bytes": 5721,
+          "compressed_bytes": 5721,
+          "crc32": 450264414,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_P1_Middle_Domain_P1MiddleDomain25_01_References_20261026.json",
+          "bytes": 20688,
+          "compressed_bytes": 20688,
+          "crc32": 1713988192,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_P1_Middle_First_Flight_References_20261026.json",
+          "bytes": 52998,
+          "compressed_bytes": 52998,
+          "crc32": 945233597,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_P1_PK_Critical_Domain_20261025.json",
+          "bytes": 15605,
+          "compressed_bytes": 15605,
+          "crc32": 1548824349,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_P1_Secondary_Critical_Domain_References_20261026.json",
+          "bytes": 11681,
+          "compressed_bytes": 11681,
+          "crc32": 2135121354,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_PK_Current_Failure_Facts_20261025.json",
+          "bytes": 403102,
+          "compressed_bytes": 403102,
+          "crc32": 2569055411,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_Parent_Unit_All_Eligible_Scan_References_20261026.json",
+          "bytes": 100079,
+          "compressed_bytes": 100079,
+          "crc32": 3811650480,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_Parent_Unit_Saved_Facts_20261025.json",
+          "bytes": 203603,
+          "compressed_bytes": 203603,
+          "crc32": 2931216386,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_Primary_B_PK_Source_Facts_20261025.json",
+          "bytes": 1323694,
+          "compressed_bytes": 1323694,
+          "crc32": 2288607807,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Closed_Smaller_B_Fine_Facts_SmallerBFineFacts25_01_References_20261026.json",
+          "bytes": 65803,
+          "compressed_bytes": 65803,
+          "crc32": 1562209232,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Final_Validation_20261022.json",
+          "bytes": 82527,
+          "compressed_bytes": 82527,
+          "crc32": 1592053854,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Final_Validation_20261022.mat",
+          "bytes": 96726,
+          "compressed_bytes": 96726,
+          "crc32": 2572013705,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Only_Native_Validation_20261024.json",
+          "bytes": 4534,
+          "compressed_bytes": 4534,
+          "crc32": 3238570296,
+          "directory": false
+        },
+        {
+          "name": "Audits/Root_Only_Source_Epoch_20261024.json",
+          "bytes": 8916,
+          "compressed_bytes": 8916,
+          "crc32": 67112614,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261021.json",
+          "bytes": 1097,
+          "compressed_bytes": 1097,
+          "crc32": 1947385764,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261021.mat",
+          "bytes": 846,
+          "compressed_bytes": 846,
+          "crc32": 2016904966,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261022.json",
+          "bytes": 1823,
+          "compressed_bytes": 1823,
+          "crc32": 1015066923,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261022.mat",
+          "bytes": 1256,
+          "compressed_bytes": 1256,
+          "crc32": 1124150721,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261023.json",
+          "bytes": 2766,
+          "compressed_bytes": 2766,
+          "crc32": 2682661482,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261023.mat",
+          "bytes": 1583,
+          "compressed_bytes": 1583,
+          "crc32": 650958748,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261024.json",
+          "bytes": 1389,
+          "compressed_bytes": 1389,
+          "crc32": 2137411306,
+          "directory": false
+        },
+        {
+          "name": "Audits/Run_20261024.mat",
+          "bytes": 1038,
+          "compressed_bytes": 1038,
+          "crc32": 713119782,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_Owned_PK_Checkpoint_Failure_Facts_PKClosedCheckpointFacts26_01_20261026.json",
+          "bytes": 4642310,
+          "compressed_bytes": 4642310,
+          "crc32": 1314237008,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_Owned_PK_Checkpoint_Failure_Facts_PKClosedCheckpointFacts26_01_20261026.mat",
+          "bytes": 63612442,
+          "compressed_bytes": 63612442,
+          "crc32": 2248719119,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Independent_Fine_PKTailIndependentFine26_01_20261025.json",
+          "bytes": 4922697,
+          "compressed_bytes": 4922697,
+          "crc32": 2134156790,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Independent_Fine_PKTailIndependentFine26_01_20261025.mat",
+          "bytes": 10902907,
+          "compressed_bytes": 10902907,
+          "crc32": 100316294,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Pronk_Quotient_Long_PKPronkLong25_01_20261025.json",
+          "bytes": 2687660,
+          "compressed_bytes": 2687660,
+          "crc32": 565982907,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Pronk_Quotient_Long_PKPronkLong25_01_20261025.mat",
+          "bytes": 297036,
+          "compressed_bytes": 297036,
+          "crc32": 1474195515,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Pronk_Quotient_PKPronkQuotient25_01_20261025.json",
+          "bytes": 1658093,
+          "compressed_bytes": 1658093,
+          "crc32": 3491101405,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Pronk_Quotient_PKPronkQuotient25_01_20261025.mat",
+          "bytes": 170098,
+          "compressed_bytes": 170098,
+          "crc32": 4238969914,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Selected_Stationary_Gap_PKSelectedStationary26_01_20261026.json",
+          "bytes": 11835765,
+          "compressed_bytes": 11835765,
+          "crc32": 2338643852,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Selected_Stationary_Gap_PKSelectedStationary26_01_20261026.mat",
+          "bytes": 2865508,
+          "compressed_bytes": 2865508,
+          "crc32": 1288067390,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Selected_Stationary_Gap_PKSelectedStationary26_02_20261026.json",
+          "bytes": 4789350,
+          "compressed_bytes": 4789350,
+          "crc32": 119580979,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Selected_Stationary_Gap_PKSelectedStationary26_02_20261026.mat",
+          "bytes": 1015689,
+          "compressed_bytes": 1015689,
+          "crc32": 2569719442,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Selected_Stationary_Gap_PKSelectedStationary26_03_20261026.json",
+          "bytes": 4706114,
+          "compressed_bytes": 4706114,
+          "crc32": 4199922503,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Selected_Stationary_Gap_PKSelectedStationary26_03_20261026.mat",
+          "bytes": 1022050,
+          "compressed_bytes": 1022050,
+          "crc32": 50546203,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Stationary_Gap_InternalStops_PKStationaryStops25_01_20261025.json",
+          "bytes": 6443305,
+          "compressed_bytes": 6443305,
+          "crc32": 2816758683,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Stationary_Gap_InternalStops_PKStationaryStops25_01_20261025.mat",
+          "bytes": 2645824,
+          "compressed_bytes": 2645824,
+          "crc32": 914573881,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Stationary_Gap_PKStationaryGap25_01_20261025.json",
+          "bytes": 1448988,
+          "compressed_bytes": 1448988,
+          "crc32": 1551054118,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_PK_Stationary_Gap_PKStationaryGap25_01_20261025.mat",
+          "bytes": 2391814,
+          "compressed_bytes": 2391814,
+          "crc32": 904535829,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_Parent_Unit_Quadrature_ParentUnitQuadrature26_01_20261025.json",
+          "bytes": 3559525,
+          "compressed_bytes": 3559525,
+          "crc32": 451305337,
+          "directory": false
+        },
+        {
+          "name": "Audits/Saved_Parent_Unit_Quadrature_ParentUnitQuadrature26_01_20261025.mat",
+          "bytes": 59111541,
+          "compressed_bytes": 59111541,
+          "crc32": 1101200455,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Common_Angle_Contact_Inspection_ShortPKContactInspect23_01_20261023.json",
+          "bytes": 313100,
+          "compressed_bytes": 313100,
+          "crc32": 3378210797,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Common_Angle_Saved_Inspection_ShortPKAngleInspect23_01_20261023.json",
+          "bytes": 97498,
+          "compressed_bytes": 97498,
+          "crc32": 747279423,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Saved_Coverage_ShortPKCoverage23_01_20261023.json",
+          "bytes": 1888410,
+          "compressed_bytes": 1888410,
+          "crc32": 3420852506,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Saved_Coverage_ShortPKCoverage23_01_20261023.mat",
+          "bytes": 627718,
+          "compressed_bytes": 627718,
+          "crc32": 4162265759,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Transverse_PKImport2Transverse25_01.json",
+          "bytes": 6676719,
+          "compressed_bytes": 6676719,
+          "crc32": 23748225,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Transverse_PKImport2Transverse25_01.mat",
+          "bytes": 768540,
+          "compressed_bytes": 768540,
+          "crc32": 1337613588,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Transverse_PKTwoSidedControls25_01.json",
+          "bytes": 2123688,
+          "compressed_bytes": 2123688,
+          "crc32": 1576020876,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Transverse_PKTwoSidedControls25_01.mat",
+          "bytes": 56837,
+          "compressed_bytes": 56837,
+          "crc32": 3197864338,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Transverse_PKTwoSidedLong25_01.json",
+          "bytes": 13330426,
+          "compressed_bytes": 13330426,
+          "crc32": 2914127633,
+          "directory": false
+        },
+        {
+          "name": "Audits/Short_PK_Transverse_PKTwoSidedLong25_01.mat",
+          "bytes": 1530786,
+          "compressed_bytes": 1530786,
+          "crc32": 497723057,
+          "directory": false
+        },
+        {
+          "name": "Audits/Smaller_Primary_B_Approach_SmallerBApproach25_01_20261025.json",
+          "bytes": 9380735,
+          "compressed_bytes": 9380735,
+          "crc32": 133505482,
+          "directory": false
+        },
+        {
+          "name": "Audits/Smaller_Primary_B_Approach_SmallerBApproach25_01_20261025.mat",
+          "bytes": 50593920,
+          "compressed_bytes": 50593920,
+          "crc32": 2320060434,
+          "directory": false
+        },
+        {
+          "name": "Audits/Smaller_Primary_B_Fine_Facts_SmallerBFineFacts25_01_20261025.json",
+          "bytes": 10505565,
+          "compressed_bytes": 10505565,
+          "crc32": 1669442776,
+          "directory": false
+        },
+        {
+          "name": "Audits/Smaller_Primary_B_Fine_Facts_SmallerBFineFacts25_01_20261025.mat",
+          "bytes": 1212535,
+          "compressed_bytes": 1212535,
+          "crc32": 282801469,
+          "directory": false
+        },
+        {
+          "name": "Audits/Storage_Format_Comparison.json",
+          "bytes": 1207,
+          "compressed_bytes": 1207,
+          "crc32": 839400129,
+          "directory": false
+        },
+        {
+          "name": "Audits/Stored_Graph_Coverage_FinalStoredGraph23_01_20261023.json",
+          "bytes": 5276210,
+          "compressed_bytes": 5276210,
+          "crc32": 2307896008,
+          "directory": false
+        },
+        {
+          "name": "Audits/Stored_Graph_Coverage_FinalStoredGraph23_01_20261023.mat",
+          "bytes": 1658845,
+          "compressed_bytes": 1658845,
+          "crc32": 3294941522,
+          "directory": false
+        },
+        {
+          "name": "Audits/Stored_Range_Coverage_20261022.json",
+          "bytes": 961699,
+          "compressed_bytes": 961699,
+          "crc32": 1905455257,
+          "directory": false
+        },
+        {
+          "name": "Audits/Stored_Range_Coverage_20261022.mat",
+          "bytes": 212845,
+          "compressed_bytes": 212845,
+          "crc32": 674430779,
+          "directory": false
+        },
+        {
+          "name": "Audits/Synchronized_PK_New_Basins_SynchronizedPKBasins24_01_20261024.json",
+          "bytes": 705858,
+          "compressed_bytes": 705858,
+          "crc32": 1189506403,
+          "directory": false
+        },
+        {
+          "name": "Audits/Synchronized_PK_New_Basins_SynchronizedPKBasins24_01_20261024.mat",
+          "bytes": 4789621,
+          "compressed_bytes": 4789621,
+          "crc32": 2043591789,
+          "directory": false
+        },
+        {
+          "name": "Audits/Triple_Product_Saved_Inspection_TripleProductSavedExpanded25_01_20261025.json",
+          "bytes": 1031858,
+          "compressed_bytes": 1031858,
+          "crc32": 2027443520,
+          "directory": false
+        },
+        {
+          "name": "Audits/Triple_Product_TripleProduct24_01_20261024.json",
+          "bytes": 464738,
+          "compressed_bytes": 464738,
+          "crc32": 2984314474,
+          "directory": false
+        },
+        {
+          "name": "Audits/Triple_Product_TripleProduct24_01_20261024.mat",
+          "bytes": 54299244,
+          "compressed_bytes": 54299244,
+          "crc32": 321791598,
+          "directory": false
+        },
+        {
+          "name": "Audits/Unattributed_H_Duplicate_Pending_20261023_RecoveryIndex.json",
+          "bytes": 1688,
+          "compressed_bytes": 1688,
+          "crc32": 2478331926,
+          "directory": false
+        },
+        {
+          "name": "Audits/Warm_Fore_Event_Witness_WarmForeEventWitness24_01_20261025.json",
+          "bytes": 81420,
+          "compressed_bytes": 81420,
+          "crc32": 3036879176,
+          "directory": false
+        }
+      ],
+      "member_count": 346,
+      "member_name_census_only": true,
+      "nested_archives_not_expanded": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Superseded_Branch_Stores_20261026.zip",
+      "device": 16777229,
+      "inode": 31817205,
+      "nlink": 2,
+      "bytes": 3962772043,
+      "allocated_bytes": 3962773504,
+      "mtime_ns": 1793041233903945931,
+      "ctime_ns": 1793331959661388332,
+      "upload_partners": [
+        "/Users/nanyoujiayu/Documents/.tmp.driveupload/908758"
+      ],
+      "sha256": "ce179f5878ee6d5b1936cc28d453090259e3822eff84d2083fcffc20187fbc8d",
+      "members": [
+        {
+          "name": "Results/BG_Base_Initializer_Control_20261022.mat",
+          "bytes": 3898793,
+          "compressed_bytes": 3864329,
+          "crc32": 2395312380,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_BE_finite_outward_20.mat",
+          "bytes": 9471105,
+          "compressed_bytes": 9324836,
+          "crc32": 1241914059,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Calibrated_Mean_Contrast_CalibratedMeanContrast24_01_20261024.mat",
+          "bytes": 641,
+          "compressed_bytes": 624,
+          "crc32": 3139736312,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Catalog_Selected_Odd_Daughter_Root_CatalogOddFG26_01_20261026.mat",
+          "bytes": 418,
+          "compressed_bytes": 385,
+          "crc32": 2681303991,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Catalog_Selected_Odd_Daughter_Root_CatalogOddHE26_01_20261026.mat",
+          "bytes": 418,
+          "compressed_bytes": 385,
+          "crc32": 309587426,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Catalog_Selected_Odd_Daughter_Root_CatalogOddNearPKFG26_01_20261026.mat",
+          "bytes": 420,
+          "compressed_bytes": 390,
+          "crc32": 1484003396,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Catalog_Selected_Parent_Unit_Root_CatalogParentUnitRoot26_01_20261026.mat",
+          "bytes": 7804284,
+          "compressed_bytes": 7630392,
+          "crc32": 702442042,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Empirical_Critical_PK_20261022.mat",
+          "bytes": 1565366,
+          "compressed_bytes": 1553775,
+          "crc32": 2075271383,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_FG15_Contrast_Product_G_Acquisition_20261022.mat",
+          "bytes": 1485947,
+          "compressed_bytes": 1462328,
+          "crc32": 857978689,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_FG_outward.mat",
+          "bytes": 17685540,
+          "compressed_bytes": 17281179,
+          "crc32": 2114264597,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Far_FE_FarFEQualifiedPAL23_01_PAL_20261023.mat",
+          "bytes": 30147488,
+          "compressed_bytes": 29491590,
+          "crc32": 4291264048,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Finite_Amplitude_Product_FiniteAmplitudeProduct25_01_20261024.mat",
+          "bytes": 656,
+          "compressed_bytes": 638,
+          "crc32": 2721634762,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_GM_IPS_Predictor_Projector_Control_20261023.mat",
+          "bytes": 8337835,
+          "compressed_bytes": 8162797,
+          "crc32": 2895735060,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_GM_IPS_Projector_GMProjectorPAL23_01_PAL_20261023.mat",
+          "bytes": 5564254,
+          "compressed_bytes": 5447010,
+          "crc32": 2102179238,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_GM_Reflected_Phase_Linear_Acquisition_20261023.mat",
+          "bytes": 2797079,
+          "compressed_bytes": 2737163,
+          "crc32": 4134257666,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_G_Log_Angle_Size_GLogAngleSize25_01_20261024.mat",
+          "bytes": 653,
+          "compressed_bytes": 636,
+          "crc32": 453980608,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_G_pitch_acquisition.mat",
+          "bytes": 2739596,
+          "compressed_bytes": 2682905,
+          "crc32": 565708367,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_G_v2_template.mat",
+          "bytes": 11933084,
+          "compressed_bytes": 11733847,
+          "crc32": 3244453866,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Generic_G_Last_Accepted_Control_20261022.mat",
+          "bytes": 1768265,
+          "compressed_bytes": 1753377,
+          "crc32": 3273795231,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Generic_G_negative_owned_outward_20261022.mat",
+          "bytes": 5774997,
+          "compressed_bytes": 5654897,
+          "crc32": 470844728,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_HE3_Contrast_Product_G_Acquisition_20261022.mat",
+          "bytes": 1461596,
+          "compressed_bytes": 1442192,
+          "crc32": 4236661432,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_HE_PAL_Pending_Recovered_20261022.mat",
+          "bytes": 1862483,
+          "compressed_bytes": 1842097,
+          "crc32": 187841377,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_HE_QR_range_probe.mat",
+          "bytes": 12080831,
+          "compressed_bytes": 11855460,
+          "crc32": 2548737870,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_H_Interior_Grazing_HInteriorGrazing24_01_20261024.mat",
+          "bytes": 2867321,
+          "compressed_bytes": 2809422,
+          "crc32": 2551951821,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_H_Interior_Grazing_HInteriorGrazing25_02_20261024.mat",
+          "bytes": 2867417,
+          "compressed_bytes": 2808964,
+          "crc32": 1738025582,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_H_Interior_Grazing_HInteriorGrazing26_01_20261024.mat",
+          "bytes": 2867425,
+          "compressed_bytes": 2808970,
+          "crc32": 859515817,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_H_Predictor_Energy_Control_Fixed_Scope_20261023.mat",
+          "bytes": 2869140,
+          "compressed_bytes": 2810147,
+          "crc32": 851183733,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_H_Predictor_Energy_HPredictorEnergyPAL23_02_PAL_20261023.mat",
+          "bytes": 14626240,
+          "compressed_bytes": 14310083,
+          "crc32": 2186944027,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_H_Predictor_Energy_Pending_Recovered_20261023.mat",
+          "bytes": 2865520,
+          "compressed_bytes": 2807483,
+          "crc32": 2058059208,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_IPS_Carrier_Trial_IpsCarrierTrial23_01_20261023.mat",
+          "bytes": 5379433,
+          "compressed_bytes": 5271969,
+          "crc32": 3415421556,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_IPS_Carrier_Trial_IpsCarrierTrial23_01_Bridge_20261023.mat",
+          "bytes": 5380858,
+          "compressed_bytes": 5273331,
+          "crc32": 3408328483,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_IPS_Carrier_Trial_IpsCarrierTrial23_01_PAL_20261023.mat",
+          "bytes": 85361928,
+          "compressed_bytes": 83535682,
+          "crc32": 2375650835,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_IPS_Interior_Negative_Normal_G_IpsInteriorNegativeNormalG23_01_20261023.mat",
+          "bytes": 727,
+          "compressed_bytes": 710,
+          "crc32": 242136341,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_IPS_Interior_Physical_Phi_IpsInteriorPhysicalPhi23_01_20261023.mat",
+          "bytes": 894,
+          "compressed_bytes": 892,
+          "crc32": 3884822773,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Isolated_Native_Admissions_20261022.mat",
+          "bytes": 46434322,
+          "compressed_bytes": 45762859,
+          "crc32": 2561918263,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Isolated_Native_Admissions_20261023.mat",
+          "bytes": 6098038,
+          "compressed_bytes": 5971195,
+          "crc32": 856520753,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Legacy_G_New_BL1_RootOnly_LegacyGClassSimple25_01_20261024.mat",
+          "bytes": 666,
+          "compressed_bytes": 650,
+          "crc32": 3590608796,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Legacy_G_New_BL1_RootOnly_LegacyGNewBL1RootOnly25_01_20261024.mat",
+          "bytes": 677,
+          "compressed_bytes": 662,
+          "crc32": 1739432624,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Legacy_G_Raw_MeanContrast_LegacyGRawMean25_01_20261024.mat",
+          "bytes": 749,
+          "compressed_bytes": 738,
+          "crc32": 692543307,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Legacy_G_Spread_Log_LegacyGSpreadLog25_01_20261024.mat",
+          "bytes": 746,
+          "compressed_bytes": 734,
+          "crc32": 3890544110,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Legacy_G_Tight_Profile_RootOnly_LegacyGTight25_01_20261024.mat",
+          "bytes": 10557868,
+          "compressed_bytes": 10335814,
+          "crc32": 2684269210,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Mean_Contrast_Ladder_MeanContrastLadder25_01_20261024.mat",
+          "bytes": 27946105,
+          "compressed_bytes": 27345271,
+          "crc32": 1423823960,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Mixed_B_HF_Acquisition_20261022.mat",
+          "bytes": 3980611,
+          "compressed_bytes": 3921780,
+          "crc32": 3780060991,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Mixed_B_HF_Half_20261022.mat",
+          "bytes": 3818063,
+          "compressed_bytes": 3770994,
+          "crc32": 3554869464,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Mixed_F_MixedFPairPAL22_01_PAL_20261022.mat",
+          "bytes": 57256715,
+          "compressed_bytes": 56105707,
+          "crc32": 992267972,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Mixed_H_MixedHPairPAL22_01_PAL_20261022.mat",
+          "bytes": 76806775,
+          "compressed_bytes": 75226290,
+          "crc32": 2355542047,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Negative_Calibrated_Candidate_NegativeCalibratedAdmission24_01_20261024.mat",
+          "bytes": 648,
+          "compressed_bytes": 628,
+          "crc32": 1156866716,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Owned_FG_Tip_Contrast_Product_G_Acquisition_20261022.mat",
+          "bytes": 1519035,
+          "compressed_bytes": 1497213,
+          "crc32": 4014248640,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Owned_HE_Tip_Contrast_Product_G_Acquisition_20261022.mat",
+          "bytes": 1511627,
+          "compressed_bytes": 1488585,
+          "crc32": 1375450803,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_Local_Energy_Neighbors_PKLocalEnergyNeighbors24_01_20261024.mat",
+          "bytes": 48947039,
+          "compressed_bytes": 47881737,
+          "crc32": 679344047,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_PAL_Probe_PKPALNegative25_01_20261024.mat",
+          "bytes": 8019025,
+          "compressed_bytes": 7853911,
+          "crc32": 2499104544,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_PAL_Probe_PKPALProbePolicyRole25_01_20261024.mat",
+          "bytes": 104450371,
+          "compressed_bytes": 102228194,
+          "crc32": 18236029,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_Positive_Stationary_Clearance_PKInnerClearance26_01_20261026.mat",
+          "bytes": 13311567,
+          "compressed_bytes": 12988511,
+          "crc32": 4051771880,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_Positive_Stationary_Clearance_PKPositiveClearance26_01_20261026.mat",
+          "bytes": 13334677,
+          "compressed_bytes": 13011965,
+          "crc32": 3743689208,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_Saved_Candidates_PKSavedCandidates24_01_20261024.mat",
+          "bytes": 39787312,
+          "compressed_bytes": 38879875,
+          "crc32": 3295950468,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_long_outward.mat",
+          "bytes": 11546750,
+          "compressed_bytes": 11384733,
+          "crc32": 3253945385,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_short_inward.mat",
+          "bytes": 106134578,
+          "compressed_bytes": 104769743,
+          "crc32": 2648614979,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Parent_Unit_First_Eligible_ParentUnitFirst25_01_20261024.mat",
+          "bytes": 52755080,
+          "compressed_bytes": 51623026,
+          "crc32": 3076529678,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Parent_Unit_LogGap_Endpoints_ParentLogGap25_01_20261024.mat",
+          "bytes": 428,
+          "compressed_bytes": 400,
+          "crc32": 3972980450,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Parent_Unit_Root_ParentUnitRoot25_01_20261024.mat",
+          "bytes": 411,
+          "compressed_bytes": 381,
+          "crc32": 1328636538,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Parent_Unit_Stance_First_Eligible_ParentStanceFirst25_01_20261024.mat",
+          "bytes": 429,
+          "compressed_bytes": 399,
+          "crc32": 4156105569,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_BG_nonedge_secant_initializers.mat",
+          "bytes": 5515029,
+          "compressed_bytes": 5407787,
+          "crc32": 418236218,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_BG_outward.mat",
+          "bytes": 24692954,
+          "compressed_bytes": 24371380,
+          "crc32": 2328765091,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_BG_outward_20261022.mat",
+          "bytes": 11469279,
+          "compressed_bytes": 11352270,
+          "crc32": 1646204274,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_B_Controls.mat",
+          "bytes": 5512834,
+          "compressed_bytes": 5405028,
+          "crc32": 1642463744,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_FG.mat",
+          "bytes": 5817056,
+          "compressed_bytes": 5694285,
+          "crc32": 1506663071,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_FG_away_primary.mat",
+          "bytes": 80741193,
+          "compressed_bytes": 79456851,
+          "crc32": 1099904474,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_FG_further_outward.mat",
+          "bytes": 6181326,
+          "compressed_bytes": 6089816,
+          "crc32": 3746515477,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_FG_higher_velocity.mat",
+          "bytes": 44035152,
+          "compressed_bytes": 43024040,
+          "crc32": 2716825345,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_GM_Energy_Neighbors_20261023.mat",
+          "bytes": 2799433,
+          "compressed_bytes": 2743007,
+          "crc32": 2488302422,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_GM_Small_B_Linear_Acquisition_20261023.mat",
+          "bytes": 2797796,
+          "compressed_bytes": 2741442,
+          "crc32": 945175169,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_Mean_Contrast_RootOnly_PositiveMeanContrastRootOnly24_01_20261024.mat",
+          "bytes": 8743316,
+          "compressed_bytes": 8556180,
+          "crc32": 3465052393,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Acquisition_20261022.mat",
+          "bytes": 3530259,
+          "compressed_bytes": 3496857,
+          "crc32": 1813016333,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Approach_PrimaryBApproach25_01_20261025.mat",
+          "bytes": 66407411,
+          "compressed_bytes": 64970449,
+          "crc32": 3928845688,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Bneg_qhalf_20261022_01_PAL_20261022.mat",
+          "bytes": 76725561,
+          "compressed_bytes": 75635986,
+          "crc32": 4148878832,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Bpos_qhalf_20261022_01_PAL_20261022.mat",
+          "bytes": 99139784,
+          "compressed_bytes": 97632316,
+          "crc32": 2561537287,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Contraction_20261022.mat",
+          "bytes": 13262026,
+          "compressed_bytes": 13119851,
+          "crc32": 3908102473,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_Contraction_Resume_ode45_restored.mat",
+          "bytes": 1830902,
+          "compressed_bytes": 1813364,
+          "crc32": 4138970016,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_Contraction_primary_three_rays_01.mat",
+          "bytes": 10228841,
+          "compressed_bytes": 10119203,
+          "crc32": 4140584529,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_F_Contraction_20261023.mat",
+          "bytes": 11085455,
+          "compressed_bytes": 10852563,
+          "crc32": 873951340,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_HF_Acquisition_20261022.mat",
+          "bytes": 2297185,
+          "compressed_bytes": 2260697,
+          "crc32": 2312849432,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_HF_Last_Accepted_Control_20261022.mat",
+          "bytes": 6503475,
+          "compressed_bytes": 6395068,
+          "crc32": 4005099173,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_H_Contraction_20261023.mat",
+          "bytes": 11074381,
+          "compressed_bytes": 10845320,
+          "crc32": 1174390052,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_PK_Controls_20261022.mat",
+          "bytes": 3141511,
+          "compressed_bytes": 3114656,
+          "crc32": 4063618020,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Qualified.mat",
+          "bytes": 82457433,
+          "compressed_bytes": 80835184,
+          "crc32": 2112676707,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Qualified_20261022.mat",
+          "bytes": 76416397,
+          "compressed_bytes": 74847705,
+          "crc32": 3513568459,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Qualified_20261022_predicate.mat",
+          "bytes": 7315526,
+          "compressed_bytes": 7170643,
+          "crc32": 2047858204,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Qualified_20261023.mat",
+          "bytes": 103563272,
+          "compressed_bytes": 101467338,
+          "crc32": 1270173287,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Qualified_GM_Small_Beta_QualifiedGMBeta25_01_20261024.mat",
+          "bytes": 659,
+          "compressed_bytes": 643,
+          "crc32": 1971455906,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Reflected_H_or_F.mat",
+          "bytes": 3468493,
+          "compressed_bytes": 3408398,
+          "crc32": 3912059790,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Short_PK_Common_Angle_Control_20261023.mat",
+          "bytes": 1739610,
+          "compressed_bytes": 1711285,
+          "crc32": 1677436501,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Short_PK_Controls.mat",
+          "bytes": 5223811,
+          "compressed_bytes": 5136853,
+          "crc32": 2044651237,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Short_PK_outward.mat",
+          "bytes": 17451816,
+          "compressed_bytes": 17141738,
+          "crc32": 674634651,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Smaller_Primary_B_Approach_SmallerBApproach25_01_20261025.mat",
+          "bytes": 33255047,
+          "compressed_bytes": 32540333,
+          "crc32": 1566983454,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Synchronized_PK_New_Basins_SynchronizedPKBasins24_01_20261024.mat",
+          "bytes": 452,
+          "compressed_bytes": 423,
+          "crc32": 3392902035,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Triple_Product_TripleProduct24_01_20261024.mat",
+          "bytes": 651,
+          "compressed_bytes": 634,
+          "crc32": 540376561,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Velocity_Reversed_FG.mat",
+          "bytes": 2848083,
+          "compressed_bytes": 2790614,
+          "crc32": 934460899,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_001_original_five_historical_snapshot_B.mat",
+          "bytes": 70426762,
+          "compressed_bytes": 68869153,
+          "crc32": 112015434,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_002_original_five_historical_snapshot_F.mat",
+          "bytes": 55402862,
+          "compressed_bytes": 54043232,
+          "crc32": 4082935340,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_003_original_five_historical_snapshot_H.mat",
+          "bytes": 8524206,
+          "compressed_bytes": 8341043,
+          "crc32": 2335025165,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_004_original_five_historical_snapshot_PK.mat",
+          "bytes": 54138171,
+          "compressed_bytes": 52950535,
+          "crc32": 533470022,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_005_original_five_historical_snapshot_G.mat",
+          "bytes": 17022063,
+          "compressed_bytes": 16651507,
+          "crc32": 120640156,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_006_PK_upper_tail.mat",
+          "bytes": 17968833,
+          "compressed_bytes": 17597505,
+          "crc32": 2835549325,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_007_H2_interior_refinement.mat",
+          "bytes": 3781404,
+          "compressed_bytes": 3700273,
+          "crc32": 3681044797,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_008_G4_partial_controls.mat",
+          "bytes": 5492438,
+          "compressed_bytes": 5381256,
+          "crc32": 2836653045,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_011_BE_selector.mat",
+          "bytes": 4006800,
+          "compressed_bytes": 3936394,
+          "crc32": 1670419390,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_012_FE_selector.mat",
+          "bytes": 3987758,
+          "compressed_bytes": 3909656,
+          "crc32": 1319807482,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_013_F_six_speed_intersections.mat",
+          "bytes": 3957852,
+          "compressed_bytes": 3950933,
+          "crc32": 2090871102,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_014_PK_lower_direction.mat",
+          "bytes": 84156865,
+          "compressed_bytes": 82301579,
+          "crc32": 2095642469,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_015_H_own_pair_28_links.mat",
+          "bytes": 91689065,
+          "compressed_bytes": 89233269,
+          "crc32": 1271599262,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_016_BE_own_pair_18_links.mat",
+          "bytes": 57490742,
+          "compressed_bytes": 56255512,
+          "crc32": 2149068522,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_017_G_repaired_partial_saved_prefix.mat",
+          "bytes": 26283495,
+          "compressed_bytes": 25727227,
+          "crc32": 581725515,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_018_positive_PK_original_owned.mat",
+          "bytes": 83437461,
+          "compressed_bytes": 81633335,
+          "crc32": 73918870,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_019_historical_literal_pitch_PK.mat",
+          "bytes": 12249011,
+          "compressed_bytes": 12023826,
+          "crc32": 1686833453,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_020_recorded_HG_strip.mat",
+          "bytes": 52320898,
+          "compressed_bytes": 51015851,
+          "crc32": 2848925998,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_021_H2_three_energy_parent_controls.mat",
+          "bytes": 3793789,
+          "compressed_bytes": 3714109,
+          "crc32": 3189582254,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_022_H_owned_committed_tail_closed.mat",
+          "bytes": 78891979,
+          "compressed_bytes": 76849883,
+          "crc32": 1024672377,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_025_FE_ext05_23_own_links_closed.mat",
+          "bytes": 76227018,
+          "compressed_bytes": 74258979,
+          "crc32": 1133595659,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_028_F_midpoint_controls_ext02_actual_closed_two_native_returns.mat",
+          "bytes": 1214858,
+          "compressed_bytes": 1212806,
+          "crc32": 2062433203,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_029_qualification_existing_current_PK_HG_returned_ID_fines.mat",
+          "bytes": 1293322,
+          "compressed_bytes": 1291590,
+          "crc32": 2146838522,
+          "directory": false
+        },
+        {
+          "name": "Results/branch_030_independent_qualified_BE_HE_FE_endpoints.mat",
+          "bytes": 2232146,
+          "compressed_bytes": 2230002,
+          "crc32": 3266342159,
+          "directory": false
+        },
+        {
+          "name": "Results/BG_Base_Initializer_Control_20261022_run_checkpoint.mat",
+          "bytes": 11004627,
+          "compressed_bytes": 10586945,
+          "crc32": 4121359593,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_BE_finite_outward_20_run_checkpoint.mat",
+          "bytes": 47894620,
+          "compressed_bytes": 46067914,
+          "crc32": 305020925,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_FG_outward_run_checkpoint.mat",
+          "bytes": 5589600,
+          "compressed_bytes": 5479320,
+          "crc32": 3022356567,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Far_FE_FarFEQualifiedPAL23_01_PAL_20261023_run_checkpoint.mat",
+          "bytes": 44499716,
+          "compressed_bytes": 43081227,
+          "crc32": 1809743698,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_GM_IPS_Projector_GMProjectorPAL23_01_PAL_20261023_run_checkpoint.mat",
+          "bytes": 1626051,
+          "compressed_bytes": 1502970,
+          "crc32": 3347121163,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Generic_G_negative_owned_outward_20261022_run_checkpoint.mat",
+          "bytes": 1097904,
+          "compressed_bytes": 1076741,
+          "crc32": 711055524,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_HE_QR_range_probe_run_checkpoint.mat",
+          "bytes": 56550018,
+          "compressed_bytes": 54748318,
+          "crc32": 814479957,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_H_Predictor_Energy_HPredictorEnergyPAL23_02_PAL_20261023_run_checkpoint.mat",
+          "bytes": 76359048,
+          "compressed_bytes": 74204858,
+          "crc32": 2900754714,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_IPS_Carrier_Trial_IpsCarrierTrial23_01_PAL_20261023_run_checkpoint.mat",
+          "bytes": 38737,
+          "compressed_bytes": 38574,
+          "crc32": 316728888,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Mixed_F_MixedFPairPAL22_01_PAL_20261022_run_checkpoint.mat",
+          "bytes": 79449208,
+          "compressed_bytes": 77217569,
+          "crc32": 65453612,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Mixed_H_MixedHPairPAL22_01_PAL_20261022_run_checkpoint.mat",
+          "bytes": 180604330,
+          "compressed_bytes": 175389834,
+          "crc32": 2117374001,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_PAL_Probe_PKPALNegative25_01_20261024_run_checkpoint.mat",
+          "bytes": 3217,
+          "compressed_bytes": 3222,
+          "crc32": 2234974536,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_PAL_Probe_PKPALProbePolicyRole25_01_20261024_run_checkpoint (1).mat.pending.mat",
+          "bytes": 147745166,
+          "compressed_bytes": 141621367,
+          "crc32": 1342598745,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_PAL_Probe_PKPALProbePolicyRole25_01_20261024_run_checkpoint (2).mat.pending.mat",
+          "bytes": 155462483,
+          "compressed_bytes": 149159729,
+          "crc32": 487542443,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_PAL_Probe_PKPALProbePolicyRole25_01_20261024_run_checkpoint.mat",
+          "bytes": 178568180,
+          "compressed_bytes": 171105181,
+          "crc32": 987460956,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_PAL_Probe_PKPALProbePolicyRole25_01_20261024_run_checkpoint.mat.pending.mat",
+          "bytes": 124285808,
+          "compressed_bytes": 119193831,
+          "crc32": 3859376981,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_long_outward_run_checkpoint.mat",
+          "bytes": 38506056,
+          "compressed_bytes": 36987505,
+          "crc32": 2539127492,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_PK_short_inward_run_checkpoint.mat",
+          "bytes": 127302,
+          "compressed_bytes": 126104,
+          "crc32": 1825971067,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_BG_outward_20261022_run_checkpoint.mat",
+          "bytes": 44814286,
+          "compressed_bytes": 43085726,
+          "crc32": 2560965472,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_BG_outward_run_checkpoint.mat",
+          "bytes": 10385256,
+          "compressed_bytes": 10020423,
+          "crc32": 185322868,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_FG_away_primary_run_checkpoint.mat",
+          "bytes": 54263655,
+          "compressed_bytes": 52684971,
+          "crc32": 1996644398,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_FG_further_outward_run_checkpoint.mat",
+          "bytes": 57307691,
+          "compressed_bytes": 55596114,
+          "crc32": 1497921511,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Positive_FG_higher_velocity_run_checkpoint.mat",
+          "bytes": 14631,
+          "compressed_bytes": 14611,
+          "crc32": 2756808538,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Bneg_qhalf_20261022_01_PAL_20261022_run_checkpoint.mat",
+          "bytes": 46532816,
+          "compressed_bytes": 44742326,
+          "crc32": 3424839746,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Bpos_qhalf_20261022_01_PAL_20261022_run_checkpoint (1).mat.pending.mat",
+          "bytes": 0,
+          "compressed_bytes": 2,
+          "crc32": 0,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Bpos_qhalf_20261022_01_PAL_20261022_run_checkpoint.mat",
+          "bytes": 166982416,
+          "compressed_bytes": 161278459,
+          "crc32": 1981803306,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Primary_B_Bpos_qhalf_20261022_01_PAL_20261022_run_checkpoint.mat.pending.mat",
+          "bytes": 0,
+          "compressed_bytes": 2,
+          "crc32": 0,
+          "directory": false
+        },
+        {
+          "name": "Results/C1_Short_PK_outward_run_checkpoint.mat",
+          "bytes": 76512,
+          "compressed_bytes": 76434,
+          "crc32": 1365070412,
+          "directory": false
+        }
+      ],
+      "member_count": 149,
+      "member_name_census_only": true,
+      "nested_archives_not_expanded": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Previous_Components_20261029.zip",
+      "device": 16777229,
+      "inode": 32113871,
+      "nlink": 2,
+      "bytes": 3381902690,
+      "allocated_bytes": 3381903360,
+      "mtime_ns": 1793248504402624324,
+      "ctime_ns": 1793331964223872133,
+      "upload_partners": [
+        "/Users/nanyoujiayu/Documents/.tmp.driveupload/911574"
+      ],
+      "sha256": "6bb4dc3acc587a5c1a0b9b833f9e944a6609c280868b2f5f144765c77111258a",
+      "members": [
+        {
+          "name": "Components/C1_BE_Component_0002.mat",
+          "bytes": 65518997,
+          "compressed_bytes": 64253112,
+          "crc32": 1647662873,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BE_Component_0092.mat",
+          "bytes": 3519185,
+          "compressed_bytes": 3485576,
+          "crc32": 2260935967,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BE_Component_0093.mat",
+          "bytes": 76672415,
+          "compressed_bytes": 75563986,
+          "crc32": 1709673401,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BE_Component_0176.mat",
+          "bytes": 4787645,
+          "compressed_bytes": 4703599,
+          "crc32": 776693595,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BG_Component_0001.mat",
+          "bytes": 42791505,
+          "compressed_bytes": 42250687,
+          "crc32": 260477636,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BG_Component_0078.mat",
+          "bytes": 8278840,
+          "compressed_bytes": 8118219,
+          "crc32": 3278482149,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BG_Component_0094.mat",
+          "bytes": 3518578,
+          "compressed_bytes": 3486405,
+          "crc32": 3787440655,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BG_Component_0095.mat",
+          "bytes": 99074256,
+          "compressed_bytes": 97535066,
+          "crc32": 506475392,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_BG_Component_0165.mat",
+          "bytes": 67313858,
+          "compressed_bytes": 65869288,
+          "crc32": 3558608331,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FE_Component_0007.mat",
+          "bytes": 8992885,
+          "compressed_bytes": 8817666,
+          "crc32": 1893866840,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FE_Component_0177.mat",
+          "bytes": 4863338,
+          "compressed_bytes": 4767672,
+          "crc32": 3001779261,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FE_Qualified_Joined_20261026.mat",
+          "bytes": 118212983,
+          "compressed_bytes": 115471465,
+          "crc32": 290661150,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FG_Component_0006.mat",
+          "bytes": 72875694,
+          "compressed_bytes": 71114207,
+          "crc32": 3916220898,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FG_Component_0014.mat",
+          "bytes": 6072433,
+          "compressed_bytes": 5975813,
+          "crc32": 977157697,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FG_Component_0055.mat",
+          "bytes": 57271896,
+          "compressed_bytes": 56106884,
+          "crc32": 1712609734,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FG_Component_0057.mat",
+          "bytes": 3818986,
+          "compressed_bytes": 3772466,
+          "crc32": 1481657264,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FG_Component_0058.mat",
+          "bytes": 8778781,
+          "compressed_bytes": 8609708,
+          "crc32": 3796816808,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FG_Component_0079.mat",
+          "bytes": 46781777,
+          "compressed_bytes": 45706848,
+          "crc32": 1094738735,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_FG_Component_0080.mat",
+          "bytes": 89919432,
+          "compressed_bytes": 88415974,
+          "crc32": 47832818,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HE_Component_0015.mat",
+          "bytes": 5864304,
+          "compressed_bytes": 5771400,
+          "crc32": 1321025084,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HE_Component_0021.mat",
+          "bytes": 8595457,
+          "compressed_bytes": 8408377,
+          "crc32": 1264092722,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HE_Component_0022.mat",
+          "bytes": 97154586,
+          "compressed_bytes": 95090464,
+          "crc32": 692658172,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HE_Component_0056.mat",
+          "bytes": 3817388,
+          "compressed_bytes": 3767762,
+          "crc32": 2351706153,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HE_Component_0059.mat",
+          "bytes": 8772489,
+          "compressed_bytes": 8598884,
+          "crc32": 649172060,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HE_Component_0125.mat",
+          "bytes": 8154846,
+          "compressed_bytes": 8014571,
+          "crc32": 1517795892,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HE_Component_0168.mat",
+          "bytes": 5671985,
+          "compressed_bytes": 5552804,
+          "crc32": 779222297,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_HG_Component_0156.mat",
+          "bytes": 2368675,
+          "compressed_bytes": 2337011,
+          "crc32": 45066049,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_MIXED_Component_0020.mat",
+          "bytes": 232067472,
+          "compressed_bytes": 226413406,
+          "crc32": 3948233903,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_OTHER_Component_0010.mat",
+          "bytes": 93424363,
+          "compressed_bytes": 91398446,
+          "crc32": 2324599469,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_OTHER_Component_0011.mat",
+          "bytes": 5736028,
+          "compressed_bytes": 5614511,
+          "crc32": 373576304,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_OTHER_Component_0012.mat",
+          "bytes": 8388058,
+          "compressed_bytes": 8211149,
+          "crc32": 339362985,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_OTHER_Component_0017.mat",
+          "bytes": 20037471,
+          "compressed_bytes": 19596076,
+          "crc32": 1989691419,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_OTHER_Component_0023.mat",
+          "bytes": 8066665,
+          "compressed_bytes": 7904893,
+          "crc32": 1777884169,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_OTHER_Component_0174.mat",
+          "bytes": 5444249,
+          "compressed_bytes": 5335847,
+          "crc32": 3940159268,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_OTHER_Component_0175.mat",
+          "bytes": 5442180,
+          "compressed_bytes": 5334735,
+          "crc32": 35935696,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0060.mat",
+          "bytes": 19159730,
+          "compressed_bytes": 18751889,
+          "crc32": 1623648063,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0061.mat",
+          "bytes": 167886988,
+          "compressed_bytes": 164279439,
+          "crc32": 3096511760,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0062.mat",
+          "bytes": 164453028,
+          "compressed_bytes": 160957582,
+          "crc32": 2496310495,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0064.mat",
+          "bytes": 10745887,
+          "compressed_bytes": 10516156,
+          "crc32": 747895384,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0072.mat",
+          "bytes": 383358885,
+          "compressed_bytes": 375020656,
+          "crc32": 273977596,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0073.mat",
+          "bytes": 480643661,
+          "compressed_bytes": 472506849,
+          "crc32": 4005952577,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0159.mat",
+          "bytes": 3480899,
+          "compressed_bytes": 3423591,
+          "crc32": 3762984646,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0170.mat",
+          "bytes": 154185944,
+          "compressed_bytes": 150838746,
+          "crc32": 3637586262,
+          "directory": false
+        },
+        {
+          "name": "Components/C1_PK_Component_0193.mat",
+          "bytes": 92502200,
+          "compressed_bytes": 90818564,
+          "crc32": 755290645,
+          "directory": false
+        },
+        {
+          "name": "Components/Isolated_Records.mat",
+          "bytes": 666908529,
+          "compressed_bytes": 653404347,
+          "crc32": 4123513360,
+          "directory": false
+        }
+      ],
+      "member_count": 45,
+      "member_name_census_only": true,
+      "nested_archives_not_expanded": true
+    },
+    {
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic03_20261027.zip",
+      "device": 16777229,
+      "inode": 32012683,
+      "nlink": 2,
+      "bytes": 2391872831,
+      "allocated_bytes": 2391875584,
+      "mtime_ns": 1793191951185155239,
+      "ctime_ns": 1793331970980698486,
+      "upload_partners": [
+        "/Users/nanyoujiayu/Documents/.tmp.driveupload/911280"
+      ],
+      "sha256": "758ea19923cd940deed68dd35a94b94e34a3e72b19fef7636c8d8418dd279dfb",
+      "members": [
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P001.mat",
+          "bytes": 76320951,
+          "compressed_bytes": 74717292,
+          "crc32": 3960164303,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P001.json",
+          "bytes": 24054,
+          "compressed_bytes": 5254,
+          "crc32": 3197251370,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P002.mat",
+          "bytes": 76349998,
+          "compressed_bytes": 74744878,
+          "crc32": 2981121295,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P002.json",
+          "bytes": 24027,
+          "compressed_bytes": 5227,
+          "crc32": 1093719270,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P003.mat",
+          "bytes": 111232898,
+          "compressed_bytes": 108219945,
+          "crc32": 1840999751,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P003.json",
+          "bytes": 24090,
+          "compressed_bytes": 5188,
+          "crc32": 494811432,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P004.mat",
+          "bytes": 77943125,
+          "compressed_bytes": 76299840,
+          "crc32": 3876831512,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P004.json",
+          "bytes": 23918,
+          "compressed_bytes": 5244,
+          "crc32": 2100467968,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P005.mat",
+          "bytes": 113998377,
+          "compressed_bytes": 111147457,
+          "crc32": 452280296,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P005.json",
+          "bytes": 23915,
+          "compressed_bytes": 5249,
+          "crc32": 2598488188,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P006.mat",
+          "bytes": 170685652,
+          "compressed_bytes": 166005413,
+          "crc32": 875768269,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P006.json",
+          "bytes": 23956,
+          "compressed_bytes": 5259,
+          "crc32": 1906147748,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P007.mat",
+          "bytes": 86956718,
+          "compressed_bytes": 85132812,
+          "crc32": 1522563945,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P007.json",
+          "bytes": 23928,
+          "compressed_bytes": 5229,
+          "crc32": 772681943,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P008.mat",
+          "bytes": 134910414,
+          "compressed_bytes": 131269255,
+          "crc32": 1555563308,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P008.json",
+          "bytes": 23968,
+          "compressed_bytes": 5249,
+          "crc32": 2161692373,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P009.mat",
+          "bytes": 89175682,
+          "compressed_bytes": 87302515,
+          "crc32": 637833038,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P009.json",
+          "bytes": 23940,
+          "compressed_bytes": 5247,
+          "crc32": 1663001261,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P010.mat",
+          "bytes": 125610358,
+          "compressed_bytes": 122510137,
+          "crc32": 3864778080,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P010.json",
+          "bytes": 23924,
+          "compressed_bytes": 5250,
+          "crc32": 890421550,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P011.mat",
+          "bytes": 91685151,
+          "compressed_bytes": 89764509,
+          "crc32": 2137401607,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P011.json",
+          "bytes": 23913,
+          "compressed_bytes": 5238,
+          "crc32": 1630389816,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P012.mat",
+          "bytes": 91704027,
+          "compressed_bytes": 89771071,
+          "crc32": 1753282821,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P012.json",
+          "bytes": 23928,
+          "compressed_bytes": 5233,
+          "crc32": 1544241055,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P013.mat",
+          "bytes": 91713128,
+          "compressed_bytes": 89780417,
+          "crc32": 742629942,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P013.json",
+          "bytes": 23941,
+          "compressed_bytes": 5234,
+          "crc32": 2417261175,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P014.mat",
+          "bytes": 109677123,
+          "compressed_bytes": 107144110,
+          "crc32": 2611040337,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P014.json",
+          "bytes": 23943,
+          "compressed_bytes": 5193,
+          "crc32": 3458364188,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P015.mat",
+          "bytes": 110684609,
+          "compressed_bytes": 108151461,
+          "crc32": 35873228,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P015.json",
+          "bytes": 23965,
+          "compressed_bytes": 5187,
+          "crc32": 1211795600,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P016.mat",
+          "bytes": 94006581,
+          "compressed_bytes": 92036196,
+          "crc32": 727268255,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P016.json",
+          "bytes": 23904,
+          "compressed_bytes": 5237,
+          "crc32": 3667316979,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P017.mat",
+          "bytes": 152775315,
+          "compressed_bytes": 148608903,
+          "crc32": 4225881240,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P017.json",
+          "bytes": 23969,
+          "compressed_bytes": 5275,
+          "crc32": 1598868448,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P018.mat",
+          "bytes": 97303119,
+          "compressed_bytes": 95263456,
+          "crc32": 3365622173,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P018.json",
+          "bytes": 23943,
+          "compressed_bytes": 5241,
+          "crc32": 2125138389,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P019.mat",
+          "bytes": 115511827,
+          "compressed_bytes": 112869365,
+          "crc32": 2719095050,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P019.json",
+          "bytes": 23952,
+          "compressed_bytes": 5182,
+          "crc32": 126095445,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P020.mat",
+          "bytes": 98562727,
+          "compressed_bytes": 96520589,
+          "crc32": 846632217,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P020.json",
+          "bytes": 23781,
+          "compressed_bytes": 5245,
+          "crc32": 1330406035,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P021.mat",
+          "bytes": 98578043,
+          "compressed_bytes": 96537813,
+          "crc32": 4059358957,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P021.json",
+          "bytes": 23771,
+          "compressed_bytes": 5246,
+          "crc32": 417859190,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P022.mat",
+          "bytes": 98581684,
+          "compressed_bytes": 96537589,
+          "crc32": 1050554913,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P022.json",
+          "bytes": 23796,
+          "compressed_bytes": 5247,
+          "crc32": 635553284,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P023.mat",
+          "bytes": 134688818,
+          "compressed_bytes": 131407806,
+          "crc32": 2492327624,
+          "directory": false
+        },
+        {
+          "name": "Audits/PK_Fair_Trace_Pass_PKCyclic03_20261027_P023.json",
+          "bytes": 23805,
+          "compressed_bytes": 5260,
+          "crc32": 1005346708,
+          "directory": false
+        }
+      ],
+      "member_count": 46,
+      "member_name_census_only": true,
+      "nested_archives_not_expanded": true
+    }
+  ],
+  "selected_apparent_bytes": 36214093698,
+  "remaining_current_archive_apparent_bytes": 1828579032,
+  "scope": "Retire five obsolete historical execution-detail packages after FIRST scientific last-use signoff and restored core custody; preserve current core/methodology, SourceZIP, small essential source/control packages and source preimages."
+}

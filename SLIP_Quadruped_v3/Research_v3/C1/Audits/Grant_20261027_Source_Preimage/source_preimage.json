@@ -1,0 +1,11 @@
+{
+  "schema": "C1-explicit-new-grant-budget-source-preimage-v1",
+  "original_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/C1RunBudget_v3.m",
+  "original_sha256": "4dda7f200c2c38fbd2e8d90daf9f22f66db923a402f96395e2012cb77a61993b",
+  "original_bytes": 3142,
+  "preimage_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Grant_20261027_Source_Preimage/C1RunBudget_v3.m.before",
+  "preimage_sha256": "4dda7f200c2c38fbd2e8d90daf9f22f66db923a402f96395e2012cb77a61993b",
+  "whole_bytes_equal": true,
+  "scientific_files_read_or_changed": false,
+  "budget_MAT_or_JSON_read_or_changed": false
+}

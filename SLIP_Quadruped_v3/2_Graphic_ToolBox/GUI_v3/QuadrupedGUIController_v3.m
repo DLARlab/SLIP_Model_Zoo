@@ -6,7 +6,7 @@ classdef QuadrupedGUIController_v3 < handle
         Root
         Schema
         Folder
-        Datasets = struct('name', {}, 'source', {}, 'solutions', {}, 'components', {}, 'ordered_components', {}, 'line_warnings', {})
+        Datasets = struct('name', {}, 'source', {}, 'solutions', {}, 'components', {}, 'ordered_components', {}, 'line_warnings', {}, 'typed_graph', {})
         SelectedDataset = 0
         SelectedIndex = 0
         Candidate = []
@@ -30,13 +30,25 @@ classdef QuadrupedGUIController_v3 < handle
             'MaxFunctionEvaluations', 1200)
     end
     methods
-        function obj = QuadrupedGUIController_v3(root)
+        function obj = QuadrupedGUIController_v3(root,folder)
             if nargin < 1
                 root = V3Root_v3(mfilename('fullpath'));
             end
+            if nargin < 2, folder = pwd; end
             obj.Root = char(java.io.File(root).getCanonicalPath());
             obj.Schema = QuadrupedSchema_v3.shared();
             obj.Folder = obj.Root;
+            obj.Folder = obj.readPath(folder,true);
+        end
+        function path = readPath(obj,path,mustExist)
+            % Browsing is read-only and is independent of the output root.
+            if nargin < 3, mustExist = true; end
+            path = char(path);
+            if ~java.io.File(path).isAbsolute(), path = fullfile(obj.Folder,path); end
+            path = char(java.io.File(path).getCanonicalPath());
+            if mustExist && ~isfile(path) && ~isfolder(path)
+                error('QuadrupedGUIController_v3:MissingPath','Missing input path: %s',path);
+            end
         end
         function path = confinedPath(obj, path, mustExist)
             if nargin < 3, mustExist = false; end
@@ -47,36 +59,69 @@ classdef QuadrupedGUIController_v3 < handle
             path = char(java.io.File(V3Path_v3(path)).getCanonicalPath());
             if ~(strcmp(path, obj.Root) || startsWith(path, [obj.Root, filesep]))
                 error('QuadrupedGUIController_v3:OutsideV3', ...
-                    'GUI input and output paths must resolve inside SLIP_Quadruped_v3.');
+                    'GUI output and writable checkpoint paths must resolve inside SLIP_Quadruped_v3.');
             end
             if mustExist && ~isfile(V3Path_v3(path)) && ~isfolder(V3Path_v3(path))
                 error('QuadrupedGUIController_v3:MissingPath', 'Missing v3 path: %s', path);
             end
         end
         function files = setFolder(obj, folder)
-            folder = obj.confinedPath(folder, true);
-            if ~isfolder(V3Path_v3(folder))
-                error('QuadrupedGUIController_v3:NotFolder', 'Choose a v3 folder.');
+            folder = obj.readPath(folder, true);
+            if ~isfolder(folder)
+                error('QuadrupedGUIController_v3:NotFolder', 'Choose a readable data folder.');
             end
             obj.Folder = folder;
-            listing = V3Dir_v3(fullfile(folder, '*.mat'));
+            listing = dir(fullfile(folder, '*.mat'));
             files = {};
             for fileIndex = 1:numel(listing)
-                variables = whos('-file', fullfile(listing(fileIndex).folder, listing(fileIndex).name));
-                if any(ismember({variables.name}, {'solution','solutions','orbit','branch','study','results'}))
+                try
+                    variables = whos('-file', fullfile(listing(fileIndex).folder, listing(fileIndex).name));
+                catch problem
+                    warning('QuadrupedGUIController_v3:UnreadableFileSkipped', ...
+                        'Skipping unreadable MAT file %s: %s',listing(fileIndex).name,problem.message);
+                    continue
+                end
+                if any(strcmp({variables.name},'solution_core29'))
+                    % Strict core validation happens on Plot, not for every
+                    % file encountered while browsing a directory.
+                    files{end + 1} = listing(fileIndex).name;
+                elseif any(ismember({variables.name}, {'branch_index','essential_branch'}))
+                    % Listing candidates needs only the MAT header. Keep
+                    % strict record/graph validation in loadDataset on Plot.
+                    files{end + 1} = listing(fileIndex).name;
+                elseif any(ismember({variables.name}, {'solution','solutions','orbit','branch','study','results'}))
                     files{end + 1} = listing(fileIndex).name;
                 end
             end
             % Named continua are the usual entry point; historical evidence
             % remains available after them in the same folder.
-            named = ~cellfun('isempty', regexp(files, '^C[0-9]+_[A-Za-z0-9]+_[-+0-9.e]+_[-+0-9.e]+_[-+0-9.e]+\.mat$', 'once'));
+            named = ~cellfun('isempty', regexp(files, '^C[0-9]+_[A-Za-z0-9]+_.+\.mat$', 'once'));
             files = [sort(files(named)), sort(files(~named))];
         end
         function index = loadDataset(obj, file, policy)
             if nargin < 3, policy = 'v2-exact'; end
-            file = obj.confinedPath(file, true);
-            data = load(V3Path_v3(file));
-            solutions = obj.extractSolutions(data, policy);
+            file = obj.readPath(file, true);
+            variables = whos('-file', file);
+            if any(strcmp({variables.name},'solution_core29'))
+                [data,solutions] = obj.loadCore29Dataset(file);
+            elseif any(strcmp({variables.name}, 'essential_branch'))
+                % The stored schema4 discovery marker is smaller than its public index.
+                data = struct('branch_index', obj.storageIndex(file));
+                solutions = obj.extractSolutions(data, policy, file);
+                current = obj.storageIndex(file);
+                assert(isequaln(current, data.branch_index), ...
+                    'QuadrupedGUIController_v3:BranchChanged', 'The export changed during loading; reload it.');
+            elseif any(strcmp({variables.name}, 'branch_index'))
+                % Validate once, then load only each explicitly indexed pair.
+                data = struct('branch_index', obj.storageIndex(file));
+                solutions = obj.extractSolutions(data, policy, file);
+                current = load(file, 'branch_index');
+                assert(isequaln(current.branch_index, data.branch_index), ...
+                    'QuadrupedGUIController_v3:BranchChanged', 'The branch changed during loading; reload it.');
+            else
+                data = load(file);
+                solutions = obj.extractSolutions(data, policy, file);
+            end
             if isempty(solutions)
                 error('QuadrupedGUIController_v3:DatasetFormat', ...
                     'No recognized v3 orbit/solution/branch or explicit results fixture was found.');
@@ -84,8 +129,13 @@ classdef QuadrupedGUIController_v3 < handle
             solutions = obj.savedDisplayClassifications(data, solutions);
             [~, name, ext] = fileparts(file);
             [components, ordered, warnings] = obj.extractComponents(data, numel(solutions));
+            graph = struct();
+            if isfield(data,'core29_view'), graph = data.core29_view.typed_graph;
+            elseif isfield(data,'branch_index') && isfield(data.branch_index,'metadata')
+                graph = data.branch_index.metadata;
+            end
             dataset = struct('name', [name, ext], 'source', file, 'solutions', {solutions}, ...
-                'components', components, 'ordered_components', ordered, 'line_warnings', {warnings});
+                'components', components, 'ordered_components', ordered, 'line_warnings', {warnings}, 'typed_graph', graph);
             index = find(strcmp({obj.Datasets.source}, file), 1);
             if isempty(index)
                 obj.Datasets(end + 1) = dataset;
@@ -97,11 +147,57 @@ classdef QuadrupedGUIController_v3 < handle
             obj.Status = sprintf('Loaded %s: %d solutions; imported states require replay.', dataset.name, numel(solutions));
             if ~isempty(warnings), obj.Status = [obj.Status, ' ', strjoin(warnings, ' ')]; end
         end
+        function [indices, resolution] = loadCatalogEntry(obj, catalog, query)
+            % Family aliases retain every match. Logical C1/C2 PIP entries
+            % load the same C0 bytes and therefore reuse one dataset object.
+            catalogFolder = obj.Root;
+            if ischar(catalog) || isstring(catalog)
+                catalogFile = obj.confinedPath(catalog, true);
+                catalogFolder = fileparts(catalogFile);
+                catalog = jsondecode(fileread(catalogFile));
+            elseif isstruct(catalog) && isfield(catalog,'folder')
+                catalogFolder = obj.confinedPath(catalog.folder, true);
+            end
+            [entries, resolution] = ResolveNamedCatalog_v3(catalog, query);
+            indices = zeros(1, numel(entries));
+            for k = 1:numel(entries)
+                entry = entries(k);
+                physicalParameter = CatalogPhysicalParameter_v3(entry);
+                file = entry.file;
+                if ~java.io.File(file).isAbsolute() && ...
+                        ~(isfield(entry,'file_scope') && strcmp(entry.file_scope,'v3-root'))
+                    file = fullfile(catalogFolder,file);
+                end
+                file = obj.confinedPath(file, true);
+                if isfield(entry,'is_reference') && entry.is_reference
+                    parent = obj.confinedPath(entry.canonical_parent_file, true);
+                    assert(strcmp(file,parent),'QuadrupedGUIController_v3:ParentReference', ...
+                        'A logical parent reference must load the declared canonical bytes.');
+                    saved = load(file,'summary');
+                    assert(isfield(saved,'summary') && strcmp(saved.summary.continuum_id,'C0') && ...
+                        strcmp(saved.summary.stable_dataset_id,entry.canonical_parent_id) && ...
+                        isequal(saved.summary.physical_parameter(:),physicalParameter), ...
+                        'QuadrupedGUIController_v3:ParentReference','Canonical parent identity/parameters differ.');
+                end
+                indices(k) = obj.loadDataset(file);
+                recordIndex = 1;
+                if isfield(entry,'record_index') && ~isempty(entry.record_index),recordIndex=entry.record_index;end
+                obj.select(indices(k),recordIndex);
+                selected = obj.selected();
+                assert(isequal(selected.parameter(:),physicalParameter), ...
+                    'QuadrupedGUIController_v3:CatalogParameters','Selected record full p10 differs from its catalog.');
+            end
+            resolution.dataset_indices = indices;
+            obj.Status = sprintf('Catalog query %s: %d matching entries.',char(query),numel(entries));
+        end
         function select(obj, dataset, index)
             if dataset < 1 || dataset > numel(obj.Datasets) || ...
                     index < 1 || index > numel(obj.Datasets(dataset).solutions) || index ~= fix(index)
                 error('QuadrupedGUIController_v3:Selection', 'Invalid dataset/solution selection.');
             end
+            record = obj.hydrateCore29Record(obj.Datasets(dataset).solutions{index});
+            record = obj.currentDisplayClassification(record);
+            obj.Datasets(dataset).solutions{index} = record;
             obj.SelectedDataset = dataset;
             obj.SelectedIndex = index;
             obj.Candidate = [];
@@ -206,7 +302,7 @@ classdef QuadrupedGUIController_v3 < handle
             if ~isempty(obj.Datasets), obj.select(1, 1); end
         end
         function removeAll(obj)
-            obj.Datasets = struct('name', {}, 'source', {}, 'solutions', {}, 'components', {}, 'ordered_components', {}, 'line_warnings', {});
+            obj.Datasets = struct('name', {}, 'source', {}, 'solutions', {}, 'components', {}, 'ordered_components', {}, 'line_warnings', {}, 'typed_graph', {});
             obj.SelectedDataset = 0; obj.SelectedIndex = 0;
             obj.Candidate = []; obj.SecondSeed = []; obj.SecondSeedBase = [];
             obj.PredictedCandidate = []; obj.SolvedCandidate = [];
@@ -339,11 +435,10 @@ classdef QuadrupedGUIController_v3 < handle
                         'This seed has no stored complete trajectory and failed fresh replay.');
                 end
             end
-            if isempty(fieldnames(record.classification))
-                record.classification = GaitIdentification_v3(record.orbit);
-            end
+            record = obj.currentDisplayClassification(record);
         end
         function [color, classification] = gaitColor(obj, record)
+            record = obj.currentDisplayClassification(record);
             if nargin < 2, record = obj.currentSeed(); end
             classification = record.classification;
             if isempty(fieldnames(classification)) && ~isempty(record.orbit) && ...
@@ -520,7 +615,7 @@ classdef QuadrupedGUIController_v3 < handle
             index = numel(obj.Datasets) + 1;
             obj.Datasets(index) = struct('name', name, 'source', '', 'solutions', {{record}}, ...
                 'components', struct([]), 'ordered_components', struct('component_index', {}, 'record_indices', {}), ...
-                'line_warnings', {{}});
+                'line_warnings', {{}}, 'typed_graph', struct());
         end
         function file = saveSolution(obj, file, kind)
             if nargin<3,solution=obj.currentSeed();else,solution=obj.candidate(kind);end
@@ -618,6 +713,9 @@ classdef QuadrupedGUIController_v3 < handle
                     settings = struct('MaxPoints', 2, 'StepSize', obj.Run.options.StepSize, ...
                         'Symmetry', obj.scopeSymmetry(obj.Run.options.Scope), ...
                         'RootSolver', RootSolver_v3(solverOptions));
+                    if isfield(solverOptions,'MaxWallSeconds')
+                        settings.MaxWallSeconds=solverOptions.MaxWallSeconds;
+                    end
                     if isfield(solverOptions,'Jacobian'),settings.Jacobian=solverOptions.Jacobian;end
                     if ~isempty(obj.Run.next_tangent), settings.InitialTangent = obj.Run.next_tangent; end
                     branch = FixedParameterContinuation_v3.run(framework.residual, ...
@@ -732,7 +830,7 @@ classdef QuadrupedGUIController_v3 < handle
             end
             obj.Datasets(end + 1) = struct('name', [obj.Run.kind, ' partial results'], ...
                 'source', obj.Run.options.Checkpoint, 'solutions', {obj.Run.accepted}, ...
-                'components', components, 'ordered_components', ordered, 'line_warnings', {{}});
+                'components', components, 'ordered_components', ordered, 'line_warnings', {{}}, 'typed_graph', struct());
             obj.select(numel(obj.Datasets), 1);
         end
         function frames = frames(obj, strides, preserveEvents, record)
@@ -1067,6 +1165,18 @@ classdef QuadrupedGUIController_v3 < handle
             drawnow limitrate;
             obj.requireOpen();
         end
+        function record = currentDisplayClassification(obj, record)
+            [~, contractVersion] = GaitSemanticTable_v3();
+            current = isstruct(record.classification) && ...
+                isfield(record.classification,'contract_version') && ...
+                strcmp(string(record.classification.contract_version),contractVersion);
+            if ~current && obj.hasCompleteTrajectory(record)
+                if ~isempty(fieldnames(record.classification))
+                    record.provenance.historical_classification = record.classification;
+                end
+                record.classification = GaitIdentification_v3(record.orbit);
+            end
+        end
         function tf = hasCompleteTrajectory(obj, record)
             tf = false;
             if isempty(record.orbit) || ~isa(record.orbit, 'HybridOrbit_v3'), return; end
@@ -1082,6 +1192,35 @@ classdef QuadrupedGUIController_v3 < handle
         end
         function [components, ordered, warnings] = extractComponents(~, data, count)
             components = struct([]); ordered = struct('component_index', {}, 'record_indices', {}); warnings = {};
+            if isfield(data, 'branch_index') || isfield(data,'core29_view')
+                if isfield(data,'core29_view')
+                    view = data.core29_view;
+                    assert(numel(view.point_metadata)==count,'QuadrupedGUIController_v3:CoreCount','Core point count changed.');
+                    identities = cellfun(@(p) p.component_identity,view.point_metadata,'UniformOutput',false);
+                    edges = view.typed_graph.physical_edges;
+                else
+                    ix = data.branch_index;
+                    assert(numel(ix.points) == count, 'QuadrupedGUIController_v3:BranchCount');
+                    identities = cellfun(@(p) p.component_identity, ix.points, 'UniformOutput', false);
+                    edges = ix.edges;
+                end
+                keys = unique(identities, 'stable');
+                components = struct('component_identity', {}, 'record_indices', {}, ...
+                    'record_kind', {}, 'ordered', {});
+                for k = 1:numel(keys)
+                    components(k) = struct('component_identity', keys{k}, ...
+                        'record_indices', find(strcmp(identities, keys{k})).', ...
+                        'record_kind', 'compact_branch_points', 'ordered', false); %#ok<AGROW>
+                end
+                % One path per explicit edge also handles forks. Neither
+                % append order nor an imported pair creates a display line.
+                for k = 1:numel(edges)
+                    edge = edges{k}; component = find(strcmp(keys, edge.component_identity), 1);
+                    ordered(end + 1) = struct('component_index', component, ...
+                        'record_indices', double([edge.from, edge.to])); %#ok<AGROW>
+                end
+                return
+            end
             if isfield(data, 'branch') && isstruct(data.branch) && isscalar(data.branch) && isfield(data.branch, 'components')
                 components = data.branch.components;
                 if ~isstruct(components)
@@ -1130,7 +1269,14 @@ classdef QuadrupedGUIController_v3 < handle
             if ~strcmp(obj.ReturnPolicyOverride, 'stored')
                 policyName = obj.ReturnPolicyOverride; occurrences = obj.ReturnOccurrences;
             end
-            if strcmp(policyName, 'BL-marked-apex-return')
+            storedCore = isfield(record.provenance,'core29') && strcmp(obj.ReturnPolicyOverride,'stored');
+            if storedCore
+                [policy,evidence] = RecordedReturnPolicy_v3(record.validation);
+                if ~evidence.complete
+                    error('QuadrupedGUIController_v3:CorePolicy', ...
+                        'The complete stored Core29 policy is unavailable; choose an explicit return-policy override.');
+                end
+            elseif strcmp(policyName, 'BL-marked-apex-return')
                 if ~(isscalar(occurrences) && isfinite(occurrences) && occurrences >= 1 && occurrences == fix(occurrences))
                     error('QuadrupedGUIController_v3:UnknownReturnOccurrence', ...
                         'Saved BL chart lacks its touchdown occurrence count; choose an explicit BL policy and count.');
@@ -1189,8 +1335,136 @@ classdef QuadrupedGUIController_v3 < handle
             [packed, report] = CompactResearchBranch_v3(struct('points', record));
             record = packed.points; record.compact_checkpoint = report;
         end
-        function solutions = extractSolutions(obj, data, policy)
+        function [data,solutions] = loadCore29Dataset(obj,file)
+            % Public validation is one whole-file operation. Plot records do
+            % not cause N whole-file reconstructions; selection loads one ID.
+            sha = RoundSHA256_v3(file);
+            variables = whos('-file',file);
+            working = any(strcmp({variables.name},'working_storage'));
+            if working
+                [orbit,report,point,view] = LoadC1WorkingSolutionCore29_v3(file,1,sha);
+                reader = 'LoadC1WorkingSolutionCore29_v3';
+            else
+                [orbit,report,point,view] = LoadC1SolutionCore29_v3(file,1,sha);
+                reader = 'LoadC1SolutionCore29_v3';
+            end
+            packed = load(file,'solution_core29','core_digest');
+            assert(strcmp(RoundSHA256_v3(file),sha), ...
+                'QuadrupedGUIController_v3:CoreChanged','Core bytes changed during display acquisition.');
+            c = packed.solution_core29;
+            assert(strcmp(C1ScientificDigest_v3(c),packed.core_digest), ...
+                'QuadrupedGUIController_v3:CoreDigest','The complete plain core typed digest changed.');
+            visible = struct('matrix',view.solution_matrix,'metadata',{view.point_metadata}, ...
+                'contexts',{view.contexts},'ids',{view.native_ids},'graph',view.typed_graph);
+            literal = struct('matrix',c.solution_matrix,'metadata',{c.point_metadata}, ...
+                'contexts',{c.contexts},'ids',{c.native_ids},'graph',c.graph);
+            assert(strcmp(C1ScientificDigest_v3(visible),C1ScientificDigest_v3(literal)), ...
+                'QuadrupedGUIController_v3:CoreView','Public view and literal core display values differ.');
+            solutions = cell(1,c.point_count);
+            for k = 1:c.point_count
+                record = obj.normalize(struct('initial_state',c.solution_matrix(1:14,k), ...
+                    'initial_mode',c.modes{k},'parameter',c.parameters{k}));
+                % Preserve the source p/q class and shape, separately from
+                % any canonicalization performed by the generic GUI adapter.
+                record.initial_mode = c.modes{k}; record.parameter = c.parameters{k};
+                record.validation = c.saved_reports{k};
+                if isfield(record.validation,'classification') && isstruct(record.validation.classification) && isscalar(record.validation.classification)
+                    record.classification = record.validation.classification;
+                end
+                if isfield(record.validation,'accepted'), record.historical_accepted = record.validation.accepted; end
+                configuration = c.policies{k}.configuration;
+                record.return_policy_name = configuration.settings.Name;
+                record.BL_touchdowns_per_return = configuration.settings.BLTouchdownsPerReturn;
+                record.provenance = struct('source_file',file,'point_metadata',c.point_metadata{k}, ...
+                    'source_provenance',c.contexts{k},'recorded_policy_evidence',c.policies{k}, ...
+                    'section_chart',c.section_charts{k},'core29',struct('file',file,'sha256',sha, ...
+                    'index',k,'native_id',c.native_ids{k},'hydrated',false,'reader',reader, ...
+                    'saved_decisions_are_historical',true,'fresh_admission_claimed',false));
+                record.accepted = false; record.status = 'Core29 saved state; fresh replay required';
+                if working
+                    record.status = 'Working Core29 saved state; fresh replay required';
+                    record.provenance.core29.working_storage = view.working_storage;
+                end
+                solutions{k} = record;
+            end
+            solutions{1} = obj.hydrateCore29Record(solutions{1},orbit,report,point);
+            assert(strcmp(RoundSHA256_v3(file),sha), ...
+                'QuadrupedGUIController_v3:CoreChanged','Core bytes changed before the dataset was published.');
+            data = struct('core29_view',view);
+        end
+        function record = hydrateCore29Record(~,record,orbit,report,point)
+            if ~isfield(record.provenance,'core29') || record.provenance.core29.hydrated, return; end
+            source = record.provenance.core29;
+            if nargin < 3
+                if isfield(source,'reader') && strcmp(source.reader,'LoadC1WorkingSolutionCore29_v3')
+                    [orbit,report,point] = LoadC1WorkingSolutionCore29_v3(source.file,source.index,source.sha256);
+                else
+                    assert(~isfield(source,'reader') || strcmp(source.reader,'LoadC1SolutionCore29_v3'), ...
+                        'QuadrupedGUIController_v3:CoreReader','Unknown explicit Core29 reader.');
+                    [orbit,report,point] = LoadC1SolutionCore29_v3(source.file,source.index,source.sha256);
+                end
+            end
+            expected = struct('state',record.initial_state,'mode',record.initial_mode,'parameter',record.parameter);
+            actual = struct('state',orbit.initial_state,'mode',orbit.initial_mode,'parameter',orbit.parameter);
+            assert(strcmp(C1ScientificDigest_v3(expected),C1ScientificDigest_v3(actual)) ...
+                &&strcmp(point.native_id,source.native_id) ...
+                &&strcmp(C1ScientificDigest_v3(point.metadata),C1ScientificDigest_v3(record.provenance.point_metadata)) ...
+                &&strcmp(C1ScientificDigest_v3(point.context),C1ScientificDigest_v3(record.provenance.source_provenance)) ...
+                &&strcmp(C1ScientificDigest_v3(point.recorded_policy_evidence),C1ScientificDigest_v3(record.provenance.recorded_policy_evidence)), ...
+                'QuadrupedGUIController_v3:CoreSelection','Selected native identity, literal values or policy changed.');
+            record.orbit = orbit; record.validation = report;
+            record.provenance.core29.hydrated = true;
+            record.accepted = false;
+        end
+        function index = storageIndex(~, file)
+            file = char(java.io.File(file).getCanonicalPath());
+            mapped = char(java.io.File(V3Path_v3(file)).getCanonicalPath());
+            assert(strcmp(file,mapped),'QuadrupedGUIController_v3:StorageAlias', ...
+                'Choose the current physical storage path; the recorded location alias addresses different bytes.');
+            variables = whos('-file', file);
+            if any(strcmp({variables.name}, 'essential_branch'))
+                % Any essential payload claim requires the strict schema4 reader.
+                index = EssentialBranchSolutionFile_v3.index(file);
+            else
+                index = BranchSolutionFile_v3.index(file);
+            end
+        end
+        function solutions = extractSolutions(obj, data, policy, file)
             solutions = {};
+            if isfield(data, 'branch_index')
+                essential = isfield(data.branch_index,'storage_version') && ...
+                    strcmp(data.branch_index.storage_version,'BranchSolutionFile_v3:4');
+                if essential
+                    [orbits,reports,metadata] = EssentialBranchSolutionFile_v3.loadSolutions( ...
+                        file,1:numel(data.branch_index.points));
+                end
+                for k = 1:numel(data.branch_index.points)
+                    point = data.branch_index.points{k};
+                    if essential
+                        orbit = orbits{k}; report = reports{k};
+                        assert(isequaln(metadata{k},point.metadata), ...
+                            'QuadrupedGUIController_v3:EssentialMetadata','The selected export metadata changed.');
+                    else
+                        saved = load(file, point.solution_variable, point.report_variable);
+                        orbit = saved.(point.solution_variable); report = saved.(point.report_variable);
+                    end
+                    assert(strcmp(class(orbit), 'HybridOrbit_v3') && isscalar(orbit), ...
+                        'QuadrupedGUIController_v3:BranchClass', 'Every compact point must retain its native orbit class.');
+                    record = obj.normalize(orbit);
+                    record.validation = report;
+                    if isstruct(report) && isscalar(report) && isfield(report, 'classification') ...
+                            && isstruct(report.classification) && isscalar(report.classification)
+                        record.classification = report.classification;
+                    end
+                    record.provenance = struct('source_file', file, 'packed_point_index', k, ...
+                        'component_identity', point.component_identity, 'order', point.order, ...
+                        'source_provenance', point.provenance, 'point_metadata', point.metadata, ...
+                        'saved_validation', {report});
+                    record.accepted = false; record.status = 'imported compact branch; unvalidated';
+                    solutions{end + 1} = record; %#ok<AGROW>
+                end
+                return
+            end
             if isfield(data, 'solutions'), source = data.solutions;
             elseif isfield(data, 'solution'), source = {data.solution};
             elseif isfield(data, 'orbit'), source = {data.orbit};

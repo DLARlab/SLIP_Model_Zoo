@@ -1,0 +1,160 @@
+PK continuation completion report — 2 November 2026
+
+RESULT AND SCOPE
+All 13 registered finite PK frontier obligations are resolved within the
+declared finite native PK/local-chart scope. Resolution02 has no unresolved rows and no
+dispatch candidates. After the event-engine repair, this round earned
+61 physical continuation edges and 9 separately qualified numerical
+meetings, each with four literal-state
+fine comparisons and a subsequent cold retention check. These are graph
+relations and stored occurrences, not counts of independent periodic cycles.
+
+The retained typed P/E/M graph has 1,118 occurrences in two connected components:
+  component 1: 610 records, 555 physical edges, 55 exact links, 10 meetings;
+  component 2: 508 records, 480 physical edges, 25 exact links,  5 meetings.
+There are no alias edges. A meeting is a finite numerical qualification;
+it is not an exact identity or an earned physical continuation edge. The
+0073/0193 joining route includes the inherited historical GateB43b meeting
+to original 0193 occurrence 52. This is not one of the nine new meetings
+and is not claimed as a new current-epoch requalification.
+
+Four local boundary directions were resolved: positive/negative long-family
+interior flight grazing and positive/negative short-family initial-flight
+clearance. Their inward controls pass current native admission. Boundary
+roots remain unadmitted boundary observations; they are not verified bifurcation points
+or global maximality proofs. Height termination uses marked COM apex
+height < 0.5 resting leg length, strictly. It was not triggered here.
+
+Full P1/v2 coverage, original v2 trajectory equivalence, uniqueness of all
+PK families, and the PK-to-GG/GE C1 bifurcation chain remain UNPROVED.
+C2 was excluded. P1 initial dx reaches 20.42318406 and energy 208.89093746;
+the regular upright all-flight class has a necessary speed-bound estimate
+about 15.115 under the assumptions in AuditC1PKRegularPronkSpeedBound_v3.
+That bound neither establishes an attained endpoint nor excludes other
+PK classes, including grounded-section families. Scalar overlap alone
+does not establish family identity or a percentage of P1 coverage.
+
+DELIVERED BRANCH FILES
+Directory: Compact_Exports_20261030/PK30h_20261102_FinalEligibleCoreSet01/
+  C1_PK_Component_0001_WorkingCore29.mat
+    1,289,983 bytes; SHA256
+    1f4097d827057be3a5cf1acbd5983082d3fb8f07bd7df510b64744b281fbb635
+  C1_PK_Component_0002_WorkingCore29.mat
+    1,065,892 bytes; SHA256
+    c0e2bffed1cfff46ed8ec96b3213145b625af0263f26afa4648e5232f7ad521d
+Combined size: 2,355,875 bytes. Each whole component is in one MAT file.
+The original whole-v2 file is 110,861 bytes; the strict 5x target of
+554,305 bytes per file remains unmet. The user's necessary-working-size
+exception is explicit; no component or retained solution was split/dropped
+to satisfy that target. These are compact working results, not complete
+raw runtime-object archives or replacements for every resume checkpoint.
+
+Use [orbit,report,point,view] = LoadC1WorkingSolutionCore29_v3(file,index,sha).
+The expected SHA is mandatory. view.solution_matrix is 29 by N: 14 native
+initial-state values, 14 full-stride values and one period. Parameters,
+modes, policies, NativeIDs, metadata and typed graph are also retained.
+Loading returns a trajectory-free native seed with historical saved
+decisions; it performs no fresh integration, classification or admission.
+
+Saved native ranges (separate observables, not equivalence claims):
+  component 1: E [1.695985394,31.127469300],
+    apex dx [-7.729415864,7.729449932],
+    mean U [-7.699967448,7.700001453], T [2.613199383,2.898434136].
+  component 2: E [1.117113711,8.875656649],
+    apex dx [-3.968792423,3.968792423],
+    mean U [-3.952675944,3.952675944], T [1.372602566,1.564525599].
+
+WHY EARLIER SEARCHES KEPT STOPPING
+The old ledger's status was not a mathematical completion certificate.
+Budget yields, failed return-map derivatives and exhausted retry strategies
+left frontiers obstructed or held without proving endpoints. Small adaptive
+steps near the clearance boundary could therefore consume repeated grants.
+Separate raw fragments and numerical overlaps also required owned edges,
+unchanged-state comparisons and explicit graph reconciliation before a
+connection could be asserted. Equal speed or nearby stored states were
+insufficient. Old metadata/selector assumptions, caller paths, custody
+parsers, large diagnostic payloads and export/reader failures added real
+workflow delays; their failed outcomes have not been relabeled as success.
+
+This round repaired the event engine and checked 53 canonical cases plus
+six matched old/current replays. It then used square forced-phase root
+equations F7 plus an owned pseudo-arclength constraint, followed by the
+original native BL return problem, full-state closure and all nine gates.
+The phase chart is an acquisition aid, never a replacement native orbit.
+No source state was snapped/projected to manufacture admission. Local
+boundary systems used F7 plus initial clearance, or F7 plus g and dg/dt,
+with rank/stencil checks and independently admitted inward controls.
+Root-Newton and scalar roots were used; no optimization method was used.
+
+For the 26 accepted LOW Extension01 attempts retained by the native
+SavedDataInspection02 audit, median phase time was 6.48 s
+and median native-service time was 41.08 s. The recorded attempt median
+before the final checkpoint was 59.60 s; final checkpoint, queue and window
+overhead are excluded. Thus a five-second predictor/corrector expectation
+does not describe the current fully admitted/persisted workflow. These
+measurements are sample-specific, not a promise for every frontier or gait.
+No controlled runtime comparison with the v2 implementation was performed.
+
+PERSISTENCE, GUI AND VERIFICATION
+Audits/PK_Current_Frontier_Resolution.json selects the SHA-bound current
+Resolution02 and exact model epoch. ResumeC1PKFrontiers_v3 returns the
+unchanged original journal and NOOP_FINITE_SCOPE_RESOLVED evidence for this
+resolved scope. It does not revive the old ledger's runnable-looking flags
+or silently adopt another time grant. Other ledgers retain their owner.
+AuditC1LiveRanges_v3 and InspectC1RecentAcquisitions_v3 now accept explicit
+closed working-core selections; see Methodology_20261030/README.md.
+
+Both component exports passed two independent original-source payload
+passes, staged/installed native readbacks and public loading checks.
+A separate fresh MATLAB process checked selected records in both files,
+then exercised actual GUI callbacks on the 610-record component: 555
+physical line segments, state axes, current-working-directory startup,
+folder button/dropdown order and lazy record loading. A native screenshot
+was reviewed. Actual mouse/hover and human display visibility were not
+tested in that check. Top view with dphi as Y makes synchronous PK appear
+nearly horizontal; choose height on Y or change view to see height variation.
+Near-zero-speed records are not grounds for deletion. Lines follow stored
+physical edges only; numerical meetings and storage adjacency stay separate.
+
+The user's selected C1_PK_10_20_2.mat is the separate historical 177-record,
+39-group collection. Its saved native GUI inspection found no exact dx=0
+records, no |dx|<=1e-12 records and no long zero-to-finite plot edge. This
+does not reproduce the reported artifact or freshly validate that imported
+collection. It gives no basis for deleting near-zero-speed records. The
+inspection remains in Audits/PK30h_20261101_GUI_LegacyPK_Line_Inspection01.mat;
+its redundant JSON mirror can be retired without deleting the native audit.
+
+PRIMARY EVIDENCE (all paths relative to this C1 folder)
+  Audits/PK30h_20261102_Current_Finite13_Resolution02.mat and .tsv
+  Audits/PK30h_20261102_Current_Finite13_Resolution02_External_Closure.json
+  Audits/PK30h_20261102_StoredGraph04_ClosedCarriers.mat
+  Audits/PK30h_20261102_FinalEligibleCoreSet01_Manifest.mat
+  Audits/PK30h_20261102_FinalEligibleCoreSet01_External_Closure.json
+  Audits/PK30h_20261102_FinalEligibleCoreSet01_FreshReaderGUI01.mat and .png
+  Audits/PK30h_20261102_CurrentSavedUtilities_Smoke01_External_Closure.json
+The earlier status/campaign documents retain chronology. This report and
+Resolution02 supersede their earlier pending statements for the finite13.
+
+FINAL CLEANUP AND REMAINING STORAGE LIMIT
+The final guarded pass actually removed 157 paths and 322,181,029 logical
+bytes: 38 exact native-backed JSON mirrors, 78 closed logs and 41 obsolete
+construction files. All 45 retained native authorities and 165 unchanged
+protected inputs passed postchecks; the cleanup journal was deliberately
+appended. Six Run JSON files and the Round JSON were kept because existing
+code requires their native/projection pairs. All source beforeimages, two
+essential failure-reconstruction patches, canonical53 evidence, selected
+essential logs and every JSONL witness were preserved. No MAT file or
+scientific flag was deleted/changed in that pass. Actual receipt:
+  Audits/PK30h_20261102_Final_Cleanup_Receipt.json
+  SHA256 12cfb8ce52cbbaa0f06939597bb863df3ffe7076e40c01357298483167c50e18
+
+At 21:59 UTC, 1,036 changed paths remained (28 tracked modifications and
+1,008 untracked paths), including 643 under Audits. The requested few-hundred
+path target remains UNMET. Unknown/partial native results and raw/checkpoint
+data were kept where a complete preservation mapping was not established;
+the older 494-record core mapping remains unresolved. Compact final branch
+files do not justify deleting those other inputs. Measured free disk space
+was 361,701,421,056 bytes. Logical removal is not a claim of equal physical
+space reclamation: hardlinks and background storage activity affect that.
+The 11 retained C1 archives total 1,829,356,140 bytes after inode deduplication
+within this tree (about 1.70 GiB). No bulk archive was created by this pass.

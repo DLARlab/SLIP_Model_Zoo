@@ -14,8 +14,11 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         'ReplayIntegration',struct(),'SolverOptions',struct(), ...
         'Acceptance',struct(),'MaxReturnTime',30,'MaxCycleEvents',1000, ...
         'MaxSectionCrossings',64,'MaxWallSeconds',240, ...
-        'Residual',[],'Coordinates',[],'AugmentedParameter',[]);
+        'Residual',[],'Coordinates',[],'AugmentedParameter',[], ...
+        'TraceFailure',true);
     options=merge(defaults,options,'option');solution=[];clock=tic;
+    assert(islogical(options.TraceFailure)&&isscalar(options.TraceFailure), ...
+        'PeriodicSolutionSolver_v3:Options','TraceFailure must be a scalar logical.');
     acceptance=merge(struct('FullClosureTolerance',1e-8,'EnergyTolerance',1e-8, ...
         'ConstraintTolerance',1e-8,'FamilyTolerance',1e-8,'StanceTolerance',1e-8, ...
         'PrimitiveStateTolerance',1e-7,'PrimitiveEventTolerance',1e-7, ...
@@ -31,10 +34,11 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
     replayIntegration.ArmingTolerance=integration.ArmingTolerance/10;
     replayIntegration.MaxStep=integration.MaxStep/2;
     replayIntegration=merge(replayIntegration,options.ReplayIntegration,'replay integration');
-    report=struct('schema_version','periodic-solution-solver-v3-1','status','running', ...
+    report=struct('schema_version','periodic-solution-solver-v3-2','status','running', ...
         'accepted',false,'seed',[],'options',options,'acceptance',acceptance, ...
         'integration',integration,'replay_integration',replayIntegration, ...
         'effective_correction_ode',struct(),'effective_replay_ode',struct(), ...
+        'correction_return_policy',[], ...
         'initial_residual',[],'initial_scaled_norm',Inf,'initial_physical_norm',Inf, ...
         'final_residual',[],'final_scaled_norm',Inf,'final_physical_norm',Inf, ...
         'full_closure',Inf,'final_candidate',[],'solver',struct(), ...
@@ -43,7 +47,11 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         'independent_replay',struct(),'physical_inequalities',struct(), ...
         'primitive',struct(),'classification',struct(),'constraint_residual',NaN, ...
         'family_conditions',struct(),'acceptance_gates',struct(), ...
-        'provenance',struct(),'elapsed_seconds',0);
+        'provenance',struct(),'elapsed_seconds',0,'failure_stage','initial-return', ...
+        'retryable',true,'phase_timing',struct());
+    % Observation only: each phase keeps its own elapsed wall time. These
+    % clocks do not alter a numerical deadline or reuse an admission result.
+    phase='setup';phaseClock=tic;
     try
         seed=normalize(seed);report.seed=seed;report.provenance=seed.provenance;
         report.final_candidate=seed.state;
@@ -92,12 +100,18 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
             replayIntegration=merge(replayIntegration,options.ReplayIntegration,'replay integration');
             report.replay_integration=replayIntegration;
         end
+        % Keep the literal seed as provenance and record the actual policy
+        % used by either the constructed or delegated correction map.
+        report.correction_return_policy=map.ReturnPolicy;
         integration=map.Simulator.Options;
         report.integration=integration;report.replay_integration=replayIntegration;
         report.effective_correction_ode=effectiveODE(integration);
         report.effective_replay_ode=effectiveODE(replayIntegration);
         validateReplaySettings(report.effective_correction_ode,report.effective_replay_ode);
+        report.phase_timing.setup_seconds=toc(phaseClock);
+        phase='initial_return';phaseClock=tic;
         [initial,initialInfo]=residual.evaluateWithInfo(coordinates,p,seed.mode);
+        report.phase_timing.initial_return_seconds=toc(phaseClock);
         report.initial_residual=initial;report.initial_scaled_norm=norm(initial,inf);
         report.initial_physical_norm=norm(member(initialInfo,'physical_residual',initial),inf);
         report.initial_evaluation=initialInfo;
@@ -116,7 +130,14 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         solverOptions.MaxWallSeconds=max(.001,options.MaxWallSeconds-toc(clock));
         if ~isempty(options.CoordinateScale),solverOptions.StateScale=options.CoordinateScale;end
         solver=RootSolver_v3(solverOptions);
-        [candidate,root]=solver.solve(residual,coordinates,p,seed.mode);report.solver=root;
+        report.failure_stage='root-correction';
+        phase='root_correction';phaseClock=tic;
+        report.phase_timing.root_solver_call_attempted=true;
+        [candidate,root]=solver.solve(residual,coordinates,p,seed.mode);
+        report.phase_timing.root_solver_call_returned=true;
+        report.solver=root;
+        report.phase_timing.root_correction_seconds=toc(phaseClock);
+        phase='root_finalization';phaseClock=tic;
         report.final_coordinates=candidate;report.augmented_parameter=p;
         report.final_candidate=residual.fullState(candidate,p,seed.mode);
         report.final_residual=root.residual;report.final_scaled_norm=root.residualNorm;
@@ -132,8 +153,12 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
             report.finalization_failure=struct('identifier',root.finalizationErrorIdentifier,'message',root.finalizationMessage);
         end
         if ~root.converged
-            report.status='retryable_failure';
-            report.partial_evidence=traceFailure(report.seed,integration,options,report.partial_evidence);
+            report.status=member(root,'status','nonconverged_finite_residual');
+            if options.TraceFailure
+                phase='failure_trace';phaseClock=tic;
+                report.partial_evidence=traceFailure(report.seed,integration,options,report.partial_evidence);
+                report.phase_timing.failure_trace_seconds=toc(phaseClock);
+            end
             report.elapsed_seconds=toc(clock);
             return
         end
@@ -149,15 +174,21 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         % New map and simulator: no RootSolver objective cache or residual
         % evaluation is reused for acceptance.
         replayMap=makeMap(replaySeed,replayIntegration,options);
+        report.failure_stage='independent-replay';
         report.replay_integration=replayMap.Simulator.Options;
         report.effective_replay_ode=effectiveODE(report.replay_integration);
+        report.phase_timing.root_finalization_seconds=toc(phaseClock);
+        phase='first_fresh_replay';phaseClock=tic;
         [next,replay]=replayMap.evaluate(candidateOrbit.initial_state, ...
             candidateOrbit.initial_mode,candidateOrbit.parameter);
+        report.phase_timing.first_fresh_replay_seconds=toc(phaseClock);
         delta=next-candidateOrbit.initial_state;delta(1)=0;
         report.full_closure=norm(delta,inf);report.full_closure_residual=delta;
         replayProblem=PeriodicOrbitResidual_v3(replayMap,candidateOrbit.initial_state);
+        phase='second_fresh_replay';phaseClock=tic;
         [~,details]=replayProblem.evaluateWithInfo(replayProblem.packState(candidateOrbit.initial_state), ...
             candidateOrbit.parameter,candidateOrbit.initial_mode);
+        report.phase_timing.second_fresh_replay_seconds=toc(phaseClock);
         % createOrbit uses the second fresh return; retain both returns and
         % their difference to expose deterministic integration ownership.
         acceptedOrbit=replayProblem.createOrbit(replayProblem.packState(candidateOrbit.initial_state), ...
@@ -166,15 +197,22 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         report.independent_replay.first_replay_next_state=next;
         report.independent_replay.repeated_replay_difference=norm(details.next_state-next,inf);
         report.full_closure=max(report.full_closure,norm(details.next_state(2:end)-candidateOrbit.initial_state(2:end),inf));
+        phase='physical_audit';phaseClock=tic;
         report.physical_inequalities=physicalAudit(acceptedOrbit);
+        report.phase_timing.physical_audit_seconds=toc(phaseClock);
+        phase='primitive_audit';phaseClock=tic;
         report.primitive=PrimitiveCycleCheck_v3(acceptedOrbit,struct('MaxCover',acceptance.MaxCover, ...
             'StateTolerance',acceptance.PrimitiveStateTolerance, ...
             'EventPhaseTolerance',acceptance.PrimitiveEventTolerance));
         report.primitive=properApexAudit(report.primitive,details.map_info,acceptedOrbit, ...
             replayIntegration,options,acceptance);
+        report.phase_timing.primitive_audit_seconds=toc(phaseClock);
+        phase='classification';phaseClock=tic;
         report.classification=GaitIdentification_v3(acceptedOrbit,struct('PrimitiveOptions', ...
             struct('MaxCover',acceptance.MaxCover,'StateTolerance',acceptance.PrimitiveStateTolerance, ...
             'EventPhaseTolerance',acceptance.PrimitiveEventTolerance)));
+        report.phase_timing.classification_seconds=toc(phaseClock);
+        phase='family_and_gates';phaseClock=tic;
         report.period=acceptedOrbit.period;report.drift=acceptedOrbit.stride_displacement;
         report.chart_signature=member(replay,'section_chart',struct());
         report.event_signature=replay.section_relative_event_signature;
@@ -193,21 +231,51 @@ function [solution,report]=PeriodicSolutionSolver_v3(seed,options)
         valid=all(structfun(@(value)logical(value),report.acceptance_gates));
         if valid
             solution=acceptedOrbit;report.accepted=true;report.status='accepted';
+            report.failure_stage='';report.retryable=false;
         else
-            report.status='retryable_failure';
+            if ~report.acceptance_gates.full_closure
+                report.status='failed_full_closure';
+            else
+                report.status='failed_replay';
+            end
             report.replay_failure=struct('identifier','PeriodicSolutionSolver_v3:Acceptance', ...
                 'message','Fresh closure, unscaled family equations, requested energy, energy variation, stance, constraint, determinism or primitive-period gate failed.');
         end
+        report.phase_timing.family_and_gates_seconds=toc(phaseClock);
     catch exception
-        failure=struct('identifier',exception.identifier,'message',exception.message);
+        report.phase_timing.interrupted_phase=phase;
+        report.phase_timing.interrupted_phase_seconds=toc(phaseClock);
+        failure=failureDetails(exception);
         if isempty(fieldnames(report.solver)),report.primary_failure=failure;
         else,report.replay_failure=failure;end
-        report.status='retryable_failure';
-        if exist('SourceTrialTrace_v3','file')==2 && ~isempty(report.seed)
+        if contains(exception.identifier,'Budget')
+            report.status='budget_refusal';
+        elseif strcmp(report.failure_stage,'initial-return')
+            report.status='invalid_initial_return';
+        elseif strcmp(report.failure_stage,'independent-replay')
+            report.status='failed_replay';
+        elseif contains(exception.identifier,'Jacobian')||contains(exception.identifier,'Derivative')
+            report.status='derivative_failure';
+        else
+            report.status='invalid_trial_during_correction';
+        end
+        if options.TraceFailure&&exist('SourceTrialTrace_v3','file')==2 && ~isempty(report.seed)
+            phaseClock=tic;
             report.partial_evidence=traceFailure(report.seed,integration,options,report.partial_evidence);
+            report.phase_timing.failure_trace_seconds=toc(phaseClock);
         end
     end
     report.elapsed_seconds=toc(clock);
+end
+
+function out=failureDetails(exception)
+    % Retain the ORIGINAL call's stack/causes before an optional diagnostic.
+    % A later plain-horizon trace is not the same BL stop/rearm execution.
+    causes=cell(numel(exception.cause),1);
+    for k=1:numel(causes),causes{k}=failureDetails(exception.cause{k});end
+    out=struct('identifier',exception.identifier,'message',exception.message, ...
+        'stack',exception.stack,'extended_report',getReport(exception,'extended','hyperlinks','off'), ...
+        'causes',{causes});
 end
 
 function validateReplaySettings(correction,replay)

@@ -21,8 +21,13 @@ classdef HybridSimulator_v3
                 HybridSimulator_v3.defaultOptions(), options);
         end
 
-        function [trajectory, result] = simulate(obj, system, x0, q0, p, ...
-                tspan, options)
+        function [trajectory, result, restartContextOut] = simulate(obj, system, x0, q0, p, ...
+                tspan, options, restartContextIn)
+            % Optional opaque context explicitly continues physical guard
+            % ownership across calls; the new StopCondition starts fresh.
+            % It is never included in RESULT, trajectory metadata or caches.
+            restartContextOut=[];
+            if nargin<8,restartContextIn=[];end
             if nargin < 7 || isempty(options)
                 options = struct();
             end
@@ -55,7 +60,20 @@ classdef HybridSimulator_v3
             stage = 'initial-state';
             segment = struct('time',[],'state',[]);
             event = struct();
+            touchdownDiagnostics = struct([]);
+            touchdownDiagnosticFailures = {};
+            earliestContactObstruction = struct();
+            pendingReset = struct();
+            armingContext=[];
+            processedEventIds={};
+            armingRestartDiagnostics=cell(0,1);
             try
+            if ~isempty(restartContextIn)
+                stage='simulation-handoff-binding';
+                armingContext=detector.prepareSimulationRestart(restartContextIn, ...
+                    system,stopCondition,currentTime,currentState,currentMode,p);
+                stage='initial-state';
+            end
             [minimumAdmissibilityMargin, minimumPhysicalMargins] = ...
                 HybridSimulator_v3.validateAcceptedState( ...
                     system, currentState, currentMode, p, ...
@@ -74,11 +92,12 @@ classdef HybridSimulator_v3
                     HybridSimulator_v3.timeTolerance(currentTime, ...
                         simulationOptions)
                 stage = 'continuous-integration';
+                processedEventIds={}; % Ownership concerns only this accepted segment.
                 segment = struct('time',[],'state',[]);
                 event = struct();
-                [segment, event] = detector.integrate(system, currentState, ...
+                [segment, event, armingContext] = detector.integrate(system, currentState, ...
                     currentMode, p, [currentTime, finalTime], ...
-                    stopCondition, odeOptions);
+                    stopCondition, odeOptions, armingContext);
                 stage = 'accepted-segment';
                 [segmentMargin, segmentPhysicalMargins] = ...
                     HybridSimulator_v3.validateAcceptedSegment( ...
@@ -127,6 +146,7 @@ classdef HybridSimulator_v3
 
                 currentTime = eventTime;
                 currentState = eventState;
+                processedEventIds={};
 
                 stopFirst = event.stop_occurred && ...
                     ~simulationOptions.ProcessGuardsAtStop;
@@ -145,6 +165,44 @@ classdef HybridSimulator_v3
                         batchInfo = HybridSimulator_v3.completeBatchInfo( ...
                             batchInfo, eventIds, stateBefore, stateAfter, ...
                             modeBefore, modeAfter);
+                        batchTouchdowns = struct([]);
+                        for contactIndex = 1:numel(guardBatch)
+                            try
+                                contactReport = TouchdownDiagnostics_v3( ...
+                                    system,guardBatch(contactIndex),currentTime, ...
+                                    stateBefore,stateAfter,modeBefore,modeAfter,p, ...
+                                    simulationOptions.DirectionalDerivativeTolerance);
+                            catch diagnosticException
+                                % Instrumentation must not change a custom
+                                % system/component's admissible execution.
+                                touchdownDiagnosticFailures{end+1} = struct( ...
+                                    'time',currentTime, ...
+                                    'event_id',guardBatch(contactIndex).id, ...
+                                    'identifier',diagnosticException.identifier, ...
+                                    'message',diagnosticException.message); %#ok<AGROW>
+                                continue
+                            end
+                            if isempty(contactReport),continue;end
+                            if isempty(batchTouchdowns)
+                                batchTouchdowns = contactReport;
+                            else
+                                batchTouchdowns(end+1) = contactReport; %#ok<AGROW>
+                            end
+                            if isempty(touchdownDiagnostics)
+                                touchdownDiagnostics = contactReport;
+                            else
+                                touchdownDiagnostics(end+1) = contactReport; %#ok<AGROW>
+                            end
+                            if isempty(fieldnames(earliestContactObstruction)) ...
+                                    && contactReport.strict_outward_post_reset
+                                earliestContactObstruction = contactReport;
+                            end
+                        end
+                        batchInfo.touchdown_diagnostics = batchTouchdowns;
+                        pendingReset = struct('time',currentTime, ...
+                            'state_before',stateBefore,'state_after',stateAfter, ...
+                            'mode_before',modeBefore,'mode_after',modeAfter, ...
+                            'batch_info',batchInfo);
                         postResetContext = struct( ...
                             'event_ids', ...
                                 HybridSimulator_v3.numericEventIds(eventIds), ...
@@ -197,6 +255,10 @@ classdef HybridSimulator_v3
                                     string(batchInfo.semantics), ...
                                 'event_batch_atomic', ...
                                     logical(batchInfo.atomic));
+                            if ~isempty(batchTouchdowns)&&isnumeric(descriptor.id)
+                                eventMetadata.touchdown_diagnostics = ...
+                                    batchTouchdowns([batchTouchdowns.event_id] == descriptor.id);
+                            end
                             entry = HybridSimulator_v3.makeEventEntry( ...
                                 descriptor, currentTime, ...
                                 scalarStateBefore, scalarStateAfter, ...
@@ -215,6 +277,7 @@ classdef HybridSimulator_v3
 
                         currentState = stateAfter;
                         currentMode = modeAfter;
+                        processedEventIds=eventIds;
                         eventCount = eventCount + numel(guardBatch);
                         if eventCount >= simulationOptions.MaxEvents
                             reason = "maximum_events";
@@ -255,6 +318,10 @@ classdef HybridSimulator_v3
                         "guard passed clustering checks."];
                     break;
                 end
+                stage='restart-arming';
+                [armingContext,restartDiagnostics]=detector.prepareRestart( ...
+                    armingContext,currentState,currentMode,processedEventIds,{});
+                armingRestartDiagnostics=[armingRestartDiagnostics;restartDiagnostics]; %#ok<AGROW>
             end
 
             if reason == "not_terminated"
@@ -284,6 +351,22 @@ classdef HybridSimulator_v3
                     HybridSimulator_v3.combinePhysicalMargins( ...
                         minimumPhysicalMargins, sectionPhysicalMargins);
             end
+            if success&&nargout>=3&&~isempty(armingContext)
+                stage='simulation-handoff-arming';
+                if strcmp(armingContext.phase,'returned')
+                    if isempty(processedEventIds)
+                        [armingContext,restartDiagnostics]=detector.prepareContinuousRestart( ...
+                            armingContext,currentState,currentMode);
+                    else
+                        % Even an identity numerical reset is a physical reset
+                        % and must satisfy the strict geometry contract.
+                        [armingContext,restartDiagnostics]=detector.prepareRestart( ...
+                            armingContext,currentState,currentMode,processedEventIds,armingContext.offered_stop_ids);
+                    end
+                    armingRestartDiagnostics=[armingRestartDiagnostics;restartDiagnostics]; %#ok<AGROW>
+                end
+                restartContextOut=armingContext;
+            end
             terminationMetadata = struct( ...
                 'success', success, ...
                 'message', message, ...
@@ -296,6 +379,9 @@ classdef HybridSimulator_v3
                     minimumAdmissibilityMargin, ...
                 'minimum_physical_margins', minimumPhysicalMargins, ...
                 'section_return_admissibility', sectionReturnReport);
+            terminationMetadata.touchdown_diagnostics = touchdownDiagnostics;
+            terminationMetadata.touchdown_diagnostic_failures = touchdownDiagnosticFailures;
+            terminationMetadata.earliest_contact_obstruction = earliestContactObstruction;
             trajectory.setTermination(reason, currentTime, currentState, ...
                 currentMode, terminationMetadata);
             trajectory.metadata.event_count = eventCount;
@@ -309,6 +395,9 @@ classdef HybridSimulator_v3
                 minimumPhysicalMargins;
             trajectory.metadata.section_return_admissibility = ...
                 sectionReturnReport;
+            trajectory.metadata.touchdown_diagnostics = touchdownDiagnostics;
+            trajectory.metadata.touchdown_diagnostic_failures = touchdownDiagnosticFailures;
+            trajectory.metadata.earliest_contact_obstruction = earliestContactObstruction;
 
             result = struct( ...
                 'success', success, ...
@@ -331,7 +420,13 @@ classdef HybridSimulator_v3
                 'section_return_admissibility', sectionReturnReport, ...
                 'event_history', trajectory.event_history, ...
                 'event_batches', trajectory.event_batches);
+            result.touchdown_diagnostics = touchdownDiagnostics;
+            result.touchdown_diagnostic_failures = touchdownDiagnosticFailures;
+            result.earliest_contact_obstruction = earliestContactObstruction;
+            result.arming_restart_diagnostics=armingRestartDiagnostics;
+            trajectory.metadata.arming_restart_diagnostics=armingRestartDiagnostics;
             catch exception
+                restartContextOut=[]; % Failed or physically invalid propagation cannot be resumed.
                 if strcmpi(simulationOptions.FailurePolicy,'throw')
                     rethrow(exception)
                 end
@@ -352,7 +447,10 @@ classdef HybridSimulator_v3
                     'last_valid_time',lastTime,'last_valid_state',lastState, ...
                     'last_valid_mode',lastMode,'candidate_time',currentTime, ...
                     'candidate_state',currentState,'candidate_mode',currentMode, ...
-                    'raw_segment',segment,'pending_event',event);
+                    'raw_segment',segment,'pending_event',event, ...
+                    'pending_reset',pendingReset, ...
+                    'touchdown_diagnostic_failures',{touchdownDiagnosticFailures}, ...
+                    'earliest_contact_obstruction',earliestContactObstruction);
                 trajectory.setTermination('diagnostic_failure',currentTime, ...
                     currentState,currentMode,struct('success',false, ...
                     'admissible',false,'failure',failure));
@@ -362,7 +460,11 @@ classdef HybridSimulator_v3
                     'message',exception.message,'failure',failure, ...
                     'final_time',currentTime,'final_state',currentState, ...
                     'final_mode',currentMode,'event_history',trajectory.event_history, ...
-                    'event_batches',trajectory.event_batches);
+                    'event_batches',trajectory.event_batches, ...
+                    'touchdown_diagnostics',touchdownDiagnostics, ...
+                    'touchdown_diagnostic_failures',{touchdownDiagnosticFailures}, ...
+                    'earliest_contact_obstruction',earliestContactObstruction);
+                result.arming_restart_diagnostics=armingRestartDiagnostics;
             end
         end
     end
@@ -442,12 +544,16 @@ classdef HybridSimulator_v3
                 system, states, mode, p)
             margin = Inf;
             physicalMargins = HybridSimulator_v3.emptyPhysicalMargins();
+            hasAssertAdmissible = false;
+            if size(states, 1) > 0
+                hasAssertAdmissible = ismethod(system, 'assertAdmissible');
+            end
             for sample = 1:size(states, 1)
                 [sampleMargin, samplePhysicalMargins] = ...
                     HybridSimulator_v3.validateAcceptedState( ...
                         system, states(sample, :).', mode, p, ...
                         'accepted-state', ...
-                        struct('sample_index', sample));
+                        struct('sample_index', sample), hasAssertAdmissible);
                 margin = min(margin, sampleMargin);
                 physicalMargins = ...
                     HybridSimulator_v3.combinePhysicalMargins( ...
@@ -457,11 +563,14 @@ classdef HybridSimulator_v3
 
         function [margin, physicalMargins, diagnostics] = ...
                 validateAcceptedState(system, state, mode, p, ...
-                context, contextData)
+                context, contextData, hasAssertAdmissible)
             margin = Inf;
             physicalMargins = HybridSimulator_v3.emptyPhysicalMargins();
             diagnostics = struct();
-            if ~ismethod(system, 'assertAdmissible')
+            if nargin < 7
+                hasAssertAdmissible = ismethod(system, 'assertAdmissible');
+            end
+            if ~hasAssertAdmissible
                 return
             end
             try

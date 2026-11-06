@@ -1,0 +1,176 @@
+Exact synchronous upright one-flight class: exclusion of a grounded BL-marked apex
+Date: 2026-11-04. Status: analytic argument checked against the source below.
+This audit contains no MATLAB execution, numerical experiment or global search claim.
+
+Claim and assumptions
+
+Consider an exact relative-periodic solution of the unmodified native v3 model,
+with mass and gravity normalized to one, in the following restricted class:
+
+1. Matched back/front axial stiffness k>0 and rest length L>0, centered COM
+   l_com=1/2, upright torso phi=dphi=0, and all four raw leg angles equal to a
+   common continuous alpha. The intended parameters are
+   p=[10;10;20;20;1;1;0;0;2;.5]. The argument uses the actual restricted orbit;
+   a label or approximate equality of saved coordinates is insufficient.
+2. One positive-duration, connected all-stance interval S and one positive-
+   duration, connected all-flight interval F per period, separated by one
+   simultaneous four-leg LO cohort and one simultaneous four-leg TD cohort.
+   There are no partial-contact modes, extra contact loops, zero-duration
+   phases, chatter, Zeno accumulation or unresolved grazing/coincident events.
+3. Exact continuous physical admissibility: y>0, cos(alpha)>0 throughout,
+   0<r=y/cos(alpha)<=L in stance, and swing clearance
+   g=y-L*cos(alpha)>=0 throughout flight. Stance compression is positive on
+   some open interval. At the regular LO/TD endpoints, r=L and g=0 exactly.
+4. Stance feet are fixed horizontally. Native resets leave torso position,
+   torso velocity and raw angles continuous. The periodic state closes
+   exactly except for horizontal translation. No angle wrapping, projection,
+   force clamp or modified reset is introduced.
+5. The section uses the native BL-last-downward-apex-before-next-TD marking,
+   with strict time separation and transverse downward COM apexes.
+
+Then F contains a strict interior downward COM apex. Consequently the last
+downward COM apex strictly before its terminating BL TD is in all-flight.
+A grounded COM apex cannot be the BL-marked initial or return representative
+of an orbit satisfying these assumptions. This does not exclude other,
+unmarked grounded apexes during S.
+
+Proof
+
+Choose one stance interval [0,T_S] from TD to LO. For any leg let
+xi=hip_x-foot_x=-y*tan(alpha)=-r*sin(alpha). All four xi coincide because the
+upright hip offsets are constant. Fixed feet give xi'=body_dx=v. Native force
+summation gives
+
+  xi''=v'=-4*k*(L-r)*sin(alpha)=a(t)*xi,
+  a(t)=4*k*(L-r)/r >= 0.
+
+On a regular stance interval a is continuous and finite, and a>0 on an open
+subinterval. Flight has v'=0, and resets preserve v. Exact velocity
+periodicity therefore gives v(0)=v(T_S)=V, the same constant horizontal
+velocity as on F.
+
+Suppose V>0. If v first reaches zero at t*, then xi(t*) cannot be positive:
+xi would be positive on a preceding neighborhood, where v'=a*xi>=0, so v
+could not decrease from positive values to zero. If xi(t*)=0, uniqueness for
+xi''=a(t)*xi with xi=v=0 contradicts v(0)=V. Thus xi(t*)<0. The closed cone
+{xi<=0,v<=0} is forward invariant under xi'=v, v'=a*xi with a>=0. It could
+not subsequently reach v(T_S)=V>0. Hence v>0 throughout S and xi increases
+strictly. Moreover
+
+  0=v(T_S)-v(0)=integral_0^T_S a(t)*xi(t) dt.
+
+The positive-compression interval and strict increase force
+xi_TD<0<xi_LO: either nonnegative xi_TD or nonpositive xi_LO would make the
+integral have a strict nonzero sign. At contact r=L, so
+sin(alpha_TD)>0 and sin(alpha_LO)<0.
+
+Now follow F from this LO to the next TD; exact periodicity repeats the TD
+contact coordinates just used. Raw alpha is continuous, and
+cos(alpha)>0 keeps it inside one connected interval
+(-pi/2+2*pi*n, pi/2+2*pi*n). The LO angle is below 2*pi*n and the TD angle
+is above it. Therefore alpha=2*pi*n at an interior flight time t0. This is
+an intermediate-value argument; no monotonicity of alpha or assumed swing
+frequency is needed. Winding by 2*pi would require passing cos(alpha)<=0
+and is excluded by continuous downward orientation.
+
+Flight nonpenetration at t0 gives y(t0)>=L. At both contact endpoints the
+strict nonzero sine gives y=L*cos(alpha)<L. Since native all-flight motion
+has y''=-1, its height is a strictly concave parabola with an interior value
+larger than both endpoints. Its unique vertex is strictly inside F, with
+y'=0 and y''=-1<0. This is the required transverse flight COM apex.
+
+For V<0 apply the same argument to (-xi,-v). The endpoint sine signs and
+angle traversal reverse, but again alpha crosses 2*pi*n inside F and the
+same ballistic conclusion follows.
+
+For V=0, multiply xi''=a*xi by xi and integrate over S:
+
+  -integral_0^T_S (xi')^2 dt = integral_0^T_S a*xi^2 dt >= 0,
+
+because [xi*xi']_0^T_S=0. Thus xi'=0 throughout S; positive compression
+somewhere then forces xi=0. At TD and LO, downward orientation gives
+alpha=2*pi*n and y=L. A positive-duration ballistic flight returning from
+y=L to y=L has y'_LO=T_F/2>0, y'_TD=-T_F/2<0 and a strict interior apex
+of height L+T_F^2/8. This establishes the apex result without a gait label
+or a separate PIP-classification theorem.
+
+In all cases F ends at the next BL TD and contains no other contact event.
+Its unique downward apex is later than every preceding stance apex and
+strictly before that TD. The native BL marking therefore selects this
+flight apex and rejects a grounded apex before it. QED.
+
+Native source bindings
+
+Paths below are relative to SLIP_Quadruped_v3. SHA256 values bind the source
+read for this argument; they do not certify a numerical dataset.
+
+1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m
+SHA256 966bfc51791dc0096a1c04c5ec698426df8cfbc18bb6be0fae78c776f94e98b5
+Lines 186-201: per-leg expansion, s=[-l_com;-l_com;1-l_com;1-l_com].
+At l_com=.5 equal stance forces have zero total pitch torque.
+
+1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m
+SHA256 f84f97312328d8d582ed57548a6b27535b776e6c4e332499fe65e0a160144195
+Lines 68-110: theta=phi+alpha, r=hipHeight/cos(theta), axial force
+k_l*(L-r), per-leg Fx=-force*sin(theta), Fy=force*cos(theta), body ax=Fx,
+ay=Fy-1. All-flight axial forces are zero; therefore ax=0 and ay=-1.
+Lines 121-154 and 334-424: constrained stance rates preserve the horizontal
+foot constraint; at phi=dphi=0, alpha'=-(v+y'*tan(alpha))*cos(alpha)^2/y,
+so d(hip_x+y*tan(alpha))/dt=0. Raw angles evolve by their rate; no wrapping.
+The RHS deliberately does not clamp tensile off-guard ODE stages; the
+proof's a>=0 is an exact admissibility assumption, not a property of every
+forced-phase trial or every solver stage.
+
+1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m
+SHA256 92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715
+Lines 48-81: apply copies xminus then replaces only the affected leg rate;
+applyBatch composes these resets. Body position/velocity and raw alpha do
+not jump. Lines 84-125 give the same fixed-horizontal-foot rate projection.
+
+1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m
+SHA256 23dfdd445e3fc0a535bbe84d4e001654776e5c8678bc46b803caa55019c0112b
+Lines 108-117: g=hipHeight-L*cos(phi+alpha), giving g=y-L*cos(alpha).
+
+1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m
+SHA256 36890b0c3a8bd994560146b8a676375f5cf9b214c818503f47e66cd8c4072ca7
+Lines 11-30 and 80-105: downward-orientation check defaults on; swing
+clearance is evaluated without division by cosine; stance length is h/cos.
+Lines 137-139 and 210-215: the downward cosine check is applied to each leg,
+including swing legs, rather than only stance legs. Its default threshold
+is zero. The theorem assumes this condition continuously, not just at
+accepted samples.
+
+4_Solution_Management/PoincareSection_v3.m
+SHA256 6be1ea1fe1d5679c18fcfaf66244c658cc5e5ddfc4833e983bebcbe99665d7b9
+Lines 133-158: native apex geometry dy=0, crossing direction -1, derivative
+from the native flow. No equality condition ddy=0 is used in this proof.
+
+4_Solution_Management/BLMarkedApexReturnPolicy_v3.m
+SHA256 d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a
+Lines 1-7, 29-37, 71-80 and 85-109: initial and returned state must be the
+last downward apex strictly before the prescribed next BL TD, using an
+independent first-return lookahead and positive time margins.
+
+Practical application limits
+
+- This closes the grounded-BL-apex alternative only inside the exact class
+  and hypotheses above. Stop new grounded-apex acquisition in that class;
+  preserve completed failed trials as methodological evidence, not an
+  absence proof or an admitted branch. No dynamics or admission rule changes.
+- A saved all-nine result with 1e-8 closure, stance-tension and penetration
+  allowances is not automatically an exact solution covered by the theorem.
+  Sampled orientation/clearance checks do not establish continuous bounds.
+  A rigorous numerical application needs a nearby exact-orbit justification
+  and interval/error bounds, or a quantified robust inequality argument with
+  sufficient strict margins. Those are not supplied by this text audit.
+- Do not apply the conclusion to a tilted or asymmetric orbit, nonmatched
+  parameters, partial-contact timing, multiple S/F intervals, winding allowed
+  by disabling downward orientation, tension, penetration, singular contact,
+  zero-duration/chattering phases, or an altered reset/section policy.
+- The result neither proves that all PK or C1 solutions have these symmetries
+  nor proves uniqueness, connectedness, finite-frontier exhaustiveness, full
+  P1/v2 correspondence, PK absence outside the class, or the complete branch
+  search. It supplies no PIP classification or global gait-family theorem.
+- Continuous-flight validation and the fresh 0073/0193 seam experiment remain
+  separate numerical obligations. Historical qualified M stays historical;
+  this argument creates no P edge, M relation or transferred admission flag.

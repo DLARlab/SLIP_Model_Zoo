@@ -1,0 +1,184 @@
+function summary=RunC1Continuation_v3(outputFile,sourceFile,pointIndices,symmetry,options)
+%RUNC1CONTINUATION_V3 Compatibility adapter to the public canonical engine.
+% Numerical defaults and optional PK acquisition are retained. Historical
+% checkpoint schema is not silently migrated; start a new segment if refused.
+    if nargin<5,options=struct();end
+    o=defaults(options);
+    if isempty(o.Budget),o.Budget=C1RunBudget_v3();
+    elseif strcmp(member(o.Budget,'schema',''),'absolute-UTC-native-budget-v1')
+        assert(o.Budget.capture.pid==feature('getpid'),'C1Continuation:Budget','Absolute clock must belong to this process.');
+    else
+        prior=C1RunBudget_v3();
+        for key={'research_deadline_unix_seconds','research_deadline_monotonic_ns','deadline_unix_seconds','deadline_monotonic_ns'}
+            assert(isequal(o.Budget.(key{1}),prior.(key{1})),'C1Continuation:Budget','Historical calls retain their original budget.');
+        end
+    end
+    assert(~o.UsePhasePredictor||strcmp(char(symmetry),'pronk'),'C1Continuation:PhaseChart','The legacy PK phase adapter requires pronk.');
+    o.Symmetry=char(symmetry);o.Storage='full';
+    if o.UsePhasePredictor
+        o.PredictorFunction=@phasePredictor;o.PredictorCompareFunction=@comparePhase;
+    end
+    if strcmp(member(o.Budget,'schema',''),'absolute-UTC-native-budget-v1')
+        o.IsolatedFile=[outputFile(1:end-4),'_isolated.mat'];
+    else
+        suffix=member(o.Budget,'result_suffix','');
+        o.IsolatedFile=fullfile(fileparts(which('C1RunBudget_v3')),'Results',['C1_Isolated_Native_Admissions',suffix,'.mat']);
+    end
+    summary=ContinuePeriodicBranch_v3(outputFile,sourceFile,pointIndices,o);
+end
+function [passed,capture]=comparePhase(orbit,evidence,phase)
+    tau=phaseDurations(orbit,evidence.configuration.settings.TimeTolerance);
+    delta=norm((orbit.initial_state(2:14)-phase.candidate_state(2:14))./max(ones(13,1),abs(phase.candidate_state(2:14))),Inf);
+    schema=QuadrupedSchema_v3.shared();
+    capture=struct('phase_native_full13_scaled_inf',delta,'phase_native_duration_inf',norm(tau-phase.durations,Inf), ...
+        'phase_native_period',orbit.period-phase.period,'phase_native_stride',orbit.stride_displacement(schema.TranslationIndex)-phase.stride);
+    passed=delta<=1e-8&&capture.phase_native_duration_inf<=1e-7&&abs(capture.phase_native_period)<=1e-7&&abs(capture.phase_native_stride)<=1e-7;
+end
+function o=defaults(value)
+    o=struct('Budget',[],'MaxWallSeconds',3600,'TrialSeconds',240,'MaxAccepted',100, ...
+        'MaxAttempts',300,'InitialStep',.005,'MinimumStep',1e-7,'MaximumStep',.02, ...
+        'StepGrowth',1.3,'StepShrink',.5,'CaptureRadius',.02,'SaveMarginSeconds',30, ...
+        'MaxSavedFailures',5,'DerivativeMethod','ordinary','FiniteDifferenceSteps',[1e-5,1e-7], ...
+        'ReusePreviousJacobian',false,'Algorithm','root-newton','AllowedClasses',{{'PK','B','H','F','G'}},'ComponentIdentity','', ...
+        'IntegrationMaxStep',.001,'CorrectorInitializer','predictor','InPlace',false,'CheckpointFile','', ...
+        'InitialDerivativeIndex',1,'MinimumApexHeightRatio',0,'BatchSize',1,'TraceFailure',true, ...
+        'AdaptiveStep',false,'MaximumCorrectionStepRatio',Inf,'MaximumTurnDegrees',180, ...
+        'UsePhasePredictor',false,'PhaseSeconds',30,'SourceContext',[]);
+    assert(isstruct(value)&&isscalar(value),'C1Continuation:Options','Options must be scalar struct.');
+    for key=fieldnames(value).'
+        assert(isfield(o,key{1}),'C1Continuation:Options','Unknown option %s.',key{1});o.(key{1})=value.(key{1});
+    end
+    assert(islogical(o.InPlace)&&isscalar(o.InPlace),'C1Continuation:Options','InPlace must be one logical.');
+    assert(islogical(o.TraceFailure)&&isscalar(o.TraceFailure)&&islogical(o.AdaptiveStep)&&isscalar(o.AdaptiveStep) ...
+        &&islogical(o.UsePhasePredictor)&&isscalar(o.UsePhasePredictor), ...
+        'C1Continuation:Options','TraceFailure and AdaptiveStep must be logical scalars.');
+    validateattributes(o.BatchSize,{'numeric'},{'scalar','real','finite','integer','positive','<=',16});
+    validateattributes(o.MaximumCorrectionStepRatio,{'numeric'},{'scalar','real','positive'});
+    validateattributes(o.MaximumTurnDegrees,{'numeric'},{'scalar','real','finite','positive','<=',180});
+    validateattributes(o.PhaseSeconds,{'numeric'},{'scalar','real','finite','positive','<=',120});
+    assert(~o.UsePhasePredictor||o.PhaseSeconds<o.TrialSeconds/2, ...
+        'C1Continuation:PhaseBudget','Phase allocation must leave the majority of the same child clock for native admission.');
+    assert(~o.InPlace||o.BatchSize==1,'C1Continuation:BatchOwner','Batching requires a separate small output branch.');
+    assert(ischar(o.CheckpointFile)&&(isempty(o.CheckpointFile)||isrow(o.CheckpointFile)), ...
+        'C1Continuation:Options','CheckpointFile must be a char path or empty.');
+    assert((ischar(o.DerivativeMethod)&&isrow(o.DerivativeMethod)) ...
+        ||(isstring(o.DerivativeMethod)&&isscalar(o.DerivativeMethod)), ...
+        'C1Continuation:Derivative','Use ordinary or valid-sided.');
+    o.DerivativeMethod=char(o.DerivativeMethod);
+    assert(ismember(o.DerivativeMethod,{'ordinary','valid-sided'}), ...
+        'C1Continuation:Derivative','Use ordinary or valid-sided.');
+    assert((ischar(o.CorrectorInitializer)&&isrow(o.CorrectorInitializer)) ...
+        ||(isstring(o.CorrectorInitializer)&&isscalar(o.CorrectorInitializer)), ...
+        'C1Continuation:Initializer','Use predictor, base or predictor-energy.');
+    o.CorrectorInitializer=char(o.CorrectorInitializer);
+    assert(ismember(o.CorrectorInitializer,{'predictor','base','predictor-energy'}), ...
+        'C1Continuation:Initializer','Use predictor, base or predictor-energy.');
+    assert(islogical(o.ReusePreviousJacobian)&&isscalar(o.ReusePreviousJacobian) ...
+        &&(~o.ReusePreviousJacobian||ismember(char(o.Algorithm),{'newton','root-newton'})), ...
+        'C1Continuation:JacobianReuse','Previous native acquisition matrices require explicit logical opt-in and Newton.');
+    if strcmp(o.DerivativeMethod,'valid-sided')&&~isfield(value,'FiniteDifferenceSteps')
+        o.FiniteDifferenceSteps=1e-8;
+    end
+    validateattributes(o.IntegrationMaxStep,{'double','single'},{'real','scalar','finite','positive','<=',.005},mfilename,'IntegrationMaxStep');
+    o.IntegrationMaxStep=double(o.IntegrationMaxStep);
+    validateattributes(o.MinimumApexHeightRatio,{'double'},{'scalar','real','finite','>=',0,'<=',1});
+    for key={'MaxWallSeconds','TrialSeconds','InitialStep','MinimumStep','MaximumStep','SaveMarginSeconds'}
+        v=o.(key{1});assert(isnumeric(v)&&isscalar(v)&&isfinite(v)&&v>0,'C1Continuation:Options','Positive finite %s required.',key{1});
+    end
+    for key={'MaxAccepted','MaxAttempts','MaxSavedFailures'}
+        v=o.(key{1});assert(isnumeric(v)&&isscalar(v)&&isfinite(v)&&v>=1&&v==fix(v),'C1Continuation:Options','Positive integer %s required.',key{1});
+    end
+    assert(o.TrialSeconds<=600&&o.MinimumStep<=o.InitialStep&&o.InitialStep<=o.MaximumStep ...
+        &&o.MaximumStep<=.1&&o.StepGrowth>1&&o.StepShrink>0&&o.StepShrink<1 ...
+        &&o.CaptureRadius>0&&o.CaptureRadius<=.02&&o.MaxSavedFailures>=2, ...
+        'C1Continuation:Options','Child cap, capture and state-step bounds must remain conservative.');
+    assert(isnumeric(o.FiniteDifferenceSteps)&&isvector(o.FiniteDifferenceSteps) ...
+        &&~isempty(o.FiniteDifferenceSteps)&&all(isfinite(o.FiniteDifferenceSteps)) ...
+        &&all(o.FiniteDifferenceSteps>0)&&numel(unique(o.FiniteDifferenceSteps))==numel(o.FiniteDifferenceSteps), ...
+        'C1Continuation:Options','Each registered FD method must be positive and distinct.');
+    assert(isnumeric(o.InitialDerivativeIndex)&&isscalar(o.InitialDerivativeIndex)&&isfinite(o.InitialDerivativeIndex) ...
+        &&o.InitialDerivativeIndex==fix(o.InitialDerivativeIndex)&&o.InitialDerivativeIndex>=1 ...
+        &&o.InitialDerivativeIndex<=numel(o.FiniteDifferenceSteps),'C1Continuation:Options','InitialDerivativeIndex must select a registered FD step.');
+    assert(strcmp(char(o.Algorithm),'root-newton')&&iscell(o.AllowedClasses) ...
+        &&~isempty(o.AllowedClasses)&&all(ismember(o.AllowedClasses,{'PK','B','H','F','G'})), ...
+        'C1Continuation:Options','C1 continuation requires literal root-newton and explicit physical C1 families; legacy damped-newton/fsolve routes are refused.');
+    assert(~strcmp(o.DerivativeMethod,'valid-sided')||ismember(char(o.Algorithm),{'newton','root-newton'}), ...
+        'C1Continuation:Derivative','Valid-sided acquisition requires Newton; fsolve requires classical reliability.');
+end
+
+function [candidate,evidence,matrix]=phasePredictor(base,predictor,constraint,scale,E,child,o,warm)
+    candidate=[];matrix=[];call=tic;
+    evidence=struct('completed',false,'failure',struct(),'seconds',NaN, ...
+        'native_admission_claimed',false,'phase_to_native_jacobian_reused',false);
+    try
+        assert(strcmp(o.Algorithm,'root-newton')&&numel(predictor)==4, ...
+            'C1Continuation:PhaseChart','Use the declared four-coordinate synchronous PK chart.');
+        [tau,history]=phaseDurations(base,1e-9);
+        phaseFinish=struct('deadline_unix_seconds',min(child.deadline_unix_seconds,nowUnix()+o.PhaseSeconds), ...
+            'deadline_monotonic_ns',min(child.deadline_monotonic_ns,nano()+o.PhaseSeconds*1e9));
+        phase=SynchronousPKPhaseResidual_v3(base.initial_state,base.initial_mode,base.parameter,constraint, ...
+            struct('ODEOptions',odeset('RelTol',1e-12,'AbsTol',1e-14,'MaxStep',o.IntegrationMaxStep), ...
+            'DeadlineUnixSeconds',phaseFinish.deadline_unix_seconds, ...
+            'DeadlineMonotonicNs',phaseFinish.deadline_monotonic_ns,'AllowNewCandidateChart',true));
+        jac=FiniteDifferenceJacobian_v3(struct('Method','central','RelativeStep',1e-7));
+        if ~isempty(warm),warm(end,:)=[constraint.normal(:).',zeros(1,3)];end
+        solver=RootSolver_v3(struct('Algorithm','root-newton','MaxIterations',40, ...
+            'MaxFunctionEvaluations',1000,'FunctionTolerance',1e-11,'ResidualAcceptanceTolerance',1e-10, ...
+            'StepTolerance',1e-13,'ReuseJacobian',true,'InitialJacobian',warm,'UseBroyden',true, ...
+            'JacobianRefreshInterval',5,'Jacobian',jac,'MaxWallSeconds',o.PhaseSeconds, ...
+            'StateScale',[scale;max(1,abs(E));ones(3,1)]));
+        initial=[predictor;.5*predictor(1)^2+predictor(2);tau];
+        [z,result]=solver.solve(phase,initial,base.parameter,false(4,1));
+        evidence.root=result;check(phaseFinish);
+        assert(result.converged,'C1Continuation:PhaseRoot','Phase acquisition did not converge.');
+        info=result.evaluationInfo;candidate=phase.fullState(z);
+        assert(isequal(info.initial_state,candidate)&&norm(result.residual,Inf)<=1e-10 ...
+            &&norm(info.acquisition_full13_delta,Inf)<=1e-8&&info.direction_inequalities_hold ...
+            &&max(abs([info.all_td_guard_values;info.all_lo_guard_values]))<=1e-8 ...
+            &&info.period_guess<30, ...
+            'C1Continuation:PhaseHandoff','Require state-bound phase closure, all guards, directions and original horizon.');
+        evidence.candidate_state=candidate;evidence.full_source_difference=candidate-base.initial_state;
+        evidence.source_is_exact_chart=phase.SourceIsExactChart;
+        evidence.source_duration_guess=history;evidence.coordinates=z;evidence.energy=z(5);
+        evidence.durations=z(6:8);evidence.period=info.period_guess;evidence.stride=info.stride_guess;
+        evidence.full13_delta=info.acquisition_full13_delta;evidence.initial_clearance=info.initial_guard_values;
+        evidence.completed=true;matrix=member(result,'finalJacobian',[]);
+        % Keep the complete root outcome in native raw custody. The branch's
+        % plain report retains the observed mathematical acquisition fields.
+    catch problem
+        evidence.failure=exceptionData(problem);candidate=[];matrix=[];
+    end
+    evidence.seconds=toc(call);
+end
+function [tau,evidence]=phaseDurations(orbit,tolerance)
+    h=orbit.event_history;
+    assert(isstruct(h)&&all(isfield(h,{'is_stop','guard_id','time'})), ...
+        'C1Continuation:PhaseHistory','Require literal native event history.');
+    h=h(~[h.is_stop]);assert(numel(h)==8, ...
+        'C1Continuation:PhaseHistory','Synchronous acquisition requires exactly four TD and four LO events.');
+    s=QuadrupedSchema_v3.shared();ids=zeros(8,1);times=zeros(8,1);
+    for k=1:8,ids(k)=s.eventId(h(k).guard_id);times(k)=h(k).time;end
+    td=ismember(ids,s.Event.IDs(s.Event.IsTouchdown));lo=~td;
+    assert(isequal(sort(ids),(1:8).')&&all(td(1:4))&&all(lo(5:8)) ...
+        &&max(times(td))-min(times(td))<=tolerance&&max(times(lo))-min(times(lo))<=tolerance, ...
+        'C1Continuation:PhaseHistory','Require one native synchronous TD cohort then one LO cohort.');
+    t0=orbit.trajectory.time(1);d=times(ids==1);l=times(ids==2);
+    tau=[d-t0;l-d;orbit.period-(l-t0)];
+    assert(all(isfinite(tau)&tau>0),'C1Continuation:PhaseHistory','Every native acquisition duration must be positive.');
+    evidence=struct('guard_ids',ids,'event_times',times,'initial_time',t0,'period',orbit.period, ...
+        'scope','Native times are initial guesses; the phase root solves all three durations.');
+end
+function value=member(s,key,fallback)
+    value=fallback;if isstruct(s)&&isscalar(s)&&isfield(s,key),value=s.(key);end
+end
+function value=exceptionData(problem)
+    value=struct('identifier',problem.identifier,'message',problem.message,'stack',problem.stack);
+end
+function value=left(limit)
+    value=min(limit.deadline_unix_seconds-nowUnix(),(limit.deadline_monotonic_ns-nano())/1e9);
+end
+function check(limit)
+    assert(left(limit)>0,'C1Continuation:Budget','Original run/child budget expired.');
+end
+function value=nowUnix(),value=posixtime(datetime('now','TimeZone','UTC'));end
+function value=nano(),value=double(java.lang.System.nanoTime);end

@@ -15,6 +15,11 @@ classdef PoincareSection_v3
         MaxProjectionIterations = 10
     end
 
+    properties (Access = private)
+        RestartBuiltinValueFunction = []
+        RestartBuiltinStateDependencies = []
+    end
+
     methods
         function obj = PoincareSection_v3(valueFunction, options)
             if nargin < 1 || isempty(valueFunction)
@@ -145,8 +150,12 @@ classdef PoincareSection_v3
                     PoincareSection_v3.setComponent( ...
                         x, verticalVelocityIndex, 0));
             options = PoincareSection_v3.mergeStructs(defaults, options);
-            obj = PoincareSection_v3( ...
-                @(x, p) x(verticalVelocityIndex), options);
+            builtinValue=@(x,p)x(verticalVelocityIndex);
+            obj = PoincareSection_v3(builtinValue, options);
+            if isequaln(obj.ValueFunction,builtinValue)
+                obj.RestartBuiltinValueFunction=builtinValue;
+                obj.RestartBuiltinStateDependencies=verticalVelocityIndex;
+            end
         end
     end
 
@@ -157,6 +166,14 @@ classdef PoincareSection_v3
             isterminal = true;
             direction = crossingDirection;
             metadata = struct('name', obj.Name, 'level', level);
+            dependencies=1:numel(x);
+            if ~isempty(obj.RestartBuiltinValueFunction) ...
+                    &&isequaln(obj.ValueFunction,obj.RestartBuiltinValueFunction)
+                dependencies=obj.RestartBuiltinStateDependencies;
+            end
+            metadata.restart_arming=struct('schema','state-parameter-guard-geometry-v1', ...
+                'definition',['PoincareSection-state-value-v1:',func2str(obj.ValueFunction),':',num2hex(double(level))], ...
+                'state_dependencies',dependencies,'mode_independent',true);
         end
 
         function obj = applyOptions(obj, options)

@@ -1,0 +1,62 @@
+{
+  "schema": "PK15h-current-component-view-external-closure-v1",
+  "recorded_utc": "2026-11-04T23:21:45.147847+00:00",
+  "graph_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponentView02.mat",
+    "sha256": "000ed4e9731fe479c65e60e3e1f2e706e9fc582ae1331e7262d14f4f42b44226",
+    "bytes": 10763240
+  },
+  "process": {
+    "actual_tool_exit_observed": true,
+    "exit_code": 0,
+    "session_id": 34418,
+    "native_pid": 27032,
+    "wrapper_pid": null,
+    "wrapper_PID_observation": "UNOBSERVED",
+    "independent_PID_absence_verified": true,
+    "direct_tool_exit_observer": "FIRST /root/pk_executor",
+    "direct_tool_exit_recorded_utc": "2026-11-04T23:00:06Z",
+    "elapsed_real_seconds": 668.61,
+    "user_seconds": 675.85,
+    "system_seconds": 10.99,
+    "maximum_resident_set_bytes": 5789155328
+  },
+  "all_owned_native_workers_closed": true,
+  "owned_worker_closure_scope": "At publication all FIRST-owned MATLAB operations were closed, including producer27032 and subsequent unrelated LR counterpart28118. This is a dated closure fact; later independently authorized jobs may start. Unowned desktop MATLAB processes are outside this ownership statement.",
+  "independent_post_guard": {
+    "all_passed": true,
+    "observer": "SECOND /root/pk_reviewer",
+    "completed_utc": "2026-11-04T23:02:14Z",
+    "nested_literal_and_returned_reference_checks": 176,
+    "nested_unique_files": 94,
+    "additional_base_source_file_SHA_checks": 39,
+    "pending_stages_absent": true,
+    "native_PID_absent": true,
+    "MAT_contents_decoded_by_independent_post": false,
+    "scope": "Explicit executable recipes, actual returned plain reference headers, final artifacts, stages, and producer PID were checked read-only. Native producer posthash assertions are retained separately; no additional physics/replay/admission was performed."
+  },
+  "native_summary": {
+    "completed": true,
+    "source_posthash": true,
+    "return_timely": true,
+    "active_occurrences": 1145,
+    "components": [
+      621,
+      524
+    ],
+    "current_finite_M_count": 13,
+    "four_named_boundary_neighborhood_routes_exist": true,
+    "held_regular_original_global": 702,
+    "held702_finite_numerical_boundary_correspondence": true
+  },
+  "original_grant_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_User_Authorization.json",
+    "sha256": "2a1e17c99f6b793486238f6a0cea775edfe75dc307ee8c9d4d18f9cde50ec468",
+    "bytes": 1187
+  },
+  "original_grant_renewed": false,
+  "raw_materialization_completion_claimed": false,
+  "scientific_completion_claimed": false,
+  "source_retirement_authorized": false,
+  "scope": "External actual producer exit and independent opaque postguard for a finite conditional-flight component view. No exact identity across M, fresh all-nine by assembly, physical endpoint certification, continuous branch uniqueness, global PK/P1 exhaustion or raw-source retirement is claimed."
+}

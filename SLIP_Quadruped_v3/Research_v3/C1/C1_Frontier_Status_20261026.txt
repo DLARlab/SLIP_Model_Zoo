@@ -1,0 +1,233 @@
+C1 storage, persistent continuation and PK/P1 status — 26 October 2026
+
+FINAL STATUS: storage consolidation and persistent continuation are implemented.
+PK over the full P1/v2 range is NOT complete. The PK-to-GG/GE bifurcation chain
+is NOT verified. This report does not relabel partial data as a completed branch.
+
+What the native runs actually achieved
+
+The current research store is Components/: 44 connected multirecord storage
+component MAT files and one Isolated_Records.mat catalogue containing 154 isolated
+records. Each solution can be loaded individually. The consolidation retained
+913 original stored occurrences, 626 original explicit continuation edges and
+88 exact compatible-record equalities. One separately qualified FE seam joined
+two components. Equality and alias links remain distinct from continuation edges;
+consolidation preserved original reports rather than re-admitting every orbit.
+
+This round appended 63 admitted root-solved points and 63 continuation edges.
+The broad persistent run contributed 18; ten subsequent closed focused calls
+contributed 45. The focused worker actually exited 0 with source and outer-clock
+guards passed. C1_PK_Component_0072.mat now reaches E=3.5364256705584163,
+signed initial dx=1.9543691269698502. Its saved secant is [124,125], step 0.02,
+and the frontier remains runnable. This is a valid PK fragment, not verified
+completion of the requested P1 family.
+
+The final native inventory passed: 45 MAT stores, 976 stored occurrences,
+689 explicit continuation edges, four grown files, no pending checkpoint,
+and root-only recorded continuation attempts. Every grown file received two
+complete public native readbacks. Unchanged files were bound by current SHA
+and their prior consolidation readback evidence. Counts include duplicate
+representatives; they are not counts of distinct physical cycles.
+
+Why the requested PK branch was not finished
+
+1. The selected component was not qualified against the P1 period family.
+
+The final native comparison exposes a material selection error. The extended
+0072 component has periods T=[2.613199361582759,2.822003761557232], whereas the
+original P1 stored periods are [0.8967107863773467,1.564520214496882]. Energy
+and velocity plots can look close while the return periods differ. A common
+PK classification therefore did not establish that continuation was following
+the desired P1 branch. Period/template compatibility should have been checked
+before choosing the focused frontier. The new solutions are retained as valid
+partial PK data, but are not counted as proof of completing the P1 family.
+No connection between 0072 and the shorter-period 0073 component was proved.
+Disjoint observed period ranges alone are not a global proof that the components
+could never connect elsewhere.
+
+The shorter-period component 0073 is the appropriate current candidate for
+further P1-template qualification: its T=[1.372602811539128,1.564516132250715]
+overlaps the stored period range of P1 records passing the initial-geometry
+screen. Its ranges are
+E=[1.117158075715542,8.875604931997586] and signed initial
+dx=[-0.03433997446604415,3.968779293742992]. It is still a finite fragment;
+its true endpoints, full P1 identity and any seams to 0159/0193 are unverified.
+
+2. Most original P1 records fail the current initial physical geometry check.
+
+P1 contains 891 PK records with E=[1.1171389428139562,208.89093745793602]
+and signed initial dx=[-0.0073364571486461009,20.423184056395353]. Only 179
+pass the recorded native initial-geometry check; 712 fail it. The passing
+subset spans E=[1.117138942813956,8.817664370005977] and
+dx=[-0.007336457148646101,3.954042303119467]. Passing initial geometry is
+not a claim of native trajectory admission or a complete branch.
+
+The exact original maximum-dx record, column 600, was replayed without repairing
+its full initial state or parameters, using the reference audit's documented
+right-limit scheduled mode. Native simulation rejected it at t=0, before any
+ODE segment: all four swing feet violate nonpenetration/contact complementarity.
+The full raw native result is retained. The original exporter failed after
+saving that result; a separate native custody finalizer installed its exact
+bytes. Original failed-producer flags were preserved, trace return timeliness
+remains explicitly unknown, and this invalid source was never admitted.
+
+Source checks found matching geometry, leg order/signs, body-relative angles,
+parameter conversion and stance booleans. Both versions use
+h_i=y+s_i*sin(phi)-l_i*cos(phi+alpha_i). Legacy zero-time events may reset leg
+rates before positive-time integration; those resets do not change foot heights.
+This is source-level agreement, not complete hybrid-equivalence proof. We did
+not freshly evaluate the legacy scheduled shooting residual for all 891 records.
+
+The v2 residual uses supplied contact times and scheduled endpoint conditions.
+The v3 map additionally requires autonomous first directed events and physical
+inequalities along the accepted path. A stored v2 root is not automatically
+admissible in v3. Requiring the entire old range without resolving these failed
+records is an unresolved research requirement; it cannot be silently replaced
+by a claim that the 179-record initial-geometry subset is the full target.
+
+Two native necessary-bound audits support this caution for the exact upright,
+equal-leg, regular one-stance/one-flight forward pronk chart, under their explicit
+reset, raw-state closure and positive-height/orientation assumptions. With
+p=[10,10,20,20,1,1,0,0,2,0.5] and nondimensional m=g=l=1, the speed derivation
+excludes the P1 maximum velocity; its reported critical necessary bound is
+approximately 15.115159151695822. Combining that theorem with a conservative
+height bound yields E<202, excluding the P1 maximum energy in that exact class.
+These are conditional bounds, not attained maxima, verified numerical endpoints,
+or global nonexistence proofs for all tolerance-classified PK trajectories.
+
+3. Numerical obstructions and restart defects were not endpoint proofs.
+
+Near E about 31.12747 on the longer-period PK fragment, registered root
+strategies encounter inadmissible initial maps, invalid derivative columns or
+inadmissible Newton trial directions. Small periodicity residual alone is
+insufficient: the PAL selector, physical replay, primitive identity and every
+other admission gate must pass. Exhausting the three registered strategies
+is a recorded numerical obstruction, not a certified endpoint or bifurcation.
+
+Earlier work also accumulated fragmented stores and restart state. During this
+round a controller defect was fixed: a clock yield with no root attempt could
+advance the no-growth counter and acquisition strategy. Administrative yields
+now preserve the numerical policy. The guarded source migration retained the
+original ledger and controller bytes. An exclusive same-ledger writer lock
+and native busy/no-op controls passed. These repairs address workflow failures;
+they do not establish the missing branch identity or remove physical failures.
+This evidence explains concrete obstacles in the retained runs, not every hour
+of every historical campaign.
+
+Current PK component inventory
+
+Numbers below are accepted stored occurrences, including duplicates. Edges are
+literal stored continuation edges. Observed ranges are rounded, not endpoint
+certificates. No row is a completed P1/v2 branch.
+
+File suffix   Points Edges  Energy range             Native period range
+0060              3     0  10.816684                 2.724956
+0061             44    39  18.245250 to 31.124238     2.613216 to 2.677765
+0062             11     9  10.759800 to 10.848756     2.724704 to 2.725404
+0064              2     0  18.260771                 2.677680
+0072            125   119   3.536426 to 31.127473     2.613199 to 2.822004
+0073            101    96   1.117158 to  8.875605     1.372603 to 1.564516
+0159              2     0   8.849915                 1.372725
+0170             20    19  18.271373 to 27.017162     2.633489 to 2.677623
+0193              6     5   8.875208 to  8.875568     1.372603 to 1.372605
+
+All names are Components/C1_PK_Component_<suffix>.mat. 0060, 0064 and 0159
+contain repeated representatives with no continuation edge. 0170 has negative
+signed initial velocity. Similar ranges do not authorize gluing these files.
+The native comparison selected 314 accepted occurrences and plotted 287 literal
+edges across these nine stores. It inferred no new seams or bifurcations.
+
+Independent checks and method
+
+Every new periodic-orbit admission used literal root-newton through the shared
+PeriodicSolutionSolver_v3, with direct square Newton solving, fresh Jacobians,
+no Broyden/reused Jacobian and no optimization algorithm. Physics, event rules,
+physical inequalities and admission tolerances were not weakened.
+
+Two selected actual committed points received fresh root-only service checks:
+0072 point 125 and 0073 point 101. Both passed all nine gates with exact seed,
+parameter, policy and compatible section bindings. Finer replays used the
+ORIGINAL stored states at MaxStep=0.0005 and 0.00025, RelTol=1e-12, AbsTol=1e-14.
+0073 passed both immediately. For 0072 the first quarter-step run hit its
+120-second cap during scalar auditing, after map and classification completed;
+it audited 43264 of 45197 rows and was correctly left unqualified. A separate
+source-bound retry raised only the replay allowance to 300 seconds. Both fines
+then passed, with all returned arrays retained before clock checks. The original
+audit's false combined flag and timeout remain unchanged. These are finite point
+controls, not qualification of every stored point or a whole branch.
+
+A separate late backward trial returned an all-nine PK object after its original
+trial deadline. Its timely=false and wrapper_accepted=false flags were kept in
+exact native checkpoint-byte custody. It supplied zero admissions and zero edges.
+The dispatch was closed only after native custody/readbacks, preserving every
+frontier and scientific counter.
+
+Loading, resuming and files
+
+Add the v3 root with V3AddPaths_v3 and add Research_v3/C1. Use
+BranchSolutionFile_v3.loadSolution(file,index), or loadSolutions(file,indices),
+to retrieve individual native orbits/reports/metadata. The GUI opens these MAT
+files directly. Creation catalogues are immutable snapshots; current grown-file
+hashes belong to the central frontier ledger and final live inventory.
+
+The historical published file
+P1_Single_Flight_Phase_Continua/C1_PK_10_20_2.mat already exists. It was not
+replaced by a falsely completed branch; its contents remain historical.
+
+ResumeC1PKFrontiers_v3 preserves component order, actual secants, arclength steps,
+derivative strategies, failed attempts and current file ownership. It appends
+to the component MAT, rather than producing one file per point. MaxBatches and
+MaxWallSeconds are per-call caps; PreferredFrontierID selects an exact runnable
+registered frontier. The default scheduler explores registered PK graphs;
+registration by gait label does NOT prove P1-family identity. A later authorized
+grant requires explicit native capture and AdoptNewGrant=true after old children
+are reconciled. Resume alone never renews the captured clock. Keep the permanent
+zero-byte .writer.lock file: it is part of the exclusive-writer mechanism.
+
+Cleanup and retained evidence
+
+149 superseded branch/checkpoint stores and the two replaced FE files were
+archived, natively extracted and SHA/CRC/size verified before removal. Completed
+private test/review/driver sources were retained verbatim or in a verified source
+archive and removed after their native dependencies finished. The final two-file
+cleanup archived/verified/removed the duplicate known-control Results MAT and
+completed recovery script. Its first attempt stopped before any deletion when
+Root updated protected metadata; an unchanged-source retry with frozen metadata
+passed. Core stores, current ledger, native raw results and essential audits remain.
+The final filesystem scan found 365 live C1 files and 415 changed Git paths
+repository-wide, with no active checkpoint, pending stage, temporary MAT or
+C1 cache/test directory. The permanent zero-byte writer lock is retained.
+
+Primary audits: Connected_Components_20261026.mat,
+Current_Components_20261026.mat, Final_Current_Components_20261026.mat,
+PK_Persistent_Frontiers_20261026.mat, Late_Native_Custody_PKLateNativePending11.mat,
+PK_Persistent_Writer_Lock_Control_PKWriterLockControl01.mat,
+PK_Committed_Point_Final_Controls_20261026.mat/.raw.mat,
+PK_Committed_Point_Fine_Retry_20261026.mat/.raw.mat,
+C1_Current_PK_Comparison_20261026.mat, Final_Cleanup_20261026.mat,
+PK_Regular_Pronk_Speed_Bound_20261026.mat,
+PK_Regular_Pronk_Energy_Bound_20261026.mat,
+P1_PK_Replay_Raw_Custody_P1PKExtremeReplay02Custody.mat, and
+P1_PK_Extreme_Replay_P1PKExtremeReplay02.raw.mat.
+Implementation_20261026.json retains full reviewed temporary sources, exact
+native stdout, actual process exits and cleanup custody. Full historical reruns
+may require restoring those sources at their recorded paths.
+
+Results/C1_Current_PK_Comparison_20261026.png shows the complete P1 range and
+an energy-0-to-35 enlargement. Lines are literal C1 stored edges; P1 markers
+show initial geometry only. Native MAT provenance includes all paired periods.
+
+Remaining decision and work
+
+The full P1/v2 PK range remains unresolved. Retaining v3's physical admission
+rules requires treating the 712 failed P1 records as unqualified reference data,
+then explicitly deciding the valid comparison target and qualifying the shorter-
+period 0073 family against it. Changing physical/event semantics to reproduce
+the entire old range would be a different research decision. Neither change was
+made silently. Numerical continuation and verified seams/endpoints/bifurcations
+are still needed after that target/identity issue is settled.
+
+No complete PK, BG, BE, FG, FE, HG, HE, GG or GE C1 branch is claimed. The full
+PK-to-GG/GE bifurcation chain, including the expected FG/HE attachments, remains
+unverified. C2/PIP-to-B2 was excluded. H means hind spread/fore sync; F means
+fore spread/hind sync.

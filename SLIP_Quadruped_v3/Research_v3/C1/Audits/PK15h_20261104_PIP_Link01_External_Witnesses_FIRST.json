@@ -1,0 +1,62 @@
+{
+  "schema": "PK15h-three-qualified-case-external-witnesses-v1",
+  "witnesses": [
+    {
+      "schema": "C1-external-native-process-exit-witness-v1",
+      "actual_process_exit_observed": true,
+      "exit_code": 0,
+      "source_posthash_verified": true,
+      "process_session_id": 44539,
+      "child_pid": 54259,
+      "audit_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_PIP_Link01_Case02.mat",
+        "sha256": "392c63fd51d5b8cdcd8fcc82dc5094814db882107d6a2e690ec5274b81b787f8",
+        "bytes": 17010371
+      },
+      "tool_exit_observer": "FIRST /root/pk_executor",
+      "independent_post_observer": "SECOND /root/pk_reviewer",
+      "independent_post_utc": "2026-11-04 18:55:17 UTC",
+      "independent_input_headers_verified": 61,
+      "observed_wrapper_pid": 54258
+    },
+    {
+      "schema": "C1-external-native-process-exit-witness-v1",
+      "actual_process_exit_observed": true,
+      "exit_code": 0,
+      "source_posthash_verified": true,
+      "process_session_id": 44539,
+      "child_pid": 54259,
+      "audit_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_PIP_Link01_Case03.mat",
+        "sha256": "5ea5118fb67e448ae3d231b557a3f7bebbfab2e609b2ebab885ee77ac2935b2f",
+        "bytes": 29356023
+      },
+      "tool_exit_observer": "FIRST /root/pk_executor",
+      "independent_post_observer": "SECOND /root/pk_reviewer",
+      "independent_post_utc": "2026-11-04 18:55:17 UTC",
+      "independent_input_headers_verified": 61,
+      "observed_wrapper_pid": 54258
+    },
+    {
+      "schema": "C1-external-native-process-exit-witness-v1",
+      "actual_process_exit_observed": true,
+      "exit_code": 0,
+      "source_posthash_verified": true,
+      "process_session_id": 44539,
+      "child_pid": 54259,
+      "audit_reference": {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_PIP_Link01_Case04.mat",
+        "sha256": "90dfe0b61d966d9271198b7ddf05dc27794956d4ccdb583ad8005df74dec6635",
+        "bytes": 28935818
+      },
+      "tool_exit_observer": "FIRST /root/pk_executor",
+      "independent_post_observer": "SECOND /root/pk_reviewer",
+      "independent_post_utc": "2026-11-04 18:55:17 UTC",
+      "independent_input_headers_verified": 61,
+      "observed_wrapper_pid": 54258
+    }
+  ],
+  "recorded_utc": "2026-11-04T19:02:24.529197+00:00",
+  "real_seconds": 1717.02,
+  "maximum_RSS_bytes": 4917641216
+}

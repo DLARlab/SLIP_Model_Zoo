@@ -1,0 +1,295 @@
+C1 PK native-fragment tracing: 27–28 October 2026 UTC
+Final numerical inventory and comparison completed 28 October 2026.
+
+1. Outcome and scope
+
+The authorized 36-hour round added 355 admitted points and 355 explicit
+continuation edges to existing PK component files. The persistent counters grew
+from the literal baseline 63/63 to 418/418. Actual appended-run and per-file owner
+counts agree with both differences. No new component union was claimed.
+
+The final ledger is closed at sequence 116, with no active run, native checkpoint,
+checkpoint stage or ledger stage. It contains 113 actual run entries, including
+20 preserved baseline entries and 93 appended entries. Sequence numbers are not
+run counts. All 587 attempts recorded in those central run entries have literal
+algorithm root-newton; no other algorithm appears. Separately custodied native
+objects and independent numerical controls are outside that attempt census.
+
+The last tracing worker, original tool session 5638, exited 0 after 23 verified
+Fair passes, adding 60 points/edges from cumulative 358 to 418. It stopped with
+whole_fair_pass_no_longer_fits. Root observed the actual original process exit,
+not only a stdout marker; both log readers exited 130. The separate
+read-only final worker, session 4611, also actually exited 0, with inventory,
+plot, round accounting, source/input posthash and original-clock checks passing.
+The final worker performed no roots, maps, admissions or graph mutations.
+
+Fixed authorization clocks were not renewed:
+  start:           2026-10-27 02:39:29 UTC
+  science cutoff:  2026-10-28 13:54:29 UTC
+  final deadline:  2026-10-28 14:39:29 UTC
+The last private tail used an earlier stop and retained at least 90 minutes
+before the final deadline for inventory, custody, reporting and cleanup. The
+whole next Fair call no longer fit that window. The grant is a maximum budget,
+not evidence that a mathematical branch has ended.
+
+No complete PK branch over the full P1/v2 range has been established. No complete
+C1 family, PK daughter bifurcation chain, FG-to-GG attachment or HE-to-GE
+attachment was verified in this PK-fragment round. C2/PIP-to-B2 remains excluded.
+H means hind spread with fore synchronization; F means fore spread with hind
+synchronization.
+
+2. Current compact storage and qualified PK ranges
+
+Components contains exactly 45 MAT stores: 44 branch storage components with
+1,177 occurrences and one Isolated_Records catalogue with 154 occurrences.
+Their combined total is 1,331 occurrences and 1,044 literal physical edges.
+Occurrences include duplicate representatives and aliases; they are not a
+count of distinct periodic cycles. A store can retain seed/alias occurrences
+without a physical continuation edge.
+
+Nine PK stores contain 669 saved all-nine/current-PK/BL1-qualified occurrences
+and 642 plotted literal edges. The final comparison excluded zero PK occurrences.
+All 45 current file hashes were verified. The six grown stores had two complete
+public native readbacks in the final inventory; unchanged stores were bound to
+unchanged bytes and historical full-readback evidence. The saved-data plot is
+not a fresh fine-step replay of every stored point.
+
+Each row below is Components/C1_PK_Component_<ID>.mat. E is native mechanical
+energy; dx is signed initial apex horizontal velocity; U is signed stride/T.
+Ranges are observed extrema, not certificates of continuous coverage between
+every extremum, unique-cycle counts, physical endpoints or reference identity.
+Rounded values below are backed by full-precision native audit fields.
+
+ID    occurrences edges  added this round  E minimum -- maximum
+0060       3         0           0          10.81668403 -- 10.81668403
+0061      57        52          13          17.80105636 -- 31.12725195
+0062      60        58          49           6.86286696 -- 18.28824156
+0064       2         0           0          18.26077119 -- 18.26077119
+0072     146       140          21           2.67552252 -- 31.12747349
+0073     288       283         187           1.11715808 -- 8.87565533
+0159       2         0           0           8.84991507 -- 8.84991507
+0170      59        58          39           9.11598198 -- 31.12720882
+0193      52        51          46           6.11635328 -- 8.87565496
+TOTAL    669       642         355
+
+ID    signed initial dx range       signed U range                native T range
+0060   4.31896625 .. 4.31896625       4.29374588 .. 4.29374588       2.72495605 .. 2.72495605
+0061   5.72704723 .. 7.72942150       5.70027245 .. 7.69997308       2.61320047 .. 2.68018749
+0062   3.25885361 .. 5.81246071       3.23532681 .. 5.78559512       2.67753163 .. 2.76326847
+0064   5.80767822 .. 5.80767822       5.78081773 .. 5.78081773       2.67768043 .. 2.67768043
+0072   1.42943198 .. 7.72945048       1.41345829 .. 7.70000200       2.61319936 .. 2.84918465
+0073  -3.96875848 .. 3.96879209      -3.95264200 .. 3.95267561       1.37260257 .. 1.56451613
+0159   3.96225198 .. 3.96225198       3.94613451 .. 3.94613451       1.37272489 .. 1.37272489
+0170  -7.72941586 .. -3.89893368     -7.69996745 .. -3.87428662      2.61320069 .. 2.73939418
+0193   3.19152973 .. 3.96879200       3.17536277 .. 3.95267552       1.37260257 .. 1.38969111
+
+Stores 0060, 0064 and 0159 are finite seed/alias representatives with no explicit
+physical edges. None is a completed branch. The existing legacy file
+P1_Single_Flight_Phase_Continua/C1_PK_10_20_2.mat remains a v2 publication, not a
+new completed v3 PK branch. V3 results are kept one MAT per verified storage
+component instead of combining disconnected fragments under a shared PK label.
+
+Native selective loading uses the existing core interface:
+  V3AddPaths_v3;
+  folder = fullfile(V3Root_v3(),'Research_v3','C1'); addpath(folder);
+  file = fullfile(folder,'Components','C1_PK_Component_0073.mat');
+  [orbit,report,point] = BranchSolutionFile_v3.loadSolution(file,1);
+The GUI can open that file or the Components directory and draws saved edges.
+
+3. Persistent frontier status
+
+The exact ID prefix is PK_file_<file>_graph_0001_leaf_<leaf>. Pairs below are
+actual native point indices, not an inference from consecutive filenames.
+There are 13 registered frontiers: three numerically obstructed and ten
+registered runnable (including one alternate-strategy status). Two of the ten
+were explicitly deferred by the private tail after custody closure, leaving
+eight eligible for that private scheduling policy. No fairness reset was made.
+
+file/leaf       store pair        next step        final saved status
+0002/000001     0061  [54 55]     5.22311109e-3     runnable; deferred after seq81 custody
+0002/000038     0061  [56 57]     5.42244426e-7     runnable; deferred after seq93 custody
+0003/000001     0062  [56 57]     2e-2             runnable
+0003/000003     0062  [59 60]     2e-2             runnable
+0005/000006     0072  [5 6]       1e-7             obstructed_registered_root_strategies
+0005/000013     0072  [13 130]    1e-7             obstructed_registered_root_strategies
+0005/000045     0072  [145 146]   2e-2             runnable
+0006/000087     0073  [286 288]   1e-7             runnable
+0006/000086     0073  [285 287]   2e-7             runnable_alternate_root_strategy
+0008/000001     0170  [57 58]     2e-2             runnable
+0008/000020     0170  [55 59]     2.94605042e-6     runnable
+0009/000001     0193  [51 52]     2e-2             runnable
+0009/000006     0193  [30 45]     1e-7             obstructed_registered_root_strategies
+
+Numerical strategy exhaustion proves only that the registered trials failed.
+It does not prove nonexistence, a physical boundary or a bifurcation. Accepted
+PAL steps establish their recorded edges; a nearby independently solved state,
+common gait label, scalar overlap or matching selector does not establish a
+new edge or component union. There is no new global distinct-cycle certificate.
+
+For a future authorized run, the next private-tail cursor successor is the
+registered negative-velocity frontier PK_file_0006_graph_0001_leaf_000086.
+ResumeC1PKFrontiers_v3 supports explicit PreferredFrontierID, MaxBatches=1 and
+MaxWallSeconds=1800 with the existing saved policy. Default resume does not
+automatically exclude the two custodied component-0061 IDs. Resume never renews
+the captured clocks. A later grant needs a validated provider and explicit
+AdoptNewGrant=true; the current dates must not be silently extended.
+
+4. Why full PK completion remains unresolved
+
+The target is not established to be one native family. P1 has 891 stored PK
+columns, energy 1.1171389428139562 .. 208.89093745793602, signed INITIAL dx
+-0.0073364571486461 .. 20.423184056395353, and stored period
+0.8967107863773467 .. 1.564520214496882. Native mean stride velocity is a separate
+observable; comparing P1 initial dx20.423 directly with native mean U7.70 would
+be invalid. The current native initial-dx maximum is about 7.72945.
+
+Only 179 P1 columns pass the native initial-geometry check; 712 fail. The passing
+subset reaches initial dx3.95404230312 and E8.81766437001. This is an INITIAL
+geometry census, not a trajectory/root-admission census. Legacy timed event
+schedules and the v3 autonomous directed first-event map have different domain
+requirements. No parameter/order/sign conversion defect has been established
+that licenses relabeling all legacy columns as current native solutions.
+
+For the exact upright, synchronous, principal-angle, regular, forward-monotone
+one-flight/one-stance pronk class, the necessary speed threshold is estimated
+at about15.115159; this floating estimate is not an interval certificate.
+The retained separate exact rational contradiction excludes V>=20 in the stated
+class, and therefore excludes P1's maximum initial speed. Its separate
+forward-monotone-class energy bound is E<202. These are conditional necessary
+bounds, not attained maxima, a global no-PK theorem or a membership proof for
+every tolerance-qualified stored PK point. The user selected continued
+admissible native-fragment tracing under this limitation.
+
+Long-period native fragments (for example0072,T2.613199..2.849185) are outside
+P1's period range. Short-period0073 overlaps it, and0193 approaches the same
+unit-height neighborhood, but period/energy/speed overlap does not prove native
+family identity, graph connection, full reference coverage or bifurcation.
+Negative-velocity extensions also do not fill missing positive P1 coverage.
+
+Actual local refusals include invalid initial return, tensile stance, failed
+full13 closure/replay and unavailable admissible finite-difference Jacobians.
+Preserving these gates prevents a reduced root residual from being mistaken for
+an admitted physical periodic orbit. The ordinary all-flight PK root service
+already uses the pronk chart with four state coordinates plus coupled free
+energy, a five-dimensional PAL root problem. It is not a generic13-dimensional
+Newton solve. Independent full13 physical closure remains required. No single
+cause is asserted for every failed trial, and finite one-sided samples do not
+certify a smooth full neighborhood near a changing event domain.
+
+Operational problems are distinct from physical refusals. This round fixed an
+EOF read-count defect in the persistent controller without changing dynamics,
+gates or numerical policy. The old public1200-second Fair cap also returned a
+late public call whose child commits were timely; that false public timing flag
+was preserved and separately audited. Later calls used the reviewed1800-second
+public cap, with all original child/trial/final-clock checks retained. Storage
+and readback overhead is part of those caps; no percentage runtime attribution
+to I/O versus root integration has been measured.
+
+Two uncommitted native objects needed exact custody rather than repeated
+automatic reconciliation. Their root results did not earn new graph edges:
+
+  sequence81: raw all-nine TRUE, native timely FALSE, wrapper FALSE;
+              no storage attempt, commit or edge.
+  sequence93: raw all-nine TRUE, native timely TRUE, wrapper TRUE and capture
+              qualified; a subsequent C1Continuation:Budget check stopped at
+              wrapper_evaluated_before_storage; no storage attempt/commit/edge.
+
+The seq93 stack alone does not identify which of the two checked clocks caused
+the stop, nor independently time the wrapper phase. Its timely root flag was
+not relabeled late. Both closures preserve the full original native ledger and
+checkpoint externally, keep the failed/late flags literal, and change only the
+five reviewed journal custody/active/status/time/failure fields. No frontier,
+run, strategy, fairness, point or edge accounting was invented. The original
+uncommitted checkpoints were removed only after durable exact external custody
+and native readback/inverse checks. Their attempts remain outside central j.runs.
+
+5. Independent unit-height control and numerical method
+
+Results/C1_PK_Reversible_Unit_Height_NONEDGE_PKHalfUnit01_20261027.mat stores a
+separate independently solved native PK orbit, not a component edge:
+  apex height y=1 exactly; all four initial legs in flight;
+  signed initial dx = 3.9687924231292002;
+  all four leg angular rates = 3.9600325198007633;
+  E = 8.875656648943874;
+  native T = 1.3726025662784309;
+  signed mean stride velocity = 3.9526759440646191.
+The restricted two-variable reversible half-orbit root used two Newton
+iterations and one Jacobian. Literal full return, shared coupled-energy PSS and
+BL1 validation passed. The shared full-map root service accepted an already-root
+state with zero Newton iterations and no derivative acquisition. Four fresh
+fine-step calls at MaxStep.0005 and.00025 used the unchanged solved state and
+had full13 residuals around1.1e-13. This control establishes neither a full-map
+Jacobian neighborhood nor a grazing/physical endpoint, component bridge or P1
+attachment. It stays outside the45-component census and is essential numerical
+evidence, not a disposable test-only solution.
+
+Ordinary continuation used root-newton only, coupled state/free-energy root
+equations and the saved PAL selector; no optimization algorithm was used.
+Ordinary trials permit within-trial Broyden/Jacobian reuse. Independent controls
+that disabled reuse are scoped separately; fresh-J/no-Broyden is not a universal
+claim for this round. The physical model, all-nine admission rules and full13
+checks were preserved. The principal physical parameter vector is
+[10;10;20;20;1;1;0;0;2;0.5]. Base integration settings remain RelTol1e-12,
+AbsTol1e-14 and MaxStep.001. The registered batch/trial/save caps are900/240/30s,
+with MaxAccepted20 and MaxAttempts12. Available wall time, not merely those
+integer caps, determines how many roots fit in one batch. Saved PAL steps range
+from1e-7 to.02; registered ordinary and valid-sided derivative strategies were
+used without manual strategy resets.
+
+6. Essential artifacts and cleanup
+
+Current results and read-only final verification:
+  Components/C1_PK_Component_*.mat
+  Audits/PK_Persistent_Frontiers_20261026.mat
+  Audits/Final_Current_Components_20261027.mat / .json
+  Audits/Final_Round_Delta_20261027.mat / .json
+  Audits/C1_Current_PK_Comparison_20261027.mat
+  Results/C1_Current_PK_Comparison_20261027.png
+  Audits/PK_Cyclic_Tail_PKCyclic03_20261027.mat
+  Audits/P1_v2_Native_Reference_Audit.mat
+
+Important separate custody/control evidence:
+  Audits/Late_Native_Custody_PKLateNativePending81_20261027*.mat
+  Audits/Budget_Held_Native_Custody_PKBudgetHeldNative93_20261027*.mat
+  Audits/PK_Cyclic_Timing_PKCyclicTiming01_20261027.mat
+  Audits/PK_Post_Unit_Fair_Inspect_PKPostUnitFairInspect01_20261027.mat
+  Audits/PK_Reversible_Unit_Height_PKHalfUnit01_20261027*
+  Results/C1_PK_Reversible_Unit_Height_NONEDGE_PKHalfUnit01_20261027.mat
+  Audits/Source_Epoch_Recovery_EOF_Compact_20261027*.mat
+
+Archive/PK_Cyclic_Fair_Pairs_PKCyclic01_20261027.zip preserves4 per-pass audit
+originals; the02 archive preserves12; the03 archive preserves46. All62 live
+originals were removed only after full archive/member SHA256, size and CRC checks
+and durable Root custody of the exact prepare proof. Strict metadata guards
+refused the initial02/03 preparations; separate source-reviewed recoveries
+verified their existing stages twice and preserved original failed flags. No
+failure cause was inferred and no uncertain stage was casually discarded.
+
+Audits/Implementation_20261027.json retains complete native stdout, actual
+original process exits, recorded invocation strings, full temporary
+source/preimage/patch bytes, per-member archive catalogues and
+failed/recovered/removal receipts. The39 closed native run records all retain
+stdout and actual exits;16 have explicit invocation-string fields. Earlier
+launch reconstruction also requires retained source/configuration evidence
+and the original task history; invocation fields are not uniform across records.
+Historical MAT references keep their original paths; restore exact ZIP members
+or retained source bytes at those paths and verify hashes for historical reruns.
+Current selective component loading needs no per-pass archive extraction.
+
+Consumed private run drivers and recovery helpers were retained with full byte
+custody and removed. Core public continuation code, component stores, native
+results and essential audits remain live. The final filesystem cleanup record
+in Implementation_20261027.json records the remaining Root-helper removal,
+working-directory absence, file/change counts and protected-core byte checks.
+Earlier reports and comparison snapshots remain explicitly historical.
+
+7. Remaining scientific work
+
+There are admissible finite PK fragments and saved continuation frontiers, not
+a full P1-matched PK publication. Remaining work includes tracing runnable
+frontiers under a future valid grant, independently resolving numerical domain
+obstructions, proving any proposed component seams/endpoints and qualifying
+P1-family correspondence with compatible period/event/section evidence. A full
+C1 claim additionally needs the requested parent/daughter bifurcations and
+FG/GG and HE/GE attachments. None may be inferred from a pooled scalar plot,
+filename, nearest record or exhausted local solver strategy.

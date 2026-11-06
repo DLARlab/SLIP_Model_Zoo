@@ -1,0 +1,98 @@
+{
+  "schema": "PK15h-final-current-working-core-set-external-closure-v1",
+  "created_utc": "2026-11-05 00:05:11 UTC",
+  "observer": "FIRST",
+  "manifest_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_Manifest.mat",
+    "sha256": "525ab42b73e7f7eacc88657a8cf2e4d60436cdd40aef549d3a969c23d7462bc8",
+    "bytes": 2041338
+  },
+  "graph_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponentView02.mat",
+    "sha256": "000ed4e9731fe479c65e60e3e1f2e706e9fc582ae1331e7262d14f4f42b44226",
+    "bytes": 10763240
+  },
+  "graph_external_closure_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponentView02_External_Closure_FIRST.json",
+    "sha256": "e72ed6561d69b201d7a3b492da43e01e97ecdafc026ba199c3d32075d3418a30",
+    "bytes": 3073
+  },
+  "core_references": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0001_WorkingCore29.mat",
+      "sha256": "f76a21ac424bab9d60bdda484c5ac217dcc4769ba7c3659acf33df5f785728db",
+      "bytes": 1275419
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0002_WorkingCore29.mat",
+      "sha256": "2d26534db60084774e4e1f72086d3a895cef0a53aeb015f6ef3e383e99f00a1f",
+      "bytes": 1070142
+    }
+  ],
+  "writer_audit_references": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_Component_0001.mat",
+      "sha256": "286bfc496bc36e73ded1e9aba3306bed3fd6bf5254d6f277fe2b7b9dda1162d5",
+      "bytes": 1207551
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_Component_0002.mat",
+      "sha256": "5c68bba3f5621782fe6b4aaae7f42e24a0fee77340d179d6383ae32a304769b5",
+      "bytes": 764585
+    }
+  ],
+  "log_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01.log",
+    "sha256": "eed16693d557b12b16c44e9acc9a8141ffe86d96888acf3fcb3d8b7c6e0939a4",
+    "bytes": 14146
+  },
+  "process": {
+    "actual_tool_exit_observed": true,
+    "exit_code": 0,
+    "session_id": 90535,
+    "native_pid": 30624,
+    "wrapper_pid": 30623,
+    "direct_tool_observer": "FIRST",
+    "exit_observed_utc": "2026-11-05 00:02:11 UTC",
+    "independent_PID_absence_verified": true,
+    "independent_process_observer": "SECOND",
+    "independent_process_check_utc": "2026-11-05 00:04:10 UTC",
+    "resource_statistics": {
+      "real_seconds": 1498.56,
+      "user_seconds": 1509.92,
+      "system_seconds": 20.17,
+      "maximum_resident_set_bytes": 10200449024,
+      "peak_memory_footprint_bytes": 8994513512
+    }
+  },
+  "independent_post_guard": {
+    "all_passed": true,
+    "observer": "SECOND",
+    "completed_utc": "2026-11-05 00:04:10 UTC",
+    "explicit_header_checks": 33,
+    "explicit_unique_files": 30,
+    "additional_transitive_declared_reference_checks": 217,
+    "additional_transitive_unique_files": 127,
+    "manifest_cores_audits_log_native_projection_verified": true,
+    "pending_stages_checked_absent": 5,
+    "process_ids_verified_absent": [
+      30623,
+      30624
+    ],
+    "scope": "Opaque SHA-256/bytes and process/stage checks; no independent MAT decoding or new native physics execution."
+  },
+  "all_owned_native_workers_closed": true,
+  "owned_worker_closure_scope": "All owned workers in this round were closed at this publication. Unrelated desktop sessions are outside this statement. Later separately authorized reader or plotting workers do not retroactively change this dated observation.",
+  "native_completed_occurrences": 1145,
+  "native_completed_components": 2,
+  "all_component_public_reader_groups_returned": true,
+  "strict_target_met_by_all_components": false,
+  "working_size_allowance_bytes_per_component": 33554432,
+  "unchanged_strict_target_bytes_per_component": 554305,
+  "fresh_process_cold_start_verified": false,
+  "raw_trajectory_materialization_claimed": false,
+  "raw_materialization_completion_claimed": false,
+  "scientific_completion_claimed": false,
+  "source_retirement_authorized": false,
+  "scope": "Complete finite working-core export of the exact closed current source view. Saved scientific decisions and proof epochs remain historical/conditional as recorded. No new physical admission, continuous branch, endpoint maximality, global PK exhaustion or native-source retirement claim. Separate public Snapshot smoke is next."
+}

@@ -8,3 +8,21 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# C1 experiment workspaces and active transaction state are temporary.
+# Keep published core results, source and essential audits outside these paths.
+/Research_v3/C1/.work_*/
+/Research_v3/C1/**/*.writer.lock
+/Research_v3/C1/**/*.pending.mat
+/Research_v3/C1/**/*.pending.json
+
+# Random MATLAB tempname stages; final component and export names stay included.
+/Research_v3/C1/Connected_PK_*/tp*.mat
+/Research_v3/C1/Audits/tp*.mat
+/Research_v3/C1/Compact_Exports_20261030/tp*.mat
+
+# Reconstruct this historical audit from its tracked checksum-verified byte parts.
+# Keep the >100 MiB restored copy local; current branch MAT files remain tracked.
+/Research_v3/C1/Audits/V3_Historical_Essential_Audit_Facts_20261105.mat
+/Research_v3/C1/Audits/.V3_Historical_Essential_Audit_Facts_20261105.mat.pending-*
+/Research_v3/C1/Audits/.V3_Historical_Essential_Audit_Facts_20261105.mat.parts.pending-*/

@@ -42,7 +42,7 @@ classdef EnergyFamilyResidual_v3 < handle
             x = schema.validateState(x);
             q = schema.validateMode(q);
             p = schema.validateParameter(p);
-            if ~any(strcmp(obj.Symmetry, {'none','left-right','pronk'}))
+            if ~any(strcmp(obj.Symmetry, {'none','left-right','pronk','hind-pair','fore-pair'}))
                 error('EnergyFamilyResidual_v3:Symmetry', 'Unknown symmetry restriction.');
             end
             obj.Map = problem.Map;
@@ -50,7 +50,17 @@ classdef EnergyFamilyResidual_v3 < handle
             obj.PhysicalParameter = p(:);
             obj.Chart = QuadrupedPhysicalChart_v3.create(x, q, p);
             obj.CoordinateIndices = obj.Chart.independent_indices;
-            if strcmp(obj.Symmetry, 'left-right')
+            if any(strcmp(obj.Symmetry, {'hind-pair','fore-pair'}))
+                pair=[1,2];
+                if strcmp(obj.Symmetry,'fore-pair'),pair=[3,4];end
+                representatives=[schema.Leg.AngleIndices(pair(1)),schema.Leg.RateIndices(pair(1))];
+                duplicates=[schema.Leg.AngleIndices(pair(2)),schema.Leg.RateIndices(pair(2))];
+                if q(pair(1))~=q(pair(2)) || norm(x(duplicates)-x(representatives),inf)>1e-8
+                    error('EnergyFamilyResidual_v3:NotPairInvariant', ...
+                        'The explicit %s chart requires equal selected-pair raw angles, physical rates and modes.',obj.Symmetry);
+                end
+                obj.CoordinateIndices=setdiff(obj.CoordinateIndices,duplicates,'stable');
+            elseif strcmp(obj.Symmetry, 'left-right')
                 representatives = [schema.Leg.AngleIndices(1),schema.Leg.RateIndices(1), ...
                     schema.Leg.AngleIndices(3),schema.Leg.RateIndices(3)];
                 counterparts = [schema.Leg.AngleIndices(2),schema.Leg.RateIndices(2), ...
@@ -106,7 +116,12 @@ classdef EnergyFamilyResidual_v3 < handle
             x = obj.Chart.reference_state;
             x(obj.CoordinateIndices) = u(:);
             schema = QuadrupedSchema_v3.shared();
-            if strcmp(obj.Symmetry,'left-right')
+            if any(strcmp(obj.Symmetry, {'hind-pair','fore-pair'}))
+                pair=[1,2];
+                if strcmp(obj.Symmetry,'fore-pair'),pair=[3,4];end
+                x(schema.Leg.AngleIndices(pair(2)))=x(schema.Leg.AngleIndices(pair(1)));
+                x(schema.Leg.RateIndices(pair(2)))=x(schema.Leg.RateIndices(pair(1)));
+            elseif strcmp(obj.Symmetry,'left-right')
                 x(schema.Leg.AngleIndices([2,4])) = x(schema.Leg.AngleIndices([1,3]));
                 x(schema.Leg.RateIndices([2,4])) = x(schema.Leg.RateIndices([1,3]));
             elseif strcmp(obj.Symmetry,'pronk')
@@ -171,7 +186,13 @@ classdef EnergyFamilyResidual_v3 < handle
             % have zero mechanical-energy derivative in this model.
             schema = QuadrupedSchema_v3.shared();
             ambient = ambientGradient(:);
-            if strcmp(obj.Symmetry, 'left-right')
+            if any(strcmp(obj.Symmetry, {'hind-pair','fore-pair'}))
+                pair=[1,2];
+                if strcmp(obj.Symmetry,'fore-pair'),pair=[3,4];end
+                representative=[schema.Leg.AngleIndices(pair(1)),schema.Leg.RateIndices(pair(1))];
+                duplicate=[schema.Leg.AngleIndices(pair(2)),schema.Leg.RateIndices(pair(2))];
+                ambient(representative)=ambient(representative)+ambient(duplicate);
+            elseif strcmp(obj.Symmetry, 'left-right')
                 representative = [schema.Leg.AngleIndices([1,3]), ...
                     schema.Leg.RateIndices([1,3])];
                 duplicate = [schema.Leg.AngleIndices([2,4]), ...

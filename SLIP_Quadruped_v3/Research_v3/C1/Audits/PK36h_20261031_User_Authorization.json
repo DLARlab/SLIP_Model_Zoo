@@ -1,0 +1,23 @@
+{
+  "schema": "C1-PK-user-authorization-20261031-v1",
+  "task": "Complete numerical continuation of admissible native PK",
+  "user_duration_answer": "36 hours",
+  "root_clock_observation_utc": "2026-10-31T02:09:21Z",
+  "start_utc": "2026-10-31T02:09:21Z",
+  "research_deadline_utc": "2026-11-01T11:09:21Z",
+  "deadline_utc": "2026-11-01T14:09:21Z",
+  "wall_budget_seconds": 129600,
+  "final_reserve_seconds": 10800,
+  "native_clock_capture_performed_by_this_record": false,
+  "authorization_is_new_not_renewal_on_read": true,
+  "root_solving_only": true,
+  "large_working_solution_files_allowed_when_required": true,
+  "clean_temporary_files_after_each_closed_run": true,
+  "stop_early_when_completion_and_cleanup_are_finished": true,
+  "height_stop_user_words": "terminate when the apex height is lower that 50% of resting leg length",
+  "height_stop_interpretation": "Strict marked local COM apex height / common positive resting leg length < 0.5, per pursued frontier. Equality continues. Retain any admitted and captured new point and physical edge before stopping. This is a user boundary, not a physical endpoint or bifurcation.",
+  "unequal_rest_lengths_policy": "No implicit mean/minimum/maximum; unsupported until explicitly defined.",
+  "prior_round_outcomes_unchanged": true,
+  "continua_2_in_scope": false,
+  "max_owned_matlab_workers": 1
+}

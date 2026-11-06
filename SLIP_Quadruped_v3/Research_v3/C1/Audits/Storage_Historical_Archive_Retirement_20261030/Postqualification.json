@@ -1,0 +1,428 @@
+{
+  "schema": "HISTORICAL_ARCHIVES_CURRENT_POSTQUALIFICATION_1",
+  "created_utc": "2026-10-30T09:54:12.998902+00:00",
+  "references": {
+    "original_outcome": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Storage_Historical_Archive_Retirement_20261030/Original_Outcome.json",
+      "sha256": "65f124ce809e95aca9c611439e7574978fa2a02d0304f05bf88c826cf2c2ae10",
+      "bytes": 5703
+    },
+    "operative_manifest": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Storage_Historical_Archive_Retirement_20261030/Operative_Manifest.json",
+      "sha256": "6e7706da028345ef6b9cc4d42fe79d4566808f0a3561b3c558963ecc72a57d91",
+      "bytes": 112325
+    },
+    "member_census": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Storage_Historical_Archive_Retirement_20261030/Retired_ZIP_Members.json",
+      "sha256": "0574b518258c35d5f334be7f695ab72ef80b27bba37d315b917a09fc5d6ed41e",
+      "bytes": 154468
+    },
+    "scientific_last_use_release": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Storage_Historical_Archive_Retirement_20261030/FIRST_LastUse_Release.json",
+      "sha256": "ae0d70c0c76f75a157b758b4c829f15abe0a342fb74ae8c49f91bdcda79fb30a",
+      "bytes": 52129
+    }
+  },
+  "original_actual_process": {
+    "session_id": 41428,
+    "exit_code": 1,
+    "completed": false,
+    "all_requested_retired": false,
+    "failure": "RuntimeError('Protected core/methodology bytes or identity changed: /Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0072.mat')",
+    "exit_observation_UTC_not_captured": true
+  },
+  "original_transaction_not_reclassified": true,
+  "actual_unlink_actions": [
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:45.433084+00:00",
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/906353",
+      "device": 16777229,
+      "inode": 31742595
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:45.563691+00:00",
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Recoverable_Previous_Archives_20261026.zip",
+      "device": 16777229,
+      "inode": 31742595
+    },
+    {
+      "kind": "released_archive_all_names_absent",
+      "observed_utc": "2026-10-30T09:49:45.563988+00:00",
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Recoverable_Previous_Archives_20261026.zip",
+      "sha256": "dc8d6ed6abd4cb9c9c1a85e3337439e3e26362a2cfbbfcf5b5e8549f82372486",
+      "bytes": 22024408328
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:48.959506+00:00",
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Previous_Audit_Artifacts_20261026.zip",
+      "device": 16777229,
+      "inode": 31747727
+    },
+    {
+      "kind": "released_archive_all_names_absent",
+      "observed_utc": "2026-10-30T09:49:48.969622+00:00",
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Previous_Audit_Artifacts_20261026.zip",
+      "sha256": "31cc81399b12ca07b1a120ac29e197e49146e86ec2f0f1e5ebafd628750c1df2",
+      "bytes": 4453137806
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:52.006561+00:00",
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908758",
+      "device": 16777229,
+      "inode": 31817205
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:52.028201+00:00",
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Superseded_Branch_Stores_20261026.zip",
+      "device": 16777229,
+      "inode": 31817205
+    },
+    {
+      "kind": "released_archive_all_names_absent",
+      "observed_utc": "2026-10-30T09:49:52.044924+00:00",
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Superseded_Branch_Stores_20261026.zip",
+      "sha256": "ce179f5878ee6d5b1936cc28d453090259e3822eff84d2083fcffc20187fbc8d",
+      "bytes": 3962772043
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:54.688261+00:00",
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911574",
+      "device": 16777229,
+      "inode": 32113871
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:54.877483+00:00",
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Previous_Components_20261029.zip",
+      "device": 16777229,
+      "inode": 32113871
+    },
+    {
+      "kind": "released_archive_all_names_absent",
+      "observed_utc": "2026-10-30T09:49:54.877678+00:00",
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Previous_Components_20261029.zip",
+      "sha256": "6bb4dc3acc587a5c1a0b9b833f9e944a6609c280868b2f5f144765c77111258a",
+      "bytes": 3381902690
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:56.749145+00:00",
+      "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911280",
+      "device": 16777229,
+      "inode": 32012683
+    },
+    {
+      "kind": "unlink_returned",
+      "observed_utc": "2026-10-30T09:49:56.812392+00:00",
+      "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic03_20261027.zip",
+      "device": 16777229,
+      "inode": 32012683
+    },
+    {
+      "kind": "released_archive_all_names_absent",
+      "observed_utc": "2026-10-30T09:49:56.863045+00:00",
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic03_20261027.zip",
+      "sha256": "758ea19923cd940deed68dd35a94b94e34a3e72b19fef7636c8d8418dd279dfb",
+      "bytes": 2391872831
+    }
+  ],
+  "current_five_archives_and_nine_known_names_absent": true,
+  "retained_file_count": 154,
+  "retained_bytes": 6174037271,
+  "expected_file_SHA_map_sha256": "a35bf943f29e2c5ae98d5ed2221ed5ed1984be162061e0d9ce06d04fd4571ab4",
+  "observed_file_SHA_map_sha256": "a35bf943f29e2c5ae98d5ed2221ed5ed1984be162061e0d9ce06d04fd4571ab4",
+  "all_retained_file_SHA256_equal": true,
+  "current_qualified_stat_changes": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0072.mat",
+      "changed_stat_fields": {
+        "nlink": [
+          2,
+          1
+        ],
+        "ctime_ns": [
+          1793332000255599896,
+          1793353772645370318
+        ]
+      },
+      "unchanged_sha256": "c3f8c5b3d502799dc7a7086132c2e10cbabc2474fa67287e49ccb2400319ef95",
+      "unchanged_device_inode_size_mode_mtime": true,
+      "alias_closure": "nlink1: canonical name is the only hardlink",
+      "origin": "UNKNOWN"
+    }
+  ],
+  "current_core_roster_counts": [
+    43,
+    1,
+    19
+  ],
+  "expected_absences_passed": true,
+  "current_C1_archive_entries": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Completed_Private_Source_Proofs_20261026.zip",
+      "bytes": 1473663,
+      "allocated_bytes": 1474560,
+      "device": 16777229,
+      "inode": 31824283,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Exact_Working_Set_20261026.zip",
+      "bytes": 322046424,
+      "allocated_bytes": 322048000,
+      "device": 16777229,
+      "inode": 31793469,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Final_Duplicate_Control_And_Recovery_Source_20261026.zip",
+      "bytes": 2542372,
+      "allocated_bytes": 2543616,
+      "device": 16777229,
+      "inode": 31852896,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Five_Publication_Preimages_20261026.zip",
+      "bytes": 3739808,
+      "allocated_bytes": 3743744,
+      "device": 16777229,
+      "inode": 31789720,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FE_Superseded_Components_20261026.zip",
+      "bytes": 115498735,
+      "allocated_bytes": 115499008,
+      "device": 16777229,
+      "inode": 31818012,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FinalManifest26_01_Refused_Stage_Preimage_20261026.json",
+      "bytes": 39669,
+      "allocated_bytes": 40960,
+      "device": 16777229,
+      "inode": 31790323,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic01_20261027.zip",
+      "bytes": 163970274,
+      "allocated_bytes": 163971072,
+      "device": 16777229,
+      "inode": 31948519,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic02_20261027.zip",
+      "bytes": 581390035,
+      "allocated_bytes": 581390336,
+      "device": 16777229,
+      "inode": 31961429,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Storage_Migration_PKConnected03_20261029_Sources.zip",
+      "bytes": 596940856,
+      "allocated_bytes": 596942848,
+      "device": 16777229,
+      "inode": 32152179,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Zero_Earned_Unit_Trials_20261029.zip",
+      "bytes": 40806655,
+      "allocated_bytes": 40808448,
+      "device": 16777229,
+      "inode": 32140191,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/README.md",
+      "bytes": 7955,
+      "allocated_bytes": 8192,
+      "device": 16777229,
+      "inode": 31793948,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RootSolver_v3_20261024.txt",
+      "bytes": 77110,
+      "allocated_bytes": 77824,
+      "device": 16777229,
+      "inode": 31654513,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RunC1Continuation_v3_20261024.txt",
+      "bytes": 45476,
+      "allocated_bytes": 49152,
+      "device": 16777229,
+      "inode": 31654514,
+      "nlink": 1
+    }
+  ],
+  "current_C1_archive_apparent_bytes": 1828579032,
+  "current_C1_archive_allocated_bytes": 1828597760,
+  "current_repository_archive_entries": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Exact_Working_Set_20261026.zip",
+      "bytes": 322046424,
+      "allocated_bytes": 322048000,
+      "device": 16777229,
+      "inode": 31793469,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Completed_Private_Source_Proofs_20261026.zip",
+      "bytes": 1473663,
+      "allocated_bytes": 1474560,
+      "device": 16777229,
+      "inode": 31824283,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Final_Duplicate_Control_And_Recovery_Source_20261026.zip",
+      "bytes": 2542372,
+      "allocated_bytes": 2543616,
+      "device": 16777229,
+      "inode": 31852896,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Zero_Earned_Unit_Trials_20261029.zip",
+      "bytes": 40806655,
+      "allocated_bytes": 40808448,
+      "device": 16777229,
+      "inode": 32140191,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic02_20261027.zip",
+      "bytes": 581390035,
+      "allocated_bytes": 581390336,
+      "device": 16777229,
+      "inode": 31961429,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic01_20261027.zip",
+      "bytes": 163970274,
+      "allocated_bytes": 163971072,
+      "device": 16777229,
+      "inode": 31948519,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Five_Publication_Preimages_20261026.zip",
+      "bytes": 3739808,
+      "allocated_bytes": 3743744,
+      "device": 16777229,
+      "inode": 31789720,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FE_Superseded_Components_20261026.zip",
+      "bytes": 115498735,
+      "allocated_bytes": 115499008,
+      "device": 16777229,
+      "inode": 31818012,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Storage_Migration_PKConnected03_20261029_Sources.zip",
+      "bytes": 596940856,
+      "allocated_bytes": 596942848,
+      "device": 16777229,
+      "inode": 32152179,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Source_Epoch_Recovery_EOF_Interrupted_Publications_20261027.zip",
+      "bytes": 651194535,
+      "allocated_bytes": 651198464,
+      "device": 16777229,
+      "inode": 31926003,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_08.zip",
+      "bytes": 15970649,
+      "allocated_bytes": 15974400,
+      "device": 16777229,
+      "inode": 29763631,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_03.zip",
+      "bytes": 70337519,
+      "allocated_bytes": 70340608,
+      "device": 16777229,
+      "inode": 29763169,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_02.zip",
+      "bytes": 66937953,
+      "allocated_bytes": 66940928,
+      "device": 16777229,
+      "inode": 29763117,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_01.zip",
+      "bytes": 55481531,
+      "allocated_bytes": 55484416,
+      "device": 16777229,
+      "inode": 29763114,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_05.zip",
+      "bytes": 58325770,
+      "allocated_bytes": 58327040,
+      "device": 16777229,
+      "inode": 29763180,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_04.zip",
+      "bytes": 64956866,
+      "allocated_bytes": 64958464,
+      "device": 16777229,
+      "inode": 29763174,
+      "nlink": 2
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_06.zip",
+      "bytes": 51116525,
+      "allocated_bytes": 51118080,
+      "device": 16777229,
+      "inode": 29763182,
+      "nlink": 1
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Audits_v3/Scientific_Evidence/Final_Scientific_Evidence_07.zip",
+      "bytes": 66167453,
+      "allocated_bytes": 66170880,
+      "device": 16777229,
+      "inode": 29763629,
+      "nlink": 1
+    }
+  ],
+  "current_repository_archive_apparent_bytes": 2928897623,
+  "current_repository_archive_allocated_bytes": 2928934912,
+  "available_bytes_at_postqualification": 315140370432,
+  "original_available_bytes_before": 278927888384,
+  "original_available_bytes_after": 315139284992,
+  "scientific_payload_decoded": false,
+  "Git_objects_removed": 0,
+  "scope": "New read-only current filesystem qualification after the actual five retirements; original EXIT1/finalguard failure remains literal. No repeat mutation. All-location/global backup cap requires separate attribution census."
+}

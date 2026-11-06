@@ -1,0 +1,177 @@
+{
+  "schema": "PK15h-native-reader-render-log-projection-v1",
+  "scope": "Literal native JSON markers plus opaque file references; no MAT parsing or scientific reevaluation.",
+  "smoke": {
+    "completed": true,
+    "source_posthash": true,
+    "old_one_core_verified": true,
+    "new_component_count": 2,
+    "rows": [
+      {
+        "reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0001_WorkingCore29.mat",
+          "sha256": "f76a21ac424bab9d60bdda484c5ac217dcc4769ba7c3659acf33df5f785728db",
+          "bytes": 1275419.0
+        },
+        "points": 621,
+        "typed_counts": [
+          558,
+          61,
+          0,
+          7
+        ],
+        "ranges": {
+          "E": [
+            1.6959853938064915,
+            31.127469299522268
+          ],
+          "signed_apex_dx": [
+            -7.729415864054459,
+            7.729449932459356
+          ],
+          "signed_mean_U": [
+            -7.699967448463251,
+            7.700001453383727
+          ],
+          "T": [
+            2.613199382584439,
+            2.898434135819918
+          ]
+        },
+        "saved_decisions_are_historical": true
+      },
+      {
+        "reference": {
+          "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Compact_Exports_20261030/PK15h_20261104_FinalCurrentWorkingCoreSet01/C1_PK_Component_0002_WorkingCore29.mat",
+          "sha256": "2d26534db60084774e4e1f72086d3a895cef0a53aeb015f6ef3e383e99f00a1f",
+          "bytes": 1070142.0
+        },
+        "points": 524,
+        "typed_counts": [
+          484,
+          35,
+          0,
+          6
+        ],
+        "ranges": {
+          "E": [
+            1.1171137105112812,
+            8.875656648411859
+          ],
+          "signed_apex_dx": [
+            -3.968792422994139,
+            3.968792422793989
+          ],
+          "signed_mean_U": [
+            -3.9526759439295565,
+            3.952675943729262
+          ],
+          "T": [
+            1.3726025662810402,
+            1.5645255985996347
+          ]
+        },
+        "saved_decisions_are_historical": true
+      }
+    ],
+    "point_count": 1145,
+    "P": 1042,
+    "E": 96,
+    "A": 0,
+    "M": 13,
+    "refusal_identifiers": [
+      "C1WorkingSnapshot:ExportClosure",
+      "C1WorkingSnapshot:ExportClosure",
+      "C1WorkingSnapshot:MixedSpecs"
+    ],
+    "new_maps": 0,
+    "new_roots": 0,
+    "new_replays": 0,
+    "new_classifications": 0,
+    "new_admissions": 0,
+    "default_pointer_published": false,
+    "output_files_written": false,
+    "elapsed_seconds": 74.43996810913086
+  },
+  "plot": {
+    "schema": "PK15h-stored-state-overview-render-v1",
+    "completed": true,
+    "source_posthash": true,
+    "plotted_current_occurrences": 1145,
+    "literal_P1_candidates": 179,
+    "current_counterpart_checks": 3,
+    "held_regular_record_included_as_regular": false,
+    "manifest_reference": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_Manifest.mat",
+      "sha256": "525ab42b73e7f7eacc88657a8cf2e4d60436cdd40aef549d3a969c23d7462bc8",
+      "bytes": 2041338.0
+    },
+    "export_closure_reference": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalCurrentWorkingCoreSet01_External_Closure_FIRST.json",
+      "sha256": "90f18f2559db67c7558f43ba68f2d9a65320386dccda86a75ee14292c2c7cc67",
+      "bytes": 5019
+    },
+    "extra_data_references": [
+      {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_P1Disposition01.mat",
+        "sha256": "129cfee7ae7f8a824501305bb674c518965441dfe07cb1b4d80afff256c68b95",
+        "bytes": 5090752.0
+      },
+      {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_Node702BoundaryBinding01.mat",
+        "sha256": "619f5f799e62d52b79d60f677fe93996d0ecb918e88957d26a8b72b9aeb73c45",
+        "bytes": 6765
+      },
+      {
+        "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_P1PronkCounterparts01_FromNativeLog.json",
+        "sha256": "1ccc7af0a50e01d5da6b08e019bb9a9294405c08217b69b33cf8dfbda1e633f3",
+        "bytes": 11159
+      }
+    ],
+    "PNG": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponents_Overview01.png",
+      "sha256": "953e15fe75b151e04c2ea3b0333bd988cdfea0150b63a909fccb41962fd0d105",
+      "bytes": 129320
+    },
+    "PDF": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponents_Overview01.pdf",
+      "sha256": "49691c867898876fe5c4dd168188500b58f5b79fa422225414cf2d36ff705891",
+      "bytes": 123672
+    },
+    "Root_calls": 0,
+    "map_calls": 0,
+    "ODE_calls": 0,
+    "new_classification_calls": 0,
+    "additional_native_hydrations": 0,
+    "scope": "Scatter of retained numeric states only. No P/E/M lines, state correction, fresh admission, branch-membership, continuity, endpoint or global exhaustion claim. Component labels are manifest component numbers."
+  },
+  "log_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_FinalReaderAndPlot01.log",
+    "sha256": "d1419f66d6c8de2e1fcd780015ffccefc260679d0a53c6cc025c3d587c218cd9",
+    "bytes": 4487
+  },
+  "plot_receipt_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK15h_20261104_CurrentComponents_Overview01.json",
+    "sha256": "6656f2b8bb38960b2734503f2d336c56dd81b1847fec18ffa9cdce1fb0082619",
+    "bytes": 2358
+  },
+  "process_observation": {
+    "actual_tool_exit_observed_by": "FIRST",
+    "exit_code": 0,
+    "tool_session_id": 9492,
+    "native_pid": 32833,
+    "wrapper_pid": 32832,
+    "observed_utc": "2026-11-05 00:08:23 UTC",
+    "resource_statistics": {
+      "real_seconds": 87.96,
+      "user_seconds": 89.91,
+      "system_seconds": 2.85,
+      "maximum_resident_set_bytes": 1819394048,
+      "peak_memory_footprint_bytes": 1294405448
+    },
+    "FIRST_ps_observed_absent": [
+      32832,
+      32833
+    ]
+  }
+}

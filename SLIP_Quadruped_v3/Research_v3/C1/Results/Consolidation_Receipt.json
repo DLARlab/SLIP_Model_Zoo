@@ -1,0 +1,21 @@
+{
+  "schema": "c1-native-branch-store-receipt-v1",
+  "plan_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Consolidation_Plan.json",
+    "sha256": "2a3493b31ffbb7777f113106c009f3bf3978de14ea2b02aec4ebf8f55997d777"
+  },
+  "result_index_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Results_Index.mat",
+    "sha256": "b0036bd1f62dfe6c8043404aef9e9cafe574ccf33931ad086d82bfcaffdd7d3b",
+    "bytes": 5.182574E+6
+  },
+  "branch_count": 30,
+  "stored_solution_occurrences": 303,
+  "unavailable_or_unsupported_occurrences": 0,
+  "all_requested_occurrences_stored": true,
+  "all_stored_solutions_individually_loaded_and_public_equal": true,
+  "no_originals_removed": true,
+  "archive_or_eviction_performed": false,
+  "scientific_flags_changed": false,
+  "numeric_or_model_changes": false
+}

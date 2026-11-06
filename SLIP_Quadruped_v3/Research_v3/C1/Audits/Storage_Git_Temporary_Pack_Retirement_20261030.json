@@ -1,0 +1,418 @@
+{
+  "schema": "SLIP-essential-storage-git-temporary-pack-retirement-v1",
+  "published_utc": "2026-10-30T11:06:15.313887+00:00",
+  "actual_operation_exit_code": 1,
+  "operation_exit_scope": "Original unlink process failed its final no-Git-process observation after all four unlinks returned. This is preserved literally; no retry or additional deletion followed.",
+  "original_outcome": {
+    "schema": "SLIP-exact-git-garbage2-unlink-only-receipt-v1",
+    "source_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/retire_exact_git_garbage2_20261030.py.candidate",
+    "source_sha256": "21cfb326645369185cc4f256ab3f47fc00c031bfdbb11b86068f7a95a89d1212",
+    "manifest_file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage2_Closed_Opaque_Manifest_20261030.json",
+    "manifest_sha256": "2165c937de5f6eaa507be312dbcd7e67fa8fa49a0cb2be31cee23bf6422849fd",
+    "started_utc": "2026-10-30T11:01:51.990849+00:00",
+    "completed": false,
+    "root_reviewed_closed_writers": true,
+    "deferred_inodes": [],
+    "aliases_in_repository_checked": true,
+    "protected_git_file_metadata": {
+      "count": 6040,
+      "before_sha256": "4a506f473e24a75399bc741e4627db73e3ab2e725a271f9b9c6f54cc9ef687ef",
+      "after_sha256": null
+    },
+    "protected_metadata_hashes": {
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/HEAD": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/index": "da5c4a5c08f2e98d0e663c404b081b8c2b46e9f60e4bf2c51953452ef1e756d0",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/config": "b8e42c2444a37d7cd53a0680cc276203a80e1c948db0a0f77172be8ffcf2f3c9",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/ORIG_HEAD": "aae0ef99611d09e1a88de05147293bb3822513689f35cf5de3e7ce0adc97ab40",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/FETCH_HEAD": "9e6642b52a7d107426fb9d965830187209edc857d6575ecbf5742ebb5e1a877a",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/heads/main": "2ed26d5d7a0ac5bcb79485920e0bd2801c59e70a9c1466aa24926fde706b72b6",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/remotes/origin/HEAD": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/remotes/origin/main": "2ed26d5d7a0ac5bcb79485920e0bd2801c59e70a9c1466aa24926fde706b72b6",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/HEAD": "1bcfa45532a872aaa311b97fd79edab6d069dfb7eda74fedc45f1cbf20d3411b",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/refs/heads/main": "1bcfa45532a872aaa311b97fd79edab6d069dfb7eda74fedc45f1cbf20d3411b",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/refs/remotes/origin/HEAD": "a7ab67aac5612f3333a0f414dbbe24620279ef0016dcd66141f947573ada6f72",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/refs/remotes/origin/main": "09185938d0ceb3c62a8d85edb427df849fb3f19e6b4087fa0a7d12fb458d1782",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/info/exclude": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/info/refs": "7f6a3776e3cafaf74d6fa0a10b369f8bcdada347fa746ea94f4d7954f6e08764",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/info/commit-graph": "f224c1e283575179712841f8b466a6b7a2d82eacc4ec28eac2f1e5bb58877b5a",
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/info/packs": "37cdb039f4672e97f87c0da0cb567b5861a5c7863f28c59fdc3999f5e61bdcc5"
+    },
+    "unlink_rows": [
+      {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908608",
+        "inode": 31883722,
+        "exact_pre_stat": {
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908608",
+          "device": 16777229,
+          "inode": 31883722,
+          "nlink": 2,
+          "logical_bytes": 6062084015,
+          "allocated_bytes": 6062084096,
+          "mode": 292,
+          "mtime_ns": 1793087204568442186,
+          "ctime_ns": 1793332270184331998
+        },
+        "intent_durable": true,
+        "unlink_observed": true
+      },
+      {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU",
+        "inode": 31883722,
+        "exact_pre_stat": {
+          "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU",
+          "device": 16777229,
+          "inode": 31883722,
+          "nlink": 1,
+          "logical_bytes": 6062084015,
+          "allocated_bytes": 6062084096,
+          "mode": 292,
+          "mtime_ns": 1793087204568442186,
+          "ctime_ns": 1793358112500811635
+        },
+        "intent_durable": true,
+        "unlink_observed": true
+      },
+      {
+        "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/913876",
+        "inode": 32240313,
+        "exact_pre_stat": {
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/913876",
+          "device": 16777229,
+          "inode": 32240313,
+          "nlink": 2,
+          "logical_bytes": 5767823372,
+          "allocated_bytes": 5771366400,
+          "mode": 292,
+          "mtime_ns": 1793347680517552757,
+          "ctime_ns": 1793347689208587202
+        },
+        "intent_durable": true,
+        "unlink_observed": true
+      },
+      {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_6GQXPP",
+        "inode": 32240313,
+        "exact_pre_stat": {
+          "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_6GQXPP",
+          "device": 16777229,
+          "inode": 32240313,
+          "nlink": 1,
+          "logical_bytes": 5767823372,
+          "allocated_bytes": 5771366400,
+          "mode": 292,
+          "mtime_ns": 1793347680517552757,
+          "ctime_ns": 1793358113276792284
+        },
+        "intent_durable": true,
+        "unlink_observed": true
+      }
+    ],
+    "failure": {
+      "type": "RuntimeError",
+      "message": "Git process observed; stop without changing it: ['49706 /Library/Developer/CommandLineTools/usr/bin/git']"
+    },
+    "statvfs_available_bytes_before": 314761744384,
+    "scope": "Only listed Git-reported temporary garbage and exact same-inode Drive names; no history/object/science/cache sweep."
+  },
+  "independent_read_only_postqualification": {
+    "schema": "SLIP-exact-git-garbage2-read-only-postqualification-v1",
+    "started_utc": "2026-10-30T11:04:26.888099+00:00",
+    "observed_utc": "2026-10-30T11:04:27.256658+00:00",
+    "retirement_process": {
+      "session_id": 25964,
+      "actual_exit_observed_by": "Root orchestration report",
+      "actual_exit_code": 1,
+      "original_completed_flag": false,
+      "original_failure": {
+        "type": "RuntimeError",
+        "message": "Git process observed; stop without changing it: ['49706 /Library/Developer/CommandLineTools/usr/bin/git']"
+      },
+      "scope": "This independent read-only postqualification does not rewrite the original exit or promote the original receipt to completed."
+    },
+    "original_failed_receipt_reference": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage2_Retirement_20261030.json.pending",
+      "sha256": "b248840ed520891d62f965f5c1d074e12187f21a82fae31ff754d175a1206eca",
+      "bytes": 5944
+    },
+    "operative_proof_reference": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage2_Operative_Admin_Proof_20261030.json",
+      "sha256": "bb430a658bfc26e62db5046883312d2ea60d1b8f46eb31b57d7277e6b397ddd3",
+      "bytes": 8588
+    },
+    "checks": {
+      "all_four_names_absent_before_after": true,
+      "protected_file_count_6040": true,
+      "protected_stat_digest_equals_operative_and_stable": true,
+      "all_16_critical_bytes_equal_operative_and_stable": true,
+      "git_garbage_zero": true,
+      "valid_indexed_pack_count_17": true,
+      "loose_inventory_count_5962": true,
+      "original_failed_receipt_unchanged": true,
+      "operative_proof_unchanged": true
+    },
+    "postqualification_passed": true,
+    "all_four_absences": {
+      "/Users/nanyoujiayu/Documents/.tmp.driveupload/908608": true,
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU": true,
+      "/Users/nanyoujiayu/Documents/.tmp.driveupload/913876": true,
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_6GQXPP": true
+    },
+    "protected_git_file_metadata": {
+      "count": 6040,
+      "expected_operative_sha256": "4a506f473e24a75399bc741e4627db73e3ab2e725a271f9b9c6f54cc9ef687ef",
+      "before_sha256": "4a506f473e24a75399bc741e4627db73e3ab2e725a271f9b9c6f54cc9ef687ef",
+      "after_sha256": "4a506f473e24a75399bc741e4627db73e3ab2e725a271f9b9c6f54cc9ef687ef",
+      "full_map_persisted": false
+    },
+    "critical_metadata": {
+      "count": 16,
+      "expected_sha_only_dictionary_sha256": "bb9ea497f94b644ecb8bec68fd20c91aa19df3be781a1319bd93bc37573e0928",
+      "actual_sha_only_dictionary_sha256": "bb9ea497f94b644ecb8bec68fd20c91aa19df3be781a1319bd93bc37573e0928",
+      "full_hashes_same_as_operative_reference": true
+    },
+    "valid_object_inventory": {
+      "logical_recovery_or_unreachable_objects_retired": false,
+      "loose_count": 5962,
+      "loose_names_and_stats_sha256": "a15919dc190a71bd5c332f7b7d488de8f98ff969a828ce8f181de003fceaaaf6",
+      "pack_companion_count": 46,
+      "pack_names": [
+        "pack-1a2771b8158e7bd20ed9f19eb76d3510ab029241.pack",
+        "pack-23fd9f0ced223aa4ca4891cdfd2fe5637e10d5e7.pack",
+        "pack-2724afc0bb48020a28a3c70d4ca76f1c5230dbfa.pack",
+        "pack-2cbfb311a6a12665d77bac38e7dcb109c7461702.pack",
+        "pack-3219d7e52245c62345d88454e927a9408adfb380.pack",
+        "pack-5a723401ba4ac3ea4bb89b76c1a20d626931268c.pack",
+        "pack-5fc16246cf48f7fcca122a7b27beafdd7e15d260.pack",
+        "pack-604bbe1b3583480c863cfd5fca77e8b2ea496ac8.pack",
+        "pack-c3df69a56792187697155d93519b5a872ca7e16b.pack",
+        "pack-c53564e912839e62d575c4785990e8892d8e410f.pack",
+        "pack-c66653fdee2526443d78cbafc73f5c60b985b54e.pack",
+        "pack-c6749df3b086cbe36bef58fa96004e32cb2ccef1.pack",
+        "pack-cb202864d5fcdfbccecc232d50ba38fb78022cd7.pack",
+        "pack-d3d2892226e333451039b85206e2210644084391.pack",
+        "pack-f8d28627792af6dc106e523e2b4be112360f1406.pack",
+        "pack-feae378b03cf7f3608b8aab902c809fbc472c724.pack",
+        "pack-ffcf4605c6860266565cec0ba5a4afffda6ebd49.pack"
+      ],
+      "pack_companion_names_and_stats_sha256": "d0ff10019abf051ab74ec904d0fa14b0929229add9416868a53aa32f15a22ec9",
+      "proof_scope": "Whole6040 protected-file exact stat digest equality proves names and metadata inventory unchanged, including valid packs/companions and loose objects. This stage performs no object payload decode or Git reconstruction."
+    },
+    "git_count_objects": {
+      "returncode": 0,
+      "stdout": "count: 5962\nsize: 13351904\nin-pack: 94773\npacks: 17\nsize-pack: 72402102\nprune-packable: 0\ngarbage: 0\nsize-garbage: 0\n",
+      "stderr": ""
+    },
+    "git_process_observations": {
+      "before": [],
+      "after": [],
+      "control_actions": [],
+      "scope": "A Git process is observed only; no producer/writer attribution or process control."
+    },
+    "git_lock_observations": {
+      "before": [],
+      "after": []
+    },
+    "space_measurement": {
+      "original_receipt_available_bytes_before": 314761744384,
+      "postqualification_available_bytes_before": 326582755328,
+      "postqualification_available_bytes_after": 326582755328,
+      "observed_volume_available_gain_bytes": 11821010944,
+      "observed_volume_available_gain_GiB": 11.009174346923828,
+      "expected_selected_unique_allocated_bytes_retired": 11833450496,
+      "scope": "Volume-wide available space observations include concurrent filesystem activity; they are separate from the exact selected-inode allocated-byte census."
+    },
+    "no_unlink_no_retry_no_git_mutation": true,
+    "elapsed_seconds": 0.3765471247024834,
+    "scope": "Only read-only postqualification of the already observed four unlinks. All valid indexed packs, loose/recovery objects, refs/reflogs/config/index and scientific files remain outside deletion scope."
+  },
+  "operative_input_and_reflog_qualification": {
+    "schema": "SLIP-exact-git-garbage2-operative-admin-proof-v1",
+    "read_only_inventory": true,
+    "started_utc": "2026-10-30T11:00:10.381546+00:00",
+    "observed_utc": "2026-10-30T11:00:14.744453+00:00",
+    "source_reference": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/retire_exact_git_garbage2_20261030.py.candidate",
+      "sha256": "21cfb326645369185cc4f256ab3f47fc00c031bfdbb11b86068f7a95a89d1212",
+      "bytes": 14017
+    },
+    "manifest_reference": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage2_Closed_Opaque_Manifest_20261030.json",
+      "sha256": "2165c937de5f6eaa507be312dbcd7e67fa8fa49a0cb2be31cee23bf6422849fd",
+      "bytes": 10242
+    },
+    "historical_baseline_initial_refusal": {
+      "literal_check_failed": true,
+      "reason": "Historical protected stat digest and origin/HEAD reflog bytes differ from current. No cleanup was invoked; original manifest remains unchanged.",
+      "historical_protected_digest": "f22a5ac388d12724a02cc49f03be4d3ad366e74480a606feb20ea729ba868ddc",
+      "current_protected_digest": "4a506f473e24a75399bc741e4627db73e3ab2e725a271f9b9c6f54cc9ef687ef",
+      "historical_critical_entries": 15,
+      "current_critical_entries": 16,
+      "additional_current_critical_path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/info/exclude",
+      "additional_path_scope": "The historical census enumerated info/refs explicitly; this does not establish when info/exclude was created or changed."
+    },
+    "reflog_append": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/refs/remotes/origin/HEAD",
+      "historical_bytes": 224694,
+      "current_bytes": 224849,
+      "exact_old_prefix_sha256": "95520420bff59d6e965b63bee2a87c164c3d08bc6f40c52fb26b228ff2e4219e",
+      "historical_sha256": "95520420bff59d6e965b63bee2a87c164c3d08bc6f40c52fb26b228ff2e4219e",
+      "old_prefix_exact": true,
+      "appended_bytes": 155,
+      "tail_ends_with_newline": true,
+      "complete_appended_records": [
+        {
+          "old_oid": "1ad4e1825fcd3bea467b87eaf6810c95b4b29831",
+          "new_oid": "1ad4e1825fcd3bea467b87eaf6810c95b4b29831",
+          "unix_timestamp": 1793357690,
+          "timezone": "-0400",
+          "action": "remote set-head",
+          "complete_record_sha256": "b9dcf5b333e407298b2829a10508ee062f2f04c241ab0090210032d46af85513"
+        }
+      ],
+      "current_HEAD_oid": "1ad4e1825fcd3bea467b87eaf6810c95b4b29831",
+      "current_remote_HEAD_oid": "1ad4e1825fcd3bea467b87eaf6810c95b4b29831",
+      "all_appended_old_and_new_equal_current_HEAD": true,
+      "all_appended_old_and_new_equal_current_remote_HEAD": true,
+      "attribution": "Only a complete reflog append is established; producer attribution is not inferred."
+    },
+    "fresh_protected_git_metadata": {
+      "count": 6040,
+      "before_sha256": "4a506f473e24a75399bc741e4627db73e3ab2e725a271f9b9c6f54cc9ef687ef",
+      "after_sha256": "4a506f473e24a75399bc741e4627db73e3ab2e725a271f9b9c6f54cc9ef687ef",
+      "full_map_persisted": false,
+      "stable_twice": true
+    },
+    "fresh_critical_metadata_hashes": {
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/HEAD": {
+        "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+        "bytes": 21
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/index": {
+        "sha256": "da5c4a5c08f2e98d0e663c404b081b8c2b46e9f60e4bf2c51953452ef1e756d0",
+        "bytes": 170109
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/config": {
+        "sha256": "b8e42c2444a37d7cd53a0680cc276203a80e1c948db0a0f77172be8ffcf2f3c9",
+        "bytes": 370
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/ORIG_HEAD": {
+        "sha256": "aae0ef99611d09e1a88de05147293bb3822513689f35cf5de3e7ce0adc97ab40",
+        "bytes": 41
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/FETCH_HEAD": {
+        "sha256": "9e6642b52a7d107426fb9d965830187209edc857d6575ecbf5742ebb5e1a877a",
+        "bytes": 101
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/heads/main": {
+        "sha256": "2ed26d5d7a0ac5bcb79485920e0bd2801c59e70a9c1466aa24926fde706b72b6",
+        "bytes": 41
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/remotes/origin/HEAD": {
+        "sha256": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4",
+        "bytes": 30
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/refs/remotes/origin/main": {
+        "sha256": "2ed26d5d7a0ac5bcb79485920e0bd2801c59e70a9c1466aa24926fde706b72b6",
+        "bytes": 41
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/HEAD": {
+        "sha256": "1bcfa45532a872aaa311b97fd79edab6d069dfb7eda74fedc45f1cbf20d3411b",
+        "bytes": 1042
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/refs/heads/main": {
+        "sha256": "1bcfa45532a872aaa311b97fd79edab6d069dfb7eda74fedc45f1cbf20d3411b",
+        "bytes": 1042
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/refs/remotes/origin/HEAD": {
+        "sha256": "a7ab67aac5612f3333a0f414dbbe24620279ef0016dcd66141f947573ada6f72",
+        "bytes": 224849
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/logs/refs/remotes/origin/main": {
+        "sha256": "09185938d0ceb3c62a8d85edb427df849fb3f19e6b4087fa0a7d12fb458d1782",
+        "bytes": 656
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/info/exclude": {
+        "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+        "bytes": 240
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/info/refs": {
+        "sha256": "7f6a3776e3cafaf74d6fa0a10b369f8bcdada347fa746ea94f4d7954f6e08764",
+        "bytes": 381
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/info/commit-graph": {
+        "sha256": "f224c1e283575179712841f8b466a6b7a2d82eacc4ec28eac2f1e5bb58877b5a",
+        "bytes": 2192
+      },
+      "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/info/packs": {
+        "sha256": "37cdb039f4672e97f87c0da0cb567b5861a5c7863f28c59fdc3999f5e61bdcc5",
+        "bytes": 796
+      }
+    },
+    "fresh_critical_metadata_hashes_after_sha256": "b16e830b0316ac325eb56ea028d7a59bcc430e20140a7059d69dd934e7a963bb",
+    "fresh_critical_sha_only_dictionary_sha256": "bb9ea497f94b644ecb8bec68fd20c91aa19df3be781a1319bd93bc37573e0928",
+    "fresh_critical_metadata_stable_twice": true,
+    "selected_rows": [
+      {
+        "git_path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU",
+        "garbage_sha256": "8459e802d7fba8e5968c80bf02631005e62f76f7e914f737301002dbd963b5ff",
+        "all_manifest_stat_rows_equal": true,
+        "exact_names": [
+          "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_Ts7jbU",
+          "/Users/nanyoujiayu/Documents/.tmp.driveupload/908608"
+        ]
+      },
+      {
+        "git_path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_6GQXPP",
+        "garbage_sha256": "08dbc4fe2da6a13f13d681cdb5cd895d5f8636a884ba6a4c7a8977687bb8834f",
+        "all_manifest_stat_rows_equal": true,
+        "exact_names": [
+          "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/.git/objects/pack/tmp_pack_6GQXPP",
+          "/Users/nanyoujiayu/Documents/.tmp.driveupload/913876"
+        ]
+      }
+    ],
+    "exact_alias_closure": true,
+    "closed_observation_before": {
+      "git_processes": [],
+      "git_locks": [],
+      "lsof_returncode": 1,
+      "lsof_stdout": "",
+      "lsof_stderr": ""
+    },
+    "closed_observation_after": {
+      "git_processes": [],
+      "git_locks": [],
+      "lsof_returncode": 1,
+      "lsof_stdout": "",
+      "lsof_stderr": ""
+    },
+    "git_count_objects": {
+      "stdout": "count: 5962\nsize: 13351904\nin-pack: 94773\npacks: 17\nsize-pack: 72402102\nprune-packable: 0\ngarbage: 2\nsize-garbage: 11552643\n",
+      "stderr": "warning: garbage found: .git/objects/pack/tmp_pack_Ts7jbU\nwarning: garbage found: .git/objects/pack/tmp_pack_6GQXPP\n",
+      "exact_two_garbage_names": true
+    },
+    "eligible_unique_allocated_bytes": 11833450496,
+    "no_unlink_or_git_mutation": true,
+    "elapsed_seconds": 4.386258999817073,
+    "scope": "Only the exact two Git-reported garbage temporary inodes and their four listed names. All valid indexed packs, loose/recovery objects and other uploads remain protected. The helper captures a fresh baseline; historical drift is not relabeled unchanged. These are cooperative-boundary observations, not an atomic lock or future closure guarantee."
+  },
+  "input_references": {
+    "original_outcome": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage2_Retirement_20261030.json.pending",
+      "sha256": "b248840ed520891d62f965f5c1d074e12187f21a82fae31ff754d175a1206eca",
+      "bytes": 5944
+    },
+    "postqualification": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage2_Postqualification_20261030.json",
+      "sha256": "348e798d516562b702c81fab9eb02b264921eff13802f2ddab1c75c1097b0be1",
+      "bytes": 5806
+    },
+    "operative_proof": {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Git_Garbage2_Operative_Admin_Proof_20261030.json",
+      "sha256": "bb430a658bfc26e62db5046883312d2ea60d1b8f46eb31b57d7277e6b397ddd3",
+      "bytes": 8588
+    }
+  },
+  "scope": "Exactly two Git-reported temporary garbage packs and their two exact same-inode upload staging partners. All indexed packs, loose and anonymous recovery objects, working files and numerical results are outside the deletion scope.",
+  "status": "All four names removed and remaining protected Git state independently verified; original process failure is not rewritten."
+}

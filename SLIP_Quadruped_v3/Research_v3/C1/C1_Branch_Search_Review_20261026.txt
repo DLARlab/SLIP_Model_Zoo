@@ -1,0 +1,149 @@
+C1 BRANCH SEARCH REVIEW — 26 OCTOBER 2026
+
+Conclusion
+
+The branch search has produced substantial partial curves and compact solution files. It has not produced a complete native C1 graph, full P1/v2 range coverage, or verified GG/GE attachments. The repeated failure to finish has both a workflow cause and a scientific cause. A bounded local continuation experiment was repeatedly closed and audited without a persistent controller that finishes every component frontier and requested range. Meanwhile, near-grazing/contact constraints obstruct the familiar long-PK route and the v2 scheduled trajectories have not been shown equivalent to native v3 event trajectories.
+
+Naming throughout: H=hind spread/fore synchronized; F=fore spread/hind synchronized.
+
+Earlier summaries emphasized the latest small owned run and the absence of complete branches. That understated the larger partial results already available. The latest PK file contains38 records:37 form a connected component with36 edges, and one imported initializer is isolated. It is not the entire PK result.
+
+1. Files already present
+
+The exact requested filename already exists:
+  SLIP_Quadruped_v3/P1_Single_Flight_Phase_Continua/C1_PK_10_20_2.mat
+
+A fresh native MATLAB inspection confirms 177 stored records in 39 components. It is an aggregate of components and samples, not one complete connected PK branch. Its recomputed native mechanical-energy range is 1.0616849921030107–8.866263393418013 and signed mean-velocity range is -0.7392741092818013–3.9502901972713302. The latest research PK38 numerical record is absent from it. The file is an older publication, not a current export of all Research results.
+
+The other direct MAT publications in that V3 P1 folder are C1_PIP_10_20_2.mat (18 records/6 components) and C1_USBL1_10_20_2.mat (1 record/1 component). BG/BE/FG/FE/HG/HE have newer partial research stores but have not been coherently installed as current canonical P1 files. No GG/GE family occurrence was identified in this compact-store census.
+
+Research_v3/C1/Results already implements compact storage: one MAT file contains individually loadable solution_NNNNNN/report_NNNNNN variables, provenance and explicit edges. A partial component can be stored and viewed without first completing the entire family or its bifurcations. Canonical twenty-speed-level naming is an additional publication qualification; it should not block saving or delivering clearly marked partial components.
+
+Today's native saved-store inventory completed for 121 compact branch files: 102 nonempty and 19 empty trial stores. It read 913 stored occurrences and 626 explicit stored edges. These are occurrences, including repeated/imported records, not 913 distinct physical cycles or 626 freshly fine-qualified links. The read-only census performed no integration, correction or reclassification. Historical labels and acceptance/fine limitations remain attached to the original records.
+
+2. Why even PK has not finished
+
+A. There is no end-to-end range-completion controller.
+RunC1Continuation_v3 extends one selected component in one selected direction. Its stopping conditions include accepted-point cap, attempt cap, minimum step, child/time allocation and exception. It does not stop on a verified P1-range completion condition and does not automatically queue both ends of every unresolved component. RunC1Campaign_v3 similarly executes a selected stage, rather than owning a global PK work queue.
+
+The latest PK checkpoint confirms status attempt_cap: it began with 35 points, made five attempts (three accepted and two failed_full_closure), and ended with 38. All five attempt rows were timely. The archived Fresh5 caller explicitly allows only MaxAttempts=5 and MaxAccepted=5, despite a 4200-second outer/3600-second inner allocation. Reaching that cap is not reaching a physical branch endpoint.
+
+The latest wrappers do resume the same output and preserve earlier points; it would be incorrect to say every run starts from scratch. The gap is the absence of a persistent until-range/endpoint controller above those bounded experiments.
+
+B. Recent PK work mostly revisits an existing energy window.
+The older stored long-PK component already spans approximately E=9.92546–31.12747. The newest 38-point file ends at E=31.12423827, and the independently qualified positive-clearance roots approach E=31.12746015. Thus those experiments refined/qualified a window already represented in older stored data. They did not extend the overall stored PK energy maximum toward the P1 reference target near208.891. This is a comparison of stored ranges, not proof that every overlapping record is the same physical cycle.
+
+C. There is a real near-grazing difficulty, but no proved endpoint.
+The latest owned PK37/38 have local pre-contact swing clearances about8.04e-5 and3.50e-5. Independent square-root solves reached positive clearance targets1e-5,1e-6,3e-7,1e-7. Failed continuation attempts included exhausted admissible-domain Newton fractions and unavailable finite real square Jacobians. These are concrete local obstructions. They do not prove a terminal branch endpoint or that no alternative native route exists.
+
+D. Familiar v2 PK is not automatically the same admissible hybrid branch.
+V2 reference shooting integrates prescribed event segments to supplied times. Native v3 follows directed enabled roots and checks swing nonpenetration/compressive stance. Selected reference states either fail initial native admissibility or encounter native contact earlier than the scheduled reference. The state/leg/time roles were checked without finding a conversion fix that resolves those selected cases. Full P1 range/topology inheritance remains unverified. The physical law must not be relaxed to force the expected picture.
+
+E. Scientific qualification and bookkeeping were allowed to dominate progress reporting.
+Some budget went to parent/daughter acquisitions, derivative diagnostics, source/serialization repairs and broad retention/publication audits rather than range extension. Whole-file transactional copies and repeated deep readbacks are also real implementation costs. No timing profile establishes their exact share, so a numerical percentage would be invented. Several earlier final censuses timed out. Today's smaller-purpose storage census now exposes substantial existing partial components without claiming new scientific qualification.
+
+The workflow should have delivered a component atlas and current partial branch package earlier, while keeping complete-range and bifurcation work explicitly separate.
+
+3. Pieces that already share stored points
+
+The audit found54 cross-file shared-record groups under conservative checks: exact numerical record identity, equal normalized initial state/parameters/mode/period, complete compatible return evidence and equal stored chart/configuration serialization. Existing edges can be assembled through these equalities without inventing a new physical edge. They are storage-graph connections, not new bifurcations or fresh fine validation. Numerical record counts below are not unique physical-cycle counts.
+
+Representative joined partial components:
+  family       distinct numerical records       recorded E range
+  PK short              93                       1.117158–8.875605
+  PK long               72                       9.925460–31.127473
+  BG                    46                      18.271501–22.641982
+  BE                    38                      18.102102–21.178171
+  FG                    39                      17.651452–19.964859
+  FE                    24                      18.271101–21.377353
+  HG                    18                      18.271631–19.355516
+  HE                    55                      15.767245–18.244046
+
+These are representative components, not totals per family and not complete ranges. Some historical tips have disputed or failed independent fine support; assembling their storage graph does not remove those limitations. No saved GG/GE family occurrence was identified in this compact-store label census. Mixed G/GM records remain separate and are not GG/GE.
+
+Specific existing assemblies, all filenames relative to Research_v3/C1/Results:
+
+PK short (93 numerical records across four stores):
+  C1_PK_short_inward.mat
+  C1_Short_PK_outward.mat
+  C1_Short_PK_Controls.mat
+  C1_Short_PK_Common_Angle_Control_20261023.mat
+
+PK long (72 numerical records across four stores):
+  C1_PK_long_outward.mat
+  branch_006_PK_upper_tail.mat
+  branch_014_PK_lower_direction.mat
+  branch_018_positive_PK_original_owned.mat
+
+BG (46 numerical records):
+  C1_Primary_B_Bpos_qhalf_20261022_01_PAL_20261022.mat
+  C1_Primary_B_Contraction_20261022.mat
+
+BE (38 numerical records):
+  C1_Primary_B_Bneg_qhalf_20261022_01_PAL_20261022.mat
+  C1_Primary_B_Contraction_20261022.mat
+A separate BE component joins C1_BE_finite_outward_20.mat to branch_016_BE_own_pair_18_links.mat (21 numerical records).
+
+FG (39 numerical records):
+  C1_Positive_FG.mat
+  C1_Positive_FG_away_primary.mat
+  C1_Positive_FG_higher_velocity.mat
+  C1_Positive_FG_further_outward.mat
+
+HG/HE:
+  branch_015_H_own_pair_28_links.mat contains different saved family portions.
+  Its HG portion shares records with branch_020_recorded_HG_strip.mat.
+  Its HE portion joins branch_022_H_owned_committed_tail_closed.mat and C1_HE_QR_range_probe.mat (55 numerical records).
+No inter-family bifurcation is inferred by pooling those portions.
+
+4. Additional promising seams, not silently joined
+
+FE has a particularly strong overlap. branch_025_FE_ext05_23_own_links_closed.mat point25 and C1_Far_FE_FarFEQualifiedPAL23_01_PAL_20261023.mat point2 have exactly equal translation-normalized initial states and equal parameters/modes. Their periods differ by only3.135269821541442e-13. The existing MatchingReturnSection_v3 helper confirms compatible declared sections and complete equal actual return configurations. The far-FE piece reaches E22.81170928. This is a strong numerical-alias seam for assembling a longer partial FE result. Original record IDs and qualification receipts should be preserved; no new physical edge or revalidation was performed here.
+
+The newer owned-PK file and older long-PK file also have compatible actual return sections/configurations. One compared pair (new37/old30) differs by about1.03e-5 in scaled full section state and3.05e-6 in period, at slightly different energies. It is a useful overlap/bridge candidate, but it is not an identical stored point. A shared corrected point or explicit admitted bridge is still required.
+
+Important technical distinction: the conservative census key includes the whole cached chart. The explicit seam checks use MatchingReturnSection_v3's required semantic fields. Both PK and FE checks pass despite unequal cached chart structs. Therefore the seam comparison's strict serialization-equality=false must not be read as actual return-policy incompatibility. Exact-ID matching also distinguishes periods differing at roundoff. These mechanisms can fragment bookkeeping even when a seam is numerically very strong.
+
+Short-PK and long-PK remain separate assembled components. The reported energy ranges leave an unbridged window; neither range proximity nor a period ratio establishes their attachment. GG/GE still require actual acquisition and verified FG/HE attachments.
+
+5. Recommended next execution scope
+
+First publish a clearly partial component package from existing stored records/edges, with shared-point aliases and per-point qualification retained. Do not wait for the whole C1 network to finish before delivering those useful branch files.
+
+Use PK as a controlled completion target. Maintain one persistent frontier ledger per component and direction with target range, last admitted point, step, event signature, obstruction and exact stopping reason. Automatically resume local capped runs while the authorized budget remains and progress is justified. Treat point/attempt caps as scheduler yields, not branch completion.
+
+Resolve the short/long gap and the older/newer long-PK overlap explicitly. Diagnose the near-grazing frontier under the unchanged contact law. Then extend remaining ranges, and verify bifurcations as separate claims. Profile repeated archive/readback/serialization costs and keep small incremental receipts rather than repeatedly rebuilding a whole research census. Preserve root-solving-only correction.
+
+6. Reproducible evidence and loading
+
+Current native inventory and all exact shared-point lists:
+  Audits/C1_Branch_Storage_Verified_Report_20261026.mat
+  Audits/C1_Branch_Storage_Verified_Report_20261026.json
+  Audits/C1_Branch_Storage_Verified_Report_20261026.txt
+Compact key facts and checkpoint attempt rows:
+  Audits/C1_Branch_Report_Key_Facts_20261026.mat/.json
+Stored proximity and semantic compatibility checks:
+  Audits/C1_Stored_Seam_Comparison_20261026.mat/.json
+  Audits/C1_Stored_Seam_Compatibility_20261026.mat
+
+The full-census producer wrote an intact native MAT, then failed JSON encoding of complex historical provenance. A separate native saved-data recovery double-loaded that MAT, rechecked every source file hash, encoded complex values explicitly for JSON and completed with actual process exit0. The original failed producer was not upgraded. Earlier schema-reader failures and corrected sources remain in Root_Branch_Report_Driver_Repair_20261026.json. No scientific branch store was modified during this report.
+
+Canonical loading:
+  d=load(fullfile(V3Root_v3(),'P1_Single_Flight_Phase_Continua','C1_PK_10_20_2.mat'),'solutions','branch');
+  indices=d.branch.components(componentNumber).record_indices;
+  orbit=d.solutions{indices(pointWithinComponent)};
+Research loading:
+  ix=BranchSolutionFile_v3.index(branchFile);
+  [orbit,report,metadata]=BranchSolutionFile_v3.loadSolution(branchFile,pointIndex);
+  % ix.edges contains explicit stored links; loading creates no admission.
+
+Source references:
+  Research_v3/C1/RunC1Continuation_v3.m:55,104,284,301,317
+  Research_v3/C1/RunC1Campaign_v3.m:1
+  4_Solution_Management/BuildNamedContinuumDataset_v3.m:1,53,99
+  4_Solution_Management/BranchSolutionFile_v3.m:73,114
+  4_Solution_Management/MatchingReturnSection_v3.m:1
+  Research_v3/C1/Archive/C1_Exact_Working_Set_20261026.zip ::
+    .work_20261024/BS/PK_Owned_Range_Fresh_Fine_RootOnly/LabelContract02/RunOwnedPKRootOnlyFreshStepFineResume20261025_v3.m:138–148
+
+Snapshot caveat: old-timestamp pending checkpoint copies are currently present in Results and were excluded from all branch counts. Their origin was not established in this read-only report. They were not treated as solutions or deleted to hide a prior failure. The previous empty-pending statement belongs to its earlier filesystem snapshot.

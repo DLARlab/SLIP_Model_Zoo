@@ -1,0 +1,2564 @@
+{
+  "schema": "FIVE_RELEASED_ARCHIVES_RETIREMENT_1",
+  "closed_worker_boundary": true,
+  "created_utc": "2026-10-30T09:46:28.930508+00:00",
+  "release_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Five_Historical_Archives_FIRST_LastUse_Release_20261030.json",
+    "sha256": "ae0d70c0c76f75a157b758b4c829f15abe0a342fb74ae8c49f91bdcda79fb30a",
+    "bytes": 52129
+  },
+  "selected": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Recoverable_Previous_Archives_20261026.zip",
+      "sha256": "dc8d6ed6abd4cb9c9c1a85e3337439e3e26362a2cfbbfcf5b5e8549f82372486",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Recoverable_Previous_Archives_20261026.zip",
+        "device": 16777229,
+        "inode": 31742595,
+        "nlink": 2,
+        "bytes": 22024408328,
+        "allocated_bytes": 22024409088,
+        "mode": 33152,
+        "mtime_ns": 1792991938287338895,
+        "ctime_ns": 1793331999464581521
+      },
+      "upload_partners": [
+        {
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/906353",
+          "device": 16777229,
+          "inode": 31742595,
+          "nlink": 2,
+          "bytes": 22024408328,
+          "allocated_bytes": 22024409088,
+          "mode": 33152,
+          "mtime_ns": 1792991938287338895,
+          "ctime_ns": 1793331999464581521
+        }
+      ]
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Previous_Audit_Artifacts_20261026.zip",
+      "sha256": "31cc81399b12ca07b1a120ac29e197e49146e86ec2f0f1e5ebafd628750c1df2",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Previous_Audit_Artifacts_20261026.zip",
+        "device": 16777229,
+        "inode": 31747727,
+        "nlink": 1,
+        "bytes": 4453137806,
+        "allocated_bytes": 4453138432,
+        "mode": 33152,
+        "mtime_ns": 1792994934129419962,
+        "ctime_ns": 1793034366505721554
+      },
+      "upload_partners": []
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Superseded_Branch_Stores_20261026.zip",
+      "sha256": "ce179f5878ee6d5b1936cc28d453090259e3822eff84d2083fcffc20187fbc8d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Superseded_Branch_Stores_20261026.zip",
+        "device": 16777229,
+        "inode": 31817205,
+        "nlink": 2,
+        "bytes": 3962772043,
+        "allocated_bytes": 3962773504,
+        "mode": 33188,
+        "mtime_ns": 1793041233903945931,
+        "ctime_ns": 1793331959661388332
+      },
+      "upload_partners": [
+        {
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/908758",
+          "device": 16777229,
+          "inode": 31817205,
+          "nlink": 2,
+          "bytes": 3962772043,
+          "allocated_bytes": 3962773504,
+          "mode": 33188,
+          "mtime_ns": 1793041233903945931,
+          "ctime_ns": 1793331959661388332
+        }
+      ]
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Previous_Components_20261029.zip",
+      "sha256": "6bb4dc3acc587a5c1a0b9b833f9e944a6609c280868b2f5f144765c77111258a",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Previous_Components_20261029.zip",
+        "device": 16777229,
+        "inode": 32113871,
+        "nlink": 2,
+        "bytes": 3381902690,
+        "allocated_bytes": 3381903360,
+        "mode": 33188,
+        "mtime_ns": 1793248504402624324,
+        "ctime_ns": 1793331964223872133
+      },
+      "upload_partners": [
+        {
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911574",
+          "device": 16777229,
+          "inode": 32113871,
+          "nlink": 2,
+          "bytes": 3381902690,
+          "allocated_bytes": 3381903360,
+          "mode": 33188,
+          "mtime_ns": 1793248504402624324,
+          "ctime_ns": 1793331964223872133
+        }
+      ]
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic03_20261027.zip",
+      "sha256": "758ea19923cd940deed68dd35a94b94e34a3e72b19fef7636c8d8418dd279dfb",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic03_20261027.zip",
+        "device": 16777229,
+        "inode": 32012683,
+        "nlink": 2,
+        "bytes": 2391872831,
+        "allocated_bytes": 2391875584,
+        "mode": 33152,
+        "mtime_ns": 1793191951185155239,
+        "ctime_ns": 1793331970980698486
+      },
+      "upload_partners": [
+        {
+          "path": "/Users/nanyoujiayu/Documents/.tmp.driveupload/911280",
+          "device": 16777229,
+          "inode": 32012683,
+          "nlink": 2,
+          "bytes": 2391872831,
+          "allocated_bytes": 2391875584,
+          "mode": 33152,
+          "mtime_ns": 1793191951185155239,
+          "ctime_ns": 1793331970980698486
+        }
+      ]
+    }
+  ],
+  "protected": [
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_Extended_MergedBExtended01_Batch_14_20261030.mat",
+      "sha256": "7208e6a1c15ccc2c72f1620739f6791bf8f90298bacf5c26a48ef54288aa9dec",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_Extended_MergedBExtended01_Batch_14_20261030.mat",
+        "device": 16777229,
+        "inode": 32235841,
+        "nlink": 2,
+        "bytes": 31850,
+        "allocated_bytes": 32768,
+        "mode": 33188,
+        "mtime_ns": 1793344263664129835,
+        "ctime_ns": 1793344264834138159
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Persistent_Frontiers_20261026.mat",
+      "sha256": "be4581c3b09102d10ad95d5c4b8a11b208f646c62c47ef52d57b24b2ce5a624f",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Persistent_Frontiers_20261026.mat",
+        "device": 16777229,
+        "inode": 32235575,
+        "nlink": 3,
+        "bytes": 101380997,
+        "allocated_bytes": 101384192,
+        "mode": 33188,
+        "mtime_ns": 1793343943126949907,
+        "ctime_ns": 1793343957583779382
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Connected_PK_PKConnected03_20261029/C1_PK_Component_0001.mat",
+      "sha256": "537e0f43d1cf03dcc6e3cec0617c566f74b494433e80f08475ad1b55f6906361",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Connected_PK_PKConnected03_20261029/C1_PK_Component_0001.mat",
+        "device": 16777229,
+        "inode": 32235223,
+        "nlink": 3,
+        "bytes": 750692336,
+        "allocated_bytes": 750694400,
+        "mode": 33188,
+        "mtime_ns": 1793343535828722078,
+        "ctime_ns": 1793343577769179197
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ObserveC1PKExtendedBFrontier20261030.m",
+      "sha256": "173b756f8333e54516686846858c60dc777c71b2e38b98e41f7507dc79c8aa99",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ObserveC1PKExtendedBFrontier20261030.m",
+        "device": 16777229,
+        "inode": 32193690,
+        "nlink": 2,
+        "bytes": 60783,
+        "allocated_bytes": 61440,
+        "mode": 33060,
+        "mtime_ns": 1793314453386669183,
+        "ctime_ns": 1793331999560501859
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adoption.mat",
+      "sha256": "3f7268d5c67a485601245745bc0930dd2f841ff040f5ad2d1eb782b958193398",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adoption.mat",
+        "device": 16777229,
+        "inode": 32188719,
+        "nlink": 2,
+        "bytes": 68119,
+        "allocated_bytes": 69632,
+        "mode": 33188,
+        "mtime_ns": 1793313577366525071,
+        "ctime_ns": 1793331945599365246
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ExperimentC1PKLargerStepPilot20261030.m.candidate",
+      "sha256": "970c92b133998292ca7018596c7f62413bb7184e0fdfe920ff1d24efb47665cd",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ExperimentC1PKLargerStepPilot20261030.m.candidate",
+        "device": 16777229,
+        "inode": 32243285,
+        "nlink": 2,
+        "bytes": 63553,
+        "allocated_bytes": 65536,
+        "mode": 33060,
+        "mtime_ns": 1793348243433990807,
+        "ctime_ns": 1793348244658188365
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ExperimentC1PKLargerStepPilot20261030_Source_Proof.json",
+      "sha256": "818971218ef8f1370ad6f6eab5173bedfbd2d15b416e3531f4eb98f04b040791",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ExperimentC1PKLargerStepPilot20261030_Source_Proof.json",
+        "device": 16777229,
+        "inode": 32243288,
+        "nlink": 2,
+        "bytes": 20308,
+        "allocated_bytes": 20480,
+        "mode": 33060,
+        "mtime_ns": 1793348340808656546,
+        "ctime_ns": 1793348342048358500
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_Extended_MergedBExtended01_Batch_14_20261030.json",
+      "sha256": "4be1b788e9d55c8851e4c1177c2e852239af7221212c8e860445bdacc84562bc",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_Extended_MergedBExtended01_Batch_14_20261030.json",
+        "device": 16777229,
+        "inode": 32235842,
+        "nlink": 2,
+        "bytes": 92773,
+        "allocated_bytes": 94208,
+        "mode": 33188,
+        "mtime_ns": 1793344263672479565,
+        "ctime_ns": 1793344264830415487
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_Extended_MergedBExtended01_Batch_14_20261030.raw.mat",
+      "sha256": "6c0a3ab05e49966384c2ad1e581b1d320e3ff434e9398269cd0f248e23360741",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_Extended_MergedBExtended01_Batch_14_20261030.raw.mat",
+        "device": 16777229,
+        "inode": 32235627,
+        "nlink": 2,
+        "bytes": 101381705,
+        "allocated_bytes": 101384192,
+        "mode": 33188,
+        "mtime_ns": 1793343980233517665,
+        "ctime_ns": 1793344006893583015
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Merged_B_Extended_MergedBExtended01_Batch14_20261030.log",
+      "sha256": "502e0b8174792be60f7751a77de40fb44394998576cbec03629e240ec0c10199",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Merged_B_Extended_MergedBExtended01_Batch14_20261030.log",
+        "device": 16777229,
+        "inode": 32234017,
+        "nlink": 2,
+        "bytes": 19261,
+        "allocated_bytes": 20480,
+        "mode": 33188,
+        "mtime_ns": 1793344289567925032,
+        "ctime_ns": 1793344291330212152
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Merged_B_Extended_MergedBExtended01_Batch14_20261030_Launch_Packet.json",
+      "sha256": "3b74b622bd2dae62b62925870d52614419f7d14bd8a58939ded12ab4b358120a",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Merged_B_Extended_MergedBExtended01_Batch14_20261030_Launch_Packet.json",
+        "device": 16777229,
+        "inode": 32233268,
+        "nlink": 2,
+        "bytes": 102842,
+        "allocated_bytes": 106496,
+        "mode": 33060,
+        "mtime_ns": 1793341910933282325,
+        "ctime_ns": 1793341912359982716
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0002.mat",
+      "sha256": "0118ade91fa17b3076b77d612e0e8e2ea7137f46cb3b10e8d0721fe3ad59638d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0002.mat",
+        "device": 16777229,
+        "inode": 31811268,
+        "nlink": 1,
+        "bytes": 65518997,
+        "allocated_bytes": 65519616,
+        "mode": 33188,
+        "mtime_ns": 1793035522884102890,
+        "ctime_ns": 1793066876457675233
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0092.mat",
+      "sha256": "5fed252758ce9e72d26c3fb716c014e9a194a1b4d8b28f4d2615cfd9cbbe84a9",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0092.mat",
+        "device": 16777229,
+        "inode": 31815604,
+        "nlink": 1,
+        "bytes": 3519185,
+        "allocated_bytes": 3522560,
+        "mode": 33188,
+        "mtime_ns": 1793039730235470094,
+        "ctime_ns": 1793069985784198352
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0093.mat",
+      "sha256": "97f46c31c8f6f4a25429ad65106e905395b25d2fc470a0963e44cd90c7bf58f1",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0093.mat",
+        "device": 16777229,
+        "inode": 31815623,
+        "nlink": 1,
+        "bytes": 76672415,
+        "allocated_bytes": 76673024,
+        "mode": 33188,
+        "mtime_ns": 1793039754722625794,
+        "ctime_ns": 1793071903463248701
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0176.mat",
+      "sha256": "bae7f4870cc8a395b27d212851d2238ea04e9a24bfc54978683222419639df47",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BE_Component_0176.mat",
+        "device": 16777229,
+        "inode": 31815884,
+        "nlink": 1,
+        "bytes": 4787645,
+        "allocated_bytes": 4788224,
+        "mode": 33188,
+        "mtime_ns": 1793040026266655086,
+        "ctime_ns": 1793070274390955217
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0001.mat",
+      "sha256": "971ab63b13a0c49763b89946eaf86b065b22e16ca220a2fb7fbd17e69cccc417",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0001.mat",
+        "device": 16777229,
+        "inode": 31811043,
+        "nlink": 1,
+        "bytes": 42791505,
+        "allocated_bytes": 42795008,
+        "mode": 33188,
+        "mtime_ns": 1793035444283488342,
+        "ctime_ns": 1793065839301514971
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0078.mat",
+      "sha256": "6745b6f0d86f0cd628e7b0c93edae13cdbd752b9f2576da953551c859a8b4e7a",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0078.mat",
+        "device": 16777229,
+        "inode": 31815473,
+        "nlink": 1,
+        "bytes": 8278840,
+        "allocated_bytes": 8282112,
+        "mode": 33188,
+        "mtime_ns": 1793039604978843086,
+        "ctime_ns": 1793069943861960428
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0094.mat",
+      "sha256": "54acf3f03ac089a679b9e9ebf9dbfe1360cc761bc91753764544038f71f255d3",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0094.mat",
+        "device": 16777229,
+        "inode": 31815677,
+        "nlink": 1,
+        "bytes": 3518578,
+        "allocated_bytes": 3522560,
+        "mode": 33188,
+        "mtime_ns": 1793039811299056426,
+        "ctime_ns": 1793069985783704888
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0095.mat",
+      "sha256": "76a8f338e95686e41e1f79566ed54c4e08a4446a4a3be6330dab38af1de4a769",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0095.mat",
+        "device": 16777229,
+        "inode": 31815692,
+        "nlink": 1,
+        "bytes": 99074256,
+        "allocated_bytes": 99078144,
+        "mode": 33188,
+        "mtime_ns": 1793039843533280767,
+        "ctime_ns": 1793070620780983552
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0165.mat",
+      "sha256": "75f3be7e18de303c4505182ee6536978551b9b2879dc5382fdec01dbb8820cda",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_BG_Component_0165.mat",
+        "device": 16777229,
+        "inode": 31815789,
+        "nlink": 1,
+        "bytes": 67313858,
+        "allocated_bytes": 67317760,
+        "mode": 33188,
+        "mtime_ns": 1793039939317405985,
+        "ctime_ns": 1793071305117434358
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FE_Component_0007.mat",
+      "sha256": "83a547a9fc20bce7b89db20d032dbd620b7d1080a5cb946a624e55ad3d125a5c",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FE_Component_0007.mat",
+        "device": 16777229,
+        "inode": 31811547,
+        "nlink": 1,
+        "bytes": 8992885,
+        "allocated_bytes": 8994816,
+        "mode": 33188,
+        "mtime_ns": 1793035738050924358,
+        "ctime_ns": 1793065790536274639
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FE_Component_0177.mat",
+      "sha256": "92cb80700b7e8ca6f211824893c14fb55663523a58e570585d2b9ae252c22904",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FE_Component_0177.mat",
+        "device": 16777229,
+        "inode": 31815892,
+        "nlink": 1,
+        "bytes": 4863338,
+        "allocated_bytes": 4866048,
+        "mode": 33188,
+        "mtime_ns": 1793040030558075456,
+        "ctime_ns": 1793070403412287030
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FE_Qualified_Joined_20261026.mat",
+      "sha256": "35c65c5de351b4c0f5ef13a21b77daacc1087d794b77af87dcc75d935eb0d8d9",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FE_Qualified_Joined_20261026.mat",
+        "device": 16777229,
+        "inode": 31817960,
+        "nlink": 1,
+        "bytes": 118212983,
+        "allocated_bytes": 118214656,
+        "mode": 33188,
+        "mtime_ns": 1793041509705569498,
+        "ctime_ns": 1793074949715521642
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0006.mat",
+      "sha256": "453b7b1b066d7e387dae74a142251049bffd92084765bcba0fd740b42829a084",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0006.mat",
+        "device": 16777229,
+        "inode": 31811424,
+        "nlink": 1,
+        "bytes": 72875694,
+        "allocated_bytes": 72876032,
+        "mode": 33188,
+        "mtime_ns": 1793035628997737639,
+        "ctime_ns": 1793066029333331702
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0014.mat",
+      "sha256": "09847ca39a961f677705326ef4fe8ada00c712e00fdd20d183ff54cf30b923a1",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0014.mat",
+        "device": 16777229,
+        "inode": 31811898,
+        "nlink": 1,
+        "bytes": 6072433,
+        "allocated_bytes": 6074368,
+        "mode": 33188,
+        "mtime_ns": 1793035993319617328,
+        "ctime_ns": 1793065332841222318
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0055.mat",
+      "sha256": "5b078bd3852ca0f06e294bebaf359f4b5602ee84ac4d629b3dd14d1c40221241",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0055.mat",
+        "device": 16777229,
+        "inode": 31813233,
+        "nlink": 1,
+        "bytes": 57271896,
+        "allocated_bytes": 57274368,
+        "mode": 33188,
+        "mtime_ns": 1793037291724384627,
+        "ctime_ns": 1793066519171652565
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0057.mat",
+      "sha256": "5b45f17d2dae1a957c8792f091254bfcf20bd257676427715876e6a4ffc8c0d0",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0057.mat",
+        "device": 16777229,
+        "inode": 31813310,
+        "nlink": 1,
+        "bytes": 3818986,
+        "allocated_bytes": 3821568,
+        "mode": 33188,
+        "mtime_ns": 1793037389257116178,
+        "ctime_ns": 1793065006324445027
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0058.mat",
+      "sha256": "092c8619a026573620dae9ff842b08f9522b99e9428dfe91c387aa1938cc7c4d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0058.mat",
+        "device": 16777229,
+        "inode": 31813325,
+        "nlink": 1,
+        "bytes": 8778781,
+        "allocated_bytes": 8781824,
+        "mode": 33188,
+        "mtime_ns": 1793037393830195992,
+        "ctime_ns": 1793065539940881721
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0079.mat",
+      "sha256": "dd803d4e58d3ae5eb5ac7a10eb4142c65d4a238e229afc5168f4a9ffe853e835",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0079.mat",
+        "device": 16777229,
+        "inode": 31815486,
+        "nlink": 1,
+        "bytes": 46781777,
+        "allocated_bytes": 46784512,
+        "mode": 33188,
+        "mtime_ns": 1793039617741959956,
+        "ctime_ns": 1793071469917596945
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0080.mat",
+      "sha256": "7656fbaf841fc224ca3274e7c481b6b11bf87b3789d8659a55ea647479652756",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_FG_Component_0080.mat",
+        "device": 16777229,
+        "inode": 31815546,
+        "nlink": 1,
+        "bytes": 89919432,
+        "allocated_bytes": 89919488,
+        "mode": 33188,
+        "mtime_ns": 1793039664645240917,
+        "ctime_ns": 1793070636063680020
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0015.mat",
+      "sha256": "612b3744e6590950eed41874f2d514abae5244933e1a7fa05aa4f04d24b41889",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0015.mat",
+        "device": 16777229,
+        "inode": 31811912,
+        "nlink": 1,
+        "bytes": 5864304,
+        "allocated_bytes": 5865472,
+        "mode": 33188,
+        "mtime_ns": 1793036001175614949,
+        "ctime_ns": 1793065015420582037
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0021.mat",
+      "sha256": "62226da4aa7359fa26230419bce22e6d8c0e4c81c20c7961934b4724fb4e0891",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0021.mat",
+        "device": 16777229,
+        "inode": 31812860,
+        "nlink": 1,
+        "bytes": 8595457,
+        "allocated_bytes": 8597504,
+        "mode": 33188,
+        "mtime_ns": 1793037026641440920,
+        "ctime_ns": 1793065074420814144
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0022.mat",
+      "sha256": "0db00cf9c79b0871a3796baa196c32924457b9616bb46f27ec0547e0cd76e054",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0022.mat",
+        "device": 16777229,
+        "inode": 31812887,
+        "nlink": 1,
+        "bytes": 97154586,
+        "allocated_bytes": 97157120,
+        "mode": 33188,
+        "mtime_ns": 1793037050976173456,
+        "ctime_ns": 1793067064325067217
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0056.mat",
+      "sha256": "864d69bd0c7b563112a8e7ffe1ce8383d9b8eabee27931fcb798abb7e8a5cfc0",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0056.mat",
+        "device": 16777229,
+        "inode": 31813298,
+        "nlink": 1,
+        "bytes": 3817388,
+        "allocated_bytes": 3817472,
+        "mode": 33188,
+        "mtime_ns": 1793037384439508212,
+        "ctime_ns": 1793065154697191864
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0059.mat",
+      "sha256": "006bf895a5b15dc809a47ba3ba646400fcd1fad85108975e114698c18740439d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0059.mat",
+        "device": 16777229,
+        "inode": 31813336,
+        "nlink": 1,
+        "bytes": 8772489,
+        "allocated_bytes": 8773632,
+        "mode": 33188,
+        "mtime_ns": 1793037398165273626,
+        "ctime_ns": 1793065156289180440
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0125.mat",
+      "sha256": "1e97c5fe1a0a1ba5431119569e40ae13a1834f0ad84bef62fd61f6345e1e16b9",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0125.mat",
+        "device": 16777229,
+        "inode": 31815750,
+        "nlink": 1,
+        "bytes": 8154846,
+        "allocated_bytes": 8155136,
+        "mode": 33188,
+        "mtime_ns": 1793039914129971830,
+        "ctime_ns": 1793070285307710879
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0168.mat",
+      "sha256": "b4e897e98275d4cb2444006c8c2a41d7d8e2bbcac657c460fd22934f6a63b47c",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HE_Component_0168.mat",
+        "device": 16777229,
+        "inode": 31815829,
+        "nlink": 1,
+        "bytes": 5671985,
+        "allocated_bytes": 5672960,
+        "mode": 33188,
+        "mtime_ns": 1793039975905443525,
+        "ctime_ns": 1793070677734905006
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HG_Component_0156.mat",
+      "sha256": "ba5f50900e11674dae344d726e5d47d3cc64e17a882faede89bc39d68d79f49d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_HG_Component_0156.mat",
+        "device": 16777229,
+        "inode": 31815757,
+        "nlink": 1,
+        "bytes": 2368675,
+        "allocated_bytes": 2371584,
+        "mode": 33188,
+        "mtime_ns": 1793039918293331192,
+        "ctime_ns": 1793069985784545814
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_MIXED_Component_0020.mat",
+      "sha256": "88dc832a29058fb4f2ce7012e67da9060f6fc169bcde2c8c02e9bc0df333875e",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_MIXED_Component_0020.mat",
+        "device": 16777229,
+        "inode": 31811972,
+        "nlink": 1,
+        "bytes": 232067472,
+        "allocated_bytes": 232071168,
+        "mode": 33188,
+        "mtime_ns": 1793036069464133783,
+        "ctime_ns": 1793068971806171171
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0010.mat",
+      "sha256": "22cce4cfc7f3f5862c210d250fa7d963536209c52e17dab8136b7cd6caa1e951",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0010.mat",
+        "device": 16777229,
+        "inode": 31811616,
+        "nlink": 2,
+        "bytes": 93424363,
+        "allocated_bytes": 93425664,
+        "mode": 33188,
+        "mtime_ns": 1793035800350431168,
+        "ctime_ns": 1793332000587151536
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0011.mat",
+      "sha256": "ebc2f7f18b491ea72980b2eb5a731dd16db66e06cc61f5b645b077991ab1c091",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0011.mat",
+        "device": 16777229,
+        "inode": 31811862,
+        "nlink": 1,
+        "bytes": 5736028,
+        "allocated_bytes": 5738496,
+        "mode": 33188,
+        "mtime_ns": 1793035982605718392,
+        "ctime_ns": 1793065159827542771
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0012.mat",
+      "sha256": "c790ec039d9f103fb337789a4c8bbb9b0a37e23f1720f322261ce5c151b42dd3",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0012.mat",
+        "device": 16777229,
+        "inode": 31811872,
+        "nlink": 1,
+        "bytes": 8388058,
+        "allocated_bytes": 8388608,
+        "mode": 33188,
+        "mtime_ns": 1793035987180307528,
+        "ctime_ns": 1793065006323343360
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0017.mat",
+      "sha256": "8159ec69ff472b3106750829ac63736c6cfaea77f33fcfa224045a11f580eb55",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0017.mat",
+        "device": 16777229,
+        "inode": 31811931,
+        "nlink": 1,
+        "bytes": 20037471,
+        "allocated_bytes": 20037632,
+        "mode": 33188,
+        "mtime_ns": 1793036010136029170,
+        "ctime_ns": 1793065588075237018
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0023.mat",
+      "sha256": "b4f6a15720fd62029535beaec1b7d840e1f738f6ab61c7c927f13a8df0c11937",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0023.mat",
+        "device": 16777229,
+        "inode": 31813214,
+        "nlink": 1,
+        "bytes": 8066665,
+        "allocated_bytes": 8069120,
+        "mode": 33188,
+        "mtime_ns": 1793037275639843535,
+        "ctime_ns": 1793065785942959441
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0174.mat",
+      "sha256": "d7e501e4cc8d6133ac54c35559ae950ffda3d4df6060c5c2e4df364920c1e820",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0174.mat",
+        "device": 16777229,
+        "inode": 31815867,
+        "nlink": 1,
+        "bytes": 5444249,
+        "allocated_bytes": 5447680,
+        "mode": 33188,
+        "mtime_ns": 1793040016165317037,
+        "ctime_ns": 1793070248378824590
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0175.mat",
+      "sha256": "2e28d1056fc135c1b9150e80ba89d1b7a698ce574206302701fc48fdbe7e8fc1",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_OTHER_Component_0175.mat",
+        "device": 16777229,
+        "inode": 31815873,
+        "nlink": 1,
+        "bytes": 5442180,
+        "allocated_bytes": 5443584,
+        "mode": 33188,
+        "mtime_ns": 1793040021245274590,
+        "ctime_ns": 1793070331945195084
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0060.mat",
+      "sha256": "cd75c52e77a16082bdc9f2688626a9ebfbd0f2b6131d8d3e205ea9e18bcbb559",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0060.mat",
+        "device": 16777229,
+        "inode": 31813351,
+        "nlink": 1,
+        "bytes": 19159730,
+        "allocated_bytes": 19161088,
+        "mode": 33188,
+        "mtime_ns": 1793037402910246619,
+        "ctime_ns": 1793065949950743210
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0061.mat",
+      "sha256": "821ed8549ec94c7fdd28d5de37579762d0825e277a15be045472c365c01c9486",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0061.mat",
+        "device": 16777229,
+        "inode": 31933803,
+        "nlink": 1,
+        "bytes": 167886988,
+        "allocated_bytes": 167890944,
+        "mode": 33188,
+        "mtime_ns": 1793136608696122525,
+        "ctime_ns": 1793351213339997756
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0062.mat",
+      "sha256": "b3889873562684a6fad059455c7f7e324711ae68378e2d72894e24ca364482b8",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0062.mat",
+        "device": 16777229,
+        "inode": 32000801,
+        "nlink": 1,
+        "bytes": 164453028,
+        "allocated_bytes": 164454400,
+        "mode": 33188,
+        "mtime_ns": 1793187757069742951,
+        "ctime_ns": 1793352244848313607
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0064.mat",
+      "sha256": "966f91ca2be0d21561ee2013e5f2823b6e85c60a24a0abc592d5cbc92a4a3226",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0064.mat",
+        "device": 16777229,
+        "inode": 31813713,
+        "nlink": 1,
+        "bytes": 10745887,
+        "allocated_bytes": 10747904,
+        "mode": 33188,
+        "mtime_ns": 1793037690214428623,
+        "ctime_ns": 1793065809572370771
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0072.mat",
+      "sha256": "c3f8c5b3d502799dc7a7086132c2e10cbabc2474fa67287e49ccb2400319ef95",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0072.mat",
+        "device": 16777229,
+        "inode": 32002853,
+        "nlink": 2,
+        "bytes": 383358885,
+        "allocated_bytes": 383361024,
+        "mode": 33188,
+        "mtime_ns": 1793189439483810406,
+        "ctime_ns": 1793332000255599896
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0159.mat",
+      "sha256": "482fc1e18e9b1e347512243b8942412ab2da9b4bb616cc7bcc2a367f62c658de",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0159.mat",
+        "device": 16777229,
+        "inode": 31815767,
+        "nlink": 1,
+        "bytes": 3480899,
+        "allocated_bytes": 3481600,
+        "mode": 33188,
+        "mtime_ns": 1793039922475284911,
+        "ctime_ns": 1793070285307139165
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0170.mat",
+      "sha256": "f9c93055c37566ca6b694b85a7949aa7f073f5c5dfec29c2dce66368494dbfce",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/C1_PK_Component_0170.mat",
+        "device": 16777229,
+        "inode": 31992968,
+        "nlink": 1,
+        "bytes": 154185944,
+        "allocated_bytes": 154189824,
+        "mode": 33188,
+        "mtime_ns": 1793181693673599242,
+        "ctime_ns": 1793349880791928127
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/Isolated_Records.mat",
+      "sha256": "62596551bb649ef00cb2d0cc0ae98e658b4c7f456c030860dd083b35ef976362",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components/Isolated_Records.mat",
+        "device": 16777229,
+        "inode": 31815989,
+        "nlink": 1,
+        "bytes": 666908529,
+        "allocated_bytes": 666910720,
+        "mode": 33188,
+        "mtime_ns": 1793040155556301867,
+        "ctime_ns": 1793074768355342909
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Apex_Height_Nonedge_Controls_PKHeightUpper01.mat",
+      "sha256": "4d23a86714827b130dcd9f3563ecc332fece407b9c51170733a9ddb6ff41f36d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Apex_Height_Nonedge_Controls_PKHeightUpper01.mat",
+        "device": 16777229,
+        "inode": 31879229,
+        "nlink": 1,
+        "bytes": 5391083,
+        "allocated_bytes": 5394432,
+        "mode": 33188,
+        "mtime_ns": 1793082791516706679,
+        "ctime_ns": 1793253690185492269
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_Bridge_GateBOwned01_20261029_run_checkpoint.mat",
+      "sha256": "c28a9b1f261bd2750428cd253f58291a5faeed7257216e81e0a5ab1c2c2ffc64",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_Bridge_GateBOwned01_20261029_run_checkpoint.mat",
+        "device": 16777229,
+        "inode": 32120731,
+        "nlink": 2,
+        "bytes": 3280,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793253583755634754,
+        "ctime_ns": 1793332001012479701
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_LowTurn_Final_OwnedLowTurnFinal01_LT_checkpoint_20261029.mat",
+      "sha256": "ba5a458fb1e15903403ed06504e984b82486d6a71d3494c6b2a85b7c57e16ef3",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_LowTurn_Final_OwnedLowTurnFinal01_LT_checkpoint_20261029.mat",
+        "device": 16777229,
+        "inode": 32142281,
+        "nlink": 2,
+        "bytes": 3313,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793271187268753382,
+        "ctime_ns": 1793332001022718035
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_LowTurn_OwnedLowTurn01_20261029_run_checkpoint.mat",
+      "sha256": "8d1b1b3cf2006e61c93a32b5019adf667c92a7a6addf84cca1fe8c17722b830f",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_LowTurn_OwnedLowTurn01_20261029_run_checkpoint.mat",
+        "device": 16777229,
+        "inode": 32138428,
+        "nlink": 2,
+        "bytes": 3252,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793267932522528059,
+        "ctime_ns": 1793332001011727942
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_LowTurn_Persistent_OwnedLowTurnPersistent01_L_checkpoint_20261029.mat",
+      "sha256": "ba95aaf3f5cdc1c1d91531a4d38705466d8aa9d25e3e5b7b5ff6a26a76fd73ff",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_LowTurn_Persistent_OwnedLowTurnPersistent01_L_checkpoint_20261029.mat",
+        "device": 16777229,
+        "inode": 32141418,
+        "nlink": 2,
+        "bytes": 8972,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1793270577700158445,
+        "ctime_ns": 1793332001010710138
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_Pronk_Unit_OwnedPronkUnit01_20261029_run_checkpoint.mat",
+      "sha256": "1ff6990351ed0d29176a2fd382486ce9bbc8e34ad23a40579427a83d5d102db9",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Owned_Pronk_Unit_OwnedPronkUnit01_20261029_run_checkpoint.mat",
+        "device": 16777229,
+        "inode": 32147336,
+        "nlink": 2,
+        "bytes": 3250,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793276271002685688,
+        "ctime_ns": 1793332001009884711
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Projected_Reflected_NONEDGE_Controls_PKReflectProjected01.mat",
+      "sha256": "403b12966652c435785bd6984864d3fa0cb7f745ba967c713498ddd53b013872",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Projected_Reflected_NONEDGE_Controls_PKReflectProjected01.mat",
+        "device": 16777229,
+        "inode": 31893851,
+        "nlink": 1,
+        "bytes": 6943464,
+        "allocated_bytes": 6946816,
+        "mode": 33188,
+        "mtime_ns": 1793095266638321407,
+        "ctime_ns": 1793348809965833948
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Reuse_Pilot_ReusePilot02_20261029.mat",
+      "sha256": "43fb61f0574f6b60cbedab14258cd654b3f4e30a2e9b2a0426e97c143b90ab6c",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Reuse_Pilot_ReusePilot02_20261029.mat",
+        "device": 16777229,
+        "inode": 32167831,
+        "nlink": 2,
+        "bytes": 5474228,
+        "allocated_bytes": 5476352,
+        "mode": 33188,
+        "mtime_ns": 1793293455300957424,
+        "ctime_ns": 1793332001021758856
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Reuse_Pilot_ReusePilot02_20261029_run_checkpoint.mat",
+      "sha256": "adf4955f6913d12ece364d0fb6c29d3b20b99e16d9ef7108171c8705fba72809",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Reuse_Pilot_ReusePilot02_20261029_run_checkpoint.mat",
+        "device": 16777229,
+        "inode": 32167835,
+        "nlink": 2,
+        "bytes": 3707,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793293455851333630,
+        "ctime_ns": 1793332001004860566
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Reversible_Unit_Height_NONEDGE_PKHalfUnit01_20261027.mat",
+      "sha256": "02761bfd7e121799acce3e7c43494a93a1d944925a24fa48b432373fd110f19b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Reversible_Unit_Height_NONEDGE_PKHalfUnit01_20261027.mat",
+        "device": 16777229,
+        "inode": 31932959,
+        "nlink": 1,
+        "bytes": 1672906,
+        "allocated_bytes": 1675264,
+        "mode": 33188,
+        "mtime_ns": 1793135641697320100,
+        "ctime_ns": 1793352466004561871
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Results_Index.mat",
+      "sha256": "b0036bd1f62dfe6c8043404aef9e9cafe574ccf33931ad086d82bfcaffdd7d3b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Results_Index.mat",
+        "device": 16777229,
+        "inode": 31181760,
+        "nlink": 1,
+        "bytes": 5182574,
+        "allocated_bytes": 5185536,
+        "mode": 33188,
+        "mtime_ns": 1792572123201900864,
+        "ctime_ns": 1792615443744660861
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/RunC1PersistentFrontiers_v3.m",
+      "sha256": "d43f489567a4a5974f14556cdbb8c473c0c31f1c6eb465fab54d65d20b1303c7",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/RunC1PersistentFrontiers_v3.m",
+        "device": 16777229,
+        "inode": 31926213,
+        "nlink": 1,
+        "bytes": 42647,
+        "allocated_bytes": 45056,
+        "mode": 33060,
+        "mtime_ns": 1793099686000000000,
+        "ctime_ns": 1793352414241051558
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/PlanC1PKFrontiers_v3.m",
+      "sha256": "d30e7c9b2b799c956d50295592c2bccfda00e23afa656225cfdaa6273083a076",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/PlanC1PKFrontiers_v3.m",
+        "device": 16777229,
+        "inode": 32152259,
+        "nlink": 2,
+        "bytes": 28518,
+        "allocated_bytes": 28672,
+        "mode": 33060,
+        "mtime_ns": 1793259317000000000,
+        "ctime_ns": 1793331945562381475
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/RunC1Continuation_v3.m",
+      "sha256": "dee1b6c60f8a85f60addb059c5dcd7c46d04d7479bc50a0c08c746f15b4af6b5",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/RunC1Continuation_v3.m",
+        "device": 16777229,
+        "inode": 31655585,
+        "nlink": 1,
+        "bytes": 50207,
+        "allocated_bytes": 53248,
+        "mode": 33188,
+        "mtime_ns": 1793037006135934839,
+        "ctime_ns": 1793062958422100940
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/PeriodicSolutionSolver_v3.m",
+      "sha256": "8bb60895a18ec240aecaa1851d5f2586c8c364dec5cb2a7da2afcc6307716ddf",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/PeriodicSolutionSolver_v3.m",
+        "device": 16777229,
+        "inode": 28582906,
+        "nlink": 1,
+        "bytes": 29725,
+        "allocated_bytes": 32768,
+        "mode": 33188,
+        "mtime_ns": 1791374619901000000,
+        "ctime_ns": 1791829925635299250
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/RootSolver_v3.m",
+      "sha256": "5f1fb38eb7dca17e4e627ab9f3fd983f6373ec68a4a5d4bc3fb41c8ea66a0c5e",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/RootSolver_v3.m",
+        "device": 16777229,
+        "inode": 31656134,
+        "nlink": 1,
+        "bytes": 90319,
+        "allocated_bytes": 94208,
+        "mode": 33188,
+        "mtime_ns": 1792911303769670474,
+        "ctime_ns": 1792911311504969238
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/BranchSolutionFile_v3.m",
+      "sha256": "ee7336bee19d5fca4bd5be62b6bab22e428d14fdfe37e801c7b040610aa8bccc",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/BranchSolutionFile_v3.m",
+        "device": 16777229,
+        "inode": 31174734,
+        "nlink": 1,
+        "bytes": 22906,
+        "allocated_bytes": 24576,
+        "mode": 33188,
+        "mtime_ns": 1793038880469406861,
+        "ctime_ns": 1793064987122359187
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/RecordedReturnPolicy_v3.m",
+      "sha256": "839cf5afd1eb75a3430a4bc57b122778c962596b50079de578d36d901aca330b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/RecordedReturnPolicy_v3.m",
+        "device": 16777229,
+        "inode": 29841516,
+        "nlink": 1,
+        "bytes": 5132,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1791819686585658829,
+        "ctime_ns": 1791920241297550841
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/MatchingReturnSection_v3.m",
+      "sha256": "f0d0aa4d1462b94ed288ce6a3b7d2cf470c9e70285b945a63734fcfb8400b00b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/MatchingReturnSection_v3.m",
+        "device": 16777229,
+        "inode": 29840048,
+        "nlink": 1,
+        "bytes": 3111,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1791819533055900819,
+        "ctime_ns": 1791920241296348134
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedEnergy_v3.m",
+      "sha256": "e7984e14fcb1e10f4704e9f912495eb86cd18c798fe8151a0c06161f9822e169",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedEnergy_v3.m",
+        "device": 16777229,
+        "inode": 28549816,
+        "nlink": 1,
+        "bytes": 3161,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1791364407990200073,
+        "ctime_ns": 1791395412616139210
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/C1RunBudget_v3.m",
+      "sha256": "3477af77c6dcb3474341f4713bc30e146d5f9f9e81c3878d988a181e6d8681a6",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/C1RunBudget_v3.m",
+        "device": 16777229,
+        "inode": 32186845,
+        "nlink": 2,
+        "bytes": 4029,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793311397027314040,
+        "ctime_ns": 1793331945558652965
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/EnergyFamilyResidual_v3.m",
+      "sha256": "e948f36c41d9e60004b22e5b47826e4d60c8e8015c7a740ed88d1d3c443071f7",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/EnergyFamilyResidual_v3.m",
+        "device": 16777229,
+        "inode": 28550257,
+        "nlink": 1,
+        "bytes": 11977,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1791883859923085218,
+        "ctime_ns": 1791923817758247567
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/ConstrainedEnergyResidual_v3.m",
+      "sha256": "fe268e02bbe2747ce341800bda1b4ec5d46a7233892d6b4ec2a79766b697508e",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/ConstrainedEnergyResidual_v3.m",
+        "device": 16777229,
+        "inode": 28582701,
+        "nlink": 1,
+        "bytes": 3922,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1791373121115989993,
+        "ctime_ns": 1791829916924711258
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PeriodicOrbitResidual_v3.m",
+      "sha256": "0da58152164156b56654bd9e2acc1a1bd650b8192e93fde6b291ea621cc8bd3d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PeriodicOrbitResidual_v3.m",
+        "device": 16777229,
+        "inode": 23517473,
+        "nlink": 1,
+        "bytes": 14610,
+        "allocated_bytes": 16384,
+        "mode": 33188,
+        "mtime_ns": 1791364595084348603,
+        "ctime_ns": 1791395412635243920
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/FiniteDifferenceJacobian_v3.m",
+      "sha256": "849be28b575f8b857aa98410d2e4fccca439dd120f391ad870948242e3b21e59",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/FiniteDifferenceJacobian_v3.m",
+        "device": 16777229,
+        "inode": 23517317,
+        "nlink": 1,
+        "bytes": 8017,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1785858668489185500,
+        "ctime_ns": 1791395412631303987
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/ValidSidedFiniteDifferenceJacobian_v3.m",
+      "sha256": "5510ccd2866fe857bbcafe562088a9318dae0fe8d7f371d96c6997b507787e3b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/1_Root_Solving/ValidSidedFiniteDifferenceJacobian_v3.m",
+        "device": 16777229,
+        "inode": 31176680,
+        "nlink": 1,
+        "bytes": 13584,
+        "allocated_bytes": 16384,
+        "mode": 33188,
+        "mtime_ns": 1792569611147374738,
+        "ctime_ns": 1792597293583442341
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedPhysicalChart_v3.m",
+      "sha256": "4cae5dc8027bb2d8fa9063273bfa3b19067612c4b622df844971ae2bcc9de701",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedPhysicalChart_v3.m",
+        "device": 16777229,
+        "inode": 28549815,
+        "nlink": 1,
+        "bytes": 9036,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1791364407973027307,
+        "ctime_ns": 1791395412616230501
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m",
+      "sha256": "966bfc51791dc0096a1c04c5ec698426df8cfbc18bb6be0fae78c776f94e98b5",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Schema_v3/QuadrupedSchema_v3.m",
+        "device": 16777229,
+        "inode": 23647165,
+        "nlink": 1,
+        "bytes": 11077,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1785945074297395023,
+        "ctime_ns": 1791395413222888170
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PoincareMap_v3.m",
+      "sha256": "af5549cf81c45bd9601b9d14d3b287869b85e06ebd81c375fe31c0b80becbe46",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PoincareMap_v3.m",
+        "device": 16777229,
+        "inode": 23647968,
+        "nlink": 1,
+        "bytes": 42468,
+        "allocated_bytes": 45056,
+        "mode": 33188,
+        "mtime_ns": 1791379197019713491,
+        "ctime_ns": 1791830156564504834
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PoincareSection_v3.m",
+      "sha256": "72806bf271bad9289b9d3a75a98eceb8661d30a3d7283724e623502a13a01e2e",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PoincareSection_v3.m",
+        "device": 16777229,
+        "inode": 23517265,
+        "nlink": 1,
+        "bytes": 7792,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1785946140780527396,
+        "ctime_ns": 1791395412635624001
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/BLMarkedApexReturnPolicy_v3.m",
+      "sha256": "d765d164b882b73367c6b711cb0c539b21d8033b70ccb0839cf69fd0859adb2a",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/BLMarkedApexReturnPolicy_v3.m",
+        "device": 16777229,
+        "inode": 28550205,
+        "nlink": 1,
+        "bytes": 6952,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1791364537544137030,
+        "ctime_ns": 1791395412633613472
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m",
+      "sha256": "5010b8b7b34554c1a37527c5bf1a2d18375f586cc380b0c7617967d910b64c75",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/HybridSimulator_v3.m",
+        "device": 16777229,
+        "inode": 23518290,
+        "nlink": 1,
+        "bytes": 38351,
+        "allocated_bytes": 40960,
+        "mode": 33188,
+        "mtime_ns": 1791379197000000000,
+        "ctime_ns": 1791829925636978997
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/EventDetector_v3.m",
+      "sha256": "c1becd4b14d04e47134b7abca1499de7a3bedc56ea9266cd32ddb909610c6b99",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/EventDetector_v3.m",
+        "device": 16777229,
+        "inode": 23518100,
+        "nlink": 1,
+        "bytes": 33215,
+        "allocated_bytes": 36864,
+        "mode": 33188,
+        "mtime_ns": 1791373573046786732,
+        "ctime_ns": 1791829046993597940
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m",
+      "sha256": "dfd39a1c7ab2fa393f84adb43963c7d1448f4d5740a83828f4dfe9aaed01ee5d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/Quadrupedal_Dynamics_v3.m",
+        "device": 16777229,
+        "inode": 23647423,
+        "nlink": 1,
+        "bytes": 16388,
+        "allocated_bytes": 20480,
+        "mode": 33188,
+        "mtime_ns": 1786431861423617702,
+        "ctime_ns": 1791395412616532332
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m",
+      "sha256": "f84f97312328d8d582ed57548a6b27535b776e6c4e332499fe65e0a160144195",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ContinuousDynamics_v3.m",
+        "device": 16777229,
+        "inode": 23647791,
+        "nlink": 1,
+        "bytes": 19522,
+        "allocated_bytes": 20480,
+        "mode": 33188,
+        "mtime_ns": 1791548051190236025,
+        "ctime_ns": 1791881426842947633
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m",
+      "sha256": "4824d780d4e30249aae888f9ff8d71450e94d0abdd3ec2c9da92bf1d8e66ec80",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/GuardFunctions_v3.m",
+        "device": 16777229,
+        "inode": 23647891,
+        "nlink": 1,
+        "bytes": 6121,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1785946509595093948,
+        "ctime_ns": 1791395412615741046
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m",
+      "sha256": "92a281dc5b2ccb92d740e89eb9b639f34c621d5d42dc810561af8d8bc59dd715",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ResetMap_v3.m",
+        "device": 16777229,
+        "inode": 23648015,
+        "nlink": 1,
+        "bytes": 6934,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1785945800374701004,
+        "ctime_ns": 1791395412616610915
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ModeTransition_v3.m",
+      "sha256": "07856a5220e842bdf6524adfd2d9a621e95fe995e310394680094b042c228832",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/ModeTransition_v3.m",
+        "device": 16777229,
+        "inode": 23647287,
+        "nlink": 1,
+        "bytes": 5474,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1785945306381534744,
+        "ctime_ns": 1791395412615932295
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m",
+      "sha256": "36890b0c3a8bd994560146b8a676375f5cf9b214c818503f47e66cd8c4072ca7",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Dynamics_v3/QuadrupedAdmissibility_v3.m",
+        "device": 16777229,
+        "inode": 24205215,
+        "nlink": 1,
+        "bytes": 26600,
+        "allocated_bytes": 28672,
+        "mode": 33188,
+        "mtime_ns": 1786432249428788179,
+        "ctime_ns": 1791395412616032711
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PrimitiveCycleCheck_v3.m",
+      "sha256": "4ea3628241a459f2237c115fb789fc300c2b1f77f8e24814003d8328e1e130a2",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/PrimitiveCycleCheck_v3.m",
+        "device": 16777229,
+        "inode": 28549832,
+        "nlink": 1,
+        "bytes": 9763,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1791365515829000000,
+        "ctime_ns": 1791829115157370678
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/GaitIdentification_v3.m",
+      "sha256": "fee53257025f5fd5ccbf662747ffe17d27e2e59c94c7e09f6802bfe2e14d22d8",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/GaitIdentification_v3.m",
+        "device": 16777229,
+        "inode": 28550049,
+        "nlink": 1,
+        "bytes": 27677,
+        "allocated_bytes": 28672,
+        "mode": 33188,
+        "mtime_ns": 1792706567140862085,
+        "ctime_ns": 1792706584088754962
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK36h.mat",
+      "sha256": "ea11557d683ce6fb38582be29f9dce81860e4d230f6de52b7f30239151f7343c",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK36h.mat",
+        "device": 16777229,
+        "inode": 32114231,
+        "nlink": 2,
+        "bytes": 1019,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793248590677667353,
+        "ctime_ns": 1793331953460369866
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK36h.json",
+      "sha256": "9e9c0dd977bd1b9c98cb44ad62b39110fb53ffb7523522f13d3e3830e1652bfb",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK36h.json",
+        "device": 16777229,
+        "inode": 32114232,
+        "nlink": 2,
+        "bytes": 1357,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793248591591631400,
+        "ctime_ns": 1793331952327407673
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h.mat",
+      "sha256": "ad1e1366f7ef7439b37eb8aa0de6f412acfb5b74ba82075c127b44785d2b1b33",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h.mat",
+        "device": 16777229,
+        "inode": 32186243,
+        "nlink": 2,
+        "bytes": 1056,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793310685094220686,
+        "ctime_ns": 1793331949005739441
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h.json",
+      "sha256": "d252fe55aa174b5386fa19272d5c0254a1eaa3aeaa13684fd2029a766c83cbf7",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h.json",
+        "device": 16777229,
+        "inode": 32186244,
+        "nlink": 2,
+        "bytes": 1384,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793310685095917106,
+        "ctime_ns": 1793331949178990040
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Preparation.mat",
+      "sha256": "41bf0760809736247e35b996821d8ad560f3794cde53f6448a6fadb24e4f2202",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Preparation.mat",
+        "device": 16777229,
+        "inode": 32186265,
+        "nlink": 2,
+        "bytes": 13446,
+        "allocated_bytes": 16384,
+        "mode": 33188,
+        "mtime_ns": 1793310699109391741,
+        "ctime_ns": 1793331946423835365
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Preparation.json",
+      "sha256": "f0cdb43a413b705ce0c775decdbe5504e0c8b99d7791c87f97c11f7d84f7b797",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Preparation.json",
+        "device": 16777229,
+        "inode": 32186266,
+        "nlink": 2,
+        "bytes": 65328,
+        "allocated_bytes": 65536,
+        "mode": 33188,
+        "mtime_ns": 1793310699112546289,
+        "ctime_ns": 1793331954010242819
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Previous_Ledger.mat",
+      "sha256": "505b47e5f26f0e4d9e6d3156fda86d72baefd6d62e71659f65c0e772a3d1f52f",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Previous_Ledger.mat",
+        "device": 16777229,
+        "inode": 32186158,
+        "nlink": 2,
+        "bytes": 101195304,
+        "allocated_bytes": 101195776,
+        "mode": 33188,
+        "mtime_ns": 1793309607000000000,
+        "ctime_ns": 1793331947627995534
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Old_Provider.m.before",
+      "sha256": "8ed0d0da8279d0e5596c15b9dbb6d90894845b3379ee0649c395eeeb11e8de95",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Old_Provider.m.before",
+        "device": 16777229,
+        "inode": 32186161,
+        "nlink": 2,
+        "bytes": 3437,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793248224000000000,
+        "ctime_ns": 1793331953461939762
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Add10h_Preparation_20261030.log",
+      "sha256": "97d243e45afa9cc77c48e1e10cc6014e457d95283bfeb2085314ea5d459921ba",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Add10h_Preparation_20261030.log",
+        "device": 16777229,
+        "inode": 32186120,
+        "nlink": 2,
+        "bytes": 24237,
+        "allocated_bytes": 24576,
+        "mode": 33188,
+        "mtime_ns": 1793310713557261551,
+        "ctime_ns": 1793331999660077658
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_MergedB01_Batch_10_20261029.mat",
+      "sha256": "2bf01d8c71d23c3d755dc1687f6af9de5771cf2032e0e5feb49edf0d5c2e0fd5",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_MergedB01_Batch_10_20261029.mat",
+        "device": 16777229,
+        "inode": 32185552,
+        "nlink": 2,
+        "bytes": 25953,
+        "allocated_bytes": 28672,
+        "mode": 33188,
+        "mtime_ns": 1793309934957246853,
+        "ctime_ns": 1793331945695315346
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_MergedB01_Batch_10_20261029.raw.mat",
+      "sha256": "9197c26fb0683eceda152a244b51f4f9d73155f85c21caf8b44e68ebe66f5079",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Merged_B_MergedB01_Batch_10_20261029.raw.mat",
+        "device": 16777229,
+        "inode": 32185337,
+        "nlink": 2,
+        "bytes": 101195412,
+        "allocated_bytes": 101195776,
+        "mode": 33188,
+        "mtime_ns": 1793309647330174679,
+        "ctime_ns": 1793331952724362630
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adoption.json",
+      "sha256": "4ad6b88b5183033331151b02b5d674d48f502c5afb6da7d651dd8b6c72a60d05",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adoption.json",
+        "device": 16777229,
+        "inode": 32188720,
+        "nlink": 2,
+        "bytes": 239479,
+        "allocated_bytes": 241664,
+        "mode": 33188,
+        "mtime_ns": 1793313577378914404,
+        "ctime_ns": 1793331946899960188
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adoption.raw.mat",
+      "sha256": "8d7671b5a81921d2b3acd955c0cde62a12a25a1b58c23bcaa985b4ea2e05c34e",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adoption.raw.mat",
+        "device": 16777229,
+        "inode": 32188570,
+        "nlink": 2,
+        "bytes": 101206651,
+        "allocated_bytes": 101208064,
+        "mode": 33188,
+        "mtime_ns": 1793313436337615284,
+        "ctime_ns": 1793331954155245689
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adopted_Ledger.mat",
+      "sha256": "f3cdfaf72dcd8e308f85d8b6139879b9fae38dea7997c2b587bb455493550f0f",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Run_20261029_PK46h_Extension10h_Adopted_Ledger.mat",
+        "device": 16777229,
+        "inode": 32188698,
+        "nlink": 2,
+        "bytes": 101206664,
+        "allocated_bytes": 101208064,
+        "mode": 33188,
+        "mtime_ns": 1793313399000000000,
+        "ctime_ns": 1793331948768997671
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Add10h_Adoption_20261030.log",
+      "sha256": "a9964e649fc5c5f9142c3f62d9d338c2d88c956a1c7401c0194474e5f9e35b4f",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Add10h_Adoption_20261030.log",
+        "device": 16777229,
+        "inode": 32188326,
+        "nlink": 2,
+        "bytes": 23388,
+        "allocated_bytes": 24576,
+        "mode": 33188,
+        "mtime_ns": 1793313594315427935,
+        "ctime_ns": 1793331999470664012
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/HybridOrbit_v3.m",
+      "sha256": "bd73f9411bea2443a6af17d78bba41f4134772333ad3cb073f32d1d02250bf87",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/HybridOrbit_v3.m",
+        "device": 16777229,
+        "inode": 23517299,
+        "nlink": 1,
+        "bytes": 4270,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1791364537559653923,
+        "ctime_ns": 1791395412634776631
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/Trajectory_v3.m",
+      "sha256": "e963be3af5e49d856bd90d0b1c9d56ce9509ce5c72b4f3ebe991cd3ca7707f9c",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/1_Dynamic_Frameworks/Simulation_v3/Trajectory_v3.m",
+        "device": 16777229,
+        "inode": 23517673,
+        "nlink": 1,
+        "bytes": 15735,
+        "allocated_bytes": 16384,
+        "mode": 33188,
+        "mtime_ns": 1786431676559452367,
+        "ctime_ns": 1791395413224103745
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/OrbitContentIdentity_v3.m",
+      "sha256": "b73c6490aedd99c335edb96e3385f2374f1328fcda6ea548b4d6f62611e9b0c2",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/OrbitContentIdentity_v3.m",
+        "device": 16777229,
+        "inode": 29839688,
+        "nlink": 1,
+        "bytes": 796,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1791817160287236057,
+        "ctime_ns": 1791920234809307299
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/RoundSHA256_v3.m",
+      "sha256": "85c21249e7b5492f4c044062bc9f132e292a705cc0789b0dd4362c234453e572",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/4_Solution_Management/RoundSHA256_v3.m",
+        "device": 16777229,
+        "inode": 29761970,
+        "nlink": 1,
+        "bytes": 524,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793040660690787688,
+        "ctime_ns": 1793069943862777145
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/C1PlainFineQualificationReplay_v3.m",
+      "sha256": "511f124dc165d99a9e39978b6c1d8e7a3261ddf4c50d8dd69186abd2ff0bf4df",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/C1PlainFineQualificationReplay_v3.m",
+        "device": 16777229,
+        "inode": 31180367,
+        "nlink": 1,
+        "bytes": 8230,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1792706567141274290,
+        "ctime_ns": 1792706578461672054
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/2_Continuation_Algorithms/CompactResearchBranch_v3.m",
+      "sha256": "a40be1161f7bd9a9ec43faa67f404f298f42704d43d4b24b84714bd6ab9227f8",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/3_Numerical_Continuation/2_Continuation_Algorithms/CompactResearchBranch_v3.m",
+        "device": 16777229,
+        "inode": 28555727,
+        "nlink": 1,
+        "bytes": 8536,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1792577544777575547,
+        "ctime_ns": 1792618548745223044
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ExperimentC1PKLargerStepPilot20261030.m",
+      "sha256": "970c92b133998292ca7018596c7f62413bb7184e0fdfe920ff1d24efb47665cd",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/ExperimentC1PKLargerStepPilot20261030.m",
+        "device": 16777229,
+        "inode": 32244234,
+        "nlink": 2,
+        "bytes": 63553,
+        "allocated_bytes": 65536,
+        "mode": 33060,
+        "mtime_ns": 1793348987189348812,
+        "ctime_ns": 1793348987490555171
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.mat",
+      "sha256": "f27ae9ca47c2f9cdb09715ffac127792aaf3673c7f4d9ff1303702a0afff8109",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.mat",
+        "device": 16777229,
+        "inode": 32244979,
+        "nlink": 3,
+        "bytes": 5350651,
+        "allocated_bytes": 5353472,
+        "mode": 33188,
+        "mtime_ns": 1793349629894444763,
+        "ctime_ns": 1793349632260332670
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.json",
+      "sha256": "edb70adaf3a684835bd75945d52eb793ef947c8b0e1a94239d00dd3f4f972900",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.json",
+        "device": 16777229,
+        "inode": 32244994,
+        "nlink": 3,
+        "bytes": 42119955,
+        "allocated_bytes": 42123264,
+        "mode": 33188,
+        "mtime_ns": 1793349632116361963,
+        "ctime_ns": 1793349633456318790
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.raw.mat",
+      "sha256": "976a374992385b67454688ef6a3ba1f6f19224e9630840a51942ac7470dc635a",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.raw.mat",
+        "device": 16777229,
+        "inode": 32244921,
+        "nlink": 2,
+        "bytes": 3429335,
+        "allocated_bytes": 4259840,
+        "mode": 33188,
+        "mtime_ns": 1793349589997809584,
+        "ctime_ns": 1793349591013430451
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Larger_Step_Pilot_LargerStepPilot01_20261030.mat",
+      "sha256": "4e9fa245337d7d384c5fbc5a98c6448c36c9cef869e4b931fb1d50eab34d75c5",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Larger_Step_Pilot_LargerStepPilot01_20261030.mat",
+        "device": 16777229,
+        "inode": 32244716,
+        "nlink": 2,
+        "bytes": 5700456,
+        "allocated_bytes": 6356992,
+        "mode": 33188,
+        "mtime_ns": 1793349435222007085,
+        "ctime_ns": 1793349435826093082
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Larger_Step_Pilot_LargerStepPilot01_20261030_run_checkpoint.mat",
+      "sha256": "c3695f6ae2602d5c5320a8a02f131507aecff9b726d3ebc3aac420509f4d4c70",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_PK_Larger_Step_Pilot_LargerStepPilot01_20261030_run_checkpoint.mat",
+        "device": 16777229,
+        "inode": 32244720,
+        "nlink": 2,
+        "bytes": 3408,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793349435717394187,
+        "ctime_ns": 1793349435802174040
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.log",
+      "sha256": "ca7a80d13d36c4b7fa07fcc8a6609f2fabb62644ad673915b19b400d1e6be4c1",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/PK_Larger_Step_Pilot_LargerStepPilot01_20261030.log",
+        "device": 16777229,
+        "inode": 32244269,
+        "nlink": 2,
+        "bytes": 484806,
+        "allocated_bytes": 528384,
+        "mode": 33188,
+        "mtime_ns": 1793349660364925203,
+        "ctime_ns": 1793349661874772836
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/quarantine_reappeared_0193_20261030.py.candidate",
+      "sha256": "44e6100494468553ce9ae072b6a1eb40e50712a51a3d1cf0fed658ae1d646dac",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/quarantine_reappeared_0193_20261030.py.candidate",
+        "device": 16777229,
+        "inode": 32246619,
+        "nlink": 2,
+        "bytes": 10254,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1793350819075012369,
+        "ctime_ns": 1793350820510440343
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Current_PK_Comparison_20261026.png",
+      "sha256": "9a3e756e3b6d668e0bcc77562bb50eb84b266248df1676c6bf87b2c7aeae79e1",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Current_PK_Comparison_20261026.png",
+        "device": 16777229,
+        "inode": 31854058,
+        "nlink": 1,
+        "bytes": 187959,
+        "allocated_bytes": 188416,
+        "mode": 33188,
+        "mtime_ns": 1793062445750951667,
+        "ctime_ns": 1793075691835685810
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Current_PK_Comparison_20261027.png",
+      "sha256": "44755b0d64b29c6634fd279cb18be376ff26a164b2d3574b4f93615232bccad1",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Current_PK_Comparison_20261027.png",
+        "device": 16777229,
+        "inode": 32018098,
+        "nlink": 2,
+        "bytes": 247885,
+        "allocated_bytes": 249856,
+        "mode": 33188,
+        "mtime_ns": 1793193923848011658,
+        "ctime_ns": 1793332001006106956
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Current_PK_Comparison_20261027PreEOF.png",
+      "sha256": "96ffa787000055da04de92597618350640b16a5db5027f0fd64faa89e79e83b5",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Current_PK_Comparison_20261027PreEOF.png",
+        "device": 16777229,
+        "inode": 31925155,
+        "nlink": 1,
+        "bytes": 243870,
+        "allocated_bytes": 245760,
+        "mode": 33188,
+        "mtime_ns": 1793126797884814711,
+        "ctime_ns": 1793352440383268147
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_v2_v3_Comparison.png",
+      "sha256": "37e041405fdab0474b1463f974da3cfe5528ede484612e6a8515e1665c92c196",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_v2_v3_Comparison.png",
+        "device": 16777229,
+        "inode": 31561982,
+        "nlink": 1,
+        "bytes": 206099,
+        "allocated_bytes": 208896,
+        "mode": 33188,
+        "mtime_ns": 1792840164724232479,
+        "ctime_ns": 1793032442164171121
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_v2_v3_Comparison.svg",
+      "sha256": "49cb5db8ae1b5d890f407769a2cf2c6180421623f5ab58af723c0e84998aebce",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_v2_v3_Comparison.svg",
+        "device": 16777229,
+        "inode": 31561994,
+        "nlink": 1,
+        "bytes": 304387,
+        "allocated_bytes": 307200,
+        "mode": 33188,
+        "mtime_ns": 1792840166269001589,
+        "ctime_ns": 1792840249580487259
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/Consolidation_Receipt.json",
+      "sha256": "0bbdc7d1fbf688382d2649bf9de986f00a1619d703741b71cb9d630eed15f932",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/Consolidation_Receipt.json",
+        "device": 16777229,
+        "inode": 31181764,
+        "nlink": 1,
+        "bytes": 928,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1792572124043065183,
+        "ctime_ns": 1792615268256012021
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/complete_existing_0193_quarantine_20261030.py.candidate",
+      "sha256": "c25fb227ee157be8274bb42a18fec8d92157c9de6cb92a8317e3a770f0fe87fc",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/complete_existing_0193_quarantine_20261030.py.candidate",
+        "device": 16777229,
+        "inode": 32256275,
+        "nlink": 2,
+        "bytes": 11180,
+        "allocated_bytes": 12288,
+        "mode": 33188,
+        "mtime_ns": 1793351799958334003,
+        "ctime_ns": 1793351801261080397
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_Manifest02_20261030.manifest.json",
+      "sha256": "48443b005248e6ff777791a0b28703483467c7db8cc3a4515e8c1ec1bf49b533",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_Manifest02_20261030.manifest.json",
+        "device": 16777229,
+        "inode": 32255771,
+        "nlink": 2,
+        "bytes": 93707,
+        "allocated_bytes": 94208,
+        "mode": 33188,
+        "mtime_ns": 1793351485924035113,
+        "ctime_ns": 1793351487153974445
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_Manifest02_20261030.packet.json",
+      "sha256": "c59f19d49afc8a35129e039131203a4d18e588acc0a8f417539fe563a953828d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_Manifest02_20261030.packet.json",
+        "device": 16777229,
+        "inode": 32255772,
+        "nlink": 2,
+        "bytes": 6034,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1793351485932439556,
+        "ctime_ns": 1793351487164681145
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_20261030.intent.json",
+      "sha256": "539179dd2d1eba5ca6aa1a2b05057a8c55f685f52bc4633f3723ae662840165a",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_20261030.intent.json",
+        "device": 16777229,
+        "inode": 32255993,
+        "nlink": 2,
+        "bytes": 98331,
+        "allocated_bytes": 102400,
+        "mode": 33188,
+        "mtime_ns": 1793351621949667715,
+        "ctime_ns": 1793351623073791499
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_20261030.actions.jsonl",
+      "sha256": "1abf051abccfc6263eca623ec5e5940bd054b7bf20dd2b601c268761d40469f0",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_20261030.actions.jsonl",
+        "device": 16777229,
+        "inode": 32255994,
+        "nlink": 2,
+        "bytes": 1090,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793351621955907860,
+        "ctime_ns": 1793351623009166288
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_20261030.outcome.json",
+      "sha256": "0fc49d1a073e8cccf803048c85a1bcb449711370e040f6b23fa7c8786d7a298f",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Quarantine01_20261030.outcome.json",
+        "device": 16777229,
+        "inode": 32256004,
+        "nlink": 2,
+        "bytes": 2606,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793351623514499348,
+        "ctime_ns": 1793351624107810857
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Completed_Private_Source_Proofs_20261026.zip",
+      "sha256": "d400413ee99badc6310399c40cafb9dec4c348016217962656bbc9dd75bcc309",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Completed_Private_Source_Proofs_20261026.zip",
+        "device": 16777229,
+        "inode": 31824283,
+        "nlink": 1,
+        "bytes": 1473663,
+        "allocated_bytes": 1474560,
+        "mode": 33188,
+        "mtime_ns": 1793047771447501817,
+        "ctime_ns": 1793075215858146369
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Exact_Working_Set_20261026.zip",
+      "sha256": "bb2c7ecc4d90103f645692ad1fea0513c38998d0884a397f276009ef20339355",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Exact_Working_Set_20261026.zip",
+        "device": 16777229,
+        "inode": 31793469,
+        "nlink": 1,
+        "bytes": 322046424,
+        "allocated_bytes": 322048000,
+        "mode": 33152,
+        "mtime_ns": 1793022116969791009,
+        "ctime_ns": 1793057143469840142
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Final_Duplicate_Control_And_Recovery_Source_20261026.zip",
+      "sha256": "a4519d476c98580b854d39e2a3ab2f29e230a440605dd916b7eaf39635a0b733",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Final_Duplicate_Control_And_Recovery_Source_20261026.zip",
+        "device": 16777229,
+        "inode": 31852896,
+        "nlink": 1,
+        "bytes": 2542372,
+        "allocated_bytes": 2543616,
+        "mode": 33188,
+        "mtime_ns": 1793061667777740080,
+        "ctime_ns": 1793075715861389885
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Five_Publication_Preimages_20261026.zip",
+      "sha256": "adfada16622b25fa9f917aded11dc8fea713d0c1cd2ced0c54cb69fa3ba846cb",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/C1_Five_Publication_Preimages_20261026.zip",
+        "device": 16777229,
+        "inode": 31789720,
+        "nlink": 2,
+        "bytes": 3739808,
+        "allocated_bytes": 3743744,
+        "mode": 33152,
+        "mtime_ns": 1793017524973900466,
+        "ctime_ns": 1793331971789267314
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FE_Superseded_Components_20261026.zip",
+      "sha256": "aca33b5b69e22a12113f734b2d10037f311a79d0d2332b48961e2541e26e0171",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FE_Superseded_Components_20261026.zip",
+        "device": 16777229,
+        "inode": 31818012,
+        "nlink": 1,
+        "bytes": 115498735,
+        "allocated_bytes": 115499008,
+        "mode": 33188,
+        "mtime_ns": 1793041581299462566,
+        "ctime_ns": 1793075102890280461
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FinalManifest26_01_Refused_Stage_Preimage_20261026.json",
+      "sha256": "df4198eb64dc8140671c11e6dbc67c31bcdefe95bdda665bc27beeecab7fb1a0",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/FinalManifest26_01_Refused_Stage_Preimage_20261026.json",
+        "device": 16777229,
+        "inode": 31790323,
+        "nlink": 1,
+        "bytes": 39669,
+        "allocated_bytes": 40960,
+        "mode": 33188,
+        "mtime_ns": 1793017938801194107,
+        "ctime_ns": 1793017995738713401
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic01_20261027.zip",
+      "sha256": "d477d790e3e8f6b65753028ad38c1010188b12abb8d1d2286e7de0581e5c986c",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic01_20261027.zip",
+        "device": 16777229,
+        "inode": 31948519,
+        "nlink": 2,
+        "bytes": 163970274,
+        "allocated_bytes": 163971072,
+        "mode": 33152,
+        "mtime_ns": 1793144857444177313,
+        "ctime_ns": 1793331959870570885
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic02_20261027.zip",
+      "sha256": "f4e40556fc10efe56791b7ec801d728f268e2e6bd6d701fd74f0a760dcd2adc8",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Cyclic_Fair_Pairs_PKCyclic02_20261027.zip",
+        "device": 16777229,
+        "inode": 31961429,
+        "nlink": 2,
+        "bytes": 581390035,
+        "allocated_bytes": 581390336,
+        "mode": 33152,
+        "mtime_ns": 1793155273571931084,
+        "ctime_ns": 1793331971756733396
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Storage_Migration_PKConnected03_20261029_Sources.zip",
+      "sha256": "b6fdbf25df52dcd0245faecf29cffa558bd5e1bec0f2dc0e749504d1c02fa61b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Storage_Migration_PKConnected03_20261029_Sources.zip",
+        "device": 16777229,
+        "inode": 32152179,
+        "nlink": 2,
+        "bytes": 596940856,
+        "allocated_bytes": 596942848,
+        "mode": 33188,
+        "mtime_ns": 1793281416610936983,
+        "ctime_ns": 1793331967949317415
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Zero_Earned_Unit_Trials_20261029.zip",
+      "sha256": "862642dac27c8f69ad32a7005f1ca62a810c69157ded03fcafa16c01bbc2d1cd",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/PK_Zero_Earned_Unit_Trials_20261029.zip",
+        "device": 16777229,
+        "inode": 32140191,
+        "nlink": 2,
+        "bytes": 40806655,
+        "allocated_bytes": 40808448,
+        "mode": 33060,
+        "mtime_ns": 1793269364697780292,
+        "ctime_ns": 1793331971033538084
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/README.md",
+      "sha256": "a7fcd0f8079e65bfdf39ab4ebc19fbe4534106ce16fe57b950d5002975bff5f3",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/README.md",
+        "device": 16777229,
+        "inode": 31793948,
+        "nlink": 2,
+        "bytes": 7955,
+        "allocated_bytes": 8192,
+        "mode": 33188,
+        "mtime_ns": 1793195303393952961,
+        "ctime_ns": 1793331971034759850
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RootSolver_v3_20261024.txt",
+      "sha256": "3e28e796022ff61e92159c6a22602f94952277b928604d0d853bf5aa941838b7",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RootSolver_v3_20261024.txt",
+        "device": 16777229,
+        "inode": 31654513,
+        "nlink": 1,
+        "bytes": 77110,
+        "allocated_bytes": 77824,
+        "mode": 33188,
+        "mtime_ns": 1792909561345640490,
+        "ctime_ns": 1792909572210800559
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RunC1Continuation_v3_20261024.txt",
+      "sha256": "647ebb4f229596c4af46e0187fb90666c99db37c09992f74528ecd1b147fd451",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Archive/RootOnly_Preimage_RunC1Continuation_v3_20261024.txt",
+        "device": 16777229,
+        "inode": 31654514,
+        "nlink": 1,
+        "bytes": 45476,
+        "allocated_bytes": 49152,
+        "mode": 33188,
+        "mtime_ns": 1792909561345842200,
+        "ctime_ns": 1792909572211068978
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Implementation_20261029.json",
+      "sha256": "98a7f06ae61b87c6829cac003dbd284cb1f9da112b625da8cb86fa19f114d526",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Implementation_20261029.json",
+        "device": 16777229,
+        "inode": 32258397,
+        "nlink": 2,
+        "bytes": 24049497,
+        "allocated_bytes": 24051712,
+        "mode": 33152,
+        "mtime_ns": 1793353117998818342,
+        "ctime_ns": 1793353118466574328
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/AdoptC1PKPALStep04Policy20261030.m.candidate",
+      "sha256": "757f91aa95016e49e148996dc9d2b881241c53edd8dae6a7a201269b1b23b36b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/AdoptC1PKPALStep04Policy20261030.m.candidate",
+        "device": 16777229,
+        "inode": 32256427,
+        "nlink": 2,
+        "bytes": 30378,
+        "allocated_bytes": 32768,
+        "mode": 33060,
+        "mtime_ns": 1793352153002627230,
+        "ctime_ns": 1793352154183772721
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/QualifyC1PKBEndpoint20261030.m.candidate",
+      "sha256": "e5365dcbf28e9593a0f2f5f641a54f5896897f481b376feb096593444c35384b",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/QualifyC1PKBEndpoint20261030.m.candidate",
+        "device": 16777229,
+        "inode": 32172226,
+        "nlink": 2,
+        "bytes": 82736,
+        "allocated_bytes": 86016,
+        "mode": 33188,
+        "mtime_ns": 1793298864303318526,
+        "ctime_ns": 1793331999611002309
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/CompareC1PKReusePilotB4Saved20261030.m.candidate",
+      "sha256": "9be7c61f582451adaf3ed762d181fa0da86b0d677140f4b9b12d88675b64c81d",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/CompareC1PKReusePilotB4Saved20261030.m.candidate",
+        "device": 16777229,
+        "inode": 32172363,
+        "nlink": 2,
+        "bytes": 31037,
+        "allocated_bytes": 32768,
+        "mode": 33060,
+        "mtime_ns": 1793300333419073226,
+        "ctime_ns": 1793331999731770492
+      }
+    },
+    {
+      "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Completion01_20261030.outcome.json",
+      "sha256": "b723c4b569b566a42bd64b599e84fb2e0adf983f755840bae0d207943ccf8a8c",
+      "stat": {
+        "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/Unexpected0193_Completion01_20261030.outcome.json",
+        "device": 16777229,
+        "inode": 32258280,
+        "nlink": 2,
+        "bytes": 2510,
+        "allocated_bytes": 4096,
+        "mode": 33188,
+        "mtime_ns": 1793353026282656266,
+        "ctime_ns": 1793353027346543614
+      }
+    }
+  ],
+  "lock_stat": {
+    "path": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Persistent_Frontiers_20261026.mat.writer.lock",
+    "device": 16777229,
+    "inode": 31870569,
+    "nlink": 1,
+    "bytes": 0,
+    "allocated_bytes": 0,
+    "mode": 33152,
+    "mtime_ns": 1793052123631000000,
+    "ctime_ns": 1793075134095943679
+  },
+  "rosters": [
+    {
+      "directory": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Components",
+      "names": [
+        "C1_BE_Component_0002.mat",
+        "C1_BE_Component_0092.mat",
+        "C1_BE_Component_0093.mat",
+        "C1_BE_Component_0176.mat",
+        "C1_BG_Component_0001.mat",
+        "C1_BG_Component_0078.mat",
+        "C1_BG_Component_0094.mat",
+        "C1_BG_Component_0095.mat",
+        "C1_BG_Component_0165.mat",
+        "C1_FE_Component_0007.mat",
+        "C1_FE_Component_0177.mat",
+        "C1_FE_Qualified_Joined_20261026.mat",
+        "C1_FG_Component_0006.mat",
+        "C1_FG_Component_0014.mat",
+        "C1_FG_Component_0055.mat",
+        "C1_FG_Component_0057.mat",
+        "C1_FG_Component_0058.mat",
+        "C1_FG_Component_0079.mat",
+        "C1_FG_Component_0080.mat",
+        "C1_HE_Component_0015.mat",
+        "C1_HE_Component_0021.mat",
+        "C1_HE_Component_0022.mat",
+        "C1_HE_Component_0056.mat",
+        "C1_HE_Component_0059.mat",
+        "C1_HE_Component_0125.mat",
+        "C1_HE_Component_0168.mat",
+        "C1_HG_Component_0156.mat",
+        "C1_MIXED_Component_0020.mat",
+        "C1_OTHER_Component_0010.mat",
+        "C1_OTHER_Component_0011.mat",
+        "C1_OTHER_Component_0012.mat",
+        "C1_OTHER_Component_0017.mat",
+        "C1_OTHER_Component_0023.mat",
+        "C1_OTHER_Component_0174.mat",
+        "C1_OTHER_Component_0175.mat",
+        "C1_PK_Component_0060.mat",
+        "C1_PK_Component_0061.mat",
+        "C1_PK_Component_0062.mat",
+        "C1_PK_Component_0064.mat",
+        "C1_PK_Component_0072.mat",
+        "C1_PK_Component_0159.mat",
+        "C1_PK_Component_0170.mat",
+        "Isolated_Records.mat"
+      ]
+    },
+    {
+      "directory": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Connected_PK_PKConnected03_20261029",
+      "names": [
+        "C1_PK_Component_0001.mat"
+      ]
+    },
+    {
+      "directory": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results",
+      "names": [
+        "C1_Current_PK_Comparison_20261026.png",
+        "C1_Current_PK_Comparison_20261027.png",
+        "C1_Current_PK_Comparison_20261027PreEOF.png",
+        "C1_PK_Apex_Height_Nonedge_Controls_PKHeightUpper01.mat",
+        "C1_PK_Larger_Step_Pilot_LargerStepPilot01_20261030.mat",
+        "C1_PK_Larger_Step_Pilot_LargerStepPilot01_20261030_run_checkpoint.mat",
+        "C1_PK_Owned_Bridge_GateBOwned01_20261029_run_checkpoint.mat",
+        "C1_PK_Owned_LowTurn_Final_OwnedLowTurnFinal01_LT_checkpoint_20261029.mat",
+        "C1_PK_Owned_LowTurn_OwnedLowTurn01_20261029_run_checkpoint.mat",
+        "C1_PK_Owned_LowTurn_Persistent_OwnedLowTurnPersistent01_L_checkpoint_20261029.mat",
+        "C1_PK_Owned_Pronk_Unit_OwnedPronkUnit01_20261029_run_checkpoint.mat",
+        "C1_PK_Projected_Reflected_NONEDGE_Controls_PKReflectProjected01.mat",
+        "C1_PK_Reuse_Pilot_ReusePilot02_20261029.mat",
+        "C1_PK_Reuse_Pilot_ReusePilot02_20261029_run_checkpoint.mat",
+        "C1_PK_Reversible_Unit_Height_NONEDGE_PKHalfUnit01_20261027.mat",
+        "C1_Results_Index.mat",
+        "C1_v2_v3_Comparison.png",
+        "C1_v2_v3_Comparison.svg",
+        "Consolidation_Receipt.json"
+      ]
+    }
+  ],
+  "absent_paths": [
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Persistent_Frontiers_20261026_active_checkpoint.mat",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Persistent_Frontiers_20261026_active_checkpoint.mat.pending.mat",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/PK_Persistent_Frontiers_20261026.mat.pending.mat",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Isolated_Native_Admissions_20261029.mat",
+    "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Results/C1_Isolated_Native_Admissions_20261029.mat.pending.mat"
+  ],
+  "receipt_prefix": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/FiveHistoricalArchives01_20261030",
+  "qualified_readonly_protected_stat_changes": [],
+  "current_core_count": 44,
+  "retention_scope": "Current44/j/current-source/controls/required-raw references preserved; all13 unselected archive entries preserved. Only5 named historical packages and exactknownsameinodeDrivealiases eligible. NoGitcleanup.",
+  "preparation_draft": false,
+  "source_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/.work_20261029/retire_five_historical_archives_20261030.py.candidate",
+    "sha256": "596140ae36aae2ed82655b310cb248f3dbcf025a39c02fc27dc1893a5ad702d1"
+  },
+  "first_current_I_reference": {
+    "file": "/Users/nanyoujiayu/Documents/GitHub/SLIP_Model_Zoo/SLIP_Quadruped_v3/Research_v3/C1/Audits/Implementation_20261029.json",
+    "sha256": "98a7f06ae61b87c6829cac003dbd284cb1f9da112b625da8cb86fa19f114d526",
+    "bytes": 24049497
+  }
+}

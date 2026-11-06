@@ -1,0 +1,283 @@
+C1 / PK continuation round, 29-31 October 2026 UTC
+ROUND CLOSED within the fixed final cutoff; scientific work stopped at its
+original science cutoff and final storage/cleanup verification passed.
+PK/P1 coverage and the complete C1 branch structure remain INCOMPLETE.
+Latest scientific outcome: 465 saved occurrences / 453 physical edges in the
+merged 0073/0193 numerical component. The independently corrected low-speed
+control matches P1 column 1, but the missing physical continuation edge to
+that control remains unresolved. Full P1-range coverage is not established.
+The science cutoff has passed; remaining authorized work is storage,
+saved-data reader qualification, cleanup and reporting through the final cutoff.
+
+Authorized interval
+-------------------
+Start: 2026-10-29 03:52:47 UTC.
+Scientific cutoff: 2026-10-30 22:52:47 UTC.
+Final cutoff: 2026-10-31 01:52:47 UTC.
+The user explicitly added ten hours to the saved deadline. The adopted grant
+adds 36,000 seconds to both old deadlines and preserves the original captures.
+All experiments share these clocks; individual runs do not renew them.
+The original eight-hour B phase stopped after ten calls. Its stopping facts
+remain historical. The extension has a separate 64-call administrative cap
+and an ordinary science-cutoff-minus-one-hour fence for endpoint work.
+B24 uses a separately selected one-call original-SCIENCE phase; prior ordinary
+fence/stop facts remain literal. Full-hour endpoint fit is conditional. A
+separate SOURCE-reviewed 3000-second endpoint profile reduces only intake
+allowance to 720 seconds; it retains 900 Root / four300 fines / 180save and
+requires native full 3600-fit false and full 3000-fit true. Actual worker 15253
+subsequently completed that profile; its qualified NONEDGE outcome is below.
+
+Scope and workflow
+------------------
+Prioritize PK lineages 0073 and 0193, establish their numerical relationship,
+continue their admissible native component, and compare it with P1/v2.
+Only root solving is authorized. Every current correction explicitly uses
+root-newton through PeriodicSolutionSolver_v3. No optimizer, relaxed contact
+law, state projection, tolerance loosening or scheduled legacy return is used
+to manufacture admission. C2 / PIP -> B2 is outside this round.
+H means hind spread / fore synchronized; F means fore spread / hind synchronized.
+
+The first agent plans, improves and executes the work. The second independently
+checks mathematics, code structure, experiment selection, process closure,
+progress measures, admission evidence and storage custody. Only the first
+agent owns native MATLAB execution and the operational implementation ledger.
+All scientific decoding, calculations, roots and validation are MATLAB-native.
+
+Established results before the current B batch
+---------------------------------------------
+1. An owned continuation from 0073 reached a native point numerically matching
+   the original 0193 occurrence 52. Scaled full-13 state discrepancy was
+   1.8040966144652869e-11 and period difference -3.141931159689193e-13.
+   The point passed all nine gates and two fresh fine replays of its unchanged
+   solved state. This establishes a qualified finite numerical overlap. It is
+   neither a bitwise identity nor an analytical C1 or bifurcation theorem.
+
+2. A separate owned continuation reached the exact y=1 plane and matched the
+   independent unit-height native control: E=8.8756566489436253,
+   initial dx=3.9687924231291372, T=1.3726025662784. Scaled full-13 discrepancy
+   to that control was 5.145003144044035e-14, with period difference
+   -3.0864e-14. All nine gates and two original-state fine replays passed.
+   This does not prove a global speed/energy maximum or a grazing bifurcation.
+
+3. Four owned low-turn points were earned, reaching initial dx
+   -0.0073364571486279236. The closest point did NOT pass the declared strict
+   period comparison with the separately qualified P1-column-1 control:
+   |dT|=4.454665525344126e-10 exceeded 1.564520214521877e-10.
+   That failed attachment remains false; proximity is not a replacement gate.
+
+4. Three independent native controls corresponding finitely to original P1
+   columns 1, 152 and 179 have new qualifications, including two fine replays
+   of each unchanged solved root. They are separate controls, not automatic
+   physical edges or admissions of the original legacy states. Earlier late
+   or failed parent-run flags remain literal. Other P1 columns are untested
+   by this round's fixed-dx correspondence experiment.
+
+Compact storage and persistent continuation
+-------------------------------------------
+The 0073/0193 numerical component is stored in one native MAT file:
+  Connected_PK_PKConnected03_20261029/C1_PK_Component_0001.mat
+At migration this file contained 360 occurrences, 348 physical continuation
+edges, 10 exact-record equality links and one qualified numerical overlap.
+These edge types remain distinct. Current continuation appends to this file.
+The live persistent ledger, not the migration baseline hash, owns its current
+counts, file hash, carried pair, step, derivative strategy and stopping facts:
+  Audits/PK_Persistent_Frontiers_20261026.mat
+
+Migration completed with actual MATLAB process exit 0. All five source stores
+were archived and natively verified before retirement. Their original
+occurrences, physical edges and frontier history were preserved. Forty-three
+other core stores retained their exact bytes, giving 44 current core stores.
+Migration receipt:
+  Audits/PK_Storage_Migration_PKConnected03_20261029.mat
+Recovery archive:
+  Archive/PK_Storage_Migration_PKConnected03_20261029_Sources.zip
+
+Two earlier migration attempts failed on metadata-schema handling before any
+scientific data mutation. Narrow adapters were reviewed, all 360 source
+occurrences passed preflight, and the successful retry preserved the failures.
+These were storage integration defects, not mathematical nonexistence results.
+
+Why previous searches did not finish a full branch
+------------------------------------------------
+The original target is not a compatible endpoint specification for the strict
+native family presently being traced. P1/v2 contains prescribed-time hybrid
+records; v3 uses an autonomous directed return and strict contact admissibility.
+Identical continuous equations and reset formulas do not establish identical
+hybrid executions. An invalid initial return can stop before any Newton step.
+Such a stop is distinct from failed convergence of a valid root problem.
+
+Earlier bounded local searches produced useful fragments but did not establish
+an end-to-end persistent frontier and a qualified connected component. File
+labels, pooled samples and overlapping scalar ranges cannot fill missing edges.
+The persistent ledger and explicit occurrence/edge accounting address that
+workflow gap. Local derivative failures near a chart or event boundary, and
+finite one-sided derivatives, remain numerical obstructions rather than proven
+physical endpoints. Late custody and report-consumer failures must also remain
+separate from root or trajectory failure.
+
+Original P1 PK spans E=1.1171389428139562..208.89093745793602 and signed initial
+dx=-0.0073364571486461..20.423184056395353. Signed initial dx differs from mean
+stride velocity. The conditional approximately 15.115 threshold is a finite-
+bisection necessary-bound estimate for constant flight velocity in the exact
+upright, synchronous, regular one-stance/one-flight chart with a genuine
+interior flight apex and the stated forward-flight assumptions. At the current
+all-flight section it excludes the maximum reference initial velocity for that
+class. It does not directly bound grounded-section dx, exclude grounded-apex
+PK families, establish an achieved maximum or certify membership of every
+tolerance-qualified saved orbit. The user selected admissible native fragments.
+
+Current experiment and unresolved requirements
+----------------------------------------------
+Latest closed scientific outcome: extended B batch 24, actual exit 0 observed on
+2026-10-30 at 21:59:42 UTC. It added two owned all-nine-qualified points and
+physical edges: journal sequence 151, central cumulative counts 531/531,
+merged component 465 occurrences / 453 physical edges. The carried pair is
+[464,465], step/max 0.0629426327242135, ordinary FD index 1, no cross-point reuse.
+Last initial dx is -0.007185085986413626, target gap +0.00015137116223247309.
+No literal crossing occurred. Its actual C-centered full13 target distance is
+0.00023321620595693343, below the strict 0.02 proximity condition. Both points
+passed actual predictor/capture accounting. The TerminalTwo01 metadata's
+first no-cross margin was 0.014355497418947465; the empirical second correction
+has now been observed. The separate short-intake endpoint worker 15253 exited 0, observed 22:20:56 UTC.
+Both ORIGINAL path-endpoint fines and both ORIGINAL independent-control fines
+passed, with all five prepared/invoked/returned requests timely. Native full 3600
+fit was false and the distinct 3000 profile preserved Root 900/four 300/save 180.
+The coupled fixed-dx/free-E root started at unchanged C and converged in 2 Newton
+steps (17 function evaluations, 13 maps, 2 Jacobians; finalJFresh=false literal).
+Its NONEDGE control passed the strict finite NEWcol1 comparison: scaled full13
+1.68355344092e-12, native energy difference -1.88071780372e-12, period difference
+-7.00106639329e-12 within 1.56452021452e-10. C-centered root capture is 0.00023321620590
+<0.02, fixed-dx and selector errors 0. The actual connected C target comparison
+is false and crossing=false; no C-to-control physical edge/alias was admitted.
+No core points, edges, registry entries or Results files changed. Root opaque
+postcustody checked 362 refs/4,632,245,866B with one argv nlink/ctime-only delta.
+The historical 65309 strict-period false remains unchanged. Independent control
+matching does not establish the missing continuation edge or a global endpoint.
+Current closed B24 journal SHA: b8b254006f2dee68666d8fd237b767f696ad0fa5d86f723fdfe11c83861f82e1.
+Current merged SHA: 352a07916704238c4cace61ba0950e7b671aaf7ef51234731288c7294f43ef5f.
+The step increase was separately
+reviewed and adopted; admission tolerances and root-newton remain unchanged.
+The four-touchdown/four-liftoff itinerary and strict BL1 identity remain.
+No extra two-PlainFine qualification is claimed for intermediate service points.
+
+Storage work has recovered approximately 204.47 GiB across measured cleanup
+boundaries. The approved recovery-object selection is fully retired: all
+5,808 selected inodes are absent, and all 4,373 protected Git objects passed
+independent verification. Original exit-1 guard failures remain literal,
+separate from successful final-state qualification. The last repository
+archive census totals 2,928,897,623 apparent bytes, less than 3 GB.
+Current core schema2 stores remain unchanged by codec experiments; the merged
+file at B24 closure is 804,959,685 bytes and is not compact-size qualified.
+Larger working files are allowed when needed to complete the branch search;
+the final compaction target must not block an admitted root or continuation.
+The corrected codec now passes 17 constructors, 17 independent positive reads,
+23 malformed-file refusals and all 24 fixture cleanups in a fresh native worker
+(actual session 44106, exit 0). This is a synthetic codec prerequisite only.
+The real-store exporter then exited 1 at the original BE graph header, before
+its kernel call or candidate creation. Its failure remains literal. Strict
+[Pre-final historical observation; final outcome below supersedes this state] legacy-format support and real-store/cold-reader checks are in progress.
+Raw continuation authority remains in place while the search is unfinished.
+The full storage report records actual cleanup and failed-trial outcomes:
+  ../../Docs_v3/Storage_Reduction_20261030.md
+
+B24 native program time was 1621.836483 s, excluding startup and process exit.
+Launch-to-child-wait observation was 1627.048980 s. Native closure, source/core/
+Results isolation, tool-log identity, raw-return readback and accounting passed.
+Root independently checked 348 opaque references totalling 4,610,253,006 bytes
+and protected rosters. Ten tuple differences were link-count/ctime changes
+with unchanged bytes; no actor is established. The compact return is 2,001 bytes.
+Across 315 partial-window samples over 1587.413814 s, maximum process-tree summed
+RSS was 17,161,504 KiB (about 16.37 GiB). This is not an OS peak, causal benchmark
+or production memory reduction from the uninstalled compact codec.
+
+The merged store has added 105 occurrences and physical edges to its migration
+baseline of 360 occurrences / 348 physical edges. This grows the
+actual 0193 continuation path; it does not expand the pooled scalar range
+already covered by 0073 or establish a full P1 branch.
+
+The next scientific milestone after a new time authorization is a physically
+relevant continuation of 0193 toward the lowest qualified P1 signed initial
+velocity, with actual period/event checks.
+A scalar crossing alone will not establish strict P1 attachment; decisive
+endpoints require new fine qualification and the declared comparisons.
+
+Full P1 coverage, a complete PK component over the original P1 range, and the
+PK -> BG/BE/FG/FE/HG/HE -> GG/GE bifurcation chain remain unresolved.
+The final report will state the final native counts/ranges, actual progress,
+P1 comparisons, algorithm census, process costs, cleanup and remaining gaps.
+
+Evidence authority
+------------------
+Audits/Implementation_20261029.json retains exact source and launch bytes,
+native stdout, actual exits, failure histories, hashes and cleanup custody.
+Historical reports and inventories retain their original snapshot meanings.
+No current completion claim is based only on a successful storage migration.
+
+Earlier closed-run cleanup included retirement of the five migrated source
+stores only after verified archival, 26 owned extraction/proof duplicates,
+18 redundant historical JSON diagnostics already in a verified archive,
+13 consumed observer-review copies and the empty failed-migration directory.
+At that earlier boundary all 18 paired native MAT audits remained because
+indirect historical-authority last-use was not fully cleared. Its JSON-only receipt is:
+  Audits/Historical18_JSON18_Retirement_20261029.json
+No cache files matching pyc/asv/m~/.DS_Store were found during that historical
+filesystem check. Later essential storage retirement receipts and the storage
+report own subsequent cleanup outcomes. Further last-use cleanup and final
+[Pre-final historical observation; final outcome below supersedes this state] path counts are pending; ignored work files still occupy disk until removed.
+
+Closed endpoint-control cost: native program 1027.039781s, root 77.398877s,
+launch-to-child-wait 1032.262870s. Across 198 partial-window RSS samples over
+997.843239s, maximum process-tree sumRSS 10,258,848KiB (~9.78GiB). Different
+workloads prevent treating this as a compaction memory benchmark.
+
+Final02 actual exporter 43883 exited 1: BE0092 N2 passed exact readback and
+typed graph checks at 27,421 bytes (original-v2 target 290,010; matched-N false).
+PK failed a saved solver-descriptor fieldset check before kernel invocation;
+no PK candidate/size or two-store publication/cold-reader pass is claimed.
+Current raw journal/component and source/core/Results hashes remain unchanged.
+
+Final03 storage worker 16485 subsequently passed independent source projection
+for all465 records, including24 callback conversions and6 explicit missing-
+Jacobian-setting omissions. MATLAB then emitted BUS ERROR and terminated:
+actual PTY/tool137, childwait-9. No complete return or full PK readback is earned.
+[Pre-final historical observation; final outcome below supersedes this state] The 1,740,487-byte PK candidate remains unqualified and is above the554,305-byte
+whole-v2 target; size remains observational. A fresh read-only qualification
+must retain this original failure and label any source-digest receipt transitivity.
+Opaque postchecks pass for all164 protected refs/44core/ALL19/source30/current
+journal and merged component. Current raw continuation authority is unchanged.
+
+Final saved-data qualification, 31 October UTC
+--------------------------------------------
+Native4411 exited0: BE2 and PK465 each passed one recomputed complete index
+and TWO independent complete public thin-loader passes, with exact retained
+record/context/ID/owner/typedgraph checks. PK remains465 occurrences,453
+physical edges,10 exact-record links,1 numerical overlap and0 qualifiedaliases.
+PK snapshot1,740,487B exceeds original-v2 target554,305B; BE27,420B passes
+290,010B. These are observational targets, not root/admission gates.
+Raw804,959,685B PK and currentjournal remain unfinished-search authority.
+Filesystempublisher9054 exited1 after all3 rename/fsync/read2 returns at a
+ctime guard. Originalfailedreceipt is retained. Independentread-only44184
+exited0 and currentproduct/core hashes passed; onlypublishedctime differed,
+actorunknown. Its native175baseline pass was distinct from its124finalunion;
+a separateafter-exit fullcurrentunion check passed. No failedflag was promoted.
+PublicGUI33a/Range545/Recent250 installed68223/0, with3 exactsmall source
+backups, read2, stableI/raw/source30. Nativecold-runtime test UNATTEMPTED; no
+GUI/range/replay/fullruntime qualification claim. Codec17/17/23/24 and whole
+scientificthin projection tests passed. Seven core method sources are bundled
+under Methodology_20261030; expiredprivate byte-reexecution is retired.
+Finalcleanup87028 EXIT0:1203returnedunlinks/1202inodegroups; allselectednames
+absent. Selected2,850,983,204logicalB is NOT an attributedreclaimed-bytecount.
+Root+independentC3 postchecks passed all697 protectedreferences/6,333,785,471B,
+fullSHA/perread7ns/currentI917/core44/Results19/source30/public3/export3/rosters.
+SeparatelyISO3testcallables removed, nativeauditpair retained. Originalfuture
+exitflags remainliteral; separateactualtool witnesses establishprocess0.
+Archivesaggregate2,278,650,406B incl118,238B seven-methodbundle and829,080B
+essentialauditcapsule (30essentialmembers, no fulltransport/testscriptarchive).
+Finalvisiblechanges are approximately602paths, pendinglastGitcensus; fewhundreds
+of corecode/results/audits remain, with unclassifiedscientificauthoritieskept.
+Nextscientificwork requires a fresh explicitgrant/nativebudgetadoption.
+The missingphysicaledge from the connectedendpoint to the independently
+corrected P1-column1 control, remainingP1range and C1daughter/bifurcations
+remainunresolved. No completePK/P1/C1claim is earned.
+
+FINAL OBSERVED CENSUS — 2026-10-31 01:49:20 UTC: 602 changed paths (20 modified, 582 untracked); archive total 2,278,650,406 bytes; available volume 392,965,349,376 bytes. Core MAT stores: 44; Results files: 19; public compact products: 3. Earlier expected counts and pending qualification/cleanup statements are historical. Original failed audit flags remain literal.

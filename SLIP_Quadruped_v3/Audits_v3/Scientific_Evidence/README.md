@@ -1,26 +1,29 @@
-# Selected final scientific evidence
+# Selected historical scientific evidence
 
-These bundles contain final numerical results and audits, not the discarded experiment workspace. Each original file is preserved byte-for-byte under its original v3-relative member path. [manifest.json](manifest.json) records every member, original path, byte count and SHA256, together with the diagnostic dataset relocations.
+[Essential_Scientific_Evidence_20261105.zip](Essential_Scientific_Evidence_20261105.zip)
+retains 360 selected literal files in one 69.9 MB bundle. It replaces the eight
+older bundles as part of the user's requested v3 size reduction.
 
-| Bundle | Files | MB |
-|---|---:|---:|
-| [Final_Scientific_Evidence_01.zip](Final_Scientific_Evidence_01.zip) | 108 | 55.5 |
-| [Final_Scientific_Evidence_02.zip](Final_Scientific_Evidence_02.zip) | 9 | 66.9 |
-| [Final_Scientific_Evidence_03.zip](Final_Scientific_Evidence_03.zip) | 30 | 70.3 |
-| [Final_Scientific_Evidence_04.zip](Final_Scientific_Evidence_04.zip) | 47 | 65.0 |
-| [Final_Scientific_Evidence_05.zip](Final_Scientific_Evidence_05.zip) | 29 | 58.3 |
-| [Final_Scientific_Evidence_06.zip](Final_Scientific_Evidence_06.zip) | 47 | 51.1 |
-| [Final_Scientific_Evidence_07.zip](Final_Scientific_Evidence_07.zip) | 89 | 66.2 |
-| [Final_Scientific_Evidence_08.zip](Final_Scientific_Evidence_08.zip) | 34 | 16.0 |
+The retained set includes primary native admission outputs for the published
+diagnostic points, selected PIP correction and measured-flip outcomes, small
+matrices and numerical outcomes, reports, figures and source provenance.
+Current P1/P2 named datasets and all 27 indexed raw datasets were left intact.
 
-The selection retains:
+[retention_20261105.json](retention_20261105.json) records every original member's
+path, SHA256, byte count and retained/retired disposition, original bundle
+hashes, new bundle hash, and 37 protected file checks. The older
+[manifest.json](manifest.json) remains a historical catalog; its old bundle
+names are retired locators.
 
-- Direct native admission, primary service output and independent fine replays for all thirteen published diagnostic points; final GUI export checks and original completion receipts.
-- The final 111-record checkpoint as a historical inventory. Full raw replay sets are retained for the thirteen published diagnostic points; the other checkpoint rows retain their historical references only.
-- Final full physical Floquet matrices/scans corresponding to the retained spectrum plots, and restricted PIP–PK / opposed-spread mathematical and numerical attachment evidence.
-- Final search/failure reports, selected final failure outcomes, allocation closure and the final earlier tranche inventories.
-- Historical scientific documentation, organization journals and one copy of the v2 graphics source provenance.
+Thirty-three large historical payloads were intentionally retired: dense
+independent replay traces, old finite-difference spectrum tapes, superseded
+phase/branch/checkpoint working payloads and a verbose process receipt. This
+is a lossy retention decision. It does not preserve the complete original
+proof workspace or allow all old byte-for-byte qualification reruns. Saved
+scientific decisions remain historical; cleanup performs no new admission,
+physical replay, Floquet analysis or certification.
 
-Acquisition roots, per-evaluation probes, repeated source snapshots, launchers, logs, smoke recordings, superseded run epochs and caches were deleted. A path recorded inside an old MAT/JSON/report may therefore identify a removed intermediate. Neither a retained hash nor an archive member claims that its complete recursive run environment survives. The final search still found no admitted BG/BE/FG/FE/HG/HE/GG/GE branch at the principal parameters; generic and lower-stiffness points keep their original scope.
-
-To inspect the evidence, search `manifest.json` for the original filename and extract that member from the named ZIP. To use retained raw proof paths with existing qualification helpers, extract the relevant ZIP into `SLIP_Quadruped_v3`; members restore their original relative paths. This restores selected final evidence only. GUI viewing and the core solver do not require extraction.
+Extract retained members using their original v3-relative paths. The core
+framework and GUI do not require extracting this bundle. Current C1/PK
+results and their separate scientific limits are described in
+[the current C1 catalog](../../Research_v3/C1/README.md).
